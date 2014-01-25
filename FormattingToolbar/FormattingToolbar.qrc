@@ -1,0 +1,45 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="super-script">images/textSuperScript.png</file>
+        <file alias="underline">images/textunder.png</file>
+        <file alias="eraser">images/eraser.png</file>
+        <file alias="bold">images/textbold.png</file>
+        <file alias="align-center">images/textcenter.png</file>
+        <file alias="color-text">images/textcolortext.png</file>
+        <file alias="DecreaseFontSize">images/textDecreaseFontSize.png</file>
+        <file alias="IncreaseFontSize">images/textIncreaseFontSize.png</file>
+        <file alias="formating">images/format_decreaseindent_1144.png</file>
+        <file alias="lower">images/lower case.png</file>
+        <file alias="upper">images/upper case.png</file>
+        <file alias="italic">images/textitalic.png</file>
+        <file alias="align-justify">images/textjustify.png</file>
+        <file alias="align-left">images/textleft.png</file>
+        <file alias="overline">images/textoverline.png</file>
+        <file alias="align-right">images/textright.png</file>
+        <file alias="strikeout">images/textstrike.png</file>
+        <file alias="subscript">images/textSubScript.png</file>
+        <file alias="hLine">images/horizontal line.png</file>
+        <file alias="accept">images/accept.png</file>
+        <file alias="cancel">images/cancel.png</file>
+        <file alias="hyperlink">images/hyperlink.png</file>
+        <file alias="picture">images/picture.png</file>
+        <file alias="table">images/table2.png</file>
+        <file alias="palette">images/palette.png</file>
+        <file alias="list-lower-alpha">images/style list/alpha lower.png</file>
+        <file alias="list-upper-alpha">images/style list/alpha upper.png</file>
+        <file alias="list-circle">images/style list/circle.png</file>
+        <file alias="list-decimal">images/style list/decimal.png</file>
+        <file alias="list-disc">images/style list/disc.png</file>
+        <file alias="list-lower-roman">images/style list/roman lower.png</file>
+        <file alias="list-upper-roman">images/style list/roman upper.png</file>
+        <file alias="list-square">images/style list/square.png</file>
+        <file alias="icon palette">images/icon-palette.png</file>
+        <file alias="underline-dash-dot-dot">images/underline style/dash dot dot line.png</file>
+        <file alias="underline-dash-dot">images/underline style/dash dot line.png</file>
+        <file alias="underline-dash">images/underline style/dash underline.png</file>
+        <file alias="underline-dot">images/underline style/dot line.png</file>
+        <file alias="underline-single">images/underline style/single underline.png</file>
+        <file alias="underline-wave">images/underline style/wave underline.png</file>
+        <file alias="color-background">images/textbackgroundcolor.png</file>
+    </qresource>
+</RCC>

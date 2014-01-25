@@ -1,0 +1,774 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FormattingToolbar</class>
+ <widget class="QWidget" name="FormattingToolbar">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>205</width>
+    <height>134</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Formatting toolbar</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QFontComboBox" name="fontComboBox">
+     <property name="focusPolicy">
+      <enum>Qt::ClickFocus</enum>
+     </property>
+     <property name="toolTip">
+      <string>Font list</string>
+     </property>
+     <property name="statusTip">
+      <string>Font list</string>
+     </property>
+     <property name="whatsThis">
+      <string>Font list</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QComboBox" name="comboBoxFontSize">
+       <property name="focusPolicy">
+        <enum>Qt::ClickFocus</enum>
+       </property>
+       <property name="frame">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="tButtonIncreaseSizeFont">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string>Increase size</string>
+       </property>
+       <property name="statusTip">
+        <string>Increase size</string>
+       </property>
+       <property name="whatsThis">
+        <string>Increase size</string>
+       </property>
+       <property name="text">
+        <string>Increase size</string>
+       </property>
+       <property name="icon">
+        <iconset resource="FormattingToolbar.qrc">
+         <normaloff>:/IncreaseFontSize</normaloff>:/IncreaseFontSize</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="tButtonDecreaseSizeFont">
+       <property name="toolTip">
+        <string>Decrease size</string>
+       </property>
+       <property name="statusTip">
+        <string>Decrease size</string>
+       </property>
+       <property name="whatsThis">
+        <string>Decrease size</string>
+       </property>
+       <property name="text">
+        <string>Decrease size</string>
+       </property>
+       <property name="icon">
+        <iconset resource="FormattingToolbar.qrc">
+         <normaloff>:/DecreaseFontSize</normaloff>:/DecreaseFontSize</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="tButtonBold">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string>Bold</string>
+       </property>
+       <property name="statusTip">
+        <string>Bold</string>
+       </property>
+       <property name="whatsThis">
+        <string>Bold</string>
+       </property>
+       <property name="text">
+        <string>Bold</string>
+       </property>
+       <property name="icon">
+        <iconset resource="FormattingToolbar.qrc">
+         <normaloff>:/bold</normaloff>:/bold</iconset>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="tButtonItalic">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string>Italic</string>
+       </property>
+       <property name="statusTip">
+        <string>Italic</string>
+       </property>
+       <property name="whatsThis">
+        <string>Italic</string>
+       </property>
+       <property name="text">
+        <string>Italic</string>
+       </property>
+       <property name="icon">
+        <iconset resource="FormattingToolbar.qrc">
+         <normaloff>:/italic</normaloff>:/italic</iconset>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="ColorButton" name="tButtonTextColor">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string>Text color</string>
+       </property>
+       <property name="statusTip">
+        <string>Text color</string>
+       </property>
+       <property name="whatsThis">
+        <string>Text color</string>
+       </property>
+       <property name="text">
+        <string>Text color</string>
+       </property>
+       <property name="icon">
+        <iconset resource="FormattingToolbar.qrc">
+         <normaloff>:/color-text</normaloff>:/color-text</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QToolButton" name="tButtonSubScript">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string>Subscript</string>
+       </property>
+       <property name="statusTip">
+        <string>Subscript</string>
+       </property>
+       <property name="whatsThis">
+        <string>Subscript</string>
+       </property>
+       <property name="text">
+        <string>Subscript</string>
+       </property>
+       <property name="icon">
+        <iconset resource="FormattingToolbar.qrc">
+         <normaloff>:/subscript</normaloff>:/subscript</iconset>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="tButtonSuperScript">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string>Superscript</string>
+       </property>
+       <property name="statusTip">
+        <string>Superscript</string>
+       </property>
+       <property name="whatsThis">
+        <string>Superscript</string>
+       </property>
+       <property name="text">
+        <string>Superscript</string>
+       </property>
+       <property name="icon">
+        <iconset resource="FormattingToolbar.qrc">
+         <normaloff>:/super-script</normaloff>:/super-script</iconset>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="ButtonUnderlineStyleList" name="tButtonUnderline">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string>Underline</string>
+       </property>
+       <property name="statusTip">
+        <string>Underline</string>
+       </property>
+       <property name="whatsThis">
+        <string>Underline</string>
+       </property>
+       <property name="text">
+        <string>Underline</string>
+       </property>
+       <property name="icon">
+        <iconset resource="FormattingToolbar.qrc">
+         <normaloff>:/underline</normaloff>:/underline</iconset>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="tButtonStrikeout">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string>Strikeout</string>
+       </property>
+       <property name="statusTip">
+        <string>Strikeout</string>
+       </property>
+       <property name="whatsThis">
+        <string>Strikeout</string>
+       </property>
+       <property name="text">
+        <string>Strikeout</string>
+       </property>
+       <property name="icon">
+        <iconset resource="FormattingToolbar.qrc">
+         <normaloff>:/strikeout</normaloff>:/strikeout</iconset>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="tButtonOverline">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string>Overline</string>
+       </property>
+       <property name="statusTip">
+        <string>Overline</string>
+       </property>
+       <property name="whatsThis">
+        <string>Overline</string>
+       </property>
+       <property name="text">
+        <string>Overline</string>
+       </property>
+       <property name="icon">
+        <iconset resource="FormattingToolbar.qrc">
+         <normaloff>:/overline</normaloff>:/overline</iconset>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="tButtonLower">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string>Lower</string>
+       </property>
+       <property name="statusTip">
+        <string>Lower</string>
+       </property>
+       <property name="whatsThis">
+        <string>Lower</string>
+       </property>
+       <property name="text">
+        <string>Lower</string>
+       </property>
+       <property name="icon">
+        <iconset resource="FormattingToolbar.qrc">
+         <normaloff>:/lower</normaloff>:/lower</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="tButtonUpper">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string>Upper</string>
+       </property>
+       <property name="statusTip">
+        <string>Upper</string>
+       </property>
+       <property name="whatsThis">
+        <string>Upper</string>
+       </property>
+       <property name="text">
+        <string>Upper</string>
+       </property>
+       <property name="icon">
+        <iconset resource="FormattingToolbar.qrc">
+         <normaloff>:/upper</normaloff>:/upper</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="tButtonInsertHLine">
+       <property name="toolTip">
+        <string>Insert a horizontal line</string>
+       </property>
+       <property name="statusTip">
+        <string>Insert a horizontal line</string>
+       </property>
+       <property name="whatsThis">
+        <string>Insert a horizontal line</string>
+       </property>
+       <property name="text">
+        <string>Insert a horizontal line</string>
+       </property>
+       <property name="icon">
+        <iconset resource="FormattingToolbar.qrc">
+         <normaloff>:/hLine</normaloff>:/hLine</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_5">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QToolButton" name="tButtonAlignLeft">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string>Align left</string>
+       </property>
+       <property name="statusTip">
+        <string>Align left</string>
+       </property>
+       <property name="whatsThis">
+        <string>Align left</string>
+       </property>
+       <property name="text">
+        <string>Align left</string>
+       </property>
+       <property name="icon">
+        <iconset resource="FormattingToolbar.qrc">
+         <normaloff>:/align-left</normaloff>:/align-left</iconset>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="tButtonAlignCenter">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string>Align center</string>
+       </property>
+       <property name="statusTip">
+        <string>Align center</string>
+       </property>
+       <property name="whatsThis">
+        <string>Align center</string>
+       </property>
+       <property name="text">
+        <string>Align center</string>
+       </property>
+       <property name="icon">
+        <iconset resource="FormattingToolbar.qrc">
+         <normaloff>:/align-center</normaloff>:/align-center</iconset>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="tButtonAlignRight">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string>Align right</string>
+       </property>
+       <property name="statusTip">
+        <string>Align right</string>
+       </property>
+       <property name="whatsThis">
+        <string>Align right</string>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>Align right</string>
+       </property>
+       <property name="icon">
+        <iconset resource="FormattingToolbar.qrc">
+         <normaloff>:/align-right</normaloff>:/align-right</iconset>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="tButtonAlignJustify">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string>Align justify</string>
+       </property>
+       <property name="statusTip">
+        <string>Align justify</string>
+       </property>
+       <property name="whatsThis">
+        <string>Align justify</string>
+       </property>
+       <property name="text">
+        <string>Align justify</string>
+       </property>
+       <property name="icon">
+        <iconset resource="FormattingToolbar.qrc">
+         <normaloff>:/align-justify</normaloff>:/align-justify</iconset>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="tButtonEraser">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string>Eraser</string>
+       </property>
+       <property name="statusTip">
+        <string>Eraser</string>
+       </property>
+       <property name="whatsThis">
+        <string>Eraser</string>
+       </property>
+       <property name="text">
+        <string>Eraser</string>
+       </property>
+       <property name="icon">
+        <iconset resource="FormattingToolbar.qrc">
+         <normaloff>:/eraser</normaloff>:/eraser</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="ButtonBulletedList" name="tButtonBulletedList">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string>Bulleted list</string>
+       </property>
+       <property name="statusTip">
+        <string>Bulleted list</string>
+       </property>
+       <property name="whatsThis">
+        <string>Bulleted list</string>
+       </property>
+       <property name="text">
+        <string>Bulleted list</string>
+       </property>
+       <property name="icon">
+        <iconset resource="FormattingToolbar.qrc">
+         <normaloff>:/list-square</normaloff>:/list-square</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="ButtonOrderedList" name="tButtonOrderedList">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string>Ordered list</string>
+       </property>
+       <property name="statusTip">
+        <string>Ordered list</string>
+       </property>
+       <property name="whatsThis">
+        <string>Ordered list</string>
+       </property>
+       <property name="text">
+        <string>Ordered list</string>
+       </property>
+       <property name="icon">
+        <iconset resource="FormattingToolbar.qrc">
+         <normaloff>:/list-decimal</normaloff>:/list-decimal</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_4">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QToolButton" name="tButtonInsertHyperlink">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="toolTip">
+        <string>Insert hyperlink</string>
+       </property>
+       <property name="statusTip">
+        <string>Insert hyperlink</string>
+       </property>
+       <property name="whatsThis">
+        <string>Insert hyperlink</string>
+       </property>
+       <property name="text">
+        <string>Insert hyperlink</string>
+       </property>
+       <property name="icon">
+        <iconset resource="FormattingToolbar.qrc">
+         <normaloff>:/hyperlink</normaloff>:/hyperlink</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="tButtonInsertPicture">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="toolTip">
+        <string>Insert picture</string>
+       </property>
+       <property name="statusTip">
+        <string>Insert picture</string>
+       </property>
+       <property name="whatsThis">
+        <string>Insert picture</string>
+       </property>
+       <property name="text">
+        <string>Insert picture</string>
+       </property>
+       <property name="icon">
+        <iconset resource="FormattingToolbar.qrc">
+         <normaloff>:/picture</normaloff>:/picture</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="ButtonSelectionTableSizes" name="tButtonInsertTable">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="toolTip">
+        <string>Insert table</string>
+       </property>
+       <property name="statusTip">
+        <string>Insert table</string>
+       </property>
+       <property name="whatsThis">
+        <string>Insert table</string>
+       </property>
+       <property name="text">
+        <string>Insert table</string>
+       </property>
+       <property name="icon">
+        <iconset resource="FormattingToolbar.qrc">
+         <normaloff>:/table</normaloff>:/table</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="ColorBackgroundButton" name="tButtonColorBackground">
+       <property name="toolTip">
+        <string>Color background</string>
+       </property>
+       <property name="statusTip">
+        <string>Color background</string>
+       </property>
+       <property name="whatsThis">
+        <string>Color background</string>
+       </property>
+       <property name="text">
+        <string>Color background</string>
+       </property>
+       <property name="icon">
+        <iconset resource="FormattingToolbar.qrc">
+         <normaloff>:/color-background</normaloff>:/color-background</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ColorButton</class>
+   <extends>QToolButton</extends>
+   <header>FormattingToolbar/ColorButton.h</header>
+  </customwidget>
+  <customwidget>
+   <class>ButtonUnderlineStyleList</class>
+   <extends>QToolButton</extends>
+   <header>FormattingToolbar/ButtonUnderlineStyleList.h</header>
+  </customwidget>
+  <customwidget>
+   <class>ButtonBulletedList</class>
+   <extends>QToolButton</extends>
+   <header>FormattingToolbar/ButtonBulletedList.h</header>
+  </customwidget>
+  <customwidget>
+   <class>ButtonOrderedList</class>
+   <extends>QToolButton</extends>
+   <header>FormattingToolbar/ButtonOrderedList.h</header>
+  </customwidget>
+  <customwidget>
+   <class>ButtonSelectionTableSizes</class>
+   <extends>QToolButton</extends>
+   <header>FormattingToolbar/ButtonSelectionTableSizes.h</header>
+  </customwidget>
+  <customwidget>
+   <class>ColorBackgroundButton</class>
+   <extends>QToolButton</extends>
+   <header>FormattingToolbar/colorbackgroundbutton.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="FormattingToolbar.qrc"/>
+ </resources>
+ <connections/>
+</ui>

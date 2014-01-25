@@ -1,0 +1,28 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="settings">images/settings.png</file>
+        <file alias="trash">images/trash.png</file>
+        <file alias="about">images/help.png</file>
+        <file alias="add">images/add.png</file>
+        <file alias="remove">images/delete.png</file>
+        <file alias="quit">images/quit.png</file>
+        <file alias="minus">images/minus.png</file>
+        <file alias="tree">images/view_tree_3718.png</file>
+        <file alias="spreadsheet">images/spreadsheet_5793.png</file>
+        <file alias="list">images/view_text_6421.png</file>
+        <file alias="remove_all">images/clear.png</file>
+        <file alias="hide">images/hide.png</file>
+        <file alias="show">images/show.png</file>
+        <file alias="add-from_clipboard">images/clipboard.png</file>
+        <file alias="show_all">images/show all.png</file>
+        <file alias="hide_all">images/hide all.png</file>
+        <file alias="save_all">images/save all.png</file>
+        <file alias="refresh">images/refreshblue_8522.png</file>
+        <file alias="open_dict">images/open dictionary.png</file>
+        <file alias="close_dict">images/close dictionary.png</file>
+        <file alias="clipboard">images/notes_7219.png</file>
+        <file alias="run">images/play.png</file>
+        <file alias="screenshot">images/screenshot.png</file>
+        <file alias="notebook">images/notebook-64.png</file>
+    </qresource>
+</RCC>

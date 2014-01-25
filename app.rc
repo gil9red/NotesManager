@@ -1,0 +1,56 @@
+// иконка ехе
+IDI_ICON1  ICON    DISCARDABLE     "images/icon.ico"
+
+// дополнительная иконка, используемая в отображении файлов программы
+//1          ICON    DISCARDABLE     "images/iconFileNote.ico"
+
+#define version 0,0,1,0
+#define longStrVersion "0.0.1.0\0"
+#define strVersion "0.0.1"
+
+#define APP_VERSION version
+#define APP_VERSION_STR longStrVersion
+
+#ifndef Q_CC_BOR
+#	if defined(UNDER_CE) && UNDER_CE >= 400
+#		include <winbase.h>
+#	else
+#		include <winver.h>
+#	endif
+#endif // Q_CC_BOR
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION version
+ PRODUCTVERSION version
+ FILEFLAGSMASK 0x17L
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+
+BEGIN
+        BLOCK "StringFileInfo"
+        BEGIN
+                BLOCK "040904e4"
+                BEGIN
+                        VALUE "Comments",           "Cool! Is not finished yet ("
+                        VALUE "CompanyName",        "Ilya Petrash"
+                        VALUE "FileDescription",    "The program creates notes"
+                        VALUE "FileVersion",        strVersion
+                        VALUE "InternalName",       "Notes manager"
+                        VALUE "LegalCopyright",     "Copyright (c) 2013-2014 Ilya Petrash"
+                        VALUE "OriginalFilename",   "Notes manager.exe"
+                        VALUE "ProductName",        "Notes manager"
+                        VALUE "ProductVersion",     strVersion
+                END
+        END
+
+        BLOCK "VarFileInfo"
+        BEGIN
+                VALUE "Translation", 0x419, 0
+        END
+END

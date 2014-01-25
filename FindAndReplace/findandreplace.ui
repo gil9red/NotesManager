@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FindAndReplace</class>
+ <widget class="QWidget" name="FindAndReplace">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>316</width>
+    <height>76</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Quick find</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <item>
+    <layout class="QGridLayout" name="gridLayout">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item row="1" column="1">
+      <widget class="FadClearLineEdit" name="replaceEdit"/>
+     </item>
+     <item row="0" column="1">
+      <widget class="FindFadLineEdit" name="findEdit">
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <layout class="QHBoxLayout" name="horizontalLayoutReplace">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QToolButton" name="tButtonReplace">
+         <property name="toolTip">
+          <string>Replace</string>
+         </property>
+         <property name="statusTip">
+          <string>Replace</string>
+         </property>
+         <property name="whatsThis">
+          <string>Replace</string>
+         </property>
+         <property name="text">
+          <string>Replace</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="tButtonReplaceAll">
+         <property name="toolTip">
+          <string>Replace all</string>
+         </property>
+         <property name="statusTip">
+          <string>Replace all</string>
+         </property>
+         <property name="whatsThis">
+          <string>Replace all</string>
+         </property>
+         <property name="text">
+          <string>Replace all</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacerReplace">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item row="0" column="2">
+      <layout class="QHBoxLayout" name="horizontalLayoutNextPrevious">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QToolButton" name="tButtonPrevious">
+         <property name="focusPolicy">
+          <enum>Qt::ClickFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>Previous</string>
+         </property>
+         <property name="statusTip">
+          <string>Previous</string>
+         </property>
+         <property name="whatsThis">
+          <string>Previous</string>
+         </property>
+         <property name="text">
+          <string>Previous</string>
+         </property>
+         <property name="icon">
+          <iconset resource="findandreplace.qrc">
+           <normaloff>:/previous</normaloff>:/previous</iconset>
+         </property>
+         <property name="autoRaise">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="tButtonNext">
+         <property name="focusPolicy">
+          <enum>Qt::ClickFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>Next</string>
+         </property>
+         <property name="statusTip">
+          <string>Next</string>
+         </property>
+         <property name="whatsThis">
+          <string>Next</string>
+         </property>
+         <property name="text">
+          <string>Next</string>
+         </property>
+         <property name="icon">
+          <iconset resource="findandreplace.qrc">
+           <normaloff>:/next</normaloff>:/next</iconset>
+         </property>
+         <property name="autoRaise">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="labelTextFind">
+       <property name="text">
+        <string>Find:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="labelTextReplaceWith">
+       <property name="text">
+        <string>Replace with:</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>FadClearLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>FadLineEdit/FadClearLineEdit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>FindFadLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>FindAndReplace/findfadlineedit.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="findandreplace.qrc"/>
+ </resources>
+ <connections/>
+</ui>

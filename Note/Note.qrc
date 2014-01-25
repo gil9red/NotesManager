@@ -1,0 +1,31 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="color">images/color.png</file>
+        <file alias="remove">images/delete.png</file>
+        <file alias="duplicate">images/duplicate.png</file>
+        <file alias="hide">images/hide.png</file>
+        <file alias="read-only">images/lock.png</file>
+        <file alias="opacity">images/opacity.png</file>
+        <file alias="preview-print">images/preview file print.png</file>
+        <file alias="print">images/print.png</file>
+        <file alias="save-as">images/save as.png</file>
+        <file alias="title">images/title.png</file>
+        <file alias="open">images/open.png</file>
+        <file alias="save">images/3floppy_unmount_6426.png</file>
+        <file alias="tacks">images/pushpin-2.png</file>
+        <file alias="title-font">images/font_9724.png</file>
+        <file alias="title-color">images/title color.png</file>
+        <file alias="opacity-20">images/Opacity_20.png</file>
+        <file alias="opacity-30">images/Opacity_30.png</file>
+        <file alias="opacity-40">images/Opacity_40.png</file>
+        <file alias="opacity-50">images/Opacity_50.png</file>
+        <file alias="opacity-60">images/Opacity_60.png</file>
+        <file alias="opacity-70">images/Opacity_70.png</file>
+        <file alias="opacity-80">images/Opacity_80.png</file>
+        <file alias="opacity-90">images/Opacity_90.png</file>
+        <file alias="opacity-100">images/Opacity_100.png</file>
+        <file alias="attach">images/attach.png</file>
+        <file alias="attach-panel">images/attach panel.png</file>
+        <file alias="find-replace">images/editfindreplace.png</file>
+    </qresource>
+</RCC>
