@@ -62,7 +62,7 @@ private slots:
     void on_tButtonRefreshList_clicked();       //!< Обновить список.
     void on_tButtonCopyToClipboard_clicked();   //!< Копировать файл в буфер обмена.
     void on_tButtonRun_clicked();               //!< Запустить файл.
-    void on_tButtonUpdateContentNote_clicked(); //!< Обновить содержимое заметки.
+//    void on_tButtonUpdateContentNote_clicked(); //!< Обновить содержимое заметки.
 
 private:
     Ui::AttachPanel * ui;       //!< Форма UI.

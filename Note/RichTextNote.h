@@ -196,7 +196,7 @@ protected:
 
 //! Класс данных rich-text заметки.
 /*! \sa RichTextNote, d_AbstractNote */
-class d_RichTextNote : public d_AbstractNote
+class d_RichTextNote: public d_AbstractNote
 {
 public:
     bool isReadOnly;      //! "Только для чтения"

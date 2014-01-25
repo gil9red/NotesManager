@@ -164,22 +164,6 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="tButtonUpdateContentNote">
-       <property name="toolTip">
-        <string>Update the contents of notes</string>
-       </property>
-       <property name="statusTip">
-        <string>Update the contents of notes</string>
-       </property>
-       <property name="whatsThis">
-        <string>Update the contents of notes</string>
-       </property>
-       <property name="text">
-        <string>Update note</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <spacer name="horizontalSpacer">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
