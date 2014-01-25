@@ -73,7 +73,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tabAbout">
        <attribute name="title">
@@ -345,79 +345,11 @@ p, li { white-space: pre-wrap; }
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tabDocumentation">
-       <attribute name="title">
-        <string>Documentation</string>
-       </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_5">
-        <property name="spacing">
-         <number>1</number>
-        </property>
-        <property name="margin">
-         <number>4</number>
-        </property>
-        <item>
-         <widget class="QWebView" name="webView">
-          <property name="url">
-           <url>
-            <string>about:blank</string>
-           </url>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_3">
-          <property name="spacing">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QToolButton" name="tButtonShowDocInBrowser">
-            <property name="toolTip">
-             <string>Show current page in the browser</string>
-            </property>
-            <property name="statusTip">
-             <string>Show current page in the browser</string>
-            </property>
-            <property name="whatsThis">
-             <string>Show current page in the browser</string>
-            </property>
-            <property name="text">
-             <string>Show in browser</string>
-            </property>
-            <property name="autoRaise">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_3">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
-        </item>
-       </layout>
-      </widget>
      </widget>
     </item>
    </layout>
   </widget>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>QWebView</class>
-   <extends>QWidget</extends>
-   <header>QtWebKit/QWebView</header>
-  </customwidget>
- </customwidgets>
  <resources>
   <include location="../../app.qrc"/>
  </resources>

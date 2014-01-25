@@ -486,7 +486,7 @@ static QString getTheCurrentLanguageKeyboardLayouts()
         break;
     }
 #endif
-//    qDebug() << name;
+
     return name;
 }
 

@@ -61,19 +61,11 @@ Page_About::Page_About(QWidget *parent) :
         return;
     ui->history->setHtml( in.readAll() );
     file.close();
-
-    QUrl urlDoc( QUrl::fromLocalFile( qApp->applicationDirPath() + "/doc/ru/html/index.html" ) );
-    ui->webView->load( urlDoc );
 }
 
 Page_About::~Page_About()
 {
     delete ui;
-}
-
-void Page_About::on_tButtonShowDocInBrowser_clicked()
-{
-    QDesktopServices::openUrl( ui->webView->url() );
 }
 
 void Page_About::setCurrentTab( int index )

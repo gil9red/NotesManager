@@ -31,8 +31,8 @@
 #include <QDesktopWidget>
 #include <QDebug>
 #include <QMessageBox>
-#include <QInputDialog>]
 #include <QFileDialog>
+#include <QDesktopServices>
 
 Manager * Manager::self = 0;
 
@@ -116,12 +116,12 @@ void Manager::loadNotes()
 {    
     sortModel->setDynamicSortFilter( false );
 
-    QStringList labels;
-    for ( int i = 0; i < model.columnCount(); i++ )
-        labels << model.horizontalHeaderItem( i )->text();
+//    QStringList labels;
+//    for ( int i = 0; i < model.columnCount(); i++ )
+//        labels << model.horizontalHeaderItem( i )->text();
 
-    model.clear();
-    model.setHorizontalHeaderLabels( labels );
+//    model.clear();
+//    model.setHorizontalHeaderLabels( labels );
 
     foreach ( const QString & path, QDir( getNotesPath() ).entryList( QDir::Dirs | QDir::NoDotAndDotDot ) )
     {       
@@ -492,9 +492,11 @@ void Manager::show_page_about()
 }
 void Manager::show_page_documentation()
 {
-    show_Manager();
-    leftPanel->setCurrentIndex( 3 );
-    pageAbout->setCurrentTab( Page_About::Documentation );
+    if ( !QDesktopServices::openUrl( QUrl::fromLocalFile( qApp->applicationDirPath() + "/doc/ru/html/index.html" ) ) )
+    {
+        QMessageBox::information( this, tr( "Information" ), tr( "Unable to open documents" ) );
+        qDebug() << tr( "Unable to open documents" );
+    }
 }
 void Manager::open()
 {
@@ -570,8 +572,16 @@ void Manager::addNoteFromScreen()
 }
 void Manager::removeAllNotes()
 {
-    while ( model.rowCount() )
-        toNote( model.item( 0, 0 ) )->invokeRemove();
+    QMessageBox::StandardButton result = QMessageBox::question( this, tr( "Question" ), tr( "Delete all notes?" ),
+                                                                QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes );
+    if ( result == QMessageBox::No )
+        return;
+
+//    while ( model.rowCount() )
+//        toNote( model.item( 0, 0 ) )->invokeRemove();
+
+    for ( int i = model.rowCount() - 1; i >= 0; i-- )
+        toNote( model.item( i, 0 ) )->invokeRemove();
 }
 void Manager::saveAllNotes()
 {

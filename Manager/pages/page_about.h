@@ -51,9 +51,6 @@ public:
     explicit Page_About(QWidget *parent = 0);
     ~Page_About();
     
-private slots:
-    void on_tButtonShowDocInBrowser_clicked(); //!< Вызывается, когда пользователь нажимает на кнопку "Показать в браузере"
-
 public slots:
     void setCurrentTab( int index ); //!< Установить текущую вкладку
     int currentTab(); //!< Индекс текущей вкладки
