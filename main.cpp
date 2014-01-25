@@ -76,6 +76,34 @@ static const char codec[] = "utf8";
 /// TODO: настройки -> язык по умолчанию - системный ( QStringList lang = QLocale::system().name().split( '_' ); )
 /// TODO: настройки -> выбор языка и загрузка его при перезапуске (добавить сообщение о перезапуске как в креаторе)
 
+static void loadTranslations( QSettings * settings )
+{
+    QString language = Page_Settings::getLanguage( settings );
+    if ( language == Page_Settings::getDefaultLanguage() )
+        language = QLocale::system().name();
+
+    QStringList lang = language.split( '_' );
+
+    foreach ( const QString & fileName, QDir( getTrPath() ).entryList( QDir::Files ) )
+    {
+        bool successfull = false;
+        foreach ( const QString & l , lang )
+            if ( fileName.contains( l, Qt::CaseInsensitive ) )
+            {
+                successfull = true;
+                break;
+            }
+
+        if ( successfull )
+        {
+            QString path = "translations/" + fileName;
+            QTranslator * translator = new QTranslator( qApp );
+            translator->load( path );
+            qApp->installTranslator( translator );
+        }
+    }
+}
+
 int main( int argc, char *argv[] )
 {
     QTextCodec::setCodecForCStrings( QTextCodec::codecForName( codec ) );
@@ -99,7 +127,7 @@ int main( int argc, char *argv[] )
     splashScreen->show();
 
     initThreadCount();
-    loadTranslations();
+    loadTranslations( settings );
 
     QFont font( "Times New Roman", 10, QFont::Bold );
     splashScreen->setMessage( QTranslator::tr( "Loading fonts" ), font );

@@ -56,8 +56,8 @@ AbstractNote::AbstractNote( QWidget * parent ) :
     setWindowFlags( Abstract::flags );
 
     connect( &timerAutosave, SIGNAL( timeout() ), SLOT( save() ) );
-    setActivateTimerAutosave( true );
-    setIntervalAutosave( 7 ); // интервал автосохранения в минутах
+//  TODO:  setActivateTimerAutosave( true );
+//    setIntervalAutosave( 7 ); // интервал автосохранения в минутах
 
     setVisibleFrame( Abstract::Frame::visible );
     setWidthPenSides( Abstract::Frame::width );

@@ -378,31 +378,6 @@ static QSettings * createSettings()
     return new QSettings( getSettingsPath(), QSettings::IniFormat );
 }
 
-static void loadTranslations()
-{
-    QStringList lang = QLocale::system().name().split( '_' );
-    QDir dir( getTrPath() );
-
-    foreach ( const QString & fileName, dir.entryList( QDir::Files ) )
-    {
-        bool successfull = false;
-        foreach ( const QString & l , lang )
-            if ( fileName.contains( l, Qt::CaseInsensitive ) )
-            {
-                successfull = true;
-                break;
-            }
-
-        if ( successfull )
-        {
-            QString path = "translations/" + fileName;
-            QTranslator * translator = new QTranslator( qApp );
-            translator->load( path );
-            qApp->installTranslator( translator );
-        }
-    }
-}
-
 #include <QFontDatabase>
 static void loadFonts()
 {

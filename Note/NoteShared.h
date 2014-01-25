@@ -48,8 +48,8 @@ Q_DECLARE_OPERATORS_FOR_FLAGS ( Shared::Sides )
 //! Содержит значения по умолчанию абстрактной заметки.
 namespace Abstract
 {
-    const int topBorder = 31; //!< Высота шабки заметки
-    const int minimalHeight = 75; //!< Минимальная высока заметки
+    const int topBorder = 31; //!< Высота шапки заметки
+    const int minimalHeight = 75; //!< Минимальная высота заметки
 
     //! Окно без кнопки на панели задач и без системной рамки.
     const Qt::WindowFlags flags = Qt::Tool | Qt::FramelessWindowHint;

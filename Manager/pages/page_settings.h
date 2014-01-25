@@ -30,6 +30,7 @@
 #include <QTreeWidgetItem>
 #include <QAbstractButton>
 #include <QVariantMap>
+#include <QDebug>
 
 namespace Ui
 {
@@ -50,6 +51,24 @@ public:
 
     void mapToSettings();
     void settingsToMap();
+
+    // TODO
+    static QString getDefaultLanguage()
+    {
+        return "<systems language>";
+    }
+    static QString getTrDefaultLanguage()
+    {
+        return tr( "<systems language>" );
+    }
+    static QString getLanguage( QSettings * s )
+    {
+        s->beginGroup( "Page_Settings" );
+        const QVariant & value = s->value( "Settings" ).toMap().value( "Language", getDefaultLanguage() );
+        s->endGroup();
+
+        return value.toString();
+    }
 
 public:
     Ui::Page_Settings * ui; //!< Форма UI.

@@ -92,9 +92,6 @@ public:
      */
     void removeFile();
 
-//    //! Возвращает указатель на класс настроек.
-//    QSettings * settings();
-
     //! В функцию передается путь до файла заметок.
     /*! \param fileName путь до файла заметок
      *  \sa setFileName(), fileName()
@@ -178,7 +175,6 @@ protected:
     d_AbstractNote * d; //!< Дата абстрактной заметки
     AbstractNoteHead * head; //!< Голова (шапка) заметки
     AbstractNoteBody * body; //!< Тело заметки
-//    QSettings * d_settings; //!< Класс настройки
     QMenu contextMenu; //!< Меню заметки
     PropertyAttachable * propertyAttachable; //!< Класс, который дает возможность прикрепляться к краю экрана
 

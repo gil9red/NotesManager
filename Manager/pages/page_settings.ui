@@ -116,7 +116,7 @@
         <enum>QFrame::StyledPanel</enum>
        </property>
        <property name="currentIndex">
-        <number>2</number>
+        <number>0</number>
        </property>
        <widget class="QWidget" name="pageInterface">
         <property name="sizePolicy">
@@ -188,13 +188,8 @@
                    </sizepolicy>
                   </property>
                   <property name="currentIndex">
-                   <number>0</number>
+                   <number>-1</number>
                   </property>
-                  <item>
-                   <property name="text">
-                    <string>default</string>
-                   </property>
-                  </item>
                  </widget>
                 </item>
                </layout>

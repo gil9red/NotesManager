@@ -34,6 +34,12 @@ Page_Settings::Page_Settings( QWidget * parent )
 {
     ui->setupUi( this );
     ui->stackedPages->setCurrentWidget( ui->pageInterface );
+
+    ui->comboBoxLanguage->clear();
+    ui->comboBoxLanguage->addItem( getTrDefaultLanguage(), getDefaultLanguage() );
+    ui->comboBoxLanguage->addItem( "Ru", "ru" );
+    ui->comboBoxLanguage->addItem( "En", "en" );
+    ui->comboBoxLanguage->addItem( "Uk", "uk" );
 }
 
 Page_Settings::~Page_Settings()
@@ -48,9 +54,9 @@ void Page_Settings::setSettings( QSettings * s )
 
 void Page_Settings::mapToSettings()
 {
-    int index = ui->comboBoxLanguage->findText( mapSettings[ "Language" ].toString() );
+    int index = ui->comboBoxLanguage->findData( mapSettings[ "Language" ] );
     if ( index == -1 )
-        index = 0; // index == 0 -> "default"
+        index = 0; // index == 0 -> "<systems language>"
     ui->comboBoxLanguage->setCurrentIndex( index );
 
     ui->checkBoxAutosave->setChecked( mapSettings[ "Autosave" ].toBool() );
@@ -73,7 +79,11 @@ void Page_Settings::mapToSettings()
 }
 void Page_Settings::settingsToMap()
 {
-    mapSettings[ "Language" ] = ui->comboBoxLanguage->currentText();
+    if ( ui->comboBoxLanguage->currentIndex() == 0 )
+        mapSettings[ "Language" ] = getDefaultLanguage();
+    else
+        mapSettings[ "Language" ] = ui->comboBoxLanguage->itemData( ui->comboBoxLanguage->currentIndex() );
+
     mapSettings[ "Autosave" ] = ui->checkBoxAutosave->isChecked();
     mapSettings[ "AutosaveInterval" ] = ui->sBoxAutosaveInterval->value();
     mapSettings[ "AskBeforeExiting" ] = ui->cBoxAskBeforeExiting->isChecked();
