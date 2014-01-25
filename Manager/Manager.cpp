@@ -80,6 +80,7 @@ Manager::Manager( QWidget * parent ) :
 
     connect( pageNotes, SIGNAL( changeSelection() ), SLOT( updateStates() ) );
     connect( pageSettings, SIGNAL( message(QString, int) ), ui->statusBar, SLOT( showMessage(QString, int) ) );
+    connect( pageSettings, SIGNAL( acceptChangeSettings() ), SLOT( acceptChangeSettings() ) );
 
     ui->stackedWidget_Pages->addWidget( pageNotes );
     ui->stackedWidget_Pages->addWidget( pageTrash );
@@ -91,8 +92,6 @@ Manager::Manager( QWidget * parent ) :
     createToolBars();
     createTray();
 
-//    setActivateTimerAutosave( true );
-//    setIntervalAutosave( 5 );
     connect( &autoSaveTimer, SIGNAL( timeout() ), SLOT( writeSettings() ) );
 
     updateStates();
@@ -145,7 +144,14 @@ void Manager::setSettings( QSettings * s )
     pageTrash->setSettings( settings );
     pageSettings->setSettings( settings );
 }
-
+void Manager::nowReadyPhase()
+{
+    bool minimizeTrayOnStartup = pageSettings->mapSettings[ "MinimizeTrayOnStartup" ].toBool();
+    if ( minimizeTrayOnStartup )
+        hide();
+    else
+        show_Manager();
+}
 
 void Manager::createToolBars()
 {
@@ -385,11 +391,22 @@ void Manager::messageReceived( const QString & text )
 void Manager::messageReceived( QSystemTrayIcon::ActivationReason reason )
 {
     if ( reason == QSystemTrayIcon::Trigger )
-        setVisible( !isVisible() );
+    {
+        if ( isVisible() )
+            hide();
+        else
+            show_Manager();
 
-    else if ( reason == QSystemTrayIcon::MiddleClick )
+    }else if ( reason == QSystemTrayIcon::MiddleClick )
         addNote();
 }
+
+void Manager::acceptChangeSettings()
+{
+    setActivateTimerAutosave( pageSettings->mapSettings[ "Autosave" ].toBool() );
+    setIntervalAutosave( pageSettings->mapSettings[ "AutosaveInterval" ].toInt() );
+}
+
 void Manager::updateStates()
 {
     bool hasSelection = pageNotes->hasSelection();
@@ -784,14 +801,13 @@ void Manager::noteChange( int index )
     }
 }
 
-
 void Manager::show_Manager()
 {
     if ( isHidden() )
-        show();
+        QTimer::singleShot( 0, this, SLOT( show() ) );
 
     if ( isMinimized() )
-        showNormal();
+        QTimer::singleShot( 0, this, SLOT( showNormal() ) );
 
     if ( !hasFocus() )
         setFocus();
@@ -806,10 +822,15 @@ void Manager::show_Manager()
 //}
 void Manager::quit()
 {
-    QMessageBox::StandardButton result = QMessageBox::question( this, tr( "Question" ), tr( "Really quit?" ),
-                                                                QMessageBox::Ok | QMessageBox::Cancel, QMessageBox::Ok );
-    if ( result == QMessageBox::Cancel )
-        return;
+    bool askBeforeExiting = pageSettings->mapSettings[ "AskBeforeExiting" ].toBool();
+
+    if ( askBeforeExiting )
+    {
+        QMessageBox::StandardButton result = QMessageBox::question( this, tr( "Question" ), tr( "Really quit?" ),
+                                                                    QMessageBox::Ok | QMessageBox::Cancel, QMessageBox::Ok );
+        if ( result == QMessageBox::Cancel )
+            return;
+    }
 
     writeSettings();
     qApp->quit();
@@ -823,16 +844,15 @@ void Manager::readSettings()
     settings->beginGroup( "Manager" );
     restoreGeometry( settings->value( "Geometry" ).toByteArray() );
     restoreState( settings->value( "State" ).toByteArray() );
-    setActivateTimerAutosave( settings->value( "Autosave", true ).toBool() );
-    setIntervalAutosave( settings->value( "AutosaveInterval", 7 ).toInt() );
+//    setActivateTimerAutosave( settings->value( "Autosave", true ).toBool() );
+//    setIntervalAutosave( settings->value( "AutosaveInterval", 7 ).toInt() );
 
     settings->endGroup();
 
     pageNotes->readSettings();
     pageTrash->readSettings();
     pageSettings->readSettings();
-
-    settings->sync();
+    acceptChangeSettings();
 }
 void Manager::writeSettings()
 {
@@ -842,8 +862,8 @@ void Manager::writeSettings()
     settings->beginGroup( "Manager" );
     settings->setValue( "Geometry", saveGeometry() );
     settings->setValue( "State", saveState() );
-    settings->setValue( "Autosave", isActivateTimerAutosave() );
-    settings->setValue( "AutosaveInterval", intervalAutosave() );
+//    settings->setValue( "Autosave", isActivateTimerAutosave() );
+//    settings->setValue( "AutosaveInterval", intervalAutosave() );
     settings->endGroup();
 
     pageNotes->writeSettings();
@@ -879,9 +899,11 @@ void Manager::closeEvent( QCloseEvent * event )
 {
     event->ignore();
 
-    quit();
-//    event->ignore();
-//    hide();
+    bool minimizeTrayWhenClosing = pageSettings->mapSettings[ "MinimizeTrayWhenClosing" ].toBool();
+    if ( minimizeTrayWhenClosing )
+        hide();
+    else
+        quit();
 }
 void Manager::changeEvent( QEvent * event )
 {
@@ -889,11 +911,12 @@ void Manager::changeEvent( QEvent * event )
 
     if ( type == QEvent::WindowStateChange )
     {
-        event->ignore();
-
-        if ( isMinimized() )
+        bool minimizeTrayWhenMinimizing = pageSettings->mapSettings[ "MinimizeTrayWhenMinimizing" ].toBool();
+        if ( isMinimized() && minimizeTrayWhenMinimizing )
         {
-
+            event->ignore();
+            QTimer::singleShot( 0, this, SLOT( hide() ) );
+            return;
         }
     }
 

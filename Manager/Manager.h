@@ -184,6 +184,8 @@ public:
     //! Функция возвращает статичный указатель на "себя".
     static Manager * instance() { return self; }
 
+    void nowReadyPhase();
+
 private:
     void createToolBars(); //!< Создание панели инструментов.
     void createMenu();     //!< Создание меню.
@@ -223,6 +225,8 @@ private slots:
 
     //! Функция принимает сигнал, отсылаемый треем.
     void messageReceived( QSystemTrayIcon::ActivationReason );
+
+    void acceptChangeSettings();
 
     void updateStates();         //!< Обновление состояния.
     void show_page_notes();      //!< Показать страницу с заметками.

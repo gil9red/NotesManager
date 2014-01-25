@@ -50,7 +50,7 @@ static const char codec[] = "utf8";
 // TODO: может добавить в строку состояния заметок кол-во строк/символов и т.п.?
 // TODO: добавить режим чтения (а может и редактирования?)
 // заметок: полноэкранный режим (goodword1.04)
-/// TODO: сосбтвенный формат можно открывать через drag and drop
+// TODO: сосбтвенный формат можно открывать через drag and drop
 /// TODO: добавить корзину
 /// TODO: может корзину сделать частью группирования заметок?
 /// TODO: удаленные заметки не отображаются, не редактируются, но их можно
@@ -118,7 +118,7 @@ int main( int argc, char *argv[] )
     manager.loadNotes();
 
     splashScreen->setMessage( QTranslator::tr( "Now ready" ), font );
-    manager.show_Manager();
+    manager.nowReadyPhase();
 
     qApp->setActiveWindow( &manager );
     splashScreen->deleteLater();
