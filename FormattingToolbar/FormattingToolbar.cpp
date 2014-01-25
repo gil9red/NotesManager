@@ -156,11 +156,11 @@ QList < QToolBar * > FormattingToolbar::toolBars()
 
 void FormattingToolbar::mergeFormatOnWordOrSelection( const QTextCharFormat & format )
 {
-    // TODO: пока уберу
-//    QTextCursor cursor = editor->textCursor();
-//    if ( !cursor.hasSelection() )
-//        cursor.select( QTextCursor::WordUnderCursor );
-//    cursor.mergeCharFormat( format );
+    QTextCursor cursor = editor->textCursor();
+    if ( !cursor.hasSelection() )
+        cursor.select( QTextCursor::WordUnderCursor );
+
+    cursor.mergeCharFormat( format );
     editor->mergeCurrentCharFormat( format );
 }
 void FormattingToolbar::changeVerticalAlignment(const QTextCharFormat::VerticalAlignment & vAlign)
