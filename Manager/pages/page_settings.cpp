@@ -26,6 +26,7 @@
 #include "ui_page_settings.h"
 
 #include <QDebug>
+#include "utils/func.h"
 
 Page_Settings::Page_Settings( QWidget * parent )
     : QMainWindow( parent ),
@@ -37,9 +38,19 @@ Page_Settings::Page_Settings( QWidget * parent )
 
     ui->comboBoxLanguage->clear();
     ui->comboBoxLanguage->addItem( getTrDefaultLanguage(), getDefaultLanguage() );
-    ui->comboBoxLanguage->addItem( "Ru", "ru" );
-    ui->comboBoxLanguage->addItem( "En", "en" );
-    ui->comboBoxLanguage->addItem( "Uk", "uk" );
+
+    foreach ( const QFileInfo & fileInfo, QDir( getTrPath() ).entryInfoList( QStringList() << "*.qminfo" ) )
+    {
+        QSettings ini( fileInfo.absoluteFilePath(), QSettings::IniFormat );
+        ini.setIniCodec( "utf8" );
+
+        QString text = ini.value( "Name" ).toString();
+        QVariant data = ini.value( "ShortName" );
+        QPixmap pixmap;
+        pixmap.loadFromData( ini.value( "Icon" ).toByteArray() );
+
+        ui->comboBoxLanguage->addItem( pixmap, text, data );
+    }
 }
 
 Page_Settings::~Page_Settings()

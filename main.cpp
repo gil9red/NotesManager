@@ -72,20 +72,28 @@ static const char codec[] = "utf8";
 // TODO: панель форматирования подчеркивание - не правильно сохраняет
 // TODO: вставку картинок из буфера обмена
 /// TODO: сделать создание заметки по умолчанию, использую значения в настройках
-/// TODO: настройки -> подгрузка языков
-/// TODO: настройки -> язык по умолчанию - системный ( QStringList lang = QLocale::system().name().split( '_' ); )
 /// TODO: настройки -> выбор языка и загрузка его при перезапуске (добавить сообщение о перезапуске как в креаторе)
 
 static void loadTranslations( QSettings * settings )
 {
     QString language = Page_Settings::getLanguage( settings );
+
+    // по умолчанию весь перевод на английском, поэтому не ищем файлы перевода
+    if ( language.contains( "en", Qt::CaseInsensitive ) )
+        return;
+
     if ( language == Page_Settings::getDefaultLanguage() )
         language = QLocale::system().name();
 
     QStringList lang = language.split( '_' );
 
-    foreach ( const QString & fileName, QDir( getTrPath() ).entryList( QDir::Files ) )
+    foreach ( const QFileInfo & fileInfo, QDir( getTrPath() ).entryInfoList( QStringList() << "*.qminfo" ) )
     {
+        QSettings ini( fileInfo.absoluteFilePath(), QSettings::IniFormat );
+        ini.setIniCodec( "utf8" );
+
+        QString fileName = fileInfo.baseName();
+
         bool successfull = false;
         foreach ( const QString & l , lang )
             if ( fileName.contains( l, Qt::CaseInsensitive ) )
@@ -96,10 +104,14 @@ static void loadTranslations( QSettings * settings )
 
         if ( successfull )
         {
-            QString path = "translations/" + fileName;
-            QTranslator * translator = new QTranslator( qApp );
-            translator->load( path );
-            qApp->installTranslator( translator );
+            foreach ( const QString & path, ini.value( "Files" ).toStringList() )
+            {
+                QTranslator * translator = new QTranslator();
+                translator->load( path );
+                qApp->installTranslator( translator );
+            }
+
+            return; // одновременно перевод может быть только для одного языка, поэтому выходим из функции
         }
     }
 }
