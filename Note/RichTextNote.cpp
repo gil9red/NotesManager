@@ -122,6 +122,8 @@ void RichTextNote::createNew( bool bsave )
     QString path = tr( "New note" ) + "_" + QDateTime::currentDateTime().toString( "yyyy-MM-dd_hh-mm-ss__zzz" );
     setFileName( QDir::fromNativeSeparators( getNotesPath() + "/" + path ) );
 
+    // TODO: лучше убрать эту порнуху и сделать нормальную инициацию по умолчанию
+    // а лучше брать из настроек
     // пытаемся загрузить
     load();
 

@@ -28,6 +28,7 @@ AbstractNote::AbstractNote( QWidget * parent ) :
 
     setStatusBar( new QStatusBar() );
 
+    // TODO: значения по умолчанию
     d->sides = Abstract::Frame::visible;
     d->penSides = Shared::Left | Shared::Right | Shared::Top | Shared::Bottom;
     d->colorSides = Abstract::Frame::color;
@@ -51,6 +52,7 @@ AbstractNote::AbstractNote( QWidget * parent ) :
 
     setCentralWidget( mainWidget );
 
+    // TODO: значения по умолчанию
     // Минимальная высота. Выбрал ее как наоболее подходящую
     setMinimumHeight( Abstract::minimalHeight );
     setWindowFlags( Abstract::flags );
@@ -59,6 +61,7 @@ AbstractNote::AbstractNote( QWidget * parent ) :
 //  TODO:  setActivateTimerAutosave( true );
 //    setIntervalAutosave( 7 ); // интервал автосохранения в минутах
 
+    // TODO: значения по умолчанию
     setVisibleFrame( Abstract::Frame::visible );
     setWidthPenSides( Abstract::Frame::width );
     setColorSides( Abstract::Frame::color );
@@ -228,7 +231,7 @@ void AbstractNote::load()
 {
     QSettings ini( path(), QSettings::IniFormat );
     ini.setIniCodec( "utf8" );
-
+// TODO: значения по умолчанию брать
     resize( ini.value( "Size", QSize( 150, 150 ) ).toSize() );
     d->oldHeight = ini.value( "OldHeight", height() ).toUInt();
 

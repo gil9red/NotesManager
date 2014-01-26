@@ -103,7 +103,7 @@ int main( int argc, char *argv[] )
     initThreadCount();
     loadTranslations( settings );
 
-    QFont font( "Times New Roman", 10, QFont::Bold );
+    QFont font( "Times New Roman", 9, QFont::Bold );
     splashScreen->setMessage( QTranslator::tr( "Loading fonts" ), font );
     loadFonts();
 
