@@ -68,53 +68,15 @@ static const char codec[] = "utf8";
 // TODO: панель справа и снизу, я на время уберу
 // TODO: выделять память только под видимые заметки
 // TODO: добавить в заметку загрузку содержимого заметки из потока и грузить не весь текст разом, а построчно
-// TODO: может в О программе добавить TODO?
+// TODO: может в О программе добавить список того, что планируется сделать?
 // TODO: панель форматирования подчеркивание - не правильно сохраняет
 // TODO: вставку картинок из буфера обмена
 /// TODO: сделать создание заметки по умолчанию, использую значения в настройках
-/// TODO: настройки -> выбор языка и загрузка его при перезапуске (добавить сообщение о перезапуске как в креаторе)
+// TODO: настройка: у заметок таймер автосохранения, интервал автосохранения
+// у менеджера/заметок активность автодополнения
+// TODO: настройка: кнопка восстановления значений по умолчанию
 
-static void loadTranslations( QSettings * settings )
-{
-    QString language = Page_Settings::getLanguage( settings );
-
-    // по умолчанию весь перевод на английском, поэтому не ищем файлы перевода
-    if ( language.contains( "en", Qt::CaseInsensitive ) )
-        return;
-
-    if ( language == Page_Settings::getDefaultLanguage() )
-        language = QLocale::system().name();
-
-    QStringList lang = language.split( '_' );
-
-    foreach ( const QFileInfo & fileInfo, QDir( getTrPath() ).entryInfoList( QStringList() << "*.qminfo" ) )
-    {
-        QSettings ini( fileInfo.absoluteFilePath(), QSettings::IniFormat );
-        ini.setIniCodec( "utf8" );
-
-        QString fileName = fileInfo.baseName();
-
-        bool successfull = false;
-        foreach ( const QString & l , lang )
-            if ( fileName.contains( l, Qt::CaseInsensitive ) )
-            {
-                successfull = true;
-                break;
-            }
-
-        if ( successfull )
-        {
-            foreach ( const QString & path, ini.value( "Files" ).toStringList() )
-            {
-                QTranslator * translator = new QTranslator();
-                translator->load( path );
-                qApp->installTranslator( translator );
-            }
-
-            return; // одновременно перевод может быть только для одного языка, поэтому выходим из функции
-        }
-    }
-}
+static void loadTranslations( QSettings * settings );
 
 int main( int argc, char *argv[] )
 {
@@ -170,4 +132,48 @@ int main( int argc, char *argv[] )
     QObject::connect( &app, SIGNAL( messageReceived(QString) ), &manager, SLOT( messageReceived(QString) ) );
 
     return app.exec();
+}
+
+static void loadTranslations( QSettings * settings )
+{
+    QString language = Page_Settings::getLanguage( settings );
+
+    // по умолчанию весь перевод на английском, поэтому не ищем файлы перевода
+    if ( language.contains( "en", Qt::CaseInsensitive ) )
+        return;
+
+    if ( language == Page_Settings::getDefaultLanguage() )
+        language = QLocale::system().name();
+
+    QStringList lang = language.split( '_' );
+
+    foreach ( const QFileInfo & fileInfo, QDir( getTrPath() ).entryInfoList( QStringList() << "*.qminfo" ) )
+    {
+        // Если название файла схоже с языком, который хотим подгрузить
+        bool successfull = false;
+        foreach ( const QString & l , lang )
+            if ( fileInfo.baseName().contains( l, Qt::CaseInsensitive ) )
+            {
+                successfull = true;
+                break;
+            }
+
+        if ( successfull )
+        {
+            QSettings ini( fileInfo.absoluteFilePath(), QSettings::IniFormat );
+            ini.setIniCodec( "utf8" );
+
+            // подгружаем список файлов переводов, определенных в файле *.qminfo
+            foreach ( const QString & path, ini.value( "Files" ).toStringList() )
+            {
+                QTranslator * translator = new QTranslator();
+                translator->load( path );
+                qApp->installTranslator( translator );
+            }
+
+            // одновременно перевод может быть только для одного языка,
+            // поэтому нет смысла продолжать выполнение и мы выходим из функции
+            return;
+        }
+    }
 }

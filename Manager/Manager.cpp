@@ -221,8 +221,8 @@ void Manager::createToolBars()
     toolbarNote->addWidget( ui->tButtonTopNote );
 
 
-
     FormattingToolbar * formattingToolbar = new FormattingToolbar();
+    formattingToolbar->setAlterActivityComponents( true );
     formattingToolbar->hide();
     formattingToolbar->setParent( this );
     formattingToolbar->installConnect( pageNotes->ui->editor );

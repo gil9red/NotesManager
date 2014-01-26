@@ -24,9 +24,10 @@
 
 #include "page_settings.h"
 #include "ui_page_settings.h"
+#include "utils/func.h"
 
 #include <QDebug>
-#include "utils/func.h"
+#include <QMessageBox>
 
 Page_Settings::Page_Settings( QWidget * parent )
     : QMainWindow( parent ),
@@ -113,6 +114,23 @@ void Page_Settings::settingsToMap()
     mapSettings[ "NewNote_Top" ] = ui->sBoxTop->value();
 }
 
+QString Page_Settings::getDefaultLanguage()
+{
+    return "<systems language>";
+}
+QString Page_Settings::getTrDefaultLanguage()
+{
+    return "<" + tr( "systems language" ) + ">";
+}
+QString Page_Settings::getLanguage( QSettings * s )
+{
+    s->beginGroup( "Page_Settings" );
+    const QVariant & value = s->value( "Settings" ).toMap().value( "Language", getDefaultLanguage() );
+    s->endGroup();
+
+    return value.toString();
+}
+
 void Page_Settings::readSettings()
 {
     if ( !settings )
@@ -154,9 +172,18 @@ void Page_Settings::on_treeWidgetMenu_itemClicked(QTreeWidgetItem *item, int col
 void Page_Settings::on_buttonBox_clicked(QAbstractButton *button)
 {
     QDialogButtonBox::ButtonRole role = ui->buttonBox->buttonRole( button );
+
+    // Если кликнули на кнопку "Принять"
     if ( role == QDialogButtonBox::ApplyRole )
     {
+        const QString oldLanguage = mapSettings[ "Language" ].toString();
         settingsToMap();
+        const QString newLanguage = mapSettings[ "Language" ].toString();
+
+        // Если был выбран другой язык
+        if ( oldLanguage != newLanguage )
+            QMessageBox::information( this, tr( "Restart requires " ), tr( "The language change will take effect after a restart" ) );
+
         writeSettings();
         emit acceptChangeSettings();
         emit message( tr( "Settings received and stored" ), 5000 );

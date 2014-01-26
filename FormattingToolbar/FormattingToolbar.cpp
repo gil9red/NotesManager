@@ -44,7 +44,8 @@ FormattingToolbar::FormattingToolbar( QWidget * parent ) :
     QWidget( parent ),
     ui( new Ui::FormattingToolbar ),
     editor( 0 ),
-    note( 0 )
+    note( 0 ),
+    alterActivityComponents( false )
 {
     ui->setupUi( this );
 
@@ -152,7 +153,15 @@ QList < QToolBar * > FormattingToolbar::toolBars()
 
     return QList < QToolBar * > () << toolBar1 << toolBar2 << toolBar3 << toolBar4 << toolBar5 << toolBar6;
 }
-
+void FormattingToolbar::setAlterActivityComponents( bool act )
+{
+    alterActivityComponents = act;
+    updateStates();
+}
+bool FormattingToolbar::isAlterActivityComponents()
+{
+    return alterActivityComponents;
+}
 
 void FormattingToolbar::mergeFormatOnWordOrSelection( const QTextCharFormat & format )
 {
@@ -271,10 +280,15 @@ void FormattingToolbar::setVisible( bool visible )
 
 void FormattingToolbar::updateStates()
 {
+    // Если не нужно, не меняем активность и не делаем проверки.
+    if ( !alterActivityComponents )
+        return;
+
     if ( !editor )
     {
         foreach ( QToolButton * button, findChildren < QToolButton * > () )
             button->setEnabled( false );
+
         ui->comboBoxFontSize->setEnabled( false );
         ui->fontComboBox->setEnabled( false );
 

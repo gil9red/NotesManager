@@ -1408,14 +1408,28 @@
         <translation>Настройки</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.cpp" line="148"/>
+        <location filename="../Manager/pages/page_settings.cpp" line="185"/>
+        <source>Restart requires </source>
+        <translation>Требуется перезапуск</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_settings.cpp" line="185"/>
+        <source>The language change will take effect after a restart</source>
+        <translation>Изменения языка вступят в силу после перезапуска</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_settings.cpp" line="189"/>
         <source>Settings received and stored</source>
         <translation>Настройки приняты и сохранены</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.h" line="62"/>
         <source>&lt;systems language&gt;</source>
-        <translation>&lt;системный язык&gt;</translation>
+        <translation type="obsolete">&lt;системный язык&gt;</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_settings.cpp" line="123"/>
+        <source>systems language</source>
+        <translation>системный язык</translation>
     </message>
 </context>
 <context>
@@ -1506,7 +1520,7 @@
         <translation type="obsolete">Менеджер заметок</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="133"/>
+        <location filename="../main.cpp" line="110"/>
         <source>Loading fonts</source>
         <oldsource>Load fonts</oldsource>
         <translation>Загрузка шрифтов</translation>
@@ -1516,31 +1530,31 @@
         <translation type="obsolete">Создать</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="136"/>
+        <location filename="../main.cpp" line="113"/>
         <source>Loading dictionaries</source>
         <oldsource>Load dictionaries</oldsource>
         <translation>Загрузка словарей</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="139"/>
+        <location filename="../main.cpp" line="116"/>
         <source>Creation</source>
         <oldsource>Created</oldsource>
         <translation>Создание</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="146"/>
+        <location filename="../main.cpp" line="123"/>
         <source>Loading settings</source>
         <oldsource>Load settings</oldsource>
         <translation>Загрузка настроек</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="149"/>
+        <location filename="../main.cpp" line="126"/>
         <source>Loading notes</source>
         <oldsource>Load notes</oldsource>
         <translation>Загрузка заметок</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="152"/>
+        <location filename="../main.cpp" line="129"/>
         <source>Now ready</source>
         <translation>Готов</translation>
     </message>

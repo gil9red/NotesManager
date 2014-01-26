@@ -4,7 +4,7 @@ TARGET = NotesManager
 DESTDIR += ../bin
 
 TRANSLATIONS += translations/NotesManager_ru.ts \
-#                translations/NotesManager_uk.ts \
+                translations/NotesManager_uk.ts \
 #                translations/NotesManager_hu.ts \
 #                translations/NotesManager_ja.ts \
 #                translations/NotesManager_ko.ts \
