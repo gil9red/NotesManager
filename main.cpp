@@ -164,10 +164,10 @@ static void loadTranslations( QSettings * settings )
             ini.setIniCodec( "utf8" );
 
             // подгружаем список файлов переводов, определенных в файле *.qminfo
-            foreach ( const QString & path, ini.value( "Files" ).toStringList() )
+            foreach ( const QString & fileName, ini.value( "Files" ).toStringList() )
             {
                 QTranslator * translator = new QTranslator();
-                translator->load( path );
+                translator->load( fileInfo.dir().path() + "/" + fileName );
                 qApp->installTranslator( translator );
             }
 
