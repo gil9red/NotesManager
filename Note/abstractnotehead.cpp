@@ -27,22 +27,20 @@ AbstractNoteHead::~AbstractNoteHead()
 
 void AbstractNoteHead::setTitle( const QString & str )
 {
-    d->text = str;
-    label->setText( d->text );
+    label->setText( str );
 }
 QString AbstractNoteHead::title()
 {
-    return d->text;
+    return label->text();
 }
 
 void AbstractNoteHead::setFont( const QFont & f )
 {
-    d->font = f;
-    label->setFont( d->font );
+    label->setFont( f );
 }
 QFont AbstractNoteHead::font()
 {
-    return d->font;
+    return label->font();
 }
 
 void AbstractNoteHead::setColor( const QColor & color )
@@ -54,7 +52,6 @@ QColor AbstractNoteHead::color()
     return d->color;
 }
 
-
 void AbstractNoteHead::paintEvent( QPaintEvent * )
 {
     QPainter painter( this );
@@ -63,11 +60,6 @@ void AbstractNoteHead::paintEvent( QPaintEvent * )
     painter.setBrush( d->color );
     painter.setPen( d->color );
     painter.drawRect( rect() );
-}
-void AbstractNoteHead::mouseDoubleClickEvent( QMouseEvent * event )
-{
-    if ( event->button() == Qt::LeftButton )
-        emit doubleClicked();
 }
 void AbstractNoteHead::mousePressEvent( QMouseEvent * event )
 {

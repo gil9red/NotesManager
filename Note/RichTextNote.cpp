@@ -100,11 +100,11 @@ TextEditor * RichTextNote::textEditor()
 
 QDateTime RichTextNote::created()
 {
-    return d->created;
+    return mapSettings[ "Created" ].toDateTime();
 }
 QDateTime RichTextNote::modified()
 {
-    return d->modified;
+    return mapSettings[ "Modified" ].toDateTime();
 }
 
 void RichTextNote::setModified( bool b )
@@ -119,7 +119,7 @@ bool RichTextNote::isModified()
 
 void RichTextNote::createNew( bool bsave )
 {
-    QString path = tr( "New note" ) + "_" + QDateTime::currentDateTime().toString( "yyyy-MM-dd_hh-mm-ss__zzz" );
+    QString path = "New note_" + QDateTime::currentDateTime().toString( "yyyy-MM-dd_hh-mm-ss__zzz" );
     setFileName( QDir::fromNativeSeparators( getNotesPath() + "/" + path ) );
 
     // TODO: лучше убрать эту порнуху и сделать нормальную инициацию по умолчанию
@@ -152,7 +152,6 @@ QString RichTextNote::settingsFilePath()
 void RichTextNote::setFileName( const QString & dirName )
 {    
     d->noteFileName = dirName;
-    setPath( settingsFilePath() );
 
     if ( QDir( d->noteFileName ).exists() )
         return;
@@ -165,13 +164,17 @@ void RichTextNote::setFileName( const QString & dirName )
     QFile( settingsFilePath() ).open( QIODevice::WriteOnly );
 }
 
-
 void RichTextNote::init()
 {
     setupActions();
     setupGUI();
 
     updateStates();
+
+    connect( &d->timerAutosave, SIGNAL( timeout() ), SLOT( save() ) );
+//  TODO: брать из настроек
+    setActivateTimerAutosave( true );
+    setIntervalAutosave( 1 ); // интервал автосохранения в минутах
 }
 void RichTextNote::setupActions()
 {
@@ -389,23 +392,82 @@ void RichTextNote::setupGUI()
 
 void RichTextNote::save()
 {
-    AbstractNote::blockSignals( true );
-    AbstractNote::save();
-    AbstractNote::blockSignals( false );
+    // TODO: продумать!
+//    // Смысл сохраняться, если изменений не было?
+//    if( !isModified() )
+//        return;
+
+    qDebug() << "save";
+    mapSettings[ "Top" ] = isTop();
+    mapSettings[ "ColorTitle" ] = titleColor().name();
+    mapSettings[ "ColorBody" ] = bodyColor().name();
+    mapSettings[ "Opacity" ] = opacity();
+//    mapSettings[ "Created" ] = created();
+//    mapSettings[ "Modified" ] = modified();
+    mapSettings[ "Visible" ] = isVisible();
+    mapSettings[ "Title" ] = title();
+    mapSettings[ "FontTitle" ] = titleFont().toString();
+    mapSettings[ "Position" ] = pos();
+    mapSettings[ "Size" ] = size();
+    mapSettings[ "ReadOnly" ] = isReadOnly();
+    qDebug() << mapSettings[ "Position" ].toPoint() << mapSettings[ "Size" ].toSize();
 
     QSettings ini( settingsFilePath(), QSettings::IniFormat );
     ini.setIniCodec( "utf8" );
-    ini.setValue( "ReadOnly", isReadOnly() );
-    ini.setValue( "Created", d->created );
-    ini.setValue( "Modified", d->modified );
+    ini.setValue( "Settings", mapSettings );
 
     saveContent();
+    statusBar()->showMessage( tr( "Save completed" ), 5000 );
+    emit changed( EventsNote::SaveEnded );
+}
+void RichTextNote::load()
+{
+    const QDateTime & currentDateTime = QDateTime::currentDateTime();
+
+    QVariantMap defaultMapSettings;
+    defaultMapSettings[ "Top" ] = true;
+    defaultMapSettings[ "ColorTitle" ] = QColor( Qt::gray );
+    defaultMapSettings[ "ColorBody" ] = QColor( Qt::darkGreen );
+    defaultMapSettings[ "Opacity" ] = 1.0;
+    defaultMapSettings[ "Created" ] = currentDateTime;
+    defaultMapSettings[ "Modified" ] = currentDateTime;
+    defaultMapSettings[ "Visible" ] = true;
+    defaultMapSettings[ "Title" ] = tr( "New note" ) + " " + currentDateTime.toString( Qt::SystemLocaleLongDate );
+    defaultMapSettings[ "FontTitle" ] = QFont().toString();
+    defaultMapSettings[ "Position" ] = QPoint( 100, 100 );
+    defaultMapSettings[ "Size" ] = QSize( 50, Note::minimalHeight );
+    defaultMapSettings[ "ReadOnly" ] = false;
+
+
+    QSettings ini( settingsFilePath(), QSettings::IniFormat );
+    ini.setIniCodec( "utf8" );
+    mapSettings = ini.value( "Settings", defaultMapSettings ).toMap();
+
+    QFont font;
+    font.fromString( mapSettings[ "FontTitle" ].toString() );
+
+    setTop( mapSettings[ "Top" ].toBool() );
+    setTitleColor( QColor( mapSettings[ "ColorTitle" ].toString() ) );
+    setBodyColor( QColor( mapSettings[ "ColorBody" ].toString() ) );
+    setOpacity( mapSettings[ "Opacity" ].toFloat() );
+    setVisible( mapSettings[ "Visible" ].toBool() );
+    setTitle( mapSettings[ "Title" ].toString() );
+    setTitleFont( font );
+    move( mapSettings[ "Position" ].toPoint() );
+    resize( mapSettings[ "Size" ].toSize() );
+    setReadOnly( mapSettings[ "ReadOnly" ].toBool() );
+qDebug() << mapSettings[ "Position" ].toPoint() << mapSettings[ "Size" ].toSize();
+    loadContent();
+
+    updateStates();
+    emit changed( EventsNote::LoadEnded );
 }
 void RichTextNote::saveContent()
 {
+// TODO: продумать!
     // Смысл сохраняться, если изменений не было?
-    if( !d->isModified )
-        return;
+//    if( !isModified() )
+//        return;
 
     QFile content( contentFilePath() );
     if ( !content.open( QIODevice::Truncate | QIODevice::WriteOnly ) )
@@ -419,26 +481,8 @@ void RichTextNote::saveContent()
     in << text();
     content.close();
 
-    d->isModified = false;
-    updateStates();
-
-    emit changed( EventsNote::SaveEnded );
-}
-void RichTextNote::load()
-{
-    AbstractNote::blockSignals( true );
-    AbstractNote::load();
-    AbstractNote::blockSignals( false );
-
-    QSettings ini( settingsFilePath(), QSettings::IniFormat );
-    ini.setIniCodec( "utf8" );
-    setReadOnly( ini.value( "ReadOnly", false ).toBool() );
-
-    const QDateTime & currentDateTime = QDateTime::currentDateTime();
-    d->created = ini.value( "Created", currentDateTime ).toDateTime();
-    d->modified = ini.value( "Modified", currentDateTime ).toDateTime();
-
-    loadContent();
+    setModified( false );
+//    d->isModified = false;
     updateStates();
 }
 void RichTextNote::loadContent()
@@ -450,14 +494,7 @@ void RichTextNote::loadContent()
         return;
     }
 
-//    QTextStream in( &content );
-//    in.setCodec( "utf8" );
-//    setText( in.readAll() );
-//    content.close();
-
     d->editor->setSource( QUrl::fromLocalFile( contentFilePath() ) );
-
-    emit changed( EventsNote::LoadEnded );
 }
 void RichTextNote::setText( const QString & str )
 {
@@ -497,29 +534,21 @@ void RichTextNote::setReadOnly( bool ro )
         return;
 
     d->editor->setReadOnly( ro );
-    d->isReadOnly = ro;
     updateStates();
     emit changed( EventsNote::ChangeReadOnly );
 }
 bool RichTextNote::isReadOnly()
 {
-    return d->isReadOnly;
+    return d->editor->isReadOnly();
 }
 
 void RichTextNote::setTop( bool b )
 {
-    if ( isTop() == b )
-        return;
+//    if ( isTop() == b )
+//        return;
 
     AbstractNote::setTop( b );
     updateStates();
-}
-void RichTextNote::setMinimize( bool b )
-{
-    if ( dockWidgetFormattingToolbar )
-        dockWidgetFormattingToolbar->setHidden( b );
-
-    AbstractNote::setMinimize( b );
 }
 
 void RichTextNote::selectTitle()
@@ -550,16 +579,16 @@ void RichTextNote::selectTitleColor()
 }
 void RichTextNote::selectColor()
 {
-    const QColor & color = QColorDialog::getColor( backgroundColor(), this, tr( "Select color" ) );
+    const QColor & color = QColorDialog::getColor( bodyColor(), this, tr( "Select color" ) );
     if ( !color.isValid() )
         return;
 
-    setBackgroundColor( color );
+    setBodyColor( color );
 }
 void RichTextNote::selectOpacity()
 {
     bool b;
-    int op = QInputDialog::getInt( this, tr( "Select opacity" ), tr( "Opacity:" ), opacity() * 100.0, 20, 100, 1, &b);
+    int op = QInputDialog::getInt( this, tr( "Select opacity" ), tr( "Opacity:" ), opacity() * 100.0, 20, 100, 1, &b); // TODO: минимум в константу
 
     if ( !b )
         return;
@@ -719,10 +748,31 @@ int RichTextNote::numberOfAttachments()
     return QDir( attachDirPath() ).entryList( QDir::Files ).size();
 }
 
+void RichTextNote::setActivateTimerAutosave( bool activate )
+{
+    if ( activate )
+        d->timerAutosave.start();
+    else
+        d->timerAutosave.stop();
+}
+bool RichTextNote::isActivateTimerAutosave()
+{
+    return d->timerAutosave.isActive();
+}
+
+void RichTextNote::setIntervalAutosave( quint64 minutes )
+{
+    d->timerAutosave.setInterval( 1000 * 60 * minutes );
+}
+quint64 RichTextNote::intervalAutosave()
+{
+    return d->timerAutosave.interval() / ( 1000 * 60 );
+}
+
 void RichTextNote::changeOpacity( QAction * action )
 {
     qreal o = action->data().toReal();
-    if ( o < 0 )
+    if ( o < Note::minimalOpacity )
         selectOpacity();
     else
         setOpacity( o );
@@ -735,7 +785,8 @@ void RichTextNote::updateStates()
 {
     bool top = isTop();
     bool readOnly = isReadOnly();
-    bool isModified = d->isModified;
+//    bool isModified = d->isModified;
+    bool isModified = this->isModified();
 
     tButtonSetTopBottom->setChecked( top );
     actionSetTopBottom->setChecked( top );
@@ -748,8 +799,9 @@ void RichTextNote::updateStates()
 }
 void RichTextNote::contentsChanged()
 {
-    d->modified = QDateTime::currentDateTime();
-    d->isModified = true;
+    mapSettings[ "Modified" ] = QDateTime::currentDateTime();
+//    d->isModified = true;
+    setModified( true );
     updateStates();
     emit changed( EventsNote::ChangeText );
 }

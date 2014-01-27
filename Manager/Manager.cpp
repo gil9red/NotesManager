@@ -504,7 +504,7 @@ void Manager::open()
     if ( fileName.isEmpty() )
         return;
 
-    QString nameDirNote = tr( "New note" ) + "_" + QDateTime::currentDateTime().toString( "yyyy-MM-dd_hh-mm-ss__zzz" );
+    QString nameDirNote = "New note_" + QDateTime::currentDateTime().toString( "yyyy-MM-dd_hh-mm-ss__zzz" );
     QString absNameDirNote = getNotesPath() + "/" + nameDirNote;
 
     if ( !QDir().mkdir( absNameDirNote ) )

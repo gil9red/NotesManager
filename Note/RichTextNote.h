@@ -70,8 +70,8 @@ private:
 
 public slots:
     void save();        //!< Сохранение заметки.
-    void saveContent(); //!< Сохранение только содержимого заметки.
     void load();        //!< Загрузка заметки.
+    void saveContent(); //!< Сохранение только содержимого заметки.
     void loadContent(); //!< Загрузка только содержимого заметки.
 
     //! Установка текста заметки.
@@ -99,14 +99,7 @@ public slots:
 
     //! Устанавливает заметку поверх всех окон.
     /*! \sa isTop(), AbstractNote::setTop() */
-    virtual void setTop( bool b );
-
-    //! Устанавливает значение минимизации заметки.
-    /*! При минимизировании, центральный виджет заметки будет скрыт, а
-     *  размер заметки по высоте фиксированным.
-     *  \sa isMinimize(), AbstractNote::setMinimize()
-     */
-    void setMinimize( bool b );
+    void setTop( bool b );
 
     void selectTitle();      //!< Вызов диалога выбора заголовка.
     void selectTitleFont();  //!< Вызов диалога выбора шрифта заголовка.
@@ -143,6 +136,25 @@ public slots:
 
     //! Функция возвращает количество прикрепленных файлов.
     int numberOfAttachments();
+
+
+    //! Устанавливает активность таймера автосохранения .
+    /*! \sa isActivateTimerAutosave() */
+    void setActivateTimerAutosave( bool activate );
+
+    //! Возвращение true, если таймер автосохранения запущен, иначе false.
+    /*! \sa setActivateTimerAutosave() */
+    bool isActivateTimerAutosave();
+
+    //! Устанавливает интервал таймера автосохранения.
+    /*! \param minutes значение интервала таймера в минутах
+     *  \sa intervalAutosave()
+     */
+    void setIntervalAutosave( quint64 minutes );
+
+    //! Функция возвращает интервал срабатывания таймера в минутах.
+    /*! \sa setIntervalAutosave() */
+    quint64 intervalAutosave();
 
 private slots:
     //! Слот вызывают действия меню прозрачности
@@ -199,12 +211,10 @@ protected:
 class d_RichTextNote: public d_AbstractNote
 {
 public:
-    bool isReadOnly;      //! "Только для чтения"
-    QDateTime created;    //! Дата создания
-    QDateTime modified;   //! Дата изменения
-    TextEditor * editor;  //! Редактор заметки
+    QTimer timerAutosave; //!< Таймер автосохранений
     bool isModified;      //! "Заметка изменена"
     QString noteFileName; //! Путь до папки заметки
+    TextEditor * editor;  //! Редактор заметки
 };
 
 Q_DECLARE_METATYPE( RichTextNote * )

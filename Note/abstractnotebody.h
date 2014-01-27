@@ -98,7 +98,6 @@ public:
 
 public:
     d_AbstractBody * d; //!< Дата
-//    QStatusBar * statusBar; //!< Панель состояний
 
 private:
     QToolBar * tBar; //!< Панель инструментов

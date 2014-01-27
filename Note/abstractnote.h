@@ -57,7 +57,6 @@ namespace EventsNote
         Remove,           /**< Удаление */
         SaveEnded,        /**< Завершено сохранение настроек */
         LoadEnded,        /**< Завершена загрузка настроек */
-        ChangeMinimize,   /**< Изменена минимизация заметки */
         Close,            /**< Закрытие */
         ChangeTitle,      /**< Изменен заголовок (название) заметки */
         ChangeFontTitle,  /**< Изменен шрифт заголовка заметки */
@@ -84,23 +83,6 @@ public:
     //! Создание и инициализация заметки.
     explicit AbstractNote( QWidget * parent = 0 );
     ~AbstractNote();
-
-    //! Удаление файла заметки.
-    /*! Удаление конфигурационного файла заметки.
-     *  В этом файле хранятся все свойства заметки, включая цвет, размер и положение на экране.
-     *  \sa setFileName(), fileName()
-     */
-    void removeFile();
-
-    //! В функцию передается путь до файла заметок.
-    /*! \param fileName путь до файла заметок
-     *  \sa setFileName(), fileName()
-     */
-    void setPath( const QString & fileName );
-
-    //! Функция возващает путь до файла заметок.
-    /*! \sa setFileName(), fileName() */
-    QString path();
 
     //! Указание центрального виджета.
     /*! Центральный виджет будет размещен на теле заметки.
@@ -168,20 +150,13 @@ public:
     /*! \param menu ссылка на список действий */
     void addMenu( QMenu * menu );
 
-private:
-    QTimer timerAutosave; //!< Таймер автосохранений
-
 protected:
     d_AbstractNote * d; //!< Дата абстрактной заметки
     AbstractNoteHead * head; //!< Голова (шапка) заметки
     AbstractNoteBody * body; //!< Тело заметки
     QMenu contextMenu; //!< Меню заметки
     PropertyAttachable * propertyAttachable; //!< Класс, который дает возможность прикрепляться к краю экрана
-
-private slots:
-    //! Функция вызывается, когда происходит двойной клик мыши по голове заметки.
-    /*! \sa AbstractNoteHead::doubleClicked() */
-    void doubleHeadClicked();
+    QVariantMap mapSettings;
 
 public slots:    
     //! Функция устанавливает минимальную дистанцию прикрепления.
@@ -243,14 +218,6 @@ public slots:
      */
     bool isVisibleToolBar();
 
-    //! Сохранение параметров заметки в файл заметки.
-    /*! \sa load() */
-    void save();
-
-    //! Загрузка параметров заметки из файла заметки.
-    /*! \sa save() */
-    void load();
-
     //! Установка заголовка (названия) заметки.
     /*! \param str текст
      *  \sa title(), AbstractNoteHead::setTitle()
@@ -281,26 +248,11 @@ public slots:
      */
     bool isTop();
 
-    //! Устанавливает значение минимизации заметки.
-    /*! При минимизировании, центральный виджет заметки будет скрыт, а
-     *  размер заметки по высоте фиксированным.
-     *  \sa isMinimize()
-     */
-    void setMinimize(bool b );
-
-    //! Возвращение значения минимизации заметки.
-    /*! \return true, если заметка минимизирована, иначе false
-     *  \sa setMinimize()
-     */
-    bool isMinimize();
-
     //! Устанавливает цвет тела заметки.
-    /*! \sa backgroundColor(), AbstractNoteBody::setColor() */
-    void setBackgroundColor( const QColor & c );
+    void setBodyColor( const QColor & c );
 
     //! Возвращение цвета тела заметки.
-    /*! \sa setBackgroundColor(), AbstractNoteBody::color() */
-    QColor backgroundColor();
+    QColor bodyColor();
 
     //! Устанавливает цвет головы заметки.
     /*! \sa titleColor(), AbstractNoteHead::setColor() */
@@ -323,24 +275,6 @@ public slots:
      */
     qreal opacity();
 
-    //! Устанавливает активность таймера автосохранения .
-    /*! \sa isActivateTimerAutosave() */
-    void setActivateTimerAutosave( bool activate );
-
-    //! Возвращение true, если таймер автосохранения запущен, иначе false.
-    /*! \sa setActivateTimerAutosave() */
-    bool isActivateTimerAutosave();
-
-    //! Устанавливает интервал таймера автосохранения.
-    /*! \param minutes значение интервала таймера в минутах
-     *  \sa intervalAutosave()
-     */
-    void setIntervalAutosave( quint64 minutes );
-
-    //! Функция возвращает интервал срабатывания таймера в минутах.
-    /*! \sa setIntervalAutosave() */
-    quint64 intervalAutosave();
-
 signals:
     //! Сигнал отсылается при изменении состояния заметки или при происшествии определенного события.
     /*! \sa EventNote() */
@@ -352,7 +286,6 @@ signals:
 
 protected:
     void closeEvent( QCloseEvent * );
-    void resizeEvent( QResizeEvent * event );
     void contextMenuEvent( QContextMenuEvent * event );
     void showEvent(QShowEvent * event);
     void hideEvent( QHideEvent * event );
@@ -364,16 +297,8 @@ protected:
 class d_AbstractNote
 {
 public:
-    int oldHeight;              //!< Старая высота
-    bool isMinimize;            //!< Состояние минимизации
-    bool isTop;                 //!< Состояние "поверх всех окон"
-    bool activateTimerAutosave; //!< Состояние таймера автосохранения
-    int intervalAutosave;       //!< Интервал автосохранения
-    qreal opacity;              //!< Значение прозрачности
-    QString path;               //!< Путь к файлу заметки
     d_AbstractHead * d_head;    //!< Дата "головы" заметки
     d_AbstractBody * d_body;    //!< Дата "тела" заметки
-    QColor color;               //!< Цвет заметки
 
     bool sides;                 //!< Видимость рамки
     Shared::Sides penSides;     //!< Указание какие стороны рамки показывать

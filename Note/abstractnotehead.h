@@ -32,6 +32,7 @@
 #include <QPoint>
 #include <QMouseEvent>
 #include <QPaintEvent>
+#include <QLineEdit>
 
 class d_AbstractHead;
 
@@ -81,13 +82,8 @@ public:
     d_AbstractHead * d; //!< Дата
     QLabel * label;     //!< Класс, который отображает текст заголовка
 
-signals:
-    //! Сигнал вызывается, когда происходит двойной клик мыши по виджету.
-    void doubleClicked();
-
 protected:
     void paintEvent( QPaintEvent * );
-    void mouseDoubleClickEvent( QMouseEvent * event );
     void mousePressEvent( QMouseEvent * event );
     void mouseReleaseEvent( QMouseEvent *  );
     void mouseMoveEvent( QMouseEvent * event );
@@ -100,8 +96,8 @@ class d_AbstractHead
 {
 public:
     QColor color;       //!< Цвет
-    QString text;       //!< Текст
-    QFont font;         //!< Шрифт текста
+//    QString text;       //!< Текст
+//    QFont font;         //!< Шрифт текста
     QPoint oldPosition; //!< Старая позиция
     bool isMousePress;  //!< Текущее состояние левой кнопки мыши
 };

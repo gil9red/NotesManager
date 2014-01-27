@@ -8,10 +8,6 @@ AbstractNoteBody::AbstractNoteBody( QWidget * parent )
     : QMainWindow( parent ),
       d( new d_AbstractBody )
 {
-//    statusBar = new QStatusBar();
-//    statusBar->setSizeGripEnabled( true );
-//    setStatusBar( statusBar );
-
     setContextMenuPolicy( Qt::NoContextMenu );
 
     tBar = new QToolBar();
@@ -77,7 +73,6 @@ QToolBar * AbstractNoteBody::toolBar()
 {
     return tBar;
 }
-
 
 void AbstractNoteBody::paintEvent( QPaintEvent * )
 {
