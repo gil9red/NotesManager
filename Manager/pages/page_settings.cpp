@@ -88,6 +88,9 @@ void Page_Settings::mapToSettings()
     ui->sBoxHeight->setValue( mapSettings[ "NewNote_Height" ].toInt() );
     ui->sBoxLeft->setValue( mapSettings[ "NewNote_Left" ].toInt() );
     ui->sBoxTop->setValue( mapSettings[ "NewNote_Top" ].toInt() );
+
+    ui->checkBoxAutosaveNotes->setChecked( mapSettings[ "Notes_Autosave" ].toBool() );
+    ui->sBoxAutosaveIntervalNotes->setValue( mapSettings[ "Notes_AutosaveInterval" ].toInt() );
 }
 void Page_Settings::settingsToMap()
 {
@@ -112,6 +115,9 @@ void Page_Settings::settingsToMap()
     mapSettings[ "NewNote_Height" ] = ui->sBoxHeight->value();
     mapSettings[ "NewNote_Left" ] = ui->sBoxLeft->value();
     mapSettings[ "NewNote_Top" ] = ui->sBoxTop->value();
+
+    mapSettings[ "Notes_Autosave" ] = ui->checkBoxAutosaveNotes->isChecked();
+    mapSettings[ "Notes_AutosaveInterval" ] = ui->sBoxAutosaveIntervalNotes->value();
 }
 
 QString Page_Settings::getDefaultLanguage()
@@ -167,6 +173,9 @@ void Page_Settings::on_treeWidgetMenu_itemClicked(QTreeWidgetItem *item, int col
 
     else if ( name == "New note" )
         ui->stackedPages->setCurrentWidget( ui->pageNewNote );
+
+    else if ( name == "Notes" )
+        ui->stackedPages->setCurrentWidget( ui->pageNotes );
 }
 
 void Page_Settings::on_buttonBox_clicked(QAbstractButton *button)

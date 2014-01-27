@@ -104,6 +104,14 @@
          <set>ItemIsSelectable|ItemIsEnabled</set>
         </property>
        </item>
+       <item>
+        <property name="text">
+         <string>Notes</string>
+        </property>
+        <property name="statusTip">
+         <string notr="true">Notes</string>
+        </property>
+       </item>
       </widget>
       <widget class="QStackedWidget" name="stackedPages">
        <property name="sizePolicy">
@@ -206,13 +214,13 @@
                   </sizepolicy>
                  </property>
                  <property name="toolTip">
-                  <string>Autosave</string>
+                  <string>Autosave manager</string>
                  </property>
                  <property name="statusTip">
-                  <string>Autosave</string>
+                  <string>Autosave manager</string>
                  </property>
                  <property name="whatsThis">
-                  <string>Autosave</string>
+                  <string>Autosave manager</string>
                  </property>
                  <property name="text">
                   <string>Autosave</string>
@@ -234,13 +242,13 @@
                   </sizepolicy>
                  </property>
                  <property name="toolTip">
-                  <string>Autosave interval</string>
+                  <string>Autosave interval manager</string>
                  </property>
                  <property name="statusTip">
-                  <string>Autosave interval</string>
+                  <string>Autosave interval manager</string>
                  </property>
                  <property name="whatsThis">
-                  <string>Autosave interval</string>
+                  <string>Autosave interval manager</string>
                  </property>
                  <property name="suffix">
                   <string> minute(s)</string>
@@ -550,6 +558,83 @@
             </layout>
            </widget>
           </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="pageNotes">
+        <layout class="QVBoxLayout" name="verticalLayout_8">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <item>
+            <widget class="QCheckBox" name="checkBoxAutosaveNotes">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="toolTip">
+              <string>Autosave notes</string>
+             </property>
+             <property name="statusTip">
+              <string>Autosave notes</string>
+             </property>
+             <property name="whatsThis">
+              <string>Autosave notes</string>
+             </property>
+             <property name="text">
+              <string>Autosave</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="sBoxAutosaveIntervalNotes">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="toolTip">
+              <string>Autosave interval notes</string>
+             </property>
+             <property name="statusTip">
+              <string>Autosave interval notes</string>
+             </property>
+             <property name="whatsThis">
+              <string>Autosave interval notes</string>
+             </property>
+             <property name="suffix">
+              <string> minute(s)</string>
+             </property>
+             <property name="minimum">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <number>10000</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_4">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
          </item>
         </layout>
        </widget>

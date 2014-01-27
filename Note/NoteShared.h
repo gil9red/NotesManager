@@ -46,7 +46,7 @@ namespace Shared
 Q_DECLARE_OPERATORS_FOR_FLAGS ( Shared::Sides )
 
 //! Содержит значения по умолчанию абстрактной заметки.
-namespace Abstract
+namespace Note
 {
     const int topBorder = 31; //!< Высота шапки заметки
     const int minimalHeight = 75; //!< Минимальная высота заметки

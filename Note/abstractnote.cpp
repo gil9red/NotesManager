@@ -29,10 +29,10 @@ AbstractNote::AbstractNote( QWidget * parent ) :
     setStatusBar( new QStatusBar() );
 
     // TODO: значения по умолчанию
-    d->sides = Abstract::Frame::visible;
+    d->sides = Note::Frame::visible;
     d->penSides = Shared::Left | Shared::Right | Shared::Top | Shared::Bottom;
-    d->colorSides = Abstract::Frame::color;
-    d->widthPenSides = Abstract::Frame::width;
+    d->colorSides = Note::Frame::color;
+    d->widthPenSides = Note::Frame::width;
 
     propertyAttachable = new PropertyAttachable( this );
     propertyAttachable->installTo( head );
@@ -54,17 +54,17 @@ AbstractNote::AbstractNote( QWidget * parent ) :
 
     // TODO: значения по умолчанию
     // Минимальная высота. Выбрал ее как наоболее подходящую
-    setMinimumHeight( Abstract::minimalHeight );
-    setWindowFlags( Abstract::flags );
+    setMinimumHeight( Note::minimalHeight );
+    setWindowFlags( Note::flags );
 
     connect( &timerAutosave, SIGNAL( timeout() ), SLOT( save() ) );
-//  TODO:  setActivateTimerAutosave( true );
+//  TODO: брать из настроек  setActivateTimerAutosave( true );
 //    setIntervalAutosave( 7 ); // интервал автосохранения в минутах
 
     // TODO: значения по умолчанию
-    setVisibleFrame( Abstract::Frame::visible );
-    setWidthPenSides( Abstract::Frame::width );
-    setColorSides( Abstract::Frame::color );
+    setVisibleFrame( Note::Frame::visible );
+    setWidthPenSides( Note::Frame::width );
+    setColorSides( Note::Frame::color );
 }
 AbstractNote::~AbstractNote()
 {
@@ -229,6 +229,7 @@ void AbstractNote::save()
 }
 void AbstractNote::load()
 {
+    // TODO: загрузку и сохранение нафиг из абстрактной - только запутал себя.
     QSettings ini( path(), QSettings::IniFormat );
     ini.setIniCodec( "utf8" );
 // TODO: значения по умолчанию брать
@@ -282,7 +283,7 @@ QFont AbstractNote::titleFont()
 void AbstractNote::setTop( bool b )
 {
     d->isTop = b;
-    Qt::WindowFlags flags = Abstract::flags;
+    Qt::WindowFlags flags = Note::flags;
     bool visible = isVisible();
 
     flags |= d->isTop ? Qt::WindowStaysOnTopHint : Qt::WindowStaysOnBottomHint;
@@ -352,7 +353,7 @@ QColor AbstractNote::titleColor()
 
 void AbstractNote::setOpacity( qreal o )
 {
-    if( o < 0.2 )
+    if( o < 0.2 ) // TODO: минимальная прозрачность в константу
         o = 0.2;
     setWindowOpacity( o );
     d->opacity = o;

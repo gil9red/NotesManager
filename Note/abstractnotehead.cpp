@@ -11,7 +11,7 @@ AbstractNoteHead::AbstractNoteHead( QWidget * parent )
 {
     d->isMousePress = false;
 
-    setFixedHeight( Abstract::topBorder );
+    setFixedHeight( Note::topBorder );
 
     QVBoxLayout * mainLayout = new QVBoxLayout();
     mainLayout->setSpacing( 0 );
