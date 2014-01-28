@@ -35,6 +35,7 @@
 #include <QSplashScreen>
 #include <QTranslator>
 #include <QDebug>
+#include <QDateTime>
 
 #include "version.h"
 
@@ -84,11 +85,14 @@ static const char codec[] = "utf8";
 // Как думаешь, стоит ли на это окно с вопросом повесить таймер, который автоматический отменит закрытие и уберет окно, ну скажем, через 30 секуед?
 // TODO: гиперссылки у заметок
 // TODO: НАстройки: "думаю самое простое убрать кнопку применить)) и сделать автоматом))"
+// TODO: показывать что заметки создаются, к примеру, менять курсор на часы, тоже самое и с массовыми изменениями заметок
+// TODO: настроить значения размера и положения на экране в настрйоках
 
 static void loadTranslations( QSettings * settings );
 
 int main( int argc, char *argv[] )
 {
+    qsrand( QDateTime().toMSecsSinceEpoch() );
     QTextCodec::setCodecForCStrings( QTextCodec::codecForName( codec ) );
 
     QtSingleApplication app( argc, argv );

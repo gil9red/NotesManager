@@ -50,6 +50,7 @@
 #include <QDesktopServices>
 #include <QDateTime>
 #include <QPropertyAnimation>
+#include <QDesktopWidget>
 
 #include "utils/func.h"
 #include "JlCompress.h"
@@ -71,6 +72,8 @@ static QActionGroup * createGroupActionsOpacity( QObject * parent = 0 )
 
     return group;
 }
+
+QVariantMap RichTextNote::defaultMapSettings;
 
 RichTextNote::RichTextNote( const QString & fileName, QWidget * parent )
     : AbstractNote( parent ),
@@ -123,9 +126,6 @@ void RichTextNote::createNew( bool bsave )
     QString path = "New note_" + QDateTime::currentDateTime().toString( "yyyy-MM-dd_hh-mm-ss__zzz" );
     setFileName( QDir::fromNativeSeparators( getNotesPath() + "/" + path ) );
 
-    // TODO: лучше убрать эту порнуху и сделать нормальную инициацию по умолчанию
-    // а лучше брать из настроек
-    // пытаемся загрузить
     load();
 
     // сохраняемся на всякий случай
@@ -162,6 +162,25 @@ void RichTextNote::setFileName( const QString & dirName )
     QDir().mkdir( attachDirPath() );
     QFile( contentFilePath() ).open( QIODevice::WriteOnly );
     QFile( settingsFilePath() ).open( QIODevice::WriteOnly );
+}
+
+void RichTextNote::setDefaultSettingsFromMap( const QVariantMap & s )
+{
+    // TODO: закончить!
+    defaultMapSettings[ "Top" ] = s.value( "NewNote_Top" );
+    defaultMapSettings[ "ColorTitle" ] = QColor( Qt::gray ).name();
+    defaultMapSettings[ "ColorBody" ] = QColor( Qt::darkGreen ).name();
+    defaultMapSettings[ "Opacity" ] = Note::maximalOpacity;
+    defaultMapSettings[ "Visible" ] = s.value( "NewNote_Visible" );
+
+    defaultMapSettings[ "Title" ] = s.value( "NewNote_Title", "New note %dt%" );
+    defaultMapSettings[ "FontTitle" ] = s.value( "NewNote_FontTitle", QFont().toString() );
+    defaultMapSettings[ "Position" ] = s.value( "NewNote_Position" ).toPoint();
+    defaultMapSettings[ "Size" ] = s.value( "NewNote_Size" ).toSize();
+    defaultMapSettings[ "ReadOnly" ] = false;
+
+    defaultMapSettings[ "RandomColor" ] = s.value( "NewNote_RandomColor" );
+    defaultMapSettings[ "RandomPositionOnScreen" ] = s.value( "NewNote_RandomPositionOnScreen" );
 }
 
 void RichTextNote::init()
@@ -419,40 +438,80 @@ void RichTextNote::save()
 }
 void RichTextNote::load()
 {
-    const QDateTime & currentDateTime = QDateTime::currentDateTime();
-
-    QVariantMap defaultMapSettings;
-    defaultMapSettings[ "Top" ] = true;
-    defaultMapSettings[ "ColorTitle" ] = QColor( Qt::gray );
-    defaultMapSettings[ "ColorBody" ] = QColor( Qt::darkGreen );
-    defaultMapSettings[ "Opacity" ] = Note::maximalOpacity;
-    defaultMapSettings[ "Created" ] = currentDateTime;
-    defaultMapSettings[ "Modified" ] = currentDateTime;
-    defaultMapSettings[ "Visible" ] = true;
-    defaultMapSettings[ "Title" ] = tr( "New note" ) + " " + currentDateTime.toString( Qt::SystemLocaleLongDate );
-    defaultMapSettings[ "FontTitle" ] = QFont().toString();
-    defaultMapSettings[ "Position" ] = QPoint( 100, 100 );
-    defaultMapSettings[ "Size" ] = QSize( Note::minimalWidth, Note::minimalHeight );
-    defaultMapSettings[ "ReadOnly" ] = false;
-
-
     QSettings ini( settingsFilePath(), QSettings::IniFormat );
     ini.setIniCodec( "utf8" );
-    mapSettings = ini.value( "Settings", defaultMapSettings ).toMap();
+    mapSettings = ini.value( "Settings" ).toMap();
 
-    QFont font;
-    font.fromString( mapSettings[ "FontTitle" ].toString() );
+    QString _title;
+    QFont _fontTitle;
+    QSize _size;
+    QPoint _position;
+    QColor _titleColor;
+    QColor _bodyColor;
+    bool _top;
+    qreal _opacity;
+    bool _visible;
+    bool _readOnly;
 
-    setTop( mapSettings[ "Top" ].toBool() );
-    setTitleColor( QColor( mapSettings[ "ColorTitle" ].toString() ) );
-    setBodyColor( QColor( mapSettings[ "ColorBody" ].toString() ) );
-    setOpacity( mapSettings[ "Opacity" ].toFloat() );
-    setVisible( mapSettings[ "Visible" ].toBool() );
-    setTitle( mapSettings[ "Title" ].toString() );
-    setTitleFont( font );
-    move( mapSettings[ "Position" ].toPoint() );
-    resize( mapSettings[ "Size" ].toSize() );
-    setReadOnly( mapSettings[ "ReadOnly" ].toBool() );
+    // Если пуст, значит эта заметка новая -> берем параметры из дэфолтных настроек
+    if ( mapSettings.isEmpty() )
+    {
+        const QDateTime & currentDateTime = QDateTime::currentDateTime();
+        const QRect & desktop = QDesktopWidget().geometry();
+        bool randomPosition = defaultMapSettings[ "RandomPositionOnScreen" ].toBool();
+        bool randomColor = defaultMapSettings[ "RandomColor" ].toBool();
+
+        mapSettings[ "Created" ] = currentDateTime;
+        mapSettings[ "Modified" ] = currentDateTime;
+
+        _title = defaultMapSettings[ "Title" ].toString().replace( "%dt%", currentDateTime.toString( Qt::SystemLocaleLongDate ) );
+        _fontTitle.fromString( defaultMapSettings[ "FontTitle" ].toString() );
+        _size = defaultMapSettings[ "Size" ].toSize();
+
+        if ( randomPosition )
+            _position = QPoint( qrand() % desktop.width(), qrand() % desktop.height() );
+        else
+            _position = defaultMapSettings[ "Position" ].toPoint();
+
+        if ( randomColor )
+        {
+            _titleColor.setRgb( qrand() % 0xff, qrand() % 0xff, qrand() % 0xff );
+            _bodyColor.setRgb( qrand() % 0xff, qrand() % 0xff, qrand() % 0xff );
+        } else
+        {
+            _titleColor = QColor( defaultMapSettings[ "ColorTitle" ].toString() );
+            _bodyColor = QColor( defaultMapSettings[ "ColorBody" ].toString() );
+        }
+
+        _top = defaultMapSettings[ "Top" ].toBool();
+        _opacity = defaultMapSettings.value( "Opacity" ).toBool();
+        _visible = defaultMapSettings.value( "Visible" ).toBool();
+        _readOnly = defaultMapSettings[ "ReadOnly" ].toBool();
+
+    } else
+    {
+        _title = mapSettings[ "Title" ].toString();
+        _fontTitle.fromString( mapSettings[ "FontTitle" ].toString() );
+        _size = mapSettings[ "Size" ].toSize();
+        _position = mapSettings[ "Position" ].toPoint();
+        _titleColor = QColor( mapSettings[ "ColorTitle" ].toString() );
+        _bodyColor = QColor( mapSettings[ "ColorBody" ].toString() );
+        _top = mapSettings[ "Top" ].toBool();
+        _opacity = mapSettings[ "Opacity" ].toDouble();
+        _visible = mapSettings.value( "Visible" ).toBool();
+        _readOnly = mapSettings[ "ReadOnly" ].toBool();
+    }
+
+    setTitle( _title );
+    setTitleFont( _fontTitle );
+    resize( _size );
+    move( _position );
+    setTitleColor( _titleColor );
+    setBodyColor( _bodyColor );
+    setTop( _top );
+    setOpacity( _opacity );
+    setVisible( _visible );
+    setReadOnly( _readOnly );
 
     loadContent();
 

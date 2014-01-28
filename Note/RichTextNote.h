@@ -63,6 +63,8 @@ public:
     //! В функцию передается путь до папки заметки.
     void setFileName(const QString & dirPath );
 
+    static void setDefaultSettingsFromMap( const QVariantMap & s );
+
 private:
     void init();         //!< Инициализация заметки.
     void setupActions(); //!< Установка действий.
@@ -197,6 +199,8 @@ public:
     QStandardItemModel attachModel;
     QToolButton * tButtonVisibleAttachPanel;
     QAction * actionVisibleAttachPanel;
+
+    static QVariantMap defaultMapSettings; //!< Карта с дэфолтными настройками для заметок.
 
 public:
     friend class AttachPanel;

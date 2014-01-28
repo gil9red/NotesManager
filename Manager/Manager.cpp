@@ -532,7 +532,6 @@ void Manager::addNote()
 {
     RichTextNote * note = new RichTextNote();
     note->createNew();
-    note->show();
 
     connect( note, SIGNAL( changed(int) ), SLOT( noteChange(int) ) );
     model.appendRow( toStandardItems( note ) );
@@ -544,7 +543,6 @@ void Manager::addNoteFromClipboard()
     note->createNew( false );
     note->setText( qApp->clipboard()->text() );
     note->save();
-    note->show();
 
     connect( note, SIGNAL( changed(int) ), SLOT( noteChange(int) ) );
     model.appendRow( toStandardItems( note ) );
@@ -564,7 +562,6 @@ void Manager::addNoteFromScreen()
     note->createNew( false );
     note->insertImage( screenshot );
     note->save();
-    note->show();
 
     connect( note, SIGNAL( changed(int) ), SLOT( noteChange(int) ) );
     model.appendRow( toStandardItems( note ) );
@@ -572,13 +569,9 @@ void Manager::addNoteFromScreen()
 }
 void Manager::removeAllNotes()
 {
-    QMessageBox::StandardButton result = QMessageBox::question( this, tr( "Question" ), tr( "Delete all notes?" ),
-                                                                QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes );
+    QMessageBox::StandardButton result = QMessageBox::question( this, tr( "Question" ), tr( "Delete all notes?" ), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes );
     if ( result == QMessageBox::No )
         return;
-
-//    while ( model.rowCount() )
-//        toNote( model.item( 0, 0 ) )->invokeRemove();
 
     for ( int i = model.rowCount() - 1; i >= 0; i-- )
         toNote( model.item( i, 0 ) )->invokeRemove();
@@ -593,7 +586,7 @@ void Manager::showAllNotes()
     for ( int i = 0; i < model.rowCount(); i++ )
     {
         RichTextNote * note = toNote( model.item( i, 0 ) );
-        if ( note->isVisible()  )
+        if ( note->isVisible() )
             continue;
         else
             note->show();
