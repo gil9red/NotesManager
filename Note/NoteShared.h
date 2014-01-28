@@ -49,18 +49,20 @@ Q_DECLARE_OPERATORS_FOR_FLAGS ( Shared::Sides )
 namespace Note
 {
     // TODO: надо закончить описание
-    const int topBorder = 31; //!< Высота шапки заметки
-    const int minimalHeight = 75; //!< Минимальная высота заметки
-    const float minimalOpacity = 0.2; //!< Минимальная прозрачность заметки
+    const uint topBorder = 31; //!< Высота шапки заметки
+    const uint minimalHeight = 75; //!< Минимальная высота заметки
+    const uint minimalWidth = 75; //!< Минимальная ширина заметки
+    const qreal minimalOpacity = 0.2; //!< Минимальная прозрачность заметки
+    const qreal maximalOpacity = 1.0; //!< Максимальная не прозрачность заметки
 
     //! Окно без кнопки на панели задач и без системной рамки.
-    const Qt::WindowFlags flags = Qt::Tool | Qt::FramelessWindowHint;
+    const Qt::WindowFlags flags = Qt::Tool | Qt::FramelessWindowHint;    
 
     //! Содержит описание параметров рамки заметки (по умолчанию).
     namespace Frame
     {
         const bool visible = true;      //!< Видимость
-        const float width = 1.0;        //!< Ширина (толщина)
+        const qreal width = 1.0;        //!< Ширина (толщина)
         const QColor color = Qt::black; //!< Цвет
     }
 }

@@ -58,16 +58,17 @@
 static QActionGroup * createGroupActionsOpacity( QObject * parent = 0 )
 {
     QActionGroup * group = new QActionGroup( parent );
-    group->addAction( Create::Action::get( "100%", QIcon( ":/opacity-100" ), QVariant( 1.0 ) ) );
-    group->addAction( Create::Action::get( "90%",  QIcon( ":/opacity-90" ),  QVariant( 0.9 ) ) );
-    group->addAction( Create::Action::get( "80%",  QIcon( ":/opacity-80" ),  QVariant( 0.8 ) ) );
-    group->addAction( Create::Action::get( "70%",  QIcon( ":/opacity-70" ),  QVariant( 0.7 ) ) );
-    group->addAction( Create::Action::get( "60%",  QIcon( ":/opacity-60" ),  QVariant( 0.6 ) ) );
-    group->addAction( Create::Action::get( "50%",  QIcon( ":/opacity-50" ),  QVariant( 0.5 ) ) );
-    group->addAction( Create::Action::get( "40%",  QIcon( ":/opacity-40" ),  QVariant( 0.4 ) ) );
-    group->addAction( Create::Action::get( "30%",  QIcon( ":/opacity-30" ),  QVariant( 0.3 ) ) );
-    group->addAction( Create::Action::get( "20%",  QIcon( ":/opacity-20" ),  QVariant( 0.2 ) ) );
+    for ( qreal op = Note::maximalOpacity; op > Note::minimalOpacity; op -= 0.1 )
+    {
+        uchar proc = op * 100;
+        const QString & text = QString( "%1%" ).arg( proc );
+        const QIcon & icon = QIcon( QString( ":/opacity-%1" ).arg( proc ) );
+        const QVariant data( op );
+
+        group->addAction( Create::Action::get( text, icon, data ) );
+    }
     group->addAction( Create::Action::get( QObject::tr( "Other" ), QIcon( "" ), QVariant( -1.0 ) ) );
+
     return group;
 }
 
@@ -156,9 +157,8 @@ void RichTextNote::setFileName( const QString & dirName )
     if ( QDir( d->noteFileName ).exists() )
         return;
 
-    QDir().mkdir( d->noteFileName ); // Создадим папку заметки
-
-    // Создадим нужные файлы и папки в папке заметки
+    // Создадим папку заметки с нужными папками и файлами
+    QDir().mkdir( d->noteFileName );
     QDir().mkdir( attachDirPath() );
     QFile( contentFilePath() ).open( QIODevice::WriteOnly );
     QFile( settingsFilePath() ).open( QIODevice::WriteOnly );
@@ -172,9 +172,10 @@ void RichTextNote::init()
     updateStates();
 
     connect( &d->timerAutosave, SIGNAL( timeout() ), SLOT( save() ) );
+
 //  TODO: брать из настроек
     setActivateTimerAutosave( true );
-    setIntervalAutosave( 1 ); // интервал автосохранения в минутах
+    setIntervalAutosave( 7 ); // интервал автосохранения в минутах
 }
 void RichTextNote::setupActions()
 {
@@ -397,20 +398,16 @@ void RichTextNote::save()
 //    if( !isModified() )
 //        return;
 
-    qDebug() << "save";
     mapSettings[ "Top" ] = isTop();
     mapSettings[ "ColorTitle" ] = titleColor().name();
     mapSettings[ "ColorBody" ] = bodyColor().name();
     mapSettings[ "Opacity" ] = opacity();
-//    mapSettings[ "Created" ] = created();
-//    mapSettings[ "Modified" ] = modified();
     mapSettings[ "Visible" ] = isVisible();
     mapSettings[ "Title" ] = title();
     mapSettings[ "FontTitle" ] = titleFont().toString();
     mapSettings[ "Position" ] = pos();
     mapSettings[ "Size" ] = size();
     mapSettings[ "ReadOnly" ] = isReadOnly();
-    qDebug() << mapSettings[ "Position" ].toPoint() << mapSettings[ "Size" ].toSize();
 
     QSettings ini( settingsFilePath(), QSettings::IniFormat );
     ini.setIniCodec( "utf8" );
@@ -428,14 +425,14 @@ void RichTextNote::load()
     defaultMapSettings[ "Top" ] = true;
     defaultMapSettings[ "ColorTitle" ] = QColor( Qt::gray );
     defaultMapSettings[ "ColorBody" ] = QColor( Qt::darkGreen );
-    defaultMapSettings[ "Opacity" ] = 1.0;
+    defaultMapSettings[ "Opacity" ] = Note::maximalOpacity;
     defaultMapSettings[ "Created" ] = currentDateTime;
     defaultMapSettings[ "Modified" ] = currentDateTime;
     defaultMapSettings[ "Visible" ] = true;
     defaultMapSettings[ "Title" ] = tr( "New note" ) + " " + currentDateTime.toString( Qt::SystemLocaleLongDate );
     defaultMapSettings[ "FontTitle" ] = QFont().toString();
     defaultMapSettings[ "Position" ] = QPoint( 100, 100 );
-    defaultMapSettings[ "Size" ] = QSize( 50, Note::minimalHeight );
+    defaultMapSettings[ "Size" ] = QSize( Note::minimalWidth, Note::minimalHeight );
     defaultMapSettings[ "ReadOnly" ] = false;
 
 
@@ -456,7 +453,7 @@ void RichTextNote::load()
     move( mapSettings[ "Position" ].toPoint() );
     resize( mapSettings[ "Size" ].toSize() );
     setReadOnly( mapSettings[ "ReadOnly" ].toBool() );
-qDebug() << mapSettings[ "Position" ].toPoint() << mapSettings[ "Size" ].toSize();
+
     loadContent();
 
     updateStates();
@@ -482,18 +479,10 @@ void RichTextNote::saveContent()
     content.close();
 
     setModified( false );
-//    d->isModified = false;
     updateStates();
 }
 void RichTextNote::loadContent()
 {
-    QFile content( contentFilePath() );
-    if ( !content.open( QIODevice::ReadOnly ) )
-    {
-        qDebug() << "An error occurred reading notes";
-        return;
-    }
-
     d->editor->setSource( QUrl::fromLocalFile( contentFilePath() ) );
 }
 void RichTextNote::setText( const QString & str )
@@ -509,12 +498,8 @@ QString RichTextNote::text()
 }
 void RichTextNote::removeDir()
 {
-    bool successful = removePath( fileName() );
-    if ( !successful )
-    {
+    if ( !removePath( fileName() ) )
         QMessageBox::warning( this, tr( "Warning" ), tr( "I can not delete" ) );
-        return;
-    }
 }
 void RichTextNote::remove()
 {
@@ -544,8 +529,8 @@ bool RichTextNote::isReadOnly()
 
 void RichTextNote::setTop( bool b )
 {
-//    if ( isTop() == b )
-//        return;
+    if ( isTop() == b )
+        return;
 
     AbstractNote::setTop( b );
     updateStates();
@@ -585,11 +570,14 @@ void RichTextNote::selectColor()
 
     setBodyColor( color );
 }
-void RichTextNote::selectOpacity()
-{
-    bool b;
-    int op = QInputDialog::getInt( this, tr( "Select opacity" ), tr( "Opacity:" ), opacity() * 100.0, 20, 100, 1, &b); // TODO: минимум в константу
 
+void RichTextNote::selectOpacity()
+{    
+    int current = windowOpacity() * 100.0;
+    int min = Note::minimalOpacity * 100.0;
+    int max = Note::maximalOpacity * 100.0;
+    bool b;
+    int op = QInputDialog::getInt( this, tr( "Select opacity" ), tr( "Opacity:" ), current, min, max, 1, &b );
     if ( !b )
         return;
 
@@ -785,7 +773,6 @@ void RichTextNote::updateStates()
 {
     bool top = isTop();
     bool readOnly = isReadOnly();
-//    bool isModified = d->isModified;
     bool isModified = this->isModified();
 
     tButtonSetTopBottom->setChecked( top );
@@ -800,7 +787,7 @@ void RichTextNote::updateStates()
 void RichTextNote::contentsChanged()
 {
     mapSettings[ "Modified" ] = QDateTime::currentDateTime();
-//    d->isModified = true;
+
     setModified( true );
     updateStates();
     emit changed( EventsNote::ChangeText );
@@ -811,14 +798,14 @@ void RichTextNote::enterEvent( QEvent * )
     QPropertyAnimation * animation = new QPropertyAnimation( this, "windowOpacity" );
     animation->setDuration( 200 );
     animation->setStartValue( opacity() );
-    animation->setEndValue( 1.0 );
+    animation->setEndValue( Note::maximalOpacity );
     animation->start( QAbstractAnimation::DeleteWhenStopped );
 }
 void RichTextNote::leaveEvent( QEvent * )
 {
     QPropertyAnimation * animation = new QPropertyAnimation( this, "windowOpacity" );
     animation->setDuration( 700 );
-    animation->setStartValue( 1.0 );
+    animation->setStartValue( Note::maximalOpacity );
     animation->setEndValue( opacity() );
     animation->start( QAbstractAnimation::DeleteWhenStopped );
 }

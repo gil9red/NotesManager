@@ -25,14 +25,12 @@ AbstractNote::AbstractNote( QWidget * parent ) :
 
     d->d_head = head->d;
     d->d_body = body->d;
-
-    setStatusBar( new QStatusBar() );
-
-    // TODO: значения по умолчанию
     d->sides = Note::Frame::visible;
     d->penSides = Shared::Left | Shared::Right | Shared::Top | Shared::Bottom;
     d->colorSides = Note::Frame::color;
     d->widthPenSides = Note::Frame::width;
+
+    setStatusBar( new QStatusBar() );
 
     propertyAttachable = new PropertyAttachable( this );
     propertyAttachable->installTo( head );
@@ -48,15 +46,10 @@ AbstractNote::AbstractNote( QWidget * parent ) :
 
     QWidget * mainWidget = new QWidget();
     mainWidget->setLayout( mainLayout );
-
     setCentralWidget( mainWidget );
 
-    // TODO: значения по умолчанию
-    // Минимальная высота. Выбрал ее как наоболее подходящую
-    setMinimumHeight( Note::minimalHeight );
-    setWindowFlags( Note::flags );
-
-    // TODO: значения по умолчанию
+    setMinimumSize( Note::minimalWidth, Note::minimalHeight );
+    setWindowFlags( Note::flags | Qt::WindowStaysOnTopHint );
     setVisibleFrame( Note::Frame::visible );
     setWidthPenSides( Note::Frame::width );
     setColorSides( Note::Frame::color );
@@ -199,15 +192,13 @@ QFont AbstractNote::titleFont()
 
 void AbstractNote::setTop( bool b )
 {
-    // TODO: AbstractNote::setTop
-    qDebug() << "AbstractNote::setTop" << b;
-    mapSettings[ "Top" ] = b;
+//    mapSettings[ "Top" ] = b;
 
-    Qt::WindowFlags flags = Note::flags;
+    Qt::WindowFlags f = Note::flags;
     bool visible = isVisible();
 
-    flags |= b ? Qt::WindowStaysOnTopHint : Qt::WindowStaysOnBottomHint;
-    setWindowFlags( flags );
+    f |= b ? Qt::WindowStaysOnTopHint : Qt::WindowStaysOnBottomHint;
+    setWindowFlags( f );
 
     if ( visible )
         show();
@@ -216,17 +207,28 @@ void AbstractNote::setTop( bool b )
 }
 bool AbstractNote::isTop()
 {
-    // TODO: AbstractNote::isTop
-//    return d->isTop;
-    return mapSettings[ "Top" ].toBool();
-//    return windowFlags().testFlag( Qt::WindowStaysOnBottomHint );
+    Qt::WindowFlags f = windowFlags();
+    bool top = f.testFlag( Qt::WindowStaysOnTopHint );
+    bool bottom = f.testFlag( Qt::WindowStaysOnBottomHint );
+
+    // По дефолту, окно должно быть поверх всех окон
+    if ( !top && !bottom )
+    {
+        setWindowFlags( Qt::WindowStaysOnTopHint );
+        return true;
+    }
+
+    if ( top )
+        return true;
+
+    if ( bottom )
+        return false;
 }
 
 void AbstractNote::setBodyColor( const QColor & c )
 {
     emit changed( EventsNote::ChangeColorNote );
 
-    mapSettings[ "ColorBody" ] = c.name();
     body->setColor( c );
     body->update();
     update();
@@ -250,16 +252,19 @@ QColor AbstractNote::titleColor()
 
 void AbstractNote::setOpacity( qreal o )
 {
-    if( o < Note::minimalOpacity )
+    if ( opacity() == o )
+        return;
+    if ( o < Note::minimalOpacity )
         o = Note::minimalOpacity;
+    if ( o > Note::maximalOpacity )
+        o = Note::maximalOpacity;
 
     mapSettings[ "Opacity" ] = o;
     setWindowOpacity( o );
 }
 qreal AbstractNote::opacity()
 {
-//    return mapSettings[ "Opacity" ].toFloat();
-    return windowOpacity();
+    return mapSettings[ "Opacity" ].toFloat();
 }
 
 void AbstractNote::closeEvent( QCloseEvent * )

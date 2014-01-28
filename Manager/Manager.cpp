@@ -825,19 +825,14 @@ void Manager::show_Manager()
     if ( !isActiveWindow() )
         activateWindow();
 }
-//void Manager::close()
-//{
-//    writeSettings();
-//    qApp->quit();
-//}
 void Manager::quit()
 {
     bool askBeforeExiting = pageSettings->mapSettings[ "AskBeforeExiting" ].toBool();
 
     if ( askBeforeExiting )
     {
-        QMessageBox::StandardButton result = QMessageBox::question( this, tr( "Question" ), tr( "Really quit?" ),
-                                                                    QMessageBox::Ok | QMessageBox::Cancel, QMessageBox::Ok );
+        QMessageBox::StandardButton result = showNewMessageBox( 0, QMessageBox::Question, tr( "Question" ), tr( "Really quit?" ), QMessageBox::Ok | QMessageBox::Cancel, QMessageBox::Ok );
+//        QMessageBox::StandardButton result = QMessageBox::question( 0, tr( "Question" ), tr( "Really quit?" ), QMessageBox::Ok | QMessageBox::Cancel, QMessageBox::Ok );
         if ( result == QMessageBox::Cancel )
             return;
     }
@@ -854,8 +849,6 @@ void Manager::readSettings()
     settings->beginGroup( "Manager" );
     restoreGeometry( settings->value( "Geometry" ).toByteArray() );
     restoreState( settings->value( "State" ).toByteArray() );
-//    setActivateTimerAutosave( settings->value( "Autosave", true ).toBool() );
-//    setIntervalAutosave( settings->value( "AutosaveInterval", 7 ).toInt() );
 
     settings->endGroup();
 
@@ -872,8 +865,6 @@ void Manager::writeSettings()
     settings->beginGroup( "Manager" );
     settings->setValue( "Geometry", saveGeometry() );
     settings->setValue( "State", saveState() );
-//    settings->setValue( "Autosave", isActivateTimerAutosave() );
-//    settings->setValue( "AutosaveInterval", intervalAutosave() );
     settings->endGroup();
 
     pageNotes->writeSettings();

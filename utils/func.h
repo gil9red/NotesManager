@@ -465,4 +465,35 @@ static QString getTheCurrentLanguageKeyboardLayouts()
     return name;
 }
 
+
+#include <QDialogButtonBox>
+#include <QPushButton>
+#include <QMessageBox>
+static QMessageBox::StandardButton showNewMessageBox( QWidget * parent, QMessageBox::Icon icon, const QString& title, const QString& text,
+                                                      QMessageBox::StandardButtons buttons, QMessageBox::StandardButton defaultButton,
+                                                      Qt::WindowFlags f = Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint | Qt::WindowStaysOnTopHint )
+{
+    QMessageBox msgBox( icon, title, text, QMessageBox::NoButton, parent, f );
+    QDialogButtonBox * buttonBox = msgBox.findChild < QDialogButtonBox * > ();
+    Q_ASSERT(buttonBox != 0);
+
+    uint mask = QMessageBox::FirstButton;
+    while (mask <= QMessageBox::LastButton) {
+        uint sb = buttons & mask;
+        mask <<= 1;
+        if (!sb)
+            continue;
+        QPushButton *button = msgBox.addButton((QMessageBox::StandardButton)sb);
+        // Choose the first accept role as the default
+        if (msgBox.defaultButton())
+            continue;
+        if ((defaultButton == QMessageBox::NoButton && buttonBox->buttonRole(button) == QDialogButtonBox::AcceptRole)
+                || (defaultButton != QMessageBox::NoButton && sb == uint(defaultButton)))
+            msgBox.setDefaultButton(button);
+    }
+    if (msgBox.exec() == -1)
+        return QMessageBox::Cancel;
+    return msgBox.standardButton(msgBox.clickedButton());
+}
+
 #endif // FUNC_H

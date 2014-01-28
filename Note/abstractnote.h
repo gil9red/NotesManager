@@ -263,14 +263,14 @@ public slots:
     QColor titleColor();
 
     //! Устанавливает прозрачность заметки.
-    /*! Прозрачность задается в диапазоне от 0.0 (невидима) до 1.0 (полная видимость).
+    /*! Прозрачность задается в диапазоне от 0.2 до 1.0 (полная видимость).
      *  \param o значение прозрачности
      *  \sa opacity()
      */
     void setOpacity( qreal o );
 
     //! Возвращение прозрачность заметки.
-    /*! \return значение в диапазоне от 0.0 до 1.0
+    /*! \return значение в диапазоне от 0.2 до 1.0
      *  \sa setOpacity()
      */
     qreal opacity();
@@ -303,7 +303,7 @@ public:
     bool sides;                 //!< Видимость рамки
     Shared::Sides penSides;     //!< Указание какие стороны рамки показывать
     QColor colorSides;          //!< Цвет рамки
-    float widthPenSides;        //!< Ширина рамки
+    qreal widthPenSides;        //!< Ширина рамки
 };
 
 #endif // ABSTRACTNOTE_H

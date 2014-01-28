@@ -258,8 +258,7 @@ private slots:
 
 public slots:
     void show_Manager();  //!< Показать менеджер.
-//    void close();         //!< Закрыть.
-    void quit();
+    void quit();          //!< Закрыть программу.
     void readSettings();  //!< Считывание настроек менеджера.
     void writeSettings(); //!< Запись настроек менеджера.
 
