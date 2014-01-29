@@ -30,6 +30,9 @@
        <property name="enabled">
         <bool>false</bool>
        </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="toolTip">
         <string>Attach</string>
        </property>
@@ -52,6 +55,9 @@
       <widget class="QToolButton" name="tButtonRun">
        <property name="enabled">
         <bool>false</bool>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
        </property>
        <property name="toolTip">
         <string>Run file</string>
@@ -76,6 +82,9 @@
        <property name="enabled">
         <bool>false</bool>
        </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="toolTip">
         <string>Copy to clipboard</string>
        </property>
@@ -98,6 +107,9 @@
       <widget class="QToolButton" name="tButtonRefreshList">
        <property name="enabled">
         <bool>false</bool>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
        </property>
        <property name="toolTip">
         <string>Refresh list</string>
@@ -122,6 +134,9 @@
        <property name="enabled">
         <bool>false</bool>
        </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="toolTip">
         <string>Remove</string>
        </property>
@@ -144,6 +159,9 @@
       <widget class="QToolButton" name="tButtonRemoveAll">
        <property name="enabled">
         <bool>false</bool>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
        </property>
        <property name="toolTip">
         <string>Remove all</string>
@@ -187,6 +205,15 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>listView</tabstop>
+  <tabstop>tButtonAttach</tabstop>
+  <tabstop>tButtonRun</tabstop>
+  <tabstop>tButtonCopyToClipboard</tabstop>
+  <tabstop>tButtonRefreshList</tabstop>
+  <tabstop>tButtonRemove</tabstop>
+  <tabstop>tButtonRemoveAll</tabstop>
+ </tabstops>
  <resources>
   <include location="../Manager/Manager.qrc"/>
   <include location="Note.qrc"/>

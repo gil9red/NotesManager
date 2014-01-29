@@ -111,7 +111,6 @@ void Completer::insertCompletion( const QString & completion )
     d_editor->textCursor().insertText( completion.right( extra ) );
 }
 
-///PUBLIC SLOTS
 void Completer::setAutocomplete( bool b )
 {
     autocomplete = b;
@@ -121,68 +120,8 @@ bool Completer::isAutocomplete()
     return autocomplete;
 }
 
-
 bool Completer::eventFilter( QObject * object, QEvent * event )
 {
-//    if ( object == d_editor && autocomplete )
-//    {
-//        QKeyEvent * keyEvent = static_cast < QKeyEvent * > ( event );
-//        if ( keyEvent )
-//        {
-//            if ( popup()->isVisible() )
-//            {
-//                switch ( keyEvent->key() )
-//                {
-//                case Qt::Key_Enter:
-//                case Qt::Key_Return:
-//                case Qt::Key_Escape:
-//                case Qt::Key_Tab:
-//                case Qt::Key_Backtab:
-//                    keyEvent->ignore();
-//                    return QCompleter::eventFilter( object, event );
-
-//                default:
-//                    return QCompleter::eventFilter( object, event );
-//                    break;
-//                }
-//            }
-
-//            bool isShortcut = ( keyEvent->modifiers() == Qt::ControlModifier ) && ( keyEvent->key() == Qt::Key_Space );
-//            if ( !isShortcut )
-//                return QCompleter::eventFilter( object, event );
-
-//            // end of word
-//            static QString eow( "~!@#$%^&*()_+{}|:\"<>?,./;'[]\\-=" );
-
-//            bool hasModifier = keyEvent->modifiers() != Qt::NoModifier;
-//            QString prefix = textUnderCursor();
-
-//            if ( !isShortcut && ( hasModifier || keyEvent->text().isEmpty()
-//                                  || prefix.length() < 3
-//                                  || eow.contains( keyEvent->text().right( 1 ) ) ) )
-//            {
-//                popup()->hide();
-//                return QCompleter::eventFilter( object, event );
-//            }
-
-//            if ( prefix != completionPrefix() )
-//            {
-//                setCompletionPrefix( prefix );
-//                popup()->setCurrentIndex( completionModel()->index( 0, 0 ) );
-//            }
-//            QRect cursorRect = d_editor->cursorRect();
-//            cursorRect.setWidth( popup()->sizeHintForColumn( 0 ) + popup()->verticalScrollBar()->sizeHint().width() );
-
-//            complete( cursorRect );
-//            return QCompleter::eventFilter( object, event );
-//        }
-//    }
-
-//    return QCompleter::eventFilter( object, event );
-
-
-    
-    
     if ( object == d_editor && autocomplete )
     {
         QKeyEvent * keyEvent = static_cast < QKeyEvent * > ( event );

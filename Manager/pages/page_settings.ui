@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>500</width>
-    <height>441</height>
+    <width>516</width>
+    <height>438</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -387,9 +387,9 @@
             <property name="geometry">
              <rect>
               <x>0</x>
-              <y>-9</y>
-              <width>254</width>
-              <height>401</height>
+              <y>0</y>
+              <width>280</width>
+              <height>389</height>
              </rect>
             </property>
             <property name="sizePolicy">
@@ -400,18 +400,88 @@
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_3">
              <item>
-              <widget class="QCheckBox" name="cBoxRandomColor">
-               <property name="text">
-                <string>Random color </string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QCheckBox" name="cBoxRandomPositionOnScreen">
-               <property name="text">
-                <string>Random position on screen </string>
-               </property>
-              </widget>
+              <layout class="QGridLayout" name="gridLayout_3">
+               <item row="2" column="0">
+                <layout class="QHBoxLayout" name="horizontalLayout_6">
+                 <item>
+                  <widget class="QLabel" name="label_8">
+                   <property name="text">
+                    <string>Opacity:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="sBoxOpacity">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="statusTip">
+                    <string>Opacity new note</string>
+                   </property>
+                   <property name="suffix">
+                    <string notr="true"> %</string>
+                   </property>
+                   <property name="prefix">
+                    <string/>
+                   </property>
+                   <property name="minimum">
+                    <number>0</number>
+                   </property>
+                   <property name="maximum">
+                    <number>100</number>
+                   </property>
+                   <property name="value">
+                    <number>100</number>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="1" column="0">
+                <widget class="QCheckBox" name="cBoxVisible">
+                 <property name="text">
+                  <string>Visible</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QCheckBox" name="cBoxOnTop">
+                 <property name="text">
+                  <string>On top of all windows </string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QCheckBox" name="cBoxRandomPositionOnScreen">
+                 <property name="text">
+                  <string>Random position on screen </string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QCheckBox" name="cBoxRandomColor">
+                 <property name="text">
+                  <string>Random color </string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <spacer name="horizontalSpacer_6">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
              </item>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -523,12 +593,9 @@
                 </widget>
                </item>
                <item>
-                <spacer name="horizontalSpacer_2">
+                <spacer name="horizontalSpacer_5">
                  <property name="orientation">
                   <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeType">
-                  <enum>QSizePolicy::Preferred</enum>
                  </property>
                  <property name="sizeHint" stdset="0">
                   <size>
@@ -541,55 +608,83 @@
               </layout>
              </item>
              <item>
-              <widget class="QCheckBox" name="cBoxVisible">
-               <property name="text">
-                <string>Visible</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QCheckBox" name="cBoxOnTop">
-               <property name="text">
-                <string>On top of all windows </string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_6">
-               <item>
-                <widget class="QLabel" name="label_8">
-                 <property name="text">
-                  <string>Opacity:</string>
+              <layout class="QGridLayout" name="gridLayout_4">
+               <item row="0" column="3">
+                <spacer name="horizontalSpacer_2">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
                  </property>
-                </widget>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
                </item>
-               <item>
-                <widget class="QSpinBox" name="sBoxOpacity">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="statusTip">
-                  <string>Opacity new note</string>
-                 </property>
-                 <property name="suffix">
-                  <string notr="true"> %</string>
-                 </property>
-                 <property name="prefix">
-                  <string/>
-                 </property>
-                 <property name="minimum">
+               <item row="0" column="2">
+                <layout class="QHBoxLayout" name="horizontalLayout_8">
+                 <property name="spacing">
                   <number>0</number>
                  </property>
-                 <property name="maximum">
-                  <number>100</number>
+                 <item>
+                  <widget class="QLabel" name="label_9">
+                   <property name="text">
+                    <string>Body color:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="ColorSelectButton" name="tButtonColorBody">
+                   <property name="statusTip">
+                    <string>Body color new note</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="0" column="0">
+                <layout class="QHBoxLayout" name="horizontalLayout_7">
+                 <property name="spacing">
+                  <number>0</number>
                  </property>
-                 <property name="value">
-                  <number>100</number>
+                 <item>
+                  <widget class="QLabel" name="label_7">
+                   <property name="text">
+                    <string>Title color:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="ColorSelectButton" name="tButtonColorTitle">
+                   <property name="statusTip">
+                    <string>Color title new note</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="0" column="1">
+                <spacer name="horizontalSpacer_4">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
                  </property>
-                </widget>
+                 <property name="sizeType">
+                  <enum>QSizePolicy::Fixed</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>10</width>
+                   <height>10</height>
+                  </size>
+                 </property>
+                </spacer>
                </item>
               </layout>
              </item>
@@ -666,48 +761,6 @@
                   </widget>
                  </item>
                 </layout>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_7">
-               <item>
-                <widget class="QLabel" name="label_7">
-                 <property name="text">
-                  <string>Title color:</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QToolButton" name="tButtonColorTitle">
-                 <property name="statusTip">
-                  <string>Color title new note</string>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_8">
-               <item>
-                <widget class="QLabel" name="label_9">
-                 <property name="text">
-                  <string>Body color:</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QToolButton" name="tButtonColorBody">
-                 <property name="statusTip">
-                  <string>Body color new note</string>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                </widget>
                </item>
               </layout>
              </item>
@@ -840,6 +893,42 @@
    <zorder></zorder>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ColorSelectButton</class>
+   <extends>QToolButton</extends>
+   <header>FormattingToolbar/colorselectbutton.h</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>treeWidgetMenu</tabstop>
+  <tabstop>scrollArea_3</tabstop>
+  <tabstop>comboBoxLanguage</tabstop>
+  <tabstop>checkBoxAutosave</tabstop>
+  <tabstop>sBoxAutosaveInterval</tabstop>
+  <tabstop>cBoxAskBeforeExiting</tabstop>
+  <tabstop>cBoxMinimizeTrayWhenClosing</tabstop>
+  <tabstop>cBoxMinimizeTrayWhenMinimizing</tabstop>
+  <tabstop>cBoxMinimizeTrayOnStartup</tabstop>
+  <tabstop>cBoxRandomColor</tabstop>
+  <tabstop>cBoxRandomPositionOnScreen</tabstop>
+  <tabstop>sBoxWidth</tabstop>
+  <tabstop>sBoxHeight</tabstop>
+  <tabstop>sBoxLeft</tabstop>
+  <tabstop>sBoxTop</tabstop>
+  <tabstop>cBoxVisible</tabstop>
+  <tabstop>cBoxOnTop</tabstop>
+  <tabstop>sBoxOpacity</tabstop>
+  <tabstop>lEditTitle</tabstop>
+  <tabstop>tButtonFontTitle</tabstop>
+  <tabstop>tEditText</tabstop>
+  <tabstop>tButtonColorTitle</tabstop>
+  <tabstop>tButtonColorBody</tabstop>
+  <tabstop>checkBoxAutosaveNotes</tabstop>
+  <tabstop>sBoxAutosaveIntervalNotes</tabstop>
+  <tabstop>buttonBox</tabstop>
+  <tabstop>scrollArea_2</tabstop>
+ </tabstops>
  <resources>
   <include location="../../Note/Note.qrc"/>
  </resources>

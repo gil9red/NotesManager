@@ -68,6 +68,11 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>lEditInputHyperlink</tabstop>
+  <tabstop>lEditInputTextHyperlink</tabstop>
+  <tabstop>buttonBox</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>

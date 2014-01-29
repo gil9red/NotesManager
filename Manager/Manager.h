@@ -51,7 +51,6 @@ namespace Columns
     enum Columns
     {
         Title,      //!< Заголовок (название)
-//        ReadOnly,   //!< Только чтение
         Visibility, //!< Видимость
         Created,    //!< Дата создания
         Modified,   //!< Дата модификации
@@ -91,10 +90,6 @@ static QList < QStandardItem * > toStandardItems( RichTextNote * note )
     title->setText( note->title() );
     title->setToolTip( title->text() );
 
-//    QStandardItem * readOnly = new QStandardItem();
-//    readOnly->setText( note->isReadOnly() ? QTranslator::tr( "yes" ) : QTranslator::tr( "no" ) );
-//    readOnly->setTextAlignment( Qt::AlignCenter );
-
     QStandardItem * visibility = new QStandardItem();
     visibility->setText( note->isVisible() ? QTranslator::tr( "yes" ) : QTranslator::tr( "no" ) );
     visibility->setTextAlignment( Qt::AlignCenter );
@@ -124,10 +119,6 @@ static QList < QStandardItem * > toStandardItems( const QString & path )
     QStandardItem * title = new QStandardItem();
     title->setText( ini.value( "Title" ).toString() );
     title->setToolTip( title->text() );
-
-//    QStandardItem * readOnly = new QStandardItem();
-//    readOnly->setText( ini.value( "ReadOnly" ).toBool() ? QTranslator::tr( "yes" ) : QTranslator::tr( "no" ) );
-//    readOnly->setTextAlignment( Qt::AlignCenter );
 
     QStandardItem * visibility = new QStandardItem();
     visibility->setText( ini.value( "Visible" ).toBool() ? QTranslator::tr( "yes" ) : QTranslator::tr( "no" ) );
@@ -251,7 +242,6 @@ private slots:
     void printNote();            //!< Распечатать заметку.
     void previewPrintNote();     //!< Предпросмотр перед печати заметки.
     void setTopNote( bool top ); //!< Установить заметку поверх всех окон.
-//    void setReadOnlyNote( bool readOnly ); //!< Установить в заметке режим "только для чтения".
     void noteChange( int index ); //!< Функция вызывается, когда происходят изменения с какой-нибудь заметкой.
 
 public slots:
@@ -268,11 +258,6 @@ public slots:
 protected:
     void closeEvent( QCloseEvent * event );
     void changeEvent( QEvent * event );
-
-//signals:
-//    // Когда происходят какие то события, отсылается данный сигнал,
-//    // в котором описывается, что случилось
-//    void sendMessage( QString );
 };
 
 #endif // MANAGER_H

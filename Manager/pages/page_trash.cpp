@@ -31,13 +31,6 @@ void Page_Trash::loadNotes()
 {
     sortModel->setDynamicSortFilter( false );
 
-//    QStringList labels;
-//    for ( int i = 0; i < model->columnCount(); i++ )
-//        labels << model->horizontalHeaderItem( i )->text();
-
-//    model->clear();
-//    model->setHorizontalHeaderLabels( labels );
-
     foreach ( const QString & path, QDir( getTrashPath() ).entryList( QDir::Dirs | QDir::NoDotAndDotDot ) )
         model->appendRow( toStandardItems( QDir::fromNativeSeparators( getTrashPath() + "/" + path  ) ) );
 

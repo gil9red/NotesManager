@@ -165,10 +165,9 @@ void RichTextNote::setFileName( const QString & dirName )
 
 void RichTextNote::setDefaultSettingsFromMap( const QVariantMap & s )
 {
-    // TODO: закончить!
     defaultMapSettings[ "Top" ] = s.value( "NewNote_Top" );
-    defaultMapSettings[ "ColorTitle" ] = QColor( Qt::gray ).name();
-    defaultMapSettings[ "ColorBody" ] = QColor( Qt::darkGreen ).name();
+    defaultMapSettings[ "ColorTitle" ] = s.value( "NewNote_ColorTitle" );
+    defaultMapSettings[ "ColorBody" ] = s.value( "NewNote_ColorBody" );
     defaultMapSettings[ "Opacity" ] = s.value( "NewNote_Opacity" );
     defaultMapSettings[ "Visible" ] = s.value( "NewNote_Visible" );
     defaultMapSettings[ "Title" ] = s.value( "NewNote_Title" );
@@ -206,7 +205,6 @@ void RichTextNote::setupActions()
     QAction * actionSetColor = Create::Action::triggered( tr( "Set window color" ), QIcon::fromTheme( "", QIcon( ":/color" ) ), QKeySequence(), this, SLOT( selectColor() ) );
     QAction * actionHide = Create::Action::triggered( tr( "Hide" ), QIcon::fromTheme( "", QIcon( ":/hide" ) ), QKeySequence(), this, SLOT( hide() ) );
     actionSetTopBottom = Create::Action::bTriggered( tr( "On top of all windows" ), QIcon::fromTheme( "", QIcon( ":/tacks" ) ), QKeySequence(), this, SLOT( setTop( bool ) ) );
-//    actionSetReadOnly = Create::Action::bTriggered( tr( "Read only" ), QIcon::fromTheme( "", QIcon( ":/read-only" ) ), QKeySequence(), this, SLOT( setReadOnly( bool ) ) );
     QAction * actionOpen = Create::Action::triggered( tr( "Open" ), QIcon::fromTheme( "", QIcon( ":/open" ) ), QKeySequence( QKeySequence::Open ), this, SLOT( open() ) );
     QAction * actionSaveAs = Create::Action::triggered( tr( "Save as" ), QIcon::fromTheme( "", QIcon( ":/save-as" ) ), QKeySequence( QKeySequence::SaveAs ), this, SLOT( saveAs() ) );
 #ifndef QT_NO_PRINTER
@@ -243,7 +241,6 @@ void RichTextNote::setupActions()
     addAction( actionSetColor );
     addSeparator();
     addAction( actionSetTopBottom );
-//    addAction( actionSetReadOnly );
     addSeparator();
     addAction( actionOpen );
     addAction( actionSave );
@@ -260,8 +257,6 @@ void RichTextNote::setupActions()
 }
 void RichTextNote::setupGUI()
 {
-//    d->editor = new TextEditor();
-
     Qt::DockWidgetAreas areas = Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea;
 
     FormattingToolbar * formattingToolbar = new FormattingToolbar();
@@ -353,7 +348,6 @@ void RichTextNote::setupGUI()
     QToolButton * tButtonSetOpacity = Create::Button::clicked( tr( "Opacity" ), QIcon::fromTheme( "", QIcon( ":/opacity" ) ), this, SLOT( selectOpacity() ) );
     QToolButton * tButtonHide = Create::Button::clicked( tr( "Hide" ), QIcon::fromTheme( "", QIcon( ":/hide" ) ), this, SLOT( hide() ) );
     tButtonSetTopBottom = Create::Button::bClicked( tr( "On top of all windows" ), QIcon::fromTheme( "", QIcon( ":/tacks" ) ), this, SLOT( setTop( bool ) ) );
-//    tButtonSetReadOnly = Create::Button::bClicked( tr( "Read only" ), QIcon::fromTheme( "", QIcon( ":/read-only" ) ), this, SLOT( setReadOnly( bool ) ) );
     QToolButton * tButtonOpen = Create::Button::clicked( tr( "Open" ), QIcon::fromTheme( "", QIcon( ":/open" ) ), this, SLOT( open() ) );
     QToolButton * tButtonSaveAs = Create::Button::clicked( tr( "Save as" ), QIcon::fromTheme( "", QIcon( ":/save-as" ) ), this, SLOT( saveAs() ) );
     QToolButton * tButtonPrint = Create::Button::clicked( tr( "Print" ),QIcon::fromTheme( "", QIcon( ":/print" ) ), this, SLOT( print() ) );
@@ -377,7 +371,6 @@ void RichTextNote::setupGUI()
     body->addWidgetToToolBar( tButtonSetOpacity );
     body->addSeparator();
     body->addWidgetToToolBar( tButtonSetTopBottom );
-//    body->addWidgetToToolBar( tButtonSetReadOnly );
     body->addSeparator();
     body->addWidgetToToolBar( tButtonOpen );
     body->addWidgetToToolBar( tButtonSaveAs );
@@ -421,7 +414,6 @@ void RichTextNote::save()
     mapSettings[ "FontTitle" ] = titleFont().toString();
     mapSettings[ "Position" ] = pos();
     mapSettings[ "Size" ] = size();
-//    mapSettings[ "ReadOnly" ] = isReadOnly();
 
     QSettings ini( settingsFilePath(), QSettings::IniFormat );
     ini.setIniCodec( "utf8" );
@@ -446,7 +438,6 @@ void RichTextNote::load()
     bool _top;
     qreal _opacity;
     bool _visible;
-//    bool _readOnly;
 
     // Если пуст, значит эта заметка новая -> берем параметры из дэфолтных настроек
     if ( mapSettings.isEmpty() )
@@ -464,6 +455,7 @@ void RichTextNote::load()
         _fontTitle.fromString( defaultMapSettings[ "FontTitle" ].toString() );
         _size = defaultMapSettings[ "Size" ].toSize();
 
+        // TODO: доработать с учетом размера заметок, т.к. новые заметки может разместить за экран
         if ( randomPosition )
             _position = QPoint( qrand() % desktop.width(), qrand() % desktop.height() );
         else
@@ -482,7 +474,6 @@ void RichTextNote::load()
         _top = defaultMapSettings[ "Top" ].toBool();
         _opacity = defaultMapSettings.value( "Opacity" ).toDouble();
         _visible = defaultMapSettings.value( "Visible" ).toBool();
-//        _readOnly = defaultMapSettings[ "ReadOnly" ].toBool();
 
         // TODO: доработать парсер выражений
         // поиск в коде по %dt%. Справка по этим шаблонам.
@@ -499,7 +490,6 @@ void RichTextNote::load()
         _top = mapSettings[ "Top" ].toBool();
         _opacity = mapSettings[ "Opacity" ].toDouble();
         _visible = mapSettings.value( "Visible" ).toBool();
-//        _readOnly = mapSettings[ "ReadOnly" ].toBool();
 
         loadContent();
     }
@@ -513,7 +503,6 @@ void RichTextNote::load()
     setTop( _top );
     setOpacity( _opacity );
     setVisible( _visible );
-//    setReadOnly( _readOnly );
 
     setActivateTimerAutosave( defaultMapSettings[ "Autosave" ].toBool() );
     setIntervalAutosave( defaultMapSettings[ "AutosaveInterval" ].toInt() );
@@ -574,20 +563,6 @@ void RichTextNote::invokeRemove()
 {
     emit changed( EventsNote::Remove );
 }
-
-//void RichTextNote::setReadOnly( bool ro )
-//{
-//    if ( isReadOnly() == ro )
-//        return;
-
-//    d->editor.setReadOnly( ro );
-//    updateStates();
-//    emit changed( EventsNote::ChangeReadOnly );
-//}
-//bool RichTextNote::isReadOnly()
-//{
-//    return d->editor.isReadOnly();
-//}
 
 void RichTextNote::setTop( bool b )
 {

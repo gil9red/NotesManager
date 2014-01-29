@@ -30,7 +30,6 @@
 #include <QVBoxLayout>
 #include <QDebug>
 
-
 ColorButton::ColorButton( QWidget * parent )
     : QToolButton( parent ),
       d( new d_ColorButton() )
@@ -49,10 +48,8 @@ QColor ColorButton::color()
     return d->color;
 }
 
-
 void ColorButton::createGUI()
-{
-    setIcon( QIcon( ":/color-text" ) );
+{    
     setPopupMode( QToolButton::MenuButtonPopup );
 
     d->tButtonDefaultColor = new QToolButton();
@@ -98,17 +95,12 @@ void ColorButton::anotherColor()
     selectedColor( color );
 }
 
-
 void ColorButton::setColor( const QColor & color )
 {
     d->color = color;
 
-    QPixmap pixmap( ":/color-text" );
-
-    QPainter painter( &pixmap );
-    painter.setBrush( color );
-    painter.setPen( color );
-    painter.drawRect( 0, pixmap.height() - 25, pixmap.width(), pixmap.height() - 25 );
+    QPixmap pixmap( 16, 16 );
+    pixmap.fill( color );
 
     setIcon( pixmap );
 }

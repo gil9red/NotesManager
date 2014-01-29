@@ -100,6 +100,8 @@ void Page_Settings::mapToSettings()
     ui->lEditTitle->setText( mapSettings.value( "NewNote_Title", tr( "New note" ) + " %dt%" ).toString() );
     ui->lEditTitle->setFont( fontTitle );
     ui->tEditText->setText( mapSettings.value( "NewNote_Text", "" ).toString() );
+    ui->tButtonColorTitle->setColor( QColor( mapSettings.value( "NewNote_ColorTitle", QColor( Qt::gray ).name() ).toString() ) );
+    ui->tButtonColorBody->setColor( QColor( mapSettings.value( "NewNote_ColorBody", QColor( Qt::lightGray ).name() ).toString() ) );
 
     ui->checkBoxAutosaveNotes->setChecked( mapSettings.value( "Notes_Autosave", true ).toBool() );
     ui->sBoxAutosaveIntervalNotes->setValue( mapSettings.value( "Notes_AutosaveInterval", 7 ).toInt() );
@@ -126,6 +128,8 @@ void Page_Settings::settingsToMap()
     mapSettings[ "NewNote_Title" ] = ui->lEditTitle->text();
     mapSettings[ "NewNote_FontTitle" ] = ui->lEditTitle->font().toString();
     mapSettings[ "NewNote_Text" ] = ui->tEditText->toHtml();
+    mapSettings[ "NewNote_ColorTitle" ] = ui->tButtonColorTitle->color().name();
+    mapSettings[ "NewNote_ColorBody" ] = ui->tButtonColorBody->color().name();
 
     mapSettings[ "Notes_Autosave" ] = ui->checkBoxAutosaveNotes->isChecked();
     mapSettings[ "Notes_AutosaveInterval" ] = ui->sBoxAutosaveIntervalNotes->value();

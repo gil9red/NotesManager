@@ -511,11 +511,6 @@ void FormattingToolbar::on_tButtonAlignJustify_clicked()
 }
 void FormattingToolbar::on_tButtonEraser_clicked()
 {
-//    // получаем не форматированный текст и заменяем его на форматированный
-//    QString plainText = editor->textCursor().selectedText();
-//    editor->textCursor().insertHtml( plainText );
-// альтернатива:
-
     editor->setCurrentCharFormat( QTextCharFormat() );
 }
 
@@ -573,10 +568,6 @@ void FormattingToolbar::on_tButtonInsertHyperlink_clicked()
     const QString & hyperlink = dialog.hyperlink();
     const QString & text = dialog.text();
 
-//    // если адрес почты
-//    if ( hyperlink.contains( "@" ) )
-//        editor->insertHtml( QString( "<a href=\"mailto:%1\">%2</a> " ).arg( hyperlink ).arg( text ) );
-//    else
     editor->insertHtml( QString( "<a href=\"%1\">%2</a> " ).arg( hyperlink ).arg( text ) );
 }
 void FormattingToolbar::on_tButtonInsertPicture_clicked()

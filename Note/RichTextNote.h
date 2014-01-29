@@ -93,12 +93,6 @@ public slots:
     //! Вызов события "Удалить".
     void invokeRemove();
 
-//    //! Установка режима "только чтение".
-//    void setReadOnly( bool ro );
-
-//    //! Состояние режима "только чтение".
-//    bool isReadOnly();
-
     //! Устанавливает заметку поверх всех окон.
     /*! \sa isTop(), AbstractNote::setTop() */
     void setTop( bool b );
@@ -174,11 +168,9 @@ private slots:
 public:
     d_RichTextNote * d; //!< Данные
     QToolButton * tButtonSetTopBottom;
-//    QToolButton * tButtonSetReadOnly;
     QToolButton * tButtonSave;
 
     QAction * actionSetTopBottom;
-//    QAction * actionSetReadOnly;
     QAction * actionSave;
     QAction * actionVisibleToolBar;
 

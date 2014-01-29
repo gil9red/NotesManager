@@ -155,10 +155,3 @@ void AttachPanel::on_tButtonRun_clicked()
     QString fileName = note->attachDirPath() + "/" + model->item( row, col )->text();
     QDesktopServices::openUrl( QUrl::fromLocalFile( fileName ) );
 }
-
-//void AttachPanel::on_tButtonUpdateContentNote_clicked()
-//{
-//    QString text = note->textEditor()->toHtml();
-//    note->textEditor()->clear();
-//    note->textEditor()->setHtml( text );
-//}

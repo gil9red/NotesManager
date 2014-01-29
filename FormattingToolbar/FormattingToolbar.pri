@@ -9,7 +9,9 @@ HEADERS += \
     FormattingToolbar/ButtonBulletedList.h \
     FormattingToolbar/WidgetSelectionTableSizes.h \
     FormattingToolbar/colorbackgroundbutton.h \
-    FormattingToolbar/colorpalette.h
+    FormattingToolbar/colorpalette.h \
+    FormattingToolbar/colortextbutton.h \
+    FormattingToolbar/colorselectbutton.h
 
 SOURCES += \
     FormattingToolbar/FormattingToolbar.cpp \
@@ -19,7 +21,9 @@ SOURCES += \
     FormattingToolbar/ButtonList.cpp \
     FormattingToolbar/WidgetSelectionTableSizes.cpp \
     FormattingToolbar/colorbackgroundbutton.cpp \
-    FormattingToolbar/colorpalette.cpp
+    FormattingToolbar/colorpalette.cpp \
+    FormattingToolbar/colortextbutton.cpp \
+    FormattingToolbar/colorselectbutton.cpp
 
 FORMS += \
     FormattingToolbar/DialogInsertHyperlink.ui \

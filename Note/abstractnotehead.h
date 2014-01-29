@@ -96,8 +96,6 @@ class d_AbstractHead
 {
 public:
     QColor color;       //!< Цвет
-//    QString text;       //!< Текст
-//    QFont font;         //!< Шрифт текста
     QPoint oldPosition; //!< Старая позиция
     bool isMousePress;  //!< Текущее состояние левой кнопки мыши
 };

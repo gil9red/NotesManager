@@ -198,8 +198,6 @@ QFont AbstractNote::titleFont()
 
 void AbstractNote::setTop( bool b )
 {
-//    mapSettings[ "Top" ] = b;
-
     Qt::WindowFlags f = Note::flags;
     bool visible = isVisible();
 

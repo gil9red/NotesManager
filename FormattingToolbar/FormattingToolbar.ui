@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>205</width>
-    <height>134</height>
+    <width>191</width>
+    <height>116</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -29,7 +29,7 @@
    <item>
     <widget class="QFontComboBox" name="fontComboBox">
      <property name="focusPolicy">
-      <enum>Qt::ClickFocus</enum>
+      <enum>Qt::NoFocus</enum>
      </property>
      <property name="toolTip">
       <string>Font list</string>
@@ -82,6 +82,9 @@
      </item>
      <item>
       <widget class="QToolButton" name="tButtonDecreaseSizeFont">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="toolTip">
         <string>Decrease size</string>
        </property>
@@ -153,7 +156,7 @@
       </widget>
      </item>
      <item>
-      <widget class="ColorButton" name="tButtonTextColor">
+      <widget class="ColorTextButton" name="tButtonTextColor">
        <property name="enabled">
         <bool>true</bool>
        </property>
@@ -376,6 +379,9 @@
      </item>
      <item>
       <widget class="QToolButton" name="tButtonInsertHLine">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="toolTip">
         <string>Insert a horizontal line</string>
        </property>
@@ -621,6 +627,9 @@
        <property name="enabled">
         <bool>true</bool>
        </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="toolTip">
         <string>Insert hyperlink</string>
        </property>
@@ -643,6 +652,9 @@
       <widget class="QToolButton" name="tButtonInsertPicture">
        <property name="enabled">
         <bool>true</bool>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
        </property>
        <property name="toolTip">
         <string>Insert picture</string>
@@ -667,6 +679,9 @@
        <property name="enabled">
         <bool>true</bool>
        </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="toolTip">
         <string>Insert table</string>
        </property>
@@ -687,6 +702,9 @@
      </item>
      <item>
       <widget class="ColorBackgroundButton" name="tButtonColorBackground">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="toolTip">
         <string>Color background</string>
        </property>
@@ -706,6 +724,19 @@
       </widget>
      </item>
      <item>
+      <spacer name="verticalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
       <spacer name="horizontalSpacer_2">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -719,6 +750,19 @@
       </spacer>
      </item>
     </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_3">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
    </item>
    <item>
     <spacer name="verticalSpacer">
@@ -736,11 +780,6 @@
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>ColorButton</class>
-   <extends>QToolButton</extends>
-   <header>FormattingToolbar/ColorButton.h</header>
-  </customwidget>
   <customwidget>
    <class>ButtonUnderlineStyleList</class>
    <extends>QToolButton</extends>
@@ -766,7 +805,15 @@
    <extends>QToolButton</extends>
    <header>FormattingToolbar/colorbackgroundbutton.h</header>
   </customwidget>
+  <customwidget>
+   <class>ColorTextButton</class>
+   <extends>QToolButton</extends>
+   <header>FormattingToolbar/colortextbutton.h</header>
+  </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>tButtonDecreaseSizeFont</tabstop>
+ </tabstops>
  <resources>
   <include location="FormattingToolbar.qrc"/>
  </resources>
