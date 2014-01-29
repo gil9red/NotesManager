@@ -29,6 +29,7 @@
 
 #include <QDebug>
 #include <QMessageBox>
+#include <QFontDialog>
 
 Page_Settings::Page_Settings( QWidget * parent )
     : QMainWindow( parent ),
@@ -98,7 +99,7 @@ void Page_Settings::mapToSettings()
     ui->sBoxOpacity->setValue( mapSettings.value( "NewNote_Opacity", Note::maximalOpacity ).toDouble() * 100 );
     ui->lEditTitle->setText( mapSettings.value( "NewNote_Title", tr( "New note" ) + " %dt%" ).toString() );
     ui->lEditTitle->setFont( fontTitle );
-    ui->ptEditText->setPlainText( mapSettings.value( "NewNote_Text", "" ).toString() );
+    ui->tEditText->setText( mapSettings.value( "NewNote_Text", "" ).toString() );
 
     ui->checkBoxAutosaveNotes->setChecked( mapSettings.value( "Notes_Autosave", true ).toBool() );
     ui->sBoxAutosaveIntervalNotes->setValue( mapSettings.value( "Notes_AutosaveInterval", 7 ).toInt() );
@@ -124,7 +125,7 @@ void Page_Settings::settingsToMap()
     mapSettings[ "NewNote_Opacity" ] = ui->sBoxOpacity->value() / 100.0;
     mapSettings[ "NewNote_Title" ] = ui->lEditTitle->text();
     mapSettings[ "NewNote_FontTitle" ] = ui->lEditTitle->font().toString();
-    mapSettings[ "NewNote_Text" ] = ui->ptEditText->toPlainText();
+    mapSettings[ "NewNote_Text" ] = ui->tEditText->toHtml();
 
     mapSettings[ "Notes_Autosave" ] = ui->checkBoxAutosaveNotes->isChecked();
     mapSettings[ "Notes_AutosaveInterval" ] = ui->sBoxAutosaveIntervalNotes->value();
@@ -210,4 +211,14 @@ void Page_Settings::on_buttonBox_clicked(QAbstractButton *button)
         emit acceptChangeSettings();
         emit message( tr( "Settings received and stored" ), 5000 );
     }
+}
+
+void Page_Settings::on_tButtonFontTitle_clicked()
+{
+    bool ok;
+    const QFont & font = QFontDialog::getFont( &ok, ui->lEditTitle->font(), this );
+    if ( !ok )
+        return;
+
+    ui->lEditTitle->setFont( font );
 }

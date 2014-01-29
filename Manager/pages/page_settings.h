@@ -69,6 +69,8 @@ private slots:
     void on_treeWidgetMenu_itemClicked(QTreeWidgetItem *item, int column);
     void on_buttonBox_clicked(QAbstractButton *button);
 
+    void on_tButtonFontTitle_clicked();
+
 signals:
     void acceptChangeSettings();
     void message( const QString & text, int msec );

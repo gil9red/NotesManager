@@ -171,16 +171,15 @@ void RichTextNote::setDefaultSettingsFromMap( const QVariantMap & s )
     defaultMapSettings[ "ColorBody" ] = QColor( Qt::darkGreen ).name();
     defaultMapSettings[ "Opacity" ] = s.value( "NewNote_Opacity" );
     defaultMapSettings[ "Visible" ] = s.value( "NewNote_Visible" );
-
     defaultMapSettings[ "Title" ] = s.value( "NewNote_Title" );
     defaultMapSettings[ "Text" ] = s.value( "NewNote_Text" );
     defaultMapSettings[ "FontTitle" ] = s.value( "NewNote_FontTitle" );
     defaultMapSettings[ "Position" ] = s.value( "NewNote_Position" );
     defaultMapSettings[ "Size" ] = s.value( "NewNote_Size" );
-//    defaultMapSettings[ "ReadOnly" ] = s.value( "NewNote_ReadOnly" );
-
     defaultMapSettings[ "RandomColor" ] = s.value( "NewNote_RandomColor" );
     defaultMapSettings[ "RandomPositionOnScreen" ] = s.value( "NewNote_RandomPositionOnScreen" );
+    defaultMapSettings[ "Autosave" ] = s.value( "Notes_Autosave" );
+    defaultMapSettings[ "AutosaveInterval" ] = s.value( "Notes_AutosaveInterval" );
 }
 
 void RichTextNote::init()
@@ -191,10 +190,6 @@ void RichTextNote::init()
     updateStates();
 
     connect( &d->timerAutosave, SIGNAL( timeout() ), SLOT( save() ) );
-
-//  TODO: брать из настроек
-    setActivateTimerAutosave( true );
-    setIntervalAutosave( 7 ); // интервал автосохранения в минутах
 }
 void RichTextNote::setupActions()
 {
@@ -490,6 +485,7 @@ void RichTextNote::load()
 //        _readOnly = defaultMapSettings[ "ReadOnly" ].toBool();
 
         // TODO: доработать парсер выражений
+        // поиск в коде по %dt%. Справка по этим шаблонам.
         setText( defaultMapSettings[ "Text" ].toString().replace( "%dt%", currentDateTime.toString( Qt::SystemLocaleLongDate ) ) );
 
     } else
@@ -518,6 +514,9 @@ void RichTextNote::load()
     setOpacity( _opacity );
     setVisible( _visible );
 //    setReadOnly( _readOnly );
+
+    setActivateTimerAutosave( defaultMapSettings[ "Autosave" ].toBool() );
+    setIntervalAutosave( defaultMapSettings[ "AutosaveInterval" ].toInt() );
 
     updateStates();
     emit changed( EventsNote::LoadEnded );
@@ -801,6 +800,9 @@ int RichTextNote::numberOfAttachments()
 
 void RichTextNote::setActivateTimerAutosave( bool activate )
 {
+    if ( activate == d->timerAutosave.isActive() )
+        return;
+
     if ( activate )
         d->timerAutosave.start();
     else

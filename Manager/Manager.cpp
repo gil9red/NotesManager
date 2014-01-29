@@ -49,7 +49,7 @@ Manager::Manager( QWidget * parent ) :
     self = this;       
 
     QStringList labels;
-    labels << tr( "Title" ) << tr( "Read only" ) << tr( "Visibility" )
+    labels << tr( "Title" ) /*<< tr( "Read only" )*/ << tr( "Visibility" )
            << tr( "Created" ) << tr( "Modified" ) << tr( "On top of all windows" )
            << tr( "Number of attachments" );
     model.setHorizontalHeaderLabels( labels );
@@ -405,6 +405,20 @@ void Manager::acceptChangeSettings()
 {
     setActivateTimerAutosave( pageSettings->mapSettings[ "Autosave" ].toBool() );
     setIntervalAutosave( pageSettings->mapSettings[ "AutosaveInterval" ].toInt() );
+
+    qApp->setOverrideCursor( Qt::WaitCursor );
+
+    bool activateTimerAutosaveNotes = pageSettings->mapSettings[ "Notes_Autosave" ].toBool();
+    int intervalTimerAutosaveNotes = pageSettings->mapSettings[ "Notes_AutosaveInterval" ].toInt();
+    for ( int i = 0; i < model.rowCount(); i++ )
+    {
+        qApp->processEvents();
+        RichTextNote * note = toNote( model.item( i, 0 ) );
+        note->setActivateTimerAutosave( activateTimerAutosaveNotes );
+        note->setIntervalAutosave( intervalTimerAutosaveNotes );
+    }
+
+    qApp->restoreOverrideCursor();
 }
 
 void Manager::updateStates()
@@ -574,34 +588,56 @@ void Manager::removeAllNotes()
         return;
 
     for ( int i = model.rowCount() - 1; i >= 0; i-- )
+    {
+        qApp->processEvents();
         toNote( model.item( i, 0 ) )->invokeRemove();
+    }
 }
 void Manager::saveAllNotes()
 {
+    qApp->setOverrideCursor( Qt::WaitCursor );
+
     for ( int i = 0; i < model.rowCount(); i++ )
+    {
+        qApp->processEvents();
         toNote( model.item( i, 0 ) )->save();
+    }
+
+    qApp->restoreOverrideCursor();
 }
 void Manager::showAllNotes()
 {
+    qApp->setOverrideCursor( Qt::WaitCursor );
+
     for ( int i = 0; i < model.rowCount(); i++ )
     {
+        qApp->processEvents();
+
         RichTextNote * note = toNote( model.item( i, 0 ) );
         if ( note->isVisible() )
             continue;
         else
             note->show();
     }
+
+    qApp->restoreOverrideCursor();
 }
 void Manager::hideAllNotes()
 {
+    qApp->setOverrideCursor( Qt::WaitCursor );
+
     for ( int i = 0; i < model.rowCount(); i++ )
     {
+        qApp->processEvents();
+
         RichTextNote * note = toNote( model.item( i, 0 ) );
         if ( !note->isVisible()  )
             continue;
         else
             note->hide();
     }
+
+    qApp->restoreOverrideCursor();
 }
 
 void Manager::openDictionary()
@@ -886,7 +922,7 @@ void Manager::setIntervalAutosave( quint64 minutes )
 }
 int Manager::intervalAutosave()
 {
-    return autoSaveTimer.interval() / 1000 / 60;
+    return autoSaveTimer.interval() / ( 1000 * 60 );
 }
 
 void Manager::closeEvent( QCloseEvent * event )

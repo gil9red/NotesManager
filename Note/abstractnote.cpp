@@ -172,6 +172,9 @@ bool AbstractNote::isVisibleToolBar()
 
 void AbstractNote::setTitle( const QString & str )
 {
+    if ( head->title() == str )
+        return;
+
     head->setTitle( str );
     emit changed( EventsNote::ChangeTitle );
 }
@@ -182,6 +185,9 @@ QString AbstractNote::title()
 
 void AbstractNote::setTitleFont( const QFont & f )
 {
+    if ( head->font() == f )
+        return;
+
     head->setFont( f );
     emit changed( EventsNote::ChangeFontTitle );
 }

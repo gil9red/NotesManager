@@ -153,8 +153,8 @@
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>253</width>
-              <height>309</height>
+              <width>271</width>
+              <height>392</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout">
@@ -317,7 +317,7 @@
               <x>0</x>
               <y>0</y>
               <width>341</width>
-              <height>292</height>
+              <height>375</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -387,7 +387,7 @@
             <property name="geometry">
              <rect>
               <x>0</x>
-              <y>0</y>
+              <y>-9</y>
               <width>254</width>
               <height>401</height>
              </rect>
@@ -656,7 +656,7 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QTextEdit" name="ptEditText">
+                  <widget class="QTextEdit" name="tEditText">
                    <property name="statusTip">
                     <string>Text of the new notes</string>
                    </property>
