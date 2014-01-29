@@ -99,7 +99,6 @@
     <addaction name="actionRemoveAllNotes"/>
     <addaction name="actionSaveAllNotes"/>
     <addaction name="separator"/>
-    <addaction name="actionReadOnlyNote"/>
     <addaction name="actionTopNote"/>
     <addaction name="separator"/>
     <addaction name="actionPrintNote"/>
@@ -583,32 +582,6 @@
        <property name="icon">
         <iconset resource="Manager.qrc">
          <normaloff>:/save_all</normaloff>:/save_all</iconset>
-       </property>
-      </widget>
-     </item>
-     <item row="9" column="0">
-      <widget class="QToolButton" name="tButtonReadOnlyNote">
-       <property name="toolTip">
-        <string>Read only</string>
-       </property>
-       <property name="statusTip">
-        <string>Read only</string>
-       </property>
-       <property name="whatsThis">
-        <string>Read only</string>
-       </property>
-       <property name="accessibleName">
-        <string/>
-       </property>
-       <property name="text">
-        <string>Read only</string>
-       </property>
-       <property name="icon">
-        <iconset resource="../Note/Note.qrc">
-         <normaloff>:/read-only</normaloff>:/read-only</iconset>
-       </property>
-       <property name="checkable">
-        <bool>true</bool>
        </property>
       </widget>
      </item>

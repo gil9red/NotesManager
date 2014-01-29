@@ -93,11 +93,11 @@ public slots:
     //! Вызов события "Удалить".
     void invokeRemove();
 
-    //! Установка режима "только чтение".
-    void setReadOnly( bool ro );
+//    //! Установка режима "только чтение".
+//    void setReadOnly( bool ro );
 
-    //! Состояние режима "только чтение".
-    bool isReadOnly();
+//    //! Состояние режима "только чтение".
+//    bool isReadOnly();
 
     //! Устанавливает заметку поверх всех окон.
     /*! \sa isTop(), AbstractNote::setTop() */
@@ -174,11 +174,11 @@ private slots:
 public:
     d_RichTextNote * d; //!< Данные
     QToolButton * tButtonSetTopBottom;
-    QToolButton * tButtonSetReadOnly;
+//    QToolButton * tButtonSetReadOnly;
     QToolButton * tButtonSave;
 
     QAction * actionSetTopBottom;
-    QAction * actionSetReadOnly;
+//    QAction * actionSetReadOnly;
     QAction * actionSave;
     QAction * actionVisibleToolBar;
 
@@ -218,7 +218,7 @@ public:
     QTimer timerAutosave; //!< Таймер автосохранений
     bool isModified;      //! "Заметка изменена"
     QString noteFileName; //! Путь до папки заметки
-    TextEditor * editor;  //! Редактор заметки
+    TextEditor editor;  //! Редактор заметки
 };
 
 Q_DECLARE_METATYPE( RichTextNote * )

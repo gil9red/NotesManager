@@ -95,11 +95,11 @@ RichTextNote::~RichTextNote()
 
 QTextDocument * RichTextNote::document()
 {
-    return d->editor->document();
+    return d->editor.document();
 }
 TextEditor * RichTextNote::textEditor()
 {
-    return d->editor;
+    return &d->editor;
 }
 
 QDateTime RichTextNote::created()
@@ -128,7 +128,6 @@ void RichTextNote::createNew( bool bsave )
 
     load();
 
-    // сохраняемся на всякий случай
     if ( bsave )
         save();
 }
@@ -170,14 +169,15 @@ void RichTextNote::setDefaultSettingsFromMap( const QVariantMap & s )
     defaultMapSettings[ "Top" ] = s.value( "NewNote_Top" );
     defaultMapSettings[ "ColorTitle" ] = QColor( Qt::gray ).name();
     defaultMapSettings[ "ColorBody" ] = QColor( Qt::darkGreen ).name();
-    defaultMapSettings[ "Opacity" ] = Note::maximalOpacity;
+    defaultMapSettings[ "Opacity" ] = s.value( "NewNote_Opacity" );
     defaultMapSettings[ "Visible" ] = s.value( "NewNote_Visible" );
 
-    defaultMapSettings[ "Title" ] = s.value( "NewNote_Title", "New note %dt%" );
-    defaultMapSettings[ "FontTitle" ] = s.value( "NewNote_FontTitle", QFont().toString() );
-    defaultMapSettings[ "Position" ] = s.value( "NewNote_Position" ).toPoint();
-    defaultMapSettings[ "Size" ] = s.value( "NewNote_Size" ).toSize();
-    defaultMapSettings[ "ReadOnly" ] = false;
+    defaultMapSettings[ "Title" ] = s.value( "NewNote_Title" );
+    defaultMapSettings[ "Text" ] = s.value( "NewNote_Text" );
+    defaultMapSettings[ "FontTitle" ] = s.value( "NewNote_FontTitle" );
+    defaultMapSettings[ "Position" ] = s.value( "NewNote_Position" );
+    defaultMapSettings[ "Size" ] = s.value( "NewNote_Size" );
+//    defaultMapSettings[ "ReadOnly" ] = s.value( "NewNote_ReadOnly" );
 
     defaultMapSettings[ "RandomColor" ] = s.value( "NewNote_RandomColor" );
     defaultMapSettings[ "RandomPositionOnScreen" ] = s.value( "NewNote_RandomPositionOnScreen" );
@@ -211,7 +211,7 @@ void RichTextNote::setupActions()
     QAction * actionSetColor = Create::Action::triggered( tr( "Set window color" ), QIcon::fromTheme( "", QIcon( ":/color" ) ), QKeySequence(), this, SLOT( selectColor() ) );
     QAction * actionHide = Create::Action::triggered( tr( "Hide" ), QIcon::fromTheme( "", QIcon( ":/hide" ) ), QKeySequence(), this, SLOT( hide() ) );
     actionSetTopBottom = Create::Action::bTriggered( tr( "On top of all windows" ), QIcon::fromTheme( "", QIcon( ":/tacks" ) ), QKeySequence(), this, SLOT( setTop( bool ) ) );
-    actionSetReadOnly = Create::Action::bTriggered( tr( "Read only" ), QIcon::fromTheme( "", QIcon( ":/read-only" ) ), QKeySequence(), this, SLOT( setReadOnly( bool ) ) );
+//    actionSetReadOnly = Create::Action::bTriggered( tr( "Read only" ), QIcon::fromTheme( "", QIcon( ":/read-only" ) ), QKeySequence(), this, SLOT( setReadOnly( bool ) ) );
     QAction * actionOpen = Create::Action::triggered( tr( "Open" ), QIcon::fromTheme( "", QIcon( ":/open" ) ), QKeySequence( QKeySequence::Open ), this, SLOT( open() ) );
     QAction * actionSaveAs = Create::Action::triggered( tr( "Save as" ), QIcon::fromTheme( "", QIcon( ":/save-as" ) ), QKeySequence( QKeySequence::SaveAs ), this, SLOT( saveAs() ) );
 #ifndef QT_NO_PRINTER
@@ -248,7 +248,7 @@ void RichTextNote::setupActions()
     addAction( actionSetColor );
     addSeparator();
     addAction( actionSetTopBottom );
-    addAction( actionSetReadOnly );
+//    addAction( actionSetReadOnly );
     addSeparator();
     addAction( actionOpen );
     addAction( actionSave );
@@ -265,12 +265,12 @@ void RichTextNote::setupActions()
 }
 void RichTextNote::setupGUI()
 {
-    d->editor = new TextEditor();
+//    d->editor = new TextEditor();
 
     Qt::DockWidgetAreas areas = Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea;
 
     FormattingToolbar * formattingToolbar = new FormattingToolbar();
-    formattingToolbar->installConnect( d->editor );   
+    formattingToolbar->installConnect( &d->editor );
     formattingToolbar->setNote( this );
 
     dockWidgetFormattingToolbar = new QDockWidget();
@@ -314,7 +314,7 @@ void RichTextNote::setupGUI()
     actionVisibleAttachPanel->setChecked( dockWidgetAttachPanel->isVisible() );
     
     
-    findAndReplace = new FindAndReplace( d->editor );
+    findAndReplace = new FindAndReplace( &d->editor );
 
     dockWidgetFindAndReplace = new QDockWidget();
     dockWidgetFindAndReplace->setAllowedAreas( areas );
@@ -335,7 +335,7 @@ void RichTextNote::setupGUI()
     actionVisibleFindAndReplace->setChecked( dockWidgetFindAndReplace->isVisible() );
     
 
-    quickFind = new QuickFind( d->editor );
+    quickFind = new QuickFind( &d->editor );
     connect( actionVisibleQuickFind, SIGNAL( triggered(bool) ), quickFind, SLOT( setVisible(bool) ) );
     connect( quickFind, SIGNAL( visibilityChanged(bool) ), actionVisibleQuickFind, SLOT( setChecked(bool) ) );
     actionVisibleQuickFind->setChecked( quickFind->isVisible() );
@@ -343,7 +343,7 @@ void RichTextNote::setupGUI()
     QVBoxLayout * mainLayout = new QVBoxLayout();
     mainLayout->setSpacing( 0 );
     mainLayout->setContentsMargins( 5, 0, 5, 0 );
-    mainLayout->addWidget( d->editor );
+    mainLayout->addWidget( &d->editor );
     mainLayout->addWidget( quickFind );
 
     body->setWidget( new QWidget() );
@@ -358,7 +358,7 @@ void RichTextNote::setupGUI()
     QToolButton * tButtonSetOpacity = Create::Button::clicked( tr( "Opacity" ), QIcon::fromTheme( "", QIcon( ":/opacity" ) ), this, SLOT( selectOpacity() ) );
     QToolButton * tButtonHide = Create::Button::clicked( tr( "Hide" ), QIcon::fromTheme( "", QIcon( ":/hide" ) ), this, SLOT( hide() ) );
     tButtonSetTopBottom = Create::Button::bClicked( tr( "On top of all windows" ), QIcon::fromTheme( "", QIcon( ":/tacks" ) ), this, SLOT( setTop( bool ) ) );
-    tButtonSetReadOnly = Create::Button::bClicked( tr( "Read only" ), QIcon::fromTheme( "", QIcon( ":/read-only" ) ), this, SLOT( setReadOnly( bool ) ) );
+//    tButtonSetReadOnly = Create::Button::bClicked( tr( "Read only" ), QIcon::fromTheme( "", QIcon( ":/read-only" ) ), this, SLOT( setReadOnly( bool ) ) );
     QToolButton * tButtonOpen = Create::Button::clicked( tr( "Open" ), QIcon::fromTheme( "", QIcon( ":/open" ) ), this, SLOT( open() ) );
     QToolButton * tButtonSaveAs = Create::Button::clicked( tr( "Save as" ), QIcon::fromTheme( "", QIcon( ":/save-as" ) ), this, SLOT( saveAs() ) );
     QToolButton * tButtonPrint = Create::Button::clicked( tr( "Print" ),QIcon::fromTheme( "", QIcon( ":/print" ) ), this, SLOT( print() ) );
@@ -382,7 +382,7 @@ void RichTextNote::setupGUI()
     body->addWidgetToToolBar( tButtonSetOpacity );
     body->addSeparator();
     body->addWidgetToToolBar( tButtonSetTopBottom );
-    body->addWidgetToToolBar( tButtonSetReadOnly );
+//    body->addWidgetToToolBar( tButtonSetReadOnly );
     body->addSeparator();
     body->addWidgetToToolBar( tButtonOpen );
     body->addWidgetToToolBar( tButtonSaveAs );
@@ -407,7 +407,7 @@ void RichTextNote::setupGUI()
     tButtonSetOpacity->setPopupMode( QToolButton::MenuButtonPopup );
 
 
-    connect( d->editor->document(), SIGNAL( contentsChanged() ), SLOT( contentsChanged() ) );
+    connect( d->editor.document(), SIGNAL( contentsChanged() ), SLOT( contentsChanged() ) );
 }
 
 void RichTextNote::save()
@@ -426,7 +426,7 @@ void RichTextNote::save()
     mapSettings[ "FontTitle" ] = titleFont().toString();
     mapSettings[ "Position" ] = pos();
     mapSettings[ "Size" ] = size();
-    mapSettings[ "ReadOnly" ] = isReadOnly();
+//    mapSettings[ "ReadOnly" ] = isReadOnly();
 
     QSettings ini( settingsFilePath(), QSettings::IniFormat );
     ini.setIniCodec( "utf8" );
@@ -451,7 +451,7 @@ void RichTextNote::load()
     bool _top;
     qreal _opacity;
     bool _visible;
-    bool _readOnly;
+//    bool _readOnly;
 
     // Если пуст, значит эта заметка новая -> берем параметры из дэфолтных настроек
     if ( mapSettings.isEmpty() )
@@ -464,6 +464,7 @@ void RichTextNote::load()
         mapSettings[ "Created" ] = currentDateTime;
         mapSettings[ "Modified" ] = currentDateTime;
 
+        // TODO: доработать парсер выражений
         _title = defaultMapSettings[ "Title" ].toString().replace( "%dt%", currentDateTime.toString( Qt::SystemLocaleLongDate ) );
         _fontTitle.fromString( defaultMapSettings[ "FontTitle" ].toString() );
         _size = defaultMapSettings[ "Size" ].toSize();
@@ -484,9 +485,12 @@ void RichTextNote::load()
         }
 
         _top = defaultMapSettings[ "Top" ].toBool();
-        _opacity = defaultMapSettings.value( "Opacity" ).toBool();
+        _opacity = defaultMapSettings.value( "Opacity" ).toDouble();
         _visible = defaultMapSettings.value( "Visible" ).toBool();
-        _readOnly = defaultMapSettings[ "ReadOnly" ].toBool();
+//        _readOnly = defaultMapSettings[ "ReadOnly" ].toBool();
+
+        // TODO: доработать парсер выражений
+        setText( defaultMapSettings[ "Text" ].toString().replace( "%dt%", currentDateTime.toString( Qt::SystemLocaleLongDate ) ) );
 
     } else
     {
@@ -499,7 +503,9 @@ void RichTextNote::load()
         _top = mapSettings[ "Top" ].toBool();
         _opacity = mapSettings[ "Opacity" ].toDouble();
         _visible = mapSettings.value( "Visible" ).toBool();
-        _readOnly = mapSettings[ "ReadOnly" ].toBool();
+//        _readOnly = mapSettings[ "ReadOnly" ].toBool();
+
+        loadContent();
     }
 
     setTitle( _title );
@@ -511,9 +517,7 @@ void RichTextNote::load()
     setTop( _top );
     setOpacity( _opacity );
     setVisible( _visible );
-    setReadOnly( _readOnly );
-
-    loadContent();
+//    setReadOnly( _readOnly );
 
     updateStates();
     emit changed( EventsNote::LoadEnded );
@@ -542,18 +546,18 @@ void RichTextNote::saveContent()
 }
 void RichTextNote::loadContent()
 {
-    d->editor->setSource( QUrl::fromLocalFile( contentFilePath() ) );
+   d->editor.setSource( QUrl::fromLocalFile( contentFilePath() ) );
 }
 void RichTextNote::setText( const QString & str )
 {
     if ( text() == str )
         return;
 
-    d->editor->setHtml( str );
+    d->editor.setHtml( str );
 }
 QString RichTextNote::text()
 {
-    return d->editor->document()->toHtml( "utf-8" );
+    return d->editor.document()->toHtml( "utf-8" );
 }
 void RichTextNote::removeDir()
 {
@@ -572,19 +576,19 @@ void RichTextNote::invokeRemove()
     emit changed( EventsNote::Remove );
 }
 
-void RichTextNote::setReadOnly( bool ro )
-{
-    if ( isReadOnly() == ro )
-        return;
+//void RichTextNote::setReadOnly( bool ro )
+//{
+//    if ( isReadOnly() == ro )
+//        return;
 
-    d->editor->setReadOnly( ro );
-    updateStates();
-    emit changed( EventsNote::ChangeReadOnly );
-}
-bool RichTextNote::isReadOnly()
-{
-    return d->editor->isReadOnly();
-}
+//    d->editor.setReadOnly( ro );
+//    updateStates();
+//    emit changed( EventsNote::ChangeReadOnly );
+//}
+//bool RichTextNote::isReadOnly()
+//{
+//    return d->editor.isReadOnly();
+//}
 
 void RichTextNote::setTop( bool b )
 {
@@ -756,7 +760,7 @@ void RichTextNote::insertImage( const QString & fileName )
     relativePath = QDir::toNativeSeparators( relativePath );
 
     document()->addResource( QTextDocument::ImageResource, QUrl( relativePath ), QImage( newFileName ) );
-    d->editor->textCursor().insertImage( relativePath );
+    d->editor.textCursor().insertImage( relativePath );
 }
 void RichTextNote::insertImage( const QPixmap & pixmap )
 {
@@ -826,18 +830,18 @@ void RichTextNote::changeOpacity( QAction * action )
 }
 void RichTextNote::print( QPrinter * printer )
 {
-    d->editor->print( printer );
+    d->editor.print( printer );
 }
 void RichTextNote::updateStates()
 {
     bool top = isTop();
-    bool readOnly = isReadOnly();
+//    bool readOnly = isReadOnly();
     bool isModified = this->isModified();
 
     tButtonSetTopBottom->setChecked( top );
     actionSetTopBottom->setChecked( top );
-    actionSetReadOnly->setChecked( readOnly );
-    tButtonSetReadOnly->setChecked( readOnly );
+//    actionSetReadOnly->setChecked( readOnly );
+//    tButtonSetReadOnly->setChecked( readOnly );
     tButtonSave->setEnabled( isModified );
     actionSave->setEnabled( isModified );
     actionVisibleToolBar->setChecked( isVisibleToolBar() );

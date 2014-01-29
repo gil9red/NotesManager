@@ -567,296 +567,292 @@
     </message>
     <message>
         <location filename="../Manager/Manager.ui" line="85"/>
-        <location filename="../Manager/Manager.ui" line="360"/>
+        <location filename="../Manager/Manager.ui" line="359"/>
         <source>Note</source>
         <translation>Примітка</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="122"/>
+        <location filename="../Manager/Manager.ui" line="121"/>
         <source>Main</source>
         <translation>Основний</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="138"/>
-        <location filename="../Manager/Manager.ui" line="141"/>
-        <location filename="../Manager/Manager.ui" line="144"/>
-        <location filename="../Manager/Manager.ui" line="147"/>
-        <location filename="../Manager/Manager.ui" line="707"/>
-        <location filename="../Manager/Manager.ui" line="710"/>
-        <location filename="../Manager/Manager.ui" line="713"/>
+        <location filename="../Manager/Manager.ui" line="137"/>
+        <location filename="../Manager/Manager.ui" line="140"/>
+        <location filename="../Manager/Manager.ui" line="143"/>
+        <location filename="../Manager/Manager.ui" line="146"/>
+        <location filename="../Manager/Manager.ui" line="680"/>
+        <location filename="../Manager/Manager.ui" line="683"/>
+        <location filename="../Manager/Manager.ui" line="686"/>
         <source>Add a note from the clipboard</source>
         <translation>Додати замітку з буфера обміну</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="158"/>
-        <location filename="../Manager/Manager.ui" line="161"/>
-        <location filename="../Manager/Manager.ui" line="164"/>
-        <location filename="../Manager/Manager.ui" line="167"/>
-        <location filename="../Manager/Manager.ui" line="737"/>
-        <location filename="../Manager/Manager.ui" line="740"/>
-        <location filename="../Manager/Manager.ui" line="743"/>
+        <location filename="../Manager/Manager.ui" line="157"/>
+        <location filename="../Manager/Manager.ui" line="160"/>
+        <location filename="../Manager/Manager.ui" line="163"/>
+        <location filename="../Manager/Manager.ui" line="166"/>
+        <location filename="../Manager/Manager.ui" line="710"/>
+        <location filename="../Manager/Manager.ui" line="713"/>
+        <location filename="../Manager/Manager.ui" line="716"/>
         <source>Remove note</source>
         <translation>Видалити відома</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="178"/>
-        <location filename="../Manager/Manager.ui" line="181"/>
-        <location filename="../Manager/Manager.ui" line="184"/>
-        <location filename="../Manager/Manager.ui" line="187"/>
-        <location filename="../Manager/Manager.ui" line="722"/>
-        <location filename="../Manager/Manager.ui" line="725"/>
-        <location filename="../Manager/Manager.ui" line="728"/>
+        <location filename="../Manager/Manager.ui" line="177"/>
+        <location filename="../Manager/Manager.ui" line="180"/>
+        <location filename="../Manager/Manager.ui" line="183"/>
+        <location filename="../Manager/Manager.ui" line="186"/>
+        <location filename="../Manager/Manager.ui" line="695"/>
+        <location filename="../Manager/Manager.ui" line="698"/>
+        <location filename="../Manager/Manager.ui" line="701"/>
         <source>Remove all notes</source>
         <translation>Видалити всі нотатки</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="198"/>
-        <location filename="../Manager/Manager.ui" line="201"/>
-        <location filename="../Manager/Manager.ui" line="204"/>
-        <location filename="../Manager/Manager.ui" line="207"/>
-        <location filename="../Manager/Manager.ui" line="677"/>
-        <location filename="../Manager/Manager.ui" line="680"/>
-        <location filename="../Manager/Manager.ui" line="683"/>
+        <location filename="../Manager/Manager.ui" line="197"/>
+        <location filename="../Manager/Manager.ui" line="200"/>
+        <location filename="../Manager/Manager.ui" line="203"/>
+        <location filename="../Manager/Manager.ui" line="206"/>
+        <location filename="../Manager/Manager.ui" line="650"/>
+        <location filename="../Manager/Manager.ui" line="653"/>
+        <location filename="../Manager/Manager.ui" line="656"/>
         <location filename="../Manager/Manager.cpp" line="62"/>
         <source>Settings</source>
         <translation>Налаштування</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="218"/>
-        <location filename="../Manager/Manager.ui" line="221"/>
-        <location filename="../Manager/Manager.ui" line="224"/>
-        <location filename="../Manager/Manager.ui" line="230"/>
-        <location filename="../Manager/Manager.ui" line="662"/>
-        <location filename="../Manager/Manager.ui" line="665"/>
-        <location filename="../Manager/Manager.ui" line="668"/>
+        <location filename="../Manager/Manager.ui" line="217"/>
+        <location filename="../Manager/Manager.ui" line="220"/>
+        <location filename="../Manager/Manager.ui" line="223"/>
+        <location filename="../Manager/Manager.ui" line="229"/>
+        <location filename="../Manager/Manager.ui" line="635"/>
+        <location filename="../Manager/Manager.ui" line="638"/>
+        <location filename="../Manager/Manager.ui" line="641"/>
         <location filename="../Manager/Manager.cpp" line="63"/>
         <source>About</source>
         <translation>Про</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="254"/>
-        <location filename="../Manager/Manager.ui" line="257"/>
-        <location filename="../Manager/Manager.ui" line="260"/>
-        <location filename="../Manager/Manager.ui" line="263"/>
-        <location filename="../Manager/Manager.ui" line="692"/>
-        <location filename="../Manager/Manager.ui" line="695"/>
-        <location filename="../Manager/Manager.ui" line="698"/>
+        <location filename="../Manager/Manager.ui" line="253"/>
+        <location filename="../Manager/Manager.ui" line="256"/>
+        <location filename="../Manager/Manager.ui" line="259"/>
+        <location filename="../Manager/Manager.ui" line="262"/>
+        <location filename="../Manager/Manager.ui" line="665"/>
+        <location filename="../Manager/Manager.ui" line="668"/>
+        <location filename="../Manager/Manager.ui" line="671"/>
         <source>Add note</source>
         <translation>Додати до відома</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="274"/>
-        <location filename="../Manager/Manager.ui" line="277"/>
-        <location filename="../Manager/Manager.ui" line="280"/>
-        <location filename="../Manager/Manager.ui" line="283"/>
-        <location filename="../Manager/Manager.ui" line="647"/>
-        <location filename="../Manager/Manager.ui" line="650"/>
+        <location filename="../Manager/Manager.ui" line="273"/>
+        <location filename="../Manager/Manager.ui" line="276"/>
+        <location filename="../Manager/Manager.ui" line="279"/>
+        <location filename="../Manager/Manager.ui" line="282"/>
+        <location filename="../Manager/Manager.ui" line="620"/>
+        <location filename="../Manager/Manager.ui" line="623"/>
         <location filename="../Manager/Manager.cpp" line="64"/>
         <source>Quit</source>
         <translation>Вихід</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="294"/>
-        <location filename="../Manager/Manager.ui" line="297"/>
-        <location filename="../Manager/Manager.ui" line="300"/>
-        <location filename="../Manager/Manager.ui" line="303"/>
-        <location filename="../Manager/Manager.ui" line="905"/>
+        <location filename="../Manager/Manager.ui" line="293"/>
+        <location filename="../Manager/Manager.ui" line="296"/>
+        <location filename="../Manager/Manager.ui" line="299"/>
+        <location filename="../Manager/Manager.ui" line="302"/>
+        <location filename="../Manager/Manager.ui" line="878"/>
         <source>Open dictionary</source>
         <translation>Відкрити словник</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="314"/>
-        <location filename="../Manager/Manager.ui" line="317"/>
-        <location filename="../Manager/Manager.ui" line="320"/>
-        <location filename="../Manager/Manager.ui" line="323"/>
-        <location filename="../Manager/Manager.ui" line="914"/>
+        <location filename="../Manager/Manager.ui" line="313"/>
+        <location filename="../Manager/Manager.ui" line="316"/>
+        <location filename="../Manager/Manager.ui" line="319"/>
+        <location filename="../Manager/Manager.ui" line="322"/>
+        <location filename="../Manager/Manager.ui" line="887"/>
         <source>Close dictionary</source>
         <translation>Закрити словник</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="334"/>
-        <location filename="../Manager/Manager.ui" line="337"/>
-        <location filename="../Manager/Manager.ui" line="340"/>
-        <location filename="../Manager/Manager.ui" line="343"/>
-        <location filename="../Manager/Manager.ui" line="941"/>
+        <location filename="../Manager/Manager.ui" line="333"/>
+        <location filename="../Manager/Manager.ui" line="336"/>
+        <location filename="../Manager/Manager.ui" line="339"/>
+        <location filename="../Manager/Manager.ui" line="342"/>
+        <location filename="../Manager/Manager.ui" line="914"/>
         <source>Add a note from screen</source>
         <translation>Додати записку від екрану</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="376"/>
-        <location filename="../Manager/Manager.ui" line="379"/>
-        <location filename="../Manager/Manager.ui" line="382"/>
-        <location filename="../Manager/Manager.ui" line="385"/>
+        <location filename="../Manager/Manager.ui" line="375"/>
+        <location filename="../Manager/Manager.ui" line="378"/>
+        <location filename="../Manager/Manager.ui" line="381"/>
+        <location filename="../Manager/Manager.ui" line="384"/>
         <source>Hide note</source>
         <translation>Приховати вказівки</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="409"/>
-        <location filename="../Manager/Manager.ui" line="412"/>
-        <location filename="../Manager/Manager.ui" line="415"/>
-        <location filename="../Manager/Manager.ui" line="418"/>
+        <location filename="../Manager/Manager.ui" line="408"/>
+        <location filename="../Manager/Manager.ui" line="411"/>
+        <location filename="../Manager/Manager.ui" line="414"/>
+        <location filename="../Manager/Manager.ui" line="417"/>
         <source>Print note</source>
         <translation>Роздрукувати примітка</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="429"/>
-        <location filename="../Manager/Manager.ui" line="432"/>
-        <location filename="../Manager/Manager.ui" line="435"/>
-        <location filename="../Manager/Manager.ui" line="438"/>
-        <location filename="../Manager/Manager.ui" line="827"/>
-        <location filename="../Manager/Manager.ui" line="830"/>
-        <location filename="../Manager/Manager.ui" line="833"/>
+        <location filename="../Manager/Manager.ui" line="428"/>
+        <location filename="../Manager/Manager.ui" line="431"/>
+        <location filename="../Manager/Manager.ui" line="434"/>
+        <location filename="../Manager/Manager.ui" line="437"/>
+        <location filename="../Manager/Manager.ui" line="800"/>
+        <location filename="../Manager/Manager.ui" line="803"/>
+        <location filename="../Manager/Manager.ui" line="806"/>
         <source>Hide all notes</source>
         <translation>Приховати все замітки</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="449"/>
-        <location filename="../Manager/Manager.ui" line="452"/>
-        <location filename="../Manager/Manager.ui" line="455"/>
-        <location filename="../Manager/Manager.ui" line="458"/>
+        <location filename="../Manager/Manager.ui" line="448"/>
+        <location filename="../Manager/Manager.ui" line="451"/>
+        <location filename="../Manager/Manager.ui" line="454"/>
+        <location filename="../Manager/Manager.ui" line="457"/>
         <source>Save note</source>
         <translation>Зберегти відома</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="469"/>
-        <location filename="../Manager/Manager.ui" line="472"/>
-        <location filename="../Manager/Manager.ui" line="475"/>
-        <location filename="../Manager/Manager.ui" line="478"/>
-        <location filename="../Manager/Manager.ui" line="845"/>
-        <location filename="../Manager/Manager.ui" line="848"/>
-        <location filename="../Manager/Manager.ui" line="851"/>
+        <location filename="../Manager/Manager.ui" line="468"/>
+        <location filename="../Manager/Manager.ui" line="471"/>
+        <location filename="../Manager/Manager.ui" line="474"/>
+        <location filename="../Manager/Manager.ui" line="477"/>
+        <location filename="../Manager/Manager.ui" line="818"/>
+        <location filename="../Manager/Manager.ui" line="821"/>
+        <location filename="../Manager/Manager.ui" line="824"/>
         <location filename="../Manager/Manager.cpp" line="53"/>
         <source>On top of all windows</source>
         <translation>На поверх всіх вікон</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="492"/>
-        <location filename="../Manager/Manager.ui" line="495"/>
-        <location filename="../Manager/Manager.ui" line="498"/>
-        <location filename="../Manager/Manager.ui" line="501"/>
+        <location filename="../Manager/Manager.ui" line="491"/>
+        <location filename="../Manager/Manager.ui" line="494"/>
+        <location filename="../Manager/Manager.ui" line="497"/>
+        <location filename="../Manager/Manager.ui" line="500"/>
         <source>Save as note</source>
         <translation>Зберегти як записки</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="512"/>
-        <location filename="../Manager/Manager.ui" line="515"/>
-        <location filename="../Manager/Manager.ui" line="518"/>
-        <location filename="../Manager/Manager.ui" line="521"/>
+        <location filename="../Manager/Manager.ui" line="511"/>
+        <location filename="../Manager/Manager.ui" line="514"/>
+        <location filename="../Manager/Manager.ui" line="517"/>
+        <location filename="../Manager/Manager.ui" line="520"/>
         <source>Preview print note</source>
         <translation>Попередній друку примітка</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="532"/>
-        <location filename="../Manager/Manager.ui" line="535"/>
-        <location filename="../Manager/Manager.ui" line="538"/>
-        <location filename="../Manager/Manager.ui" line="541"/>
+        <location filename="../Manager/Manager.ui" line="531"/>
+        <location filename="../Manager/Manager.ui" line="534"/>
+        <location filename="../Manager/Manager.ui" line="537"/>
+        <location filename="../Manager/Manager.ui" line="540"/>
         <source>Show note</source>
         <translation>Показати примітка</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="552"/>
-        <location filename="../Manager/Manager.ui" line="555"/>
-        <location filename="../Manager/Manager.ui" line="558"/>
-        <location filename="../Manager/Manager.ui" line="561"/>
-        <location filename="../Manager/Manager.ui" line="812"/>
-        <location filename="../Manager/Manager.ui" line="815"/>
-        <location filename="../Manager/Manager.ui" line="818"/>
+        <location filename="../Manager/Manager.ui" line="551"/>
+        <location filename="../Manager/Manager.ui" line="554"/>
+        <location filename="../Manager/Manager.ui" line="557"/>
+        <location filename="../Manager/Manager.ui" line="560"/>
+        <location filename="../Manager/Manager.ui" line="785"/>
+        <location filename="../Manager/Manager.ui" line="788"/>
+        <location filename="../Manager/Manager.ui" line="791"/>
         <source>Show all notes</source>
         <translation>Показати всі примітки</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="572"/>
-        <location filename="../Manager/Manager.ui" line="575"/>
-        <location filename="../Manager/Manager.ui" line="578"/>
-        <location filename="../Manager/Manager.ui" line="581"/>
-        <location filename="../Manager/Manager.ui" line="890"/>
-        <location filename="../Manager/Manager.ui" line="893"/>
-        <location filename="../Manager/Manager.ui" line="896"/>
+        <location filename="../Manager/Manager.ui" line="571"/>
+        <location filename="../Manager/Manager.ui" line="574"/>
+        <location filename="../Manager/Manager.ui" line="577"/>
+        <location filename="../Manager/Manager.ui" line="580"/>
+        <location filename="../Manager/Manager.ui" line="863"/>
+        <location filename="../Manager/Manager.ui" line="866"/>
+        <location filename="../Manager/Manager.ui" line="869"/>
         <source>Save all notes</source>
         <translation>Збережіть всі замітки</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="592"/>
-        <location filename="../Manager/Manager.ui" line="595"/>
-        <location filename="../Manager/Manager.ui" line="598"/>
-        <location filename="../Manager/Manager.ui" line="604"/>
-        <location filename="../Manager/Manager.ui" line="926"/>
-        <location filename="../Manager/Manager.ui" line="929"/>
-        <location filename="../Manager/Manager.ui" line="932"/>
+        <location filename="../Manager/Manager.ui" line="899"/>
+        <location filename="../Manager/Manager.ui" line="902"/>
+        <location filename="../Manager/Manager.ui" line="905"/>
         <location filename="../Manager/Manager.cpp" line="52"/>
         <source>Read only</source>
         <translation>Тільки для читання</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="618"/>
-        <location filename="../Manager/Manager.ui" line="621"/>
-        <location filename="../Manager/Manager.ui" line="624"/>
-        <location filename="../Manager/Manager.ui" line="627"/>
-        <location filename="../Manager/Manager.ui" line="950"/>
+        <location filename="../Manager/Manager.ui" line="591"/>
+        <location filename="../Manager/Manager.ui" line="594"/>
+        <location filename="../Manager/Manager.ui" line="597"/>
+        <location filename="../Manager/Manager.ui" line="600"/>
+        <location filename="../Manager/Manager.ui" line="923"/>
         <source>Duplicate</source>
         <translation>Дублювати</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="644"/>
+        <location filename="../Manager/Manager.ui" line="617"/>
         <source>&amp;Quit</source>
         <translation>&amp;Вихід</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="653"/>
+        <location filename="../Manager/Manager.ui" line="626"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="752"/>
-        <location filename="../Manager/Manager.ui" line="755"/>
-        <location filename="../Manager/Manager.ui" line="758"/>
+        <location filename="../Manager/Manager.ui" line="725"/>
+        <location filename="../Manager/Manager.ui" line="728"/>
+        <location filename="../Manager/Manager.ui" line="731"/>
         <source>Save</source>
         <translation>Зберегти</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="767"/>
-        <location filename="../Manager/Manager.ui" line="770"/>
-        <location filename="../Manager/Manager.ui" line="773"/>
+        <location filename="../Manager/Manager.ui" line="740"/>
+        <location filename="../Manager/Manager.ui" line="743"/>
+        <location filename="../Manager/Manager.ui" line="746"/>
         <source>Save as</source>
         <translation>Зберегти як</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="782"/>
-        <location filename="../Manager/Manager.ui" line="785"/>
-        <location filename="../Manager/Manager.ui" line="788"/>
+        <location filename="../Manager/Manager.ui" line="755"/>
+        <location filename="../Manager/Manager.ui" line="758"/>
+        <location filename="../Manager/Manager.ui" line="761"/>
         <source>Show</source>
         <translation>Показувати</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="797"/>
-        <location filename="../Manager/Manager.ui" line="800"/>
-        <location filename="../Manager/Manager.ui" line="803"/>
+        <location filename="../Manager/Manager.ui" line="770"/>
+        <location filename="../Manager/Manager.ui" line="773"/>
+        <location filename="../Manager/Manager.ui" line="776"/>
         <source>Hide</source>
         <translation>Приховувати</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="860"/>
-        <location filename="../Manager/Manager.ui" line="863"/>
-        <location filename="../Manager/Manager.ui" line="866"/>
+        <location filename="../Manager/Manager.ui" line="833"/>
+        <location filename="../Manager/Manager.ui" line="836"/>
+        <location filename="../Manager/Manager.ui" line="839"/>
         <source>Print</source>
         <translation>Друк</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="875"/>
-        <location filename="../Manager/Manager.ui" line="878"/>
-        <location filename="../Manager/Manager.ui" line="881"/>
+        <location filename="../Manager/Manager.ui" line="848"/>
+        <location filename="../Manager/Manager.ui" line="851"/>
+        <location filename="../Manager/Manager.ui" line="854"/>
         <source>Preview print</source>
         <translation>Попередній друку</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="955"/>
-        <location filename="../Manager/Manager.ui" line="958"/>
-        <location filename="../Manager/Manager.ui" line="961"/>
+        <location filename="../Manager/Manager.ui" line="928"/>
+        <location filename="../Manager/Manager.ui" line="931"/>
+        <location filename="../Manager/Manager.ui" line="934"/>
         <source>Documentation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="966"/>
+        <location filename="../Manager/Manager.ui" line="939"/>
         <source>Open</source>
         <translation type="unfinished">Відкрито</translation>
     </message>
@@ -951,33 +947,33 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="575"/>
-        <location filename="../Manager/Manager.cpp" line="834"/>
+        <location filename="../Manager/Manager.cpp" line="572"/>
+        <location filename="../Manager/Manager.cpp" line="827"/>
         <source>Question</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="575"/>
+        <location filename="../Manager/Manager.cpp" line="572"/>
         <source>Delete all notes?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="777"/>
+        <location filename="../Manager/Manager.cpp" line="770"/>
         <source>copy</source>
         <translation>копія</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="791"/>
+        <location filename="../Manager/Manager.cpp" line="784"/>
         <source>from</source>
         <translation>від</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="834"/>
+        <location filename="../Manager/Manager.cpp" line="827"/>
         <source>Really quit?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="876"/>
+        <location filename="../Manager/Manager.cpp" line="869"/>
         <source>Save completed</source>
         <translation>Зберегти завершена</translation>
     </message>
@@ -1047,50 +1043,51 @@
         <translation>Налаштування</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="68"/>
+        <location filename="../Manager/pages/page_settings.ui" line="74"/>
         <source>Menu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="73"/>
+        <location filename="../Manager/pages/page_settings.ui" line="79"/>
         <source>Interface</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="87"/>
+        <location filename="../Manager/pages/page_settings.ui" line="93"/>
         <source>System</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="98"/>
+        <location filename="../Manager/pages/page_settings.ui" line="104"/>
+        <location filename="../Manager/pages/page_settings.cpp" line="100"/>
         <source>New note</source>
         <translation type="unfinished">Нова нотатка</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="109"/>
+        <location filename="../Manager/pages/page_settings.ui" line="115"/>
         <source>Notes</source>
         <translation type="unfinished">Замітка</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="164"/>
+        <location filename="../Manager/pages/page_settings.ui" line="170"/>
         <source>Interface language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="170"/>
+        <location filename="../Manager/pages/page_settings.ui" line="176"/>
         <source>Language:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="217"/>
-        <location filename="../Manager/pages/page_settings.ui" line="220"/>
         <location filename="../Manager/pages/page_settings.ui" line="223"/>
+        <location filename="../Manager/pages/page_settings.ui" line="226"/>
+        <location filename="../Manager/pages/page_settings.ui" line="229"/>
         <source>Autosave manager</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="226"/>
-        <location filename="../Manager/pages/page_settings.ui" line="586"/>
+        <location filename="../Manager/pages/page_settings.ui" line="232"/>
+        <location filename="../Manager/pages/page_settings.ui" line="758"/>
         <source>Autosave</source>
         <translation>Автосохранение</translation>
     </message>
@@ -1099,119 +1096,174 @@
         <translation type="obsolete">Iнтервал автозбереження</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="245"/>
-        <location filename="../Manager/pages/page_settings.ui" line="248"/>
         <location filename="../Manager/pages/page_settings.ui" line="251"/>
+        <location filename="../Manager/pages/page_settings.ui" line="254"/>
+        <location filename="../Manager/pages/page_settings.ui" line="257"/>
         <source>Autosave interval manager</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="254"/>
-        <location filename="../Manager/pages/page_settings.ui" line="614"/>
+        <location filename="../Manager/pages/page_settings.ui" line="260"/>
+        <location filename="../Manager/pages/page_settings.ui" line="786"/>
         <source> minute(s)</source>
         <translation>хвилина(и)</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="269"/>
+        <location filename="../Manager/pages/page_settings.ui" line="275"/>
         <source>Ask for confirmation before exiting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="327"/>
+        <location filename="../Manager/pages/page_settings.ui" line="333"/>
         <source>Minimize the program to tray when closing a window manager</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="334"/>
+        <location filename="../Manager/pages/page_settings.ui" line="340"/>
         <source>Minimize the program to tray when minimizing window manager</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="341"/>
+        <location filename="../Manager/pages/page_settings.ui" line="347"/>
         <source>Minimize the program to tray on startup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="405"/>
+        <location filename="../Manager/pages/page_settings.ui" line="411"/>
         <source>Random color </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="412"/>
+        <location filename="../Manager/pages/page_settings.ui" line="418"/>
         <source>Random position on screen </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="421"/>
+        <location filename="../Manager/pages/page_settings.ui" line="427"/>
         <source>Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="430"/>
+        <location filename="../Manager/pages/page_settings.ui" line="436"/>
         <source>Width:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="447"/>
+        <location filename="../Manager/pages/page_settings.ui" line="456"/>
         <source>Height:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="467"/>
+        <location filename="../Manager/pages/page_settings.ui" line="479"/>
         <source>Position</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="479"/>
+        <location filename="../Manager/pages/page_settings.ui" line="491"/>
         <source>Top:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="506"/>
+        <location filename="../Manager/pages/page_settings.ui" line="524"/>
         <source>Left:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="534"/>
+        <location filename="../Manager/pages/page_settings.ui" line="552"/>
         <source>Visible</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="541"/>
+        <location filename="../Manager/pages/page_settings.ui" line="559"/>
         <source>On top of all windows </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="577"/>
-        <location filename="../Manager/pages/page_settings.ui" line="580"/>
-        <location filename="../Manager/pages/page_settings.ui" line="583"/>
+        <location filename="../Manager/pages/page_settings.ui" line="568"/>
+        <source>Opacity:</source>
+        <translation type="unfinished">Непрозорість:</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_settings.ui" line="581"/>
+        <source>Opacity new note</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_settings.ui" line="612"/>
+        <source>Titile:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_settings.ui" line="635"/>
+        <source>Title a new note</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_settings.ui" line="642"/>
+        <source>Title font new note</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_settings.ui" line="660"/>
+        <source>Text:</source>
+        <translation type="unfinished">Текст:</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_settings.ui" line="667"/>
+        <source>Text of the new notes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_settings.ui" line="680"/>
+        <source>Title color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_settings.ui" line="687"/>
+        <source>Color title new note</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_settings.ui" line="701"/>
+        <source>Body color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_settings.ui" line="708"/>
+        <source>Body color new note</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_settings.ui" line="749"/>
+        <location filename="../Manager/pages/page_settings.ui" line="752"/>
+        <location filename="../Manager/pages/page_settings.ui" line="755"/>
         <source>Autosave notes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="605"/>
-        <location filename="../Manager/pages/page_settings.ui" line="608"/>
-        <location filename="../Manager/pages/page_settings.ui" line="611"/>
+        <location filename="../Manager/pages/page_settings.ui" line="777"/>
+        <location filename="../Manager/pages/page_settings.ui" line="780"/>
+        <location filename="../Manager/pages/page_settings.ui" line="783"/>
         <source>Autosave interval notes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.cpp" line="194"/>
+        <location filename="../Manager/pages/page_settings.cpp" line="225"/>
         <source>Restart requires </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.cpp" line="194"/>
+        <location filename="../Manager/pages/page_settings.cpp" line="225"/>
         <source>The language change will take effect after a restart</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.cpp" line="198"/>
+        <location filename="../Manager/pages/page_settings.cpp" line="231"/>
         <source>Settings received and stored</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.cpp" line="129"/>
+        <location filename="../Manager/pages/page_settings.cpp" line="159"/>
         <source>systems language</source>
         <translation>системний мову</translation>
     </message>
@@ -1243,7 +1295,7 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="70"/>
+        <location filename="../Note/RichTextNote.cpp" line="71"/>
         <source>Other</source>
         <translation type="unfinished">Iнший</translation>
     </message>
@@ -1251,58 +1303,52 @@
 <context>
     <name>QTranslator</name>
     <message>
-        <location filename="../Manager/Manager.cpp" line="746"/>
-        <location filename="../Manager/Manager.cpp" line="752"/>
-        <location filename="../Manager/Manager.cpp" line="764"/>
-        <location filename="../Manager/Manager.h" line="95"/>
+        <location filename="../Manager/Manager.cpp" line="745"/>
+        <location filename="../Manager/Manager.cpp" line="757"/>
         <location filename="../Manager/Manager.h" line="99"/>
         <location filename="../Manager/Manager.h" line="109"/>
-        <location filename="../Manager/Manager.h" line="130"/>
-        <location filename="../Manager/Manager.h" line="134"/>
-        <location filename="../Manager/Manager.h" line="144"/>
+        <location filename="../Manager/Manager.h" line="133"/>
+        <location filename="../Manager/Manager.h" line="143"/>
         <source>yes</source>
         <translation>да</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="746"/>
-        <location filename="../Manager/Manager.cpp" line="752"/>
-        <location filename="../Manager/Manager.cpp" line="764"/>
-        <location filename="../Manager/Manager.h" line="95"/>
+        <location filename="../Manager/Manager.cpp" line="745"/>
+        <location filename="../Manager/Manager.cpp" line="757"/>
         <location filename="../Manager/Manager.h" line="99"/>
         <location filename="../Manager/Manager.h" line="109"/>
-        <location filename="../Manager/Manager.h" line="130"/>
-        <location filename="../Manager/Manager.h" line="134"/>
-        <location filename="../Manager/Manager.h" line="144"/>
+        <location filename="../Manager/Manager.h" line="133"/>
+        <location filename="../Manager/Manager.h" line="143"/>
         <source>no</source>
         <translation>немає</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="116"/>
+        <location filename="../main.cpp" line="120"/>
         <source>Loading fonts</source>
         <translation>Завантаження шрифтів</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="119"/>
+        <location filename="../main.cpp" line="123"/>
         <source>Loading dictionaries</source>
         <translation>Завантаження словників</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="122"/>
+        <location filename="../main.cpp" line="126"/>
         <source>Creation</source>
         <translation>Creation</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="129"/>
+        <location filename="../main.cpp" line="133"/>
         <source>Loading settings</source>
         <translation>Завантаження налаштувань</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="132"/>
+        <location filename="../main.cpp" line="136"/>
         <source>Loading notes</source>
         <translation>Завантаження замітки</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="135"/>
+        <location filename="../main.cpp" line="139"/>
         <source>Now ready</source>
         <translation>Тепер готовий</translation>
     </message>
@@ -1372,129 +1418,122 @@
 <context>
     <name>RichTextNote</name>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="432"/>
         <source>New note</source>
-        <translation>Нова нотатка</translation>
+        <translation type="obsolete">Нова нотатка</translation>
     </message>
     <message>
         <source>Visible toolbar</source>
         <translation type="obsolete">Відомий панель інструментів</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="182"/>
+        <location filename="../Note/RichTextNote.cpp" line="200"/>
         <source>Toolbar</source>
         <translation>Панель інструментів</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="183"/>
+        <location filename="../Note/RichTextNote.cpp" line="201"/>
         <source>Quick find</source>
         <translation>Швидкий пошук</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="184"/>
-        <location filename="../Note/RichTextNote.cpp" line="285"/>
+        <location filename="../Note/RichTextNote.cpp" line="202"/>
+        <location filename="../Note/RichTextNote.cpp" line="303"/>
         <source>Attach panel</source>
         <translation>Прикріплені файли</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="185"/>
-        <location filename="../Note/RichTextNote.cpp" line="306"/>
+        <location filename="../Note/RichTextNote.cpp" line="203"/>
+        <location filename="../Note/RichTextNote.cpp" line="324"/>
         <source>Find/replace</source>
         <translation>Знайти/замінити</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="186"/>
-        <location filename="../Note/RichTextNote.cpp" line="263"/>
+        <location filename="../Note/RichTextNote.cpp" line="204"/>
+        <location filename="../Note/RichTextNote.cpp" line="281"/>
         <source>Formatting toolbar</source>
         <translation>Форматування панель інструментів</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="188"/>
-        <location filename="../Note/RichTextNote.cpp" line="334"/>
+        <location filename="../Note/RichTextNote.cpp" line="206"/>
+        <location filename="../Note/RichTextNote.cpp" line="352"/>
         <source>Delete</source>
         <translation>Видаляти</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="189"/>
-        <location filename="../Note/RichTextNote.cpp" line="335"/>
+        <location filename="../Note/RichTextNote.cpp" line="207"/>
+        <location filename="../Note/RichTextNote.cpp" line="353"/>
         <source>Set title</source>
         <translation>Встановити назву</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="190"/>
-        <location filename="../Note/RichTextNote.cpp" line="336"/>
+        <location filename="../Note/RichTextNote.cpp" line="208"/>
+        <location filename="../Note/RichTextNote.cpp" line="354"/>
         <source>Set title font</source>
         <translation>Встановити шрифт назву</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="191"/>
-        <location filename="../Note/RichTextNote.cpp" line="337"/>
+        <location filename="../Note/RichTextNote.cpp" line="209"/>
+        <location filename="../Note/RichTextNote.cpp" line="355"/>
         <source>Set title color</source>
         <translation>Встановити назву кольору</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="192"/>
-        <location filename="../Note/RichTextNote.cpp" line="338"/>
+        <location filename="../Note/RichTextNote.cpp" line="210"/>
+        <location filename="../Note/RichTextNote.cpp" line="356"/>
         <source>Set window color</source>
         <translation>Встановіть колір вікна</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="193"/>
-        <location filename="../Note/RichTextNote.cpp" line="340"/>
+        <location filename="../Note/RichTextNote.cpp" line="211"/>
+        <location filename="../Note/RichTextNote.cpp" line="358"/>
         <source>Hide</source>
         <translation>Приховувати</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="194"/>
-        <location filename="../Note/RichTextNote.cpp" line="341"/>
+        <location filename="../Note/RichTextNote.cpp" line="212"/>
+        <location filename="../Note/RichTextNote.cpp" line="359"/>
         <source>On top of all windows</source>
         <translation>На поверх всіх вікон</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="195"/>
-        <location filename="../Note/RichTextNote.cpp" line="342"/>
-        <source>Read only</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Note/RichTextNote.cpp" line="196"/>
-        <location filename="../Note/RichTextNote.cpp" line="343"/>
+        <location filename="../Note/RichTextNote.cpp" line="214"/>
+        <location filename="../Note/RichTextNote.cpp" line="361"/>
         <source>Open</source>
         <translation>Відкрито</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="197"/>
-        <location filename="../Note/RichTextNote.cpp" line="344"/>
+        <location filename="../Note/RichTextNote.cpp" line="215"/>
+        <location filename="../Note/RichTextNote.cpp" line="362"/>
         <source>Save as</source>
         <translation>Зберегти як</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="199"/>
-        <location filename="../Note/RichTextNote.cpp" line="345"/>
+        <location filename="../Note/RichTextNote.cpp" line="217"/>
+        <location filename="../Note/RichTextNote.cpp" line="363"/>
         <source>Print</source>
         <translation>Друк</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="200"/>
-        <location filename="../Note/RichTextNote.cpp" line="346"/>
+        <location filename="../Note/RichTextNote.cpp" line="218"/>
+        <location filename="../Note/RichTextNote.cpp" line="364"/>
         <source>Preview print</source>
         <translation>Попередній друку</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="202"/>
-        <location filename="../Note/RichTextNote.cpp" line="347"/>
+        <location filename="../Note/RichTextNote.cpp" line="220"/>
+        <location filename="../Note/RichTextNote.cpp" line="365"/>
         <source>Save</source>
         <translation>Зберегти</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="203"/>
-        <location filename="../Note/RichTextNote.cpp" line="348"/>
+        <location filename="../Note/RichTextNote.cpp" line="221"/>
+        <location filename="../Note/RichTextNote.cpp" line="366"/>
         <source>Duplicate</source>
         <translation>Дублювати</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="204"/>
-        <location filename="../Note/RichTextNote.cpp" line="349"/>
+        <location filename="../Note/RichTextNote.cpp" line="222"/>
+        <location filename="../Note/RichTextNote.cpp" line="367"/>
         <source>Attach</source>
         <translation>Приєднувати</translation>
     </message>
@@ -1539,26 +1578,26 @@
         <translation type="obsolete">Iнший</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="213"/>
-        <location filename="../Note/RichTextNote.cpp" line="339"/>
-        <location filename="../Note/RichTextNote.cpp" line="383"/>
+        <location filename="../Note/RichTextNote.cpp" line="231"/>
+        <location filename="../Note/RichTextNote.cpp" line="357"/>
+        <location filename="../Note/RichTextNote.cpp" line="401"/>
         <source>Opacity</source>
         <translation>Непрозорість</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="417"/>
+        <location filename="../Note/RichTextNote.cpp" line="435"/>
         <source>Save completed</source>
         <translation type="unfinished">Зберегти завершена</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="472"/>
+        <location filename="../Note/RichTextNote.cpp" line="530"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="472"/>
-        <location filename="../Note/RichTextNote.cpp" line="638"/>
-        <location filename="../Note/RichTextNote.cpp" line="639"/>
+        <location filename="../Note/RichTextNote.cpp" line="530"/>
+        <location filename="../Note/RichTextNote.cpp" line="696"/>
+        <location filename="../Note/RichTextNote.cpp" line="697"/>
         <source>An error occurred saving notes</source>
         <translation>Сталася помилка при збереженні замітки</translation>
     </message>
@@ -1567,7 +1606,7 @@
         <translation type="obsolete">Сталася помилка при читанні нотатки</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="638"/>
+        <location filename="../Note/RichTextNote.cpp" line="696"/>
         <source>Information</source>
         <translation>Iнформація</translation>
     </message>
@@ -1580,64 +1619,64 @@
         <translation type="obsolete">Неможливо перейменувати замітку</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="502"/>
+        <location filename="../Note/RichTextNote.cpp" line="560"/>
         <source>Warning</source>
         <translation>Попередження</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="502"/>
+        <location filename="../Note/RichTextNote.cpp" line="560"/>
         <source>I can not delete</source>
         <translation>Я не можу видалити</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="541"/>
+        <location filename="../Note/RichTextNote.cpp" line="599"/>
         <source>Select title</source>
         <translation>Виберіть назву</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="541"/>
+        <location filename="../Note/RichTextNote.cpp" line="599"/>
         <source>Title: </source>
         <translation>Назва: </translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="550"/>
+        <location filename="../Note/RichTextNote.cpp" line="608"/>
         <source>Select font</source>
         <translation>Вибрати шрифт</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="559"/>
-        <location filename="../Note/RichTextNote.cpp" line="567"/>
+        <location filename="../Note/RichTextNote.cpp" line="617"/>
+        <location filename="../Note/RichTextNote.cpp" line="625"/>
         <source>Select color</source>
         <translation>Вибрати колір</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="580"/>
+        <location filename="../Note/RichTextNote.cpp" line="638"/>
         <source>Select opacity</source>
         <translation>Виберіть непрозорість</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="580"/>
+        <location filename="../Note/RichTextNote.cpp" line="638"/>
         <source>Opacity:</source>
         <translation>Непрозорість:</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="598"/>
+        <location filename="../Note/RichTextNote.cpp" line="656"/>
         <source>File notes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="662"/>
-        <location filename="../Note/RichTextNote.cpp" line="671"/>
+        <location filename="../Note/RichTextNote.cpp" line="720"/>
+        <location filename="../Note/RichTextNote.cpp" line="729"/>
         <source>document</source>
         <translation>документ</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="685"/>
+        <location filename="../Note/RichTextNote.cpp" line="743"/>
         <source>Select the files</source>
         <translation>Виберіть файли</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="705"/>
+        <location filename="../Note/RichTextNote.cpp" line="763"/>
         <source>image</source>
         <translation type="unfinished"></translation>
     </message>

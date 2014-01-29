@@ -217,7 +217,7 @@ void Manager::createToolBars()
     toolbarNote->addWidget( ui->tButtonPrintNote );
     toolbarNote->addWidget( ui->tButtonPreviewPrintNote );
     toolbarNote->addSeparator();
-    toolbarNote->addWidget( ui->tButtonReadOnlyNote );
+//    toolbarNote->addWidget( ui->tButtonReadOnlyNote );
     toolbarNote->addWidget( ui->tButtonTopNote );
 
 
@@ -270,7 +270,7 @@ void Manager::createToolBars()
     connect( ui->tButtonPrintNote, SIGNAL( clicked() ), SLOT( printNote() ) );
     connect( ui->tButtonPreviewPrintNote, SIGNAL( clicked() ), SLOT( previewPrintNote() ) );
     connect( ui->tButtonTopNote, SIGNAL( clicked(bool) ), SLOT( setTopNote(bool) ) );
-    connect( ui->tButtonReadOnlyNote, SIGNAL( clicked(bool) ), SLOT( setReadOnlyNote(bool) ) );
+//    connect( ui->tButtonReadOnlyNote, SIGNAL( clicked(bool) ), SLOT( setReadOnlyNote(bool) ) );
 }
 void Manager::createMenu()
 {
@@ -306,7 +306,7 @@ void Manager::createMenu()
     connect( ui->actionPrintNote, SIGNAL( triggered() ), SLOT( printNote() ) );
     connect( ui->actionPreviewPrintNote, SIGNAL( triggered() ), SLOT( previewPrintNote() ) );
     connect( ui->actionTopNote, SIGNAL( triggered(bool) ), SLOT( setTopNote(bool) ) );
-    connect( ui->actionReadOnlyNote, SIGNAL( triggered(bool) ), SLOT( setReadOnlyNote(bool) ) );
+//    connect( ui->actionReadOnlyNote, SIGNAL( triggered(bool) ), SLOT( setReadOnlyNote(bool) ) );
 
     // TODO: создать и добавить действия форматирования текста
 }
@@ -416,7 +416,7 @@ void Manager::updateStates()
     bool isModified = false;
     bool isVisibleSelectionNote = false;
     bool isTopSelectionNote = false;
-    bool isReadOnlySelectionNote = false;
+//    bool isReadOnlySelectionNote = false;
     if ( hasSelection )
     {
         QAbstractItemModel * viewModel = pageNotes->model;
@@ -428,7 +428,7 @@ void Manager::updateStates()
         isVisibleSelectionNote = note->isVisible();
         isTopSelectionNote = note->isTop();
         isModified = note->isModified();
-        isReadOnlySelectionNote = note->isReadOnly();
+//        isReadOnlySelectionNote = note->isReadOnly();
     }
 
     ui->tButtonRemoveNote->setEnabled( hasSelection );
@@ -438,8 +438,8 @@ void Manager::updateStates()
     ui->tButtonPreviewPrintNote->setEnabled( hasSelection );
     ui->tButtonTopNote->setEnabled( hasSelection );
     ui->tButtonTopNote->setChecked( isTopSelectionNote );
-    ui->tButtonReadOnlyNote->setEnabled( hasSelection );
-    ui->tButtonReadOnlyNote->setChecked( isReadOnlySelectionNote );
+//    ui->tButtonReadOnlyNote->setEnabled( hasSelection );
+//    ui->tButtonReadOnlyNote->setChecked( isReadOnlySelectionNote );
     ui->tButtonShowNote->setEnabled( hasSelection && !isVisibleSelectionNote );
     ui->tButtonHideNote->setEnabled( hasSelection && isVisibleSelectionNote );
     ui->tButtonRemoveAllNotes->setEnabled( !isEmpty );
@@ -457,8 +457,8 @@ void Manager::updateStates()
     ui->actionPreviewPrintNote->setEnabled( hasSelection );
     ui->actionTopNote->setEnabled( hasSelection );
     ui->actionTopNote->setChecked( isTopSelectionNote );
-    ui->actionReadOnlyNote->setEnabled( hasSelection );
-    ui->actionReadOnlyNote->setChecked( isReadOnlySelectionNote );
+//    ui->actionReadOnlyNote->setEnabled( hasSelection );
+//    ui->actionReadOnlyNote->setChecked( isReadOnlySelectionNote );
     ui->actionShowNote->setEnabled( hasSelection && !isVisibleSelectionNote );
     ui->actionHideNote->setEnabled( hasSelection && isVisibleSelectionNote );
     actionRemoveAllNotes->setEnabled( !isEmpty );
@@ -679,13 +679,13 @@ void Manager::setTopNote( bool top )
     int row = pageNotes->currentRow();
     toNote( viewModel->index( row, 0 ) )->setTop( top );
 }
-void Manager::setReadOnlyNote( bool readOnly )
-{
-    QAbstractItemModel * viewModel = pageNotes->model;
+//void Manager::setReadOnlyNote( bool readOnly )
+//{
+//    QAbstractItemModel * viewModel = pageNotes->model;
 
-    int row = pageNotes->currentRow();
-    toNote( viewModel->index( row, 0 ) )->setReadOnly( readOnly );
-}
+//    int row = pageNotes->currentRow();
+//    toNote( viewModel->index( row, 0 ) )->setReadOnly( readOnly );
+//}
 
 void Manager::noteChange( int index )
 {
@@ -734,12 +734,12 @@ void Manager::noteChange( int index )
         updateStates();
         break;
     }
-    case EventsNote::ChangeReadOnly:
-    {
-        model.item( row, Columns::ReadOnly )->setText( note->isReadOnly() ? QTranslator::tr( "yes" ) : QTranslator::tr( "no" ) );
-        updateStates();
-        break;
-    }
+//    case EventsNote::ChangeReadOnly:
+//    {
+//        model.item( row, Columns::ReadOnly )->setText( note->isReadOnly() ? QTranslator::tr( "yes" ) : QTranslator::tr( "no" ) );
+//        updateStates();
+//        break;
+//    }
     case EventsNote::ChangeVisibility:
     {
         model.item( row, Columns::Visibility )->setText( note->isVisible() ? QTranslator::tr( "yes" ) : QTranslator::tr( "no" ) );

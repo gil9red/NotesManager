@@ -53,6 +53,10 @@ Page_Settings::Page_Settings( QWidget * parent )
 
         ui->comboBoxLanguage->addItem( pixmap, text, data );
     }
+
+    ui->sBoxWidth->setMinimum( Note::minimalWidth );
+    ui->sBoxHeight->setMinimum( Note::minimalHeight );
+    ui->sBoxOpacity->setRange( Note::minimalOpacity * 100, Note::maximalOpacity * 100 );
 }
 
 Page_Settings::~Page_Settings()
@@ -67,10 +71,12 @@ void Page_Settings::setSettings( QSettings * s )
 
 void Page_Settings::mapToSettings()
 {
-//    int index = ui->comboBoxLanguage->findData( mapSettings[ "Language" ] );
-//    if ( index == -1 )
-//        index = 0; // index == 0 -> "<systems language>"
-    int index = ui->comboBoxLanguage->findData( mapSettings.value( "Language", getDefaultLanguage() ) );
+    QPoint position = mapSettings.value( "NewNote_Position", QPoint( 100, 100 ) ).toPoint();
+    QSize size = mapSettings.value( "NewNote_Size", QSize( 100, 100 ) ).toSize();
+    QFont fontTitle;
+    fontTitle.fromString( mapSettings.value( "NewNote_FontTitle", QFont().toString() ).toString() );
+
+    int index = ui->comboBoxLanguage->findData( mapSettings.value( "Language", getDefaultLanguage() ) );    
     ui->comboBoxLanguage->setCurrentIndex( index );
 
     ui->checkBoxAutosave->setChecked( mapSettings.value( "Autosave", true ).toBool() );
@@ -85,43 +91,20 @@ void Page_Settings::mapToSettings()
     ui->cBoxRandomPositionOnScreen->setChecked( mapSettings.value( "NewNote_RandomPositionOnScreen", true ).toBool() );
     ui->cBoxVisible->setChecked( mapSettings.value( "NewNote_Visible", true ).toBool() );
     ui->cBoxOnTop->setChecked( mapSettings.value( "NewNote_OnTop", true ).toBool() );
-    ui->sBoxWidth->setValue( mapSettings.value( "NewNote_Width", 75 ).toInt() );
-    ui->sBoxHeight->setValue( mapSettings.value( "NewNote_Height", 75 ).toInt() );
-    ui->sBoxLeft->setValue( mapSettings.value( "NewNote_PosLeft", 100 ).toInt() );
-    ui->sBoxTop->setValue( mapSettings.value( "NewNote_PosTop", 100 ).toInt() );
+    ui->sBoxWidth->setValue( size.width() );
+    ui->sBoxHeight->setValue( size.height() );
+    ui->sBoxLeft->setValue( position.x() );
+    ui->sBoxTop->setValue( position.y() );
+    ui->sBoxOpacity->setValue( mapSettings.value( "NewNote_Opacity", Note::maximalOpacity ).toDouble() * 100 );
+    ui->lEditTitle->setText( mapSettings.value( "NewNote_Title", tr( "New note" ) + " %dt%" ).toString() );
+    ui->lEditTitle->setFont( fontTitle );
+    ui->ptEditText->setPlainText( mapSettings.value( "NewNote_Text", "" ).toString() );
 
     ui->checkBoxAutosaveNotes->setChecked( mapSettings.value( "Notes_Autosave", true ).toBool() );
     ui->sBoxAutosaveIntervalNotes->setValue( mapSettings.value( "Notes_AutosaveInterval", 7 ).toInt() );
-
-//    // TODO: Добавить знаечния по умолчанию
-//    ui->checkBoxAutosave->setChecked( mapSettings[ "Autosave" ].toBool() );
-//    ui->sBoxAutosaveInterval->setValue( mapSettings[ "AutosaveInterval" ].toInt() );
-//    ui->cBoxAskBeforeExiting->setChecked( mapSettings[ "AskBeforeExiting" ].toBool() );
-
-//    ui->cBoxMinimizeTrayWhenClosing->setChecked( mapSettings[ "MinimizeTrayWhenClosing" ].toBool() );
-//    ui->cBoxMinimizeTrayWhenMinimizing->setChecked( mapSettings[ "MinimizeTrayWhenMinimizing" ].toBool() );
-//    ui->cBoxMinimizeTrayOnStartup->setChecked( mapSettings[ "MinimizeTrayOnStartup" ].toBool() );
-
-//    ui->cBoxRandomColor->setChecked( mapSettings[ "NewNote_Color" ].toBool() );
-//    ui->cBoxRandomPositionOnScreen->setChecked( mapSettings[ "NewNote_RandomPositionOnScreen" ].toBool() );
-//    ui->cBoxVisible->setChecked( mapSettings[ "NewNote_Visible" ].toBool() );
-//    ui->cBoxOnTop->setChecked( mapSettings[ "NewNote_OnTop" ].toBool() );
-
-//    ui->sBoxWidth->setValue( mapSettings[ "NewNote_Width" ].toInt() );
-//    ui->sBoxHeight->setValue( mapSettings[ "NewNote_Height" ].toInt() );
-//    ui->sBoxLeft->setValue( mapSettings[ "NewNote_Left" ].toInt() );
-//    ui->sBoxTop->setValue( mapSettings[ "NewNote_Top" ].toInt() );
-
-//    ui->checkBoxAutosaveNotes->setChecked( mapSettings[ "Notes_Autosave" ].toBool() );
-//    ui->sBoxAutosaveIntervalNotes->setValue( mapSettings[ "Notes_AutosaveInterval" ].toInt() );
 }
 void Page_Settings::settingsToMap()
 {
-//    if ( ui->comboBoxLanguage->currentIndex() == 0 )
-//        mapSettings[ "Language" ] = getDefaultLanguage();
-//    else
-//        mapSettings[ "Language" ] = ui->comboBoxLanguage->itemData( ui->comboBoxLanguage->currentIndex() );
-
     mapSettings[ "Language" ] = ui->comboBoxLanguage->itemData( ui->comboBoxLanguage->currentIndex() );
 
     mapSettings[ "Autosave" ] = ui->checkBoxAutosave->isChecked();
@@ -138,6 +121,10 @@ void Page_Settings::settingsToMap()
     mapSettings[ "NewNote_Top" ] = ui->cBoxOnTop->isChecked();
     mapSettings[ "NewNote_Size" ] = QSize( ui->sBoxWidth->value(), ui->sBoxHeight->value() );
     mapSettings[ "NewNote_Position" ] = QPoint( ui->sBoxLeft->value(), ui->sBoxTop->value() );
+    mapSettings[ "NewNote_Opacity" ] = ui->sBoxOpacity->value() / 100.0;
+    mapSettings[ "NewNote_Title" ] = ui->lEditTitle->text();
+    mapSettings[ "NewNote_FontTitle" ] = ui->lEditTitle->font().toString();
+    mapSettings[ "NewNote_Text" ] = ui->ptEditText->toPlainText();
 
     mapSettings[ "Notes_Autosave" ] = ui->checkBoxAutosaveNotes->isChecked();
     mapSettings[ "Notes_AutosaveInterval" ] = ui->sBoxAutosaveIntervalNotes->value();
