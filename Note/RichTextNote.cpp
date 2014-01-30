@@ -475,7 +475,8 @@ void RichTextNote::load()
         _opacity = defaultMapSettings.value( "Opacity" ).toDouble();
         _visible = defaultMapSettings.value( "Visible" ).toBool();
 
-        // TODO: доработать парсер выражений
+        // TODO: доработать парсер шаблонных выражений %*.%. Думаю лучше сделать ввиде класса.
+        // С статичными методами. Один из таких методов возращает команды.
         // поиск в коде по %dt%. Справка по этим шаблонам.
         setText( defaultMapSettings[ "Text" ].toString().replace( "%dt%", currentDateTime.toString( Qt::SystemLocaleLongDate ) ) );
 

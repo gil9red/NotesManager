@@ -71,6 +71,13 @@ static const char codec[] = "utf8";
 // TODO: ЗАМЕТКА: выбор цвета для: заголовка и тела заметки (взять из панели кнопку)
 // TODO: гиперссылки у заметок
 // TODO: НАстройки: "думаю самое простое убрать кнопку применить)) и сделать автоматом))"
+// TODO: настройки: добавить возможность у заметок убирать лишние компоненты: быстрый поиск и панель инструментов.
+// TODO: заметка/настройки: возможность сделать прозрачным фона редактора заметок, как в старых.
+// textEdit = new UTextEdit(this);
+// textEdit->setFrameStyle(QFrame::NoFrame);
+// // цвет text edit будет такой же как у его родителя (AbstractNote)
+// // другими словами он стал прозрачным
+// textEdit->viewport()->setAutoFillBackground(false);
 
 static void loadTranslations( QSettings * settings );
 

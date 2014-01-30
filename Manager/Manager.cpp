@@ -530,15 +530,21 @@ void Manager::open()
 }
 void Manager::addNote()
 {
+    qApp->setOverrideCursor( Qt::WaitCursor );
+
     RichTextNote * note = new RichTextNote();
     note->createNew();
 
     connect( note, SIGNAL( changed(int) ), SLOT( noteChange(int) ) );
     model.appendRow( toStandardItems( note ) );
     updateStates();
+
+    qApp->restoreOverrideCursor();
 }
 void Manager::addNoteFromClipboard()
 {
+    qApp->setOverrideCursor( Qt::WaitCursor );
+
     RichTextNote * note = new RichTextNote();
     note->createNew( false );
     note->setText( qApp->clipboard()->text() );
@@ -547,9 +553,11 @@ void Manager::addNoteFromClipboard()
     connect( note, SIGNAL( changed(int) ), SLOT( noteChange(int) ) );
     model.appendRow( toStandardItems( note ) );
     updateStates();
+
+    qApp->restoreOverrideCursor();
 }
 void Manager::addNoteFromScreen()
-{
+{    
     FullscreenshotCropper cropper;
     cropper.setImage( QPixmap::grabWindow( QApplication::desktop()->winId() ) );
     cropper.showFullScreen();
@@ -557,6 +565,8 @@ void Manager::addNoteFromScreen()
         return;
 
     const QPixmap & screenshot = cropper.cropperImage();
+
+    qApp->setOverrideCursor( Qt::WaitCursor );
 
     RichTextNote * note = new RichTextNote();
     note->createNew( false );
@@ -566,6 +576,8 @@ void Manager::addNoteFromScreen()
     connect( note, SIGNAL( changed(int) ), SLOT( noteChange(int) ) );
     model.appendRow( toStandardItems( note ) );
     updateStates();
+
+    qApp->restoreOverrideCursor();
 }
 void Manager::removeAllNotes()
 {
