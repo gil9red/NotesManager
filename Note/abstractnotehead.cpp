@@ -61,6 +61,10 @@ void AbstractNoteHead::paintEvent( QPaintEvent * )
     painter.setPen( d->color );
     painter.drawRect( rect() );
 }
+void AbstractNoteHead::mouseDoubleClickEvent(QMouseEvent *)
+{
+    emit doubleClick();
+}
 void AbstractNoteHead::mousePressEvent( QMouseEvent * event )
 {
     if ( event->button() == Qt::LeftButton )

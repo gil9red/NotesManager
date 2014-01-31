@@ -189,6 +189,7 @@ void RichTextNote::init()
     updateStates();
 
     connect( &d->timerAutosave, SIGNAL( timeout() ), SLOT( save() ) );
+    connect( this, SIGNAL( doubleClickHead() ), SLOT( selectTitle() ) );
 }
 void RichTextNote::setupActions()
 {

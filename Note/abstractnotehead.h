@@ -84,9 +84,13 @@ public:
 
 protected:
     void paintEvent( QPaintEvent * );
+    void mouseDoubleClickEvent(QMouseEvent *);
     void mousePressEvent( QMouseEvent * event );
     void mouseReleaseEvent( QMouseEvent *  );
     void mouseMoveEvent( QMouseEvent * event );
+
+signals:
+    void doubleClick();
 };
 
 

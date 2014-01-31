@@ -283,6 +283,8 @@ signals:
     /*! \sa AbstractNoteBody::changeVisibleToolbar(bool) */
     void changeVisibleToolbar( bool );
 
+    void doubleClickHead();
+
 protected:
     void closeEvent( QCloseEvent * );
     void contextMenuEvent( QContextMenuEvent * event );
