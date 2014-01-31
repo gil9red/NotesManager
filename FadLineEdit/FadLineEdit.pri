@@ -1,10 +1,10 @@
 HEADERS += \
-    FadLineEdit/FadLineEdit.h \
-    FadLineEdit/fadclearlineedit.h
+    $$PWD/FadLineEdit.h \
+    $$PWD/fadclearlineedit.h
 
 SOURCES += \
-    FadLineEdit/FadLineEdit.cpp \
-    FadLineEdit/fadclearlineedit.cpp
+    $$PWD/FadLineEdit.cpp \
+    $$PWD/fadclearlineedit.cpp
 
 RESOURCES += \
-    FadLineEdit/FadLineEdit.qrc
+    $$PWD/FadLineEdit.qrc

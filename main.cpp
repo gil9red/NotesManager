@@ -43,7 +43,7 @@ static const char codec[] = "utf8";
 #include "utils/func.h"
 #include "utils/mysplashscreen.h"
 #include "version.h"
-#include "QtSingleApplication/QtSingleApplication"
+#include "QtSingleApplication"
 
 
 // TODO: изменение таблицы, списка и гиперссылок через меню редактора заметки
@@ -76,7 +76,8 @@ static const char codec[] = "utf8";
 // TODO: панель форматирования - нижние виджеты не прижаты пружиной
 // TODO: проверить работу дублирования
 // TODO: может подправить скроллы у заметок, сделав как у старых.
-// TODO: может настроить возможные варианты действий при двойном клик на заголовке заметке?
+// TODO: может настроить возможные варианты действий при двойном клик на заголовке заметке? Добавить в комбобокс настроек.
+
 
 static void loadTranslations( QSettings * settings );
 

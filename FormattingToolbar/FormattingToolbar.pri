@@ -1,33 +1,33 @@
 HEADERS += \
-    FormattingToolbar/FormattingToolbar.h \
-    FormattingToolbar/DialogInsertHyperlink.h \
-    FormattingToolbar/ColorButton.h \
-    FormattingToolbar/ButtonUnderlineStyleList.h \
-    FormattingToolbar/ButtonSelectionTableSizes.h \
-    FormattingToolbar/ButtonOrderedList.h \
-    FormattingToolbar/ButtonList.h \
-    FormattingToolbar/ButtonBulletedList.h \
-    FormattingToolbar/WidgetSelectionTableSizes.h \
-    FormattingToolbar/colorbackgroundbutton.h \
-    FormattingToolbar/colorpalette.h \
-    FormattingToolbar/colortextbutton.h \
-    FormattingToolbar/colorselectbutton.h
+    $$PWD/FormattingToolbar.h \
+    $$PWD/DialogInsertHyperlink.h \
+    $$PWD/ColorButton.h \
+    $$PWD/ButtonUnderlineStyleList.h \
+    $$PWD/ButtonSelectionTableSizes.h \
+    $$PWD/ButtonOrderedList.h \
+    $$PWD/ButtonList.h \
+    $$PWD/ButtonBulletedList.h \
+    $$PWD/WidgetSelectionTableSizes.h \
+    $$PWD/colorbackgroundbutton.h \
+    $$PWD/colorpalette.h \
+    $$PWD/colortextbutton.h \
+    $$PWD/colorselectbutton.h
 
 SOURCES += \
-    FormattingToolbar/FormattingToolbar.cpp \
-    FormattingToolbar/DialogInsertHyperlink.cpp \
-    FormattingToolbar/ColorButton.cpp \
-    FormattingToolbar/ButtonSelectionTableSizes.cpp \
-    FormattingToolbar/ButtonList.cpp \
-    FormattingToolbar/WidgetSelectionTableSizes.cpp \
-    FormattingToolbar/colorbackgroundbutton.cpp \
-    FormattingToolbar/colorpalette.cpp \
-    FormattingToolbar/colortextbutton.cpp \
-    FormattingToolbar/colorselectbutton.cpp
+    $$PWD/FormattingToolbar.cpp \
+    $$PWD/DialogInsertHyperlink.cpp \
+    $$PWD/ColorButton.cpp \
+    $$PWD/ButtonSelectionTableSizes.cpp \
+    $$PWD/ButtonList.cpp \
+    $$PWD/WidgetSelectionTableSizes.cpp \
+    $$PWD/colorbackgroundbutton.cpp \
+    $$PWD/colorpalette.cpp \
+    $$PWD/colortextbutton.cpp \
+    $$PWD/colorselectbutton.cpp
 
 FORMS += \
-    FormattingToolbar/DialogInsertHyperlink.ui \
-    FormattingToolbar/FormattingToolbar.ui
+    $$PWD/DialogInsertHyperlink.ui \
+    $$PWD/FormattingToolbar.ui
 
 RESOURCES += \
-    FormattingToolbar/FormattingToolbar.qrc
+    $$PWD/FormattingToolbar.qrc

@@ -33,7 +33,7 @@ namespace Ui
     class FindAndReplace;
 }
 
-#include "ui_FindAndReplace.h"
+#include "ui_findandreplace.h"
 #include "find_highlighter.h"
 
 //! Виджет поиска и замены текста.

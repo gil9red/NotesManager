@@ -26,7 +26,7 @@
 #define Find_Highlighter_H
 
 #include <QSyntaxHighlighter>
-#include "FindShared.h"
+#include "findshared.h"
 
 //! Подсвечивает обнаруженные совпадения, при заданной строке поиска и флагов.
 class Find_Highlighter: public QSyntaxHighlighter

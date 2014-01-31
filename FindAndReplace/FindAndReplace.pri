@@ -1,18 +1,18 @@
 HEADERS += \
-    FindAndReplace/quickfind.h \
-    FindAndReplace/findfadlineedit.h \
-    FindAndReplace/findandreplace.h \
-    FindAndReplace/find_highlighter.h \
-    FindAndReplace/findshared.h
+    $$PWD/quickfind.h \
+    $$PWD/findfadlineedit.h \
+    $$PWD/findandreplace.h \
+    $$PWD/find_highlighter.h \
+    $$PWD/findshared.h
 
 SOURCES += \
-    FindAndReplace/quickfind.cpp \
-    FindAndReplace/findfadlineedit.cpp \
-    FindAndReplace/findandreplace.cpp \
-    FindAndReplace/find_highlighter.cpp
+    $$PWD/quickfind.cpp \
+    $$PWD/findfadlineedit.cpp \
+    $$PWD/findandreplace.cpp \
+    $$PWD/find_highlighter.cpp
 
 FORMS += \
-    FindAndReplace/findandreplace.ui
+    $$PWD/findandreplace.ui
 
 RESOURCES += \
-    FindAndReplace/findandreplace.qrc
+    $$PWD/findandreplace.qrc

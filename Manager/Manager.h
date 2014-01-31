@@ -108,7 +108,7 @@ static QList < QStandardItem * > toStandardItems( RichTextNote * note )
     attachments->setText( QString::number( note->numberOfAttachments() ) );
     attachments->setTextAlignment( Qt::AlignCenter );    
 
-    return QList < QStandardItem * > () << title /*<< readOnly*/ << visibility << created << modified << top << attachments;
+    return QList < QStandardItem * > () << title << visibility << created << modified << top << attachments;
 }
 //! Функция возвращает список ячеек, которые хранят информацию о заметке.
 static QList < QStandardItem * > toStandardItems( const QString & path )
@@ -138,7 +138,7 @@ static QList < QStandardItem * > toStandardItems( const QString & path )
     attachments->setText( QString::number( QDir( path + "/" + "attach" ).entryList( QDir::Files ).size() ) );
     attachments->setTextAlignment( Qt::AlignCenter );
 
-    return QList < QStandardItem * > () << title /*<< readOnly */<< visibility << created << modified << top << attachments;
+    return QList < QStandardItem * > () << title << visibility << created << modified << top << attachments;
 }
 
 //! Функция ищет заметку в модели и возвращает указатель на ячейку, которая хранит эту заметку, или вернет 0.

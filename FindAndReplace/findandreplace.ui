@@ -22,6 +22,9 @@
    </property>
    <item>
     <layout class="QGridLayout" name="gridLayout">
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
      <property name="spacing">
       <number>0</number>
      </property>
@@ -181,7 +184,7 @@
   <customwidget>
    <class>FadClearLineEdit</class>
    <extends>QLineEdit</extends>
-   <header>FadLineEdit/FadClearLineEdit.h</header>
+   <header>FadLineEdit/fadclearlineedit.h</header>
   </customwidget>
   <customwidget>
    <class>FindFadLineEdit</class>

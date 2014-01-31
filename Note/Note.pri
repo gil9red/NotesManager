@@ -1,28 +1,28 @@
 QT += core gui
 
 HEADERS += \
-    Note/texteditor.h \
-    Note/abstractnote.h \
-    Note/dictionary.h \
-    Note/completer.h \
-    Note/AttachPanel.h \
-    Note/RichTextNote.h \
-    Note/abstractnotehead.h \
-    Note/abstractnotebody.h \
-    Note/NoteShared.h
+    $$PWD/texteditor.h \
+    $$PWD/abstractnote.h \
+    $$PWD/dictionary.h \
+    $$PWD/completer.h \
+    $$PWD/AttachPanel.h \
+    $$PWD/RichTextNote.h \
+    $$PWD/abstractnotehead.h \
+    $$PWD/abstractnotebody.h \
+    $$PWD/NoteShared.h
 
 SOURCES += \
-    Note/texteditor.cpp \
-    Note/abstractnote.cpp \
-    Note/dictionary.cpp \
-    Note/completer.cpp \
-    Note/AttachPanel.cpp \
-    Note/RichTextNote.cpp \
-    Note/abstractnotehead.cpp \
-    Note/abstractnotebody.cpp \
+    $$PWD/texteditor.cpp \
+    $$PWD/abstractnote.cpp \
+    $$PWD/dictionary.cpp \
+    $$PWD/completer.cpp \
+    $$PWD/AttachPanel.cpp \
+    $$PWD/RichTextNote.cpp \
+    $$PWD/abstractnotehead.cpp \
+    $$PWD/abstractnotebody.cpp \
 
 RESOURCES += \
-    Note/Note.qrc \
+    $$PWD/Note.qrc \
 
 FORMS += \
-    Note/AttachPanel.ui \
+    $$PWD/AttachPanel.ui \

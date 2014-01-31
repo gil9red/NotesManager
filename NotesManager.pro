@@ -3,21 +3,21 @@ TEMPLATE = app
 TARGET = NotesManager
 DESTDIR += ../bin
 
-TRANSLATIONS += translations/NotesManager_ru.ts \
-                translations/NotesManager_uk.ts
+# Список файлов перевода *.ts
+include( translations.pri )
 
 include( Manager/Manager.pri )
+include( FancyTabBar/fancytabbar.pri )
+include( ImageCropper/imagecropper.pri )
 include( Note/Note.pri )
 include( FindAndReplace/FindAndReplace.pri )
 include( FadLineEdit/FadLineEdit.pri )
 include( FormattingToolbar/FormattingToolbar.pri )
-include( quazip/quazip.pri )
-include( QtSingleApplication/QtSingleApplication.pri )
+include( quazip-0.6.1/quazip/quazip.pri )
+include( qtsingleapplication/src/qtsingleapplication.pri )
 
-INCLUDEPATH += quazip
-DEPENDPATH += quazip
-INCLUDEPATH += QtSingleApplication
-DEPENDPATH += QtSingleApplication
+# Сборка только исходников quazip
+DEFINES += QUAZIP_BUILD
 
 
 RC_FILE = app.rc
