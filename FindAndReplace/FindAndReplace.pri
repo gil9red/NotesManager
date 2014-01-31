@@ -1,3 +1,6 @@
+INCLUDEPATH += $$PWD
+DEPENDPATH += $$PWD
+
 HEADERS += \
     $$PWD/quickfind.h \
     $$PWD/findfadlineedit.h \

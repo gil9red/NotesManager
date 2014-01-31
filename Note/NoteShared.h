@@ -41,6 +41,18 @@ namespace Shared
         Bottom = 0x0008 //!< Нижняя
     };
     Q_DECLARE_FLAGS ( Sides, Side )
+
+
+    //! Действия при двойном клике на заголовок
+    enum ActionDoubleClickingOnTitle
+    {
+        DoNothing,  //!< Ничего не делать.
+        EditTitle,  //!< Редактировать заголовок.
+        HideNote,   //!< Скрыть заметку.
+        DeleteNote, //!< Удалить заметку.
+        SaveAs,     //!< Сохранить заметку как....
+        PrintNotes  //!< Печать заметки.
+    };
 }
 
 Q_DECLARE_OPERATORS_FOR_FLAGS ( Shared::Sides )

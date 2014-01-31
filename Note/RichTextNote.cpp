@@ -54,7 +54,8 @@
 
 #include "utils/func.h"
 #include "JlCompress.h"
-#include "FormattingToolbar/FormattingToolbar.h"
+#include "FormattingToolbar.h"
+#include "utils/texttemplateparser.h"
 
 static QActionGroup * createGroupActionsOpacity( QObject * parent = 0 )
 {
@@ -179,6 +180,7 @@ void RichTextNote::setDefaultSettingsFromMap( const QVariantMap & s )
     defaultMapSettings[ "RandomPositionOnScreen" ] = s.value( "NewNote_RandomPositionOnScreen" );
     defaultMapSettings[ "Autosave" ] = s.value( "Notes_Autosave" );
     defaultMapSettings[ "AutosaveInterval" ] = s.value( "Notes_AutosaveInterval" );
+    defaultMapSettings[ "ActionDoubleClickOnTitle" ] = s.value( "Notes_ActionDoubleClickOnTitle" );
 }
 
 void RichTextNote::init()
@@ -189,7 +191,7 @@ void RichTextNote::init()
     updateStates();
 
     connect( &d->timerAutosave, SIGNAL( timeout() ), SLOT( save() ) );
-    connect( this, SIGNAL( doubleClickHead() ), SLOT( selectTitle() ) );
+    connect( this, SIGNAL( doubleClickHead() ), SLOT( doubleClickingOnTitle() ) );
 }
 void RichTextNote::setupActions()
 {
@@ -455,8 +457,7 @@ void RichTextNote::load()
         mapSettings[ "Created" ] = currentDateTime;
         mapSettings[ "Modified" ] = currentDateTime;
 
-        // TODO: доработать парсер выражений
-        _title = defaultMapSettings[ "Title" ].toString().replace( "%dt%", currentDateTime.toString( Qt::SystemLocaleLongDate ) );
+        _title = TextTemplateParser::get( defaultMapSettings[ "Title" ].toString() );
         _fontTitle.fromString( defaultMapSettings[ "FontTitle" ].toString() );
         _size = defaultMapSettings[ "Size" ].toSize();
 
@@ -480,10 +481,7 @@ void RichTextNote::load()
         _opacity = defaultMapSettings.value( "Opacity" ).toDouble();
         _visible = defaultMapSettings.value( "Visible" ).toBool();
 
-        // TODO: доработать парсер шаблонных выражений %*.%. Думаю лучше сделать ввиде класса.
-        // С статичными методами. Один из таких методов возращает команды.
-        // поиск в коде по %dt%. Справка по этим шаблонам.
-        setText( defaultMapSettings[ "Text" ].toString().replace( "%dt%", currentDateTime.toString( Qt::SystemLocaleLongDate ) ) );
+        setText( TextTemplateParser::get( defaultMapSettings[ "Text" ].toString() ) );
 
     } else
     {
@@ -818,13 +816,10 @@ void RichTextNote::print( QPrinter * printer )
 void RichTextNote::updateStates()
 {
     bool top = isTop();
-//    bool readOnly = isReadOnly();
     bool isModified = this->isModified();
 
     tButtonSetTopBottom->setChecked( top );
     actionSetTopBottom->setChecked( top );
-//    actionSetReadOnly->setChecked( readOnly );
-//    tButtonSetReadOnly->setChecked( readOnly );
     tButtonSave->setEnabled( isModified );
     actionSave->setEnabled( isModified );
     actionVisibleToolBar->setChecked( isVisibleToolBar() );
@@ -837,6 +832,37 @@ void RichTextNote::contentsChanged()
     setModified( true );
     updateStates();
     emit changed( EventsNote::ChangeText );
+}
+void RichTextNote::doubleClickingOnTitle()
+{
+    int data = defaultMapSettings[ "ActionDoubleClickOnTitle" ].toInt();
+
+    switch ( data )
+    {
+    case Shared::DoNothing:
+
+        break;
+
+    case Shared::EditTitle:
+        selectTitle();
+        break;
+
+    case Shared::HideNote:
+        hide();
+        break;
+
+    case Shared::DeleteNote:
+        invokeRemove();
+        break;
+
+    case Shared::SaveAs:
+        saveAs();
+        break;
+
+    case Shared::PrintNotes:
+        print();
+        break;
+    }
 }
 
 void RichTextNote::enterEvent( QEvent * )

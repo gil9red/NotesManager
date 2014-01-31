@@ -66,10 +66,10 @@ public slots:
     void writeSettings(); //!< Запись настроек.
 
 private slots:
-    void on_treeWidgetMenu_itemClicked(QTreeWidgetItem *item, int column);
-    void on_buttonBox_clicked(QAbstractButton *button);
-
+    void on_treeWidgetMenu_itemClicked( QTreeWidgetItem * item, int column );
+    void on_buttonBox_clicked( QAbstractButton * button );
     void on_tButtonFontTitle_clicked();
+    void on_lEditTitle_textChanged(const QString & text );
 
 signals:
     void acceptChangeSettings();

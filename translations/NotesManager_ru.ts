@@ -28,38 +28,38 @@
         <translation>Прикрепленные файлы</translation>
     </message>
     <message>
-        <location filename="../Note/AttachPanel.ui" line="34"/>
         <location filename="../Note/AttachPanel.ui" line="37"/>
         <location filename="../Note/AttachPanel.ui" line="40"/>
         <location filename="../Note/AttachPanel.ui" line="43"/>
+        <location filename="../Note/AttachPanel.ui" line="46"/>
         <source>Attach</source>
         <translation>Прикрепить</translation>
     </message>
     <message>
-        <location filename="../Note/AttachPanel.ui" line="57"/>
-        <location filename="../Note/AttachPanel.ui" line="60"/>
         <location filename="../Note/AttachPanel.ui" line="63"/>
+        <location filename="../Note/AttachPanel.ui" line="66"/>
+        <location filename="../Note/AttachPanel.ui" line="69"/>
         <source>Run file</source>
         <translation>Запустить файл</translation>
     </message>
     <message>
-        <location filename="../Note/AttachPanel.ui" line="66"/>
+        <location filename="../Note/AttachPanel.ui" line="72"/>
         <source>Run</source>
         <translation>Запустить</translation>
     </message>
     <message>
-        <location filename="../Note/AttachPanel.ui" line="80"/>
-        <location filename="../Note/AttachPanel.ui" line="83"/>
-        <location filename="../Note/AttachPanel.ui" line="86"/>
         <location filename="../Note/AttachPanel.ui" line="89"/>
+        <location filename="../Note/AttachPanel.ui" line="92"/>
+        <location filename="../Note/AttachPanel.ui" line="95"/>
+        <location filename="../Note/AttachPanel.ui" line="98"/>
         <source>Copy to clipboard</source>
         <translation>Копировать в буфер обмена</translation>
     </message>
     <message>
-        <location filename="../Note/AttachPanel.ui" line="103"/>
-        <location filename="../Note/AttachPanel.ui" line="106"/>
-        <location filename="../Note/AttachPanel.ui" line="109"/>
-        <location filename="../Note/AttachPanel.ui" line="112"/>
+        <location filename="../Note/AttachPanel.ui" line="115"/>
+        <location filename="../Note/AttachPanel.ui" line="118"/>
+        <location filename="../Note/AttachPanel.ui" line="121"/>
+        <location filename="../Note/AttachPanel.ui" line="124"/>
         <source>Refresh list</source>
         <translation>Обновить список</translation>
     </message>
@@ -76,18 +76,18 @@
         <translation type="obsolete">Обновить</translation>
     </message>
     <message>
-        <location filename="../Note/AttachPanel.ui" line="126"/>
-        <location filename="../Note/AttachPanel.ui" line="129"/>
-        <location filename="../Note/AttachPanel.ui" line="132"/>
-        <location filename="../Note/AttachPanel.ui" line="135"/>
+        <location filename="../Note/AttachPanel.ui" line="141"/>
+        <location filename="../Note/AttachPanel.ui" line="144"/>
+        <location filename="../Note/AttachPanel.ui" line="147"/>
+        <location filename="../Note/AttachPanel.ui" line="150"/>
         <source>Remove</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="../Note/AttachPanel.ui" line="149"/>
-        <location filename="../Note/AttachPanel.ui" line="152"/>
-        <location filename="../Note/AttachPanel.ui" line="155"/>
-        <location filename="../Note/AttachPanel.ui" line="158"/>
+        <location filename="../Note/AttachPanel.ui" line="167"/>
+        <location filename="../Note/AttachPanel.ui" line="170"/>
+        <location filename="../Note/AttachPanel.ui" line="173"/>
+        <location filename="../Note/AttachPanel.ui" line="176"/>
         <source>Remove all</source>
         <translation>Удалить все</translation>
     </message>
@@ -133,12 +133,12 @@
 <context>
     <name>ColorButton</name>
     <message>
-        <location filename="../FormattingToolbar/ColorButton.cpp" line="60"/>
+        <location filename="../FormattingToolbar/ColorButton.cpp" line="57"/>
         <source>Default color</source>
         <translation>Цвет по умолчанию</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/ColorButton.cpp" line="68"/>
+        <location filename="../FormattingToolbar/ColorButton.cpp" line="65"/>
         <source>Another color</source>
         <translation>Другой цвет</translation>
     </message>
@@ -193,20 +193,20 @@
         <translation>Быстрый поиск</translation>
     </message>
     <message>
-        <location filename="../FindAndReplace/findandreplace.ui" line="152"/>
+        <location filename="../FindAndReplace/findandreplace.ui" line="34"/>
         <source>Find:</source>
         <translation>Поиск:</translation>
     </message>
     <message>
-        <location filename="../FindAndReplace/findandreplace.ui" line="101"/>
-        <location filename="../FindAndReplace/findandreplace.ui" line="104"/>
-        <location filename="../FindAndReplace/findandreplace.ui" line="107"/>
-        <location filename="../FindAndReplace/findandreplace.ui" line="110"/>
+        <location filename="../FindAndReplace/findandreplace.ui" line="49"/>
+        <location filename="../FindAndReplace/findandreplace.ui" line="52"/>
+        <location filename="../FindAndReplace/findandreplace.ui" line="55"/>
+        <location filename="../FindAndReplace/findandreplace.ui" line="58"/>
         <source>Previous</source>
         <translation>Предыдущий</translation>
     </message>
     <message>
-        <location filename="../FindAndReplace/findandreplace.ui" line="159"/>
+        <location filename="../FindAndReplace/findandreplace.ui" line="110"/>
         <source>Replace with:</source>
         <translation>Заменить на:</translation>
     </message>
@@ -215,26 +215,26 @@
         <translation type="obsolete">Предыдущий</translation>
     </message>
     <message>
-        <location filename="../FindAndReplace/findandreplace.ui" line="127"/>
-        <location filename="../FindAndReplace/findandreplace.ui" line="130"/>
-        <location filename="../FindAndReplace/findandreplace.ui" line="133"/>
-        <location filename="../FindAndReplace/findandreplace.ui" line="136"/>
+        <location filename="../FindAndReplace/findandreplace.ui" line="75"/>
+        <location filename="../FindAndReplace/findandreplace.ui" line="78"/>
+        <location filename="../FindAndReplace/findandreplace.ui" line="81"/>
+        <location filename="../FindAndReplace/findandreplace.ui" line="84"/>
         <source>Next</source>
         <translation>Следующий</translation>
     </message>
     <message>
-        <location filename="../FindAndReplace/findandreplace.ui" line="62"/>
-        <location filename="../FindAndReplace/findandreplace.ui" line="65"/>
-        <location filename="../FindAndReplace/findandreplace.ui" line="68"/>
-        <location filename="../FindAndReplace/findandreplace.ui" line="71"/>
+        <location filename="../FindAndReplace/findandreplace.ui" line="138"/>
+        <location filename="../FindAndReplace/findandreplace.ui" line="141"/>
+        <location filename="../FindAndReplace/findandreplace.ui" line="144"/>
+        <location filename="../FindAndReplace/findandreplace.ui" line="147"/>
         <source>Replace all</source>
         <translation>Заменить все</translation>
     </message>
     <message>
-        <location filename="../FindAndReplace/findandreplace.ui" line="46"/>
-        <location filename="../FindAndReplace/findandreplace.ui" line="49"/>
-        <location filename="../FindAndReplace/findandreplace.ui" line="52"/>
-        <location filename="../FindAndReplace/findandreplace.ui" line="55"/>
+        <location filename="../FindAndReplace/findandreplace.ui" line="122"/>
+        <location filename="../FindAndReplace/findandreplace.ui" line="125"/>
+        <location filename="../FindAndReplace/findandreplace.ui" line="128"/>
+        <location filename="../FindAndReplace/findandreplace.ui" line="131"/>
         <source>Replace</source>
         <translation>Заменить</translation>
     </message>
@@ -288,99 +288,99 @@
         <translation>Увеличить шрифт</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="86"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="89"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="92"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="95"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="98"/>
         <source>Decrease size</source>
         <translation>Уменьшить шрифт</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="109"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="112"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="115"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="118"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="121"/>
         <source>Bold</source>
         <translation>Жирный</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="135"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="138"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="141"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="144"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="147"/>
         <source>Italic</source>
         <translation>Курсив</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="164"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="167"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="170"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="173"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="176"/>
         <source>Text color</source>
         <translation>Цвет текста</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="207"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="210"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="213"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="216"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="219"/>
         <source>Subscript</source>
         <translation>Подстрочный знак</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="233"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="236"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="239"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="242"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="245"/>
         <source>Superscript</source>
         <translation>Надстрочный знак</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="259"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="262"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="265"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="268"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="271"/>
         <source>Underline</source>
         <translation>Линия подчеркивания</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="285"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="288"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="291"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="294"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="297"/>
         <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="139"/>
         <source>Strikeout</source>
         <translation>Линия зачеркивания</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="311"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="314"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="317"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="320"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="323"/>
         <source>Overline</source>
         <translation>Линия надчеркивания </translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="337"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="340"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="343"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="346"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="349"/>
         <source>Lower</source>
         <translation>Строчный</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="360"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="363"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="366"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="369"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="372"/>
         <source>Upper</source>
         <translation>Прописной</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="380"/>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="383"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="386"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="389"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="392"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="395"/>
         <source>Insert a horizontal line</source>
         <translation>Вставить горизонтальную линию</translation>
     </message>
@@ -389,90 +389,90 @@
         <translation type="obsolete">Горизонтальная линия</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="423"/>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="426"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="429"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="432"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="435"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="438"/>
         <source>Align left</source>
         <translation>Выравнивание по левому краю</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="449"/>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="452"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="455"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="458"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="461"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="464"/>
         <source>Align center</source>
         <translation>Выравнивание по центру</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="475"/>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="478"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="481"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="484"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="487"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="493"/>
         <source>Align right</source>
         <translation>Выравнивание по правому краю</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="504"/>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="507"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="510"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="513"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="516"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="519"/>
         <source>Align justify</source>
         <translation>Выравнивание по ширине</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="530"/>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="533"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="536"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="539"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="542"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="545"/>
         <source>Eraser</source>
         <translation>Очистить форматирование</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="556"/>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="559"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="562"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="565"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="568"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="571"/>
         <source>Bulleted list</source>
         <translation>Маркированный список</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="582"/>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="585"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="588"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="591"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="594"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="597"/>
         <source>Ordered list</source>
         <translation>Упорядоченный список</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="625"/>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="628"/>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="631"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="634"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="637"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="640"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="643"/>
         <source>Insert hyperlink</source>
         <translation>Вставка киберссылки</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="648"/>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="651"/>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="654"/>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="657"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="660"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="663"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="666"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="669"/>
         <source>Insert picture</source>
         <translation>Вставка картинки</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="671"/>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="674"/>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="677"/>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="680"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="686"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="689"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="692"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="695"/>
         <source>Insert table</source>
         <translation>Вставка таблицы</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="691"/>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="694"/>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="697"/>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="700"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="709"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="712"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="715"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="718"/>
         <source>Color background</source>
         <translation>Цвет заднего фона</translation>
     </message>
@@ -506,12 +506,12 @@
         <translation>Разное</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="584"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="575"/>
         <source>Images</source>
         <translation>Изображения</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="591"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="582"/>
         <source>Select picture</source>
         <translation>Выбор изображения</translation>
     </message>
@@ -519,27 +519,27 @@
 <context>
     <name>FullscreenshotCropper</name>
     <message>
-        <location filename="../Manager/ImageCropper/fullscreenshotcropper.cpp" line="16"/>
+        <location filename="../ImageCropper/fullscreenshotcropper.cpp" line="16"/>
         <source>Fullscreen</source>
         <translation>Весь экран</translation>
     </message>
     <message>
-        <location filename="../Manager/ImageCropper/fullscreenshotcropper.cpp" line="20"/>
+        <location filename="../ImageCropper/fullscreenshotcropper.cpp" line="20"/>
         <source>Cut</source>
         <translation>Вырезать</translation>
     </message>
     <message>
-        <location filename="../Manager/ImageCropper/fullscreenshotcropper.cpp" line="24"/>
+        <location filename="../ImageCropper/fullscreenshotcropper.cpp" line="24"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../Manager/ImageCropper/fullscreenshotcropper.cpp" line="32"/>
+        <location filename="../ImageCropper/fullscreenshotcropper.cpp" line="32"/>
         <source>For the picture, press SPACE, ENTER or the middle mouse button</source>
         <translation>Для снимка нажмите SPACE, ENTER или среднюю кнопку мыши</translation>
     </message>
     <message>
-        <location filename="../Manager/ImageCropper/fullscreenshotcropper.cpp" line="33"/>
+        <location filename="../ImageCropper/fullscreenshotcropper.cpp" line="33"/>
         <source>To close, press ESCAPE, Alt + F4, or right-click</source>
         <translation>Для закрытия нажмите ESCAPE, Alt+F4, или правую кнопку мыши</translation>
     </message>
@@ -895,7 +895,6 @@
         <location filename="../Manager/Manager.ui" line="899"/>
         <location filename="../Manager/Manager.ui" line="902"/>
         <location filename="../Manager/Manager.ui" line="905"/>
-        <location filename="../Manager/Manager.cpp" line="52"/>
         <source>Read only</source>
         <translation>Только чтение</translation>
     </message>
@@ -905,7 +904,7 @@
         <translation>Видимость</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="53"/>
+        <location filename="../Manager/Manager.cpp" line="52"/>
         <source>Created</source>
         <translation>Дата создания</translation>
     </message>
@@ -925,22 +924,22 @@
         <translation>Корзина</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="230"/>
+        <location filename="../Manager/Manager.cpp" line="222"/>
         <source>Text formatting</source>
         <translation>Форматирование текста</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="316"/>
+        <location filename="../Manager/Manager.cpp" line="307"/>
         <source>Program to create notes</source>
         <translation>Программа создания заметок</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="324"/>
+        <location filename="../Manager/Manager.cpp" line="315"/>
         <source>Open manager</source>
         <translation>Открыть менеджер</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="388"/>
+        <location filename="../Manager/Manager.cpp" line="379"/>
         <location filename="../Manager/Manager.cpp" line="497"/>
         <location filename="../Manager/Manager.cpp" line="512"/>
         <location filename="../Manager/Manager.cpp" line="519"/>
@@ -948,7 +947,7 @@
         <translation>Информация</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="388"/>
+        <location filename="../Manager/Manager.cpp" line="379"/>
         <source>Application is already running</source>
         <translation>Приложение уже запущено</translation>
     </message>
@@ -980,28 +979,28 @@
         <translation>Произошла ошибка при распаковки файлов и папок заметки</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="572"/>
-        <location filename="../Manager/Manager.cpp" line="827"/>
+        <location filename="../Manager/Manager.cpp" line="584"/>
+        <location filename="../Manager/Manager.cpp" line="848"/>
         <source>Question</source>
         <translation>Вопрос</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="572"/>
+        <location filename="../Manager/Manager.cpp" line="584"/>
         <source>Delete all notes?</source>
         <translation>Удалить все заметки?</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="827"/>
+        <location filename="../Manager/Manager.cpp" line="848"/>
         <source>Really quit?</source>
         <translation>Действительно выйти?</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="770"/>
+        <location filename="../Manager/Manager.cpp" line="791"/>
         <source>copy</source>
         <translation>копия</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="784"/>
+        <location filename="../Manager/Manager.cpp" line="805"/>
         <source>from</source>
         <translation>от</translation>
     </message>
@@ -1018,7 +1017,7 @@
         <translation type="obsolete">нет</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="869"/>
+        <location filename="../Manager/Manager.cpp" line="889"/>
         <source>Save completed</source>
         <translation>Сохранение завершено</translation>
     </message>
@@ -1270,38 +1269,38 @@
         <translation type="obsolete">Главное окно</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="74"/>
+        <location filename="../Manager/pages/page_settings.ui" line="68"/>
         <source>Menu</source>
         <translation>Меню</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="79"/>
+        <location filename="../Manager/pages/page_settings.ui" line="73"/>
         <source>Interface</source>
         <translation>Интерфейс</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="93"/>
+        <location filename="../Manager/pages/page_settings.ui" line="87"/>
         <source>System</source>
         <translation>Система</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="104"/>
-        <location filename="../Manager/pages/page_settings.cpp" line="100"/>
+        <location filename="../Manager/pages/page_settings.ui" line="98"/>
+        <location filename="../Manager/pages/page_settings.cpp" line="109"/>
         <source>New note</source>
         <translation>Новая заметка</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="115"/>
+        <location filename="../Manager/pages/page_settings.ui" line="109"/>
         <source>Notes</source>
         <translation>Заметки</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="170"/>
+        <location filename="../Manager/pages/page_settings.ui" line="164"/>
         <source>Interface language</source>
         <translation>Язык интерфейса</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="176"/>
+        <location filename="../Manager/pages/page_settings.ui" line="170"/>
         <source>Language:</source>
         <translation>Язык:</translation>
     </message>
@@ -1310,8 +1309,8 @@
         <translation type="obsolete">по умолчанию</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="232"/>
-        <location filename="../Manager/pages/page_settings.ui" line="758"/>
+        <location filename="../Manager/pages/page_settings.ui" line="226"/>
+        <location filename="../Manager/pages/page_settings.ui" line="754"/>
         <source>Autosave</source>
         <translation>Автосохранение</translation>
     </message>
@@ -1320,161 +1319,171 @@
         <translation type="obsolete">Интервал автосохранения</translation>
     </message>
     <message>
+        <location filename="../Manager/pages/page_settings.ui" line="217"/>
+        <location filename="../Manager/pages/page_settings.ui" line="220"/>
         <location filename="../Manager/pages/page_settings.ui" line="223"/>
-        <location filename="../Manager/pages/page_settings.ui" line="226"/>
-        <location filename="../Manager/pages/page_settings.ui" line="229"/>
         <source>Autosave manager</source>
         <translation>Автосохранение менеджера</translation>
     </message>
     <message>
+        <location filename="../Manager/pages/page_settings.ui" line="245"/>
+        <location filename="../Manager/pages/page_settings.ui" line="248"/>
         <location filename="../Manager/pages/page_settings.ui" line="251"/>
-        <location filename="../Manager/pages/page_settings.ui" line="254"/>
-        <location filename="../Manager/pages/page_settings.ui" line="257"/>
         <source>Autosave interval manager</source>
         <translation>Интервал автосохранение менеджера</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="260"/>
-        <location filename="../Manager/pages/page_settings.ui" line="786"/>
+        <location filename="../Manager/pages/page_settings.ui" line="254"/>
+        <location filename="../Manager/pages/page_settings.ui" line="782"/>
         <source> minute(s)</source>
         <translation> минута(ы)</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="275"/>
+        <location filename="../Manager/pages/page_settings.ui" line="269"/>
         <source>Ask for confirmation before exiting</source>
         <translation>Спрашивать подтверждение перед закрытием</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="333"/>
+        <location filename="../Manager/pages/page_settings.ui" line="327"/>
         <source>Minimize the program to tray when closing a window manager</source>
         <translation>Сворачивать программу в трей при закрытии окна менеджера</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="340"/>
+        <location filename="../Manager/pages/page_settings.ui" line="334"/>
         <source>Minimize the program to tray when minimizing window manager</source>
         <translation>Сворачивать программу в трей при минимизации окна менеджера</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="347"/>
+        <location filename="../Manager/pages/page_settings.ui" line="341"/>
         <source>Minimize the program to tray on startup</source>
         <translation>Сворачивать программу в трей при запуске</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="411"/>
+        <location filename="../Manager/pages/page_settings.ui" line="448"/>
         <source>Random color </source>
         <translation>Случайный цвет</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="418"/>
+        <location filename="../Manager/pages/page_settings.ui" line="455"/>
         <source>Random position on screen </source>
         <translation>Случайная позиция на экране</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="427"/>
+        <location filename="../Manager/pages/page_settings.ui" line="480"/>
         <source>Size</source>
         <translation>Размер</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="436"/>
+        <location filename="../Manager/pages/page_settings.ui" line="489"/>
         <source>Width:</source>
         <translation>Ширина:</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="456"/>
+        <location filename="../Manager/pages/page_settings.ui" line="509"/>
         <source>Height:</source>
         <translation>Высота:</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="479"/>
+        <location filename="../Manager/pages/page_settings.ui" line="532"/>
         <source>Position</source>
         <translation>Позиция</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="491"/>
+        <location filename="../Manager/pages/page_settings.ui" line="544"/>
         <source>Top:</source>
         <translation>Сверху:</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="524"/>
+        <location filename="../Manager/pages/page_settings.ui" line="577"/>
         <source>Left:</source>
         <translation>Слева:</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="552"/>
+        <location filename="../Manager/pages/page_settings.ui" line="799"/>
+        <source>When you double-click on the title of the note:</source>
+        <translation>При двойном клике на заголовок заметки:</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_settings.ui" line="806"/>
+        <source>Actions by double-clicking on the title of the note</source>
+        <translation>Действия при двойном клике на заголовке заметке</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_settings.ui" line="462"/>
         <source>Visible</source>
         <translation>Видимость</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="559"/>
+        <location filename="../Manager/pages/page_settings.ui" line="469"/>
         <source>On top of all windows </source>
         <translation>Поверх всех окон</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="568"/>
+        <location filename="../Manager/pages/page_settings.ui" line="409"/>
         <source>Opacity:</source>
         <translation>Непрозрачность:</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="581"/>
+        <location filename="../Manager/pages/page_settings.ui" line="422"/>
         <source>Opacity new note</source>
         <translation>Непрозрачность новой заметки</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="612"/>
+        <location filename="../Manager/pages/page_settings.ui" line="658"/>
         <source>Titile:</source>
         <translation>Заголовок:</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="635"/>
+        <location filename="../Manager/pages/page_settings.ui" line="681"/>
         <source>Title a new note</source>
         <translation>Заголовок новой заметки</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="642"/>
+        <location filename="../Manager/pages/page_settings.ui" line="688"/>
         <source>Title font new note</source>
         <translation>Шрифт заголовка новой заметки</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="660"/>
+        <location filename="../Manager/pages/page_settings.ui" line="706"/>
         <source>Text:</source>
         <translation>Текст:</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="667"/>
+        <location filename="../Manager/pages/page_settings.ui" line="713"/>
         <source>Text of the new notes</source>
         <translation>Текст новой заметки</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="680"/>
+        <location filename="../Manager/pages/page_settings.ui" line="614"/>
         <source>Title color:</source>
         <translation>Цвет заголовка:</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="687"/>
+        <location filename="../Manager/pages/page_settings.ui" line="621"/>
         <source>Color title new note</source>
         <translation>Цвет заголовка новой заметки</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="701"/>
+        <location filename="../Manager/pages/page_settings.ui" line="593"/>
         <source>Body color:</source>
         <translation>Цвет тела:</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="708"/>
+        <location filename="../Manager/pages/page_settings.ui" line="600"/>
         <source>Body color new note</source>
         <translation>Цвет тела новой заметки</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="749"/>
-        <location filename="../Manager/pages/page_settings.ui" line="752"/>
-        <location filename="../Manager/pages/page_settings.ui" line="755"/>
+        <location filename="../Manager/pages/page_settings.ui" line="745"/>
+        <location filename="../Manager/pages/page_settings.ui" line="748"/>
+        <location filename="../Manager/pages/page_settings.ui" line="751"/>
         <source>Autosave notes</source>
         <translation>Автосохранение заметок</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="777"/>
-        <location filename="../Manager/pages/page_settings.ui" line="780"/>
-        <location filename="../Manager/pages/page_settings.ui" line="783"/>
+        <location filename="../Manager/pages/page_settings.ui" line="773"/>
+        <location filename="../Manager/pages/page_settings.ui" line="776"/>
+        <location filename="../Manager/pages/page_settings.ui" line="779"/>
         <source>Autosave interval notes</source>
         <translation>Интервал автосохранения заметок</translation>
     </message>
@@ -1484,17 +1493,59 @@
         <translation>Настройки</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.cpp" line="225"/>
+        <source>Do nothing</source>
+        <translation type="obsolete">Ничего не делать</translation>
+    </message>
+    <message>
+        <source>Editing a title </source>
+        <translation type="obsolete">Редактирование заголовка</translation>
+    </message>
+    <message>
+        <source>Hide note</source>
+        <translation type="obsolete">Скрыть заметку</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_settings.cpp" line="64"/>
+        <source>do nothing</source>
+        <translation>ничего не делать</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_settings.cpp" line="65"/>
+        <source>edit the title</source>
+        <translation>редактировать заголовок</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_settings.cpp" line="66"/>
+        <source>hide note</source>
+        <translation>спрятать заметку</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_settings.cpp" line="67"/>
+        <source>delete the note</source>
+        <translation>удалить заметку</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_settings.cpp" line="68"/>
+        <source>save as</source>
+        <translation>сохранить как</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_settings.cpp" line="69"/>
+        <source>print notes</source>
+        <translation>печать заметки</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_settings.cpp" line="222"/>
         <source>Restart requires </source>
         <translation>Требуется перезапуск</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.cpp" line="225"/>
+        <location filename="../Manager/pages/page_settings.cpp" line="222"/>
         <source>The language change will take effect after a restart</source>
         <translation>Изменения языка вступят в силу после перезапуска</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.cpp" line="231"/>
+        <location filename="../Manager/pages/page_settings.cpp" line="228"/>
         <source>Settings received and stored</source>
         <translation>Настройки приняты и сохранены</translation>
     </message>
@@ -1503,7 +1554,7 @@
         <translation type="obsolete">&lt;системный язык&gt;</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.cpp" line="159"/>
+        <location filename="../Manager/pages/page_settings.cpp" line="156"/>
         <source>systems language</source>
         <translation>системный язык</translation>
     </message>
@@ -1596,7 +1647,7 @@
         <translation type="obsolete">Менеджер заметок</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="120"/>
+        <location filename="../main.cpp" line="111"/>
         <source>Loading fonts</source>
         <oldsource>Load fonts</oldsource>
         <translation>Загрузка шрифтов</translation>
@@ -1606,31 +1657,31 @@
         <translation type="obsolete">Создать</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="123"/>
+        <location filename="../main.cpp" line="114"/>
         <source>Loading dictionaries</source>
         <oldsource>Load dictionaries</oldsource>
         <translation>Загрузка словарей</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="126"/>
+        <location filename="../main.cpp" line="117"/>
         <source>Creation</source>
         <oldsource>Created</oldsource>
         <translation>Создание</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="133"/>
+        <location filename="../main.cpp" line="124"/>
         <source>Loading settings</source>
         <oldsource>Load settings</oldsource>
         <translation>Загрузка настроек</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="136"/>
+        <location filename="../main.cpp" line="127"/>
         <source>Loading notes</source>
         <oldsource>Load notes</oldsource>
         <translation>Загрузка заметок</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="139"/>
+        <location filename="../main.cpp" line="130"/>
         <source>Now ready</source>
         <translation>Готов</translation>
     </message>
@@ -1654,22 +1705,22 @@
         <translation>версия</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="745"/>
-        <location filename="../Manager/Manager.cpp" line="757"/>
-        <location filename="../Manager/Manager.h" line="99"/>
-        <location filename="../Manager/Manager.h" line="109"/>
-        <location filename="../Manager/Manager.h" line="133"/>
-        <location filename="../Manager/Manager.h" line="143"/>
+        <location filename="../Manager/Manager.cpp" line="766"/>
+        <location filename="../Manager/Manager.cpp" line="778"/>
+        <location filename="../Manager/Manager.h" line="94"/>
+        <location filename="../Manager/Manager.h" line="104"/>
+        <location filename="../Manager/Manager.h" line="124"/>
+        <location filename="../Manager/Manager.h" line="134"/>
         <source>yes</source>
         <translation>да</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="745"/>
-        <location filename="../Manager/Manager.cpp" line="757"/>
-        <location filename="../Manager/Manager.h" line="99"/>
-        <location filename="../Manager/Manager.h" line="109"/>
-        <location filename="../Manager/Manager.h" line="133"/>
-        <location filename="../Manager/Manager.h" line="143"/>
+        <location filename="../Manager/Manager.cpp" line="766"/>
+        <location filename="../Manager/Manager.cpp" line="778"/>
+        <location filename="../Manager/Manager.h" line="94"/>
+        <location filename="../Manager/Manager.h" line="104"/>
+        <location filename="../Manager/Manager.h" line="124"/>
+        <location filename="../Manager/Manager.h" line="134"/>
         <source>no</source>
         <translation>нет</translation>
     </message>
@@ -1677,22 +1728,22 @@
 <context>
     <name>QuaGzipFile</name>
     <message>
-        <location filename="../utils/quazip/quagzipfile.cpp" line="36"/>
+        <location filename="../quazip-0.6.1/quazip/quagzipfile.cpp" line="60"/>
         <source>QIODevice::Append is not supported for GZIP</source>
         <translation>QIODevice::Append не поддерживается для GZIP</translation>
     </message>
     <message>
-        <location filename="../utils/quazip/quagzipfile.cpp" line="42"/>
+        <location filename="../quazip-0.6.1/quazip/quagzipfile.cpp" line="66"/>
         <source>Opening gzip for both reading and writing is not supported</source>
         <translation>Открыватие gzip одновременно для чтения и записи не поддерживается</translation>
     </message>
     <message>
-        <location filename="../utils/quazip/quagzipfile.cpp" line="50"/>
+        <location filename="../quazip-0.6.1/quazip/quagzipfile.cpp" line="74"/>
         <source>You can open a gzip either for reading or for writing. Which is it?</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../utils/quazip/quagzipfile.cpp" line="56"/>
+        <location filename="../quazip-0.6.1/quazip/quagzipfile.cpp" line="80"/>
         <source>Could not gzopen() file</source>
         <translation></translation>
     </message>
@@ -1700,22 +1751,22 @@
 <context>
     <name>QuaZIODevice</name>
     <message>
-        <location filename="../utils/quazip/quaziodevice.cpp" line="121"/>
+        <location filename="../quazip-0.6.1/quazip/quaziodevice.cpp" line="145"/>
         <source>QIODevice::Append is not supported for QuaZIODevice</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../utils/quazip/quaziodevice.cpp" line="126"/>
+        <location filename="../quazip-0.6.1/quazip/quaziodevice.cpp" line="150"/>
         <source>QIODevice::ReadWrite is not supported for QuaZIODevice</source>
         <translation></translation>
     </message>
 </context>
 <context>
-    <name>QuaZipFilePrivate</name>
+    <name>QuaZipFile</name>
     <message>
-        <location filename="../utils/quazip/quazipfile.cpp" line="217"/>
+        <location filename="../quazip-0.6.1/quazip/quazipfile.cpp" line="218"/>
         <source>ZIP/UNZIP API error %1</source>
-        <translation></translation>
+        <translation>ZIP/UNZIP API ошибка %1</translation>
     </message>
 </context>
 <context>
@@ -1789,60 +1840,60 @@
         <translation type="obsolete">Поиск/замена</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="200"/>
+        <location filename="../Note/RichTextNote.cpp" line="197"/>
         <source>Toolbar</source>
         <translation>Панель инструментов</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="201"/>
+        <location filename="../Note/RichTextNote.cpp" line="198"/>
         <source>Quick find</source>
         <translation>Быстрый поиск</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="202"/>
-        <location filename="../Note/RichTextNote.cpp" line="303"/>
+        <location filename="../Note/RichTextNote.cpp" line="199"/>
+        <location filename="../Note/RichTextNote.cpp" line="296"/>
         <source>Attach panel</source>
         <translation>Прикрепленные файлы</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="206"/>
-        <location filename="../Note/RichTextNote.cpp" line="352"/>
+        <location filename="../Note/RichTextNote.cpp" line="203"/>
+        <location filename="../Note/RichTextNote.cpp" line="349"/>
         <source>Delete</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="207"/>
-        <location filename="../Note/RichTextNote.cpp" line="353"/>
+        <location filename="../Note/RichTextNote.cpp" line="204"/>
+        <location filename="../Note/RichTextNote.cpp" line="350"/>
         <source>Set title</source>
         <translation>Выбрать заголовок</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="208"/>
-        <location filename="../Note/RichTextNote.cpp" line="354"/>
+        <location filename="../Note/RichTextNote.cpp" line="205"/>
+        <location filename="../Note/RichTextNote.cpp" line="351"/>
         <source>Set title font</source>
         <translation>Выбрать шрифт заголовка</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="209"/>
-        <location filename="../Note/RichTextNote.cpp" line="355"/>
+        <location filename="../Note/RichTextNote.cpp" line="206"/>
+        <location filename="../Note/RichTextNote.cpp" line="352"/>
         <source>Set title color</source>
         <translation>Выбрать цвет заголовка</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="210"/>
-        <location filename="../Note/RichTextNote.cpp" line="356"/>
+        <location filename="../Note/RichTextNote.cpp" line="207"/>
+        <location filename="../Note/RichTextNote.cpp" line="353"/>
         <source>Set window color</source>
         <translation>Выбрать цвет окна</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="211"/>
-        <location filename="../Note/RichTextNote.cpp" line="358"/>
+        <location filename="../Note/RichTextNote.cpp" line="208"/>
+        <location filename="../Note/RichTextNote.cpp" line="355"/>
         <source>Hide</source>
         <translation>Скрыть</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="212"/>
-        <location filename="../Note/RichTextNote.cpp" line="359"/>
+        <location filename="../Note/RichTextNote.cpp" line="209"/>
+        <location filename="../Note/RichTextNote.cpp" line="356"/>
         <source>On top of all windows</source>
         <translation>Поверх всех окон</translation>
     </message>
@@ -1851,44 +1902,44 @@
         <translation type="obsolete">Только чтение</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="214"/>
-        <location filename="../Note/RichTextNote.cpp" line="361"/>
+        <location filename="../Note/RichTextNote.cpp" line="210"/>
+        <location filename="../Note/RichTextNote.cpp" line="357"/>
         <source>Open</source>
         <translation>Открыть</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="215"/>
-        <location filename="../Note/RichTextNote.cpp" line="362"/>
+        <location filename="../Note/RichTextNote.cpp" line="211"/>
+        <location filename="../Note/RichTextNote.cpp" line="358"/>
         <source>Save as</source>
         <translation>Сохранить как</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="217"/>
-        <location filename="../Note/RichTextNote.cpp" line="363"/>
+        <location filename="../Note/RichTextNote.cpp" line="213"/>
+        <location filename="../Note/RichTextNote.cpp" line="359"/>
         <source>Print</source>
         <translation>Печать</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="218"/>
-        <location filename="../Note/RichTextNote.cpp" line="364"/>
+        <location filename="../Note/RichTextNote.cpp" line="214"/>
+        <location filename="../Note/RichTextNote.cpp" line="360"/>
         <source>Preview print</source>
         <translation>Предпросмотр перед печатью</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="220"/>
-        <location filename="../Note/RichTextNote.cpp" line="365"/>
+        <location filename="../Note/RichTextNote.cpp" line="216"/>
+        <location filename="../Note/RichTextNote.cpp" line="361"/>
         <source>Save</source>
         <translation>Сохранить</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="221"/>
-        <location filename="../Note/RichTextNote.cpp" line="366"/>
+        <location filename="../Note/RichTextNote.cpp" line="217"/>
+        <location filename="../Note/RichTextNote.cpp" line="362"/>
         <source>Duplicate</source>
         <translation>Дупликат</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="222"/>
-        <location filename="../Note/RichTextNote.cpp" line="367"/>
+        <location filename="../Note/RichTextNote.cpp" line="218"/>
+        <location filename="../Note/RichTextNote.cpp" line="363"/>
         <source>Attach</source>
         <translation>Прикрепить</translation>
     </message>
@@ -1897,30 +1948,30 @@
         <translation type="obsolete">Другая</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="231"/>
-        <location filename="../Note/RichTextNote.cpp" line="357"/>
-        <location filename="../Note/RichTextNote.cpp" line="401"/>
+        <location filename="../Note/RichTextNote.cpp" line="227"/>
+        <location filename="../Note/RichTextNote.cpp" line="354"/>
+        <location filename="../Note/RichTextNote.cpp" line="396"/>
         <source>Opacity</source>
         <translation>Непрозрачность</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="435"/>
+        <location filename="../Note/RichTextNote.cpp" line="429"/>
         <source>Save completed</source>
         <translation>Сохранение завершено</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="656"/>
+        <location filename="../Note/RichTextNote.cpp" line="642"/>
         <source>File notes</source>
         <translation>Файл заметки</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="763"/>
+        <location filename="../Note/RichTextNote.cpp" line="749"/>
         <source>image</source>
         <translation>Изображение</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="203"/>
-        <location filename="../Note/RichTextNote.cpp" line="324"/>
+        <location filename="../Note/RichTextNote.cpp" line="200"/>
+        <location filename="../Note/RichTextNote.cpp" line="317"/>
         <source>Find/replace</source>
         <translation>Поиск/замена</translation>
     </message>
@@ -1929,8 +1980,8 @@
         <translation type="obsolete">Быстрый поиск</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="204"/>
-        <location filename="../Note/RichTextNote.cpp" line="281"/>
+        <location filename="../Note/RichTextNote.cpp" line="201"/>
+        <location filename="../Note/RichTextNote.cpp" line="274"/>
         <source>Formatting toolbar</source>
         <translation>Панель форматирования</translation>
     </message>
@@ -1945,8 +1996,8 @@
     </message>
     <message>
         <location filename="../Note/RichTextNote.cpp" line="530"/>
-        <location filename="../Note/RichTextNote.cpp" line="696"/>
-        <location filename="../Note/RichTextNote.cpp" line="697"/>
+        <location filename="../Note/RichTextNote.cpp" line="682"/>
+        <location filename="../Note/RichTextNote.cpp" line="683"/>
         <source>An error occurred saving notes</source>
         <translation>Невозможно сохранить заметки</translation>
     </message>
@@ -1955,7 +2006,7 @@
         <translation type="obsolete">Не возможно считать настройки заметок</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="696"/>
+        <location filename="../Note/RichTextNote.cpp" line="682"/>
         <source>Information</source>
         <translation>Информация</translation>
     </message>
@@ -1978,44 +2029,44 @@
         <translation>Не получается удалить</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="599"/>
+        <location filename="../Note/RichTextNote.cpp" line="585"/>
         <source>Select title</source>
         <translation>Выбор заголовка</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="599"/>
+        <location filename="../Note/RichTextNote.cpp" line="585"/>
         <source>Title: </source>
         <translation>Заголовок:</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="608"/>
+        <location filename="../Note/RichTextNote.cpp" line="594"/>
         <source>Select font</source>
         <translation>Выбор шрифта</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="617"/>
-        <location filename="../Note/RichTextNote.cpp" line="625"/>
+        <location filename="../Note/RichTextNote.cpp" line="603"/>
+        <location filename="../Note/RichTextNote.cpp" line="611"/>
         <source>Select color</source>
         <translation>Выбор цвета</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="638"/>
+        <location filename="../Note/RichTextNote.cpp" line="624"/>
         <source>Select opacity</source>
         <translation>Выбор непрозрачности</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="638"/>
+        <location filename="../Note/RichTextNote.cpp" line="624"/>
         <source>Opacity:</source>
         <translation>Непрозрачность:</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="720"/>
-        <location filename="../Note/RichTextNote.cpp" line="729"/>
+        <location filename="../Note/RichTextNote.cpp" line="706"/>
+        <location filename="../Note/RichTextNote.cpp" line="715"/>
         <source>document</source>
         <translation>документ</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="743"/>
+        <location filename="../Note/RichTextNote.cpp" line="729"/>
         <source>Select the files</source>
         <translation>Выберите файлы</translation>
     </message>

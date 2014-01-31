@@ -1,3 +1,6 @@
+INCLUDEPATH += $$PWD
+DEPENDPATH += $$PWD
+
 HEADERS += \
     $$PWD/imagecropper_p.h \
     $$PWD/imagecropper_e.h \

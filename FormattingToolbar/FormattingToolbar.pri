@@ -1,3 +1,6 @@
+INCLUDEPATH += $$PWD
+DEPENDPATH += $$PWD
+
 HEADERS += \
     $$PWD/FormattingToolbar.h \
     $$PWD/DialogInsertHyperlink.h \

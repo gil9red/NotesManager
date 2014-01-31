@@ -1,3 +1,6 @@
+INCLUDEPATH += $$PWD
+DEPENDPATH += $$PWD
+
 HEADERS += \
     $$PWD/stylehelper.h \
     $$PWD/fancytabbar.h \

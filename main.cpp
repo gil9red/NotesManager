@@ -76,8 +76,9 @@ static const char codec[] = "utf8";
 // TODO: панель форматирования - нижние виджеты не прижаты пружиной
 // TODO: проверить работу дублирования
 // TODO: может подправить скроллы у заметок, сделав как у старых.
-// TODO: может настроить возможные варианты действий при двойном клик на заголовке заметке? Добавить в комбобокс настроек.
-
+// TODO: Заметка -> При сохранить как вставлять в качестве имени заголовок заметки
+// (учитывать, что в ос не все символы в названиях файлов разрешены)
+// TODO: убрать сгенерированные ui-файлы из заголовочных файлов.
 
 static void loadTranslations( QSettings * settings );
 
@@ -133,7 +134,7 @@ int main( int argc, char *argv[] )
     qApp->setActiveWindow( &manager );
     splashScreen->deleteLater();
 
-    QObject::connect( &app, SIGNAL( messageReceived(QString) ), &manager, SLOT( messageReceived(QString) ) );    
+    QObject::connect( &app, SIGNAL( messageReceived(QString) ), &manager, SLOT( messageReceived(QString) ) );
 
     return app.exec();
 }

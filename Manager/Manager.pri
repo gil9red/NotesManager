@@ -1,4 +1,5 @@
-QT += core gui
+INCLUDEPATH += $$PWD
+DEPENDPATH += $$PWD
 
 SOURCES += \
     $$PWD/Manager.cpp \

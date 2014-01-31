@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>508</width>
-    <height>438</height>
+    <width>512</width>
+    <height>427</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -153,8 +153,8 @@
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>207</width>
-              <height>128</height>
+              <width>252</width>
+              <height>318</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout">
@@ -317,7 +317,7 @@
               <x>0</x>
               <y>0</y>
               <width>341</width>
-              <height>87</height>
+              <height>301</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -388,8 +388,8 @@
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>276</width>
-              <height>389</height>
+              <width>278</width>
+              <height>378</height>
              </rect>
             </property>
             <property name="sizePolicy">
@@ -647,6 +647,28 @@
                </item>
                <item row="4" column="0">
                 <layout class="QVBoxLayout" name="verticalLayout_9">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLineEdit" name="lEditViewTitle">
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgba(0, 0, 0, 0);</string>
+                   </property>
+                   <property name="inputMask">
+                    <string notr="true"/>
+                   </property>
+                   <property name="text">
+                    <string notr="true">View title</string>
+                   </property>
+                   <property name="frame">
+                    <bool>false</bool>
+                   </property>
+                   <property name="readOnly">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_5">
                    <property name="spacing">
@@ -701,6 +723,22 @@
                  <item>
                   <layout class="QVBoxLayout" name="verticalLayout_5">
                    <item>
+                    <spacer name="verticalSpacer_3">
+                     <property name="orientation">
+                      <enum>Qt::Vertical</enum>
+                     </property>
+                     <property name="sizeType">
+                      <enum>QSizePolicy::Fixed</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>10</width>
+                       <height>10</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
                     <widget class="QLabel" name="label_10">
                      <property name="text">
                       <string>Text:</string>
@@ -730,7 +768,7 @@
         </layout>
        </widget>
        <widget class="QWidget" name="pageNotes">
-        <layout class="QVBoxLayout" name="verticalLayout_8">
+        <layout class="QVBoxLayout" name="verticalLayout_11">
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_4">
            <item>
@@ -786,6 +824,24 @@
              </property>
              <property name="maximum">
               <number>10000</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_8">
+           <item>
+            <widget class="QLabel" name="label_11">
+             <property name="text">
+              <string>When you double-click on the title of the note:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboBoxActionsDoubleClickOnTitleNote">
+             <property name="statusTip">
+              <string>Actions by double-clicking on the title of the note</string>
              </property>
             </widget>
            </item>

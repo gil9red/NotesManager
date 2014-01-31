@@ -25,7 +25,8 @@
 #include "page_settings.h"
 #include "ui_page_settings.h"
 #include "utils/func.h"
-#include "Note/RichTextNote.h"
+#include "utils/texttemplateparser.h"
+#include "RichTextNote.h"
 
 #include <QDebug>
 #include <QMessageBox>
@@ -58,6 +59,21 @@ Page_Settings::Page_Settings( QWidget * parent )
     ui->sBoxWidth->setMinimum( Note::minimalWidth );
     ui->sBoxHeight->setMinimum( Note::minimalHeight );
     ui->sBoxOpacity->setRange( Note::minimalOpacity * 100, Note::maximalOpacity * 100 );
+
+    ui->lEditTitle->setToolTip( TextTemplateParser::description().join( "\n" ) );
+    ui->tEditText->setToolTip( TextTemplateParser::description().join( "\n" ) );
+
+    QPalette palette = ui->lEditViewTitle->palette();
+    palette.setColor( QPalette::Text, Qt::darkGray );
+    ui->lEditViewTitle->setPalette( palette );
+
+    ui->comboBoxActionsDoubleClickOnTitleNote->clear();
+    ui->comboBoxActionsDoubleClickOnTitleNote->addItem( tr( "do nothing" ), Shared::DoNothing );
+    ui->comboBoxActionsDoubleClickOnTitleNote->addItem( tr( "edit the title" ), Shared::EditTitle );
+    ui->comboBoxActionsDoubleClickOnTitleNote->addItem( tr( "hide note" ), Shared::HideNote );
+    ui->comboBoxActionsDoubleClickOnTitleNote->addItem( tr( "delete the note" ), Shared::DeleteNote );
+    ui->comboBoxActionsDoubleClickOnTitleNote->addItem( tr( "save as" ), Shared::SaveAs );
+    ui->comboBoxActionsDoubleClickOnTitleNote->addItem( tr( "print notes" ), Shared::PrintNotes );
 }
 
 Page_Settings::~Page_Settings()
@@ -104,7 +120,9 @@ void Page_Settings::mapToSettings()
     ui->tButtonColorBody->setColor( QColor( mapSettings.value( "NewNote_ColorBody", QColor( Qt::lightGray ).name() ).toString() ) );
 
     ui->checkBoxAutosaveNotes->setChecked( mapSettings.value( "Notes_Autosave", true ).toBool() );
-    ui->sBoxAutosaveIntervalNotes->setValue( mapSettings.value( "Notes_AutosaveInterval", 7 ).toInt() );
+    ui->sBoxAutosaveIntervalNotes->setValue( mapSettings.value( "Notes_AutosaveInterval", 7 ).toInt() );    
+    index = ui->comboBoxActionsDoubleClickOnTitleNote->findData( mapSettings.value( "Notes_ActionDoubleClickOnTitle", Shared::EditTitle ) );
+    ui->comboBoxActionsDoubleClickOnTitleNote->setCurrentIndex( index );
 }
 void Page_Settings::settingsToMap()
 {
@@ -133,6 +151,7 @@ void Page_Settings::settingsToMap()
 
     mapSettings[ "Notes_Autosave" ] = ui->checkBoxAutosaveNotes->isChecked();
     mapSettings[ "Notes_AutosaveInterval" ] = ui->sBoxAutosaveIntervalNotes->value();
+    mapSettings[ "Notes_ActionDoubleClickOnTitle" ] = ui->comboBoxActionsDoubleClickOnTitleNote->itemData( ui->comboBoxActionsDoubleClickOnTitleNote->currentIndex() );
 }
 
 QString Page_Settings::getDefaultLanguage()
@@ -216,7 +235,6 @@ void Page_Settings::on_buttonBox_clicked(QAbstractButton *button)
         emit message( tr( "Settings received and stored" ), 5000 );
     }
 }
-
 void Page_Settings::on_tButtonFontTitle_clicked()
 {
     bool ok;
@@ -225,4 +243,8 @@ void Page_Settings::on_tButtonFontTitle_clicked()
         return;
 
     ui->lEditTitle->setFont( font );
+}
+void Page_Settings::on_lEditTitle_textChanged( const QString & text )
+{
+    ui->lEditViewTitle->setText( TextTemplateParser::get( text ) );
 }

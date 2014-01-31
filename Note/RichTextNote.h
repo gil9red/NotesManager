@@ -10,8 +10,8 @@
 #include <QDir>
 #include <QEvent>
 
-#include "FindAndReplace/quickfind.h"
-#include "FindAndReplace/findandreplace.h"
+#include "quickfind.h"
+#include "findandreplace.h"
 #include "utils/func.h"
 
 class d_RichTextNote;
@@ -164,6 +164,9 @@ private slots:
 
     //! Срабатывает, когда происходит изменение содержимого редактора
     void contentsChanged();
+
+    //! Срабатывает, когда происходит двойной клик на заголовок
+    void doubleClickingOnTitle();
 
 public:
     d_RichTextNote * d; //!< Данные
