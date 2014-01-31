@@ -442,8 +442,9 @@ static bool removePath( const QString & path )
     return result;
 }
 
-
+#ifdef Q_WS_WIN
 #include <windows.h>
+#endif
 static QString getTheCurrentLanguageKeyboardLayouts()
 {
     static const int hexKeyLanguageRussian = 0x419;

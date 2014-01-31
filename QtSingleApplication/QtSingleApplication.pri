@@ -1,4 +1,4 @@
-QT += core network
+QT += network
 
 HEADERS += \
     qtsingleapplication.h \
@@ -13,3 +13,4 @@ SOURCES += \
     qtlockedfile_unix.cpp \
     qtlockedfile.cpp \
     qtlocalpeer.cpp
+

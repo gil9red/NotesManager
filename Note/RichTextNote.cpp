@@ -330,6 +330,10 @@ void RichTextNote::setupGUI()
     connect( quickFind, SIGNAL( visibilityChanged(bool) ), actionVisibleQuickFind, SLOT( setChecked(bool) ) );
     actionVisibleQuickFind->setChecked( quickFind->isVisible() );
 
+    // NOTE: установка прозрачного заднего фона редактора
+    d->editor.setFrameStyle( QFrame::NoFrame );
+    d->editor.viewport()->setAutoFillBackground( false );
+
     QVBoxLayout * mainLayout = new QVBoxLayout();
     mainLayout->setSpacing( 0 );
     mainLayout->setContentsMargins( 5, 0, 5, 0 );
