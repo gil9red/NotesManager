@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Notes Manager: Класс FindAndReplace</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Notes Manager
+   &#160;<span id="projectnumber">0.0.1</span>
+   </div>
+   <div id="projectbrief">Программа создает заметки</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&#160;имен</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Классы</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Классы</span></a></li>
+      <li><a href="classes.html"><span>Алфавитный&#160;указатель&#160;классов</span></a></li>
+      <li><a href="hierarchy.html"><span>Иерархия&#160;классов</span></a></li>
+      <li><a href="functions.html"><span>Члены&#160;классов</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_find_and_replace.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Указатель</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Классы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Пространства имен</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Функции</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Переменные</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Перечисления</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Элементы перечислений</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#signals">Сигналы</a> &#124;
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pro-methods">Защищенные члены</a> &#124;
+<a href="#pro-attribs">Защищенные данные</a> &#124;
+<a href="class_find_and_replace-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Класс FindAndReplace</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Виджет поиска и замены текста.  
+ <a href="class_find_and_replace.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="findandreplace_8h_source.html">findandreplace.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:FindAndReplace:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_find_and_replace.png" usemap="#FindAndReplace_map" alt=""/>
+  <map id="FindAndReplace_map" name="FindAndReplace_map">
+<area href="class_quick_find.html" title="Виджет быстрого поиска текста. " alt="QuickFind" shape="rect" coords="0,112,106,136"/>
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
+Сигналы</h2></td></tr>
+<tr class="memitem:ad1c54a7660288da0bfa4bb71a77046e7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad1c54a7660288da0bfa4bb71a77046e7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_find_and_replace.html#ad1c54a7660288da0bfa4bb71a77046e7">visibilityChanged</a> (bool)</td></tr>
+<tr class="memdesc:ad1c54a7660288da0bfa4bb71a77046e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вызывается при изменении видимости класса. <br/></td></tr>
+<tr class="separator:ad1c54a7660288da0bfa4bb71a77046e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a4fa7377eda392404258c346bbfefd156"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_find_and_replace.html#a4fa7377eda392404258c346bbfefd156">FindAndReplace</a> (QTextEdit *textedit, QWidget *parent=0)</td></tr>
+<tr class="memdesc:a4fa7377eda392404258c346bbfefd156"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор.  <a href="#a4fa7377eda392404258c346bbfefd156">Подробнее...</a><br/></td></tr>
+<tr class="separator:a4fa7377eda392404258c346bbfefd156"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a344e2898f91c9f89f59c9ffdd9987a68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_find_and_replace.html#a344e2898f91c9f89f59c9ffdd9987a68">setDelayInterval</a> (int msec)</td></tr>
+<tr class="memdesc:a344e2898f91c9f89f59c9ffdd9987a68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка задержки подсветки.  <a href="#a344e2898f91c9f89f59c9ffdd9987a68">Подробнее...</a><br/></td></tr>
+<tr class="separator:a344e2898f91c9f89f59c9ffdd9987a68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cff9ffe1fd521a121977dfc36e39a34"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6cff9ffe1fd521a121977dfc36e39a34"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_find_and_replace.html#a6cff9ffe1fd521a121977dfc36e39a34">delayInterval</a> ()</td></tr>
+<tr class="memdesc:a6cff9ffe1fd521a121977dfc36e39a34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Значение задержки подсветки. <br/></td></tr>
+<tr class="separator:a6cff9ffe1fd521a121977dfc36e39a34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Защищенные члены</h2></td></tr>
+<tr class="memitem:ac113dce676fd092b70b4585cea846fbc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac113dce676fd092b70b4585cea846fbc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>hideEvent</b> (QHideEvent *)</td></tr>
+<tr class="separator:ac113dce676fd092b70b4585cea846fbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab242a85f5ab985c0b7264fafb4269ad8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab242a85f5ab985c0b7264fafb4269ad8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>showEvent</b> (QShowEvent *)</td></tr>
+<tr class="separator:ab242a85f5ab985c0b7264fafb4269ad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Защищенные данные</h2></td></tr>
+<tr class="memitem:a5a1105cc991e187309f8c7a96245fb21"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5a1105cc991e187309f8c7a96245fb21"></a>
+Ui::FindAndReplace *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_find_and_replace.html#a5a1105cc991e187309f8c7a96245fb21">ui</a></td></tr>
+<tr class="memdesc:a5a1105cc991e187309f8c7a96245fb21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Форма UI виджета. <br/></td></tr>
+<tr class="separator:a5a1105cc991e187309f8c7a96245fb21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa51717b24fcb976e7f5be27235a301d2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa51717b24fcb976e7f5be27235a301d2"></a>
+QTextEdit *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_find_and_replace.html#aa51717b24fcb976e7f5be27235a301d2">d_editor</a></td></tr>
+<tr class="memdesc:aa51717b24fcb976e7f5be27235a301d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Указатель на текстовый редактор, с котором работает класс. <br/></td></tr>
+<tr class="separator:aa51717b24fcb976e7f5be27235a301d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6db86f03e1ea10a9ec7371cb065a7ce2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6db86f03e1ea10a9ec7371cb065a7ce2"></a>
+<a class="el" href="class_find___highlighter.html">Find_Highlighter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_find_and_replace.html#a6db86f03e1ea10a9ec7371cb065a7ce2">highlighter</a></td></tr>
+<tr class="memdesc:a6db86f03e1ea10a9ec7371cb065a7ce2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Класс, реализующий подсветку. <br/></td></tr>
+<tr class="separator:a6db86f03e1ea10a9ec7371cb065a7ce2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8fbbaaddd7a90dbd8785663243a5cbf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af8fbbaaddd7a90dbd8785663243a5cbf"></a>
+QTimer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_find_and_replace.html#af8fbbaaddd7a90dbd8785663243a5cbf">timer</a></td></tr>
+<tr class="memdesc:af8fbbaaddd7a90dbd8785663243a5cbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Таймер задержки подсветки. <br/></td></tr>
+<tr class="separator:af8fbbaaddd7a90dbd8785663243a5cbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Виджет поиска и замены текста. </p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a class="anchor" id="a4fa7377eda392404258c346bbfefd156"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">FindAndReplace::FindAndReplace </td>
+          <td>(</td>
+          <td class="paramtype">QTextEdit *&#160;</td>
+          <td class="paramname"><em>textedit</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QWidget *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Конструктор. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">textedit</td><td>указатель на текстовый редактор, в котором и будем делать поиск и замену текста, а также подсветку найденных строк  указатель на виджет-родитель </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a class="anchor" id="a344e2898f91c9f89f59c9ffdd9987a68"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FindAndReplace::setDelayInterval </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>msec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Установка задержки подсветки. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mces</td><td>значение задержки в миллисекундах </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>NotesManager/FindAndReplace/<a class="el" href="findandreplace_8h_source.html">findandreplace.h</a></li>
+<li>NotesManager/FindAndReplace/findandreplace.cpp</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_find_and_replace.html">FindAndReplace</a></li>
+    <li class="footer">Документация по Notes Manager. Последние изменения: Сб 1 Фев 2014 21:16:17. Создано системой
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
+</body>
+</html>

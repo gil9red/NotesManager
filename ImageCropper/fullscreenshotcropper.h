@@ -7,7 +7,7 @@
 #include <QVBoxLayout>
 #include <QDebug>
 #include <QToolButton>
-#include "ImageCropper.h"
+#include "imagecropper.h"
 
 class FullscreenshotCropper: public QDialog
 {

@@ -1,0 +1,989 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Notes Manager: Класс RichTextNote</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Notes Manager
+   &#160;<span id="projectnumber">0.0.1</span>
+   </div>
+   <div id="projectbrief">Программа создает заметки</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&#160;имен</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Классы</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Классы</span></a></li>
+      <li><a href="classes.html"><span>Алфавитный&#160;указатель&#160;классов</span></a></li>
+      <li><a href="hierarchy.html"><span>Иерархия&#160;классов</span></a></li>
+      <li><a href="functions.html"><span>Члены&#160;классов</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_rich_text_note.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Указатель</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Классы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Пространства имен</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Функции</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Переменные</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Перечисления</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Элементы перечислений</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-slots">Открытые слоты</a> &#124;
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-static-methods">Открытые статические члены</a> &#124;
+<a href="#pub-attribs">Открытые атрибуты</a> &#124;
+<a href="#pub-static-attribs">Статические открытые данные</a> &#124;
+<a href="#pro-methods">Защищенные члены</a> &#124;
+<a href="#friends">Друзья</a> &#124;
+<a href="class_rich_text_note-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Класс RichTextNote</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Заметка с редактором rich-текста.  
+ <a href="class_rich_text_note.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_rich_text_note_8h_source.html">RichTextNote.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:RichTextNote:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_rich_text_note.png" usemap="#RichTextNote_map" alt=""/>
+  <map id="RichTextNote_map" name="RichTextNote_map">
+<area href="class_abstract_note.html" title="Класс реализует абстрактную заметку. " alt="AbstractNote" shape="rect" coords="0,56,94,80"/>
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
+Открытые слоты</h2></td></tr>
+<tr class="memitem:a99ce213a701a45fb88c23153843221a1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a99ce213a701a45fb88c23153843221a1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#a99ce213a701a45fb88c23153843221a1">save</a> ()</td></tr>
+<tr class="memdesc:a99ce213a701a45fb88c23153843221a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сохранение заметки. <br/></td></tr>
+<tr class="separator:a99ce213a701a45fb88c23153843221a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade4731495fca0ac06117f7c37aab2d29"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ade4731495fca0ac06117f7c37aab2d29"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#ade4731495fca0ac06117f7c37aab2d29">load</a> ()</td></tr>
+<tr class="memdesc:ade4731495fca0ac06117f7c37aab2d29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Загрузка заметки. <br/></td></tr>
+<tr class="separator:ade4731495fca0ac06117f7c37aab2d29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8da697537a39121bf6f146be55f7315"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac8da697537a39121bf6f146be55f7315"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#ac8da697537a39121bf6f146be55f7315">saveContent</a> ()</td></tr>
+<tr class="memdesc:ac8da697537a39121bf6f146be55f7315"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сохранение только содержимого заметки. <br/></td></tr>
+<tr class="separator:ac8da697537a39121bf6f146be55f7315"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd17e4ab85c2d6387397cadc91194f09"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afd17e4ab85c2d6387397cadc91194f09"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#afd17e4ab85c2d6387397cadc91194f09">loadContent</a> ()</td></tr>
+<tr class="memdesc:afd17e4ab85c2d6387397cadc91194f09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Загрузка только содержимого заметки. <br/></td></tr>
+<tr class="separator:afd17e4ab85c2d6387397cadc91194f09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10badf2c716a88810f95315f83e15f47"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a10badf2c716a88810f95315f83e15f47"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#a10badf2c716a88810f95315f83e15f47">setText</a> (const QString &amp;str)</td></tr>
+<tr class="memdesc:a10badf2c716a88810f95315f83e15f47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка текста заметки. <br/></td></tr>
+<tr class="separator:a10badf2c716a88810f95315f83e15f47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3f090c64b8f59d20d11c358e1cf1d44"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af3f090c64b8f59d20d11c358e1cf1d44"></a>
+QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#af3f090c64b8f59d20d11c358e1cf1d44">text</a> ()</td></tr>
+<tr class="memdesc:af3f090c64b8f59d20d11c358e1cf1d44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возврат текста заметки. <br/></td></tr>
+<tr class="separator:af3f090c64b8f59d20d11c358e1cf1d44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14aa42a897b847a58fcbfed72121463e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#a14aa42a897b847a58fcbfed72121463e">removeDir</a> ()</td></tr>
+<tr class="memdesc:a14aa42a897b847a58fcbfed72121463e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Удаление папки заметки.  <a href="#a14aa42a897b847a58fcbfed72121463e">Подробнее...</a><br/></td></tr>
+<tr class="separator:a14aa42a897b847a58fcbfed72121463e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23777640c68c72fd33201fcab756046d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#a23777640c68c72fd33201fcab756046d">remove</a> ()</td></tr>
+<tr class="memdesc:a23777640c68c72fd33201fcab756046d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Удаление папки заметки, закрытие и освобождение памяти.  <a href="#a23777640c68c72fd33201fcab756046d">Подробнее...</a><br/></td></tr>
+<tr class="separator:a23777640c68c72fd33201fcab756046d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2011bb120983cb4d86ec84bc7c4b52a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af2011bb120983cb4d86ec84bc7c4b52a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#af2011bb120983cb4d86ec84bc7c4b52a">invokeRemove</a> ()</td></tr>
+<tr class="memdesc:af2011bb120983cb4d86ec84bc7c4b52a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вызов события "Удалить". <br/></td></tr>
+<tr class="separator:af2011bb120983cb4d86ec84bc7c4b52a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91fe177860da340f6d4897ad53674f82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#a91fe177860da340f6d4897ad53674f82">setTop</a> (bool b)</td></tr>
+<tr class="memdesc:a91fe177860da340f6d4897ad53674f82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает заметку поверх всех окон.  <a href="#a91fe177860da340f6d4897ad53674f82">Подробнее...</a><br/></td></tr>
+<tr class="separator:a91fe177860da340f6d4897ad53674f82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac36dac0ad305e3bbe4414193fd836d53"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac36dac0ad305e3bbe4414193fd836d53"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#ac36dac0ad305e3bbe4414193fd836d53">selectTitle</a> ()</td></tr>
+<tr class="memdesc:ac36dac0ad305e3bbe4414193fd836d53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вызов диалога выбора заголовка. <br/></td></tr>
+<tr class="separator:ac36dac0ad305e3bbe4414193fd836d53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa46b93bb5f111afaa3844aa579e57547"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa46b93bb5f111afaa3844aa579e57547"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#aa46b93bb5f111afaa3844aa579e57547">selectTitleFont</a> ()</td></tr>
+<tr class="memdesc:aa46b93bb5f111afaa3844aa579e57547"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вызов диалога выбора шрифта заголовка. <br/></td></tr>
+<tr class="separator:aa46b93bb5f111afaa3844aa579e57547"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92481ba4e5ef264bb0b96d789979828a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a92481ba4e5ef264bb0b96d789979828a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#a92481ba4e5ef264bb0b96d789979828a">selectTitleColor</a> ()</td></tr>
+<tr class="memdesc:a92481ba4e5ef264bb0b96d789979828a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вызов диалога выбора цвета заголовка (шапки). <br/></td></tr>
+<tr class="separator:a92481ba4e5ef264bb0b96d789979828a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a598f521f90e544c3acc48d26d459824e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a598f521f90e544c3acc48d26d459824e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#a598f521f90e544c3acc48d26d459824e">selectColor</a> ()</td></tr>
+<tr class="memdesc:a598f521f90e544c3acc48d26d459824e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вызов диалога выбора цвета тела. <br/></td></tr>
+<tr class="separator:a598f521f90e544c3acc48d26d459824e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adce9a0efe26891a54b3f4cf18ca96a76"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adce9a0efe26891a54b3f4cf18ca96a76"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#adce9a0efe26891a54b3f4cf18ca96a76">selectOpacity</a> ()</td></tr>
+<tr class="memdesc:adce9a0efe26891a54b3f4cf18ca96a76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вызов диалога выбора прозрачности. <br/></td></tr>
+<tr class="separator:adce9a0efe26891a54b3f4cf18ca96a76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac06e18375866b34f1b55edc965eb6c93"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac06e18375866b34f1b55edc965eb6c93"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#ac06e18375866b34f1b55edc965eb6c93">saveAs</a> ()</td></tr>
+<tr class="memdesc:ac06e18375866b34f1b55edc965eb6c93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вызов диалога сохранения заметки. <br/></td></tr>
+<tr class="separator:ac06e18375866b34f1b55edc965eb6c93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98ad946d205af7edfcdb341cb5ab223d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a98ad946d205af7edfcdb341cb5ab223d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#a98ad946d205af7edfcdb341cb5ab223d">open</a> ()</td></tr>
+<tr class="memdesc:a98ad946d205af7edfcdb341cb5ab223d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вызов диалога открытия заметки. <br/></td></tr>
+<tr class="separator:a98ad946d205af7edfcdb341cb5ab223d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42a07532089c704f0bb807dad3d38665"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a42a07532089c704f0bb807dad3d38665"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#a42a07532089c704f0bb807dad3d38665">print</a> ()</td></tr>
+<tr class="memdesc:a42a07532089c704f0bb807dad3d38665"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вызов диалога печати. <br/></td></tr>
+<tr class="separator:a42a07532089c704f0bb807dad3d38665"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2cc98a0b9b505a61b94f09533dbfc7f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad2cc98a0b9b505a61b94f09533dbfc7f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#ad2cc98a0b9b505a61b94f09533dbfc7f">previewPrint</a> ()</td></tr>
+<tr class="memdesc:ad2cc98a0b9b505a61b94f09533dbfc7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вызов диалога предпросмотра перед печатью. <br/></td></tr>
+<tr class="separator:ad2cc98a0b9b505a61b94f09533dbfc7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51132521bcda767463ba50306f47207b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a51132521bcda767463ba50306f47207b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#a51132521bcda767463ba50306f47207b">duplicate</a> ()</td></tr>
+<tr class="memdesc:a51132521bcda767463ba50306f47207b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вызов создания дупликата. <br/></td></tr>
+<tr class="separator:a51132521bcda767463ba50306f47207b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54e6edbd3d9a4d44e14af54668767f7c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a54e6edbd3d9a4d44e14af54668767f7c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#a54e6edbd3d9a4d44e14af54668767f7c">selectAttach</a> ()</td></tr>
+<tr class="memdesc:a54e6edbd3d9a4d44e14af54668767f7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вызов выбора прикрепленного файла. <br/></td></tr>
+<tr class="separator:a54e6edbd3d9a4d44e14af54668767f7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f5040c22699cce59fa33961d85fe63a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#a1f5040c22699cce59fa33961d85fe63a">insertImage</a> (const QString &amp;<a class="el" href="class_rich_text_note.html#a4eed3a4de84d49451e07fbe5a608a2e3">fileName</a>)</td></tr>
+<tr class="memdesc:a1f5040c22699cce59fa33961d85fe63a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция вставки изображения в заметку.  <a href="#a1f5040c22699cce59fa33961d85fe63a">Подробнее...</a><br/></td></tr>
+<tr class="separator:a1f5040c22699cce59fa33961d85fe63a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfddfa9998a18dacb021bf44ecf4968d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#abfddfa9998a18dacb021bf44ecf4968d">insertImage</a> (const QPixmap &amp;pixmap)</td></tr>
+<tr class="memdesc:abfddfa9998a18dacb021bf44ecf4968d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция вставки изображения в заметку.  <a href="#abfddfa9998a18dacb021bf44ecf4968d">Подробнее...</a><br/></td></tr>
+<tr class="separator:abfddfa9998a18dacb021bf44ecf4968d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f7f2baf45755fcb3cce6a7af0abef55"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#a7f7f2baf45755fcb3cce6a7af0abef55">attach</a> (const QString &amp;<a class="el" href="class_rich_text_note.html#a4eed3a4de84d49451e07fbe5a608a2e3">fileName</a>)</td></tr>
+<tr class="memdesc:a7f7f2baf45755fcb3cce6a7af0abef55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция копирует указанный файл в папку прикрепленных файлов.  <a href="#a7f7f2baf45755fcb3cce6a7af0abef55">Подробнее...</a><br/></td></tr>
+<tr class="separator:a7f7f2baf45755fcb3cce6a7af0abef55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a260049805c96f9313125dce01fc2151a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a260049805c96f9313125dce01fc2151a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#a260049805c96f9313125dce01fc2151a">updateAttachList</a> ()</td></tr>
+<tr class="memdesc:a260049805c96f9313125dce01fc2151a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция обновляет список прикрепленных файлов. <br/></td></tr>
+<tr class="separator:a260049805c96f9313125dce01fc2151a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84230406637065d03d43e191dcb50a2b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a84230406637065d03d43e191dcb50a2b"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#a84230406637065d03d43e191dcb50a2b">numberOfAttachments</a> ()</td></tr>
+<tr class="memdesc:a84230406637065d03d43e191dcb50a2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция возвращает количество прикрепленных файлов. <br/></td></tr>
+<tr class="separator:a84230406637065d03d43e191dcb50a2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c104ff626b66e58076f07d1a0428468"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#a8c104ff626b66e58076f07d1a0428468">setActivateTimerAutosave</a> (bool activate)</td></tr>
+<tr class="memdesc:a8c104ff626b66e58076f07d1a0428468"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает активность таймера автосохранения .  <a href="#a8c104ff626b66e58076f07d1a0428468">Подробнее...</a><br/></td></tr>
+<tr class="separator:a8c104ff626b66e58076f07d1a0428468"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca6414cc26edb753d17e8bc665107452"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#aca6414cc26edb753d17e8bc665107452">isActivateTimerAutosave</a> ()</td></tr>
+<tr class="memdesc:aca6414cc26edb753d17e8bc665107452"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращение true, если таймер автосохранения запущен, иначе false.  <a href="#aca6414cc26edb753d17e8bc665107452">Подробнее...</a><br/></td></tr>
+<tr class="separator:aca6414cc26edb753d17e8bc665107452"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac29cd2902bb64e562a6917ba7e6f626f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#ac29cd2902bb64e562a6917ba7e6f626f">setIntervalAutosave</a> (quint64 minutes)</td></tr>
+<tr class="memdesc:ac29cd2902bb64e562a6917ba7e6f626f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает интервал таймера автосохранения.  <a href="#ac29cd2902bb64e562a6917ba7e6f626f">Подробнее...</a><br/></td></tr>
+<tr class="separator:ac29cd2902bb64e562a6917ba7e6f626f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94883f9d294fd801a4204bc2baf1a18c"><td class="memItemLeft" align="right" valign="top">quint64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#a94883f9d294fd801a4204bc2baf1a18c">intervalAutosave</a> ()</td></tr>
+<tr class="memdesc:a94883f9d294fd801a4204bc2baf1a18c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция возвращает интервал срабатывания таймера в минутах.  <a href="#a94883f9d294fd801a4204bc2baf1a18c">Подробнее...</a><br/></td></tr>
+<tr class="separator:a94883f9d294fd801a4204bc2baf1a18c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_slots_class_abstract_note"><td colspan="2" onclick="javascript:toggleInherit('pub_slots_class_abstract_note')"><img src="closed.png" alt="-"/>&#160;Открытые слоты унаследованные от <a class="el" href="class_abstract_note.html">AbstractNote</a></td></tr>
+<tr class="memitem:a44daeb78aa4aa8cf8c58c3347c61159b inherit pub_slots_class_abstract_note"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#a44daeb78aa4aa8cf8c58c3347c61159b">setDistanceAttachable</a> (int <a class="el" href="class_abstract_note.html#ac42b3dbc830e1a0dc62cc6fa172ac1ad">d</a>)</td></tr>
+<tr class="memdesc:a44daeb78aa4aa8cf8c58c3347c61159b inherit pub_slots_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция устанавливает минимальную дистанцию прикрепления.  <a href="#a44daeb78aa4aa8cf8c58c3347c61159b">Подробнее...</a><br/></td></tr>
+<tr class="separator:a44daeb78aa4aa8cf8c58c3347c61159b inherit pub_slots_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb6a78d4bf3ff26a0d9814b9744478c6 inherit pub_slots_class_abstract_note"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#acb6a78d4bf3ff26a0d9814b9744478c6">distanceAttachable</a> ()</td></tr>
+<tr class="memdesc:acb6a78d4bf3ff26a0d9814b9744478c6 inherit pub_slots_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция возвращает минимальную дистанцию прикрепления.  <a href="#acb6a78d4bf3ff26a0d9814b9744478c6">Подробнее...</a><br/></td></tr>
+<tr class="separator:acb6a78d4bf3ff26a0d9814b9744478c6 inherit pub_slots_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2ca1984e0ba500ad2e96dcd19ebfde9 inherit pub_slots_class_abstract_note"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#af2ca1984e0ba500ad2e96dcd19ebfde9">setActivateAttachable</a> (bool act)</td></tr>
+<tr class="memdesc:af2ca1984e0ba500ad2e96dcd19ebfde9 inherit pub_slots_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Изменение возможности прикрепления.  <a href="#af2ca1984e0ba500ad2e96dcd19ebfde9">Подробнее...</a><br/></td></tr>
+<tr class="separator:af2ca1984e0ba500ad2e96dcd19ebfde9 inherit pub_slots_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a943251eccc7d7ed554cd4712331e6e7b inherit pub_slots_class_abstract_note"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#a943251eccc7d7ed554cd4712331e6e7b">isActivateAttachable</a> ()</td></tr>
+<tr class="memdesc:a943251eccc7d7ed554cd4712331e6e7b inherit pub_slots_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает состояние возможности прикрепления.  <a href="#a943251eccc7d7ed554cd4712331e6e7b">Подробнее...</a><br/></td></tr>
+<tr class="separator:a943251eccc7d7ed554cd4712331e6e7b inherit pub_slots_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dc7e6a8054a5e6b0220b0a1aa1e1052 inherit pub_slots_class_abstract_note"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#a5dc7e6a8054a5e6b0220b0a1aa1e1052">setVisibleFrame</a> (bool visible)</td></tr>
+<tr class="memdesc:a5dc7e6a8054a5e6b0220b0a1aa1e1052 inherit pub_slots_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Изменение видимости рамки заметки.  <a href="#a5dc7e6a8054a5e6b0220b0a1aa1e1052">Подробнее...</a><br/></td></tr>
+<tr class="separator:a5dc7e6a8054a5e6b0220b0a1aa1e1052 inherit pub_slots_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd0df08f266ad10905bc133c5f631301 inherit pub_slots_class_abstract_note"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#afd0df08f266ad10905bc133c5f631301">visibleFrame</a> ()</td></tr>
+<tr class="memdesc:afd0df08f266ad10905bc133c5f631301 inherit pub_slots_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращение видимости рамки заметки.  <a href="#afd0df08f266ad10905bc133c5f631301">Подробнее...</a><br/></td></tr>
+<tr class="separator:afd0df08f266ad10905bc133c5f631301 inherit pub_slots_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af38b91572e0a134fc08997e57370c4a6 inherit pub_slots_class_abstract_note"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#af38b91572e0a134fc08997e57370c4a6">setWidthPenSides</a> (float width)</td></tr>
+<tr class="memdesc:af38b91572e0a134fc08997e57370c4a6 inherit pub_slots_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Изменение толщины рамки заметки.  <a href="#af38b91572e0a134fc08997e57370c4a6">Подробнее...</a><br/></td></tr>
+<tr class="separator:af38b91572e0a134fc08997e57370c4a6 inherit pub_slots_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a632d68f7699c0928b9259c84b3feda22 inherit pub_slots_class_abstract_note"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#a632d68f7699c0928b9259c84b3feda22">widthPenSides</a> ()</td></tr>
+<tr class="memdesc:a632d68f7699c0928b9259c84b3feda22 inherit pub_slots_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращение толщины рамки заметки.  <a href="#a632d68f7699c0928b9259c84b3feda22">Подробнее...</a><br/></td></tr>
+<tr class="separator:a632d68f7699c0928b9259c84b3feda22 inherit pub_slots_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ff9046b8059cc9b5ac452283588a05b inherit pub_slots_class_abstract_note"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#a4ff9046b8059cc9b5ac452283588a05b">setColorSides</a> (const QColor &amp;color)</td></tr>
+<tr class="memdesc:a4ff9046b8059cc9b5ac452283588a05b inherit pub_slots_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Изменение цвета рамки заметки.  <a href="#a4ff9046b8059cc9b5ac452283588a05b">Подробнее...</a><br/></td></tr>
+<tr class="separator:a4ff9046b8059cc9b5ac452283588a05b inherit pub_slots_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabc8f8b94569e108a7a9660afec4b036 inherit pub_slots_class_abstract_note"><td class="memItemLeft" align="right" valign="top">QColor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#aabc8f8b94569e108a7a9660afec4b036">colorSides</a> ()</td></tr>
+<tr class="memdesc:aabc8f8b94569e108a7a9660afec4b036 inherit pub_slots_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращение цвета рамки заметки.  <a href="#aabc8f8b94569e108a7a9660afec4b036">Подробнее...</a><br/></td></tr>
+<tr class="separator:aabc8f8b94569e108a7a9660afec4b036 inherit pub_slots_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9e888ba482ae1e3eea665b519f960eb inherit pub_slots_class_abstract_note"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#ac9e888ba482ae1e3eea665b519f960eb">setVisibleToolBar</a> (bool visible)</td></tr>
+<tr class="memdesc:ac9e888ba482ae1e3eea665b519f960eb inherit pub_slots_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Изменение видимости панели инструментов.  <a href="#ac9e888ba482ae1e3eea665b519f960eb">Подробнее...</a><br/></td></tr>
+<tr class="separator:ac9e888ba482ae1e3eea665b519f960eb inherit pub_slots_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2d9f950ed1e2b2a07371a729f3d7095 inherit pub_slots_class_abstract_note"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#ac2d9f950ed1e2b2a07371a729f3d7095">isVisibleToolBar</a> ()</td></tr>
+<tr class="memdesc:ac2d9f950ed1e2b2a07371a729f3d7095 inherit pub_slots_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращение видимости панели инструментов.  <a href="#ac2d9f950ed1e2b2a07371a729f3d7095">Подробнее...</a><br/></td></tr>
+<tr class="separator:ac2d9f950ed1e2b2a07371a729f3d7095 inherit pub_slots_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6de75d8131a6433a73cf53b54dd1aa8 inherit pub_slots_class_abstract_note"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#ac6de75d8131a6433a73cf53b54dd1aa8">setTitle</a> (const QString &amp;str)</td></tr>
+<tr class="memdesc:ac6de75d8131a6433a73cf53b54dd1aa8 inherit pub_slots_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка заголовка (названия) заметки.  <a href="#ac6de75d8131a6433a73cf53b54dd1aa8">Подробнее...</a><br/></td></tr>
+<tr class="separator:ac6de75d8131a6433a73cf53b54dd1aa8 inherit pub_slots_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a986d9f320a25b83e897831980545b805 inherit pub_slots_class_abstract_note"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#a986d9f320a25b83e897831980545b805">title</a> ()</td></tr>
+<tr class="memdesc:a986d9f320a25b83e897831980545b805 inherit pub_slots_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращение заголовка (названия) заметки.  <a href="#a986d9f320a25b83e897831980545b805">Подробнее...</a><br/></td></tr>
+<tr class="separator:a986d9f320a25b83e897831980545b805 inherit pub_slots_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3be6a2e2a5664ea2638787186f6ae7d3 inherit pub_slots_class_abstract_note"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#a3be6a2e2a5664ea2638787186f6ae7d3">setTitleFont</a> (const QFont &amp;f)</td></tr>
+<tr class="memdesc:a3be6a2e2a5664ea2638787186f6ae7d3 inherit pub_slots_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка шрифта заголовка заметки.  <a href="#a3be6a2e2a5664ea2638787186f6ae7d3">Подробнее...</a><br/></td></tr>
+<tr class="separator:a3be6a2e2a5664ea2638787186f6ae7d3 inherit pub_slots_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13191f2bc18d7bb02e96d085f533c8f4 inherit pub_slots_class_abstract_note"><td class="memItemLeft" align="right" valign="top">QFont&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#a13191f2bc18d7bb02e96d085f533c8f4">titleFont</a> ()</td></tr>
+<tr class="memdesc:a13191f2bc18d7bb02e96d085f533c8f4 inherit pub_slots_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращение шрифта заголовка заметки.  <a href="#a13191f2bc18d7bb02e96d085f533c8f4">Подробнее...</a><br/></td></tr>
+<tr class="separator:a13191f2bc18d7bb02e96d085f533c8f4 inherit pub_slots_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab98938de6dec1ac573fc75985bdab801 inherit pub_slots_class_abstract_note"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#ab98938de6dec1ac573fc75985bdab801">setTop</a> (bool b)</td></tr>
+<tr class="memdesc:ab98938de6dec1ac573fc75985bdab801 inherit pub_slots_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает заметку поверх всех окон.  <a href="#ab98938de6dec1ac573fc75985bdab801">Подробнее...</a><br/></td></tr>
+<tr class="separator:ab98938de6dec1ac573fc75985bdab801 inherit pub_slots_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec20f81dbdda4a9a7126540d332a29d2 inherit pub_slots_class_abstract_note"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#aec20f81dbdda4a9a7126540d332a29d2">isTop</a> ()</td></tr>
+<tr class="memdesc:aec20f81dbdda4a9a7126540d332a29d2 inherit pub_slots_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает состояние "поверх всех окон".  <a href="#aec20f81dbdda4a9a7126540d332a29d2">Подробнее...</a><br/></td></tr>
+<tr class="separator:aec20f81dbdda4a9a7126540d332a29d2 inherit pub_slots_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa41a414fa1452c067a8b539a166fe863 inherit pub_slots_class_abstract_note"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa41a414fa1452c067a8b539a166fe863"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#aa41a414fa1452c067a8b539a166fe863">setBodyColor</a> (const QColor &amp;c)</td></tr>
+<tr class="memdesc:aa41a414fa1452c067a8b539a166fe863 inherit pub_slots_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает цвет тела заметки. <br/></td></tr>
+<tr class="separator:aa41a414fa1452c067a8b539a166fe863 inherit pub_slots_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7caaa44490a4dd4b0c3070080861df8e inherit pub_slots_class_abstract_note"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7caaa44490a4dd4b0c3070080861df8e"></a>
+QColor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#a7caaa44490a4dd4b0c3070080861df8e">bodyColor</a> ()</td></tr>
+<tr class="memdesc:a7caaa44490a4dd4b0c3070080861df8e inherit pub_slots_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращение цвета тела заметки. <br/></td></tr>
+<tr class="separator:a7caaa44490a4dd4b0c3070080861df8e inherit pub_slots_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae03e3719b12d97f8f6af051bfc25c6a inherit pub_slots_class_abstract_note"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#aae03e3719b12d97f8f6af051bfc25c6a">setTitleColor</a> (const QColor &amp;color)</td></tr>
+<tr class="memdesc:aae03e3719b12d97f8f6af051bfc25c6a inherit pub_slots_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает цвет головы заметки.  <a href="#aae03e3719b12d97f8f6af051bfc25c6a">Подробнее...</a><br/></td></tr>
+<tr class="separator:aae03e3719b12d97f8f6af051bfc25c6a inherit pub_slots_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea6a9e3da963ae01a2ae30e1da104a2c inherit pub_slots_class_abstract_note"><td class="memItemLeft" align="right" valign="top">QColor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#aea6a9e3da963ae01a2ae30e1da104a2c">titleColor</a> ()</td></tr>
+<tr class="memdesc:aea6a9e3da963ae01a2ae30e1da104a2c inherit pub_slots_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращение цвета головы заметки.  <a href="#aea6a9e3da963ae01a2ae30e1da104a2c">Подробнее...</a><br/></td></tr>
+<tr class="separator:aea6a9e3da963ae01a2ae30e1da104a2c inherit pub_slots_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad880bd5156420a98ad76af566209e3cd inherit pub_slots_class_abstract_note"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#ad880bd5156420a98ad76af566209e3cd">setOpacity</a> (qreal o)</td></tr>
+<tr class="memdesc:ad880bd5156420a98ad76af566209e3cd inherit pub_slots_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает прозрачность заметки.  <a href="#ad880bd5156420a98ad76af566209e3cd">Подробнее...</a><br/></td></tr>
+<tr class="separator:ad880bd5156420a98ad76af566209e3cd inherit pub_slots_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8baea23991175676c857574755f69826 inherit pub_slots_class_abstract_note"><td class="memItemLeft" align="right" valign="top">qreal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#a8baea23991175676c857574755f69826">opacity</a> ()</td></tr>
+<tr class="memdesc:a8baea23991175676c857574755f69826 inherit pub_slots_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращение прозрачность заметки.  <a href="#a8baea23991175676c857574755f69826">Подробнее...</a><br/></td></tr>
+<tr class="separator:a8baea23991175676c857574755f69826 inherit pub_slots_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a0d5e4ef7acbf6d717bfcc817e6f0841a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#a0d5e4ef7acbf6d717bfcc817e6f0841a">RichTextNote</a> (const QString &amp;path, QWidget *parent=0)</td></tr>
+<tr class="memdesc:a0d5e4ef7acbf6d717bfcc817e6f0841a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор.  <a href="#a0d5e4ef7acbf6d717bfcc817e6f0841a">Подробнее...</a><br/></td></tr>
+<tr class="separator:a0d5e4ef7acbf6d717bfcc817e6f0841a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf3b21364958090903a9ef822024d574"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#aaf3b21364958090903a9ef822024d574">RichTextNote</a> (QWidget *parent=0)</td></tr>
+<tr class="separator:aaf3b21364958090903a9ef822024d574"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5590f0375d0763e87393ba2acdd0e20"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af5590f0375d0763e87393ba2acdd0e20"></a>
+QTextDocument *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#af5590f0375d0763e87393ba2acdd0e20">document</a> ()</td></tr>
+<tr class="memdesc:af5590f0375d0763e87393ba2acdd0e20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возврат указателя на модель-документ заметки. <br/></td></tr>
+<tr class="separator:af5590f0375d0763e87393ba2acdd0e20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9b41095f5646c5753837545edffe203"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae9b41095f5646c5753837545edffe203"></a>
+<a class="el" href="class_text_editor.html">TextEditor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#ae9b41095f5646c5753837545edffe203">textEditor</a> ()</td></tr>
+<tr class="memdesc:ae9b41095f5646c5753837545edffe203"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возврат указателя на текстовый редактор заметки. <br/></td></tr>
+<tr class="separator:ae9b41095f5646c5753837545edffe203"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38ca91d405a60ba8d51e5d907a0f4d80"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a38ca91d405a60ba8d51e5d907a0f4d80"></a>
+QDateTime&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#a38ca91d405a60ba8d51e5d907a0f4d80">created</a> ()</td></tr>
+<tr class="memdesc:a38ca91d405a60ba8d51e5d907a0f4d80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возврат даты создания заметки. <br/></td></tr>
+<tr class="separator:a38ca91d405a60ba8d51e5d907a0f4d80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3452442366b67b8d7240d3afd89d12af"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3452442366b67b8d7240d3afd89d12af"></a>
+QDateTime&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#a3452442366b67b8d7240d3afd89d12af">modified</a> ()</td></tr>
+<tr class="memdesc:a3452442366b67b8d7240d3afd89d12af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возврат даты последнего изменения заметки. <br/></td></tr>
+<tr class="separator:a3452442366b67b8d7240d3afd89d12af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef89f3a106e16ca9666c8aa0b00763a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#aef89f3a106e16ca9666c8aa0b00763a2">setModified</a> (bool b)</td></tr>
+<tr class="memdesc:aef89f3a106e16ca9666c8aa0b00763a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Указывает на изменение содержимого заметки.  <a href="#aef89f3a106e16ca9666c8aa0b00763a2">Подробнее...</a><br/></td></tr>
+<tr class="separator:aef89f3a106e16ca9666c8aa0b00763a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a733eac65413a3349fa968ec913fe7f0f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#a733eac65413a3349fa968ec913fe7f0f">isModified</a> ()</td></tr>
+<tr class="memdesc:a733eac65413a3349fa968ec913fe7f0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция вернет true, если содержимое заметки было изменено.  <a href="#a733eac65413a3349fa968ec913fe7f0f">Подробнее...</a><br/></td></tr>
+<tr class="separator:a733eac65413a3349fa968ec913fe7f0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a480944139dd06c84b81943dd48860609"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#a480944139dd06c84b81943dd48860609">createNew</a> (bool bsave=true)</td></tr>
+<tr class="memdesc:a480944139dd06c84b81943dd48860609"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция создает заметке папку и нужные для функционирования файлы.  <a href="#a480944139dd06c84b81943dd48860609">Подробнее...</a><br/></td></tr>
+<tr class="separator:a480944139dd06c84b81943dd48860609"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4eed3a4de84d49451e07fbe5a608a2e3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4eed3a4de84d49451e07fbe5a608a2e3"></a>
+QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#a4eed3a4de84d49451e07fbe5a608a2e3">fileName</a> ()</td></tr>
+<tr class="memdesc:a4eed3a4de84d49451e07fbe5a608a2e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция возвращает путь до папки заметки. <br/></td></tr>
+<tr class="separator:a4eed3a4de84d49451e07fbe5a608a2e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a925107d4ef4f45847893c293c5035b7e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a925107d4ef4f45847893c293c5035b7e"></a>
+QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#a925107d4ef4f45847893c293c5035b7e">attachDirPath</a> ()</td></tr>
+<tr class="memdesc:a925107d4ef4f45847893c293c5035b7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция возвращает путь до папки прикрепленных файлов. <br/></td></tr>
+<tr class="separator:a925107d4ef4f45847893c293c5035b7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a557d80891c14ff91ba05dcfd22ca3916"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a557d80891c14ff91ba05dcfd22ca3916"></a>
+QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#a557d80891c14ff91ba05dcfd22ca3916">contentFilePath</a> ()</td></tr>
+<tr class="memdesc:a557d80891c14ff91ba05dcfd22ca3916"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция возвращает путь до файла содержимого заметки. <br/></td></tr>
+<tr class="separator:a557d80891c14ff91ba05dcfd22ca3916"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3f930fb336b8b00b30a158ac0c86b02"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae3f930fb336b8b00b30a158ac0c86b02"></a>
+QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#ae3f930fb336b8b00b30a158ac0c86b02">settingsFilePath</a> ()</td></tr>
+<tr class="memdesc:ae3f930fb336b8b00b30a158ac0c86b02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция возвращает путь до настроек заметки. <br/></td></tr>
+<tr class="separator:ae3f930fb336b8b00b30a158ac0c86b02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3a37dbb6955726b2a85427410bb58ea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa3a37dbb6955726b2a85427410bb58ea"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#aa3a37dbb6955726b2a85427410bb58ea">setFileName</a> (const QString &amp;dirPath)</td></tr>
+<tr class="memdesc:aa3a37dbb6955726b2a85427410bb58ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">В функцию передается путь до папки заметки. <br/></td></tr>
+<tr class="separator:aa3a37dbb6955726b2a85427410bb58ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_abstract_note"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_abstract_note')"><img src="closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="class_abstract_note.html">AbstractNote</a></td></tr>
+<tr class="memitem:aa60841f0677cde43854fb82187827083 inherit pub_methods_class_abstract_note"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa60841f0677cde43854fb82187827083"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#aa60841f0677cde43854fb82187827083">AbstractNote</a> (QWidget *parent=0)</td></tr>
+<tr class="memdesc:aa60841f0677cde43854fb82187827083 inherit pub_methods_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создание и инициализация заметки. <br/></td></tr>
+<tr class="separator:aa60841f0677cde43854fb82187827083 inherit pub_methods_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad907db830ca634527ad14c64845be6f9 inherit pub_methods_class_abstract_note"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#ad907db830ca634527ad14c64845be6f9">setWidget</a> (QWidget *w)</td></tr>
+<tr class="memdesc:ad907db830ca634527ad14c64845be6f9 inherit pub_methods_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Указание центрального виджета.  <a href="#ad907db830ca634527ad14c64845be6f9">Подробнее...</a><br/></td></tr>
+<tr class="separator:ad907db830ca634527ad14c64845be6f9 inherit pub_methods_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad96682605c965d6adb6361ba1d30c951 inherit pub_methods_class_abstract_note"><td class="memItemLeft" align="right" valign="top">QWidget *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#ad96682605c965d6adb6361ba1d30c951">widget</a> ()</td></tr>
+<tr class="memdesc:ad96682605c965d6adb6361ba1d30c951 inherit pub_methods_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция возвращает указатель на центральный виджет.  <a href="#ad96682605c965d6adb6361ba1d30c951">Подробнее...</a><br/></td></tr>
+<tr class="separator:ad96682605c965d6adb6361ba1d30c951 inherit pub_methods_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af444f84778fa852c61ff11e0ea3c0f4f inherit pub_methods_class_abstract_note"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#af444f84778fa852c61ff11e0ea3c0f4f">addWidgetToToolBar</a> (QWidget *w)</td></tr>
+<tr class="memdesc:af444f84778fa852c61ff11e0ea3c0f4f inherit pub_methods_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Добавление виджета на панель инструментов заметки.  <a href="#af444f84778fa852c61ff11e0ea3c0f4f">Подробнее...</a><br/></td></tr>
+<tr class="separator:af444f84778fa852c61ff11e0ea3c0f4f inherit pub_methods_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0df980783d185717091b01eec34e0cb inherit pub_methods_class_abstract_note"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#ad0df980783d185717091b01eec34e0cb">addSeparatorToToolBar</a> ()</td></tr>
+<tr class="memdesc:ad0df980783d185717091b01eec34e0cb inherit pub_methods_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Добавление разделителя на панель инструментов заметки.  <a href="#ad0df980783d185717091b01eec34e0cb">Подробнее...</a><br/></td></tr>
+<tr class="separator:ad0df980783d185717091b01eec34e0cb inherit pub_methods_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a917ce1f4fccc3a31280dcca8e17ba51f inherit pub_methods_class_abstract_note"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#a917ce1f4fccc3a31280dcca8e17ba51f">addAction</a> (QAction *action)</td></tr>
+<tr class="memdesc:a917ce1f4fccc3a31280dcca8e17ba51f inherit pub_methods_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Добавление действия в заметку.  <a href="#a917ce1f4fccc3a31280dcca8e17ba51f">Подробнее...</a><br/></td></tr>
+<tr class="separator:a917ce1f4fccc3a31280dcca8e17ba51f inherit pub_methods_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d857e558602b9fb9dcfa4cb4eda55bf inherit pub_methods_class_abstract_note"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#a4d857e558602b9fb9dcfa4cb4eda55bf">addActions</a> (const QList&lt; QAction * &gt; &amp;actions)</td></tr>
+<tr class="memdesc:a4d857e558602b9fb9dcfa4cb4eda55bf inherit pub_methods_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Добавление списка действий в заметку.  <a href="#a4d857e558602b9fb9dcfa4cb4eda55bf">Подробнее...</a><br/></td></tr>
+<tr class="separator:a4d857e558602b9fb9dcfa4cb4eda55bf inherit pub_methods_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a218e6edd4e28779d4e4d0fbb05307541 inherit pub_methods_class_abstract_note"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#a218e6edd4e28779d4e4d0fbb05307541">insertAction</a> (QAction *before, QAction *action)</td></tr>
+<tr class="memdesc:a218e6edd4e28779d4e4d0fbb05307541 inherit pub_methods_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вставка действия в заметку.  <a href="#a218e6edd4e28779d4e4d0fbb05307541">Подробнее...</a><br/></td></tr>
+<tr class="separator:a218e6edd4e28779d4e4d0fbb05307541 inherit pub_methods_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad954a9d0423ccbf0bc45361e3050bf22 inherit pub_methods_class_abstract_note"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#ad954a9d0423ccbf0bc45361e3050bf22">insertActions</a> (QAction *before, QList&lt; QAction * &gt; &amp;actions)</td></tr>
+<tr class="memdesc:ad954a9d0423ccbf0bc45361e3050bf22 inherit pub_methods_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вставка списка действий в заметку.  <a href="#ad954a9d0423ccbf0bc45361e3050bf22">Подробнее...</a><br/></td></tr>
+<tr class="separator:ad954a9d0423ccbf0bc45361e3050bf22 inherit pub_methods_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dbd627fc671bb39c544b941e1b7e816 inherit pub_methods_class_abstract_note"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#a1dbd627fc671bb39c544b941e1b7e816">removeAction</a> (QAction *action)</td></tr>
+<tr class="memdesc:a1dbd627fc671bb39c544b941e1b7e816 inherit pub_methods_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Удаление действия из заметки.  <a href="#a1dbd627fc671bb39c544b941e1b7e816">Подробнее...</a><br/></td></tr>
+<tr class="separator:a1dbd627fc671bb39c544b941e1b7e816 inherit pub_methods_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56824dac4d27f245460a6941cb5646e0 inherit pub_methods_class_abstract_note"><td class="memItemLeft" align="right" valign="top">QMenu *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#a56824dac4d27f245460a6941cb5646e0">menu</a> ()</td></tr>
+<tr class="memdesc:a56824dac4d27f245460a6941cb5646e0 inherit pub_methods_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возврат меню заметки.  <a href="#a56824dac4d27f245460a6941cb5646e0">Подробнее...</a><br/></td></tr>
+<tr class="separator:a56824dac4d27f245460a6941cb5646e0 inherit pub_methods_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02e6756784bf82fa4ab930ed30acfba7 inherit pub_methods_class_abstract_note"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a02e6756784bf82fa4ab930ed30acfba7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#a02e6756784bf82fa4ab930ed30acfba7">addSeparator</a> ()</td></tr>
+<tr class="memdesc:a02e6756784bf82fa4ab930ed30acfba7 inherit pub_methods_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Добавление разделителя. <br/></td></tr>
+<tr class="separator:a02e6756784bf82fa4ab930ed30acfba7 inherit pub_methods_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb847399bce843dfce07f03c183af80f inherit pub_methods_class_abstract_note"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#aeb847399bce843dfce07f03c183af80f">addMenu</a> (QMenu *<a class="el" href="class_abstract_note.html#a56824dac4d27f245460a6941cb5646e0">menu</a>)</td></tr>
+<tr class="memdesc:aeb847399bce843dfce07f03c183af80f inherit pub_methods_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Добавление меню в заметку.  <a href="#aeb847399bce843dfce07f03c183af80f">Подробнее...</a><br/></td></tr>
+<tr class="separator:aeb847399bce843dfce07f03c183af80f inherit pub_methods_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Открытые статические члены</h2></td></tr>
+<tr class="memitem:ae25b1e7724d63f566b54844c33162c21"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae25b1e7724d63f566b54844c33162c21"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>setDefaultSettingsFromMap</b> (const QVariantMap &amp;s)</td></tr>
+<tr class="separator:ae25b1e7724d63f566b54844c33162c21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Открытые атрибуты</h2></td></tr>
+<tr class="memitem:a9b064e21f6535fc63a556c5de7a4ff56"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9b064e21f6535fc63a556c5de7a4ff56"></a>
+<a class="el" href="classd___rich_text_note.html">d_RichTextNote</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#a9b064e21f6535fc63a556c5de7a4ff56">d</a></td></tr>
+<tr class="memdesc:a9b064e21f6535fc63a556c5de7a4ff56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Данные <br/></td></tr>
+<tr class="separator:a9b064e21f6535fc63a556c5de7a4ff56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad972eaf56ffe1578bf5f48ed6824f623"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad972eaf56ffe1578bf5f48ed6824f623"></a>
+QToolButton *&#160;</td><td class="memItemRight" valign="bottom"><b>tButtonSetTopBottom</b></td></tr>
+<tr class="separator:ad972eaf56ffe1578bf5f48ed6824f623"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78a140899d4e1e9f65ae6679c7b54e0f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a78a140899d4e1e9f65ae6679c7b54e0f"></a>
+QToolButton *&#160;</td><td class="memItemRight" valign="bottom"><b>tButtonSave</b></td></tr>
+<tr class="separator:a78a140899d4e1e9f65ae6679c7b54e0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92485bf0aa9cbb8b1b82d79ab114e3b2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a92485bf0aa9cbb8b1b82d79ab114e3b2"></a>
+QAction *&#160;</td><td class="memItemRight" valign="bottom"><b>actionSetTopBottom</b></td></tr>
+<tr class="separator:a92485bf0aa9cbb8b1b82d79ab114e3b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade863181b94f3a2f4bf45df77bf117d9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ade863181b94f3a2f4bf45df77bf117d9"></a>
+QAction *&#160;</td><td class="memItemRight" valign="bottom"><b>actionSave</b></td></tr>
+<tr class="separator:ade863181b94f3a2f4bf45df77bf117d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2820123980b0729d9bc1a25815757c50"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2820123980b0729d9bc1a25815757c50"></a>
+QAction *&#160;</td><td class="memItemRight" valign="bottom"><b>actionVisibleToolBar</b></td></tr>
+<tr class="separator:a2820123980b0729d9bc1a25815757c50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa5ab2dabe69d63955a6a433d27061ca"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afa5ab2dabe69d63955a6a433d27061ca"></a>
+QDockWidget *&#160;</td><td class="memItemRight" valign="bottom"><b>dockWidgetFormattingToolbar</b></td></tr>
+<tr class="separator:afa5ab2dabe69d63955a6a433d27061ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adde21a1748e8f9abbb9c8f0ae10641d6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adde21a1748e8f9abbb9c8f0ae10641d6"></a>
+QToolButton *&#160;</td><td class="memItemRight" valign="bottom"><b>tButtonVisibleFormattingToolbar</b></td></tr>
+<tr class="separator:adde21a1748e8f9abbb9c8f0ae10641d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc814a4385b215aecbbe4497a908a5ed"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afc814a4385b215aecbbe4497a908a5ed"></a>
+QAction *&#160;</td><td class="memItemRight" valign="bottom"><b>actionVisibleFormattingToolbar</b></td></tr>
+<tr class="separator:afc814a4385b215aecbbe4497a908a5ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d522cb90368d07ad2e8b7479e960dc1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9d522cb90368d07ad2e8b7479e960dc1"></a>
+QDockWidget *&#160;</td><td class="memItemRight" valign="bottom"><b>dockWidgetFindAndReplace</b></td></tr>
+<tr class="separator:a9d522cb90368d07ad2e8b7479e960dc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bea2545949f56c5d6e1516476bc422f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4bea2545949f56c5d6e1516476bc422f"></a>
+<a class="el" href="class_find_and_replace.html">FindAndReplace</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>findAndReplace</b></td></tr>
+<tr class="separator:a4bea2545949f56c5d6e1516476bc422f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc765c4086507e9e32889d8cd7970774"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acc765c4086507e9e32889d8cd7970774"></a>
+QToolButton *&#160;</td><td class="memItemRight" valign="bottom"><b>tButtonVisibleFindAndReplace</b></td></tr>
+<tr class="separator:acc765c4086507e9e32889d8cd7970774"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af875edc93b04c42e454f523648259f2a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af875edc93b04c42e454f523648259f2a"></a>
+QAction *&#160;</td><td class="memItemRight" valign="bottom"><b>actionVisibleFindAndReplace</b></td></tr>
+<tr class="separator:af875edc93b04c42e454f523648259f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66a110eb9b7259c24b1a078838c9e873"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a66a110eb9b7259c24b1a078838c9e873"></a>
+<a class="el" href="class_quick_find.html">QuickFind</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>quickFind</b></td></tr>
+<tr class="separator:a66a110eb9b7259c24b1a078838c9e873"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7ce5bc6d1238a62d776c02c2dce29f7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae7ce5bc6d1238a62d776c02c2dce29f7"></a>
+QAction *&#160;</td><td class="memItemRight" valign="bottom"><b>actionVisibleQuickFind</b></td></tr>
+<tr class="separator:ae7ce5bc6d1238a62d776c02c2dce29f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb9d37eb332ae7f7a2115ee350968981"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeb9d37eb332ae7f7a2115ee350968981"></a>
+QDockWidget *&#160;</td><td class="memItemRight" valign="bottom"><b>dockWidgetAttachPanel</b></td></tr>
+<tr class="separator:aeb9d37eb332ae7f7a2115ee350968981"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ee8d3b65828502c2f68d735a3355bb9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2ee8d3b65828502c2f68d735a3355bb9"></a>
+<a class="el" href="class_attach_panel.html">AttachPanel</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>attachPanel</b></td></tr>
+<tr class="separator:a2ee8d3b65828502c2f68d735a3355bb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0accdc2fe8a964668037afb216d6bb7c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0accdc2fe8a964668037afb216d6bb7c"></a>
+QStandardItemModel&#160;</td><td class="memItemRight" valign="bottom"><b>attachModel</b></td></tr>
+<tr class="separator:a0accdc2fe8a964668037afb216d6bb7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2416bf1236a4155c79c8ac4c5218d1c4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2416bf1236a4155c79c8ac4c5218d1c4"></a>
+QToolButton *&#160;</td><td class="memItemRight" valign="bottom"><b>tButtonVisibleAttachPanel</b></td></tr>
+<tr class="separator:a2416bf1236a4155c79c8ac4c5218d1c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a317c0bb1dfe8dfc261585f2f0b565859"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a317c0bb1dfe8dfc261585f2f0b565859"></a>
+QAction *&#160;</td><td class="memItemRight" valign="bottom"><b>actionVisibleAttachPanel</b></td></tr>
+<tr class="separator:a317c0bb1dfe8dfc261585f2f0b565859"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Статические открытые данные</h2></td></tr>
+<tr class="memitem:ad322abdaec7c5799e5fc3a7d9e01dca0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad322abdaec7c5799e5fc3a7d9e01dca0"></a>
+static QVariantMap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rich_text_note.html#ad322abdaec7c5799e5fc3a7d9e01dca0">defaultMapSettings</a></td></tr>
+<tr class="memdesc:ad322abdaec7c5799e5fc3a7d9e01dca0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Карта с дэфолтными настройками для заметок. <br/></td></tr>
+<tr class="separator:ad322abdaec7c5799e5fc3a7d9e01dca0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Защищенные члены</h2></td></tr>
+<tr class="memitem:ae38c8582ea912284a3cd5cef05defad0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae38c8582ea912284a3cd5cef05defad0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>enterEvent</b> (QEvent *)</td></tr>
+<tr class="separator:ae38c8582ea912284a3cd5cef05defad0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ec4dafde30a0825f6477764c6d7f807"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3ec4dafde30a0825f6477764c6d7f807"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>leaveEvent</b> (QEvent *)</td></tr>
+<tr class="separator:a3ec4dafde30a0825f6477764c6d7f807"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_class_abstract_note"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_abstract_note')"><img src="closed.png" alt="-"/>&#160;Защищенные члены унаследованные от <a class="el" href="class_abstract_note.html">AbstractNote</a></td></tr>
+<tr class="memitem:aa585261a37f73de64ad48ee9bd706bd7 inherit pro_methods_class_abstract_note"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa585261a37f73de64ad48ee9bd706bd7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>closeEvent</b> (QCloseEvent *)</td></tr>
+<tr class="separator:aa585261a37f73de64ad48ee9bd706bd7 inherit pro_methods_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dc2256ca0a76aaa4787fc540ecc697f inherit pro_methods_class_abstract_note"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9dc2256ca0a76aaa4787fc540ecc697f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>contextMenuEvent</b> (QContextMenuEvent *event)</td></tr>
+<tr class="separator:a9dc2256ca0a76aaa4787fc540ecc697f inherit pro_methods_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60925fa0bc7cc9a213a6f3721f7433f3 inherit pro_methods_class_abstract_note"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a60925fa0bc7cc9a213a6f3721f7433f3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>showEvent</b> (QShowEvent *event)</td></tr>
+<tr class="separator:a60925fa0bc7cc9a213a6f3721f7433f3 inherit pro_methods_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af95fc3cb8cb52186c2ea4558df2a54cd inherit pro_methods_class_abstract_note"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af95fc3cb8cb52186c2ea4558df2a54cd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>hideEvent</b> (QHideEvent *event)</td></tr>
+<tr class="separator:af95fc3cb8cb52186c2ea4558df2a54cd inherit pro_methods_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0f845882806733728eca30d7ed9ed93 inherit pro_methods_class_abstract_note"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa0f845882806733728eca30d7ed9ed93"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>paintEvent</b> (QPaintEvent *)</td></tr>
+<tr class="separator:aa0f845882806733728eca30d7ed9ed93 inherit pro_methods_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Друзья</h2></td></tr>
+<tr class="memitem:ae67dc2ec273ef577eca9a2afe3906bf5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae67dc2ec273ef577eca9a2afe3906bf5"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>AttachPanel</b></td></tr>
+<tr class="separator:ae67dc2ec273ef577eca9a2afe3906bf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Дополнительные унаследованные члены</h2></td></tr>
+<tr class="inherit_header signals_class_abstract_note"><td colspan="2" onclick="javascript:toggleInherit('signals_class_abstract_note')"><img src="closed.png" alt="-"/>&#160;Сигналы унаследованные от <a class="el" href="class_abstract_note.html">AbstractNote</a></td></tr>
+<tr class="memitem:ab26bb68fc9709b273e9fc553b680844a inherit signals_class_abstract_note"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#ab26bb68fc9709b273e9fc553b680844a">changed</a> (int)</td></tr>
+<tr class="memdesc:ab26bb68fc9709b273e9fc553b680844a inherit signals_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сигнал отсылается при изменении состояния заметки или при происшествии определенного события.  <a href="#ab26bb68fc9709b273e9fc553b680844a">Подробнее...</a><br/></td></tr>
+<tr class="separator:ab26bb68fc9709b273e9fc553b680844a inherit signals_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa480cbfa0eaa2c61bf20368d72bd9d60 inherit signals_class_abstract_note"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#aa480cbfa0eaa2c61bf20368d72bd9d60">changeVisibleToolbar</a> (bool)</td></tr>
+<tr class="memdesc:aa480cbfa0eaa2c61bf20368d72bd9d60 inherit signals_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сигнал отсылается при изменении видимости панели инструментов.  <a href="#aa480cbfa0eaa2c61bf20368d72bd9d60">Подробнее...</a><br/></td></tr>
+<tr class="separator:aa480cbfa0eaa2c61bf20368d72bd9d60 inherit signals_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a156c9a98fe4200b947c310509d56d6d8 inherit signals_class_abstract_note"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a156c9a98fe4200b947c310509d56d6d8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>doubleClickHead</b> ()</td></tr>
+<tr class="separator:a156c9a98fe4200b947c310509d56d6d8 inherit signals_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_class_abstract_note"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_abstract_note')"><img src="closed.png" alt="-"/>&#160;Защищенные данные унаследованные от <a class="el" href="class_abstract_note.html">AbstractNote</a></td></tr>
+<tr class="memitem:ac42b3dbc830e1a0dc62cc6fa172ac1ad inherit pro_attribs_class_abstract_note"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac42b3dbc830e1a0dc62cc6fa172ac1ad"></a>
+<a class="el" href="classd___abstract_note.html">d_AbstractNote</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#ac42b3dbc830e1a0dc62cc6fa172ac1ad">d</a></td></tr>
+<tr class="memdesc:ac42b3dbc830e1a0dc62cc6fa172ac1ad inherit pro_attribs_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Дата абстрактной заметки <br/></td></tr>
+<tr class="separator:ac42b3dbc830e1a0dc62cc6fa172ac1ad inherit pro_attribs_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed6ded8273174cdc1a530491264237b9 inherit pro_attribs_class_abstract_note"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aed6ded8273174cdc1a530491264237b9"></a>
+<a class="el" href="class_abstract_note_head.html">AbstractNoteHead</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#aed6ded8273174cdc1a530491264237b9">head</a></td></tr>
+<tr class="memdesc:aed6ded8273174cdc1a530491264237b9 inherit pro_attribs_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Голова (шапка) заметки <br/></td></tr>
+<tr class="separator:aed6ded8273174cdc1a530491264237b9 inherit pro_attribs_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af02e3b71f3345aee963e241ca87095ad inherit pro_attribs_class_abstract_note"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af02e3b71f3345aee963e241ca87095ad"></a>
+<a class="el" href="class_abstract_note_body.html">AbstractNoteBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#af02e3b71f3345aee963e241ca87095ad">body</a></td></tr>
+<tr class="memdesc:af02e3b71f3345aee963e241ca87095ad inherit pro_attribs_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Тело заметки <br/></td></tr>
+<tr class="separator:af02e3b71f3345aee963e241ca87095ad inherit pro_attribs_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a996a80552c4b543ed1640f81794867a7 inherit pro_attribs_class_abstract_note"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a996a80552c4b543ed1640f81794867a7"></a>
+QMenu&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#a996a80552c4b543ed1640f81794867a7">contextMenu</a></td></tr>
+<tr class="memdesc:a996a80552c4b543ed1640f81794867a7 inherit pro_attribs_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Меню заметки <br/></td></tr>
+<tr class="separator:a996a80552c4b543ed1640f81794867a7 inherit pro_attribs_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f3926a04471f9098937256e9173262d inherit pro_attribs_class_abstract_note"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7f3926a04471f9098937256e9173262d"></a>
+<a class="el" href="class_property_attachable.html">PropertyAttachable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_note.html#a7f3926a04471f9098937256e9173262d">propertyAttachable</a></td></tr>
+<tr class="memdesc:a7f3926a04471f9098937256e9173262d inherit pro_attribs_class_abstract_note"><td class="mdescLeft">&#160;</td><td class="mdescRight">Класс, который дает возможность прикрепляться к краю экрана <br/></td></tr>
+<tr class="separator:a7f3926a04471f9098937256e9173262d inherit pro_attribs_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a918da2b0e0e4cc8ff3d251a82e84231e inherit pro_attribs_class_abstract_note"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a918da2b0e0e4cc8ff3d251a82e84231e"></a>
+QVariantMap&#160;</td><td class="memItemRight" valign="bottom"><b>mapSettings</b></td></tr>
+<tr class="separator:a918da2b0e0e4cc8ff3d251a82e84231e inherit pro_attribs_class_abstract_note"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Заметка с редактором rich-текста. </p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a class="anchor" id="a0d5e4ef7acbf6d717bfcc817e6f0841a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RichTextNote::RichTextNote </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QWidget *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Конструктор. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>путь к файлу заметки </td></tr>
+    <tr><td class="paramname">parent</td><td>указатель на родительский виджет </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aaf3b21364958090903a9ef822024d574"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RichTextNote::RichTextNote </td>
+          <td>(</td>
+          <td class="paramtype">QWidget *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>0</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Перегруженный конструктор. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a class="anchor" id="a7f7f2baf45755fcb3cce6a7af0abef55"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString RichTextNote::attach </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>fileName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Функция копирует указанный файл в папку прикрепленных файлов. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fileName</td><td>путь до файла. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>путь до файла из папки прикрепленных файлов, если удачно, иначе - пустую строку. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a480944139dd06c84b81943dd48860609"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RichTextNote::createNew </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>bsave</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Функция создает заметке папку и нужные для функционирования файлы. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bsave</td><td>если true, тогда после инициализации значениями по умолчанию, заметка сделает сохранение. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="class_rich_text_note.html#a99ce213a701a45fb88c23153843221a1" title="Сохранение заметки. ">save()</a>, <a class="el" href="class_rich_text_note.html#ade4731495fca0ac06117f7c37aab2d29" title="Загрузка заметки. ">load()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1f5040c22699cce59fa33961d85fe63a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RichTextNote::insertImage </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>fileName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Функция вставки изображения в заметку. </p>
+<p>Файл вставляемого изображения будет скопирован в папку прикрепленных файлов. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fileName</td><td>путь до файла изображения. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="abfddfa9998a18dacb021bf44ecf4968d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RichTextNote::insertImage </td>
+          <td>(</td>
+          <td class="paramtype">const QPixmap &amp;&#160;</td>
+          <td class="paramname"><em>pixmap</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Функция вставки изображения в заметку. </p>
+<p>Перегруженная функция. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pixmap</td><td>ссылка на класс-изображение. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a94883f9d294fd801a4204bc2baf1a18c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">quint64 RichTextNote::intervalAutosave </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Функция возвращает интервал срабатывания таймера в минутах. </p>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="class_rich_text_note.html#ac29cd2902bb64e562a6917ba7e6f626f" title="Устанавливает интервал таймера автосохранения. ">setIntervalAutosave()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aca6414cc26edb753d17e8bc665107452"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RichTextNote::isActivateTimerAutosave </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Возвращение true, если таймер автосохранения запущен, иначе false. </p>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="class_rich_text_note.html#a8c104ff626b66e58076f07d1a0428468" title="Устанавливает активность таймера автосохранения . ">setActivateTimerAutosave()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a733eac65413a3349fa968ec913fe7f0f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RichTextNote::isModified </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Функция вернет true, если содержимое заметки было изменено. </p>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="class_rich_text_note.html#aef89f3a106e16ca9666c8aa0b00763a2" title="Указывает на изменение содержимого заметки. ">setModified()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a23777640c68c72fd33201fcab756046d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RichTextNote::remove </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Удаление папки заметки, закрытие и освобождение памяти. </p>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="class_rich_text_note.html#a14aa42a897b847a58fcbfed72121463e" title="Удаление папки заметки. ">removeDir()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a14aa42a897b847a58fcbfed72121463e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RichTextNote::removeDir </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Удаление папки заметки. </p>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="class_rich_text_note.html#a23777640c68c72fd33201fcab756046d" title="Удаление папки заметки, закрытие и освобождение памяти. ">remove()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8c104ff626b66e58076f07d1a0428468"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RichTextNote::setActivateTimerAutosave </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>activate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Устанавливает активность таймера автосохранения . </p>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="class_rich_text_note.html#aca6414cc26edb753d17e8bc665107452" title="Возвращение true, если таймер автосохранения запущен, иначе false. ">isActivateTimerAutosave()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac29cd2902bb64e562a6917ba7e6f626f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RichTextNote::setIntervalAutosave </td>
+          <td>(</td>
+          <td class="paramtype">quint64&#160;</td>
+          <td class="paramname"><em>minutes</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Устанавливает интервал таймера автосохранения. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">minutes</td><td>значение интервала таймера в минутах </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="class_rich_text_note.html#a94883f9d294fd801a4204bc2baf1a18c" title="Функция возвращает интервал срабатывания таймера в минутах. ">intervalAutosave()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aef89f3a106e16ca9666c8aa0b00763a2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RichTextNote::setModified </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>b</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Указывает на изменение содержимого заметки. </p>
+<p>Изменение заметки устанавливает это значение на true, сохранение - на false. </p>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="class_rich_text_note.html#a733eac65413a3349fa968ec913fe7f0f" title="Функция вернет true, если содержимое заметки было изменено. ">isModified()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a91fe177860da340f6d4897ad53674f82"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RichTextNote::setTop </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>b</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Устанавливает заметку поверх всех окон. </p>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="class_abstract_note.html#aec20f81dbdda4a9a7126540d332a29d2" title="Возвращает состояние &quot;поверх всех окон&quot;. ">isTop()</a>, <a class="el" href="class_abstract_note.html#ab98938de6dec1ac573fc75985bdab801" title="Устанавливает заметку поверх всех окон. ">AbstractNote::setTop()</a> </dd></dl>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>NotesManager/Note/<a class="el" href="_rich_text_note_8h_source.html">RichTextNote.h</a></li>
+<li>NotesManager/Note/RichTextNote.cpp</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_rich_text_note.html">RichTextNote</a></li>
+    <li class="footer">Документация по Notes Manager. Последние изменения: Сб 1 Фев 2014 21:16:47. Создано системой
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
+</body>
+</html>
