@@ -22,8 +22,8 @@
 **************************************************************************/
 
 
+#include "ui_findandreplace.h"
 #include "quickfind.h"
-
 
 QuickFind::QuickFind( QTextEdit * textedit, QWidget * parent )
     : FindAndReplace( textedit, parent )

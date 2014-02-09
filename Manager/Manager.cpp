@@ -217,7 +217,7 @@ void Manager::createToolBars()
     formattingToolbar->setAlterActivityComponents( true );
     formattingToolbar->hide();
     formattingToolbar->setParent( this );
-    formattingToolbar->installConnect( pageNotes->ui->editor );
+    formattingToolbar->installConnect( pageNotes->editor() );
 
     QMenu * menuFormatting = ui->menuToolbars->addMenu( QIcon( "" ), tr( "Text formatting" ) );
 
@@ -424,7 +424,7 @@ void Manager::updateStates()
 
     if ( hasSelection )
     {
-        QAbstractItemModel * viewModel = pageNotes->model;
+        QAbstractItemModel * viewModel = pageNotes->getModel();
 
         int row = pageNotes->currentRow();        
         RichTextNote * note = toNote( viewModel->index( row, 0 ) );
@@ -651,14 +651,14 @@ void Manager::closeDictionary()
 
 void Manager::removeNote()
 {
-    QAbstractItemModel * viewModel = pageNotes->model;
+    QAbstractItemModel * viewModel = pageNotes->getModel();
 
     int row = pageNotes->currentRow();
     toNote( viewModel->index( row, 0 ) )->invokeRemove();
 }
 void Manager::duplicateNote()
 {
-    QAbstractItemModel * viewModel = pageNotes->model;
+    QAbstractItemModel * viewModel = pageNotes->getModel();
 
     int row = pageNotes->currentRow();
     toNote( viewModel->index( row, 0 ) )->duplicate();
@@ -666,49 +666,49 @@ void Manager::duplicateNote()
 
 void Manager::saveNote()
 {
-    QAbstractItemModel * viewModel = pageNotes->model;
+    QAbstractItemModel * viewModel = pageNotes->getModel();
 
     int row = pageNotes->currentRow();
     toNote( viewModel->index( row, 0 ) )->save();
 }
 void Manager::saveAsNote()
 {
-    QAbstractItemModel * viewModel = pageNotes->model;
+    QAbstractItemModel * viewModel = pageNotes->getModel();
 
     int row = pageNotes->currentRow();
     toNote( viewModel->index( row, 0 ) )->saveAs();
 }
 void Manager::showNote()
 {
-    QAbstractItemModel * viewModel = pageNotes->model;
+    QAbstractItemModel * viewModel = pageNotes->getModel();
 
     int row = pageNotes->currentRow();
     toNote( viewModel->index( row, 0 ) )->show();
 }
 void Manager::hideNote()
 {
-    QAbstractItemModel * viewModel = pageNotes->model;
+    QAbstractItemModel * viewModel = pageNotes->getModel();
 
     int row = pageNotes->currentRow();
     toNote( viewModel->index( row, 0 ) )->hide();
 }
 void Manager::printNote()
 {
-    QAbstractItemModel * viewModel = pageNotes->model;
+    QAbstractItemModel * viewModel = pageNotes->getModel();
 
     int row = pageNotes->currentRow();
     toNote( viewModel->index( row, 0 ) )->print();
 }
 void Manager::previewPrintNote()
 {
-    QAbstractItemModel * viewModel = pageNotes->model;
+    QAbstractItemModel * viewModel = pageNotes->getModel();
 
     int row = pageNotes->currentRow();
     toNote( viewModel->index( row, 0 ) )->previewPrint();
 }
 void Manager::setTopNote( bool top )
 {
-    QAbstractItemModel * viewModel = pageNotes->model;
+    QAbstractItemModel * viewModel = pageNotes->getModel();
 
     int row = pageNotes->currentRow();
     toNote( viewModel->index( row, 0 ) )->setTop( top );
@@ -730,7 +730,7 @@ void Manager::noteChange( int index )
     case EventsNote::Remove:
     {
         pageNotes->clearContentNote();
-        pageNotes->selectionModel->clearSelection();
+//        pageNotes->selectionModel->clearSelection();
 
         const QString & dirNote = note->fileName();
         if ( !copyPath2( dirNote, getTrashPath() + "/" + QFileInfo( dirNote ).fileName() ) )
@@ -747,10 +747,10 @@ void Manager::noteChange( int index )
 
         model.removeRow( row );
 
-        const QModelIndex index1 = model.index( pageNotes->currentRow(), 0 );
-        const QModelIndex index2 = model.index( pageNotes->currentRow(), pageNotes->model->columnCount() - 1 );
-        pageNotes->selectionModel->select( QItemSelection( index1, index2 ), QItemSelectionModel::Select );
-        pageNotes->displayContentNote( pageNotes->selectionModel->currentIndex().row() );
+//        const QModelIndex index1 = model.index( pageNotes->currentRow(), 0 );
+//        const QModelIndex index2 = model.index( pageNotes->currentRow(), pageNotes->getModel()->columnCount() - 1 );
+//        pageNotes->selectionModel->select( QItemSelection( index1, index2 ), QItemSelectionModel::Select );
+//        pageNotes->displayContentNote( pageNotes->selectionModel->currentIndex().row() );
 
         updateStates();        
         break;

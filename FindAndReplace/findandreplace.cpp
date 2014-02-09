@@ -21,11 +21,10 @@
 **
 **************************************************************************/
 
-
+#include "ui_findandreplace.h"
 #include "findandreplace.h"
 
 #include <QDebug>
-
 
 FindAndReplace::FindAndReplace( QTextEdit * textedit, QWidget * parent )
     : QWidget( parent ),

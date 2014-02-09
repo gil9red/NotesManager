@@ -109,6 +109,14 @@ void Page_Notes::setSettings( QSettings * s )
 {
     settings = s;
 }
+QTextEdit * Page_Notes::editor()
+{
+    return ui->editor;
+}
+QAbstractItemModel * Page_Notes::getModel()
+{
+    return model;
+}
 
 void Page_Notes::readSettings()
 {

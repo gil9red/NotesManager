@@ -21,7 +21,6 @@
 **
 **************************************************************************/
 
-
 #ifndef PAGE_NOTES_H
 #define PAGE_NOTES_H
 
@@ -33,7 +32,6 @@ namespace Ui
     class Page_notes;
 }
 
-#include "ui_page_notes.h"
 #include "Note/RichTextNote.h"
 #include "Note/AttachPanel.h"
 
@@ -73,7 +71,10 @@ public:
     //! В функции указываем с каким классом настроек будем работать.
     void setSettings( QSettings * s );
 
-public:
+    QTextEdit * editor();
+    QAbstractItemModel * getModel();
+
+private:
     Ui::Page_notes * ui;                  //!< Форма UI.
     QAbstractItemModel * model;           //!< Модель хранит заметки.
     QItemSelectionModel * selectionModel; //!< Модель выделения элементов.
