@@ -41,6 +41,94 @@ Manager * Manager::self = 0;
 #include "JlCompress.h"
 #include "ImageCropper/fullscreenshotcropper.h"
 
+QStandardItem * toStandardItem( RichTextNote * note, int role )
+{
+    QVariant data;
+    data.setValue( note );
+
+    QStandardItem * item = new QStandardItem();
+    item->setData( data, role );
+
+    return item;
+}
+
+RichTextNote * toNote( const QStandardItem * item, int role )
+{
+    return item->data( role ).value < RichTextNote * > ();
+}
+
+RichTextNote * toNote( const QModelIndex index, int role )
+{
+    return index.data( role ).value < RichTextNote * > ();
+}
+
+QList < QStandardItem * > toStandardItems( RichTextNote * note )
+{
+    QStandardItem * title = toStandardItem( note );
+    title->setText( note->title() );
+    title->setToolTip( title->text() );
+
+    QStandardItem * visibility = new QStandardItem();
+    visibility->setText( note->isVisible() ? QTranslator::tr( "yes" ) : QTranslator::tr( "no" ) );
+    visibility->setTextAlignment( Qt::AlignCenter );
+
+    QStandardItem * created = new QStandardItem();
+    created->setText( note->created().toString( Qt::SystemLocaleLongDate ) );
+
+    QStandardItem * modified = new QStandardItem();
+    modified->setText( note->modified().toString( Qt::SystemLocaleLongDate ) );
+
+    QStandardItem * top = new QStandardItem();
+    top->setText( note->isTop() ? QTranslator::tr( "yes" ) : QTranslator::tr( "no" ) );
+    top->setTextAlignment( Qt::AlignCenter );
+
+    QStandardItem * attachments = new QStandardItem();
+    attachments->setText( QString::number( note->numberOfAttachments() ) );
+    attachments->setTextAlignment( Qt::AlignCenter );
+
+    return QList < QStandardItem * > () << title << visibility << created << modified << top << attachments;
+}
+QList < QStandardItem * > toStandardItems( const QString & path )
+{
+    QSettings ini( path + "/" + "settings.ini", QSettings::IniFormat );
+    ini.setIniCodec( "utf8" );
+
+    QStandardItem * title = new QStandardItem();
+    title->setText( ini.value( "Title" ).toString() );
+    title->setToolTip( title->text() );
+
+    QStandardItem * visibility = new QStandardItem();
+    visibility->setText( ini.value( "Visible" ).toBool() ? QTranslator::tr( "yes" ) : QTranslator::tr( "no" ) );
+    visibility->setTextAlignment( Qt::AlignCenter );
+
+    QStandardItem * created = new QStandardItem();
+    created->setText( ini.value( "Created" ).toDateTime().toString( Qt::SystemLocaleLongDate ) );
+
+    QStandardItem * modified = new QStandardItem();
+    modified->setText( ini.value( "Modified" ).toDateTime().toString( Qt::SystemLocaleLongDate ) );
+
+    QStandardItem * top = new QStandardItem();
+    top->setText( ini.value( "Top" ).toBool() ? QTranslator::tr( "yes" ) : QTranslator::tr( "no" ) );
+    top->setTextAlignment( Qt::AlignCenter );
+
+    QStandardItem * attachments = new QStandardItem();
+    attachments->setText( QString::number( QDir( path + "/" + "attach" ).entryList( QDir::Files ).size() ) );
+    attachments->setTextAlignment( Qt::AlignCenter );
+
+    return QList < QStandardItem * > () << title << visibility << created << modified << top << attachments;
+}
+QStandardItem * findItem( RichTextNote * note, QStandardItemModel * model, int column )
+{
+    for ( int row = 0; row < model->rowCount(); row++ )
+    {
+        QStandardItem * item = model->item( row, column );
+        if ( note == toNote( item ) )
+            return item;
+    }
+
+    return 0;
+}
+
 Manager::Manager( QWidget * parent ) :
     QMainWindow( parent ),
     ui( new Ui::Manager ),
@@ -217,7 +305,7 @@ void Manager::createToolBars()
     formattingToolbar->setAlterActivityComponents( true );
     formattingToolbar->hide();
     formattingToolbar->setParent( this );
-    formattingToolbar->installConnect( pageNotes->editor() );
+//    formattingToolbar->installConnect( pageNotes->editor() );
 
     QMenu * menuFormatting = ui->menuToolbars->addMenu( QIcon( "" ), tr( "Text formatting" ) );
 
@@ -729,7 +817,7 @@ void Manager::noteChange( int index )
     {
     case EventsNote::Remove:
     {
-        pageNotes->clearContentNote();
+//        pageNotes->clearContentNote();
 //        pageNotes->selectionModel->clearSelection();
 
         const QString & dirNote = note->fileName();

@@ -62,16 +62,16 @@ public:
     //! Функция возвращает true, если есть выделенные ячейки.
     bool hasSelection();
 
-    //! Отобразить содержимое заметки, находящаяся в строке row.
-    void displayContentNote( int row );
+//    //! Отобразить содержимое заметки, находящаяся в строке row.
+//    void displayContentNote( int row );
 
-    //! Очистить с дисплея-виджета содержимое заметки.
-    void clearContentNote();
+//    //! Очистить с дисплея-виджета содержимое заметки.
+//    void clearContentNote();
 
     //! В функции указываем с каким классом настроек будем работать.
     void setSettings( QSettings * s );
 
-    QTextEdit * editor();
+//    QTextEdit * editor();
     QAbstractItemModel * getModel();
 
 private:
@@ -85,17 +85,17 @@ public slots:
     void writeSettings(); //!< Запись настроек.
 
 private slots:
-    //! Произошел клик на элемент в таблице/списке.
-    void clicked( const QModelIndex &index );
+//    //! Произошел клик на элемент в таблице/списке.
+//    void clicked( const QModelIndex &index );
 
-    //! Обновление состояния.
-    void updateStates();
+//    //! Обновление состояния.
+//    void updateStates();
 
     //! Изменение выделения элементов.
     void selectionChanged(QItemSelection,QItemSelection);
 
-    //! Вызывается при срабатывании AbstractNote::changed().
-    void noteChange( int index );
+//    //! Вызывается при срабатывании AbstractNote::changed().
+//    void noteChange( int index );
 
 signals:
     //! Вызывается при изменении выделения элементов.

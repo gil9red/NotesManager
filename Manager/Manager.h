@@ -59,100 +59,26 @@ namespace Columns
     };
 }
 
+#include <QStandardItem>
+#include "Note/RichTextNote.h"
+
 //! Функция создает объект QStandardItem, и в его данные сохраняет указатель на заметку.
-static QStandardItem * toStandardItem( RichTextNote * note, int role = Qt::UserRole + 1 )
-{
-    QVariant data;
-    data.setValue( note );
-
-    QStandardItem * item = new QStandardItem();
-    item->setData( data, role );
-
-    return item;
-}
+QStandardItem * toStandardItem( RichTextNote * note, int role = Qt::UserRole + 1 );
 
 //! Функция возвращает указатель на заметку, которая хранилась в данной ячейке модели.
-static RichTextNote * toNote( const QStandardItem * item, int role = Qt::UserRole + 1 )
-{
-    return item->data( role ).value < RichTextNote * > ();
-}
+RichTextNote * toNote( const QStandardItem * item, int role = Qt::UserRole + 1 );
 
 /*! Перегруженная функция. */
-static RichTextNote * toNote( const QModelIndex index, int role = Qt::UserRole + 1 )
-{
-    return index.data( role ).value < RichTextNote * > ();
-}
+RichTextNote * toNote( const QModelIndex index, int role = Qt::UserRole + 1 );
 
 //! Функция возвращает список ячеек, которые хранят информацию о заметке.
-static QList < QStandardItem * > toStandardItems( RichTextNote * note )
-{
-    QStandardItem * title = toStandardItem( note );
-    title->setText( note->title() );
-    title->setToolTip( title->text() );
+QList < QStandardItem * > toStandardItems( RichTextNote * note );
 
-    QStandardItem * visibility = new QStandardItem();
-    visibility->setText( note->isVisible() ? QTranslator::tr( "yes" ) : QTranslator::tr( "no" ) );
-    visibility->setTextAlignment( Qt::AlignCenter );
-
-    QStandardItem * created = new QStandardItem();
-    created->setText( note->created().toString( Qt::SystemLocaleLongDate ) );
-
-    QStandardItem * modified = new QStandardItem();
-    modified->setText( note->modified().toString( Qt::SystemLocaleLongDate ) );
-
-    QStandardItem * top = new QStandardItem();
-    top->setText( note->isTop() ? QTranslator::tr( "yes" ) : QTranslator::tr( "no" ) );
-    top->setTextAlignment( Qt::AlignCenter );
-
-    QStandardItem * attachments = new QStandardItem();
-    attachments->setText( QString::number( note->numberOfAttachments() ) );
-    attachments->setTextAlignment( Qt::AlignCenter );    
-
-    return QList < QStandardItem * > () << title << visibility << created << modified << top << attachments;
-}
 //! Функция возвращает список ячеек, которые хранят информацию о заметке.
-static QList < QStandardItem * > toStandardItems( const QString & path )
-{
-    QSettings ini( path + "/" + "settings.ini", QSettings::IniFormat );
-    ini.setIniCodec( "utf8" );
-
-    QStandardItem * title = new QStandardItem();
-    title->setText( ini.value( "Title" ).toString() );
-    title->setToolTip( title->text() );
-
-    QStandardItem * visibility = new QStandardItem();
-    visibility->setText( ini.value( "Visible" ).toBool() ? QTranslator::tr( "yes" ) : QTranslator::tr( "no" ) );
-    visibility->setTextAlignment( Qt::AlignCenter );
-
-    QStandardItem * created = new QStandardItem();
-    created->setText( ini.value( "Created" ).toDateTime().toString( Qt::SystemLocaleLongDate ) );
-
-    QStandardItem * modified = new QStandardItem();
-    modified->setText( ini.value( "Modified" ).toDateTime().toString( Qt::SystemLocaleLongDate ) );
-
-    QStandardItem * top = new QStandardItem();
-    top->setText( ini.value( "Top" ).toBool() ? QTranslator::tr( "yes" ) : QTranslator::tr( "no" ) );
-    top->setTextAlignment( Qt::AlignCenter );
-
-    QStandardItem * attachments = new QStandardItem();
-    attachments->setText( QString::number( QDir( path + "/" + "attach" ).entryList( QDir::Files ).size() ) );
-    attachments->setTextAlignment( Qt::AlignCenter );
-
-    return QList < QStandardItem * > () << title << visibility << created << modified << top << attachments;
-}
+QList < QStandardItem * > toStandardItems( const QString & path );
 
 //! Функция ищет заметку в модели и возвращает указатель на ячейку, которая хранит эту заметку, или вернет 0.
-static QStandardItem * findItem( RichTextNote * note, QStandardItemModel * model, int column = 0 )
-{
-    for ( int row = 0; row < model->rowCount(); row++ )
-    {
-        QStandardItem * item = model->item( row, column );
-        if ( note == toNote( item ) )
-            return item;
-    }
-
-    return 0;
-}
+QStandardItem * findItem( RichTextNote * note, QStandardItemModel * model, int column = 0 );
 
 
 //! Главный класс. Создает и управляет заметками.

@@ -31,7 +31,8 @@ SOURCES += \
     utils/execmenu.cpp \
     utils/propertyattachable.cpp \
     utils/mysplashscreen.cpp \
-    utils/texttemplateparser.cpp
+    utils/texttemplateparser.cpp \
+    utils/func.cpp
 
 HEADERS += \
     version.h \

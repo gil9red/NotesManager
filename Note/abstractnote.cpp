@@ -228,6 +228,8 @@ bool AbstractNote::isTop()
 
     if ( bottom )
         return false;
+
+    return true;
 }
 
 void AbstractNote::setBodyColor( const QColor & c )

@@ -336,6 +336,7 @@ void RichTextNote::setupGUI()
     // NOTE: установка прозрачного заднего фона редактора
     d->editor.setFrameStyle( QFrame::NoFrame );
     d->editor.viewport()->setAutoFillBackground( false );
+    d->editor.setStyleSheet( Note::style );
 
     QVBoxLayout * mainLayout = new QVBoxLayout();
     mainLayout->setSpacing( 0 );

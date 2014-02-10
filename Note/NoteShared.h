@@ -25,8 +25,8 @@
 #define NoteShared_H
 
 #include <QFlags>
-#include <Qt>
 #include <QColor>
+#include <QFile>
 
 //! Содержит глобальные общие перечисления, переменные, классы и функции.
 namespace Shared
@@ -76,6 +76,9 @@ namespace Note
         const qreal width = 1.0;        //!< Ширина (толщина)
         const QColor color = Qt::black; //!< Цвет
     }
+
+    //! Стиль виджета заметки.
+    extern QString style;
 }
 
 #endif // NoteShared_H

@@ -30,7 +30,7 @@
 #include <QButtonGroup>
 #include <QDockWidget>
 
-#include "Manager/Manager.h"
+//#include "Manager/Manager.h"
 
 
 Page_Notes::Page_Notes( QWidget * parent, QAbstractItemModel * m ) :
@@ -42,13 +42,16 @@ Page_Notes::Page_Notes( QWidget * parent, QAbstractItemModel * m ) :
     ui->setupUi( this );
     ui->tableView->setModel( model );
     ui->tableView->horizontalHeader()->setMovable( false );
-    connect( ui->tableView, SIGNAL( clicked(QModelIndex) ), SLOT( clicked(QModelIndex) ) );
+//    connect( ui->tableView, SIGNAL( clicked(QModelIndex) ), SLOT( clicked(QModelIndex) ) );
 
     selectionModel = new QItemSelectionModel( model );
     ui->tableView->setSelectionModel( selectionModel );
 
+    ui->frameCurrentNote->hide();
+    ui->attach->hide();
+
     connect( selectionModel, SIGNAL( selectionChanged(QItemSelection,QItemSelection) ), SLOT( selectionChanged(QItemSelection,QItemSelection) ) );
-    updateStates();
+//    updateStates();
 }
 Page_Notes::~Page_Notes()
 {
@@ -80,39 +83,39 @@ bool Page_Notes::hasSelection()
     return selectionModel->hasSelection();
 }
 
-void Page_Notes::displayContentNote( int row )
-{
-    if ( row < 0 )
-        return;
+//void Page_Notes::displayContentNote( int row )
+//{
+//    if ( row < 0 )
+//        return;
 
-    RichTextNote * note = toNote( model->index( row, 0 ) );
-    if ( !note )
-        return;
+//    RichTextNote * note = toNote( model->index( row, 0 ) );
+//    if ( !note )
+//        return;
 
-    clearContentNote();
+//    clearContentNote();
 
-    connect( note, SIGNAL( changed(int) ), SLOT( noteChange(int) ) );
-    ui->title->setText( note->title() );
-    ui->title->setFont( note->titleFont() );
-    ui->title->setCursorPosition( 0 );
-    ui->editor->setDocument( note->document() );
+//    connect( note, SIGNAL( changed(int) ), SLOT( noteChange(int) ) );
+//    ui->title->setText( note->title() );
+//    ui->title->setFont( note->titleFont() );
+//    ui->title->setCursorPosition( 0 );
+//    ui->editor->setDocument( note->document() );
 
-    ui->attach->setViewTo( note );
-}
-void Page_Notes::clearContentNote()
-{
-    ui->title->clear();
-    ui->editor->setDocument( 0 );
-    ui->attach->setViewTo( 0 );
-}
+//    ui->attach->setViewTo( note );
+//}
+//void Page_Notes::clearContentNote()
+//{
+//    ui->title->clear();
+//    ui->editor->setDocument( 0 );
+//    ui->attach->setViewTo( 0 );
+//}
 void Page_Notes::setSettings( QSettings * s )
 {
     settings = s;
 }
-QTextEdit * Page_Notes::editor()
-{
-    return ui->editor;
-}
+//QTextEdit * Page_Notes::editor()
+//{
+//    return ui->editor;
+//}
 QAbstractItemModel * Page_Notes::getModel()
 {
     return model;
@@ -126,7 +129,7 @@ void Page_Notes::readSettings()
     settings->beginGroup( "Page_Notes" );
     ui->tableView->horizontalHeader()->restoreState( settings->value( "HorizontalHeader" ).toByteArray() );
     ui->splitterMain->restoreState( settings->value( "Splitter_Main" ).toByteArray() );
-    ui->splitterPageNote_Right->restoreState( settings->value( "SplitterPageNote_Right" ).toByteArray() );
+//    ui->splitterPageNote_Right->restoreState( settings->value( "SplitterPageNote_Right" ).toByteArray() );
     settings->endGroup();
 }
 void Page_Notes::writeSettings()
@@ -137,45 +140,45 @@ void Page_Notes::writeSettings()
     settings->beginGroup( "Page_Notes" );
     settings->setValue( "HorizontalHeader", ui->tableView->horizontalHeader()->saveState() );
     settings->setValue( "Splitter_Main", ui->splitterMain->saveState() );
-    settings->setValue( "SplitterPageNote_Right", ui->splitterPageNote_Right->saveState() );
+//    settings->setValue( "SplitterPageNote_Right", ui->splitterPageNote_Right->saveState() );
     settings->endGroup();
     settings->sync();
 }
 
-void Page_Notes::clicked( const QModelIndex & index )
-{
-    displayContentNote( index.row() );
-}
-void Page_Notes::updateStates()
-{
-    // сымитируем изменение выделения
-    selectionChanged( QItemSelection(), QItemSelection() );
-}
+//void Page_Notes::clicked( const QModelIndex & index )
+//{
+//    displayContentNote( index.row() );
+//}
+//void Page_Notes::updateStates()
+//{
+//    // сымитируем изменение выделения
+//    selectionChanged( QItemSelection(), QItemSelection() );
+//}
 void Page_Notes::selectionChanged(QItemSelection,QItemSelection)
-{    
-    bool itemHasSelection = hasSelection();
+{
+//    bool itemHasSelection = hasSelection();
 
-    ui->frameCurrentNote->setVisible( itemHasSelection );
-    ui->attach->setVisible( itemHasSelection );
+//    ui->frameCurrentNote->setVisible( itemHasSelection );
+//    ui->attach->setVisible( itemHasSelection );
 
     emit changeSelection();
 }
 
-void Page_Notes::noteChange( int index )
-{
-    RichTextNote * note = qobject_cast < RichTextNote * > ( sender() );
+//void Page_Notes::noteChange( int index )
+//{
+//    RichTextNote * note = qobject_cast < RichTextNote * > ( sender() );
 
-    if ( !note )
-        return;
+//    if ( !note )
+//        return;
 
-    switch ( index )
-    {
-    case EventsNote::ChangeTitle:
-        ui->title->setText( note->title() );
-        break;
+//    switch ( index )
+//    {
+//    case EventsNote::ChangeTitle:
+//        ui->title->setText( note->title() );
+//        break;
 
-    case EventsNote::ChangeFontTitle:
-        ui->title->setFont( note->titleFont() );
-        break;
-    }
-}
+//    case EventsNote::ChangeFontTitle:
+//        ui->title->setFont( note->titleFont() );
+//        break;
+//    }
+//}

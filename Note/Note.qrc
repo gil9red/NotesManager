@@ -27,5 +27,6 @@
         <file alias="attach">images/attach.png</file>
         <file alias="attach-panel">images/attach panel.png</file>
         <file alias="find-replace">images/editfindreplace.png</file>
+        <file>Note.qss</file>
     </qresource>
 </RCC>
