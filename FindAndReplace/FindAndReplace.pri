@@ -13,7 +13,7 @@ SOURCES += \
     $$PWD/findfadlineedit.cpp \
     $$PWD/findandreplace.cpp \
     $$PWD/find_highlighter.cpp \
-    FindAndReplace/findshared.cpp
+    $$PWD/findshared.cpp
 
 FORMS += \
     $$PWD/findandreplace.ui

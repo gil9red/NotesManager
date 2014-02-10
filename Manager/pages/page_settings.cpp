@@ -32,6 +32,7 @@
 #include <QMessageBox>
 #include <QFontDialog>
 
+
 Page_Settings::Page_Settings( QWidget * parent )
     : QMainWindow( parent ),
       ui( new Ui::Page_Settings ),
@@ -60,8 +61,9 @@ Page_Settings::Page_Settings( QWidget * parent )
     ui->sBoxHeight->setMinimum( Note::minimalHeight );
     ui->sBoxOpacity->setRange( Note::minimalOpacity * 100, Note::maximalOpacity * 100 );
 
-    ui->lEditTitle->setToolTip( TextTemplateParser::description().join( "\n" ) );
-    ui->tEditText->setToolTip( TextTemplateParser::description().join( "\n" ) );
+    const QString & textTemplateParserToolTip = TextTemplateParser::descriptionToHtmlTable();
+    ui->lEditTitle->setToolTip( textTemplateParserToolTip );
+    ui->tEditText->setToolTip( textTemplateParserToolTip );
 
     QPalette palette = ui->lEditViewTitle->palette();
     palette.setColor( QPalette::Text, Qt::darkGray );

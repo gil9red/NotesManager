@@ -17,6 +17,9 @@ public:
 
     //! Получение списка шаблонов и их значений.
     static QStringList description();
+
+    //! Возврат описания в виде html таблицы.
+    static QString descriptionToHtmlTable();
 };
 
 #endif // TEXTTEMPLATEPARSER_H
