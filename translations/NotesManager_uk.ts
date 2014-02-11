@@ -1405,6 +1405,126 @@
         <source>version</source>
         <translation>версія</translation>
     </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="61"/>
+        <source>the day as number without a leading zero (1 to 31)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="62"/>
+        <source>the day as number with a leading zero (01 to 31)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="63"/>
+        <source>the abbreviated localized day name (e.g. &apos;Mon&apos;)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="64"/>
+        <source>the long localized day name (e.g. &apos;Monday&apos;)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="65"/>
+        <source>the month as number without a leading zero (1-12)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="66"/>
+        <source>the month as number with a leading zero (01-12)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="67"/>
+        <source>the abbreviated localized month name (e.g. &apos;Jan&apos;)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="68"/>
+        <source>the long localized month name (e.g. &apos;January&apos;)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="69"/>
+        <source>the year as two digit number (00-99)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="70"/>
+        <source>the year as four digit number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="72"/>
+        <source>the hour without a leading zero (0 to 23 or 1 to 12 if AM/PM display)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="73"/>
+        <source>the hour with a leading zero (00 to 23 or 01 to 12 if AM/PM display)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="74"/>
+        <source>the minute without a leading zero (0 to 59)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="75"/>
+        <source>the minute with a leading zero (00 to 59)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="76"/>
+        <source>the second without a leading zero (0 to 59)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="77"/>
+        <source>the second with a leading zero (00 to 59)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="78"/>
+        <source>the milliseconds without leading zeroes (0 to 999)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="79"/>
+        <source>the milliseconds with leading zeroes (000 to 999)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="80"/>
+        <source>use AM/PM display. AP will be replaced by either &quot;AM&quot; or &quot;PM&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="81"/>
+        <source>use am/pm display. ap will be replaced by either &quot;am&quot; or &quot;pm&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="83"/>
+        <source>the format, which includes the day and month name,the day number in the month, and the year in full.The day and month names will be short, localized names</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="86"/>
+        <source>ISO 8601 extended format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="87"/>
+        <source>the short format used by the operating system</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="88"/>
+        <source>the long format used by the operating system</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QuaGzipFile</name>
@@ -1726,129 +1846,6 @@
     <message>
         <source>screenshot_%1.png</source>
         <translation type="obsolete">скріншот_%1.png</translation>
-    </message>
-</context>
-<context>
-    <name>TextTemplateParser</name>
-    <message>
-        <location filename="../utils/texttemplateparser.cpp" line="56"/>
-        <source>the day as number without a leading zero (1 to 31)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../utils/texttemplateparser.cpp" line="57"/>
-        <source>the day as number with a leading zero (01 to 31)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../utils/texttemplateparser.cpp" line="60"/>
-        <source>the month as number without a leading zero (1-12)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../utils/texttemplateparser.cpp" line="61"/>
-        <source>the month as number with a leading zero (01-12)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../utils/texttemplateparser.cpp" line="59"/>
-        <source>the long localized day name (e.g. &apos;Monday&apos;)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../utils/texttemplateparser.cpp" line="58"/>
-        <source>the abbreviated localized day name (e.g. &apos;Mon&apos;)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../utils/texttemplateparser.cpp" line="62"/>
-        <source>the abbreviated localized month name (e.g. &apos;Jan&apos;)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../utils/texttemplateparser.cpp" line="63"/>
-        <source>the long localized month name (e.g. &apos;January&apos;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../utils/texttemplateparser.cpp" line="64"/>
-        <source>the year as two digit number (00-99)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../utils/texttemplateparser.cpp" line="65"/>
-        <source>the year as four digit number</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../utils/texttemplateparser.cpp" line="67"/>
-        <source>the hour without a leading zero (0 to 23 or 1 to 12 if AM/PM display)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../utils/texttemplateparser.cpp" line="68"/>
-        <source>the hour with a leading zero (00 to 23 or 01 to 12 if AM/PM display)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../utils/texttemplateparser.cpp" line="69"/>
-        <source>the minute without a leading zero (0 to 59)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../utils/texttemplateparser.cpp" line="70"/>
-        <source>the minute with a leading zero (00 to 59)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../utils/texttemplateparser.cpp" line="71"/>
-        <source>the second without a leading zero (0 to 59)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../utils/texttemplateparser.cpp" line="72"/>
-        <source>the second with a leading zero (00 to 59)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../utils/texttemplateparser.cpp" line="73"/>
-        <source>the milliseconds without leading zeroes (0 to 999)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../utils/texttemplateparser.cpp" line="74"/>
-        <source>the milliseconds with leading zeroes (000 to 999)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../utils/texttemplateparser.cpp" line="75"/>
-        <source>use AM/PM display. AP will be replaced by either &quot;AM&quot; or &quot;PM&quot;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../utils/texttemplateparser.cpp" line="76"/>
-        <source>use am/pm display. ap will be replaced by either &quot;am&quot; or &quot;pm&quot;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../utils/texttemplateparser.cpp" line="78"/>
-        <source>the format, which includes the day and month name,the day number in the month, and the year in full.The day and month names will be short, localized names</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../utils/texttemplateparser.cpp" line="81"/>
-        <source>ISO 8601 extended format</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../utils/texttemplateparser.cpp" line="82"/>
-        <source>the short format used by the operating system</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../utils/texttemplateparser.cpp" line="83"/>
-        <source>the long format used by the operating system</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
