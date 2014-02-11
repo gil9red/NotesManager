@@ -31,13 +31,13 @@ QString TextTemplateParser::get( const QString & text )
             selected = selected.remove( 0, 1 );
             selected = selected.remove( selected.size() - 1, 1 );
 
-            if ( selected == "TextDate" )
+            if ( selected == "td" )
                 replaceText = dateTime.toString( Qt::TextDate );
-            else if ( selected == "ISODate" )
+            else if ( selected == "iso" )
                 replaceText = dateTime.toString( Qt::ISODate );
-            else if ( selected == "SystemLocaleShortDate" )
+            else if ( selected == "short" )
                 replaceText = dateTime.toString( Qt::SystemLocaleShortDate );
-            else if ( selected == "SystemLocaleLongDate" )
+            else if ( selected == "long" )
                 replaceText = dateTime.toString( Qt::SystemLocaleLongDate );
             else
                 replaceText = dateTime.toString( selected );
@@ -55,12 +55,12 @@ QStringList TextTemplateParser::description()
     QStringList list;
     list << QString( "d" )    + "=" + tr( "the day as number without a leading zero (1 to 31)" )
          << QString( "dd" )   + "=" + tr( "the day as number with a leading zero (01 to 31)" )
-         << QString( "ddd" )  + "=" + tr( "the abbreviated localized day name (e.g. 'Mon' to 'Sun')" )
-         << QString( "dddd" ) + "=" + tr( "the long localized day name (e.g. 'Monday' to 'Qt::Sunday')" )
+         << QString( "ddd" )  + "=" + tr( "the abbreviated localized day name (e.g. 'Mon')" )
+         << QString( "dddd" ) + "=" + tr( "the long localized day name (e.g. 'Monday')" )
          << QString( "M" )    + "=" + tr( "the month as number without a leading zero (1-12)" )
          << QString( "MM" )   + "=" + tr( "the month as number with a leading zero (01-12)" )
-         << QString( "MMM" )  + "=" + tr( "the abbreviated localized month name (e.g. 'Jan' to 'Dec')" )
-         << QString( "MMMM" ) + "=" + tr( "the long localized month name (e.g. 'January' to 'December')" )
+         << QString( "MMM" )  + "=" + tr( "the abbreviated localized month name (e.g. 'Jan')" )
+         << QString( "MMMM" ) + "=" + tr( "the long localized month name (e.g. 'January'" )
          << QString( "yy" )   + "=" + tr( "the year as two digit number (00-99)" )
          << QString( "yyyy" ) + "=" + tr( "the year as four digit number" );
 
@@ -74,6 +74,13 @@ QStringList TextTemplateParser::description()
          << QString( "zzz" ) + "=" + tr( "the milliseconds with leading zeroes (000 to 999)" )
          << QString( "AP" )  + "=" + tr( "use AM/PM display. AP will be replaced by either \"AM\" or \"PM\"" )
          << QString( "ap" )  + "=" + tr( "use am/pm display. ap will be replaced by either \"am\" or \"pm\"" );
+
+    list << QString( "td" )    + "=" + tr( "the format, which includes the day and month name,"
+                                           "the day number in the month, and the year in full."
+                                           "The day and month names will be short, localized names" )
+         << QString( "iso" )   + "=" + tr( "ISO 8601 extended format" )
+         << QString( "short" ) + "=" + tr( "the short format used by the operating system" )
+         << QString( "long" )  + "=" + tr( "the long format used by the operating system" );
 
     return list;
 }

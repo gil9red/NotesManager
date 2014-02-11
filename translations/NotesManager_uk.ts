@@ -617,7 +617,7 @@
         <location filename="../Manager/Manager.ui" line="650"/>
         <location filename="../Manager/Manager.ui" line="653"/>
         <location filename="../Manager/Manager.ui" line="656"/>
-        <location filename="../Manager/Manager.cpp" line="62"/>
+        <location filename="../Manager/Manager.cpp" line="150"/>
         <source>Settings</source>
         <translation>Налаштування</translation>
     </message>
@@ -629,7 +629,7 @@
         <location filename="../Manager/Manager.ui" line="635"/>
         <location filename="../Manager/Manager.ui" line="638"/>
         <location filename="../Manager/Manager.ui" line="641"/>
-        <location filename="../Manager/Manager.cpp" line="63"/>
+        <location filename="../Manager/Manager.cpp" line="151"/>
         <source>About</source>
         <translation>Про</translation>
     </message>
@@ -651,7 +651,7 @@
         <location filename="../Manager/Manager.ui" line="282"/>
         <location filename="../Manager/Manager.ui" line="620"/>
         <location filename="../Manager/Manager.ui" line="623"/>
-        <location filename="../Manager/Manager.cpp" line="64"/>
+        <location filename="../Manager/Manager.cpp" line="152"/>
         <source>Quit</source>
         <translation>Вихід</translation>
     </message>
@@ -725,7 +725,7 @@
         <location filename="../Manager/Manager.ui" line="818"/>
         <location filename="../Manager/Manager.ui" line="821"/>
         <location filename="../Manager/Manager.ui" line="824"/>
-        <location filename="../Manager/Manager.cpp" line="53"/>
+        <location filename="../Manager/Manager.cpp" line="141"/>
         <source>On top of all windows</source>
         <translation>На поверх всіх вікон</translation>
     </message>
@@ -856,76 +856,76 @@
         <translation type="unfinished">Відкрито</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="52"/>
+        <location filename="../Manager/Manager.cpp" line="140"/>
         <source>Title</source>
         <translation>Назва</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="52"/>
+        <location filename="../Manager/Manager.cpp" line="140"/>
         <source>Visibility</source>
         <translation>Видимість</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="52"/>
+        <location filename="../Manager/Manager.cpp" line="140"/>
         <source>Created</source>
         <translation>Створений</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="53"/>
+        <location filename="../Manager/Manager.cpp" line="141"/>
         <source>Modified</source>
         <translation>Модифікований</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="54"/>
+        <location filename="../Manager/Manager.cpp" line="142"/>
         <source>Number of attachments</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="60"/>
+        <location filename="../Manager/Manager.cpp" line="148"/>
         <source>Notes</source>
         <translation>Замітка</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="61"/>
+        <location filename="../Manager/Manager.cpp" line="149"/>
         <source>Trash</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="222"/>
+        <location filename="../Manager/Manager.cpp" line="310"/>
         <source>Text formatting</source>
         <translation>Форматування тексту</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="307"/>
+        <location filename="../Manager/Manager.cpp" line="392"/>
         <source>Program to create notes</source>
         <translation>Програма створює замітки</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="315"/>
+        <location filename="../Manager/Manager.cpp" line="400"/>
         <source>Open manager</source>
         <translation>Відкрити менеджер</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="379"/>
-        <location filename="../Manager/Manager.cpp" line="497"/>
-        <location filename="../Manager/Manager.cpp" line="512"/>
-        <location filename="../Manager/Manager.cpp" line="519"/>
+        <location filename="../Manager/Manager.cpp" line="464"/>
+        <location filename="../Manager/Manager.cpp" line="582"/>
+        <location filename="../Manager/Manager.cpp" line="597"/>
+        <location filename="../Manager/Manager.cpp" line="604"/>
         <source>Information</source>
         <translation>Iнформація</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="379"/>
+        <location filename="../Manager/Manager.cpp" line="464"/>
         <source>Application is already running</source>
         <translation>Застосування вже запущений</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="497"/>
-        <location filename="../Manager/Manager.cpp" line="498"/>
+        <location filename="../Manager/Manager.cpp" line="582"/>
+        <location filename="../Manager/Manager.cpp" line="583"/>
         <source>Unable to open documents</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="503"/>
+        <location filename="../Manager/Manager.cpp" line="588"/>
         <source>File notes</source>
         <translation type="unfinished"></translation>
     </message>
@@ -934,45 +934,45 @@
         <translation type="obsolete">Нова нотатка</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="512"/>
-        <location filename="../Manager/Manager.cpp" line="513"/>
+        <location filename="../Manager/Manager.cpp" line="597"/>
+        <location filename="../Manager/Manager.cpp" line="598"/>
         <source>An error occurred while creating the directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="519"/>
-        <location filename="../Manager/Manager.cpp" line="520"/>
+        <location filename="../Manager/Manager.cpp" line="604"/>
+        <location filename="../Manager/Manager.cpp" line="605"/>
         <source>An error occurred while extracting the files and folders notes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="584"/>
-        <location filename="../Manager/Manager.cpp" line="848"/>
+        <location filename="../Manager/Manager.cpp" line="669"/>
+        <location filename="../Manager/Manager.cpp" line="933"/>
         <source>Question</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="584"/>
+        <location filename="../Manager/Manager.cpp" line="669"/>
         <source>Delete all notes?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="791"/>
+        <location filename="../Manager/Manager.cpp" line="876"/>
         <source>copy</source>
         <translation>копія</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="805"/>
+        <location filename="../Manager/Manager.cpp" line="890"/>
         <source>from</source>
         <translation>від</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="848"/>
+        <location filename="../Manager/Manager.cpp" line="933"/>
         <source>Really quit?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="889"/>
+        <location filename="../Manager/Manager.cpp" line="974"/>
         <source>Save completed</source>
         <translation>Зберегти завершена</translation>
     </message>
@@ -1058,7 +1058,7 @@
     </message>
     <message>
         <location filename="../Manager/pages/page_settings.ui" line="98"/>
-        <location filename="../Manager/pages/page_settings.cpp" line="109"/>
+        <location filename="../Manager/pages/page_settings.cpp" line="118"/>
         <source>New note</source>
         <translation type="unfinished">Нова нотатка</translation>
     </message>
@@ -1086,7 +1086,7 @@
     </message>
     <message>
         <location filename="../Manager/pages/page_settings.ui" line="226"/>
-        <location filename="../Manager/pages/page_settings.ui" line="754"/>
+        <location filename="../Manager/pages/page_settings.ui" line="792"/>
         <source>Autosave</source>
         <translation>Автосохранение</translation>
     </message>
@@ -1103,7 +1103,7 @@
     </message>
     <message>
         <location filename="../Manager/pages/page_settings.ui" line="254"/>
-        <location filename="../Manager/pages/page_settings.ui" line="782"/>
+        <location filename="../Manager/pages/page_settings.ui" line="820"/>
         <source> minute(s)</source>
         <translation>хвилина(и)</translation>
     </message>
@@ -1168,12 +1168,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="799"/>
+        <location filename="../Manager/pages/page_settings.ui" line="837"/>
         <source>When you double-click on the title of the note:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="806"/>
+        <location filename="../Manager/pages/page_settings.ui" line="844"/>
         <source>Actions by double-clicking on the title of the note</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1198,27 +1198,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="658"/>
+        <location filename="../Manager/pages/page_settings.ui" line="680"/>
         <source>Titile:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="681"/>
+        <location filename="../Manager/pages/page_settings.ui" line="703"/>
         <source>Title a new note</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="688"/>
+        <location filename="../Manager/pages/page_settings.ui" line="710"/>
         <source>Title font new note</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="706"/>
+        <location filename="../Manager/pages/page_settings.ui" line="744"/>
         <source>Text:</source>
         <translation type="unfinished">Текст:</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="713"/>
+        <location filename="../Manager/pages/page_settings.ui" line="751"/>
         <source>Text of the new notes</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1243,16 +1243,16 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="745"/>
-        <location filename="../Manager/pages/page_settings.ui" line="748"/>
-        <location filename="../Manager/pages/page_settings.ui" line="751"/>
+        <location filename="../Manager/pages/page_settings.ui" line="783"/>
+        <location filename="../Manager/pages/page_settings.ui" line="786"/>
+        <location filename="../Manager/pages/page_settings.ui" line="789"/>
         <source>Autosave notes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="773"/>
-        <location filename="../Manager/pages/page_settings.ui" line="776"/>
-        <location filename="../Manager/pages/page_settings.ui" line="779"/>
+        <location filename="../Manager/pages/page_settings.ui" line="811"/>
+        <location filename="../Manager/pages/page_settings.ui" line="814"/>
+        <location filename="../Manager/pages/page_settings.ui" line="817"/>
         <source>Autosave interval notes</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1261,52 +1261,52 @@
         <translation type="obsolete">Приховати вказівки</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.cpp" line="64"/>
+        <location filename="../Manager/pages/page_settings.cpp" line="73"/>
         <source>do nothing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.cpp" line="65"/>
+        <location filename="../Manager/pages/page_settings.cpp" line="74"/>
         <source>edit the title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.cpp" line="66"/>
+        <location filename="../Manager/pages/page_settings.cpp" line="75"/>
         <source>hide note</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.cpp" line="67"/>
+        <location filename="../Manager/pages/page_settings.cpp" line="76"/>
         <source>delete the note</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.cpp" line="68"/>
+        <location filename="../Manager/pages/page_settings.cpp" line="77"/>
         <source>save as</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.cpp" line="69"/>
+        <location filename="../Manager/pages/page_settings.cpp" line="78"/>
         <source>print notes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.cpp" line="222"/>
+        <location filename="../Manager/pages/page_settings.cpp" line="231"/>
         <source>Restart requires </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.cpp" line="222"/>
+        <location filename="../Manager/pages/page_settings.cpp" line="231"/>
         <source>The language change will take effect after a restart</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.cpp" line="228"/>
+        <location filename="../Manager/pages/page_settings.cpp" line="237"/>
         <source>Settings received and stored</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.cpp" line="156"/>
+        <location filename="../Manager/pages/page_settings.cpp" line="165"/>
         <source>systems language</source>
         <translation>системний мову</translation>
     </message>
@@ -1338,7 +1338,7 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="71"/>
+        <location filename="../Note/RichTextNote.cpp" line="72"/>
         <source>Other</source>
         <translation type="unfinished">Iнший</translation>
     </message>
@@ -1346,62 +1346,62 @@
 <context>
     <name>QTranslator</name>
     <message>
-        <location filename="../Manager/Manager.cpp" line="766"/>
-        <location filename="../Manager/Manager.cpp" line="778"/>
-        <location filename="../Manager/Manager.h" line="94"/>
-        <location filename="../Manager/Manager.h" line="104"/>
-        <location filename="../Manager/Manager.h" line="124"/>
-        <location filename="../Manager/Manager.h" line="134"/>
+        <location filename="../Manager/Manager.cpp" line="72"/>
+        <location filename="../Manager/Manager.cpp" line="82"/>
+        <location filename="../Manager/Manager.cpp" line="101"/>
+        <location filename="../Manager/Manager.cpp" line="111"/>
+        <location filename="../Manager/Manager.cpp" line="851"/>
+        <location filename="../Manager/Manager.cpp" line="863"/>
         <source>yes</source>
         <translation>да</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="766"/>
-        <location filename="../Manager/Manager.cpp" line="778"/>
-        <location filename="../Manager/Manager.h" line="94"/>
-        <location filename="../Manager/Manager.h" line="104"/>
-        <location filename="../Manager/Manager.h" line="124"/>
-        <location filename="../Manager/Manager.h" line="134"/>
+        <location filename="../Manager/Manager.cpp" line="72"/>
+        <location filename="../Manager/Manager.cpp" line="82"/>
+        <location filename="../Manager/Manager.cpp" line="101"/>
+        <location filename="../Manager/Manager.cpp" line="111"/>
+        <location filename="../Manager/Manager.cpp" line="851"/>
+        <location filename="../Manager/Manager.cpp" line="863"/>
         <source>no</source>
         <translation>немає</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="111"/>
+        <location filename="../main.cpp" line="110"/>
         <source>Loading fonts</source>
         <translation>Завантаження шрифтів</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="114"/>
+        <location filename="../main.cpp" line="113"/>
         <source>Loading dictionaries</source>
         <translation>Завантаження словників</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="117"/>
+        <location filename="../main.cpp" line="116"/>
         <source>Creation</source>
         <translation>Creation</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="124"/>
+        <location filename="../main.cpp" line="123"/>
         <source>Loading settings</source>
         <translation>Завантаження налаштувань</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="127"/>
+        <location filename="../main.cpp" line="126"/>
         <source>Loading notes</source>
         <translation>Завантаження замітки</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="130"/>
+        <location filename="../main.cpp" line="129"/>
         <source>Now ready</source>
         <translation>Тепер готовий</translation>
     </message>
     <message>
-        <location filename="../utils/func.h" line="370"/>
+        <location filename="../utils/func.cpp" line="245"/>
         <source>The program creates notes</source>
         <translation>Програма створює замітки</translation>
     </message>
     <message>
-        <location filename="../utils/func.h" line="371"/>
+        <location filename="../utils/func.cpp" line="246"/>
         <source>version</source>
         <translation>версія</translation>
     </message>
@@ -1469,114 +1469,114 @@
         <translation type="obsolete">Відомий панель інструментів</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="197"/>
+        <location filename="../Note/RichTextNote.cpp" line="198"/>
         <source>Toolbar</source>
         <translation>Панель інструментів</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="198"/>
+        <location filename="../Note/RichTextNote.cpp" line="199"/>
         <source>Quick find</source>
         <translation>Швидкий пошук</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="199"/>
-        <location filename="../Note/RichTextNote.cpp" line="296"/>
+        <location filename="../Note/RichTextNote.cpp" line="200"/>
+        <location filename="../Note/RichTextNote.cpp" line="297"/>
         <source>Attach panel</source>
         <translation>Прикріплені файли</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="200"/>
-        <location filename="../Note/RichTextNote.cpp" line="317"/>
+        <location filename="../Note/RichTextNote.cpp" line="201"/>
+        <location filename="../Note/RichTextNote.cpp" line="318"/>
         <source>Find/replace</source>
         <translation>Знайти/замінити</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="201"/>
-        <location filename="../Note/RichTextNote.cpp" line="274"/>
+        <location filename="../Note/RichTextNote.cpp" line="202"/>
+        <location filename="../Note/RichTextNote.cpp" line="275"/>
         <source>Formatting toolbar</source>
         <translation>Форматування панель інструментів</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="203"/>
-        <location filename="../Note/RichTextNote.cpp" line="349"/>
+        <location filename="../Note/RichTextNote.cpp" line="204"/>
+        <location filename="../Note/RichTextNote.cpp" line="351"/>
         <source>Delete</source>
         <translation>Видаляти</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="204"/>
-        <location filename="../Note/RichTextNote.cpp" line="350"/>
+        <location filename="../Note/RichTextNote.cpp" line="205"/>
+        <location filename="../Note/RichTextNote.cpp" line="352"/>
         <source>Set title</source>
         <translation>Встановити назву</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="205"/>
-        <location filename="../Note/RichTextNote.cpp" line="351"/>
+        <location filename="../Note/RichTextNote.cpp" line="206"/>
+        <location filename="../Note/RichTextNote.cpp" line="353"/>
         <source>Set title font</source>
         <translation>Встановити шрифт назву</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="206"/>
-        <location filename="../Note/RichTextNote.cpp" line="352"/>
+        <location filename="../Note/RichTextNote.cpp" line="207"/>
+        <location filename="../Note/RichTextNote.cpp" line="354"/>
         <source>Set title color</source>
         <translation>Встановити назву кольору</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="207"/>
-        <location filename="../Note/RichTextNote.cpp" line="353"/>
+        <location filename="../Note/RichTextNote.cpp" line="208"/>
+        <location filename="../Note/RichTextNote.cpp" line="355"/>
         <source>Set window color</source>
         <translation>Встановіть колір вікна</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="208"/>
-        <location filename="../Note/RichTextNote.cpp" line="355"/>
+        <location filename="../Note/RichTextNote.cpp" line="209"/>
+        <location filename="../Note/RichTextNote.cpp" line="357"/>
         <source>Hide</source>
         <translation>Приховувати</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="209"/>
-        <location filename="../Note/RichTextNote.cpp" line="356"/>
+        <location filename="../Note/RichTextNote.cpp" line="210"/>
+        <location filename="../Note/RichTextNote.cpp" line="358"/>
         <source>On top of all windows</source>
         <translation>На поверх всіх вікон</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="210"/>
-        <location filename="../Note/RichTextNote.cpp" line="357"/>
+        <location filename="../Note/RichTextNote.cpp" line="211"/>
+        <location filename="../Note/RichTextNote.cpp" line="359"/>
         <source>Open</source>
         <translation>Відкрито</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="211"/>
-        <location filename="../Note/RichTextNote.cpp" line="358"/>
+        <location filename="../Note/RichTextNote.cpp" line="212"/>
+        <location filename="../Note/RichTextNote.cpp" line="360"/>
         <source>Save as</source>
         <translation>Зберегти як</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="213"/>
-        <location filename="../Note/RichTextNote.cpp" line="359"/>
+        <location filename="../Note/RichTextNote.cpp" line="214"/>
+        <location filename="../Note/RichTextNote.cpp" line="361"/>
         <source>Print</source>
         <translation>Друк</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="214"/>
-        <location filename="../Note/RichTextNote.cpp" line="360"/>
+        <location filename="../Note/RichTextNote.cpp" line="215"/>
+        <location filename="../Note/RichTextNote.cpp" line="362"/>
         <source>Preview print</source>
         <translation>Попередній друку</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="216"/>
-        <location filename="../Note/RichTextNote.cpp" line="361"/>
+        <location filename="../Note/RichTextNote.cpp" line="217"/>
+        <location filename="../Note/RichTextNote.cpp" line="363"/>
         <source>Save</source>
         <translation>Зберегти</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="217"/>
-        <location filename="../Note/RichTextNote.cpp" line="362"/>
+        <location filename="../Note/RichTextNote.cpp" line="218"/>
+        <location filename="../Note/RichTextNote.cpp" line="364"/>
         <source>Duplicate</source>
         <translation>Дублювати</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="218"/>
-        <location filename="../Note/RichTextNote.cpp" line="363"/>
+        <location filename="../Note/RichTextNote.cpp" line="219"/>
+        <location filename="../Note/RichTextNote.cpp" line="365"/>
         <source>Attach</source>
         <translation>Приєднувати</translation>
     </message>
@@ -1621,26 +1621,26 @@
         <translation type="obsolete">Iнший</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="227"/>
-        <location filename="../Note/RichTextNote.cpp" line="354"/>
-        <location filename="../Note/RichTextNote.cpp" line="396"/>
+        <location filename="../Note/RichTextNote.cpp" line="228"/>
+        <location filename="../Note/RichTextNote.cpp" line="356"/>
+        <location filename="../Note/RichTextNote.cpp" line="398"/>
         <source>Opacity</source>
         <translation>Непрозорість</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="429"/>
+        <location filename="../Note/RichTextNote.cpp" line="431"/>
         <source>Save completed</source>
         <translation type="unfinished">Зберегти завершена</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="530"/>
+        <location filename="../Note/RichTextNote.cpp" line="528"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="530"/>
-        <location filename="../Note/RichTextNote.cpp" line="682"/>
-        <location filename="../Note/RichTextNote.cpp" line="683"/>
+        <location filename="../Note/RichTextNote.cpp" line="528"/>
+        <location filename="../Note/RichTextNote.cpp" line="680"/>
+        <location filename="../Note/RichTextNote.cpp" line="681"/>
         <source>An error occurred saving notes</source>
         <translation>Сталася помилка при збереженні замітки</translation>
     </message>
@@ -1649,7 +1649,7 @@
         <translation type="obsolete">Сталася помилка при читанні нотатки</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="682"/>
+        <location filename="../Note/RichTextNote.cpp" line="680"/>
         <source>Information</source>
         <translation>Iнформація</translation>
     </message>
@@ -1662,70 +1662,193 @@
         <translation type="obsolete">Неможливо перейменувати замітку</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="560"/>
+        <location filename="../Note/RichTextNote.cpp" line="558"/>
         <source>Warning</source>
         <translation>Попередження</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="560"/>
+        <location filename="../Note/RichTextNote.cpp" line="558"/>
         <source>I can not delete</source>
         <translation>Я не можу видалити</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="585"/>
+        <location filename="../Note/RichTextNote.cpp" line="583"/>
         <source>Select title</source>
         <translation>Виберіть назву</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="585"/>
+        <location filename="../Note/RichTextNote.cpp" line="583"/>
         <source>Title: </source>
         <translation>Назва: </translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="594"/>
+        <location filename="../Note/RichTextNote.cpp" line="592"/>
         <source>Select font</source>
         <translation>Вибрати шрифт</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="603"/>
-        <location filename="../Note/RichTextNote.cpp" line="611"/>
+        <location filename="../Note/RichTextNote.cpp" line="601"/>
+        <location filename="../Note/RichTextNote.cpp" line="609"/>
         <source>Select color</source>
         <translation>Вибрати колір</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="624"/>
+        <location filename="../Note/RichTextNote.cpp" line="622"/>
         <source>Select opacity</source>
         <translation>Виберіть непрозорість</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="624"/>
+        <location filename="../Note/RichTextNote.cpp" line="622"/>
         <source>Opacity:</source>
         <translation>Непрозорість:</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="642"/>
+        <location filename="../Note/RichTextNote.cpp" line="640"/>
         <source>File notes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="706"/>
-        <location filename="../Note/RichTextNote.cpp" line="715"/>
+        <location filename="../Note/RichTextNote.cpp" line="704"/>
+        <location filename="../Note/RichTextNote.cpp" line="713"/>
         <source>document</source>
         <translation>документ</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="729"/>
+        <location filename="../Note/RichTextNote.cpp" line="727"/>
         <source>Select the files</source>
         <translation>Виберіть файли</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="749"/>
+        <location filename="../Note/RichTextNote.cpp" line="747"/>
         <source>image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>screenshot_%1.png</source>
         <translation type="obsolete">скріншот_%1.png</translation>
+    </message>
+</context>
+<context>
+    <name>TextTemplateParser</name>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="56"/>
+        <source>the day as number without a leading zero (1 to 31)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="57"/>
+        <source>the day as number with a leading zero (01 to 31)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="60"/>
+        <source>the month as number without a leading zero (1-12)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="61"/>
+        <source>the month as number with a leading zero (01-12)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="59"/>
+        <source>the long localized day name (e.g. &apos;Monday&apos;)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="58"/>
+        <source>the abbreviated localized day name (e.g. &apos;Mon&apos;)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="62"/>
+        <source>the abbreviated localized month name (e.g. &apos;Jan&apos;)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="63"/>
+        <source>the long localized month name (e.g. &apos;January&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="64"/>
+        <source>the year as two digit number (00-99)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="65"/>
+        <source>the year as four digit number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="67"/>
+        <source>the hour without a leading zero (0 to 23 or 1 to 12 if AM/PM display)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="68"/>
+        <source>the hour with a leading zero (00 to 23 or 01 to 12 if AM/PM display)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="69"/>
+        <source>the minute without a leading zero (0 to 59)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="70"/>
+        <source>the minute with a leading zero (00 to 59)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="71"/>
+        <source>the second without a leading zero (0 to 59)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="72"/>
+        <source>the second with a leading zero (00 to 59)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="73"/>
+        <source>the milliseconds without leading zeroes (0 to 999)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="74"/>
+        <source>the milliseconds with leading zeroes (000 to 999)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="75"/>
+        <source>use AM/PM display. AP will be replaced by either &quot;AM&quot; or &quot;PM&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="76"/>
+        <source>use am/pm display. ap will be replaced by either &quot;am&quot; or &quot;pm&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="78"/>
+        <source>the format, which includes the day and month name,the day number in the month, and the year in full.The day and month names will be short, localized names</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="81"/>
+        <source>ISO 8601 extended format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="82"/>
+        <source>the short format used by the operating system</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../utils/texttemplateparser.cpp" line="83"/>
+        <source>the long format used by the operating system</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

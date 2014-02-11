@@ -385,9 +385,6 @@ void Manager::createMenu()
     connect( ui->actionPrintNote, SIGNAL( triggered() ), SLOT( printNote() ) );
     connect( ui->actionPreviewPrintNote, SIGNAL( triggered() ), SLOT( previewPrintNote() ) );
     connect( ui->actionTopNote, SIGNAL( triggered(bool) ), SLOT( setTopNote(bool) ) );
-//    connect( ui->actionReadOnlyNote, SIGNAL( triggered(bool) ), SLOT( setReadOnlyNote(bool) ) );
-
-    // TODO: создать и добавить действия форматирования текста
 }
 void Manager::createTray()
 {
