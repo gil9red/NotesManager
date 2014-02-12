@@ -337,8 +337,10 @@ void Manager::createToolBars()
     }
 
 
-    foreach ( QDockWidget * dock, findChildren < QDockWidget * > () )
-        dock->deleteLater();
+    // Эти виджеты уже больше не нужны, поэтому нужно удалить их
+    delete ui->dockMain;
+    delete ui->dockNote;
+
 
     connect( ui->tButtonAbout, SIGNAL( clicked() ), SLOT( show_page_about() ) );
     connect( ui->tButtonAddNote, SIGNAL( clicked() ), SLOT( addNote() ) );
