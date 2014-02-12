@@ -204,14 +204,21 @@ void Manager::loadNotes()
 {    
     sortModel->setDynamicSortFilter( false );
 
-    foreach ( const QString & path, QDir( getNotesPath() ).entryList( QDir::Dirs | QDir::NoDotAndDotDot ) )
-    {       
+    const QStringList & paths = QDir( getNotesPath() ).entryList( QDir::Dirs | QDir::NoDotAndDotDot );
+    const int count = paths.size();
+    for ( int i = 0; i < count; i++ )
+    {
+        qApp->processEvents();
+
         RichTextNote * note = new RichTextNote();
-        note->setFileName( QDir::fromNativeSeparators( getNotesPath() + "/" + path ) );
+        note->setFileName( QDir::fromNativeSeparators( getNotesPath() + "/" + paths.at( i ) ) );
         note->load();
         note->setModified( false );
         connect( note, SIGNAL( changed(int) ), SLOT( noteChange(int) ) );
+
         model.appendRow( toStandardItems( note ) );
+
+        statusBar()->showMessage( tr( "Uploaded notes %1/%2" ).arg( i + 1 ).arg( count ), 1500 );
     }
 
     sortModel->setDynamicSortFilter( true );

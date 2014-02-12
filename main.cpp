@@ -123,14 +123,16 @@ int main( int argc, char *argv[] )
     splashScreen->setMessage( QTranslator::tr( "Loading settings" ), font );
     manager.readSettings();
 
-    splashScreen->setMessage( QTranslator::tr( "Loading notes" ), font );
-    manager.loadNotes();
+//    splashScreen->setMessage( QTranslator::tr( "Loading notes" ), font );
+//    manager.loadNotes();
 
     splashScreen->setMessage( QTranslator::tr( "Now ready" ), font );
     manager.nowReadyPhase();
 
     qApp->setActiveWindow( &manager );
     splashScreen->deleteLater();
+
+    manager.loadNotes();
 
     QObject::connect( &app, SIGNAL( messageReceived(QString) ), &manager, SLOT( messageReceived(QString) ) );
 
