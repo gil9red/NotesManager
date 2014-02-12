@@ -891,46 +891,41 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="221"/>
-        <source>Uploaded notes %1/%2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Manager/Manager.cpp" line="317"/>
+        <location filename="../Manager/Manager.cpp" line="322"/>
         <source>Text formatting</source>
         <translation>Форматування тексту</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="399"/>
+        <location filename="../Manager/Manager.cpp" line="404"/>
         <source>Program to create notes</source>
         <translation>Програма створює замітки</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="407"/>
+        <location filename="../Manager/Manager.cpp" line="412"/>
         <source>Open manager</source>
         <translation>Відкрити менеджер</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="471"/>
-        <location filename="../Manager/Manager.cpp" line="589"/>
-        <location filename="../Manager/Manager.cpp" line="604"/>
-        <location filename="../Manager/Manager.cpp" line="611"/>
+        <location filename="../Manager/Manager.cpp" line="476"/>
+        <location filename="../Manager/Manager.cpp" line="594"/>
+        <location filename="../Manager/Manager.cpp" line="609"/>
+        <location filename="../Manager/Manager.cpp" line="616"/>
         <source>Information</source>
         <translation>Iнформація</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="471"/>
+        <location filename="../Manager/Manager.cpp" line="476"/>
         <source>Application is already running</source>
         <translation>Застосування вже запущений</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="589"/>
-        <location filename="../Manager/Manager.cpp" line="590"/>
+        <location filename="../Manager/Manager.cpp" line="594"/>
+        <location filename="../Manager/Manager.cpp" line="595"/>
         <source>Unable to open documents</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="595"/>
+        <location filename="../Manager/Manager.cpp" line="600"/>
         <source>File notes</source>
         <translation type="unfinished"></translation>
     </message>
@@ -939,45 +934,50 @@
         <translation type="obsolete">Нова нотатка</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="604"/>
-        <location filename="../Manager/Manager.cpp" line="605"/>
+        <location filename="../Manager/Manager.cpp" line="223"/>
+        <source>Uploaded notes %1 of %2 (%3%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Manager/Manager.cpp" line="609"/>
+        <location filename="../Manager/Manager.cpp" line="610"/>
         <source>An error occurred while creating the directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="611"/>
-        <location filename="../Manager/Manager.cpp" line="612"/>
+        <location filename="../Manager/Manager.cpp" line="616"/>
+        <location filename="../Manager/Manager.cpp" line="617"/>
         <source>An error occurred while extracting the files and folders notes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="676"/>
-        <location filename="../Manager/Manager.cpp" line="940"/>
+        <location filename="../Manager/Manager.cpp" line="681"/>
+        <location filename="../Manager/Manager.cpp" line="945"/>
         <source>Question</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="676"/>
+        <location filename="../Manager/Manager.cpp" line="681"/>
         <source>Delete all notes?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="883"/>
+        <location filename="../Manager/Manager.cpp" line="888"/>
         <source>copy</source>
         <translation>копія</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="897"/>
+        <location filename="../Manager/Manager.cpp" line="902"/>
         <source>from</source>
         <translation>від</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="940"/>
+        <location filename="../Manager/Manager.cpp" line="945"/>
         <source>Really quit?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="981"/>
+        <location filename="../Manager/Manager.cpp" line="986"/>
         <source>Save completed</source>
         <translation>Зберегти завершена</translation>
     </message>
@@ -1355,8 +1355,8 @@
         <location filename="../Manager/Manager.cpp" line="82"/>
         <location filename="../Manager/Manager.cpp" line="101"/>
         <location filename="../Manager/Manager.cpp" line="111"/>
-        <location filename="../Manager/Manager.cpp" line="858"/>
-        <location filename="../Manager/Manager.cpp" line="870"/>
+        <location filename="../Manager/Manager.cpp" line="863"/>
+        <location filename="../Manager/Manager.cpp" line="875"/>
         <source>yes</source>
         <translation>да</translation>
     </message>
@@ -1365,8 +1365,8 @@
         <location filename="../Manager/Manager.cpp" line="82"/>
         <location filename="../Manager/Manager.cpp" line="101"/>
         <location filename="../Manager/Manager.cpp" line="111"/>
-        <location filename="../Manager/Manager.cpp" line="858"/>
-        <location filename="../Manager/Manager.cpp" line="870"/>
+        <location filename="../Manager/Manager.cpp" line="863"/>
+        <location filename="../Manager/Manager.cpp" line="875"/>
         <source>no</source>
         <translation>немає</translation>
     </message>

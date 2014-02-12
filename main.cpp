@@ -72,8 +72,6 @@ static const char codec[] = "utf8";
 // TODO: Заметка -> При сохранить как вставлять в качестве имени заголовок заметки
 // (учитывать, что в ос не все символы в названиях файлов разрешены)
 
-/// TODO: загрузку заметок делать не во время инициализации, а после. прогресс показывать в строке состояния.
-
 QString Note::style = "";
 
 int main( int argc, char *argv[] )
@@ -122,9 +120,6 @@ int main( int argc, char *argv[] )
 
     splashScreen->setMessage( QTranslator::tr( "Loading settings" ), font );
     manager.readSettings();
-
-//    splashScreen->setMessage( QTranslator::tr( "Loading notes" ), font );
-//    manager.loadNotes();
 
     splashScreen->setMessage( QTranslator::tr( "Now ready" ), font );
     manager.nowReadyPhase();

@@ -218,7 +218,12 @@ void Manager::loadNotes()
 
         model.appendRow( toStandardItems( note ) );
 
-        statusBar()->showMessage( tr( "Uploaded notes %1/%2" ).arg( i + 1 ).arg( count ), 1500 );
+        qreal current = i + 1;
+        qreal percentage = current / ( (qreal)count / 100.0 );
+        QString message = tr( "Uploaded notes %1 of %2 (%3%)" );
+        message = message.arg( current ).arg( count ).arg( percentage, 0, 'f', 1 );
+
+        statusBar()->showMessage( message, 1500 );
     }
 
     sortModel->setDynamicSortFilter( true );
