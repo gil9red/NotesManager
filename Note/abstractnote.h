@@ -2,7 +2,7 @@
 **
 ** Copyright (C) 2013-2014 by Ilya Petrash
 ** All rights reserved.
-** Contact: gil9red@gmail.com
+** Contact: gil9red@gmail.com, ip1992@inbox.ru
 **
 ** This program is free software; you can redistribute it and/or modify
 ** it under the terms of the GNU General Public License as published by
@@ -81,7 +81,7 @@ class AbstractNote: public QMainWindow
 public:
     //! Создание и инициализация заметки.
     explicit AbstractNote( QWidget * parent = 0 );
-    ~AbstractNote();
+    virtual ~AbstractNote();
 
     //! Указание центрального виджета.
     /*! Центральный виджет будет размещен на теле заметки.
@@ -156,6 +156,7 @@ protected:
     QMenu contextMenu; //!< Меню заметки
     PropertyAttachable * propertyAttachable; //!< Класс, который дает возможность прикрепляться к краю экрана
     QVariantMap mapSettings;
+    QPixmap shadowPixmap;
 
 public slots:    
     //! Функция устанавливает минимальную дистанцию прикрепления.
@@ -182,29 +183,29 @@ public slots:
      */
     bool isActivateAttachable();
 
-    //! Изменение видимости рамки заметки.
-    /*! \sa visibleFrame() */
-    void setVisibleFrame( bool visible );
+//    //! Изменение видимости рамки заметки.
+//    /*! \sa visibleFrame() */
+//    void setVisibleFrame( bool visible );
 
-    //! Возвращение видимости рамки заметки.
-    /*! \sa setVisibleFrame() */
-    bool visibleFrame();
+//    //! Возвращение видимости рамки заметки.
+//    /*! \sa setVisibleFrame() */
+//    bool visibleFrame();
 
-    //! Изменение толщины рамки заметки.
-    /*! \sa widthPenSides() */
-    void setWidthPenSides( float width );
+//    //! Изменение толщины рамки заметки.
+//    /*! \sa widthPenSides() */
+//    void setWidthPenSides( float width );
 
-    //! Возвращение толщины рамки заметки.
-    /*! \sa setWidthPenSides() */
-    float widthPenSides();
+//    //! Возвращение толщины рамки заметки.
+//    /*! \sa setWidthPenSides() */
+//    float widthPenSides();
 
-    //! Изменение цвета рамки заметки.
-    /*! \sa colorSides() */
-    void setColorSides( const QColor & color );
+//    //! Изменение цвета рамки заметки.
+//    /*! \sa colorSides() */
+//    void setColorSides( const QColor & color );
 
-    //! Возвращение цвета рамки заметки.
-    /*! \sa setColorSides() */
-    QColor colorSides();
+//    //! Возвращение цвета рамки заметки.
+//    /*! \sa setColorSides() */
+//    QColor colorSides();
 
     //! Изменение видимости панели инструментов.
     /*! \sa isVisibleToolBar(), AbstractNoteBody::setVisibleToolBar() */
@@ -290,7 +291,7 @@ protected:
     void contextMenuEvent( QContextMenuEvent * event );
     void showEvent(QShowEvent * event);
     void hideEvent( QHideEvent * event );
-    void paintEvent( QPaintEvent * );
+    void paintEvent(QPaintEvent * event);
 };
 
 //! Класс данных абстрактной заметки.

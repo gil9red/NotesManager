@@ -1,3 +1,26 @@
+/*************************************************************************
+**
+** Copyright (C) 2013-2014 by Ilya Petrash
+** All rights reserved.
+** Contact: gil9red@gmail.com, ip1992@inbox.ru
+**
+** This program is free software; you can redistribute it and/or modify
+** it under the terms of the GNU General Public License as published by
+** the Free Software Foundation; either version 3 of the License, or
+** (at your option) any later version.
+**
+** This program is distributed in the hope that it will be useful,
+** but WITHOUT ANY WARRANTY; without even the implied warranty of
+** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+** GNU General Public License for more details.
+**
+** You should have received a copy of the GNU General Public License
+** along with this program; if not, write to the
+** Free Software Foundation, Inc.,
+** 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+**
+**************************************************************************/
+
 #include "abstractnote.h"
 
 #include <QPainter>
@@ -30,7 +53,8 @@ AbstractNote::AbstractNote( QWidget * parent ) :
     d->colorSides = Note::Frame::color;
     d->widthPenSides = Note::Frame::width;
 
-    setStatusBar( new QStatusBar() );
+    body->setStatusBar( new QStatusBar() );
+    //setStatusBar( new QStatusBar() );
 
     propertyAttachable = new PropertyAttachable( this );
     propertyAttachable->installTo( head );
@@ -51,9 +75,14 @@ AbstractNote::AbstractNote( QWidget * parent ) :
 
     setMinimumSize( Note::minimalWidth, Note::minimalHeight );
     setWindowFlags( Note::flags | Qt::WindowStaysOnTopHint );
-    setVisibleFrame( Note::Frame::visible );
-    setWidthPenSides( Note::Frame::width );
-    setColorSides( Note::Frame::color );
+
+//    setVisibleFrame( Note::Frame::visible );
+//    setWidthPenSides( Note::Frame::width );
+//    setColorSides( Note::Frame::color );
+
+    d->sides = Note::Frame::visible;
+    d->widthPenSides = Note::Frame::width;
+    d->colorSides = Note::Frame::color;
 }
 AbstractNote::~AbstractNote()
 {
@@ -132,35 +161,35 @@ bool AbstractNote::isActivateAttachable()
     return propertyAttachable->isActivate();
 }
 
-void AbstractNote::setVisibleFrame( bool visible )
-{
-    d->sides = visible;
-    update();
-}
-bool AbstractNote::visibleFrame()
-{
-    return d->sides;
-}
+//void AbstractNote::setVisibleFrame( bool visible )
+//{
+//    d->sides = visible;
+//    update();
+//}
+//bool AbstractNote::visibleFrame()
+//{
+//    return d->sides;
+//}
 
-void AbstractNote::setWidthPenSides( float width )
-{
-    d->widthPenSides = width;
-    update();
-}
-float AbstractNote::widthPenSides()
-{
-    return d->widthPenSides;
-}
+//void AbstractNote::setWidthPenSides( float width )
+//{
+//    d->widthPenSides = width;
+//    update();
+//}
+//float AbstractNote::widthPenSides()
+//{
+//    return d->widthPenSides;
+//}
 
-void AbstractNote::setColorSides( const QColor & color )
-{
-    d->colorSides = color;
-    update();
-}
-QColor AbstractNote::colorSides()
-{
-    return d->colorSides;
-}
+//void AbstractNote::setColorSides( const QColor & color )
+//{
+//    d->colorSides = color;
+//    update();
+//}
+//QColor AbstractNote::colorSides()
+//{
+//    return d->colorSides;
+//}
 
 void AbstractNote::setVisibleToolBar( bool visible )
 {
@@ -297,7 +326,7 @@ void AbstractNote::hideEvent( QHideEvent * event )
     emit changed( EventsNote::IHidden );
     emit changed( EventsNote::ChangeVisibility );
 }
-void AbstractNote::paintEvent( QPaintEvent * )
+void AbstractNote::paintEvent( QPaintEvent * event )
 {
     QPainter painter( this );
     painter.setRenderHint( QPainter::Antialiasing );
