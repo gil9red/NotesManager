@@ -32,8 +32,14 @@ namespace Ui
     class Page_notes;
 }
 
-#include "Note/RichTextNote.h"
-#include "Note/AttachPanel.h"
+#include "ui_page_notes.h"
+
+#include <QSettings>
+
+class QDomElement;
+class QDomDocument;
+
+class TrashModelItem;
 
 //! Класс, реализующий виджет "Заметки".
 class Page_Notes: public QMainWindow
@@ -41,65 +47,52 @@ class Page_Notes: public QMainWindow
     Q_OBJECT
     
 public:
-    explicit Page_Notes( QWidget * parent = 0, QAbstractItemModel * m = 0 );
+    explicit Page_Notes( QWidget * parent = 0 );
     ~Page_Notes();
 
-    //! Сортировка указанного столбца.
-    void sort( int column, Qt::SortOrder sort = Qt::AscendingOrder );
-
-    //! Индекс отсортированного столбца.
-    int sortColumn();
-
-    //! Порядок сортировки.
-    Qt::SortOrder sortOrder();
-
-    //! Функция возвращает текущий индекс.
-    QModelIndex currentIndex() const;
-
-    //! Функция возвращает текущий выделенную строку.
-    int currentRow();
-
-    //! Функция возвращает true, если есть выделенные ячейки.
-    bool hasSelection();
-
-//    //! Отобразить содержимое заметки, находящаяся в строке row.
-//    void displayContentNote( int row );
-
-//    //! Очистить с дисплея-виджета содержимое заметки.
-//    void clearContentNote();
-
-    //! В функции указываем с каким классом настроек будем работать.
-    void setSettings( QSettings * s );
-
-//    QTextEdit * editor();
-    QAbstractItemModel * getModel();
-
 private:
-    Ui::Page_notes * ui;                  //!< Форма UI.
-    QAbstractItemModel * model;           //!< Модель хранит заметки.
-    QItemSelectionModel * selectionModel; //!< Модель выделения элементов.
-    QSettings * settings; //!< Класс настройки.
+    BaseModelItem * createItemOfDomElement( const QDomElement & element );
+    void parseDomElement( BaseModelItem * node, QDomElement & element );
+    QDomElement createDomElementOfItem( BaseModelItem * item, QDomDocument & xmlDomDocument );
+    void parseItem( BaseModelItem * node, QDomElement & element, QDomDocument & xmlDomDocument );
+    void removeItem( BaseModelItem * item, BaseModelItem * parent );
 
-public slots:
-    void readSettings();  //!< Считывание настроек.
-    void writeSettings(); //!< Запись настроек.
+public:
+    Ui::Page_notes * ui;
+    QSettings * settings;
+    QStandardItemModel model;
+    TrashModelItem * itemTrash;
+
+    QHash < QStandardItem * , RichTextNote * > hashItemNote;
 
 private slots:
-//    //! Произошел клик на элемент в таблице/списке.
-//    void clicked( const QModelIndex &index );
+    void noteChanged( int event );
+    void noteChanged( QStandardItem * item );
 
-//    //! Обновление состояния.
-//    void updateStates();
+public slots:
+    bool read( QIODevice * device );
+    bool write( QIODevice * device );
 
-    //! Изменение выделения элементов.
-    void selectionChanged(QItemSelection,QItemSelection);
+    void readSettings();
+    void writeSettings();
 
-//    //! Вызывается при срабатывании AbstractNote::changed().
-//    void noteChange( int index );
+    void addTopLevelNote();
+    void addTopLevelFolder();
+    void addFolder();
+    void addNote();
+    void rename();
+    void open();
+    void removeToTrash();
+    void removeAllToTrash();
+    void removeFromTrash();
+    void clearTrash();
 
-signals:
-    //! Вызывается при изменении выделения элементов.
-    void changeSelection();
+    void textColor();
+    void defaultTextColor();
+    void backColor();
+    void defaultBackColor();
+
+    void showContextMenu( const QPoint & pos );
 };
 
 #endif // PAGE_NOTES_H

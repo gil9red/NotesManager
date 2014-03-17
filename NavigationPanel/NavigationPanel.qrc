@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="folder">icons/orange-folder_9492.png</file>
+        <file alias="note">icons/x-office-document-template_1964.png</file>
+    </qresource>
+</RCC>

@@ -45,6 +45,7 @@ AbstractNote::AbstractNote( QWidget * parent ) :
     body( new AbstractNoteBody() )
 {
     setContextMenuPolicy( Qt::DefaultContextMenu );
+    setStatusBar( new QStatusBar() );
 
     d->d_head = head->d;
     d->d_body = body->d;
@@ -52,9 +53,6 @@ AbstractNote::AbstractNote( QWidget * parent ) :
     d->penSides = Shared::Left | Shared::Right | Shared::Top | Shared::Bottom;
     d->colorSides = Note::Frame::color;
     d->widthPenSides = Note::Frame::width;
-
-    body->setStatusBar( new QStatusBar() );
-    //setStatusBar( new QStatusBar() );
 
     propertyAttachable = new PropertyAttachable( this );
     propertyAttachable->installTo( head );
@@ -75,10 +73,6 @@ AbstractNote::AbstractNote( QWidget * parent ) :
 
     setMinimumSize( Note::minimalWidth, Note::minimalHeight );
     setWindowFlags( Note::flags | Qt::WindowStaysOnTopHint );
-
-//    setVisibleFrame( Note::Frame::visible );
-//    setWidthPenSides( Note::Frame::width );
-//    setColorSides( Note::Frame::color );
 
     d->sides = Note::Frame::visible;
     d->widthPenSides = Note::Frame::width;
@@ -160,36 +154,6 @@ bool AbstractNote::isActivateAttachable()
 {
     return propertyAttachable->isActivate();
 }
-
-//void AbstractNote::setVisibleFrame( bool visible )
-//{
-//    d->sides = visible;
-//    update();
-//}
-//bool AbstractNote::visibleFrame()
-//{
-//    return d->sides;
-//}
-
-//void AbstractNote::setWidthPenSides( float width )
-//{
-//    d->widthPenSides = width;
-//    update();
-//}
-//float AbstractNote::widthPenSides()
-//{
-//    return d->widthPenSides;
-//}
-
-//void AbstractNote::setColorSides( const QColor & color )
-//{
-//    d->colorSides = color;
-//    update();
-//}
-//QColor AbstractNote::colorSides()
-//{
-//    return d->colorSides;
-//}
 
 void AbstractNote::setVisibleToolBar( bool visible )
 {

@@ -20,9 +20,6 @@
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
-      <property name="childrenCollapsible">
-       <bool>false</bool>
-      </property>
       <widget class="QTreeWidget" name="treeWidgetMenu">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
@@ -45,27 +42,9 @@
        <property name="alternatingRowColors">
         <bool>false</bool>
        </property>
-       <property name="autoExpandDelay">
-        <number>-2</number>
-       </property>
-       <property name="indentation">
-        <number>10</number>
-       </property>
-       <property name="rootIsDecorated">
-        <bool>true</bool>
-       </property>
-       <property name="itemsExpandable">
-        <bool>true</bool>
-       </property>
-       <property name="animated">
-        <bool>false</bool>
-       </property>
-       <property name="headerHidden">
-        <bool>true</bool>
-       </property>
        <column>
         <property name="text">
-         <string>Menu</string>
+         <string>Settings</string>
         </property>
        </column>
        <item>
@@ -153,8 +132,8 @@
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>252</width>
-              <height>318</height>
+              <width>278</width>
+              <height>378</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout">
@@ -317,7 +296,7 @@
               <x>0</x>
               <y>0</y>
               <width>341</width>
-              <height>301</height>
+              <height>361</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_2">

@@ -42,8 +42,10 @@ static const char codec[] = "utf8";
 #include "Manager/Manager.h"
 #include "utils/func.h"
 #include "utils/mysplashscreen.h"
-#include "version.h"
+#include "appinfo.h"
 #include "QtSingleApplication"
+
+#include "NoteShared.h"
 
 /// TODO: может корзину сделать частью группирования заметок?
 /// TODO: добавить возможность группировки заметок по блокнотам
@@ -76,10 +78,15 @@ static const char codec[] = "utf8";
 
 QString Note::style = "";
 
+#include "RegisterNote.h"
+
 int main( int argc, char *argv[] )
 {
+//    qDebug() << QString::fromLocal8Bit(BUILDDATE);
+
     qsrand( QDateTime().toMSecsSinceEpoch() );
-    QTextCodec::setCodecForCStrings( QTextCodec::codecForName( codec ) );
+    /* TODO: DELETE THIS */QTextCodec::setCodecForTr( QTextCodec::codecForName( codec ) );
+    QTextCodec::setCodecForCStrings( QTextCodec::codecForName( codec ) );    
 
     QtSingleApplication app( argc, argv );
     qApp->setApplicationName( App::name );
@@ -97,6 +104,8 @@ int main( int argc, char *argv[] )
         Note::style = file.readAll();
 
     QSettings * settings = createSettings();
+
+    new RegisterNote();
 
     MySplashScreen * splashScreen = new MySplashScreen();
     QPixmap pixmap = QPixmap( ":/splash" );

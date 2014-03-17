@@ -6,6 +6,10 @@
 #include <QDebug>
 #include <QApplication>
 
+#define WARNING(msg) qWarning("%s\nIn: %s ( %s(%i) )", msg, __FUNCTION__, __FILE__,__LINE__);
+#define CRITICAL(msg) qCritical("%s\nIn: %s ( %s(%i) )", msg, __FUNCTION__, __FILE__,__LINE__);
+#define FATAL(msg) qFatal("%s\nIn: %s ( %s(%i) )", msg, __FUNCTION__, __FILE__,__LINE__);
+
 //! Содержит классы, облегчающие создание объектов, имеющих множество свойств (параметров).
 namespace Create
 {
@@ -213,5 +217,8 @@ QString getTheCurrentLanguageKeyboardLayouts();
 QMessageBox::StandardButton showNewMessageBox( QWidget * parent, QMessageBox::Icon icon, const QString& title, const QString& text,
                                                QMessageBox::StandardButtons buttons, QMessageBox::StandardButton defaultButton,
                                                Qt::WindowFlags f = Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint | Qt::WindowStaysOnTopHint );
+
+#include <QStandardItem>
+int indexChild( QStandardItem * parent, QStandardItem * child );
 
 #endif // FUNC_H

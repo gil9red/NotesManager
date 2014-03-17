@@ -14,22 +14,21 @@
    <string>Notes</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout_2">
+   <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QSplitter" name="splitter">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
-      <widget class="QTreeWidget" name="treeWidgetNotebooks">
-       <column>
-        <property name="text">
-         <string>Notebook</string>
-        </property>
-       </column>
-      </widget>
-      <widget class="QTableView" name="tableView">
+      <widget class="QTreeView" name="treeNotes">
        <property name="editTriggers">
-        <set>QAbstractItemView::NoEditTriggers</set>
+        <set>QAbstractItemView::EditKeyPressed</set>
+       </property>
+       <property name="dragEnabled">
+        <bool>true</bool>
+       </property>
+       <property name="dragDropMode">
+        <enum>QAbstractItemView::InternalMove</enum>
        </property>
        <property name="alternatingRowColors">
         <bool>true</bool>
@@ -40,18 +39,31 @@
        <property name="selectionBehavior">
         <enum>QAbstractItemView::SelectRows</enum>
        </property>
-       <property name="sortingEnabled">
+       <property name="animated">
         <bool>true</bool>
        </property>
-       <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+      </widget>
+      <widget class="NotesTabWidget" name="tabNotes">
+       <property name="tabsClosable">
         <bool>true</bool>
-       </attribute>
+       </property>
+       <property name="movable">
+        <bool>true</bool>
+       </property>
       </widget>
      </widget>
     </item>
    </layout>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>NotesTabWidget</class>
+   <extends>QTabWidget</extends>
+   <header>Manager/pages/notestabwidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -25,7 +25,7 @@
 #include "page_about.h"
 #include "ui_page_about.h"
 
-#include "version.h"
+#include "appinfo.h"
 #include <QFile>
 #include <QTextStream>
 #include <QDesktopServices>

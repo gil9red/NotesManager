@@ -124,7 +124,7 @@ bool RichTextNote::isModified()
 
 void RichTextNote::createNew( bool bsave )
 {
-    QString path = "New note_" + QDateTime::currentDateTime().toString( "yyyy-MM-dd_hh-mm-ss__zzz" );
+    QString path = "Note_" + QDateTime::currentDateTime().toString( "yyyy-MM-dd_hh-mm-ss__zzz" );
     setFileName( QDir::fromNativeSeparators( getNotesPath() + "/" + path ) );
 
     load();
@@ -189,6 +189,9 @@ void RichTextNote::init()
     setupGUI();
 
     updateStates();
+
+    setVisibleToolBar( false );
+    quickFind->hide();
 
     connect( &d->timerAutosave, SIGNAL( timeout() ), SLOT( save() ) );
     connect( this, SIGNAL( doubleClickHead() ), SLOT( doubleClickingOnTitle() ) );

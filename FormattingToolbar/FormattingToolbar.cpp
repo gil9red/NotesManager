@@ -106,7 +106,6 @@ QList < QToolBar * > FormattingToolbar::toolBars()
     toolBar1->setObjectName( "FormattingToolbar_Fonts" );
     toolBar1->addWidget( ui->fontComboBox );
     toolBar1->addWidget( ui->comboBoxFontSize );
-    toolBar1->addSeparator();
     toolBar1->addWidget( ui->tButtonIncreaseSizeFont );
     toolBar1->addWidget( ui->tButtonDecreaseSizeFont );
 
@@ -115,9 +114,7 @@ QList < QToolBar * > FormattingToolbar::toolBars()
     toolBar2->setObjectName( "FormattingToolbar_Formatting" );
     toolBar2->addWidget( ui->tButtonBold );
     toolBar2->addWidget( ui->tButtonItalic );
-    toolBar2->addSeparator();
     toolBar2->addWidget( ui->tButtonTextColor );
-    toolBar2->addSeparator();
     toolBar2->addWidget( ui->tButtonSubScript );
     toolBar2->addWidget( ui->tButtonSuperScript );
 
@@ -147,7 +144,6 @@ QList < QToolBar * > FormattingToolbar::toolBars()
     toolBar6->setObjectName( "FormattingToolbar_Others" );
     toolBar6->addWidget( ui->tButtonInsertHLine );
     toolBar6->addWidget( ui->tButtonEraser );
-    toolBar6->addSeparator();
     toolBar6->addWidget( ui->tButtonLower );
     toolBar6->addWidget( ui->tButtonUpper );
 

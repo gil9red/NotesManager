@@ -156,7 +156,6 @@ protected:
     QMenu contextMenu; //!< Меню заметки
     PropertyAttachable * propertyAttachable; //!< Класс, который дает возможность прикрепляться к краю экрана
     QVariantMap mapSettings;
-    QPixmap shadowPixmap;
 
 public slots:    
     //! Функция устанавливает минимальную дистанцию прикрепления.
@@ -182,30 +181,6 @@ public slots:
      *  \sa PropertyAttachable::isActivate(), setActivate()
      */
     bool isActivateAttachable();
-
-//    //! Изменение видимости рамки заметки.
-//    /*! \sa visibleFrame() */
-//    void setVisibleFrame( bool visible );
-
-//    //! Возвращение видимости рамки заметки.
-//    /*! \sa setVisibleFrame() */
-//    bool visibleFrame();
-
-//    //! Изменение толщины рамки заметки.
-//    /*! \sa widthPenSides() */
-//    void setWidthPenSides( float width );
-
-//    //! Возвращение толщины рамки заметки.
-//    /*! \sa setWidthPenSides() */
-//    float widthPenSides();
-
-//    //! Изменение цвета рамки заметки.
-//    /*! \sa colorSides() */
-//    void setColorSides( const QColor & color );
-
-//    //! Возвращение цвета рамки заметки.
-//    /*! \sa setColorSides() */
-//    QColor colorSides();
 
     //! Изменение видимости панели инструментов.
     /*! \sa isVisibleToolBar(), AbstractNoteBody::setVisibleToolBar() */

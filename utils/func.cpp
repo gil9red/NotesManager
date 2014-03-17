@@ -410,3 +410,12 @@ QMessageBox::StandardButton showNewMessageBox( QWidget * parent, QMessageBox::Ic
 
     return msgBox.standardButton(msgBox.clickedButton());
 }
+
+
+int indexChild( QStandardItem * parent, QStandardItem * child  )
+{
+    for ( int i = 0; i < parent->rowCount(); i++ )
+        if ( parent->child(i) == child )
+            return i;
+    return -1;
+}
