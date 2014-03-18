@@ -71,12 +71,18 @@ private:
 public:
     static Manager * self;                //!< Статичный указатель на "себя".
     Ui::Manager * ui;                     //!< Форма UI.
-    FancyTabBar * leftPanel;              //!< Главная панель менеджера. Находится слева.
     Page_Notes * pageNotes;               //!< Страница менеджера, которая отображает список заметок.
     Page_Settings * pageSettings;         //!< Страница менеджера, которая отображает настройки программы.
     Page_About * pageAbout;               //!< Страница менеджера, которая отображает "О программе".
     QSystemTrayIcon tray;                 //!< Класс системного трея.
     QAction * actionOpenManager;          //!< Показ окна менеджера. Действие в меню трея.
+    QAction * actionAddNote;              //!< Создать заметку. Действие в меню трея.
+    QAction * actionAddNoteFromClipboard; //!< Создать заметку и содержимое брать из буфера обмена. Действие в меню трея.
+    QAction * actionAddNoteFromScreen;    //!< Создать заметку и содержимое брать из скриншота. Действие в меню трея.
+    QAction * actionShowAllNotes;         //!< Показать все заметки. Действие в меню трея.
+    QAction * actionHideAllNotes;         //!< Скрыть все заметки. Действие в меню трея.
+    QAction * actionSaveAllNotes;         //!< Сохранить все заметки. Действие в меню трея.
+    QAction * actionRemoveAllNotes;       //!< Удалить все заметки. Действие в меню трея.
     QAction * actionSettings;             //!< Показать настройки менеджера. Действие в меню трея.
     QAction * actionAbout;                //!< Показ окна "О программе". Действие в меню трея.
     QAction * actionQuit;                 //!< Сохранить все заметки и закрыть программу. Действие в меню трея.
@@ -106,6 +112,8 @@ public slots:
     void readSettings();  //!< Считывание настроек менеджера.
     void writeSettings(); //!< Запись настроек менеджера.
 
+    void setVisibleLeftPanel( bool visible );
+    bool isVisibleLeftPanel();
     void setActivateTimerAutosave( bool activate ); //!< Активация таймера автосохранения.
     bool isActivateTimerAutosave();                 //!< Функция вернет true, если таймер автосохранения активен.
     void setIntervalAutosave( quint64 minutes );    //!< Установка интервала таймера автосохранения.

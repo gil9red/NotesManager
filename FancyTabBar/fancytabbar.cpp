@@ -43,30 +43,12 @@ const int FancyTabBar::m_textPadding = 4;
 FancyTabBar::FancyTabBar(const TabBarPosition::Position position, QWidget *parent)
     : QWidget(parent), mPosition(position)
 {
-    mHoverIndex = -1;
-    mCurrentIndex = -1;
-
-    if(mPosition == TabBarPosition::Above || mPosition == TabBarPosition::Below)
-    {
-        setMinimumHeight(qMax(2 * m_rounding, 40));
-        setMaximumHeight(tabSizeHint(false).height());
-        setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-    }
-    else
-    {
-        setMinimumWidth(qMax(2 * m_rounding, 40));
-        setMaximumWidth(tabSizeHint(false).width());
-        setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
-    }
-
-    setStyle(new QWindowsStyle);
-    setAttribute(Qt::WA_Hover, true);
-    setFocusPolicy(Qt::NoFocus);
-    setMouseTracking(true); // Needed for hover events
-    mTimerTriggerChangedSignal.setSingleShot(true);
-
-    // We use a zerotimer to keep the sidebar responsive
-    connect(&mTimerTriggerChangedSignal, SIGNAL(timeout()), this, SLOT(emitCurrentIndex()));
+    init();
+}
+FancyTabBar::FancyTabBar( QWidget * parent )
+    : QWidget( parent ), mPosition( TabBarPosition::Left )
+{
+    init();
 }
 
 FancyTabBar::~FancyTabBar()
@@ -93,6 +75,33 @@ QSize FancyTabBar::tabSizeHint(bool minimum) const
     return QSize(qMax(width, maxLabelwidth + 4), iconHeight + spacing + fm.height());
 }
 
+void FancyTabBar::init()
+{
+    mHoverIndex = -1;
+    mCurrentIndex = -1;
+
+    if(mPosition == TabBarPosition::Above || mPosition == TabBarPosition::Below)
+    {
+        setMinimumHeight(qMax(2 * m_rounding, 40));
+        setMaximumHeight(tabSizeHint(false).height());
+        setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+    }
+    else
+    {
+        setMinimumWidth(qMax(2 * m_rounding, 40));
+        setMaximumWidth(tabSizeHint(false).width());
+        setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
+    }
+
+    setStyle(new QWindowsStyle);
+    setAttribute(Qt::WA_Hover, true);
+    setFocusPolicy(Qt::NoFocus);
+    setMouseTracking(true); // Needed for hover events
+    mTimerTriggerChangedSignal.setSingleShot(true);
+
+    // We use a zerotimer to keep the sidebar responsive
+    connect(&mTimerTriggerChangedSignal, SIGNAL(timeout()), this, SLOT(emitCurrentIndex()));
+}
 QPoint FancyTabBar::getCorner(const QRect& rect, const Corner::Corner corner) const
 {
     if(mPosition == TabBarPosition::Above)

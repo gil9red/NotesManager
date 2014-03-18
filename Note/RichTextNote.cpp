@@ -190,8 +190,9 @@ void RichTextNote::init()
 
     updateStates();
 
+    // NOTE: лучше сделать или по умолчанию скрытым, или с настраиваемой видимостью
     setVisibleToolBar( false );
-    quickFind->hide();
+    quickFind->setVisible( false );
 
     connect( &d->timerAutosave, SIGNAL( timeout() ), SLOT( save() ) );
     connect( this, SIGNAL( doubleClickHead() ), SLOT( doubleClickingOnTitle() ) );

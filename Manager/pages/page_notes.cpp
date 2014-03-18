@@ -107,7 +107,8 @@ BaseModelItem * Page_Notes::createItemOfDomElement( const QDomElement & element 
 
         if ( item->isNote() )
         {
-            RichTextNote * note = new RichTextNote( element.attribute( "note" ) );
+            const QString & absoluteFilePath = QDir( getNotesPath() ).absoluteFilePath( element.attribute( "note" ) );
+            RichTextNote * note = new RichTextNote( absoluteFilePath );
             note->load();
 
             NoteModelItem * noteItem = static_cast < NoteModelItem * > ( item );
@@ -150,7 +151,9 @@ QDomElement Page_Notes::createDomElementOfItem( BaseModelItem * item, QDomDocume
         {
             NoteModelItem * noteItem = static_cast < NoteModelItem * > ( item );
             RichTextNote * note = noteItem->note();
-            element.setAttribute( "note", note->fileName() );
+
+            const QString & relativeFilePath = QDir( getNotesPath() ).relativeFilePath( note->fileName() );
+            element.setAttribute( "note", relativeFilePath );
 
             note->save(); // TODO: remove this
         }

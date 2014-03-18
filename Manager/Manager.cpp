@@ -47,18 +47,13 @@ Manager::Manager( QWidget * parent ) :
     self = this;       
     ui->setupUi( this );
 
-    leftPanel = new FancyTabBar( TabBarPosition::Left );
-    leftPanel->addTab( QIcon( ":/notebook" ), tr( "Notes" ) );
-    leftPanel->addTab( QIcon( ":/settings" ), tr( "Settings" ) );
-    leftPanel->addTab( QIcon( ":/about" ),    tr( "About" ) );
-    leftPanel->addTab( QIcon( ":/quit" ),     tr( "Quit" ) );
-    leftPanel->setCurrentIndex( 0 );
-    connect( leftPanel, SIGNAL( currentChanged(int) ), SLOT( buttonLeftPanelClicked(int) ) );
+    ui->leftPanel->addTab( QIcon( ":/notebook" ), tr( "Notes" ) );
+    ui->leftPanel->addTab( QIcon( ":/settings" ), tr( "Settings" ) );
+    ui->leftPanel->addTab( QIcon( ":/about" ),    tr( "About" ) );
+    ui->leftPanel->addTab( QIcon( ":/quit" ),     tr( "Quit" ) );
+    ui->leftPanel->setCurrentIndex( 0 );
+    connect( ui->leftPanel, SIGNAL( currentChanged(int) ), SLOT( buttonLeftPanelClicked(int) ) );
 
-    ui->panel->setLayout( new QVBoxLayout() );
-    ui->panel->layout()->setMargin( 0 );
-    ui->panel->layout()->addWidget( leftPanel );
-    ui->panel->setSizePolicy( QSizePolicy::Fixed, ui->panel->sizePolicy().verticalPolicy() );
 
     pageNotes = new Page_Notes( this );
     pageSettings = new Page_Settings();
@@ -70,7 +65,7 @@ Manager::Manager( QWidget * parent ) :
     ui->stackedWidget_Pages->addWidget( pageNotes );
     ui->stackedWidget_Pages->addWidget( pageSettings );
     ui->stackedWidget_Pages->addWidget( pageAbout );
-    ui->stackedWidget_Pages->setCurrentIndex( leftPanel->currentIndex() );
+    ui->stackedWidget_Pages->setCurrentIndex( ui->leftPanel->currentIndex() );
 
     createMenu();
     createToolBars();
@@ -127,26 +122,119 @@ void Manager::createToolBars()
     connect( actionMain, SIGNAL( triggered(bool) ), toolbarMain, SLOT( setVisible(bool) ) );
     connect( toolbarMain, SIGNAL( visibilityChanged(bool) ), actionMain, SLOT( setChecked(bool) ) );
 
+
     addToolBar( toolbarMain );
 
+    toolbarMain->addWidget( ui->tButtonAddNote );
+    toolbarMain->addWidget( ui->tButtonAddNoteFromClipboard );
+    toolbarMain->addWidget( ui->tButtonAddNoteFromScreen );
+
+    if ( Completer::instance()->count() )
+    {
+        toolbarMain->addSeparator();
+        toolbarMain->addWidget( ui->tButtonOpenDict );
+        toolbarMain->addWidget( ui->tButtonCloseDict );
+    }
+    toolbarMain->addSeparator();
+    toolbarMain->addWidget( ui->tButtonDuplicateNote );
+    toolbarMain->addWidget( ui->tButtonRemoveNote );
+    toolbarMain->addWidget( ui->tButtonRemoveAllNotes );
+    toolbarMain->addWidget( ui->tButtonSaveAllNotes );
     toolbarMain->addSeparator();
     toolbarMain->addWidget( ui->tButtonSettings );
     toolbarMain->addWidget( ui->tButtonAbout );
     toolbarMain->addWidget( ui->tButtonQuit );
 
+
+    QToolBar * toolbarNote = addToolBar( ui->dockNote->windowTitle() );
+    toolbarNote->setObjectName( ui->dockNote->windowTitle() );
+    toolbarNote->setAllowedAreas( allowedAreas );
+
+    QAction * actionNote = ui->menuToolbars->addAction( QIcon( "" ), ui->dockNote->windowTitle() );
+    actionNote->setCheckable( true );
+    actionNote->setChecked( toolbarNote->isVisible() );
+
+    connect( actionNote, SIGNAL( triggered(bool) ), toolbarNote, SLOT( setVisible(bool) ) );
+    connect( toolbarNote, SIGNAL( visibilityChanged(bool) ), actionNote, SLOT( setChecked(bool) ) );
+
+    addToolBar( toolbarNote );
+
+    toolbarNote->addWidget( ui->tButtonSaveNote );
+    toolbarNote->addWidget( ui->tButtonSaveNoteAs );
+    toolbarNote->addSeparator();
+    toolbarNote->addWidget( ui->tButtonShowNote );
+    toolbarNote->addWidget( ui->tButtonHideNote );
+    toolbarMain->addWidget( ui->tButtonShowAllNotes );
+    toolbarMain->addWidget( ui->tButtonHideAllNotes );
+    toolbarNote->addSeparator();
+    toolbarNote->addWidget( ui->tButtonPrintNote );
+    toolbarNote->addWidget( ui->tButtonPreviewPrintNote );
+    toolbarNote->addSeparator();
+    toolbarNote->addWidget( ui->tButtonTopNote );
+
     // Эти виджеты уже больше не нужны, поэтому нужно удалить их
     delete ui->dockMain;
+    delete ui->dockNote;
 
     connect( ui->tButtonAbout, SIGNAL( clicked() ), SLOT( show_page_about() ) );
+    connect( ui->tButtonAddNote, SIGNAL( clicked() ), SLOT( addNote() ) );
+    connect( ui->tButtonAddNoteFromClipboard, SIGNAL( clicked() ), SLOT( addNoteFromClipboard() ) );
+    connect( ui->tButtonAddNoteFromScreen, SIGNAL( clicked() ), SLOT( addNoteFromScreen() ) );
+    connect( ui->tButtonRemoveAllNotes, SIGNAL( clicked() ), SLOT( removeAllNotes() ) );
+    connect( ui->tButtonSaveAllNotes, SIGNAL( clicked() ), SLOT( saveAllNotes() ) );
+    connect( ui->tButtonShowAllNotes, SIGNAL( clicked() ), SLOT( showAllNotes() ) );
+    connect( ui->tButtonHideAllNotes, SIGNAL( clicked() ), SLOT( hideAllNotes() ) );
     connect( ui->tButtonQuit, SIGNAL( clicked() ), SLOT( quit() ) );
     connect( ui->tButtonSettings, SIGNAL( clicked() ), SLOT( show_page_settings() ) );
+    connect( ui->tButtonOpenDict, SIGNAL( clicked() ), SLOT( openDictionary() ) );
+    connect( ui->tButtonCloseDict, SIGNAL( clicked() ), SLOT( closeDictionary() ) );
+
+    connect( ui->tButtonRemoveNote, SIGNAL( clicked() ), SLOT( removeNote() ) );
+    connect( ui->tButtonDuplicateNote, SIGNAL( clicked() ), SLOT( duplicateNote() ) );
+    connect( ui->tButtonSaveNoteAs, SIGNAL( clicked() ), SLOT( saveAsNote() ) );
+    connect( ui->tButtonSaveNote, SIGNAL( clicked() ), SLOT( saveNote() ) );
+    connect( ui->tButtonShowNote, SIGNAL( clicked() ), SLOT( showNote() ) );
+    connect( ui->tButtonHideNote, SIGNAL( clicked() ), SLOT( hideNote() ) );
+    connect( ui->tButtonPrintNote, SIGNAL( clicked() ), SLOT( printNote() ) );
+    connect( ui->tButtonPreviewPrintNote, SIGNAL( clicked() ), SLOT( previewPrintNote() ) );
+    connect( ui->tButtonTopNote, SIGNAL( clicked(bool) ), SLOT( setTopNote(bool) ) );
 }
 void Manager::createMenu()
 {
+    // если словарь пуст
+    if ( !Completer::instance()->count() )
+    {
+        ui->actionOpenDict->setVisible( false );
+        ui->actionCloseDict->setVisible( false );
+    }
+
+    connect( ui->actionVisibleLeftPanel, SIGNAL( triggered(bool) ), SLOT( setVisibleLeftPanel(bool) ) );
+
     connect( ui->actionAbout, SIGNAL( triggered() ), SLOT( show_page_about() ) );
     connect( ui->actionDocumentation, SIGNAL( triggered() ), SLOT( show_page_documentation() ) );
+    connect( ui->actionOpen, SIGNAL( triggered() ), SLOT( open() ) );
+    connect( ui->actionAddNote, SIGNAL( triggered() ), SLOT( addNote() ) );
+    connect( ui->actionAddNoteFromClipboard, SIGNAL( triggered() ), SLOT( addNoteFromClipboard() ) );
+    connect( ui->actionAddNoteFromScreen, SIGNAL( triggered() ), SLOT( addNoteFromScreen() ) );
+    connect( ui->actionRemoveAllNotes, SIGNAL( triggered() ), SLOT( removeAllNotes() ) );
+    connect( ui->actionSaveAllNotes, SIGNAL( triggered() ), SLOT( saveAllNotes() ) );
+    connect( ui->actionShowAllNotes, SIGNAL( triggered() ), SLOT( showAllNotes() ) );
+    connect( ui->actionHideAllNotes, SIGNAL( triggered() ), SLOT( hideAllNotes() ) );
     connect( ui->actionQuit, SIGNAL( triggered() ), SLOT( quit() ) );
     connect( ui->actionSettings, SIGNAL( triggered() ), SLOT( show_page_settings() ) );
+    connect( ui->actionOpenDict, SIGNAL( triggered() ), SLOT( openDictionary() ) );
+    connect( ui->actionCloseDict, SIGNAL( triggered() ), SLOT( closeDictionary() ) );
+
+    connect( ui->actionRemoveNote, SIGNAL( triggered() ), SLOT( removeNote() ) );
+    connect( ui->actionDuplicateNote, SIGNAL( triggered() ), SLOT( duplicateNote() ) );
+
+    connect( ui->actionSaveNoteAs, SIGNAL( triggered() ), SLOT( saveAsNote() ) );
+    connect( ui->actionSaveNote, SIGNAL( triggered() ), SLOT( saveNote() ) );
+    connect( ui->actionShowNote, SIGNAL( triggered() ), SLOT( showNote() ) );
+    connect( ui->actionHideNote, SIGNAL( triggered() ), SLOT( hideNote() ) );
+    connect( ui->actionPrintNote, SIGNAL( triggered() ), SLOT( printNote() ) );
+    connect( ui->actionPreviewPrintNote, SIGNAL( triggered() ), SLOT( previewPrintNote() ) );
+    connect( ui->actionTopNote, SIGNAL( triggered(bool) ), SLOT( setTopNote(bool) ) );
 }
 void Manager::createTray()
 {
@@ -160,16 +248,32 @@ void Manager::createTray()
     tray.show();
 
     actionOpenManager = Create::Action::triggered( QIcon( "" ), tr( "Open manager" ), this, SLOT( show_Manager() ) );
+    actionAddNote = Create::Action::triggered( QIcon( ":/add" ), ui->tButtonAddNote->text(), this, SLOT( addNote() ) );
+    actionAddNoteFromClipboard = Create::Action::triggered( QIcon( ":/add-from_clipboard" ), ui->tButtonAddNoteFromClipboard->text(), this, SLOT( addNoteFromClipboard() ) );
+    actionAddNoteFromScreen = Create::Action::triggered( QIcon( ":/screenshot" ), ui->tButtonAddNoteFromScreen->text(), this, SLOT( addNoteFromScreen() ) );
+    actionShowAllNotes = Create::Action::triggered( QIcon( ":/show_all" ), ui->tButtonShowAllNotes->text(), this, SLOT( showAllNotes() ) );
+    actionHideAllNotes = Create::Action::triggered( QIcon( ":/hide_all" ), ui->tButtonHideAllNotes->text(), this, SLOT( hideAllNotes() ) );
+    actionSaveAllNotes = Create::Action::triggered( QIcon( ":/save_all" ), ui->tButtonSaveAllNotes->text(), this, SLOT( saveAllNotes() ) );
+    actionRemoveAllNotes = Create::Action::triggered( QIcon( ":/remove_all" ), ui->tButtonRemoveAllNotes->text(), this, SLOT( removeAllNotes() ) );
     actionSettings = Create::Action::triggered( QIcon( ":/settings" ), ui->tButtonSettings->text(), this, SLOT( show_page_settings() ) );
     actionAbout = Create::Action::triggered( QIcon( ":/about" ), ui->tButtonAbout->text(), this, SLOT( show_page_about() ) );
     actionQuit = Create::Action::triggered( QIcon( ":/quit" ), ui->tButtonQuit->text(), this, SLOT( quit() ) );
 
     trayMenu->addAction( actionOpenManager );
     trayMenu->addSeparator();
+    trayMenu->addAction( actionAddNote );
+    trayMenu->addAction( actionAddNoteFromClipboard );
+    trayMenu->addAction( actionAddNoteFromScreen );
+    trayMenu->addSeparator();
+    trayMenu->addAction( actionShowAllNotes );
+    trayMenu->addAction( actionHideAllNotes );
+    trayMenu->addSeparator();
+    trayMenu->addAction( actionSaveAllNotes );
+    trayMenu->addAction( actionRemoveAllNotes );
+    trayMenu->addSeparator();
     trayMenu->addAction( actionSettings );
     trayMenu->addSeparator();
     trayMenu->addAction( actionAbout );
-    trayMenu->addAction( actionQuit );
 }
 
 void Manager::buttonLeftPanelClicked( int index )
@@ -226,17 +330,17 @@ void Manager::acceptChangeSettings()
 void Manager::show_page_notes()
 {
     show_Manager();
-    leftPanel->setCurrentIndex( 0 );
+    ui->leftPanel->setCurrentIndex( 0 );
 }
 void Manager::show_page_settings()
 {
     show_Manager();
-    leftPanel->setCurrentIndex( 1 );
+    ui->leftPanel->setCurrentIndex( 1 );
 }
 void Manager::show_page_about()
 {
     show_Manager();
-    leftPanel->setCurrentIndex( 2 );
+    ui->leftPanel->setCurrentIndex( 2 );
 }
 void Manager::show_page_documentation()
 {
@@ -284,7 +388,7 @@ void Manager::readSettings()
     settings->beginGroup( "Manager" );
     restoreGeometry( settings->value( "Geometry" ).toByteArray() );
     restoreState( settings->value( "State" ).toByteArray() );
-
+    setVisibleLeftPanel( settings->value( "LeftPanel_Visible", true ).toBool() );
     settings->endGroup();
 
     pageNotes->readSettings();
@@ -299,6 +403,7 @@ void Manager::writeSettings()
     settings->beginGroup( "Manager" );
     settings->setValue( "Geometry", saveGeometry() );
     settings->setValue( "State", saveState() );
+    settings->setValue( "LeftPanel_Visible", isVisibleLeftPanel() );
     settings->endGroup();
 
     pageNotes->writeSettings();
@@ -319,6 +424,15 @@ void Manager::writeSettings()
     pageNotes->write( &file );
 }
 
+void Manager::setVisibleLeftPanel( bool visible )
+{
+    ui->leftPanel->setVisible( visible );
+    ui->actionVisibleLeftPanel->setChecked( visible );
+}
+bool Manager::isVisibleLeftPanel()
+{
+    return ui->leftPanel->isVisible();
+}
 void Manager::setActivateTimerAutosave( bool activate )
 {
     if ( activate )

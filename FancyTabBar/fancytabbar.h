@@ -53,8 +53,9 @@ class FancyTabBar : public QWidget
 {
     Q_OBJECT
 
-public:
+public:    
     FancyTabBar(const TabBarPosition::Position position, QWidget *parent = 0);
+    FancyTabBar( QWidget * parent = 0 );
     ~FancyTabBar();
 
     bool event(QEvent *event);
@@ -113,6 +114,7 @@ public slots:
     void emitCurrentIndex();
 
 private:
+    void init();
     QPoint getCorner(const QRect& rect, const Corner::Corner corner) const;
     QRect adjustRect(const QRect& rect, const qint8 offsetOutside, const qint8 offsetInside, const qint8 offsetStart, const qint8 offsetEnd) const;
 
