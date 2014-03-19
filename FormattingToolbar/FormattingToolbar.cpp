@@ -1,27 +1,3 @@
-/*************************************************************************
-**
-** Copyright (C) 2013-2014 by Ilya Petrash
-** All rights reserved.
-** Contact: gil9red@gmail.com, ip1992@inbox.ru
-**
-** This program is free software; you can redistribute it and/or modify
-** it under the terms of the GNU General Public License as published by
-** the Free Software Foundation; either version 3 of the License, or
-** (at your option) any later version.
-**
-** This program is distributed in the hope that it will be useful,
-** but WITHOUT ANY WARRANTY; without even the implied warranty of
-** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-** GNU General Public License for more details.
-**
-** You should have received a copy of the GNU General Public License
-** along with this program; if not, write to the
-** Free Software Foundation, Inc.,
-** 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
-**
-**************************************************************************/
-
-
 #include "FormattingToolbar.h"
 #include "ui_FormattingToolbar.h"
 #include "Note/RichTextNote.h"
@@ -148,6 +124,40 @@ QList < QToolBar * > FormattingToolbar::toolBars()
     toolBar6->addWidget( ui->tButtonUpper );
 
     return QList < QToolBar * > () << toolBar1 << toolBar2 << toolBar3 << toolBar4 << toolBar5 << toolBar6;
+}
+QToolBar * FormattingToolbar::mainToolBar()
+{
+    QToolBar * toolBar = new QToolBar( tr( "Formatting" ) );
+    toolBar->setObjectName( "Formatting" );
+    toolBar->addWidget( ui->fontComboBox );
+    toolBar->addWidget( ui->comboBoxFontSize );
+    toolBar->addWidget( ui->tButtonIncreaseSizeFont );
+    toolBar->addWidget( ui->tButtonDecreaseSizeFont );
+
+    toolBar->addWidget( ui->tButtonBold );
+    toolBar->addWidget( ui->tButtonItalic );
+    toolBar->addWidget( ui->tButtonTextColor );
+    toolBar->addWidget( ui->tButtonSubScript );
+    toolBar->addWidget( ui->tButtonSuperScript );
+
+    toolBar->addWidget( ui->tButtonAlignLeft );
+    toolBar->addWidget( ui->tButtonAlignCenter );
+    toolBar->addWidget( ui->tButtonAlignRight );
+    toolBar->addWidget( ui->tButtonAlignJustify );
+
+    toolBar->addWidget( ui->tButtonBulletedList );
+    toolBar->addWidget( ui->tButtonOrderedList );
+
+    toolBar->addWidget( ui->tButtonUnderline );
+    toolBar->addWidget( ui->tButtonStrikeout );
+    toolBar->addWidget( ui->tButtonOverline );
+
+    toolBar->addWidget( ui->tButtonInsertHLine );
+    toolBar->addWidget( ui->tButtonEraser );
+    toolBar->addWidget( ui->tButtonLower );
+    toolBar->addWidget( ui->tButtonUpper );
+
+    return toolBar;
 }
 void FormattingToolbar::setAlterActivityComponents( bool act )
 {

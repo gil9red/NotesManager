@@ -15,19 +15,10 @@ NoteEditor::NoteEditor( QWidget * parent ) :
     formattingToolbar->hide();
     formattingToolbar->installConnect( ui->editor );
 
-    QList < QToolBar * > toolbars = formattingToolbar->toolBars();
-    foreach ( QToolBar * toolbar, toolbars )
-    {
-        toolbar->setFloatable( false );
-        toolbar->setMovable( false );
-        toolbar->setIconSize( QSize( 18, 18 ) );
-    }
-
-    addToolBar( toolbars.takeFirst() );
-    addToolBar( toolbars.takeFirst() );
-    addToolBarBreak();
-    foreach ( QToolBar * toolbar, toolbars )
-        addToolBar( toolbar );
+    QToolBar * toolBar = formattingToolbar->mainToolBar();
+    toolBar->setIconSize( QSize( 17, 17 ) );
+    toolBar->setMovable( false );
+    addToolBar( toolBar );
 }
 NoteEditor::~NoteEditor()
 {
