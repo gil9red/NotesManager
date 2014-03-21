@@ -9,9 +9,9 @@ namespace Find
      */
     QIcon iconForFindFlags( Shared::FindFlags flags )
     {
-        static const QPixmap casesensitiveIcon = QPixmap( ":/casesensitively" );
-        static const QPixmap wholewordsIcon = QPixmap( ":/wholewords" );
-        static const QPixmap regexpIcon = QPixmap( ":/regexp" );
+        static const QPixmap casesensitiveIcon = QPixmap( ":/FindAndReplace/casesensitively" );
+        static const QPixmap wholewordsIcon = QPixmap( ":/FindAndReplace/wholewords" );
+        static const QPixmap regexpIcon = QPixmap( ":/FindAndReplace/regexp" );
 
         bool casesensitive = flags.testFlag( Shared::CaseSensitive );
         bool wholewords = flags.testFlag( Shared::WholeWords );
@@ -56,7 +56,7 @@ namespace Find
             return QIcon( pixmap );
         }
 
-        return QIcon( ":/magnifier" );
+        return QIcon( ":/FindAndReplace/magnifier" );
     }
 }
 

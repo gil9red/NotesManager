@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/">
+    <qresource prefix="/FormattingToolbar">
         <file alias="super-script">images/textSuperScript.png</file>
         <file alias="underline">images/textunder.png</file>
         <file alias="eraser">images/eraser.png</file>

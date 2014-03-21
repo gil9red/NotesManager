@@ -10,14 +10,14 @@ ColorTextButton::ColorTextButton( QWidget * parent )
 }
 void ColorTextButton::createGUI()
 {
-    setIcon( QIcon( ":/color-text" ) );
+    setIcon( QIcon( ":/FormattingToolbar/color-text" ) );
     setDefaultColor( Qt::black );
 }
 void ColorTextButton::setColor( const QColor & color )
 {
     d->color = color;
 
-    QPixmap pixmap( ":/color-text" );
+    QPixmap pixmap( ":/FormattingToolbar/color-text" );
 
     QPainter painter( &pixmap );
     painter.setBrush( color );

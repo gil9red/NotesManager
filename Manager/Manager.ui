@@ -6,12 +6,18 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>467</width>
-    <height>408</height>
+    <width>401</width>
+    <height>373</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Manager</string>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>16</width>
+    <height>16</height>
+   </size>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
@@ -47,7 +53,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>467</width>
+     <width>401</width>
      <height>20</height>
     </rect>
    </property>
@@ -98,6 +104,9 @@
     </property>
     <addaction name="actionVisibleLeftPanel"/>
     <addaction name="separator"/>
+    <addaction name="actionVisibleToolbarMain"/>
+    <addaction name="actionVisibleToolbarManage"/>
+    <addaction name="actionVisibleToolbarNote"/>
    </widget>
    <widget class="QMenu" name="menuNote">
     <property name="title">
@@ -132,505 +141,70 @@
    <addaction name="menuService"/>
    <addaction name="menuHelp"/>
   </widget>
-  <widget class="QDockWidget" name="dockMain">
-   <property name="features">
-    <set>QDockWidget::NoDockWidgetFeatures</set>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QToolBar" name="toolBarManage">
+   <property name="windowTitle">
+    <string>Manage</string>
    </property>
+   <property name="movable">
+    <bool>true</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="addNote"/>
+   <addaction name="addNoteFromClipboard"/>
+   <addaction name="addNoteFromScreen"/>
+   <addaction name="addFolder"/>
+   <addaction name="removeFromTrash"/>
+   <addaction name="removeAllNotes"/>
+   <addaction name="removeToTrash"/>
+  </widget>
+  <widget class="QToolBar" name="toolBarMain">
    <property name="windowTitle">
     <string>Main</string>
    </property>
-   <attribute name="dockWidgetArea">
-    <number>2</number>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
    </attribute>
-   <widget class="QWidget" name="dockWidgetContents_2">
-    <layout class="QGridLayout" name="gridLayout_2">
-     <property name="margin">
-      <number>0</number>
-     </property>
-     <property name="spacing">
-      <number>0</number>
-     </property>
-     <item row="0" column="1">
-      <widget class="QToolButton" name="tButtonAddNoteFromClipboard">
-       <property name="toolTip">
-        <string>Add a note from the clipboard</string>
-       </property>
-       <property name="statusTip">
-        <string>Add a note from the clipboard</string>
-       </property>
-       <property name="whatsThis">
-        <string>Add a note from the clipboard</string>
-       </property>
-       <property name="text">
-        <string>Add a note from the clipboard</string>
-       </property>
-       <property name="icon">
-        <iconset resource="Manager.qrc">
-         <normaloff>:/add-from_clipboard</normaloff>:/add-from_clipboard</iconset>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="1">
-      <widget class="QToolButton" name="tButtonRemoveNote">
-       <property name="toolTip">
-        <string>Remove note</string>
-       </property>
-       <property name="statusTip">
-        <string>Remove note</string>
-       </property>
-       <property name="whatsThis">
-        <string>Remove note</string>
-       </property>
-       <property name="text">
-        <string>Remove note</string>
-       </property>
-       <property name="icon">
-        <iconset resource="../Note/Note.qrc">
-         <normaloff>:/remove</normaloff>:/remove</iconset>
-       </property>
-      </widget>
-     </item>
-     <item row="7" column="0">
-      <widget class="QToolButton" name="tButtonRemoveAllNotes">
-       <property name="toolTip">
-        <string>Remove all notes</string>
-       </property>
-       <property name="statusTip">
-        <string>Remove all notes</string>
-       </property>
-       <property name="whatsThis">
-        <string>Remove all notes</string>
-       </property>
-       <property name="text">
-        <string>Remove all notes</string>
-       </property>
-       <property name="icon">
-        <iconset resource="Manager.qrc">
-         <normaloff>:/remove_all</normaloff>:/remove_all</iconset>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="QToolButton" name="tButtonSettings">
-       <property name="toolTip">
-        <string>Settings</string>
-       </property>
-       <property name="statusTip">
-        <string>Settings</string>
-       </property>
-       <property name="whatsThis">
-        <string>Settings</string>
-       </property>
-       <property name="text">
-        <string>Settings</string>
-       </property>
-       <property name="icon">
-        <iconset resource="Manager.qrc">
-         <normaloff>:/settings</normaloff>:/settings</iconset>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="0">
-      <widget class="QToolButton" name="tButtonAbout">
-       <property name="toolTip">
-        <string>About</string>
-       </property>
-       <property name="statusTip">
-        <string>About</string>
-       </property>
-       <property name="whatsThis">
-        <string>About</string>
-       </property>
-       <property name="accessibleName">
-        <string/>
-       </property>
-       <property name="text">
-        <string>About</string>
-       </property>
-       <property name="icon">
-        <iconset resource="Manager.qrc">
-         <normaloff>:/about</normaloff>:/about</iconset>
-       </property>
-      </widget>
-     </item>
-     <item row="9" column="0">
-      <spacer name="verticalSpacer_2">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="3" column="1">
-      <widget class="QToolButton" name="tButtonAddNote">
-       <property name="toolTip">
-        <string>Add note</string>
-       </property>
-       <property name="statusTip">
-        <string>Add note</string>
-       </property>
-       <property name="whatsThis">
-        <string>Add note</string>
-       </property>
-       <property name="text">
-        <string>Add note</string>
-       </property>
-       <property name="icon">
-        <iconset resource="Manager.qrc">
-         <normaloff>:/add</normaloff>:/add</iconset>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QToolButton" name="tButtonQuit">
-       <property name="toolTip">
-        <string>Quit</string>
-       </property>
-       <property name="statusTip">
-        <string>Quit</string>
-       </property>
-       <property name="whatsThis">
-        <string>Quit</string>
-       </property>
-       <property name="text">
-        <string>Quit</string>
-       </property>
-       <property name="icon">
-        <iconset resource="Manager.qrc">
-         <normaloff>:/quit</normaloff>:/quit</iconset>
-       </property>
-      </widget>
-     </item>
-     <item row="7" column="1">
-      <widget class="QToolButton" name="tButtonOpenDict">
-       <property name="toolTip">
-        <string>Open dictionary</string>
-       </property>
-       <property name="statusTip">
-        <string>Open dictionary</string>
-       </property>
-       <property name="whatsThis">
-        <string>Open dictionary</string>
-       </property>
-       <property name="text">
-        <string>Open dictionary</string>
-       </property>
-       <property name="icon">
-        <iconset resource="Manager.qrc">
-         <normaloff>:/open_dict</normaloff>:/open_dict</iconset>
-       </property>
-      </widget>
-     </item>
-     <item row="8" column="0">
-      <widget class="QToolButton" name="tButtonCloseDict">
-       <property name="toolTip">
-        <string>Close dictionary</string>
-       </property>
-       <property name="statusTip">
-        <string>Close dictionary</string>
-       </property>
-       <property name="whatsThis">
-        <string>Close dictionary</string>
-       </property>
-       <property name="text">
-        <string>Close dictionary</string>
-       </property>
-       <property name="icon">
-        <iconset resource="Manager.qrc">
-         <normaloff>:/close_dict</normaloff>:/close_dict</iconset>
-       </property>
-      </widget>
-     </item>
-     <item row="8" column="1">
-      <widget class="QToolButton" name="tButtonAddNoteFromScreen">
-       <property name="toolTip">
-        <string>Add a note from screen</string>
-       </property>
-       <property name="statusTip">
-        <string>Add a note from screen</string>
-       </property>
-       <property name="whatsThis">
-        <string>Add a note from screen</string>
-       </property>
-       <property name="text">
-        <string>Add a note from screen</string>
-       </property>
-       <property name="icon">
-        <iconset resource="Manager.qrc">
-         <normaloff>:/screenshot</normaloff>:/screenshot</iconset>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="settings"/>
+   <addaction name="quit"/>
+   <addaction name="about"/>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
-  <widget class="QDockWidget" name="dockNote">
-   <property name="features">
-    <set>QDockWidget::NoDockWidgetFeatures</set>
-   </property>
+  <widget class="QToolBar" name="toolBarNote">
    <property name="windowTitle">
     <string>Note</string>
    </property>
-   <attribute name="dockWidgetArea">
-    <number>1</number>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
    </attribute>
-   <widget class="QWidget" name="dockWidgetContents">
-    <layout class="QGridLayout" name="gridLayout">
-     <property name="margin">
-      <number>0</number>
-     </property>
-     <property name="spacing">
-      <number>0</number>
-     </property>
-     <item row="6" column="0">
-      <widget class="QToolButton" name="tButtonHideNote">
-       <property name="toolTip">
-        <string>Hide note</string>
-       </property>
-       <property name="statusTip">
-        <string>Hide note</string>
-       </property>
-       <property name="whatsThis">
-        <string>Hide note</string>
-       </property>
-       <property name="text">
-        <string>Hide note</string>
-       </property>
-       <property name="icon">
-        <iconset resource="../Note/Note.qrc">
-         <normaloff>:/hide</normaloff>:/hide</iconset>
-       </property>
-      </widget>
-     </item>
-     <item row="10" column="0">
-      <spacer name="verticalSpacer">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="4" column="0">
-      <widget class="QToolButton" name="tButtonPrintNote">
-       <property name="toolTip">
-        <string>Print note</string>
-       </property>
-       <property name="statusTip">
-        <string>Print note</string>
-       </property>
-       <property name="whatsThis">
-        <string>Print note</string>
-       </property>
-       <property name="text">
-        <string>Print note</string>
-       </property>
-       <property name="icon">
-        <iconset resource="../Note/Note.qrc">
-         <normaloff>:/print</normaloff>:/print</iconset>
-       </property>
-      </widget>
-     </item>
-     <item row="8" column="0">
-      <widget class="QToolButton" name="tButtonHideAllNotes">
-       <property name="toolTip">
-        <string>Hide all notes</string>
-       </property>
-       <property name="statusTip">
-        <string>Hide all notes</string>
-       </property>
-       <property name="whatsThis">
-        <string>Hide all notes</string>
-       </property>
-       <property name="text">
-        <string>Hide all notes</string>
-       </property>
-       <property name="icon">
-        <iconset resource="Manager.qrc">
-         <normaloff>:/hide_all</normaloff>:/hide_all</iconset>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QToolButton" name="tButtonSaveNote">
-       <property name="toolTip">
-        <string>Save note</string>
-       </property>
-       <property name="statusTip">
-        <string>Save note</string>
-       </property>
-       <property name="whatsThis">
-        <string>Save note</string>
-       </property>
-       <property name="text">
-        <string>Save note</string>
-       </property>
-       <property name="icon">
-        <iconset resource="../Note/Note.qrc">
-         <normaloff>:/save</normaloff>:/save</iconset>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="QToolButton" name="tButtonTopNote">
-       <property name="toolTip">
-        <string>On top of all windows</string>
-       </property>
-       <property name="statusTip">
-        <string>On top of all windows</string>
-       </property>
-       <property name="whatsThis">
-        <string>On top of all windows</string>
-       </property>
-       <property name="text">
-        <string>On top of all windows</string>
-       </property>
-       <property name="icon">
-        <iconset resource="../Note/Note.qrc">
-         <normaloff>:/tacks</normaloff>:/tacks</iconset>
-       </property>
-       <property name="checkable">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QToolButton" name="tButtonSaveNoteAs">
-       <property name="toolTip">
-        <string>Save as note</string>
-       </property>
-       <property name="statusTip">
-        <string>Save as note</string>
-       </property>
-       <property name="whatsThis">
-        <string>Save as note</string>
-       </property>
-       <property name="text">
-        <string>Save as note</string>
-       </property>
-       <property name="icon">
-        <iconset resource="../Note/Note.qrc">
-         <normaloff>:/save-as</normaloff>:/save-as</iconset>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QToolButton" name="tButtonPreviewPrintNote">
-       <property name="toolTip">
-        <string>Preview print note</string>
-       </property>
-       <property name="statusTip">
-        <string>Preview print note</string>
-       </property>
-       <property name="whatsThis">
-        <string>Preview print note</string>
-       </property>
-       <property name="text">
-        <string>Preview print note</string>
-       </property>
-       <property name="icon">
-        <iconset resource="../Note/Note.qrc">
-         <normaloff>:/preview-print</normaloff>:/preview-print</iconset>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="1">
-      <widget class="QToolButton" name="tButtonShowNote">
-       <property name="toolTip">
-        <string>Show note</string>
-       </property>
-       <property name="statusTip">
-        <string>Show note</string>
-       </property>
-       <property name="whatsThis">
-        <string>Show note</string>
-       </property>
-       <property name="text">
-        <string>Show note</string>
-       </property>
-       <property name="icon">
-        <iconset resource="Manager.qrc">
-         <normaloff>:/show</normaloff>:/show</iconset>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="1">
-      <widget class="QToolButton" name="tButtonShowAllNotes">
-       <property name="toolTip">
-        <string>Show all notes</string>
-       </property>
-       <property name="statusTip">
-        <string>Show all notes</string>
-       </property>
-       <property name="whatsThis">
-        <string>Show all notes</string>
-       </property>
-       <property name="text">
-        <string>Show all notes</string>
-       </property>
-       <property name="icon">
-        <iconset resource="Manager.qrc">
-         <normaloff>:/show_all</normaloff>:/show_all</iconset>
-       </property>
-      </widget>
-     </item>
-     <item row="8" column="1">
-      <widget class="QToolButton" name="tButtonSaveAllNotes">
-       <property name="toolTip">
-        <string>Save all notes</string>
-       </property>
-       <property name="statusTip">
-        <string>Save all notes</string>
-       </property>
-       <property name="whatsThis">
-        <string>Save all notes</string>
-       </property>
-       <property name="text">
-        <string>Save all notes</string>
-       </property>
-       <property name="icon">
-        <iconset resource="Manager.qrc">
-         <normaloff>:/save_all</normaloff>:/save_all</iconset>
-       </property>
-      </widget>
-     </item>
-     <item row="9" column="1">
-      <widget class="QToolButton" name="tButtonDuplicateNote">
-       <property name="toolTip">
-        <string>Duplicate</string>
-       </property>
-       <property name="statusTip">
-        <string>Duplicate</string>
-       </property>
-       <property name="whatsThis">
-        <string>Duplicate</string>
-       </property>
-       <property name="text">
-        <string>Duplicate</string>
-       </property>
-       <property name="icon">
-        <iconset resource="../Note/Note.qrc">
-         <normaloff>:/duplicate</normaloff>:/duplicate</iconset>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="saveNote"/>
+   <addaction name="saveNoteAs"/>
+   <addaction name="openDict"/>
+   <addaction name="closeDict"/>
+   <addaction name="showNote"/>
+   <addaction name="hideNote"/>
+   <addaction name="showAllNotes"/>
+   <addaction name="hideAllNotes"/>
+   <addaction name="saveAllNotes"/>
+   <addaction name="topNote"/>
+   <addaction name="printNote"/>
+   <addaction name="previewPrintNote"/>
+   <addaction name="duplicateNote"/>
   </widget>
   <action name="actionQuit">
    <property name="icon">
     <iconset resource="Manager.qrc">
-     <normaloff>:/quit</normaloff>:/quit</iconset>
+     <normaloff>:/Manager/quit</normaloff>:/Manager/quit</iconset>
    </property>
    <property name="text">
     <string>&amp;Quit</string>
@@ -648,7 +222,7 @@
   <action name="actionAbout">
    <property name="icon">
     <iconset resource="Manager.qrc">
-     <normaloff>:/about</normaloff>:/about</iconset>
+     <normaloff>:/Manager/about</normaloff>:/Manager/about</iconset>
    </property>
    <property name="text">
     <string>About</string>
@@ -663,7 +237,7 @@
   <action name="actionSettings">
    <property name="icon">
     <iconset resource="Manager.qrc">
-     <normaloff>:/settings</normaloff>:/settings</iconset>
+     <normaloff>:/Manager/settings</normaloff>:/Manager/settings</iconset>
    </property>
    <property name="text">
     <string>Settings</string>
@@ -678,7 +252,7 @@
   <action name="actionAddNote">
    <property name="icon">
     <iconset resource="Manager.qrc">
-     <normaloff>:/add</normaloff>:/add</iconset>
+     <normaloff>:/Manager/add</normaloff>:/Manager/add</iconset>
    </property>
    <property name="text">
     <string>Add note</string>
@@ -693,7 +267,7 @@
   <action name="actionAddNoteFromClipboard">
    <property name="icon">
     <iconset resource="Manager.qrc">
-     <normaloff>:/add-from_clipboard</normaloff>:/add-from_clipboard</iconset>
+     <normaloff>:/Manager/add-from_clipboard</normaloff>:/Manager/add-from_clipboard</iconset>
    </property>
    <property name="text">
     <string>Add a note from the clipboard</string>
@@ -703,12 +277,27 @@
    </property>
    <property name="whatsThis">
     <string>Add a note from the clipboard</string>
+   </property>
+  </action>
+  <action name="removeAllNotes">
+   <property name="icon">
+    <iconset resource="Manager.qrc">
+     <normaloff>:/Manager/remove_all</normaloff>:/Manager/remove_all</iconset>
+   </property>
+   <property name="text">
+    <string>Remove all notes</string>
+   </property>
+   <property name="statusTip">
+    <string>Remove all notes</string>
+   </property>
+   <property name="whatsThis">
+    <string>Remove all notes</string>
    </property>
   </action>
   <action name="actionRemoveAllNotes">
    <property name="icon">
     <iconset resource="Manager.qrc">
-     <normaloff>:/remove_all</normaloff>:/remove_all</iconset>
+     <normaloff>:/Manager/remove_all</normaloff>:/Manager/remove_all</iconset>
    </property>
    <property name="text">
     <string>Remove all notes</string>
@@ -720,10 +309,10 @@
     <string>Remove all notes</string>
    </property>
   </action>
-  <action name="actionRemoveNote">
+  <action name="removeNote">
    <property name="icon">
-    <iconset resource="../Note/Note.qrc">
-     <normaloff>:/remove</normaloff>:/remove</iconset>
+    <iconset resource="Manager.qrc">
+     <normaloff>:/Manager/remove</normaloff>:/Manager/remove</iconset>
    </property>
    <property name="text">
     <string>Remove note</string>
@@ -733,12 +322,42 @@
    </property>
    <property name="whatsThis">
     <string>Remove note</string>
+   </property>
+  </action>
+  <action name="actionRemoveNote">
+   <property name="icon">
+    <iconset resource="Manager.qrc">
+     <normaloff>:/Manager/remove</normaloff>:/Manager/remove</iconset>
+   </property>
+   <property name="text">
+    <string>Remove note</string>
+   </property>
+   <property name="statusTip">
+    <string>Remove note</string>
+   </property>
+   <property name="whatsThis">
+    <string>Remove note</string>
+   </property>
+  </action>
+  <action name="saveNote">
+   <property name="icon">
+    <iconset resource="../Note/Note.qrc">
+     <normaloff>:/Note/save</normaloff>:/Note/save</iconset>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="statusTip">
+    <string>Save</string>
+   </property>
+   <property name="whatsThis">
+    <string>Save</string>
    </property>
   </action>
   <action name="actionSaveNote">
    <property name="icon">
     <iconset resource="../Note/Note.qrc">
-     <normaloff>:/save</normaloff>:/save</iconset>
+     <normaloff>:/Note/save</normaloff>:/Note/save</iconset>
    </property>
    <property name="text">
     <string>Save</string>
@@ -748,12 +367,27 @@
    </property>
    <property name="whatsThis">
     <string>Save</string>
+   </property>
+  </action>
+  <action name="saveNoteAs">
+   <property name="icon">
+    <iconset resource="../Note/Note.qrc">
+     <normaloff>:/Note/save-as</normaloff>:/Note/save-as</iconset>
+   </property>
+   <property name="text">
+    <string>Save as</string>
+   </property>
+   <property name="statusTip">
+    <string>Save as</string>
+   </property>
+   <property name="whatsThis">
+    <string>Save as</string>
    </property>
   </action>
   <action name="actionSaveNoteAs">
    <property name="icon">
     <iconset resource="../Note/Note.qrc">
-     <normaloff>:/save-as</normaloff>:/save-as</iconset>
+     <normaloff>:/Note/save-as</normaloff>:/Note/save-as</iconset>
    </property>
    <property name="text">
     <string>Save as</string>
@@ -763,12 +397,27 @@
    </property>
    <property name="whatsThis">
     <string>Save as</string>
+   </property>
+  </action>
+  <action name="showNote">
+   <property name="icon">
+    <iconset resource="Manager.qrc">
+     <normaloff>:/Manager/show</normaloff>:/Manager/show</iconset>
+   </property>
+   <property name="text">
+    <string>Show</string>
+   </property>
+   <property name="statusTip">
+    <string>Show</string>
+   </property>
+   <property name="whatsThis">
+    <string>Show</string>
    </property>
   </action>
   <action name="actionShowNote">
    <property name="icon">
     <iconset resource="Manager.qrc">
-     <normaloff>:/show</normaloff>:/show</iconset>
+     <normaloff>:/Manager/show</normaloff>:/Manager/show</iconset>
    </property>
    <property name="text">
     <string>Show</string>
@@ -780,10 +429,10 @@
     <string>Show</string>
    </property>
   </action>
-  <action name="actionHideNote">
+  <action name="hideNote">
    <property name="icon">
-    <iconset resource="../Note/Note.qrc">
-     <normaloff>:/hide</normaloff>:/hide</iconset>
+    <iconset resource="Manager.qrc">
+     <normaloff>:/Manager/hide</normaloff>:/Manager/hide</iconset>
    </property>
    <property name="text">
     <string>Hide</string>
@@ -793,12 +442,42 @@
    </property>
    <property name="whatsThis">
     <string>Hide</string>
+   </property>
+  </action>
+  <action name="actionHideNote">
+   <property name="icon">
+    <iconset resource="Manager.qrc">
+     <normaloff>:/Manager/hide</normaloff>:/Manager/hide</iconset>
+   </property>
+   <property name="text">
+    <string>Hide</string>
+   </property>
+   <property name="statusTip">
+    <string>Hide</string>
+   </property>
+   <property name="whatsThis">
+    <string>Hide</string>
+   </property>
+  </action>
+  <action name="showAllNotes">
+   <property name="icon">
+    <iconset resource="Manager.qrc">
+     <normaloff>:/Manager/show_all</normaloff>:/Manager/show_all</iconset>
+   </property>
+   <property name="text">
+    <string>Show all notes</string>
+   </property>
+   <property name="statusTip">
+    <string>Show all notes</string>
+   </property>
+   <property name="whatsThis">
+    <string>Show all notes</string>
    </property>
   </action>
   <action name="actionShowAllNotes">
    <property name="icon">
     <iconset resource="Manager.qrc">
-     <normaloff>:/show_all</normaloff>:/show_all</iconset>
+     <normaloff>:/Manager/show_all</normaloff>:/Manager/show_all</iconset>
    </property>
    <property name="text">
     <string>Show all notes</string>
@@ -810,10 +489,10 @@
     <string>Show all notes</string>
    </property>
   </action>
-  <action name="actionHideAllNotes">
+  <action name="hideAllNotes">
    <property name="icon">
     <iconset resource="Manager.qrc">
-     <normaloff>:/hide_all</normaloff>:/hide_all</iconset>
+     <normaloff>:/Manager/hide_all</normaloff>:/Manager/hide_all</iconset>
    </property>
    <property name="text">
     <string>Hide all notes</string>
@@ -823,6 +502,39 @@
    </property>
    <property name="whatsThis">
     <string>Hide all notes</string>
+   </property>
+  </action>
+  <action name="actionHideAllNotes">
+   <property name="icon">
+    <iconset resource="Manager.qrc">
+     <normaloff>:/Manager/hide_all</normaloff>:/Manager/hide_all</iconset>
+   </property>
+   <property name="text">
+    <string>Hide all notes</string>
+   </property>
+   <property name="statusTip">
+    <string>Hide all notes</string>
+   </property>
+   <property name="whatsThis">
+    <string>Hide all notes</string>
+   </property>
+  </action>
+  <action name="topNote">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../Note/Note.qrc">
+     <normaloff>:/Note/tacks</normaloff>:/Note/tacks</iconset>
+   </property>
+   <property name="text">
+    <string>On top of all windows</string>
+   </property>
+   <property name="statusTip">
+    <string>On top of all windows</string>
+   </property>
+   <property name="whatsThis">
+    <string>On top of all windows</string>
    </property>
   </action>
   <action name="actionTopNote">
@@ -831,7 +543,7 @@
    </property>
    <property name="icon">
     <iconset resource="../Note/Note.qrc">
-     <normaloff>:/tacks</normaloff>:/tacks</iconset>
+     <normaloff>:/Note/tacks</normaloff>:/Note/tacks</iconset>
    </property>
    <property name="text">
     <string>On top of all windows</string>
@@ -841,12 +553,27 @@
    </property>
    <property name="whatsThis">
     <string>On top of all windows</string>
+   </property>
+  </action>
+  <action name="printNote">
+   <property name="icon">
+    <iconset resource="../Note/Note.qrc">
+     <normaloff>:/Note/print</normaloff>:/Note/print</iconset>
+   </property>
+   <property name="text">
+    <string>Print</string>
+   </property>
+   <property name="statusTip">
+    <string>Print</string>
+   </property>
+   <property name="whatsThis">
+    <string>Print</string>
    </property>
   </action>
   <action name="actionPrintNote">
    <property name="icon">
     <iconset resource="../Note/Note.qrc">
-     <normaloff>:/print</normaloff>:/print</iconset>
+     <normaloff>:/Note/print</normaloff>:/Note/print</iconset>
    </property>
    <property name="text">
     <string>Print</string>
@@ -856,12 +583,27 @@
    </property>
    <property name="whatsThis">
     <string>Print</string>
+   </property>
+  </action>
+  <action name="previewPrintNote">
+   <property name="icon">
+    <iconset resource="../Note/Note.qrc">
+     <normaloff>:/Note/preview-print</normaloff>:/Note/preview-print</iconset>
+   </property>
+   <property name="text">
+    <string>Preview print</string>
+   </property>
+   <property name="statusTip">
+    <string>Preview print</string>
+   </property>
+   <property name="whatsThis">
+    <string>Preview print</string>
    </property>
   </action>
   <action name="actionPreviewPrintNote">
    <property name="icon">
     <iconset resource="../Note/Note.qrc">
-     <normaloff>:/preview-print</normaloff>:/preview-print</iconset>
+     <normaloff>:/Note/preview-print</normaloff>:/Note/preview-print</iconset>
    </property>
    <property name="text">
     <string>Preview print</string>
@@ -871,12 +613,27 @@
    </property>
    <property name="whatsThis">
     <string>Preview print</string>
+   </property>
+  </action>
+  <action name="saveAllNotes">
+   <property name="icon">
+    <iconset resource="Manager.qrc">
+     <normaloff>:/Manager/save_all</normaloff>:/Manager/save_all</iconset>
+   </property>
+   <property name="text">
+    <string>Save all notes</string>
+   </property>
+   <property name="statusTip">
+    <string>Save all notes</string>
+   </property>
+   <property name="whatsThis">
+    <string>Save all notes</string>
    </property>
   </action>
   <action name="actionSaveAllNotes">
    <property name="icon">
     <iconset resource="Manager.qrc">
-     <normaloff>:/save_all</normaloff>:/save_all</iconset>
+     <normaloff>:/Manager/save_all</normaloff>:/Manager/save_all</iconset>
    </property>
    <property name="text">
     <string>Save all notes</string>
@@ -888,22 +645,70 @@
     <string>Save all notes</string>
    </property>
   </action>
+  <action name="openDict">
+   <property name="icon">
+    <iconset resource="Manager.qrc">
+     <normaloff>:/Manager/open_dict</normaloff>:/Manager/open_dict</iconset>
+   </property>
+   <property name="text">
+    <string>Open dictionary</string>
+   </property>
+   <property name="statusTip">
+    <string>Open dictionary</string>
+   </property>
+   <property name="whatsThis">
+    <string>Open dictionary</string>
+   </property>
+  </action>
   <action name="actionOpenDict">
    <property name="icon">
     <iconset resource="Manager.qrc">
-     <normaloff>:/open_dict</normaloff>:/open_dict</iconset>
+     <normaloff>:/Manager/open_dict</normaloff>:/Manager/open_dict</iconset>
    </property>
    <property name="text">
     <string>Open dictionary</string>
    </property>
   </action>
-  <action name="actionCloseDict">
+  <action name="closeDict">
    <property name="icon">
     <iconset resource="Manager.qrc">
-     <normaloff>:/close_dict</normaloff>:/close_dict</iconset>
+     <normaloff>:/Manager/close_dict</normaloff>:/Manager/close_dict</iconset>
    </property>
    <property name="text">
     <string>Close dictionary</string>
+   </property>
+   <property name="statusTip">
+    <string>Close dictionary</string>
+   </property>
+   <property name="whatsThis">
+    <string>Close dictionary</string>
+   </property>
+  </action>
+  <action name="actionCloseDict">
+   <property name="icon">
+    <iconset resource="Manager.qrc">
+     <normaloff>:/Manager/close_dict</normaloff>:/Manager/close_dict</iconset>
+   </property>
+   <property name="text">
+    <string>Close dictionary</string>
+   </property>
+  </action>
+  <action name="readOnlyNote">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/read-only</normaloff>:/read-only</iconset>
+   </property>
+   <property name="text">
+    <string>Read only</string>
+   </property>
+   <property name="statusTip">
+    <string>Read only</string>
+   </property>
+   <property name="whatsThis">
+    <string>Read only</string>
    </property>
   </action>
   <action name="actionReadOnlyNote">
@@ -911,7 +716,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../Note/Note.qrc">
+    <iconset>
      <normaloff>:/read-only</normaloff>:/read-only</iconset>
    </property>
    <property name="text">
@@ -926,17 +731,32 @@
   </action>
   <action name="actionAddNoteFromScreen">
    <property name="icon">
-    <iconset>
-     <normaloff>:/images/screenshot.png</normaloff>:/images/screenshot.png</iconset>
+    <iconset resource="Manager.qrc">
+     <normaloff>:/Manager/screenshot</normaloff>:/Manager/screenshot</iconset>
    </property>
    <property name="text">
     <string>Add a note from screen</string>
    </property>
   </action>
+  <action name="duplicateNote">
+   <property name="icon">
+    <iconset resource="../Note/Note.qrc">
+     <normaloff>:/Note/duplicate</normaloff>:/Note/duplicate</iconset>
+   </property>
+   <property name="text">
+    <string>Duplicate</string>
+   </property>
+   <property name="statusTip">
+    <string>Duplicate</string>
+   </property>
+   <property name="whatsThis">
+    <string>Duplicate</string>
+   </property>
+  </action>
   <action name="actionDuplicateNote">
    <property name="icon">
     <iconset resource="../Note/Note.qrc">
-     <normaloff>:/duplicate</normaloff>:/duplicate</iconset>
+     <normaloff>:/Note/duplicate</normaloff>:/Note/duplicate</iconset>
    </property>
    <property name="text">
     <string>Duplicate</string>
@@ -957,6 +777,12 @@
    <property name="text">
     <string>Open</string>
    </property>
+   <property name="statusTip">
+    <string>Open</string>
+   </property>
+   <property name="whatsThis">
+    <string>Open</string>
+   </property>
   </action>
   <action name="actionVisibleLeftPanel">
    <property name="checkable">
@@ -967,6 +793,176 @@
    </property>
    <property name="text">
     <string>Visible left panel</string>
+   </property>
+  </action>
+  <action name="addNote">
+   <property name="icon">
+    <iconset resource="Manager.qrc">
+     <normaloff>:/Manager/add</normaloff>:/Manager/add</iconset>
+   </property>
+   <property name="text">
+    <string>Add note</string>
+   </property>
+   <property name="statusTip">
+    <string>Add note</string>
+   </property>
+  </action>
+  <action name="actionAddNoteFromClipboard_2">
+   <property name="text">
+    <string>actionAddNoteFromClipboard</string>
+   </property>
+  </action>
+  <action name="addNoteFromClipboard">
+   <property name="icon">
+    <iconset resource="Manager.qrc">
+     <normaloff>:/Manager/add-from_clipboard</normaloff>:/Manager/add-from_clipboard</iconset>
+   </property>
+   <property name="text">
+    <string>Add a note from the clipboard</string>
+   </property>
+   <property name="statusTip">
+    <string>Add a note from the clipboard</string>
+   </property>
+   <property name="whatsThis">
+    <string>Add a note from the clipboard</string>
+   </property>
+  </action>
+  <action name="addNoteFromScreen">
+   <property name="icon">
+    <iconset resource="Manager.qrc">
+     <normaloff>:/Manager/screenshot</normaloff>:/Manager/screenshot</iconset>
+   </property>
+   <property name="text">
+    <string>Add a note from screen</string>
+   </property>
+   <property name="statusTip">
+    <string>Add a note from screen</string>
+   </property>
+   <property name="whatsThis">
+    <string>Add a note from screen</string>
+   </property>
+  </action>
+  <action name="addFolder">
+   <property name="icon">
+    <iconset resource="../NavigationPanel/NavigationPanel.qrc">
+     <normaloff>:/NavigationPanel/folder</normaloff>:/NavigationPanel/folder</iconset>
+   </property>
+   <property name="text">
+    <string>Add folder</string>
+   </property>
+   <property name="statusTip">
+    <string>Add folder</string>
+   </property>
+   <property name="whatsThis">
+    <string>Add folder</string>
+   </property>
+  </action>
+  <action name="removeFromTrash">
+   <property name="icon">
+    <iconset resource="Manager.qrc">
+     <normaloff>:/Manager/remove</normaloff>:/Manager/remove</iconset>
+   </property>
+   <property name="text">
+    <string>Remove from trash</string>
+   </property>
+   <property name="statusTip">
+    <string>Remove from trash</string>
+   </property>
+   <property name="whatsThis">
+    <string>Remove from trash</string>
+   </property>
+  </action>
+  <action name="removeToTrash">
+   <property name="icon">
+    <iconset resource="../NavigationPanel/NavigationPanel.qrc">
+     <normaloff>:/NavigationPanel/trash</normaloff>:/NavigationPanel/trash</iconset>
+   </property>
+   <property name="text">
+    <string>Remove to trash</string>
+   </property>
+   <property name="statusTip">
+    <string>Remove to trash</string>
+   </property>
+   <property name="whatsThis">
+    <string>Remove to trash</string>
+   </property>
+  </action>
+  <action name="settings">
+   <property name="icon">
+    <iconset resource="Manager.qrc">
+     <normaloff>:/Manager/settings</normaloff>:/Manager/settings</iconset>
+   </property>
+   <property name="text">
+    <string>Settings</string>
+   </property>
+   <property name="statusTip">
+    <string>Settings</string>
+   </property>
+   <property name="whatsThis">
+    <string>Settings</string>
+   </property>
+  </action>
+  <action name="quit">
+   <property name="icon">
+    <iconset resource="Manager.qrc">
+     <normaloff>:/Manager/quit</normaloff>:/Manager/quit</iconset>
+   </property>
+   <property name="text">
+    <string>Quit</string>
+   </property>
+   <property name="statusTip">
+    <string>Quit</string>
+   </property>
+   <property name="whatsThis">
+    <string>Quit</string>
+   </property>
+  </action>
+  <action name="about">
+   <property name="icon">
+    <iconset resource="Manager.qrc">
+     <normaloff>:/Manager/about</normaloff>:/Manager/about</iconset>
+   </property>
+   <property name="text">
+    <string>About</string>
+   </property>
+   <property name="statusTip">
+    <string>About</string>
+   </property>
+   <property name="whatsThis">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionVisibleToolbarMain">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Main</string>
+   </property>
+  </action>
+  <action name="actionVisibleToolbarManage">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Manage</string>
+   </property>
+  </action>
+  <action name="actionVisibleToolbarNote">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Note</string>
    </property>
   </action>
  </widget>
@@ -980,8 +976,9 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../Note/Note.qrc"/>
   <include location="Manager.qrc"/>
+  <include location="../NavigationPanel/NavigationPanel.qrc"/>
+  <include location="../Note/Note.qrc"/>
  </resources>
  <connections>
   <connection>
@@ -997,6 +994,102 @@
     <hint type="destinationlabel">
      <x>189</x>
      <y>145</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionVisibleToolbarMain</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>toolBarMain</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>366</x>
+     <y>121</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>40</x>
+     <y>32</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolBarMain</sender>
+   <signal>visibilityChanged(bool)</signal>
+   <receiver>actionVisibleToolbarMain</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>40</x>
+     <y>32</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionVisibleToolbarManage</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>toolBarManage</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>167</x>
+     <y>32</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolBarManage</sender>
+   <signal>visibilityChanged(bool)</signal>
+   <receiver>actionVisibleToolbarManage</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>167</x>
+     <y>32</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionVisibleToolbarNote</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>toolBarNote</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>327</x>
+     <y>32</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolBarNote</sender>
+   <signal>visibilityChanged(bool)</signal>
+   <receiver>actionVisibleToolbarNote</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>327</x>
+     <y>32</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
     </hint>
    </hints>
   </connection>

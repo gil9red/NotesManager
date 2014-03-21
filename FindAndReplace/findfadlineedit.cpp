@@ -49,15 +49,15 @@ void FindFadLineEdit::init()
 
     actionCaseSensitive->setText( tr( "Case sensitive" ) );
     actionCaseSensitive->setCheckable( true );
-    actionCaseSensitive->setIcon( QIcon( ":/casesensitively" ) );
+    actionCaseSensitive->setIcon( QIcon( ":/FindAndReplace/casesensitively" ) );
 
     actionWholeWords->setText( tr( "Whole words" ) );
     actionWholeWords->setCheckable( true );
-    actionWholeWords->setIcon( QIcon( ":/wholewords" ) );
+    actionWholeWords->setIcon( QIcon( ":/FindAndReplace/wholewords" ) );
 
     actionRegExp->setText( tr( "Use regular expression" ) );
     actionRegExp->setCheckable( true );
-    actionRegExp->setIcon( QIcon( ":/regexp" ) );
+    actionRegExp->setIcon( QIcon( ":/FindAndReplace/regexp" ) );
 
     QActionGroup * findActionGroup = new QActionGroup( this );
     findActionGroup->setExclusive( false );

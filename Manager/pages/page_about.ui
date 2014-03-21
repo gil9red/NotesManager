@@ -23,7 +23,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="../../app.qrc">:/app-icon</pixmap>
+         <pixmap resource="../../app.qrc">:/App/app-icon</pixmap>
         </property>
         <property name="scaledContents">
          <bool>false</bool>
@@ -39,7 +39,7 @@
          <string notr="true"/>
         </property>
         <property name="pixmap">
-         <pixmap resource="../../app.qrc">:/icon-license</pixmap>
+         <pixmap resource="../../app.qrc">:/App/icon-license</pixmap>
         </property>
         <property name="scaledContents">
          <bool>false</bool>
@@ -73,9 +73,13 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tabAbout">
+       <attribute name="icon">
+        <iconset resource="../Manager.qrc">
+         <normaloff>:/Manager/about</normaloff>:/Manager/about</iconset>
+       </attribute>
        <attribute name="title">
         <string>About</string>
        </attribute>
@@ -352,6 +356,7 @@ p, li { white-space: pre-wrap; }
  </widget>
  <resources>
   <include location="../../app.qrc"/>
+  <include location="../Manager.qrc"/>
  </resources>
  <connections/>
 </ui>

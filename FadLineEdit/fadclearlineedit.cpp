@@ -19,7 +19,7 @@ void FadClearLineEdit::init()
     tButtonClearText.setFocusPolicy( Qt::NoFocus );
     tButtonClearText.setStyleSheet( "QToolButton { border: none; }" );
     tButtonClearText.setToolButtonStyle( Qt::ToolButtonIconOnly );
-    tButtonClearText.setIcon( QIcon( ":/text-clear" ) );
+    tButtonClearText.setIcon( QIcon( ":/FadLineEdit/text-clear" ) );
     tButtonClearText.setIconSize( QSize( 14, 14 ) );
     tButtonClearText.setToolTip( tr( "Clear text" ) );
     tButtonClearText.setStatusTip( tr( "Clear text" ) );

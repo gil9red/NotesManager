@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/">
+    <qresource prefix="/Note">
         <file alias="color">images/color.png</file>
         <file alias="remove">images/delete.png</file>
         <file alias="duplicate">images/duplicate.png</file>

@@ -19,7 +19,7 @@ public:
     {
         setCheckable( true );
         setPopupMode( QToolButton::MenuButtonPopup );
-        setIcon( QIcon( ":/underline" ) );
+        setIcon( QIcon( ":/FormattingToolbar/underline" ) );
         setDefaultId( QTextCharFormat::SingleUnderline );
 
         const QSize size = QSize(160, 20);
@@ -29,12 +29,12 @@ public:
         tButtonNoUnderline->setText( tr( "No underline" ) );
         tButtonNoUnderline->setFixedSize( size );
 
-        tButtonSingleUnderline = Create::Button::get( size, iconSize, QIcon( ":/underline-single" ));
-        tButtonDashUnderline = Create::Button::get( size, iconSize, QIcon( ":/underline-dash" ));
-        tButtonDotLine = Create::Button::get( size, iconSize, QIcon( ":/underline-dot" ));
-        tButtonDashDotLine = Create::Button::get( size, iconSize, QIcon( ":/underline-dash-dot" ));
-        tButtonDashDotDotLine = Create::Button::get( size, iconSize, QIcon( ":/underline-dash-dot-dot" ));
-        tButtonWaveUnderline = Create::Button::get( size, iconSize, QIcon( ":/underline-wave" ));
+        tButtonSingleUnderline = Create::Button::get( size, iconSize, QIcon( ":/FormattingToolbar/underline-single" ));
+        tButtonDashUnderline = Create::Button::get( size, iconSize, QIcon( ":/FormattingToolbar/underline-dash" ));
+        tButtonDotLine = Create::Button::get( size, iconSize, QIcon( ":/FormattingToolbar/underline-dot" ));
+        tButtonDashDotLine = Create::Button::get( size, iconSize, QIcon( ":/FormattingToolbar/underline-dash-dot" ));
+        tButtonDashDotDotLine = Create::Button::get( size, iconSize, QIcon( ":/FormattingToolbar/underline-dash-dot-dot" ));
+        tButtonWaveUnderline = Create::Button::get( size, iconSize, QIcon( ":/FormattingToolbar/underline-wave" ));
 
         colorButton = new ColorButton();
         colorButton->setToolButtonStyle( Qt::ToolButtonTextBesideIcon );

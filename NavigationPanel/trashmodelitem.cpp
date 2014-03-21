@@ -7,7 +7,7 @@ TrashModelItem::TrashModelItem() : BaseModelItem()
     QFont font( BaseModelItem().font() );
     font.setBold( true );
 
-    setIcon( QIcon( ":/trash" ) );
+    setIcon( QIcon( ":/NavigationPanel/trash" ) );
     setText( QObject::tr( "Корзина" ) );
     setDragEnabled( false );
     setDropEnabled( true );

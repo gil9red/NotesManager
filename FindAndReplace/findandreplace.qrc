@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/">
+    <qresource prefix="/FindAndReplace">
         <file alias="previous">images/previous.png</file>
         <file alias="casesensitively">images/casesensitively.png</file>
         <file alias="next">images/next.png</file>

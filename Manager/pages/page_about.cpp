@@ -25,14 +25,14 @@ Page_About::Page_About(QWidget *parent) :
     QTextStream in( &file );
     in.setCodec( "utf8" );
 
-    file.setFileName( ":/license" );
+    file.setFileName( ":/App/license" );
     if ( !file.open( QIODevice::ReadOnly ) )
         return;
     ui->licenseText->setHtml( in.readAll() );
     file.close();
     in.flush();
 
-    file.setFileName( ":/history" );
+    file.setFileName( ":/App/history" );
     if ( !file.open( QIODevice::ReadOnly ) )
         return;
     ui->history->setHtml( in.readAll() );

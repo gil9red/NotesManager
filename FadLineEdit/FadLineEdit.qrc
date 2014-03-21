@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/">
+    <qresource prefix="/FadLineEdit">
         <file alias="text-clear">images/text-clear.png</file>
     </qresource>
 </RCC>

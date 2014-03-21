@@ -18,17 +18,17 @@ public:
     {
         setCheckable( true );
         setPopupMode( QToolButton::MenuButtonPopup );
-        setIcon( QIcon( ":/list-decimal" ) );
+        setIcon( QIcon( ":/FormattingToolbar/list-decimal" ) );
         setDefaultId( QTextListFormat::ListDecimal );
 
         QSize size( 60, 60 );
         QSize iconSize( 50, 50 );
 
-        tButtonDecimal = Create::Button::get( size, iconSize, QIcon( ":/list-decimal" ));
-        tButtonAlphaLower = Create::Button::get( size, iconSize, QIcon( ":/list-lower-alpha" ));
-        tButtonAlphaUpper = Create::Button::get( size, iconSize, QIcon( ":/list-upper-alpha" ));
-        tButtonRomanLower = Create::Button::get( size, iconSize, QIcon( ":/list-lower-roman" ));
-        tButtonRomanUpper = Create::Button::get( size, iconSize, QIcon( ":/list-upper-roman" ));
+        tButtonDecimal = Create::Button::get( size, iconSize, QIcon( ":/FormattingToolbar/list-decimal" ));
+        tButtonAlphaLower = Create::Button::get( size, iconSize, QIcon( ":/FormattingToolbar/list-lower-alpha" ));
+        tButtonAlphaUpper = Create::Button::get( size, iconSize, QIcon( ":/FormattingToolbar/list-upper-alpha" ));
+        tButtonRomanLower = Create::Button::get( size, iconSize, QIcon( ":/FormattingToolbar/list-lower-roman" ));
+        tButtonRomanUpper = Create::Button::get( size, iconSize, QIcon( ":/FormattingToolbar/list-upper-roman" ));
 
         QMenu * menu = new QMenu();
         menu->setLayout( new QVBoxLayout() );

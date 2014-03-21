@@ -1,6 +1,7 @@
 <RCC>
-    <qresource prefix="/">
+    <qresource prefix="/NavigationPanel">
         <file alias="folder">icons/orange-folder_9492.png</file>
         <file alias="note">icons/x-office-document-template_1964.png</file>
+        <file alias="trash">icons/trash.png</file>
     </qresource>
 </RCC>

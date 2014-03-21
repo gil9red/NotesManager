@@ -76,7 +76,7 @@
        </property>
        <property name="icon">
         <iconset resource="FormattingToolbar.qrc">
-         <normaloff>:/IncreaseFontSize</normaloff>:/IncreaseFontSize</iconset>
+         <normaloff>:/FormattingToolbar/IncreaseFontSize</normaloff>:/FormattingToolbar/IncreaseFontSize</iconset>
        </property>
       </widget>
      </item>
@@ -99,7 +99,7 @@
        </property>
        <property name="icon">
         <iconset resource="FormattingToolbar.qrc">
-         <normaloff>:/DecreaseFontSize</normaloff>:/DecreaseFontSize</iconset>
+         <normaloff>:/FormattingToolbar/DecreaseFontSize</normaloff>:/FormattingToolbar/DecreaseFontSize</iconset>
        </property>
       </widget>
      </item>
@@ -122,7 +122,7 @@
        </property>
        <property name="icon">
         <iconset resource="FormattingToolbar.qrc">
-         <normaloff>:/bold</normaloff>:/bold</iconset>
+         <normaloff>:/FormattingToolbar/bold</normaloff>:/FormattingToolbar/bold</iconset>
        </property>
        <property name="checkable">
         <bool>true</bool>
@@ -148,7 +148,7 @@
        </property>
        <property name="icon">
         <iconset resource="FormattingToolbar.qrc">
-         <normaloff>:/italic</normaloff>:/italic</iconset>
+         <normaloff>:/FormattingToolbar/italic</normaloff>:/FormattingToolbar/italic</iconset>
        </property>
        <property name="checkable">
         <bool>true</bool>
@@ -177,7 +177,7 @@
        </property>
        <property name="icon">
         <iconset resource="FormattingToolbar.qrc">
-         <normaloff>:/color-text</normaloff>:/color-text</iconset>
+         <normaloff>:/FormattingToolbar/color-text</normaloff>:/FormattingToolbar/color-text</iconset>
        </property>
       </widget>
      </item>
@@ -220,7 +220,7 @@
        </property>
        <property name="icon">
         <iconset resource="FormattingToolbar.qrc">
-         <normaloff>:/subscript</normaloff>:/subscript</iconset>
+         <normaloff>:/FormattingToolbar/subscript</normaloff>:/FormattingToolbar/subscript</iconset>
        </property>
        <property name="checkable">
         <bool>true</bool>
@@ -246,7 +246,7 @@
        </property>
        <property name="icon">
         <iconset resource="FormattingToolbar.qrc">
-         <normaloff>:/super-script</normaloff>:/super-script</iconset>
+         <normaloff>:/FormattingToolbar/super-script</normaloff>:/FormattingToolbar/super-script</iconset>
        </property>
        <property name="checkable">
         <bool>true</bool>
@@ -272,7 +272,7 @@
        </property>
        <property name="icon">
         <iconset resource="FormattingToolbar.qrc">
-         <normaloff>:/underline</normaloff>:/underline</iconset>
+         <normaloff>:/FormattingToolbar/underline</normaloff>:/FormattingToolbar/underline</iconset>
        </property>
        <property name="checkable">
         <bool>true</bool>
@@ -298,7 +298,7 @@
        </property>
        <property name="icon">
         <iconset resource="FormattingToolbar.qrc">
-         <normaloff>:/strikeout</normaloff>:/strikeout</iconset>
+         <normaloff>:/FormattingToolbar/strikeout</normaloff>:/FormattingToolbar/strikeout</iconset>
        </property>
        <property name="checkable">
         <bool>true</bool>
@@ -324,7 +324,7 @@
        </property>
        <property name="icon">
         <iconset resource="FormattingToolbar.qrc">
-         <normaloff>:/overline</normaloff>:/overline</iconset>
+         <normaloff>:/FormattingToolbar/overline</normaloff>:/FormattingToolbar/overline</iconset>
        </property>
        <property name="checkable">
         <bool>true</bool>
@@ -350,7 +350,7 @@
        </property>
        <property name="icon">
         <iconset resource="FormattingToolbar.qrc">
-         <normaloff>:/lower</normaloff>:/lower</iconset>
+         <normaloff>:/FormattingToolbar/lower</normaloff>:/FormattingToolbar/lower</iconset>
        </property>
       </widget>
      </item>
@@ -373,7 +373,7 @@
        </property>
        <property name="icon">
         <iconset resource="FormattingToolbar.qrc">
-         <normaloff>:/upper</normaloff>:/upper</iconset>
+         <normaloff>:/FormattingToolbar/upper</normaloff>:/FormattingToolbar/upper</iconset>
        </property>
       </widget>
      </item>
@@ -396,7 +396,7 @@
        </property>
        <property name="icon">
         <iconset resource="FormattingToolbar.qrc">
-         <normaloff>:/hLine</normaloff>:/hLine</iconset>
+         <normaloff>:/FormattingToolbar/hLine</normaloff>:/FormattingToolbar/hLine</iconset>
        </property>
       </widget>
      </item>
@@ -439,7 +439,7 @@
        </property>
        <property name="icon">
         <iconset resource="FormattingToolbar.qrc">
-         <normaloff>:/align-left</normaloff>:/align-left</iconset>
+         <normaloff>:/FormattingToolbar/align-left</normaloff>:/FormattingToolbar/align-left</iconset>
        </property>
        <property name="checkable">
         <bool>true</bool>
@@ -465,7 +465,7 @@
        </property>
        <property name="icon">
         <iconset resource="FormattingToolbar.qrc">
-         <normaloff>:/align-center</normaloff>:/align-center</iconset>
+         <normaloff>:/FormattingToolbar/align-center</normaloff>:/FormattingToolbar/align-center</iconset>
        </property>
        <property name="checkable">
         <bool>true</bool>
@@ -494,7 +494,7 @@
        </property>
        <property name="icon">
         <iconset resource="FormattingToolbar.qrc">
-         <normaloff>:/align-right</normaloff>:/align-right</iconset>
+         <normaloff>:/FormattingToolbar/align-right</normaloff>:/FormattingToolbar/align-right</iconset>
        </property>
        <property name="checkable">
         <bool>true</bool>
@@ -520,7 +520,7 @@
        </property>
        <property name="icon">
         <iconset resource="FormattingToolbar.qrc">
-         <normaloff>:/align-justify</normaloff>:/align-justify</iconset>
+         <normaloff>:/FormattingToolbar/align-justify</normaloff>:/FormattingToolbar/align-justify</iconset>
        </property>
        <property name="checkable">
         <bool>true</bool>
@@ -546,7 +546,7 @@
        </property>
        <property name="icon">
         <iconset resource="FormattingToolbar.qrc">
-         <normaloff>:/eraser</normaloff>:/eraser</iconset>
+         <normaloff>:/FormattingToolbar/eraser</normaloff>:/FormattingToolbar/eraser</iconset>
        </property>
       </widget>
      </item>
@@ -572,7 +572,7 @@
        </property>
        <property name="icon">
         <iconset resource="FormattingToolbar.qrc">
-         <normaloff>:/list-square</normaloff>:/list-square</iconset>
+         <normaloff>:/FormattingToolbar/list-square</normaloff>:/FormattingToolbar/list-square</iconset>
        </property>
       </widget>
      </item>
@@ -598,7 +598,7 @@
        </property>
        <property name="icon">
         <iconset resource="FormattingToolbar.qrc">
-         <normaloff>:/list-decimal</normaloff>:/list-decimal</iconset>
+         <normaloff>:/FormattingToolbar/list-decimal</normaloff>:/FormattingToolbar/list-decimal</iconset>
        </property>
       </widget>
      </item>
@@ -644,7 +644,7 @@
        </property>
        <property name="icon">
         <iconset resource="FormattingToolbar.qrc">
-         <normaloff>:/hyperlink</normaloff>:/hyperlink</iconset>
+         <normaloff>:/FormattingToolbar/hyperlink</normaloff>:/FormattingToolbar/hyperlink</iconset>
        </property>
       </widget>
      </item>
@@ -670,7 +670,7 @@
        </property>
        <property name="icon">
         <iconset resource="FormattingToolbar.qrc">
-         <normaloff>:/picture</normaloff>:/picture</iconset>
+         <normaloff>:/FormattingToolbar/picture</normaloff>:/FormattingToolbar/picture</iconset>
        </property>
       </widget>
      </item>
@@ -696,7 +696,7 @@
        </property>
        <property name="icon">
         <iconset resource="FormattingToolbar.qrc">
-         <normaloff>:/table</normaloff>:/table</iconset>
+         <normaloff>:/FormattingToolbar/table</normaloff>:/FormattingToolbar/table</iconset>
        </property>
       </widget>
      </item>
@@ -719,7 +719,7 @@
        </property>
        <property name="icon">
         <iconset resource="FormattingToolbar.qrc">
-         <normaloff>:/color-background</normaloff>:/color-background</iconset>
+         <normaloff>:/FormattingToolbar/color-background</normaloff>:/FormattingToolbar/color-background</iconset>
        </property>
       </widget>
      </item>

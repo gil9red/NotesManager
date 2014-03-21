@@ -33,13 +33,13 @@ void ColorButton::createGUI()
     d->tButtonDefaultColor->setText( tr( "Default color" ) );
     connect( d->tButtonDefaultColor, SIGNAL( clicked() ), SLOT( defaultColor() ) );
 
-    d->colorPalette = new ColorPalette( ":/palette" );
+    d->colorPalette = new ColorPalette( ":/FormattingToolbar/palette" );
     connect( d->colorPalette, SIGNAL( selectedColor( QColor ) ), SIGNAL( selectedColor( QColor ) ) );
 
     d->tButtonSelectColor = new QToolButton();
     d->tButtonSelectColor->setToolButtonStyle( Qt::ToolButtonTextBesideIcon );
     d->tButtonSelectColor->setText( tr( "Another color" ) );
-    d->tButtonSelectColor->setIcon( QIcon( ":/icon palette" ) );
+    d->tButtonSelectColor->setIcon( QIcon( ":/FormattingToolbar/icon palette" ) );
     connect( d->tButtonSelectColor, SIGNAL( clicked() ), SLOT( anotherColor() ) );
 
 

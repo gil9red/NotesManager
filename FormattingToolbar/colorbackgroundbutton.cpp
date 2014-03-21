@@ -11,7 +11,7 @@ ColorBackgroundButton::ColorBackgroundButton( QWidget * parent )
 }
 void ColorBackgroundButton::createGUI()
 {
-    setIcon( QIcon( ":/color-background" ) );
+    setIcon( QIcon( ":/FormattingToolbar/color-background" ) );
     setDefaultColor( Qt::transparent );
 
     ColorButton::disconnect( this, SIGNAL( clicked() ), this, SLOT( defaultColor() ) );
@@ -24,7 +24,7 @@ void ColorBackgroundButton::setColor( const QColor & color )
 {
     d->color = color;
 
-    QPixmap pixmap( ":/color-background" );
+    QPixmap pixmap( ":/FormattingToolbar/color-background" );
 
     QPainter painter( &pixmap );
     painter.setBrush( color );

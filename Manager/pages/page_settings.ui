@@ -596,7 +596,13 @@
                    </item>
                    <item>
                     <widget class="ColorSelectButton" name="tButtonColorTitle">
+                     <property name="toolTip">
+                      <string>Color title new note</string>
+                     </property>
                      <property name="statusTip">
+                      <string>Color title new note</string>
+                     </property>
+                     <property name="whatsThis">
                       <string>Color title new note</string>
                      </property>
                      <property name="text">
@@ -693,7 +699,7 @@
                      </property>
                      <property name="icon">
                       <iconset resource="../../Note/Note.qrc">
-                       <normaloff>:/title-font</normaloff>:/title-font</iconset>
+                       <normaloff>:/Note/title-font</normaloff>:/Note/title-font</iconset>
                      </property>
                     </widget>
                    </item>

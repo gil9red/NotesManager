@@ -59,7 +59,7 @@
          </property>
          <property name="icon">
           <iconset resource="findandreplace.qrc">
-           <normaloff>:/previous</normaloff>:/previous</iconset>
+           <normaloff>:/FindAndReplace/previous</normaloff>:/FindAndReplace/previous</iconset>
          </property>
          <property name="autoRaise">
           <bool>false</bool>
@@ -85,7 +85,7 @@
          </property>
          <property name="icon">
           <iconset resource="findandreplace.qrc">
-           <normaloff>:/next</normaloff>:/next</iconset>
+           <normaloff>:/FindAndReplace/next</normaloff>:/FindAndReplace/next</iconset>
          </property>
          <property name="autoRaise">
           <bool>false</bool>

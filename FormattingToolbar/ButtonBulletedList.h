@@ -18,15 +18,15 @@ public:
     {
         setCheckable( true );
         setPopupMode( QToolButton::MenuButtonPopup );
-        setIcon( QIcon( ":/list-disc" ) );
+        setIcon( QIcon( ":/FormattingToolbar/list-disc" ) );
         setDefaultId( QTextListFormat::ListDisc );
 
         QSize size( 60, 60 );
         QSize iconSize( 50, 50 );
 
-        tButtonSquare = Create::Button::get( size, iconSize, QIcon( ":/list-square" ));
-        tButtonDisc = Create::Button::get( size, iconSize, QIcon( ":/list-disc" ));
-        tButtonCircle = Create::Button::get( size, iconSize, QIcon( ":/list-circle" ));
+        tButtonSquare = Create::Button::get( size, iconSize, QIcon( ":/FormattingToolbar/list-square" ));
+        tButtonDisc = Create::Button::get( size, iconSize, QIcon( ":/FormattingToolbar/list-disc" ));
+        tButtonCircle = Create::Button::get( size, iconSize, QIcon( ":/FormattingToolbar/list-circle" ));
 
         QMenu * menu = new QMenu();
         menu->setLayout(new QVBoxLayout());

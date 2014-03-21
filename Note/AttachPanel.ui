@@ -47,7 +47,7 @@
        </property>
        <property name="icon">
         <iconset resource="Note.qrc">
-         <normaloff>:/attach</normaloff>:/attach</iconset>
+         <normaloff>:/Note/attach</normaloff>:/Note/attach</iconset>
        </property>
       </widget>
      </item>
@@ -73,7 +73,7 @@
        </property>
        <property name="icon">
         <iconset resource="../Manager/Manager.qrc">
-         <normaloff>:/run</normaloff>:/run</iconset>
+         <normaloff>:/Manager/run</normaloff>:/Manager/run</iconset>
        </property>
       </widget>
      </item>
@@ -99,7 +99,7 @@
        </property>
        <property name="icon">
         <iconset resource="../Manager/Manager.qrc">
-         <normaloff>:/clipboard</normaloff>:/clipboard</iconset>
+         <normaloff>:/Manager/clipboard</normaloff>:/Manager/clipboard</iconset>
        </property>
       </widget>
      </item>
@@ -125,7 +125,7 @@
        </property>
        <property name="icon">
         <iconset resource="../Manager/Manager.qrc">
-         <normaloff>:/refresh</normaloff>:/refresh</iconset>
+         <normaloff>:/Manager/refresh</normaloff>:/Manager/refresh</iconset>
        </property>
       </widget>
      </item>
@@ -151,7 +151,7 @@
        </property>
        <property name="icon">
         <iconset resource="../Manager/Manager.qrc">
-         <normaloff>:/remove</normaloff>:/remove</iconset>
+         <normaloff>:/Manager/remove</normaloff>:/Manager/remove</iconset>
        </property>
       </widget>
      </item>
@@ -177,7 +177,7 @@
        </property>
        <property name="icon">
         <iconset resource="../Manager/Manager.qrc">
-         <normaloff>:/remove_all</normaloff>:/remove_all</iconset>
+         <normaloff>:/Manager/remove_all</normaloff>:/Manager/remove_all</iconset>
        </property>
       </widget>
      </item>

@@ -1,15 +1,11 @@
 <RCC>
-    <qresource prefix="/">
+    <qresource prefix="/Manager">
         <file alias="settings">images/settings.png</file>
-        <file alias="trash">images/trash.png</file>
         <file alias="about">images/help.png</file>
         <file alias="add">images/add.png</file>
         <file alias="remove">images/delete.png</file>
         <file alias="quit">images/quit.png</file>
         <file alias="minus">images/minus.png</file>
-        <file alias="tree">images/view_tree_3718.png</file>
-        <file alias="spreadsheet">images/spreadsheet_5793.png</file>
-        <file alias="list">images/view_text_6421.png</file>
         <file alias="remove_all">images/clear.png</file>
         <file alias="hide">images/hide.png</file>
         <file alias="show">images/show.png</file>

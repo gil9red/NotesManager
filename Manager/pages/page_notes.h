@@ -26,6 +26,9 @@ public:
     explicit Page_Notes( QWidget * parent = 0 );
     ~Page_Notes();
 
+    //! В функции указываем с каким классом настроек будем работать.
+    void setSettings( QSettings * s );
+
 private:
     BaseModelItem * createItemOfDomElement( const QDomElement & element );
     void parseDomElement( BaseModelItem * node, QDomElement & element );
@@ -69,6 +72,9 @@ public slots:
     void defaultBackColor();
 
     void showContextMenu( const QPoint & pos );
+
+protected:
+    bool eventFilter( QObject * object, QEvent * event );
 };
 
 #endif // PAGE_NOTES_H

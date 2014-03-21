@@ -5,7 +5,7 @@
 NoteModelItem::NoteModelItem( const QString & text )
     : BaseModelItem( text )
 {
-    setIcon( QIcon( ":/note" ) );
+    setIcon( QIcon( ":/NavigationPanel/note" ) );
     setType( NOTE );
 
     setDragEnabled( true );

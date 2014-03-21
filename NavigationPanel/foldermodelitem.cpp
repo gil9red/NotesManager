@@ -3,7 +3,7 @@
 FolderModelItem::FolderModelItem( const QString & text )
     : BaseModelItem( text )
 {
-    setIcon( QIcon( ":/folder" ) );
+    setIcon( QIcon( ":/NavigationPanel/folder" ) );
     setType( FOLDER );
 
     setDropEnabled( true );

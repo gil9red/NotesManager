@@ -64,11 +64,18 @@ Page_Notes::Page_Notes( QWidget * parent ) :
     connect( ui->treeNotes, SIGNAL( customContextMenuRequested( QPoint ) ), SLOT( showContextMenu(QPoint) ) );
     connect( ui->treeNotes, SIGNAL( doubleClicked( QModelIndex ) ), SLOT( open() ) );
 
+    ui->treeNotes->viewport()->installEventFilter( this );
+
     connect( &model, SIGNAL( itemChanged( QStandardItem * ) ), SLOT( noteChanged(QStandardItem*) ) );
 }
 Page_Notes::~Page_Notes()
 {
     delete ui;
+}
+
+void Page_Notes::setSettings( QSettings * s )
+{
+    settings = s;
 }
 
 BaseModelItem * Page_Notes::createItemOfDomElement( const QDomElement & element )
@@ -221,7 +228,7 @@ bool Page_Notes::read( QIODevice * device )
         model.appendRow( itemTrash );
     }
 
-    ui->treeNotes->setCurrentIndex( itemTrash->index() );
+    /*TODO: сделать это настраиваемым, т.е. можно указать, что после загрузки нужно развернуть все ветви*/
     ui->treeNotes->expandAll();
     return true;
 }
@@ -274,6 +281,8 @@ void Page_Notes::writeSettings()
     settings->setValue( "Splitter_Main", ui->splitter->saveState() );
     settings->endGroup();
     settings->sync();
+
+    // TODO: вкладки тоже сохранять (брать путь к заметки в качестве id)
 }
 
 void Page_Notes::addTopLevelNote()
@@ -306,11 +315,40 @@ void Page_Notes::addNote()
     NoteModelItem * noteItem = new NoteModelItem( note->title() );
     noteItem->setNote( note );
 
-    QStandardItem * currentItem = model.itemFromIndex( ui->treeNotes->currentIndex() );
-    currentItem->appendRow( noteItem );
-
     hashItemNote.insert( noteItem, note );
     connect( note, SIGNAL( changed(int) ), SLOT( noteChanged(int) ) );
+
+    // Определим куда разместить только что созданную заметку
+    const QModelIndex & index = ui->treeNotes->currentIndex();
+
+    if ( !index.isValid() )
+        model.appendRow( noteItem );
+    else
+    {
+        BaseModelItem * currentItem = static_cast < BaseModelItem * > ( model.itemFromIndex( ui->treeNotes->currentIndex() ) );
+        if ( !currentItem )
+        {
+            WARNING( "null pointer!" );
+            return;
+        }
+
+        if ( currentItem->isFolder() )
+            currentItem->appendRow( noteItem );
+
+        else if ( currentItem->isTrash() )
+            model.appendRow( noteItem );
+
+        else if ( currentItem->isNote() )
+        {
+            QStandardItem * parent = currentItem->parent();
+            if ( parent )
+                parent->insertRow( currentItem->row() + 1, noteItem );
+            else
+                model.insertRow( currentItem->row() + 1, noteItem );
+        }
+    }
+
+    ui->treeNotes->setCurrentIndex( noteItem->index() );
 }
 void Page_Notes::rename()
 {
@@ -322,7 +360,6 @@ void Page_Notes::open()
     if ( !item )
     {
         WARNING( "null pointer!" );
-        QMessageBox::information( this, tr( "Ошибка" ), tr( "Объект не существует" ) );
         return;
     }
 
@@ -491,4 +528,23 @@ void Page_Notes::showContextMenu( const QPoint & pos )
     }    
 
     menu.exec( ui->treeNotes->viewport()->mapToGlobal( pos ) );
+}
+
+bool Page_Notes::eventFilter( QObject * object, QEvent * event )
+{
+    // Если кликнули на пустую область иерархического дерева, тогда убираем выделение
+    if ( object == ui->treeNotes->viewport() )
+    {
+        if ( event->type() == QEvent::MouseButtonRelease )
+        {
+            QMouseEvent * mouseEvent = static_cast < QMouseEvent * > ( event );
+            const QModelIndex & index = ui->treeNotes->indexAt( mouseEvent->pos() );
+            if ( !index.isValid() )
+                ui->treeNotes->setCurrentIndex( QModelIndex() );
+        }
+
+        return false;
+    }
+
+    return QMainWindow::eventFilter( object, event );
 }

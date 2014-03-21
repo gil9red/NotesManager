@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/">
+    <qresource prefix="/App">
         <file alias="icon-mini">images/icon64x64.png</file>
         <file alias="splash">images/splash.png</file>
         <file alias="app-icon">images/app_icon.png</file>

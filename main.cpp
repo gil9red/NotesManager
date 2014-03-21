@@ -76,7 +76,7 @@ int main( int argc, char *argv[] )
         return 0;
     }
 
-    QFile file( ":/Note.qss" );
+    QFile file( ":/Note/Note.qss" );
     if ( file.open( QIODevice::ReadOnly ) )
         Note::style = file.readAll();
 
@@ -85,7 +85,7 @@ int main( int argc, char *argv[] )
     new RegisterNote();
 
     MySplashScreen * splashScreen = new MySplashScreen();
-    QPixmap pixmap = QPixmap( ":/splash" );
+    QPixmap pixmap = QPixmap( ":/App/splash" );
     splashScreen->setPixmap( pixmap );
     splashScreen->show();
 

@@ -91,7 +91,7 @@ void Page_Settings::mapToSettings()
     ui->sBoxLeft->setValue( position.x() );
     ui->sBoxTop->setValue( position.y() );
     ui->sBoxOpacity->setValue( mapSettings.value( "NewNote_Opacity", Note::maximalOpacity ).toDouble() * 100 );
-    ui->lEditTitle->setText( mapSettings.value( "NewNote_Title", tr( "New note" ) + " %dt%" ).toString() );
+    ui->lEditTitle->setText( mapSettings.value( "NewNote_Title", tr( "New note" ) + " %td%" ).toString() );
     ui->lEditTitle->setFont( fontTitle );
     ui->tEditText->setText( mapSettings.value( "NewNote_Text", "" ).toString() );
     ui->tButtonColorTitle->setColor( QColor( mapSettings.value( "NewNote_ColorTitle", QColor( Qt::gray ).name() ).toString() ) );

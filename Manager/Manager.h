@@ -50,6 +50,7 @@ public:
     Page_Notes * pageNotes;               //!< Страница менеджера, которая отображает список заметок.
     Page_Settings * pageSettings;         //!< Страница менеджера, которая отображает настройки программы.
     Page_About * pageAbout;               //!< Страница менеджера, которая отображает "О программе".
+
     QSystemTrayIcon tray;                 //!< Класс системного трея.
     QAction * actionOpenManager;          //!< Показ окна менеджера. Действие в меню трея.
     QAction * actionAddNote;              //!< Создать заметку. Действие в меню трея.
@@ -62,6 +63,7 @@ public:
     QAction * actionSettings;             //!< Показать настройки менеджера. Действие в меню трея.
     QAction * actionAbout;                //!< Показ окна "О программе". Действие в меню трея.
     QAction * actionQuit;                 //!< Сохранить все заметки и закрыть программу. Действие в меню трея.
+
     QSettings * settings;                 //!< Указатель на класс настроек.
     QTimer autoSaveTimer;                 //!< Таймер автосохранения.
 
@@ -81,6 +83,8 @@ private slots:
     void show_page_settings();   //!< Показать страницу настроек.
     void show_page_about();      //!< Показать страницу "О программе".
     void show_page_documentation(); //!< Показать страницу "Документация".
+
+    void updateStates();
 
 public slots:
     void show_Manager();  //!< Показать менеджер.
