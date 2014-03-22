@@ -221,4 +221,7 @@ QMessageBox::StandardButton showNewMessageBox( QWidget * parent, QMessageBox::Ic
 #include <QStandardItem>
 int indexChild( QStandardItem * parent, QStandardItem * child );
 
+//! Обрезание текста, если превышен лимит, то лишний текст обрезается и добавляется троеточие "..."
+QString cropString( QString text, int max = 13 );
+
 #endif // FUNC_H

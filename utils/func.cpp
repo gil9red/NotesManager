@@ -419,3 +419,11 @@ int indexChild( QStandardItem * parent, QStandardItem * child  )
             return i;
     return -1;
 }
+
+QString cropString( QString text, int max )
+{
+    if ( text.length() > max )
+        text = text.mid( 0, max ).append( "..." );
+
+    return text;
+}

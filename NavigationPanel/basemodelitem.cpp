@@ -1,5 +1,19 @@
 #include "basemodelitem.h"
 
+QString stringType( BaseModelItem * item )
+{
+    QString name;
+    if ( item->isBase() )
+        name = "Base";
+    else if ( item->isNote() )
+        name = "Note";
+    else if ( item->isFolder() )
+        name = "Folder";
+    else if ( item->isTrash() )
+        name = "Trash";
+    return name;
+}
+
 BaseModelItem::BaseModelItem( const QString & text )
     : QStandardItem( text )
 {

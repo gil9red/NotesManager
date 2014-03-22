@@ -18,13 +18,25 @@ RegisterNote * RegisterNote::instance()
 
 void RegisterNote::add( RichTextNote * note )
 {
-    fileHashNote.insert( note->fileName(), note );
+    const QString & fileName = note->fileName();
+    // имя папки заметок и так являются уникальными, поэтому можно и не использовать полный путь
+    const QString & name_id = QDir( fileName ).dirName();
+
+    fileHashNote.insert( name_id, note );
 }
 int RegisterNote::remove( RichTextNote * note )
 {
-    return fileHashNote.remove( note->fileName() );
+    const QString & fileName = note->fileName();
+    // имя папки заметок и так являются уникальными, поэтому можно и не использовать полный путь
+    const QString & name_id = QDir( fileName ).dirName();
+
+    return fileHashNote.remove( name_id );
 }
 RichTextNote * RegisterNote::get( const QString & fileName )
 {
     return fileHashNote.value( fileName, 0 );
+}
+QString RegisterNote::getIdName( RichTextNote * note )
+{
+    return fileHashNote.key( note );
 }

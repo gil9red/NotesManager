@@ -14,7 +14,12 @@ NoteModelItem::NoteModelItem( const QString & text )
 void NoteModelItem::setNote( RichTextNote * note )
 {
     RegisterNote::instance()->add( note );
-    setData( note->fileName(), NOTE_TYPE );
+
+    const QString & fileName = note->fileName();
+    // имя папки заметок и так являются уникальными, поэтому можно и не использовать полный путь
+    const QString & name_id = QDir( fileName ).dirName();
+
+    setData( name_id, NOTE_TYPE );
 }
 RichTextNote * NoteModelItem::note()
 {

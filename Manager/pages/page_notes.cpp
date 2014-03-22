@@ -8,6 +8,7 @@
 #include "noteeditor.h"
 #include "NavigationPanel/trashmodelitem.h"
 #include "NavigationPanel/foldermodelitem.h"
+#include "RegisterNote.h"
 
 BaseModelItem * createFromType( BaseModelItem::Type type )
 {
@@ -81,7 +82,11 @@ void Page_Notes::setSettings( QSettings * s )
 BaseModelItem * Page_Notes::createItemOfDomElement( const QDomElement & element )
 {
     BaseModelItem * item = createFromType( element.tagName() );
-
+    if ( !item )
+    {
+        WARNING( "null pointer!" );
+        return 0;
+    }
     if ( !item->isTrash() )
     {
         if ( item->isFolder() )
@@ -91,8 +96,8 @@ BaseModelItem * Page_Notes::createItemOfDomElement( const QDomElement & element 
 
         if ( item->isNote() )
         {
-            const QString & absoluteFilePath = QDir( getNotesPath() ).absoluteFilePath( element.attribute( "note" ) );
-            RichTextNote * note = new RichTextNote( absoluteFilePath );
+            const QString & fileName = getNotesPath() + "/" + element.attribute( "id" );
+            RichTextNote * note = new RichTextNote( fileName );
             note->load();
 
             NoteModelItem * noteItem = static_cast < NoteModelItem * > ( item );
@@ -136,8 +141,7 @@ QDomElement Page_Notes::createDomElementOfItem( BaseModelItem * item, QDomDocume
             NoteModelItem * noteItem = static_cast < NoteModelItem * > ( item );
             RichTextNote * note = noteItem->note();
 
-            const QString & relativeFilePath = QDir( getNotesPath() ).relativeFilePath( note->fileName() );
-            element.setAttribute( "note", relativeFilePath );
+            element.setAttribute( "id", RegisterNote::instance()->getIdName( note ) );
 
             note->save(); // TODO: remove this
         }
@@ -206,22 +210,49 @@ bool Page_Notes::read( QIODevice * device )
     QDomDocument xmlDomDocument;
     xmlDomDocument.setContent( device );
 
+    // Корнем является тэг Notebook
     QDomElement root = xmlDomDocument.documentElement();
-    QDomElement child = root.firstChildElement();
-    while( !child.isNull() )
-    {
-        BaseModelItem * topLevelItem = createItemOfDomElement( child );
-        if ( topLevelItem->isTrash() )
-            itemTrash = static_cast < TrashModelItem * > ( topLevelItem );
 
+    // Ищем тэг Notes, в нем описано иерархическое дерево с заметками и папками
+    QDomElement rootNotes = root.firstChildElement( "Notes" );
+
+    // Переходим к первому ребенку этого тэга, это может быть Note, Trash, или Folder
+    rootNotes = rootNotes.firstChildElement();
+    while( !rootNotes.isNull() )
+    {
+        // Создаем элемент
+        BaseModelItem * topLevelItem = createItemOfDomElement( rootNotes );
+        if ( !topLevelItem )
+        {
+            WARNING( "null pointer!" );
+            rootNotes = rootNotes.nextSiblingElement();
+        }
+        // Если это Trash, сохраняем указатель
+        if ( topLevelItem->isTrash() )
+        {
+            // Если уже существует элемент Корзина, то пропускаем добавление его
+            if ( itemTrash )
+            {
+                WARNING( "Duplicate item Trash!" );
+                rootNotes = rootNotes.nextSiblingElement();
+            }
+
+            itemTrash = static_cast < TrashModelItem * > ( topLevelItem );
+        }
+
+        // Добавляем элемент в дерево
         model.appendRow( topLevelItem );
 
-        if ( child.hasChildNodes() )
-            parseDomElement( topLevelItem, child );
+        // Если у элемента есть дети, отправляем его в рекурсивную функцию,
+        // в которой будет идти разбор его детей, детей детей и т.д.
+        if ( rootNotes.hasChildNodes() )
+            parseDomElement( topLevelItem, rootNotes );
 
-        child = child.nextSiblingElement();
+        // Переходим к следующему ребенку тэга Notes
+        rootNotes = rootNotes.nextSiblingElement();
     }
 
+    // Если среди детей не нашелся Trash, создаем и добавляем
     if ( !itemTrash )
     {
         itemTrash = new TrashModelItem();
@@ -230,6 +261,23 @@ bool Page_Notes::read( QIODevice * device )
 
     /*TODO: сделать это настраиваемым, т.е. можно указать, что после загрузки нужно развернуть все ветви*/
     ui->treeNotes->expandAll();
+
+
+    // Ищем тэг Tabs, в нем описаны последнии перед закрытием программы открытые вкладки
+    QDomElement rootTabs = root.firstChildElement( "Tabs" );
+
+    // Переходим к первому ребенку этого тэга
+    rootTabs = rootTabs.firstChildElement();
+    while( !rootTabs.isNull() )
+    {
+        const QString & name_id = rootTabs.attribute( "id" );
+        RichTextNote * note = RegisterNote::instance()->get( name_id );
+        QStandardItem * item = hashItemNote.key( note );
+        NoteModelItem * noteItem = static_cast < NoteModelItem * > ( item );
+        ui->tabNotes->openTab( noteItem );
+        rootTabs = rootTabs.nextSiblingElement();
+    }
+
     return true;
 }
 bool Page_Notes::write( QIODevice * device )
@@ -240,17 +288,44 @@ bool Page_Notes::write( QIODevice * device )
     out << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 
     QDomDocument xmlDomDocument;
-    QDomElement root = xmlDomDocument.createElement( "Notes" );
+    // Корень - тэг Notebook
+    QDomElement root = xmlDomDocument.createElement( "Notebook" );
     xmlDomDocument.appendChild( root );
+
+    // У Notebook есть дети Notes и Tabs
+    QDomElement rootNotes = xmlDomDocument.createElement( "Notes" );
+    root.appendChild( rootNotes );
 
     for ( int i = 0; i < model.rowCount(); i++ )
     {
         BaseModelItem * topLevelItem = static_cast < BaseModelItem * > ( model.item(i) );
 
         QDomElement element = createDomElementOfItem( topLevelItem, xmlDomDocument );
-        root.appendChild( element );
+        rootNotes.appendChild( element );
 
         parseItem( topLevelItem, element, xmlDomDocument );
+    }
+
+
+    QDomElement rootTabs = xmlDomDocument.createElement( "Tabs" );
+    root.appendChild( rootTabs );
+
+    // Делаем перебор всех вкладок
+    for ( int i = 0; i < ui->tabNotes->count(); i++ )
+    {
+        // Получаем указатель на заметку, которая "закреплена" за вкладкой
+        RichTextNote * note = ui->tabNotes->note(i);
+
+        // Через регистратор заметок, с помощью указателя на заметку, получаем id заметки,
+        // а id заметки на момент написания коммента было название папки заметки
+        const QString & id_name = RegisterNote::instance()->getIdName( note );
+
+        // Создаем элемент и указываем id
+        QDomElement element = xmlDomDocument.createElement( "Note" );
+        element.setAttribute( "id", id_name );
+
+        // Добавляем в xml дерево, в узел Tabs
+        rootTabs.appendChild( element );
     }
 
     xmlDomDocument.save( out, indentSize );

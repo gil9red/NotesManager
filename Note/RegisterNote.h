@@ -5,6 +5,7 @@
 
 #include <QHash>
 
+//! Связывание имени папки заметки с указателем на нее
 class RegisterNote
 {
 public:
@@ -17,6 +18,7 @@ public:
     void add( RichTextNote * note );
     int remove( RichTextNote * note );
     RichTextNote * get( const QString & fileName );
+    QString getIdName( RichTextNote * note );
 
 private:
     QHash < QString, RichTextNote * > fileHashNote;

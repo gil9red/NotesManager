@@ -166,29 +166,29 @@ void Manager::createTray()
     tray.show();
 
     actionOpenManager = Create::Action::triggered( QIcon( "" ), tr( "Open manager" ), this, SLOT( show_Manager() ) );
-    actionAddNote = Create::Action::triggered( ui->addNote->icon(), ui->addNote->text(), this, SLOT( addNote() ) );
-    actionAddNoteFromClipboard = Create::Action::triggered( ui->addNoteFromClipboard->icon(), ui->addNoteFromClipboard->text(), this, SLOT( addNoteFromClipboard() ) );
-    actionAddNoteFromScreen = Create::Action::triggered( ui->addNoteFromScreen->icon(), ui->addNoteFromScreen->text(), this, SLOT( addNoteFromScreen() ) );
-    actionShowAllNotes = Create::Action::triggered( ui->showAllNotes->icon(), ui->showAllNotes->text(), this, SLOT( showAllNotes() ) );
-    actionHideAllNotes = Create::Action::triggered( ui->hideAllNotes->icon(), ui->hideAllNotes->text(), this, SLOT( hideAllNotes() ) );
-    actionSaveAllNotes = Create::Action::triggered( ui->saveAllNotes->icon(), ui->saveAllNotes->text(), this, SLOT( saveAllNotes() ) );
-    actionRemoveAllNotes = Create::Action::triggered( ui->removeAllNotes->icon(), ui->removeAllNotes->text(), this, SLOT( removeAllNotes() ) );
     actionSettings = Create::Action::triggered( ui->settings->icon(), ui->settings->text(), this, SLOT( show_page_settings() ) );
     actionAbout = Create::Action::triggered( ui->about->icon(), ui->about->text(), this, SLOT( show_page_about() ) );
     actionQuit = Create::Action::triggered( ui->quit->icon(), ui->quit->text(), this, SLOT( quit() ) );
+//    actionAddNote = Create::Action::triggered( ui->addNote->icon(), ui->addNote->text(), this, SLOT( addNote() ) );
+//    actionAddNoteFromClipboard = Create::Action::triggered( ui->addNoteFromClipboard->icon(), ui->addNoteFromClipboard->text(), this, SLOT( addNoteFromClipboard() ) );
+//    actionAddNoteFromScreen = Create::Action::triggered( ui->addNoteFromScreen->icon(), ui->addNoteFromScreen->text(), this, SLOT( addNoteFromScreen() ) );
+//    actionShowAllNotes = Create::Action::triggered( ui->showAllNotes->icon(), ui->showAllNotes->text(), this, SLOT( showAllNotes() ) );
+//    actionHideAllNotes = Create::Action::triggered( ui->hideAllNotes->icon(), ui->hideAllNotes->text(), this, SLOT( hideAllNotes() ) );
+//    actionSaveAllNotes = Create::Action::triggered( ui->saveAllNotes->icon(), ui->saveAllNotes->text(), this, SLOT( saveAllNotes() ) );
+//    actionRemoveAllNotes = Create::Action::triggered( ui->removeAllNotes->icon(), ui->removeAllNotes->text(), this, SLOT( removeAllNotes() ) );
 
     trayMenu->addAction( actionOpenManager );
     trayMenu->addSeparator();
-    trayMenu->addAction( actionAddNote );
-    trayMenu->addAction( actionAddNoteFromClipboard );
-    trayMenu->addAction( actionAddNoteFromScreen );
-    trayMenu->addSeparator();
-    trayMenu->addAction( actionShowAllNotes );
-    trayMenu->addAction( actionHideAllNotes );
-    trayMenu->addSeparator();
-    trayMenu->addAction( actionSaveAllNotes );
-    trayMenu->addAction( actionRemoveAllNotes );
-    trayMenu->addSeparator();
+//    trayMenu->addAction( actionAddNote );
+//    trayMenu->addAction( actionAddNoteFromClipboard );
+//    trayMenu->addAction( actionAddNoteFromScreen );
+//    trayMenu->addSeparator();
+//    trayMenu->addAction( actionShowAllNotes );
+//    trayMenu->addAction( actionHideAllNotes );
+//    trayMenu->addSeparator();
+//    trayMenu->addAction( actionSaveAllNotes );
+//    trayMenu->addAction( actionRemoveAllNotes );
+//    trayMenu->addSeparator();
     trayMenu->addAction( actionSettings );
     trayMenu->addSeparator();
     trayMenu->addAction( actionAbout );
@@ -267,7 +267,7 @@ void Manager::show_page_documentation()
     if ( !QDesktopServices::openUrl( QUrl::fromLocalFile( qApp->applicationDirPath() + "/doc/ru/html/index.html" ) ) )
     {
         QMessageBox::information( this, tr( "Information" ), tr( "Unable to open documents" ) );
-        qDebug() << tr( "Unable to open documents" );
+        WARNING( "Unable to open documents" );
     }
 }
 
