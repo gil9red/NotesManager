@@ -36,30 +36,36 @@ static const char codec[] = "utf8";
 // TODO: выделять память только под видимые заметки
 // TODO: панель форматирования подчеркивание - не правильно сохраняет
 // TODO: вставку картинок из буфера обмена
-// TODO: настройка: активность автодополнения
+// TODO: настройка: активность автодополнения и сохранение значения автодополнения
 // TODO: настройка: кнопка восстановления значений по умолчанию
 // TODO: при сохранении заметки дата изменения меняется
 // TODO: ЗАМЕТКА: выбор цвета для: заголовка и тела заметки (взять из панели кнопку)
 // TODO: гиперссылки у заметок
-// TODO: Настройки: "думаю самое простое убрать кнопку применить)) и сделать автоматом))"
 // TODO: настройки: добавить возможность у заметок убирать лишние компоненты: быстрый поиск и панель инструментов.
 // TODO: заметка/настройки: возможность сделать прозрачным фон редактора заметок, как в старых.
 // TODO: проверить работу дублирования
 // TODO: Заметка -> При сохранить как вставлять в качестве имени заголовок заметки
 // (учитывать, что в ос не все символы в названиях файлов разрешены)
 // TODO: Вставка текстовых смайлов в редактор заметок
+// TODO: Посмотреть меню Окно креатора
+// TODO: папки image(s) поменять на icons
+// TODO: добавить иконки из набора fugue-icons не забыть в О программе привести упоминание автора (пример см в qNotesManager)
 
-/// TODO: добавить заметку с снимком от вебкамеры
+//// TODO: настроить удаление заметки, когда она вызывает удаление. К примеру: если заметка при удалении не в корзине, то отправляется в нее, если в ней, то удаляется.
+//// TODO: добавить выполнение скриптов
+///
+/// TODO: добавить заметку с снимком от вебкамеры (Думаю, лучше будет использовать opencv)
 /// NOTE: git после выпуска стабильных версий, создавать ветку develop для новой версии
 
 QString Note::style = "";
 
 #include "RegisterNote.h"
+
 #include "ScriptModule/foo.h"
+
 int main( int argc, char *argv[] )
 {
     qsrand( QDateTime().toMSecsSinceEpoch() );
-    /*TODO*/QTextCodec::setCodecForTr( QTextCodec::codecForName( codec ) );
     QTextCodec::setCodecForCStrings( QTextCodec::codecForName( codec ) );    
 
     QtSingleApplication app( argc, argv );
@@ -67,9 +73,19 @@ int main( int argc, char *argv[] )
     qApp->setApplicationVersion( App::version );
     qApp->setQuitOnLastWindowClosed( false );
 
-//    qDebug() << ScriptModule::evaluate( "Number a = 10;"
-//                                        "Number b = a + 1;"
-//                                        "b");
+    /// Example Script
+    qDebug() << ScriptModule::evaluate( "(1+2+3-2*2)/2");
+    //
+    QScriptEngine * scriptEngine = new QScriptEngine();
+    QScriptValue fun = scriptEngine->evaluate("(function(a, b) { return a + b; })");
+    QScriptValueList args;
+    args << 1 << 2;
+    QScriptValue result = fun.call(QScriptValue(), args);
+    qDebug() << result.toString();
+    //
+    QScriptValue pow = scriptEngine->evaluate("(function(a, b) { var res = 1; while( b-- ) res *= a; return res; })");
+    qDebug() << pow.call( QScriptValue(), QScriptValueList() << 5 << 3 ).toString();
+    /// Example Script
 
     if ( app.isRunning() )
     {

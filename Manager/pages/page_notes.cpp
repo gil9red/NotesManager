@@ -87,6 +87,11 @@ bool Page_Notes::isEmpty()
 }
 bool Page_Notes::trashIsEmpty()
 {
+    if ( !itemTrash )
+    {
+        WARNING( "null pointer!" );
+        return false;
+    }
     return ( itemTrash->rowCount() == 0 );
 }
 bool Page_Notes::currentIsChildTrash()
@@ -279,7 +284,7 @@ void Page_Notes::parseItem( BaseModelItem * node, QDomElement & element, QDomDoc
         parseItem( itemChild, domChild, xmlDomDocument );
     }
 }
-void Page_Notes::removeItem( BaseModelItem * item, BaseModelItem * parent )
+void Page_Notes::removeItem( BaseModelItem * item, QStandardItem * parent )
 {
     if ( item->isFolder() )
     {
@@ -310,7 +315,13 @@ void Page_Notes::noteChanged( int event )
     case EventsNote::ChangeTitle:
         item->setText( note->title() );
         break;
+
+    case EventsNote::Remove:
+        removeToTrash( item );
+        break;
     }
+
+    emit about_updateStates();
 }
 void Page_Notes::noteChanged( QStandardItem * item )
 {
@@ -717,31 +728,37 @@ void Page_Notes::open()
         ui->tabNotes->openTab( noteItem );
     }
 }
-void Page_Notes::removeToTrash()
+
+void Page_Notes::removeToTrash( QStandardItem * item )
 {
-    QStandardItem * removedItem = model.itemFromIndex( ui->treeNotes->currentIndex() );
-    if ( !removedItem )
+    if ( !item )
     {
         WARNING( "null pointer!" );
         return;
     }
 
-    QStandardItem * parentItem = removedItem->parent();
+    QStandardItem * parentItem = item->parent();
     // Если есть родитель - тогда это под элемент
     // иначе - элемент верхнего уровня
     if ( parentItem )
     {
-        int row = removedItem->row();
-        removedItem = parentItem->takeChild( row );
+        int row = item->row();
+        item = parentItem->takeChild( row );
         parentItem->removeRow( row );
     } else
     {
-        int row = removedItem->row();
-        removedItem = model.takeItem( row );
+        int row = item->row();
+        item = model.takeItem( row );
         model.removeRow( row );
     }
 
-    itemTrash->appendRow( removedItem );
+    itemTrash->appendRow( item );
+}
+void Page_Notes::removeToTrash()
+{
+    QStandardItem * removedItem = model.itemFromIndex( ui->treeNotes->currentIndex() );
+    removeToTrash( removedItem );
+
 }
 void Page_Notes::removeAllToTrash()
 {
@@ -855,7 +872,7 @@ void Page_Notes::showContextMenu( const QPoint & pos )
         menuBackColor->setEnabled( isNoteOrFolder );
 
         bool isChildTrash = currentIsChildTrash(); // если элемент есть в корзине
-        actionRemoveToTrash->setEnabled( isNoteOrFolder && !currentIsChildTrash() ); // переместить в корзину
+        actionRemoveToTrash->setEnabled( !currentIsTrash() && !isChildTrash ); // переместить в корзину
         actionDelete->setEnabled( isChildTrash );
         actionClearTrash->setEnabled( currentIsTrash() || isChildTrash ); // если корзина не пустая
     }

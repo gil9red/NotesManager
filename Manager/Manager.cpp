@@ -104,19 +104,16 @@ void Manager::createToolBars()
     connect( ui->toolBarAddNoteFromClipboard, SIGNAL( triggered() ), pageNotes, SLOT( addNoteFromClipboard() ) );
     connect( ui->toolBarAddNoteFromScreen, SIGNAL( triggered() ), pageNotes, SLOT( addNoteFromScreen() ) );
     connect( ui->toolBarAddFolder, SIGNAL( triggered() ), pageNotes, SLOT( addFolder() ) );
-//    connect( ui->removeAllNotes, SIGNAL( triggered() ), pageNotes, SLOT(  ) );
-//    connect( ui->removeFromTrash, SIGNAL( triggered() ), pageNotes, SLOT(  ) );
-//    connect( ui->removeToTrash, SIGNAL( triggered() ), pageNotes, SLOT(  ) );
+    connect( ui->toolBarRemoveToTrash, SIGNAL( triggered() ), pageNotes, SLOT( removeToTrash() ) );
+    connect( ui->toolBarRemoveAllNotes, SIGNAL( triggered() ), pageNotes, SLOT( removeAllToTrash() ) );
+    connect( ui->toolBarDelete, SIGNAL( triggered() ), pageNotes, SLOT( removeFromTrash() ) );
+    connect( ui->toolBarClearTrash, SIGNAL( triggered() ), pageNotes, SLOT( clearTrash() ) );
 
-//    connect( ui->removeAllNotes, SIGNAL( triggered() ), SLOT( removeAllNotes() ) );
+    connect( ui->toolBarOpenDict, SIGNAL( triggered() ), SLOT( openDictionary() ) );
+    connect( ui->toolBarCloseDict, SIGNAL( triggered() ), SLOT( closeDictionary() ) );
     connect( ui->toolBarSaveAllNotes, SIGNAL( triggered() ), pageNotes, SLOT( saveAllNotes() ) );
     connect( ui->toolBarShowAllNotes, SIGNAL( triggered() ), pageNotes, SLOT( showAllNotes() ) );
     connect( ui->toolBarHideAllNotes, SIGNAL( triggered() ), pageNotes, SLOT( hideAllNotes() ) );
-    connect( ui->toolBarOpenDict, SIGNAL( triggered() ), SLOT( openDictionary() ) );
-    connect( ui->toolBarCloseDict, SIGNAL( triggered() ), SLOT( closeDictionary() ) );
-//    connect( ui->removeNote, SIGNAL( triggered() ), SLOT( removeNote() ) );
-//    connect( ui->duplicateNote, SIGNAL( triggered() ), SLOT( duplicateNote() ) );
-
     connect( ui->toolBarSaveNoteAs, SIGNAL( triggered() ), pageNotes, SLOT( saveAsNote() ) );
     connect( ui->toolBarSaveNote, SIGNAL( triggered() ), pageNotes, SLOT( saveNote() ) );
     connect( ui->toolBarShowNote, SIGNAL( triggered() ), pageNotes, SLOT( showNote() ) );
@@ -124,6 +121,7 @@ void Manager::createToolBars()
     connect( ui->toolBarPrintNote, SIGNAL( triggered() ), pageNotes, SLOT( printNote() ) );
     connect( ui->toolBarPreviewPrintNote, SIGNAL( triggered() ), pageNotes, SLOT( previewPrintNote() ) );
     connect( ui->toolBarTopNote, SIGNAL( triggered(bool) ), pageNotes, SLOT( setTopNote(bool) ) );
+    //connect( ui->duplicateNote, SIGNAL( triggered() ), SLOT( duplicateNote() ) );
 }
 void Manager::createMenu()
 {
@@ -141,20 +139,19 @@ void Manager::createMenu()
     connect( ui->actionAbout, SIGNAL( triggered() ), ui->toolBarAbout, SIGNAL( triggered() ) );
     connect( ui->actionDocumentation, SIGNAL( triggered() ), SLOT( show_page_documentation() ) );
 
-//  TODO:  connect( ui->actionOpen, SIGNAL( triggered() ), SLOT( open() ) );
+    //  TODO:  connect( ui->actionOpen, SIGNAL( triggered() ), SLOT( open() ) );
+
     connect( ui->actionAddNote, SIGNAL( triggered() ), ui->toolBarAddNote, SIGNAL( triggered() ) );
     connect( ui->actionAddNoteFromClipboard, SIGNAL( triggered() ), ui->toolBarAddNoteFromClipboard, SIGNAL( triggered() ) );
     connect( ui->actionAddNoteFromScreen, SIGNAL( triggered() ), ui->toolBarAddNoteFromScreen, SIGNAL( triggered() ) );
+//    connect( ui->actionRemoveNote, SIGNAL( triggered() ), SLOT( removeNote() ) );
 //    connect( ui->actionRemoveAllNotes, SIGNAL( triggered() ), SLOT( removeAllNotes() ) );
-    connect( ui->actionSaveAllNotes, SIGNAL( triggered() ), ui->toolBarSaveAllNotes, SIGNAL( triggered() ) );
-    connect( ui->actionShowAllNotes, SIGNAL( triggered() ), ui->toolBarShowAllNotes, SIGNAL( triggered() ) );
-    connect( ui->actionHideAllNotes, SIGNAL( triggered() ), ui->toolBarHideAllNotes, SIGNAL( triggered() ) );
+
     connect( ui->actionOpenDict, SIGNAL( triggered() ), ui->toolBarOpenDict, SIGNAL( triggered() ) );
     connect( ui->actionCloseDict, SIGNAL( triggered() ), ui->toolBarCloseDict, SIGNAL( triggered() ) );
-
-//    connect( ui->actionRemoveNote, SIGNAL( triggered() ), SLOT( removeNote() ) );
-//    connect( ui->actionDuplicateNote, SIGNAL( triggered() ), SLOT( duplicateNote() ) );
-
+    connect( ui->actionSaveAllNotes, SIGNAL( triggered() ), ui->toolBarSaveAllNotes, SIGNAL( triggered() ) );
+    connect( ui->actionShowAllNotes, SIGNAL( triggered() ), ui->toolBarShowAllNotes, SIGNAL( triggered() ) );
+    connect( ui->actionHideAllNotes, SIGNAL( triggered() ), ui->toolBarHideAllNotes, SIGNAL( triggered() ) );    
     connect( ui->actionSaveNoteAs, SIGNAL( triggered() ), ui->toolBarSaveNoteAs, SIGNAL( triggered() ) );
     connect( ui->actionSaveNote, SIGNAL( triggered() ), ui->toolBarSaveNote, SIGNAL( triggered() ) );
     connect( ui->actionShowNote, SIGNAL( triggered() ), ui->toolBarShowNote, SIGNAL( triggered() ) );
@@ -162,8 +159,8 @@ void Manager::createMenu()
     connect( ui->actionPrintNote, SIGNAL( triggered() ), ui->toolBarPrintNote, SIGNAL( triggered() ) );
     connect( ui->actionPreviewPrintNote, SIGNAL( triggered() ), ui->toolBarPreviewPrintNote, SIGNAL( triggered() ) );
     connect( ui->actionTopNote, SIGNAL( triggered(bool) ), ui->toolBarTopNote, SIGNAL( triggered() ) );
+    //connect( ui->actionDuplicateNote, SIGNAL( triggered() ), SLOT( duplicateNote() ) );
 }
-#include <QWidgetAction>
 void Manager::createTray()
 {
     tray.setIcon( QIcon( ":/App/icon-mini" ) );
@@ -232,7 +229,7 @@ void Manager::buttonLeftPanelClicked( int index )
 }
 void Manager::messageReceived( const QString & text )
 {
-    foreach ( const QString & command, text.split( " " ) )
+    foreach ( const QString & command, text.split(" ") )
     {
         if ( command == "-show" )
             show_Manager();
@@ -294,12 +291,7 @@ void Manager::updateStates()
     ui->toolBarCloseDict->setEnabled( isAutocomplete );
     ui->toolBarOpenDict->setEnabled( !isAutocomplete );
 
-    // TODO
-    ui->toolBarDuplicateNote->setEnabled( false );
-    ui->toolBarRemoveAllNotes->setEnabled( false );
-    ui->toolBarRemoveFromTrash->setEnabled( false );
-    ui->toolBarRemoveToTrash->setEnabled( false );
-    // TODO
+//    ui->toolBarDuplicateNote->setEnabled( false );
 
     ui->toolBarSaveNote->setEnabled( false );
     ui->toolBarSaveNoteAs->setEnabled( false );
@@ -309,11 +301,16 @@ void Manager::updateStates()
     ui->toolBarShowNote->setEnabled( false );
     ui->toolBarTopNote->setEnabled( false );
 
+    ui->toolBarRemoveAllNotes->setEnabled( !pageNotes->isEmpty() );
+    ui->toolBarDelete->setEnabled( false );
+    ui->toolBarRemoveToTrash->setEnabled( false );
+    ui->toolBarClearTrash->setEnabled( !pageNotes->trashIsEmpty() );
+
     bool hasCurrent = pageNotes->hasCurrent();
     if ( hasCurrent )
     {
-        bool currentIsNote = pageNotes->currentIsNote();
-        if ( currentIsNote )
+        bool isNote = pageNotes->currentIsNote();
+        if ( isNote )
         {
             ui->toolBarSaveNote->setEnabled( true );
             ui->toolBarSaveNoteAs->setEnabled( true );
@@ -327,8 +324,12 @@ void Manager::updateStates()
             bool currentNoteIsTop = pageNotes->currentNoteIsTop();
             ui->toolBarTopNote->setEnabled( currentNoteIsTop );
         }
-    }
 
+        bool isChildTrash = pageNotes->currentIsChildTrash(); // если элемент есть в корзине
+        ui->toolBarRemoveToTrash->setEnabled( !pageNotes->currentIsTrash() && !isChildTrash ); // переместить в корзину
+        ui->toolBarDelete->setEnabled( isChildTrash );
+        ui->toolBarClearTrash->setEnabled( pageNotes->currentIsTrash() || isChildTrash );
+    }
 
     ui->actionVisibleToolbarMain->setChecked( ui->toolBarMain->isVisible() );
     ui->actionVisibleToolbarManage->setChecked( ui->toolBarManage->isVisible() );

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>458</width>
-    <height>373</height>
+    <width>559</width>
+    <height>360</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,7 +24,16 @@
     <property name="spacing">
      <number>0</number>
     </property>
-    <property name="margin">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
      <number>0</number>
     </property>
     <item>
@@ -53,8 +62,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>458</width>
-     <height>21</height>
+     <width>559</width>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -124,16 +133,12 @@
     <addaction name="actionShowAllNotes"/>
     <addaction name="actionHideAllNotes"/>
     <addaction name="separator"/>
-    <addaction name="actionRemoveAllNotes"/>
     <addaction name="actionSaveAllNotes"/>
     <addaction name="separator"/>
     <addaction name="actionTopNote"/>
     <addaction name="separator"/>
     <addaction name="actionPrintNote"/>
     <addaction name="actionPreviewPrintNote"/>
-    <addaction name="separator"/>
-    <addaction name="actionRemoveNote"/>
-    <addaction name="actionDuplicateNote"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuToolbars"/>
@@ -162,7 +167,8 @@
    <addaction name="toolBarAddNoteFromClipboard"/>
    <addaction name="toolBarAddNoteFromScreen"/>
    <addaction name="toolBarAddFolder"/>
-   <addaction name="toolBarRemoveFromTrash"/>
+   <addaction name="toolBarDelete"/>
+   <addaction name="toolBarClearTrash"/>
    <addaction name="toolBarRemoveAllNotes"/>
    <addaction name="toolBarRemoveToTrash"/>
   </widget>
@@ -202,7 +208,6 @@
    <addaction name="toolBarTopNote"/>
    <addaction name="toolBarPrintNote"/>
    <addaction name="toolBarPreviewPrintNote"/>
-   <addaction name="toolBarDuplicateNote"/>
   </widget>
   <action name="actionQuit">
    <property name="icon">
@@ -283,18 +288,14 @@
    </property>
   </action>
   <action name="toolBarRemoveAllNotes">
-   <property name="icon">
-    <iconset resource="Manager.qrc">
-     <normaloff>:/Manager/remove_all</normaloff>:/Manager/remove_all</iconset>
-   </property>
    <property name="text">
-    <string>Remove all notes</string>
+    <string>Remove all notes to trash</string>
    </property>
    <property name="statusTip">
-    <string>Remove all notes</string>
+    <string>Remove all notes to trash</string>
    </property>
    <property name="whatsThis">
-    <string>Remove all notes</string>
+    <string>Remove all notes to trash</string>
    </property>
   </action>
   <action name="actionRemoveAllNotes">
@@ -840,7 +841,7 @@
     <string>Add folder</string>
    </property>
   </action>
-  <action name="toolBarRemoveFromTrash">
+  <action name="toolBarDelete">
    <property name="icon">
     <iconset resource="Manager.qrc">
      <normaloff>:/Manager/remove</normaloff>:/Manager/remove</iconset>
@@ -948,6 +949,11 @@
     <string>Note</string>
    </property>
   </action>
+  <action name="toolBarClearTrash">
+   <property name="text">
+    <string>Clear trash</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
@@ -959,9 +965,9 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="Manager.qrc"/>
-  <include location="../NavigationPanel/NavigationPanel.qrc"/>
   <include location="../Note/Note.qrc"/>
+  <include location="../NavigationPanel/NavigationPanel.qrc"/>
+  <include location="Manager.qrc"/>
  </resources>
  <connections>
   <connection>

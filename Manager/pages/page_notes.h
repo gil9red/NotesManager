@@ -47,7 +47,7 @@ private:
     void parseDomElement( BaseModelItem * node, QDomElement & element );
     QDomElement createDomElementOfItem( BaseModelItem * item, QDomDocument & xmlDomDocument );
     void parseItem( BaseModelItem * node, QDomElement & element, QDomDocument & xmlDomDocument );
-    void removeItem( BaseModelItem * item, BaseModelItem * parent );
+    void removeItem(BaseModelItem * item, QStandardItem * parent );
 
 public:
     Ui::Page_notes * ui;
@@ -90,6 +90,7 @@ public slots:
     void rename();
     void open();
 
+    void removeToTrash( QStandardItem * item );
     void removeToTrash();
     void removeAllToTrash();
     void removeFromTrash();
