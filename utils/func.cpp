@@ -203,7 +203,7 @@ bool copyPathE( const QString & oldPath, const QString & newPath, bool interrupt
             if ( !result && interruptCopyingWhenError )
             {
                 if ( logError )
-                    qDebug() << "Error copying: " << entryOldPath << " -> " << entryNewPath;
+                    WARNING( qPrintable( "Error copying: " + entryOldPath + " -> " + entryNewPath ) );
                 break;
             }
         }
@@ -213,7 +213,7 @@ bool copyPathE( const QString & oldPath, const QString & newPath, bool interrupt
         result = QFile::copy( oldPath, newPath );
 
         if ( !result && interruptCopyingWhenError && logError )
-            qDebug() << "Error copying: " << oldPath << " -> " << newPath;
+            WARNING( qPrintable( "Error copying: " + oldPath + " -> " + newPath ) );
     }
 
     return result;
@@ -426,4 +426,11 @@ QString cropString( QString text, int max )
         text = text.mid( 0, max ).append( "..." );
 
     return text;
+}
+
+// NOTE: Для обновления даты и времени сборки, нужно будет сделать изменения данного файла
+QDateTime getBuildDateTime()
+{
+    const QString & stringDateTime = QString( __TIMESTAMP__ ).simplified();
+    return QLocale( QLocale::C ).toDateTime( stringDateTime, "ddd MMM d hh:mm:ss yyyy" );
 }

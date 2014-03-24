@@ -9,6 +9,9 @@
 #include "NavigationPanel/trashmodelitem.h"
 #include "NavigationPanel/foldermodelitem.h"
 #include "RegisterNote.h"
+#include "fullscreenshotcropper.h"
+#include <QClipboard>
+#include <QDesktopWidget>
 
 BaseModelItem * createFromType( BaseModelItem::Type type )
 {
@@ -64,6 +67,9 @@ Page_Notes::Page_Notes( QWidget * parent ) :
     ui->treeNotes->setContextMenuPolicy( Qt::CustomContextMenu );
     connect( ui->treeNotes, SIGNAL( customContextMenuRequested( QPoint ) ), SLOT( showContextMenu(QPoint) ) );
     connect( ui->treeNotes, SIGNAL( doubleClicked( QModelIndex ) ), SLOT( open() ) );
+    connect( ui->treeNotes->selectionModel(), SIGNAL( selectionChanged(QItemSelection,QItemSelection) ), SIGNAL( about_updateStates() ) );
+
+    connect( ui->tabNotes, SIGNAL( aboutCurrentModelItem(QStandardItem*) ), SLOT( setCurrentItem(QStandardItem*) ) );
 
     ui->treeNotes->viewport()->installEventFilter( this );
 
@@ -77,6 +83,124 @@ Page_Notes::~Page_Notes()
 void Page_Notes::setSettings( QSettings * s )
 {
     settings = s;
+}
+
+bool Page_Notes::isEmpty()
+{
+    return hashItemNote.isEmpty();
+}
+bool Page_Notes::trashIsEmpty()
+{
+    return ( itemTrash->rowCount() == 0 );
+}
+bool Page_Notes::currentIsChildTrash()
+{
+    const QModelIndex & index = ui->treeNotes->currentIndex();
+    QStandardItem * currentItem = model.itemFromIndex( index );
+    QStandardItem * parentItem = currentItem->parent();
+    while ( parentItem )
+    {
+        if ( parentItem == itemTrash )
+            return true;
+        parentItem = parentItem->parent();
+    }
+
+    return false;
+}
+bool Page_Notes::hasCurrent()
+{
+    return ui->treeNotes->currentIndex().isValid();
+}
+BaseModelItem * Page_Notes::baseItemFromIndex( const QModelIndex & index )
+{
+    if ( !index.isValid() )
+    {
+        WARNING( "index is not valid!" );
+        return 0;
+    }
+
+    QStandardItem * item = model.itemFromIndex( index );
+    if ( !item )
+    {
+        WARNING( "null pointer!" );
+        return 0;
+    }
+
+    BaseModelItem * baseItem = static_cast < BaseModelItem * > ( item );
+    if ( !baseItem )
+    {
+        WARNING( "null pointer!" );
+        return 0;
+    }
+
+    return baseItem;
+}
+bool Page_Notes::currentIsNote()
+{
+    const QModelIndex & index = ui->treeNotes->currentIndex();
+    return baseItemFromIndex( index )->isNote();
+}
+bool Page_Notes::currentIsFolder()
+{
+    const QModelIndex & index = ui->treeNotes->currentIndex();
+    return baseItemFromIndex( index )->isFolder();
+}
+bool Page_Notes::currentIsTrash()
+{
+    const QModelIndex & index = ui->treeNotes->currentIndex();
+    return baseItemFromIndex( index )->isTrash();
+}
+NoteModelItem * Page_Notes::noteItemFromIndex( const QModelIndex & index )
+{
+    BaseModelItem * baseItem = baseItemFromIndex( index );
+    if ( !baseItem )
+    {
+        WARNING( "null pointer!" );
+        return 0;
+    }
+
+    NoteModelItem * noteItem = static_cast < NoteModelItem * > ( baseItem );
+    if ( !noteItem )
+    {
+        WARNING( "null pointer!" );
+        return 0;
+    }
+
+    return noteItem;
+}
+RichTextNote * Page_Notes::noteFromIndex( const QModelIndex & index )
+{
+    if ( !index.isValid() )
+    {
+        WARNING( "index is not valid!" );
+        return 0;
+    }
+
+    NoteModelItem * noteItem = noteItemFromIndex( index );
+    if ( !noteItem )
+    {
+        WARNING( "null pointer!" );
+        return 0;
+    }
+
+    RichTextNote * note = noteItem->note();
+    if ( !note )
+    {
+        WARNING( "null pointer!" );
+        return 0;
+    }
+
+    return note;
+}
+bool Page_Notes::currentNoteIsVisible()
+{
+    const QModelIndex & index = ui->treeNotes->currentIndex();
+    return noteFromIndex( index )->isVisible();
+}
+bool Page_Notes::currentNoteIsTop()
+{
+    const QModelIndex & index = ui->treeNotes->currentIndex();
+    return noteFromIndex( index )->isTop();
 }
 
 BaseModelItem * Page_Notes::createItemOfDomElement( const QDomElement & element )
@@ -265,6 +389,7 @@ bool Page_Notes::read( QIODevice * device )
 
     // Ищем тэг Tabs, в нем описаны последнии перед закрытием программы открытые вкладки
     QDomElement rootTabs = root.firstChildElement( "Tabs" );
+    int index = rootTabs.attribute( "CurrentIndex" ).toInt();
 
     // Переходим к первому ребенку этого тэга
     rootTabs = rootTabs.firstChildElement();
@@ -277,6 +402,8 @@ bool Page_Notes::read( QIODevice * device )
         ui->tabNotes->openTab( noteItem );
         rootTabs = rootTabs.nextSiblingElement();
     }
+
+    ui->tabNotes->setCurrentIndex( index );
 
     return true;
 }
@@ -308,6 +435,8 @@ bool Page_Notes::write( QIODevice * device )
 
 
     QDomElement rootTabs = xmlDomDocument.createElement( "Tabs" );
+    rootTabs.setAttribute( "CurrentIndex", ui->tabNotes->currentIndex() );
+
     root.appendChild( rootTabs );
 
     // Делаем перебор всех вкладок
@@ -356,75 +485,211 @@ void Page_Notes::writeSettings()
     settings->setValue( "Splitter_Main", ui->splitter->saveState() );
     settings->endGroup();
     settings->sync();
-
-    // TODO: вкладки тоже сохранять (брать путь к заметки в качестве id)
 }
 
-void Page_Notes::addTopLevelNote()
+void Page_Notes::addItemToModel( BaseModelItem * baseItem )
 {
-    RichTextNote * note = new RichTextNote();
-    note->createNew();
+    qApp->setOverrideCursor( Qt::WaitCursor );
 
-    NoteModelItem * noteItem = new NoteModelItem( note->title() );
-    noteItem->setNote( note );
-
-    model.appendRow( noteItem );
-
-    hashItemNote.insert( noteItem, note );
-    connect( note, SIGNAL( changed(int) ), SLOT( noteChanged(int) ) );
-}
-void Page_Notes::addTopLevelFolder()
-{
-    model.appendRow( new FolderModelItem( tr( "Новая папка" ) ) );
-}
-void Page_Notes::addFolder()
-{
-    QStandardItem * currentItem = model.itemFromIndex( ui->treeNotes->currentIndex() );
-    currentItem->appendRow( new FolderModelItem( tr( "Новая папка" ) ) );
-}
-void Page_Notes::addNote()
-{
-    RichTextNote * note = new RichTextNote();
-    note->createNew();
-
-    NoteModelItem * noteItem = new NoteModelItem( note->title() );
-    noteItem->setNote( note );
-
-    hashItemNote.insert( noteItem, note );
-    connect( note, SIGNAL( changed(int) ), SLOT( noteChanged(int) ) );
-
-    // Определим куда разместить только что созданную заметку
+    // Определим куда разместить элемент
     const QModelIndex & index = ui->treeNotes->currentIndex();
+    BaseModelItem * currentItem = static_cast < BaseModelItem * > ( model.itemFromIndex( index ) );
 
+    // Если нет текущего элемента, то добавляем в конец дерева
     if ( !index.isValid() )
-        model.appendRow( noteItem );
+        model.appendRow( baseItem );
     else
     {
-        BaseModelItem * currentItem = static_cast < BaseModelItem * > ( model.itemFromIndex( ui->treeNotes->currentIndex() ) );
         if ( !currentItem )
         {
             WARNING( "null pointer!" );
             return;
         }
 
+        // Если текущий элемент папка, то добавляем в нее элемент
         if ( currentItem->isFolder() )
-            currentItem->appendRow( noteItem );
+            currentItem->appendRow( baseItem );
 
+        // Если текущий элемент корзина, то добавляем в конец дерева
         else if ( currentItem->isTrash() )
-            model.appendRow( noteItem );
+            model.appendRow( baseItem );
 
+        // Если текущий элемент заметка, то добавляем в ниже ее
         else if ( currentItem->isNote() )
         {
             QStandardItem * parent = currentItem->parent();
             if ( parent )
-                parent->insertRow( currentItem->row() + 1, noteItem );
+                parent->insertRow( currentItem->row() + 1, baseItem );
             else
-                model.insertRow( currentItem->row() + 1, noteItem );
+                model.insertRow( currentItem->row() + 1, baseItem );
         }
     }
 
-    ui->treeNotes->setCurrentIndex( noteItem->index() );
+    // Делаем "текущим" добавленный элемент
+    ui->treeNotes->setCurrentIndex( baseItem->index() );
+    qApp->restoreOverrideCursor();
 }
+void Page_Notes::addFolder()
+{   
+    FolderModelItem * folderItem = new FolderModelItem( tr( "New folder" ) );
+    addItemToModel( folderItem );
+}
+void Page_Notes::addNote()
+{
+    qApp->setOverrideCursor( Qt::WaitCursor );
+
+    RichTextNote * note = new RichTextNote();
+    note->createNew();
+
+    addNoteToModel( note );
+    qApp->restoreOverrideCursor();
+}
+void Page_Notes::addNoteFromClipboard()
+{
+    qApp->setOverrideCursor( Qt::WaitCursor );
+
+    RichTextNote * note = new RichTextNote();
+    note->createNew( false );
+    note->setText( qApp->clipboard()->text() );
+    note->save();
+
+    addNoteToModel( note );
+    qApp->restoreOverrideCursor();
+}
+void Page_Notes::addNoteFromScreen()
+{
+    FullscreenshotCropper cropper;
+    cropper.setImage( QPixmap::grabWindow( QApplication::desktop()->winId() ) );
+    cropper.showFullScreen();
+    if ( !cropper.exec() )
+        return;
+
+    const QPixmap & screenshot = cropper.cropperImage();
+
+    qApp->setOverrideCursor( Qt::WaitCursor );
+
+    RichTextNote * note = new RichTextNote();
+    note->createNew( false );
+    note->insertImage( screenshot );
+    note->save();
+
+    addNoteToModel( note );
+    qApp->restoreOverrideCursor();
+}
+void Page_Notes::addNoteToModel( RichTextNote * note )
+{
+    NoteModelItem * noteItem = new NoteModelItem( note->title() );
+    noteItem->setNote( note );
+
+    hashItemNote.insert( noteItem, note );
+    connect( note, SIGNAL( changed(int) ), SLOT( noteChanged(int) ) );
+
+    addItemToModel( noteItem );
+}
+
+void Page_Notes::saveAllNotes()
+{
+    qApp->setOverrideCursor( Qt::WaitCursor );
+
+    QHash < QStandardItem *, RichTextNote * >::iterator it;
+    for ( it = hashItemNote.begin(); it != hashItemNote.end(); it++ )
+    {
+        RichTextNote * note = it.value();
+        note->save();
+        qApp->processEvents();
+    }
+
+    qApp->restoreOverrideCursor();
+    emit about_updateStates();
+}
+void Page_Notes::showAllNotes()
+{
+    qApp->setOverrideCursor( Qt::WaitCursor );
+
+    QHash < QStandardItem *, RichTextNote * >::iterator it;
+    for ( it = hashItemNote.begin(); it != hashItemNote.end(); it++ )
+    {
+        RichTextNote * note = it.value();
+        if ( note->isVisible() )
+            continue;
+
+        note->show();
+        qApp->processEvents();
+    }
+
+    qApp->restoreOverrideCursor();
+    emit about_updateStates();
+}
+void Page_Notes::hideAllNotes()
+{
+    qApp->setOverrideCursor( Qt::WaitCursor );
+
+    QHash < QStandardItem *, RichTextNote * >::iterator it;
+    for ( it = hashItemNote.begin(); it != hashItemNote.end(); it++ )
+    {
+        RichTextNote * note = it.value();
+        if ( note->isHidden() )
+            continue;
+
+        note->hide();
+        qApp->processEvents();
+    }
+
+    qApp->restoreOverrideCursor();
+    emit about_updateStates();
+}
+
+void Page_Notes::saveAsNote()
+{
+    const QModelIndex & index = ui->treeNotes->currentIndex();
+    RichTextNote * note = noteFromIndex( index );
+    note->saveAs();
+}
+void Page_Notes::saveNote()
+{
+    const QModelIndex & index = ui->treeNotes->currentIndex();
+    RichTextNote * note = noteFromIndex( index );
+    note->save();
+    emit about_updateStates();
+}
+void Page_Notes::showNote()
+{
+    const QModelIndex & index = ui->treeNotes->currentIndex();
+    RichTextNote * note = noteFromIndex( index );
+    if ( note->isVisible() )
+        return;
+    note->show();
+    emit about_updateStates();
+}
+void Page_Notes::hideNote()
+{
+    const QModelIndex & index = ui->treeNotes->currentIndex();
+    RichTextNote * note = noteFromIndex( index );
+    if ( note->isHidden() )
+        return;
+    note->hide();
+    emit about_updateStates();
+}
+void Page_Notes::printNote()
+{
+    const QModelIndex & index = ui->treeNotes->currentIndex();
+    RichTextNote * note = noteFromIndex( index );
+    note->print();
+}
+void Page_Notes::previewPrintNote()
+{
+    const QModelIndex & index = ui->treeNotes->currentIndex();
+    RichTextNote * note = noteFromIndex( index );
+    note->previewPrint();
+}
+void Page_Notes::setTopNote( bool top )
+{
+    const QModelIndex & index = ui->treeNotes->currentIndex();
+    RichTextNote * note = noteFromIndex( index );
+    note->setTop( top );
+    emit about_updateStates();
+}
+
 void Page_Notes::rename()
 {
     ui->treeNotes->edit( ui->treeNotes->currentIndex() );
@@ -534,75 +799,46 @@ void Page_Notes::defaultBackColor()
 }
 
 void Page_Notes::showContextMenu( const QPoint & pos )
-{
-    const QModelIndex & index = ui->treeNotes->currentIndex();
-    if ( !index.isValid() )
-        return;
-
-    BaseModelItem * currentItem = static_cast < BaseModelItem * > ( model.itemFromIndex( index ) );
-
-    bool isFolder = currentItem->isFolder();
-    bool isNote = currentItem->isNote();
-    bool isTrash = currentItem->isTrash();
-    bool isEmptyTrash = itemTrash->isEmpty();
-    bool isChildTrash = false;
-
-    QStandardItem * parentItem = currentItem->parent();
-    while ( parentItem )
-    {
-        if ( parentItem == itemTrash )
-        {
-            isChildTrash = true;
-            break;
-        }
-        parentItem = parentItem->parent();
-    }
-
+{    
+    bool isCurrent = hasCurrent();
+    bool isFolder = currentIsFolder();
+    bool isNote = currentIsNote();
+    bool isNoteOrFolder = isFolder || isNote;
+//    bool isTrash = currentIsTrash();
+//    bool isEmptyTrash = trashIsEmpty();
+//    bool isChildTrash = currentIsChildTrash();
 
     QMenu menu( this );
-    menu.addAction( QIcon( "" ), tr( "Добавить заметку верхнего уровня" ), this, SLOT( addTopLevelNote() ), QKeySequence( "" ) );
-    menu.addAction( QIcon( "" ), tr( "Добавить папку верхнего уровня" ), this, SLOT( addTopLevelFolder() ), QKeySequence( "" ) );
+    menu.addAction( QIcon( ":/Manager/add" ), tr( "Add note" ), this, SLOT( addNote() ) );
+    menu.addAction( QIcon( ":/Manager/add-from_clipboard" ), tr( "Add note from clipboard" ), this, SLOT( addNoteFromClipboard() ) );
+    menu.addAction( QIcon( ":/Manager/screenshot" ), tr( "Add note from screen" ), this, SLOT( addNoteFromScreen() ) );
+    menu.addAction( QIcon( ":/NavigationPanel/folder" ), tr( "Add folder" ), this, SLOT( addFolder() ) );
     menu.addSeparator();
 
-    if ( isFolder )
-    {
-        menu.addAction( QIcon( "" ), tr( "Добавить папку" ), this, SLOT( addFolder() ), QKeySequence( "" ) );
-        menu.addAction( QIcon( "" ), tr( "Добавить заметку" ), this, SLOT( addNote() ), QKeySequence( "" ) );
-    }
+    QAction * actionRename = menu.addAction( QIcon( "" ), tr( "Rename" ), this, SLOT( rename() ), QKeySequence( "" ) );
+    actionRename->setEnabled( isCurrent && isNoteOrFolder );
 
-    if ( isNote || isFolder )
-        menu.addAction( QIcon( "" ), tr( "Переименовать" ), this, SLOT( rename() ), QKeySequence( "" ) );
-
-    if ( isNote )
-        menu.addAction( QIcon( "" ), tr( "Открыть" ), this, SLOT( open() ), QKeySequence( "" ) );
-
-    if ( (isNote || isFolder) && !isChildTrash )
-        menu.addAction( QIcon( "" ), tr( "Переместить в корзину" ), this, SLOT( removeToTrash() ), QKeySequence( "" ) );
-
-    if ( isChildTrash )
-        menu.addAction( QIcon( "" ), tr( "Удалить" ), this, SLOT( removeFromTrash() ), QKeySequence( "" ) );
-
-    if ( isChildTrash || ( isTrash && !isEmptyTrash ) )
-        menu.addAction( QIcon( "" ), tr( "Очистить корзину" ), this, SLOT( clearTrash() ), QKeySequence( "" ) );
-
-    bool isEmpty = ( model.rowCount() - 1 == 0 );
-    if ( !isEmpty )
-        menu.addAction( QIcon( "" ), tr( "Переместить все в корзину" ), this, SLOT( removeAllToTrash() ), QKeySequence( "" ) );
+    QAction * actionOpen = menu.addAction( QIcon( "" ), tr( "Open" ), this, SLOT( open() ), QKeySequence( "" ) );
+    actionOpen->setEnabled( isCurrent && isNoteOrFolder );
 
     menu.addSeparator();
 
-    if ( isNote || isFolder )
-    {
-        QMenu * menuTextColor = menu.addMenu( QIcon( "" ), tr( "Изменить цвет текста" ) );
-        menuTextColor->addAction( QIcon( "" ), tr( "Цвет по умолчанию" ), this, SLOT( defaultTextColor() ), QKeySequence( "" ) );
-        menuTextColor->addAction( QIcon( "" ), tr( "Выбрать цвет" ), this, SLOT( textColor() ), QKeySequence( "" ) );
+    QMenu * menuTextColor = menu.addMenu( QIcon( "" ), tr( "Text color" ) );
+    menuTextColor->addAction( QIcon( "" ), tr( "Default" ), this, SLOT( defaultTextColor() ), QKeySequence( "" ) );
+    menuTextColor->addAction( QIcon( "" ), tr( "Select color" ), this, SLOT( textColor() ), QKeySequence( "" ) );
+    menuTextColor->setEnabled( isCurrent && isNoteOrFolder );
 
-        QMenu * menuBackColor = menu.addMenu( QIcon( "" ), tr( "Изменить цвет фона" ) );
-        menuBackColor->addAction( QIcon( "" ), tr( "Цвет по умолчанию" ), this, SLOT( defaultBackColor() ), QKeySequence( "" ) );
-        menuBackColor->addAction( QIcon( "" ), tr( "Выбрать цвет" ), this, SLOT( backColor() ), QKeySequence( "" ) );
-    }    
+    QMenu * menuBackColor = menu.addMenu( QIcon( "" ), tr( "Background color" ) );
+    menuBackColor->addAction( QIcon( "" ), tr( "Default" ), this, SLOT( defaultBackColor() ), QKeySequence( "" ) );
+    menuBackColor->addAction( QIcon( "" ), tr( "Select color" ), this, SLOT( backColor() ), QKeySequence( "" ) );
+    menuBackColor->setEnabled( isCurrent && isNoteOrFolder );
 
-    menu.exec( ui->treeNotes->viewport()->mapToGlobal( pos ) );
+    const QPoint & globalPos = ui->treeNotes->viewport()->mapToGlobal( pos );
+    menu.exec( globalPos );
+}
+void Page_Notes::setCurrentItem( QStandardItem * item )
+{
+    ui->treeNotes->setCurrentIndex( item->index() );
 }
 
 bool Page_Notes::eventFilter( QObject * object, QEvent * event )

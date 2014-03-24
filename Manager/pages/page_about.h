@@ -33,6 +33,9 @@ public slots:
 
 private:
     Ui::Page_About * ui; //!< Форма UI.
+
+//protected:
+//    bool eventFilter( QObject * object, QEvent * event );
 };
 
 #endif // PAGE_ABOUT_H

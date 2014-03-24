@@ -52,17 +52,18 @@ public:
     Page_About * pageAbout;               //!< Страница менеджера, которая отображает "О программе".
 
     QSystemTrayIcon tray;                 //!< Класс системного трея.
-    QAction * actionOpenManager;          //!< Показ окна менеджера. Действие в меню трея.
-    QAction * actionAddNote;              //!< Создать заметку. Действие в меню трея.
-    QAction * actionAddNoteFromClipboard; //!< Создать заметку и содержимое брать из буфера обмена. Действие в меню трея.
-    QAction * actionAddNoteFromScreen;    //!< Создать заметку и содержимое брать из скриншота. Действие в меню трея.
-    QAction * actionShowAllNotes;         //!< Показать все заметки. Действие в меню трея.
-    QAction * actionHideAllNotes;         //!< Скрыть все заметки. Действие в меню трея.
-    QAction * actionSaveAllNotes;         //!< Сохранить все заметки. Действие в меню трея.
-    QAction * actionRemoveAllNotes;       //!< Удалить все заметки. Действие в меню трея.
-    QAction * actionSettings;             //!< Показать настройки менеджера. Действие в меню трея.
-    QAction * actionAbout;                //!< Показ окна "О программе". Действие в меню трея.
-    QAction * actionQuit;                 //!< Сохранить все заметки и закрыть программу. Действие в меню трея.
+    QAction * trayActionOpenManager;          //!< Показ окна менеджера. Действие в меню трея.
+    QAction * trayActionAddNote;              //!< Создать заметку. Действие в меню трея.
+    QAction * trayActionAddNoteFromClipboard; //!< Создать заметку и содержимое брать из буфера обмена. Действие в меню трея.
+    QAction * trayActionAddNoteFromScreen;    //!< Создать заметку и содержимое брать из скриншота. Действие в меню трея.
+    QAction * trayActionShowAllNotes;         //!< Показать все заметки. Действие в меню трея.
+    QAction * trayActionHideAllNotes;         //!< Скрыть все заметки. Действие в меню трея.
+    QAction * trayActionSaveAllNotes;         //!< Сохранить все заметки. Действие в меню трея.
+    QAction * trayActionRemoveAllNotes;       //!< Удалить все заметки. Действие в меню трея.
+    QAction * trayActionSettings;             //!< Показать настройки менеджера. Действие в меню трея.
+    QAction * trayActionAbout;                //!< Показ окна "О программе". Действие в меню трея.
+    QAction * trayActionDocumentation;
+    QAction * trayActionQuit;                 //!< Сохранить все заметки и закрыть программу. Действие в меню трея.
 
     QSettings * settings;                 //!< Указатель на класс настроек.
     QTimer autoSaveTimer;                 //!< Таймер автосохранения.
@@ -91,6 +92,9 @@ public slots:
     void quit();          //!< Закрыть программу.
     void readSettings();  //!< Считывание настроек менеджера.
     void writeSettings(); //!< Запись настроек менеджера.
+
+    void openDictionary();
+    void closeDictionary();
 
     void setVisibleLeftPanel( bool visible );
     bool isVisibleLeftPanel();

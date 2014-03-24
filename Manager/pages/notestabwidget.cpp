@@ -158,6 +158,8 @@ void NotesTabWidget::contextMenuEvent( QContextMenuEvent * event )
         return;
 
     QMenu menu( this );
+    menu.addAction( QIcon( "" ), /*TODO*/ tr( "Показать текущую вкладку на дереве" ), this, SLOT( sendCurrentNoteModelItem() ), QKeySequence() );
+    menu.addSeparator();
     menu.addAction( QIcon( "" ), tr( "Close current tab" ), this, SLOT( closeCurrentTab() ), QKeySequence() );
     QAction * actionCloseAll_Except = menu.addAction( QIcon( "" ), tr( "Close all tabs except the current" ), this, SLOT( closeAllTabsExceptCurrent() ), QKeySequence() );
     menu.addSeparator();

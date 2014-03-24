@@ -19,8 +19,8 @@
 FormattingToolbar::FormattingToolbar( QWidget * parent ) :
     QWidget( parent ),
     ui( new Ui::FormattingToolbar ),
-    editor( 0 ),
-    note( 0 ),
+    editor(0),
+    note(0),
     alterActivityComponents( false )
 {
     ui->setupUi( this );

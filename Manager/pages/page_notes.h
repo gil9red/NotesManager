@@ -29,6 +29,19 @@ public:
     //! В функции указываем с каким классом настроек будем работать.
     void setSettings( QSettings * s );
 
+    bool isEmpty();
+    bool trashIsEmpty();
+    bool currentIsChildTrash();
+    bool hasCurrent();
+    BaseModelItem * baseItemFromIndex( const QModelIndex & index );
+    bool currentIsNote();
+    bool currentIsFolder();
+    bool currentIsTrash();
+    NoteModelItem * noteItemFromIndex( const QModelIndex & index );
+    RichTextNote * noteFromIndex( const QModelIndex & index );
+    bool currentNoteIsVisible();
+    bool currentNoteIsTop();
+
 private:
     BaseModelItem * createItemOfDomElement( const QDomElement & element );
     void parseDomElement( BaseModelItem * node, QDomElement & element );
@@ -42,7 +55,7 @@ public:
     QStandardItemModel model;
     TrashModelItem * itemTrash;
 
-    QHash < QStandardItem * , RichTextNote * > hashItemNote;
+    QHash < QStandardItem *, RichTextNote * > hashItemNote;
 
 private slots:
     void noteChanged( int event );
@@ -55,10 +68,25 @@ public slots:
     void readSettings();
     void writeSettings();
 
-    void addTopLevelNote();
-    void addTopLevelFolder();
+    void addItemToModel( BaseModelItem * baseItem );
     void addFolder();
     void addNote();
+    void addNoteFromClipboard();
+    void addNoteFromScreen();
+    void addNoteToModel( RichTextNote * note );
+
+    void saveAllNotes();
+    void showAllNotes();
+    void hideAllNotes();
+
+    void saveAsNote();
+    void saveNote();
+    void showNote();
+    void hideNote();
+    void printNote();
+    void previewPrintNote();
+    void setTopNote( bool top );
+
     void rename();
     void open();
     void removeToTrash();
@@ -72,6 +100,10 @@ public slots:
     void defaultBackColor();
 
     void showContextMenu( const QPoint & pos );
+    void setCurrentItem( QStandardItem * item );
+
+signals:
+    void about_updateStates(); // Вызывается, для внешнего оповещения вызова updateStates()
 
 protected:
     bool eventFilter( QObject * object, QEvent * event );

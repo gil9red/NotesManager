@@ -14,6 +14,7 @@ include( FindAndReplace/FindAndReplace.pri )
 include( FadLineEdit/FadLineEdit.pri )
 include( FormattingToolbar/FormattingToolbar.pri )
 include( NavigationPanel/NavigationPanel.pri )
+include( ScriptModule/ScriptModule.pri )
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/qt-solutions/qtsingleapplication/lib/ -llibQtSingleApplication
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/qt-solutions/qtsingleapplication/lib/ -llibQtSingleApplicationd

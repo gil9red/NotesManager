@@ -9,8 +9,7 @@
 TextEditor::TextEditor( QWidget * parent ):
     QTextBrowser( parent )
 {
-    // Возвращаем функциональность текстового редактора и настраиваем
-    // работы с гиперссылками
+    // Возвращаем функциональность текстового редактора и настраиваем работу с гиперссылками
     setUndoRedoEnabled( true );
     setReadOnly( false );
     setOpenExternalLinks( false );
@@ -21,23 +20,15 @@ TextEditor::TextEditor( QWidget * parent ):
 }
 void TextEditor::setActivateLink( bool activate )
 {
-    Qt::TextInteractionFlags flags;
-    if ( activate )
-        flags = Qt::LinksAccessibleByMouse;
-    else
-        flags = Qt::TextEditorInteraction;
-
+    Qt::TextInteractionFlags flags = activate ? Qt::LinksAccessibleByMouse : Qt::TextEditorInteraction;
     setTextInteractionFlags( flags );
 }
-
 
 void TextEditor::openLink( QUrl url )
 {
     bool successful = QDesktopServices::openUrl( url );
     emit isOpenLink( successful );
-    qDebug() << "TextEditor::openLink;" << successful << url;
 }
-
 
 void TextEditor::focusInEvent( QFocusEvent * event )
 {

@@ -6,9 +6,10 @@
 #include <QDebug>
 #include <QApplication>
 
-#define WARNING(msg) qWarning("%s\nIn: %s ( %s(%i) )", msg, __FUNCTION__, __FILE__,__LINE__);
-#define CRITICAL(msg) qCritical("%s\nIn: %s ( %s(%i) )", msg, __FUNCTION__, __FILE__,__LINE__);
-#define FATAL(msg) qFatal("%s\nIn: %s ( %s(%i) )", msg, __FUNCTION__, __FILE__,__LINE__);
+#define OUT_MESSAGE "\"%s\": in file \"%s\", func \"%s\", line %i"
+#define WARNING( msg ) qWarning( OUT_MESSAGE, msg, __FILE__, __FUNCTION__, __LINE__ );
+#define CRITICAL( msg ) qCritical( OUT_MESSAGE, msg, __FUNCTION__, __FILE__, __LINE__ );
+#define FATAL( msg ) qFatal( OUT_MESSAGE, msg, __FUNCTION__, __FILE__, __LINE__ );
 
 //! Содержит классы, облегчающие создание объектов, имеющих множество свойств (параметров).
 namespace Create
@@ -223,5 +224,10 @@ int indexChild( QStandardItem * parent, QStandardItem * child );
 
 //! Обрезание текста, если превышен лимит, то лишний текст обрезается и добавляется троеточие "..."
 QString cropString( QString text, int max = 13 );
+
+
+#include <QDateTime>
+//! Функция вернет дату и время сборки
+QDateTime getBuildDateTime();
 
 #endif // FUNC_H

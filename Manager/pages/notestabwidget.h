@@ -22,7 +22,7 @@ public:
     RichTextNote * currentNote();
 
 private:
-    QHash < NoteModelItem * , NoteEditor * > hashNoteItemTab;
+    QHash < NoteModelItem *, NoteEditor * > hashNoteItemTab;
 
 public slots:
     void openTab( NoteModelItem * noteItem );
@@ -33,7 +33,14 @@ public slots:
     void closeAllTabsExceptCurrent(); //!< Закрыть все вкладки, кроме текущей
     void closeCurrentTab(); //!< Закрыть текущую вкладку
 
-    void onChangeNoteItems( QStandardItem * item );      
+    void onChangeNoteItems( QStandardItem * item );
+    void sendCurrentNoteModelItem()
+    {
+        emit aboutCurrentModelItem( currentNoteItem() );
+    }
+
+signals:
+    void aboutCurrentModelItem( QStandardItem * );
 
 protected:
     void contextMenuEvent( QContextMenuEvent * event );

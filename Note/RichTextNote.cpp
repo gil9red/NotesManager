@@ -659,7 +659,7 @@ void RichTextNote::saveAs()
         if ( !JlCompress::compressDir( saveFileName, fileName() ) )
         {
             QMessageBox::information( this, tr( "Information" ), tr( "An error occurred saving notes" ) );
-            qDebug() << tr( "An error occurred saving notes" );
+            WARNING( "An error occurred saving notes" );
             return;
         }
     }

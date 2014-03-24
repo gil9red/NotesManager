@@ -24,9 +24,6 @@ static const char codec[] = "utf8";
 
 #include "NoteShared.h"
 
-/// TODO: может корзину сделать частью группирования заметок?
-/// TODO: добавить возможность группировки заметок по блокнотам
-
 // TODO: изменение таблицы, списка и гиперссылок через меню редактора заметки
 // TODO: добавить режим чтения (а может и редактирования?)
 // заметок: полноэкранный режим (goodword1.04)
@@ -51,24 +48,27 @@ static const char codec[] = "utf8";
 // TODO: Заметка -> При сохранить как вставлять в качестве имени заголовок заметки
 // (учитывать, что в ос не все символы в названиях файлов разрешены)
 
+/// TODO: добавить заметку с снимком от вебкамеры
 /// NOTE: git после выпуска стабильных версий, создавать ветку develop для новой версии
 
 QString Note::style = "";
 
 #include "RegisterNote.h"
-
+#include "ScriptModule/foo.h"
 int main( int argc, char *argv[] )
 {
-//    qDebug() << QString::fromLocal8Bit(BUILDDATE);
-
     qsrand( QDateTime().toMSecsSinceEpoch() );
-    /* TODO: DELETE THIS */QTextCodec::setCodecForTr( QTextCodec::codecForName( codec ) );
+    /*TODO*/QTextCodec::setCodecForTr( QTextCodec::codecForName( codec ) );
     QTextCodec::setCodecForCStrings( QTextCodec::codecForName( codec ) );    
 
     QtSingleApplication app( argc, argv );
     qApp->setApplicationName( App::name );
     qApp->setApplicationVersion( App::version );
     qApp->setQuitOnLastWindowClosed( false );
+
+//    qDebug() << ScriptModule::evaluate( "Number a = 10;"
+//                                        "Number b = a + 1;"
+//                                        "b");
 
     if ( app.isRunning() )
     {

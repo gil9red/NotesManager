@@ -2,16 +2,19 @@
 
 QString stringType( BaseModelItem * item )
 {
-    QString name;
     if ( item->isBase() )
-        name = "Base";
+        return "Base";
+
     else if ( item->isNote() )
-        name = "Note";
+        return "Note";
+
     else if ( item->isFolder() )
-        name = "Folder";
+        return "Folder";
+
     else if ( item->isTrash() )
-        name = "Trash";
-    return name;
+        return "Trash";
+
+    return QString();
 }
 
 BaseModelItem::BaseModelItem( const QString & text )
