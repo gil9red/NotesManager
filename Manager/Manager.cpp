@@ -24,7 +24,6 @@ Manager::Manager( QWidget * parent ) :
     self = this;       
     ui->setupUi( this );
 
-//    ui->leftPanel->addTab( QIcon( ":/Manager/add" ),      tr( "Add note" ) );
     ui->leftPanel->addTab( QIcon( ":/Manager/notebook" ), tr( "Notes" ) );
     ui->leftPanel->addTab( QIcon( ":/Manager/settings" ), tr( "Settings" ) );
     ui->leftPanel->addTab( QIcon( ":/Manager/about" ),    tr( "About" ) );
@@ -291,6 +290,10 @@ void Manager::updateStates()
     ui->toolBarShowAllNotes->setEnabled( !isEmpty );
     ui->toolBarSaveAllNotes->setEnabled( !isEmpty );
 
+    bool isAutocomplete = Completer::instance()->isAutocomplete();
+    ui->toolBarCloseDict->setEnabled( isAutocomplete );
+    ui->toolBarOpenDict->setEnabled( !isAutocomplete );
+
     // TODO
     ui->toolBarDuplicateNote->setEnabled( false );
     ui->toolBarRemoveAllNotes->setEnabled( false );
@@ -410,10 +413,12 @@ void Manager::writeSettings()
 void Manager::openDictionary()
 {
     Completer::instance()->setAutocomplete( true );
+    updateStates();
 }
 void Manager::closeDictionary()
 {
     Completer::instance()->setAutocomplete( false );
+    updateStates();
 }
 
 void Manager::setVisibleLeftPanel( bool visible )

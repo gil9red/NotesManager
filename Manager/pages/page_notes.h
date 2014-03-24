@@ -89,6 +89,7 @@ public slots:
 
     void rename();
     void open();
+
     void removeToTrash();
     void removeAllToTrash();
     void removeFromTrash();

@@ -15,43 +15,38 @@
 
 BaseModelItem * createFromType( BaseModelItem::Type type )
 {
-    BaseModelItem * item = 0;
     switch ( type )
     {
     case BaseModelItem::BASE:
-        item = new BaseModelItem();
-        break;
+        return new BaseModelItem();
+
     case BaseModelItem::NOTE:
-        item = new NoteModelItem();
-        break;
+        return new NoteModelItem();
+
     case BaseModelItem::FOLDER:
-        item = new FolderModelItem();
-        break;
+        return new FolderModelItem();
+
     case BaseModelItem::TRASH:
-        item = new TrashModelItem();
-        break;
-    default:
-        return item;
+        return new TrashModelItem();
     }
-    return item;
+
+    return 0;
 }
 BaseModelItem * createFromType( const QString & type )
 {
-    BaseModelItem * item = 0;
-
     if ( type == "Base" )
-        item = new BaseModelItem();
+        return new BaseModelItem();
 
     else if ( type == "Note" )
-        item = new NoteModelItem();
+        return new NoteModelItem();
 
     else if ( type == "Folder" )
-        item = new FolderModelItem();
+        return new FolderModelItem();
 
     else if ( type == "Trash" )
-        item = new TrashModelItem();
+        return new TrashModelItem();
 
-    return item;
+    return 0;
 }
 
 Page_Notes::Page_Notes( QWidget * parent ) :
@@ -87,7 +82,8 @@ void Page_Notes::setSettings( QSettings * s )
 
 bool Page_Notes::isEmpty()
 {
-    return hashItemNote.isEmpty();
+    // Если в модели есть только 1 элемент и это Корзина
+    return ( ( model.rowCount() == 1 ) && ( model.item(0) == itemTrash ) );
 }
 bool Page_Notes::trashIsEmpty()
 {
@@ -318,6 +314,11 @@ void Page_Notes::noteChanged( int event )
 }
 void Page_Notes::noteChanged( QStandardItem * item )
 {
+    BaseModelItem * baseItem = static_cast < BaseModelItem * > ( item );
+    // Работаем только с элементами типа "Заметка"
+    if ( !baseItem->isNote() )
+        return;
+
     RichTextNote * note = hashItemNote.value( item );
     if ( !note )
     {
@@ -581,7 +582,14 @@ void Page_Notes::addNoteToModel( RichTextNote * note )
     NoteModelItem * noteItem = new NoteModelItem( note->title() );
     noteItem->setNote( note );
 
-    hashItemNote.insert( noteItem, note );
+    QStandardItem * item = static_cast < QStandardItem * > ( noteItem );
+    if ( !item )
+    {
+        WARNING( "null pointer!" );
+        return;
+    }
+
+    hashItemNote.insert( item, note );
     connect( note, SIGNAL( changed(int) ), SLOT( noteChanged(int) ) );
 
     addItemToModel( noteItem );
@@ -774,7 +782,10 @@ void Page_Notes::textColor()
     const QModelIndex & index = ui->treeNotes->currentIndex();
     QStandardItem * currentItem = model.itemFromIndex( index );
 
-    const QColor & color = QColorDialog::getColor( currentItem->foreground().color(), this );
+    const QColor & color = QColorDialog::getColor( currentItem->foreground().color(), this, tr( "Select the text color" ) );
+    if ( !color.isValid() )
+        return;
+
     currentItem->setForeground( color );
 }
 void Page_Notes::defaultTextColor()
@@ -788,7 +799,10 @@ void Page_Notes::backColor()
     const QModelIndex & index = ui->treeNotes->currentIndex();
     QStandardItem * currentItem = model.itemFromIndex( index );
 
-    const QColor & color = QColorDialog::getColor( currentItem->background().color(), this );
+    const QColor & color = QColorDialog::getColor( currentItem->background().color(), this, tr( "Select a background color" ) );
+    if ( !color.isValid() )
+        return;
+
     currentItem->setBackground( color );
 }
 void Page_Notes::defaultBackColor()
@@ -800,38 +814,52 @@ void Page_Notes::defaultBackColor()
 
 void Page_Notes::showContextMenu( const QPoint & pos )
 {    
-    bool isCurrent = hasCurrent();
-    bool isFolder = currentIsFolder();
-    bool isNote = currentIsNote();
-    bool isNoteOrFolder = isFolder || isNote;
-//    bool isTrash = currentIsTrash();
-//    bool isEmptyTrash = trashIsEmpty();
-//    bool isChildTrash = currentIsChildTrash();
-
     QMenu menu( this );
     menu.addAction( QIcon( ":/Manager/add" ), tr( "Add note" ), this, SLOT( addNote() ) );
     menu.addAction( QIcon( ":/Manager/add-from_clipboard" ), tr( "Add note from clipboard" ), this, SLOT( addNoteFromClipboard() ) );
     menu.addAction( QIcon( ":/Manager/screenshot" ), tr( "Add note from screen" ), this, SLOT( addNoteFromScreen() ) );
     menu.addAction( QIcon( ":/NavigationPanel/folder" ), tr( "Add folder" ), this, SLOT( addFolder() ) );
     menu.addSeparator();
-
     QAction * actionRename = menu.addAction( QIcon( "" ), tr( "Rename" ), this, SLOT( rename() ), QKeySequence( "" ) );
-    actionRename->setEnabled( isCurrent && isNoteOrFolder );
-
     QAction * actionOpen = menu.addAction( QIcon( "" ), tr( "Open" ), this, SLOT( open() ), QKeySequence( "" ) );
-    actionOpen->setEnabled( isCurrent && isNoteOrFolder );
-
     menu.addSeparator();
-
     QMenu * menuTextColor = menu.addMenu( QIcon( "" ), tr( "Text color" ) );
     menuTextColor->addAction( QIcon( "" ), tr( "Default" ), this, SLOT( defaultTextColor() ), QKeySequence( "" ) );
     menuTextColor->addAction( QIcon( "" ), tr( "Select color" ), this, SLOT( textColor() ), QKeySequence( "" ) );
-    menuTextColor->setEnabled( isCurrent && isNoteOrFolder );
-
     QMenu * menuBackColor = menu.addMenu( QIcon( "" ), tr( "Background color" ) );
     menuBackColor->addAction( QIcon( "" ), tr( "Default" ), this, SLOT( defaultBackColor() ), QKeySequence( "" ) );
     menuBackColor->addAction( QIcon( "" ), tr( "Select color" ), this, SLOT( backColor() ), QKeySequence( "" ) );
-    menuBackColor->setEnabled( isCurrent && isNoteOrFolder );
+    menu.addSeparator();
+    QAction * actionDelete = menu.addAction( QIcon( ":/Manager/remove" ), tr( "Delete" ), this, SLOT( removeFromTrash() ), QKeySequence( "" ) );
+    QAction * actionClearTrash = menu.addAction( QIcon( "" ), tr( "Clear trash" ), this, SLOT( clearTrash() ), QKeySequence( "" ) );
+    QAction * actionRemoveToTrash = menu.addAction( QIcon( ":/NavigationPanel/trash" ), tr( "Remove to trash" ), this, SLOT( removeToTrash() ), QKeySequence( "" ) );
+    QAction * actionRemoveAllToTrash = menu.addAction( QIcon( "" ), tr( "Remove all to trash" ), this, SLOT( removeAllToTrash() ), QKeySequence( "" ) );
+
+    actionRename->setEnabled( false );
+    actionOpen->setEnabled( false );
+    menuTextColor->setEnabled( false );
+    menuBackColor->setEnabled( false );
+
+    actionRemoveToTrash->setEnabled( false );
+    actionRemoveAllToTrash->setEnabled( !isEmpty() ); // все в корзину
+    actionDelete->setEnabled( false );
+    actionClearTrash->setEnabled( !trashIsEmpty() );
+
+    bool isCurrent = hasCurrent();
+    if ( isCurrent )
+    {
+        bool isNoteOrFolder = currentIsNote() || currentIsFolder();
+        actionRename->setEnabled( isNoteOrFolder );
+        actionOpen->setEnabled( isNoteOrFolder );
+        menuTextColor->setEnabled( isNoteOrFolder );
+        menuBackColor->setEnabled( isNoteOrFolder );
+
+        bool isChildTrash = currentIsChildTrash(); // если элемент есть в корзине
+        actionRemoveToTrash->setEnabled( isNoteOrFolder && !currentIsChildTrash() ); // переместить в корзину
+        actionDelete->setEnabled( isChildTrash );
+        actionClearTrash->setEnabled( currentIsTrash() || isChildTrash ); // если корзина не пустая
+    }
+
 
     const QPoint & globalPos = ui->treeNotes->viewport()->mapToGlobal( pos );
     menu.exec( globalPos );

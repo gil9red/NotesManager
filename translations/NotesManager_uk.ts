@@ -267,111 +267,111 @@
         <translation>Список шрифтів</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="66"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="69"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="72"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="75"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="78"/>
         <source>Increase size</source>
         <translation>Збільшити розмір</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="89"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="92"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="95"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="98"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="101"/>
         <source>Decrease size</source>
         <translation>Зменшити розмір</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="112"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="115"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="118"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="121"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="124"/>
         <source>Bold</source>
         <translation>Сміливий</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="138"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="141"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="144"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="147"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="150"/>
         <source>Italic</source>
         <translation>Курсив</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="167"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="170"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="173"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="176"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="179"/>
         <source>Text color</source>
         <translation>Колір тексту</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="210"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="213"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="216"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="219"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="222"/>
         <source>Subscript</source>
         <translation>Iндекс</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="236"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="239"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="242"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="245"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="248"/>
         <source>Superscript</source>
         <translation>Верхній індекс</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="262"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="265"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="268"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="271"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="274"/>
         <source>Underline</source>
         <translation>Підкреслення</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="288"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="291"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="294"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="297"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="300"/>
         <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="112"/>
         <source>Strikeout</source>
         <translatorcomment>Strikeout - это зачеркивание</translatorcomment>
         <translation>Закреслення</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="314"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="317"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="320"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="323"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="326"/>
         <source>Overline</source>
         <translatorcomment>Overline - подчеркивание</translatorcomment>
         <translation>Підкреслення</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="340"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="343"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="346"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="349"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="352"/>
         <source>Lower</source>
         <translatorcomment>Символ в нижний регистр</translatorcomment>
         <translation>Нижче</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="363"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="366"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="369"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="372"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="375"/>
         <source>Upper</source>
         <translatorcomment>Символ в верхний регистр</translatorcomment>
         <translation>Верхній</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="386"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="389"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="392"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="395"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="398"/>
         <source>Insert a horizontal line</source>
         <translation type="unfinished"></translation>
     </message>
@@ -380,90 +380,90 @@
         <translation type="obsolete">Горизонтальна лінія</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="429"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="432"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="435"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="438"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="441"/>
         <source>Align left</source>
         <translation>По лівому краю</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="455"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="458"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="461"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="464"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="467"/>
         <source>Align center</source>
         <translation>Вирівняти по центру</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="481"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="484"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="487"/>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="493"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="490"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="496"/>
         <source>Align right</source>
         <translation>Вирівняйте право</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="510"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="513"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="516"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="519"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="522"/>
         <source>Align justify</source>
         <translation>Вирівняйте виправдати</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="536"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="539"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="542"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="545"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="548"/>
         <source>Eraser</source>
         <translation>Ластик</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="562"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="565"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="568"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="571"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="574"/>
         <source>Bulleted list</source>
         <translation>Маркований список</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="588"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="591"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="594"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="597"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="600"/>
         <source>Ordered list</source>
         <translation>Нумерований список</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="634"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="637"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="640"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="643"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="646"/>
         <source>Insert hyperlink</source>
         <translation>Вставте гіперпосилання</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="660"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="663"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="666"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="669"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="672"/>
         <source>Insert picture</source>
         <translation>Вставити картинку</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="686"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="689"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="692"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="695"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="698"/>
         <source>Insert table</source>
         <translation>Вставте таблицю</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="709"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="712"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="715"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="718"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="721"/>
         <source>Color background</source>
         <translation type="unfinished"></translation>
     </message>
@@ -896,7 +896,7 @@
     </message>
     <message>
         <location filename="../Manager/Manager.cpp" line="71"/>
-        <location filename="../Manager/Manager.cpp" line="404"/>
+        <location filename="../Manager/Manager.cpp" line="408"/>
         <source>Error</source>
         <translation type="unfinished">Помилка</translation>
     </message>
@@ -937,7 +937,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="404"/>
+        <location filename="../Manager/Manager.cpp" line="408"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation type="unfinished"></translation>
@@ -947,7 +947,7 @@
         <translation type="obsolete">Нова нотатка</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="355"/>
+        <location filename="../Manager/Manager.cpp" line="359"/>
         <source>Question</source>
         <translation type="unfinished"></translation>
     </message>
@@ -960,12 +960,12 @@
         <translation type="obsolete">від</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="355"/>
+        <location filename="../Manager/Manager.cpp" line="359"/>
         <source>Really quit?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="397"/>
+        <location filename="../Manager/Manager.cpp" line="401"/>
         <source>Save completed</source>
         <translation>Зберегти завершена</translation>
     </message>
@@ -982,26 +982,31 @@
     <name>NotesTabWidget</name>
     <message>
         <location filename="../Manager/pages/notestabwidget.cpp" line="161"/>
+        <source>Highlight the current tab on the tree</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/notestabwidget.cpp" line="163"/>
         <source>Close current tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/notestabwidget.cpp" line="162"/>
+        <location filename="../Manager/pages/notestabwidget.cpp" line="164"/>
         <source>Close all tabs except the current</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/notestabwidget.cpp" line="164"/>
+        <location filename="../Manager/pages/notestabwidget.cpp" line="166"/>
         <source>Close all tabs to the left of the current</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/notestabwidget.cpp" line="165"/>
+        <location filename="../Manager/pages/notestabwidget.cpp" line="167"/>
         <source>Close all tabs to the right of the current</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/notestabwidget.cpp" line="167"/>
+        <location filename="../Manager/pages/notestabwidget.cpp" line="169"/>
         <source>Close all tabs</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1071,8 +1076,90 @@
 <context>
     <name>Page_Notes</name>
     <message>
-        <location filename="../Manager/pages/page_notes.cpp" line="434"/>
+        <location filename="../Manager/pages/page_notes.cpp" line="534"/>
         <source>New folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_notes.cpp" line="777"/>
+        <source>Select the text color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_notes.cpp" line="794"/>
+        <source>Select a background color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_notes.cpp" line="810"/>
+        <source>Add note</source>
+        <translation type="unfinished">Додати до відома</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_notes.cpp" line="811"/>
+        <source>Add note from clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_notes.cpp" line="812"/>
+        <source>Add note from screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_notes.cpp" line="813"/>
+        <source>Add folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_notes.cpp" line="815"/>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_notes.cpp" line="816"/>
+        <source>Open</source>
+        <translation type="unfinished">Відкрито</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_notes.cpp" line="818"/>
+        <source>Text color</source>
+        <translation type="unfinished">Колір тексту</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_notes.cpp" line="819"/>
+        <location filename="../Manager/pages/page_notes.cpp" line="822"/>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_notes.cpp" line="820"/>
+        <location filename="../Manager/pages/page_notes.cpp" line="823"/>
+        <source>Select color</source>
+        <translation type="unfinished">Вибрати колір</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_notes.cpp" line="821"/>
+        <source>Background color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_notes.cpp" line="825"/>
+        <source>Remove to trash</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_notes.cpp" line="826"/>
+        <source>Remove all to trash</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_notes.cpp" line="827"/>
+        <source>Delete</source>
+        <translation type="unfinished">Видаляти</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_notes.cpp" line="828"/>
+        <source>Clear trash</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1391,22 +1478,22 @@
         <translation type="obsolete">немає</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="91"/>
+        <location filename="../main.cpp" line="97"/>
         <source>Loading fonts</source>
         <translation>Завантаження шрифтів</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="94"/>
+        <location filename="../main.cpp" line="100"/>
         <source>Loading dictionaries</source>
         <translation>Завантаження словників</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="97"/>
+        <location filename="../main.cpp" line="103"/>
         <source>Creation</source>
         <translation>Creation</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="104"/>
+        <location filename="../main.cpp" line="110"/>
         <source>Loading settings</source>
         <translation>Завантаження налаштувань</translation>
     </message>
@@ -1415,7 +1502,7 @@
         <translation type="obsolete">Завантаження замітки</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="107"/>
+        <location filename="../main.cpp" line="113"/>
         <source>Now ready</source>
         <translation>Тепер готовий</translation>
     </message>

@@ -23,6 +23,7 @@ public:
 
 private:
     QHash < NoteModelItem *, NoteEditor * > hashNoteItemTab;
+    QHash < RichTextNote *, NoteEditor * > hashNoteTab;
 
 public slots:
     void openTab( NoteModelItem * noteItem );
@@ -34,10 +35,8 @@ public slots:
     void closeCurrentTab(); //!< Закрыть текущую вкладку
 
     void onChangeNoteItems( QStandardItem * item );
-    void sendCurrentNoteModelItem()
-    {
-        emit aboutCurrentModelItem( currentNoteItem() );
-    }
+    void changeNote( int event );
+    void sendCurrentNoteModelItem();
 
 signals:
     void aboutCurrentModelItem( QStandardItem * );

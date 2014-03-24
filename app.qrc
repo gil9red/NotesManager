@@ -4,7 +4,7 @@
         <file alias="splash">images/splash.png</file>
         <file alias="app-icon">images/app_icon.png</file>
         <file alias="license">license</file>
-        <file alias="history">history</file>
         <file alias="icon-license">images/gplv3-88x31.png</file>
+        <file alias="history_ru">history_ru</file>
     </qresource>
 </RCC>

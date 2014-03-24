@@ -33,26 +33,30 @@ RichTextNote * NotesTabWidget::currentNote()
 
 void NotesTabWidget::openTab( NoteModelItem * noteItem )
 {
-    qApp->setOverrideCursor( QCursor( Qt::WaitCursor ) );
-
     if ( !noteItem )
     {
         WARNING( "null pointer!" );
         return;
     }
 
+    qApp->setOverrideCursor( QCursor( Qt::WaitCursor ) );
+
     NoteEditor * editor = hashNoteItemTab.value( noteItem, 0 );
     if ( editor )
         setCurrentWidget( editor );
     else
     {
+        RichTextNote * note = noteItem->note();
+        connect( note, SIGNAL( changed(int) ), SLOT( changeNote(int) ) );
+
         editor = new NoteEditor();
-        editor->setNote( noteItem->note() );
+        editor->setNote( note );
 
         addTab( editor, noteItem->icon(), cropString( noteItem->text() ) );
         setCurrentWidget( editor );
 
         hashNoteItemTab.insert( noteItem, editor );
+        hashNoteTab.insert( note, editor );
     }
 
     qApp->restoreOverrideCursor();
@@ -67,6 +71,7 @@ void NotesTabWidget::closeTab( int index )
 
     NoteEditor * tab = widget( index );
     hashNoteItemTab.remove( hashNoteItemTab.key( tab ) );
+    hashNoteTab.remove( hashNoteTab.key( tab ) );
     tab->deleteLater();
     removeTab( index );
 }
@@ -138,17 +143,41 @@ void NotesTabWidget::onChangeNoteItems( QStandardItem * item )
         return;
     }
 
-    // Если нет такой открытой вкладки, то вернется 0
+    // Если нет такой вкладки, то вернется 0
     QWidget * tab = hashNoteItemTab.value( noteItem, 0 );
     if ( !tab )
-    {
-        WARNING( "null pointer!" );
         return;
-    }
 
     int index = indexOf( tab );
     setTabText( index, cropString( noteItem->text() ) );
     setTabIcon( index, noteItem->icon() );
+}
+void NotesTabWidget::changeNote( int event )
+{
+    // Если заметка удаляется, то следует также закрыть вкладку с ней
+    if ( event == EventsNote::Remove )
+    {
+        RichTextNote * note = static_cast < RichTextNote * > ( sender() );
+        if ( !note )
+        {
+            WARNING( "null pointer!" );
+            return;
+        }
+
+        // Если нет такой вкладки, то вернется 0
+        QWidget * tab = hashNoteTab.value( note, 0 );
+        if ( !tab )
+        {
+            WARNING( "null pointer!" );
+            return;
+        }
+
+        closeTab( indexOf( tab ) );
+    }
+}
+void NotesTabWidget::sendCurrentNoteModelItem()
+{
+    emit aboutCurrentModelItem( currentNoteItem() );
 }
 
 void NotesTabWidget::contextMenuEvent( QContextMenuEvent * event )
@@ -158,7 +187,7 @@ void NotesTabWidget::contextMenuEvent( QContextMenuEvent * event )
         return;
 
     QMenu menu( this );
-    menu.addAction( QIcon( "" ), /*TODO*/ tr( "Показать текущую вкладку на дереве" ), this, SLOT( sendCurrentNoteModelItem() ), QKeySequence() );
+    menu.addAction( QIcon( "" ), tr( "Highlight the current tab on the tree" ), this, SLOT( sendCurrentNoteModelItem() ), QKeySequence() );
     menu.addSeparator();
     menu.addAction( QIcon( "" ), tr( "Close current tab" ), this, SLOT( closeCurrentTab() ), QKeySequence() );
     QAction * actionCloseAll_Except = menu.addAction( QIcon( "" ), tr( "Close all tabs except the current" ), this, SLOT( closeAllTabsExceptCurrent() ), QKeySequence() );

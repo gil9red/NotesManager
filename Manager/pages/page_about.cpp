@@ -30,17 +30,20 @@ Page_About::Page_About( QWidget * parent )
     in.setCodec( "utf8" );
 
     file.setFileName( ":/App/license" );
-    if ( !file.open( QIODevice::ReadOnly ) )
-        return;
-    ui->licenseText->setHtml( in.readAll() );
-    file.close();
-    in.flush();
+    if ( file.open( QIODevice::ReadOnly ) )
+    {
+        ui->licenseText->setHtml( in.readAll() );
+        file.close();
+        in.flush();
+    }
 
-    file.setFileName( ":/App/history" );
-    if ( !file.open( QIODevice::ReadOnly ) )
-        return;
-    ui->history->setHtml( in.readAll() );
-    file.close();
+    file.setFileName( ":/App/history_ru" );
+    if ( file.open( QIODevice::ReadOnly ) )
+    {
+        ui->history->setText( in.readAll() );
+        file.close();
+        in.flush();
+    }
 
 //    ui->labelIconProgram->installEventFilter( this );
 }

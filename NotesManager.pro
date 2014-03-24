@@ -31,7 +31,7 @@ RC_FILE = app.rc
 
 OTHER_FILES += \
     app.rc \
-    history \
+    history_ru \
     license
 
 SOURCES += \
