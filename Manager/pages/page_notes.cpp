@@ -94,19 +94,29 @@ bool Page_Notes::trashIsEmpty()
     }
     return ( itemTrash->rowCount() == 0 );
 }
-bool Page_Notes::currentIsChildTrash()
+bool Page_Notes::itemIsChildTrash( QStandardItem * item )
 {
-    const QModelIndex & index = ui->treeNotes->currentIndex();
-    QStandardItem * currentItem = model.itemFromIndex( index );
-    QStandardItem * parentItem = currentItem->parent();
+    if ( !item )
+    {
+        WARNING( "null pointer!" );
+        return false;
+    }
+
+    QStandardItem * parentItem = item->parent();
     while ( parentItem )
     {
         if ( parentItem == itemTrash )
             return true;
+
         parentItem = parentItem->parent();
     }
-
     return false;
+}
+bool Page_Notes::currentIsChildTrash()
+{
+    const QModelIndex & index = ui->treeNotes->currentIndex();
+    QStandardItem * item = model.itemFromIndex( index );
+    return itemIsChildTrash( item );
 }
 bool Page_Notes::hasCurrent()
 {
@@ -308,7 +318,14 @@ void Page_Notes::removeItem( BaseModelItem * item, QStandardItem * parent )
 void Page_Notes::noteChanged( int event )
 {
     RichTextNote * note = static_cast < RichTextNote * > ( sender() );
+    if ( !note )
+    {
+        WARNING( "Note is null!" );
+        return;
+    }
+
     QStandardItem * item = hashItemNote.key( note );
+    BaseModelItem * baseItem = static_cast < BaseModelItem * > ( item );
 
     switch ( event )
     {
@@ -317,7 +334,10 @@ void Page_Notes::noteChanged( int event )
         break;
 
     case EventsNote::Remove:
-        removeToTrash( item );
+        qDebug() << item;
+        qDebug() << itemIsChildTrash( item );
+//        removeToTrash( item ); // Перемещение в корзину
+//        removeItem( baseItem, item->parent() ); // Удаление из программы и из диска
         break;
     }
 

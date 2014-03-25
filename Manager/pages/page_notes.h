@@ -31,6 +31,7 @@ public:
 
     bool isEmpty();
     bool trashIsEmpty();
+    bool itemIsChildTrash( QStandardItem * item );
     bool currentIsChildTrash();
     bool hasCurrent();
     BaseModelItem * baseItemFromIndex( const QModelIndex & index );

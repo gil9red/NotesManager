@@ -70,7 +70,7 @@ public:
 
 private slots:
     //! Вызывается, когда на иконки панели кликают.
-    void buttonLeftPanelClicked( int index );
+    void buttonSidebarClicked( int index );
 
     //! Функция принимает сообщения, которые отправляются при создании дупликатов программы.
     void messageReceived( const QString & text );
@@ -89,6 +89,7 @@ private slots:
 
 public slots:
     void show_Manager();  //!< Показать менеджер.
+    void setFullScreen( bool fs );
     void quit();          //!< Закрыть программу.
     void readSettings();  //!< Считывание настроек менеджера.
     void writeSettings(); //!< Запись настроек менеджера.
@@ -96,8 +97,8 @@ public slots:
     void openDictionary();
     void closeDictionary();
 
-    void setVisibleLeftPanel( bool visible );
-    bool isVisibleLeftPanel();
+    void setShowSidebar( bool visible );
+    bool isShowSidebar();
     void setActivateTimerAutosave( bool activate ); //!< Активация таймера автосохранения.
     bool isActivateTimerAutosave();                 //!< Функция вернет true, если таймер автосохранения активен.
     void setIntervalAutosave( quint64 minutes );    //!< Установка интервала таймера автосохранения.

@@ -24,12 +24,12 @@ Manager::Manager( QWidget * parent ) :
     self = this;       
     ui->setupUi( this );
 
-    ui->leftPanel->addTab( QIcon( ":/Manager/notebook" ), tr( "Notes" ) );
-    ui->leftPanel->addTab( QIcon( ":/Manager/settings" ), tr( "Settings" ) );
-    ui->leftPanel->addTab( QIcon( ":/Manager/about" ),    tr( "About" ) );
-    ui->leftPanel->addTab( QIcon( ":/Manager/quit" ),     tr( "Quit" ) );
-    ui->leftPanel->setCurrentIndex( 0 );
-    connect( ui->leftPanel, SIGNAL( currentChanged(int) ), SLOT( buttonLeftPanelClicked(int) ) );
+    ui->sidebar->addTab( QIcon( ":/Manager/notebook" ), tr( "Notes" ) );
+    ui->sidebar->addTab( QIcon( ":/Manager/settings" ), tr( "Settings" ) );
+    ui->sidebar->addTab( QIcon( ":/Manager/about" ),    tr( "About" ) );
+    ui->sidebar->addTab( QIcon( ":/Manager/quit" ),     tr( "Quit" ) );
+    ui->sidebar->setCurrentIndex( 0 );
+    connect( ui->sidebar, SIGNAL( currentChanged(int) ), SLOT( buttonSidebarClicked(int) ) );
 
 
     pageNotes = new Page_Notes();
@@ -44,7 +44,7 @@ Manager::Manager( QWidget * parent ) :
     ui->stackedWidget_Pages->addWidget( pageNotes );
     ui->stackedWidget_Pages->addWidget( pageSettings );
     ui->stackedWidget_Pages->addWidget( pageAbout );
-    ui->stackedWidget_Pages->setCurrentIndex( ui->leftPanel->currentIndex() );
+    ui->stackedWidget_Pages->setCurrentIndex( ui->sidebar->currentIndex() );
 
     createMenu();
     createToolBars();
@@ -132,7 +132,9 @@ void Manager::createMenu()
         ui->actionCloseDict->setVisible( false );
     }
 
-    connect( ui->actionVisibleLeftPanel, SIGNAL( triggered(bool) ), SLOT( setVisibleLeftPanel(bool) ) );
+    connect( ui->actionShowSidebar, SIGNAL( triggered(bool) ), SLOT( setShowSidebar(bool) ) );
+
+    connect( ui->actionFull_screen, SIGNAL( triggered(bool) ), SLOT( setFullScreen(bool) ) );
 
     connect( ui->actionQuit, SIGNAL( triggered() ), ui->toolBarQuit, SIGNAL( triggered() ) );
     connect( ui->actionSettings, SIGNAL( triggered() ), ui->toolBarSettings, SIGNAL( triggered() ) );
@@ -205,7 +207,7 @@ void Manager::createTray()
     tray.setContextMenu( trayMenu );
 }
 
-void Manager::buttonLeftPanelClicked( int index )
+void Manager::buttonSidebarClicked( int index )
 {
     switch ( index )
     {
@@ -259,17 +261,17 @@ void Manager::acceptChangeSettings()
 void Manager::show_page_notes()
 {
     show_Manager();
-    ui->leftPanel->setCurrentIndex( 0 );
+    ui->sidebar->setCurrentIndex( 0 );
 }
 void Manager::show_page_settings()
 {
     show_Manager();
-    ui->leftPanel->setCurrentIndex( 1 );
+    ui->sidebar->setCurrentIndex( 1 );
 }
 void Manager::show_page_about()
 {
     show_Manager();
-    ui->leftPanel->setCurrentIndex( 2 );
+    ui->sidebar->setCurrentIndex( 2 );
 }
 void Manager::show_page_documentation()
 {
@@ -286,6 +288,8 @@ void Manager::updateStates()
     ui->toolBarHideAllNotes->setEnabled( !isEmpty );
     ui->toolBarShowAllNotes->setEnabled( !isEmpty );
     ui->toolBarSaveAllNotes->setEnabled( !isEmpty );
+
+    ui->actionFull_screen->setChecked( isFullScreen() );
 
     bool isAutocomplete = Completer::instance()->isAutocomplete();
     ui->toolBarCloseDict->setEnabled( isAutocomplete );
@@ -350,6 +354,15 @@ void Manager::show_Manager()
     if ( !isActiveWindow() )
         activateWindow();
 }
+void Manager::setFullScreen( bool fs )
+{
+    if ( fs )
+        showFullScreen();
+    else
+        showNormal();
+
+    ui->actionFull_screen->setChecked( fs );
+}
 void Manager::quit()
 {
     bool askBeforeExiting = pageSettings->mapSettings[ "AskBeforeExiting" ].toBool();
@@ -373,7 +386,7 @@ void Manager::readSettings()
     settings->beginGroup( "Manager" );
     restoreGeometry( settings->value( "Geometry" ).toByteArray() );
     restoreState( settings->value( "State" ).toByteArray() );
-    setVisibleLeftPanel( settings->value( "LeftPanel_Visible", true ).toBool() );
+    setShowSidebar( settings->value( "sidebar_Visible", true ).toBool() );
     settings->endGroup();
 
     pageNotes->readSettings();
@@ -390,7 +403,7 @@ void Manager::writeSettings()
     settings->beginGroup( "Manager" );
     settings->setValue( "Geometry", saveGeometry() );
     settings->setValue( "State", saveState() );
-    settings->setValue( "LeftPanel_Visible", isVisibleLeftPanel() );
+    settings->setValue( "sidebar_Visible", isShowSidebar() );
     settings->endGroup();
 
     pageNotes->writeSettings();
@@ -422,14 +435,14 @@ void Manager::closeDictionary()
     updateStates();
 }
 
-void Manager::setVisibleLeftPanel( bool visible )
+void Manager::setShowSidebar( bool visible )
 {
-    ui->leftPanel->setVisible( visible );
-    ui->actionVisibleLeftPanel->setChecked( visible );
+    ui->sidebar->setVisible( visible );
+    ui->actionShowSidebar->setChecked( visible );
 }
-bool Manager::isVisibleLeftPanel()
+bool Manager::isShowSidebar()
 {
-    return ui->leftPanel->isVisible();
+    return ui->sidebar->isVisible();
 }
 void Manager::setActivateTimerAutosave( bool activate )
 {

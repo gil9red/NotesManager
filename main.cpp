@@ -73,19 +73,21 @@ int main( int argc, char *argv[] )
     qApp->setApplicationVersion( App::version );
     qApp->setQuitOnLastWindowClosed( false );
 
-    /// Example Script
-    qDebug() << ScriptModule::evaluate( "(1+2+3-2*2)/2");
-    //
-    QScriptEngine * scriptEngine = new QScriptEngine();
-    QScriptValue fun = scriptEngine->evaluate("(function(a, b) { return a + b; })");
-    QScriptValueList args;
-    args << 1 << 2;
-    QScriptValue result = fun.call(QScriptValue(), args);
-    qDebug() << result.toString();
-    //
-    QScriptValue pow = scriptEngine->evaluate("(function(a, b) { var res = 1; while( b-- ) res *= a; return res; })");
-    qDebug() << pow.call( QScriptValue(), QScriptValueList() << 5 << 3 ).toString();
-    /// Example Script
+
+//    /// Example Script
+//    qDebug() << ScriptModule::evaluate( "(1+2+3-2*2)/2");
+//    //
+//    QScriptEngine * scriptEngine = new QScriptEngine();
+//    QScriptValue fun = scriptEngine->evaluate("(function(a, b) { return a + b; })");
+//    QScriptValueList args;
+//    args << 1 << 2;
+//    QScriptValue result = fun.call(QScriptValue(), args);
+//    qDebug() << result.toString();
+//    //
+//    QScriptValue pow = scriptEngine->evaluate("(function(a, b) { var res = 1; while( b-- ) res *= a; return res; })");
+//    qDebug() << pow.call( QScriptValue(), QScriptValueList() << 5 << 3 ).toString();
+//    /// Example Script
+
 
     if ( app.isRunning() )
     {

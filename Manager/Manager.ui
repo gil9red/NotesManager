@@ -24,20 +24,11 @@
     <property name="spacing">
      <number>0</number>
     </property>
-    <property name="leftMargin">
-     <number>0</number>
-    </property>
-    <property name="topMargin">
-     <number>0</number>
-    </property>
-    <property name="rightMargin">
-     <number>0</number>
-    </property>
-    <property name="bottomMargin">
+    <property name="margin">
      <number>0</number>
     </property>
     <item>
-     <widget class="FancyTabBar" name="leftPanel" native="true">
+     <widget class="FancyTabBar" name="sidebar" native="true">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
         <horstretch>0</horstretch>
@@ -111,8 +102,6 @@
     <property name="title">
      <string>Toolbars</string>
     </property>
-    <addaction name="actionVisibleLeftPanel"/>
-    <addaction name="separator"/>
     <addaction name="actionVisibleToolbarMain"/>
     <addaction name="actionVisibleToolbarManage"/>
     <addaction name="actionVisibleToolbarNote"/>
@@ -140,10 +129,18 @@
     <addaction name="actionPrintNote"/>
     <addaction name="actionPreviewPrintNote"/>
    </widget>
+   <widget class="QMenu" name="menuWindow">
+    <property name="title">
+     <string>Window</string>
+    </property>
+    <addaction name="actionFull_screen"/>
+    <addaction name="actionShowSidebar"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuToolbars"/>
    <addaction name="menuNote"/>
    <addaction name="menuService"/>
+   <addaction name="menuWindow"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
@@ -773,7 +770,7 @@
     <string>Open</string>
    </property>
   </action>
-  <action name="actionVisibleLeftPanel">
+  <action name="actionShowSidebar">
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -781,7 +778,13 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Left panel</string>
+    <string>Show Sidebar</string>
+   </property>
+   <property name="statusTip">
+    <string>Show Sidebar</string>
+   </property>
+   <property name="whatsThis">
+    <string>Show Sidebar</string>
    </property>
   </action>
   <action name="toolBarAddNote">
@@ -954,6 +957,20 @@
     <string>Clear trash</string>
    </property>
   </action>
+  <action name="actionFull_screen">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Full screen</string>
+   </property>
+   <property name="statusTip">
+    <string>Full screen</string>
+   </property>
+   <property name="whatsThis">
+    <string>Full screen</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
@@ -966,8 +983,8 @@
  </customwidgets>
  <resources>
   <include location="../Note/Note.qrc"/>
-  <include location="../NavigationPanel/NavigationPanel.qrc"/>
   <include location="Manager.qrc"/>
+  <include location="../NavigationPanel/NavigationPanel.qrc"/>
  </resources>
  <connections>
   <connection>
