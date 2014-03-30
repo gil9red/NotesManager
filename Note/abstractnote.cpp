@@ -26,10 +26,10 @@ AbstractNote::AbstractNote( QWidget * parent ) :
 
     d->d_head = head->d;
     d->d_body = body->d;
-    d->sides = Note::Frame::visible;
+    d->sides = nm_Note::Frame::visible;
     d->penSides = Shared::Left | Shared::Right | Shared::Top | Shared::Bottom;
-    d->colorSides = Note::Frame::color;
-    d->widthPenSides = Note::Frame::width;
+    d->colorSides = nm_Note::Frame::color;
+    d->widthPenSides = nm_Note::Frame::width;
 
     propertyAttachable = new PropertyAttachable( this );
     propertyAttachable->installTo( head );
@@ -48,12 +48,12 @@ AbstractNote::AbstractNote( QWidget * parent ) :
     mainWidget->setLayout( mainLayout );
     setCentralWidget( mainWidget );
 
-    setMinimumSize( Note::minimalWidth, Note::minimalHeight );
-    setWindowFlags( Note::flags | Qt::WindowStaysOnTopHint );
+    setMinimumSize( nm_Note::minimalWidth, nm_Note::minimalHeight );
+    setWindowFlags( nm_Note::flags | Qt::WindowStaysOnTopHint );
 
-    d->sides = Note::Frame::visible;
-    d->widthPenSides = Note::Frame::width;
-    d->colorSides = Note::Frame::color;
+    d->sides = nm_Note::Frame::visible;
+    d->widthPenSides = nm_Note::Frame::width;
+    d->colorSides = nm_Note::Frame::color;
 }
 AbstractNote::~AbstractNote()
 {
@@ -169,7 +169,7 @@ QFont AbstractNote::titleFont()
 
 void AbstractNote::setTop( bool b )
 {
-    Qt::WindowFlags f = Note::flags;
+    Qt::WindowFlags f = nm_Note::flags;
     bool visible = isVisible();
 
     f |= b ? Qt::WindowStaysOnTopHint : Qt::WindowStaysOnBottomHint;
@@ -231,10 +231,10 @@ void AbstractNote::setOpacity( qreal o )
 {
     if ( opacity() == o )
         return;
-    if ( o < Note::minimalOpacity )
-        o = Note::minimalOpacity;
-    if ( o > Note::maximalOpacity )
-        o = Note::maximalOpacity;
+    if ( o < nm_Note::minimalOpacity )
+        o = nm_Note::minimalOpacity;
+    if ( o > nm_Note::maximalOpacity )
+        o = nm_Note::maximalOpacity;
 
     mapSettings[ "Opacity" ] = o;
     setWindowOpacity( o );

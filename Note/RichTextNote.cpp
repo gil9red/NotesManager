@@ -37,7 +37,7 @@
 static QActionGroup * createGroupActionsOpacity( QObject * parent = 0 )
 {
     QActionGroup * group = new QActionGroup( parent );
-    for ( qreal op = Note::maximalOpacity; op > Note::minimalOpacity; op -= 0.1 )
+    for ( qreal op = nm_Note::maximalOpacity; op > nm_Note::minimalOpacity; op -= 0.1 )
     {
         uchar proc = op * 100;
         const QString & text = QString( "%1%" ).arg( proc );
@@ -317,7 +317,7 @@ void RichTextNote::setupGUI()
     // NOTE: установка прозрачного заднего фона редактора
     d->editor.setFrameStyle( QFrame::NoFrame );
     d->editor.viewport()->setAutoFillBackground( false );
-    d->editor.setStyleSheet( Note::style );
+    d->editor.setStyleSheet( nm_Note::style );
 
     QVBoxLayout * mainLayout = new QVBoxLayout();
     mainLayout->setSpacing( 0 );
@@ -597,8 +597,8 @@ void RichTextNote::selectColor()
 void RichTextNote::selectOpacity()
 {    
     int current = windowOpacity() * 100.0;
-    int min = Note::minimalOpacity * 100.0;
-    int max = Note::maximalOpacity * 100.0;
+    int min = nm_Note::minimalOpacity * 100.0;
+    int max = nm_Note::maximalOpacity * 100.0;
     bool b;
     int op = QInputDialog::getInt( this, tr( "Select opacity" ), tr( "Opacity:" ), current, min, max, 1, &b );
     if ( !b )
@@ -786,7 +786,7 @@ quint64 RichTextNote::intervalAutosave()
 void RichTextNote::changeOpacity( QAction * action )
 {
     qreal o = action->data().toReal();
-    if ( o < Note::minimalOpacity )
+    if ( o < nm_Note::minimalOpacity )
         selectOpacity();
     else
         setOpacity( o );
@@ -852,14 +852,14 @@ void RichTextNote::enterEvent( QEvent * )
     QPropertyAnimation * animation = new QPropertyAnimation( this, "windowOpacity" );
     animation->setDuration( 200 );
     animation->setStartValue( opacity() );
-    animation->setEndValue( Note::maximalOpacity );
+    animation->setEndValue( nm_Note::maximalOpacity );
     animation->start( QAbstractAnimation::DeleteWhenStopped );
 }
 void RichTextNote::leaveEvent( QEvent * )
 {
     QPropertyAnimation * animation = new QPropertyAnimation( this, "windowOpacity" );
     animation->setDuration( 700 );
-    animation->setStartValue( Note::maximalOpacity );
+    animation->setStartValue( nm_Note::maximalOpacity );
     animation->setEndValue( opacity() );
     animation->start( QAbstractAnimation::DeleteWhenStopped );
 }

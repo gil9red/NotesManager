@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>559</width>
-    <height>360</height>
+    <width>854</width>
+    <height>372</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,7 +24,16 @@
     <property name="spacing">
      <number>0</number>
     </property>
-    <property name="margin">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
      <number>0</number>
     </property>
     <item>
@@ -53,7 +62,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>559</width>
+     <width>854</width>
      <height>20</height>
     </rect>
    </property>
@@ -74,7 +83,7 @@
      <bool>true</bool>
     </property>
     <property name="title">
-     <string>&amp;Service</string>
+     <string>Service</string>
     </property>
     <addaction name="actionSettings"/>
    </widget>
@@ -237,21 +246,6 @@
    </property>
    <property name="whatsThis">
     <string>About</string>
-   </property>
-  </action>
-  <action name="actionSettings">
-   <property name="icon">
-    <iconset resource="Manager.qrc">
-     <normaloff>:/Manager/settings</normaloff>:/Manager/settings</iconset>
-   </property>
-   <property name="text">
-    <string>Settings</string>
-   </property>
-   <property name="statusTip">
-    <string>Settings</string>
-   </property>
-   <property name="whatsThis">
-    <string>Settings</string>
    </property>
   </action>
   <action name="actionAddNote">
@@ -830,10 +824,6 @@
    </property>
   </action>
   <action name="toolBarAddFolder">
-   <property name="icon">
-    <iconset resource="../NavigationPanel/NavigationPanel.qrc">
-     <normaloff>:/NavigationPanel/folder</normaloff>:/NavigationPanel/folder</iconset>
-   </property>
    <property name="text">
     <string>Add folder</string>
    </property>
@@ -860,10 +850,6 @@
    </property>
   </action>
   <action name="toolBarRemoveToTrash">
-   <property name="icon">
-    <iconset resource="../NavigationPanel/NavigationPanel.qrc">
-     <normaloff>:/NavigationPanel/trash</normaloff>:/NavigationPanel/trash</iconset>
-   </property>
    <property name="text">
     <string>Remove to trash</string>
    </property>
@@ -971,6 +957,21 @@
     <string>Full screen</string>
    </property>
   </action>
+  <action name="actionSettings">
+   <property name="icon">
+    <iconset resource="Manager.qrc">
+     <normaloff>:/Manager/settings</normaloff>:/Manager/settings</iconset>
+   </property>
+   <property name="text">
+    <string>Settings</string>
+   </property>
+   <property name="statusTip">
+    <string>Settings</string>
+   </property>
+   <property name="whatsThis">
+    <string>Settings</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
@@ -982,9 +983,8 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../Note/Note.qrc"/>
   <include location="Manager.qrc"/>
-  <include location="../NavigationPanel/NavigationPanel.qrc"/>
+  <include location="../Note/Note.qrc"/>
  </resources>
  <connections>
   <connection>

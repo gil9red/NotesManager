@@ -53,11 +53,12 @@ static const char codec[] = "utf8";
 
 //// TODO: настроить удаление заметки, когда она вызывает удаление. К примеру: если заметка при удалении не в корзине, то отправляется в нее, если в ней, то удаляется.
 //// TODO: добавить выполнение скриптов
+/// TODO: можно настраивать видимость статус-бара
 ///
 /// TODO: добавить заметку с снимком от вебкамеры (Думаю, лучше будет использовать opencv)
 /// NOTE: git после выпуска стабильных версий, создавать ветку develop для новой версии
 
-QString Note::style = "";
+QString nm_Note::style = "";
 
 #include "RegisterNote.h"
 
@@ -65,6 +66,7 @@ QString Note::style = "";
 
 int main( int argc, char *argv[] )
 {
+//  TODO: или:  qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
     qsrand( QDateTime().toMSecsSinceEpoch() );
     QTextCodec::setCodecForCStrings( QTextCodec::codecForName( codec ) );    
 
@@ -97,7 +99,7 @@ int main( int argc, char *argv[] )
 
     QFile file( ":/Note/Note.qss" );
     if ( file.open( QIODevice::ReadOnly ) )
-        Note::style = file.readAll();
+        nm_Note::style = file.readAll();
 
     QSettings * settings = createSettings();
 

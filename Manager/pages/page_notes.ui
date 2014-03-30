@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>494</width>
-    <height>374</height>
+    <width>536</width>
+    <height>410</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,30 +20,27 @@
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
-      <widget class="QTreeView" name="treeNotes">
-       <property name="editTriggers">
-        <set>QAbstractItemView::EditKeyPressed</set>
+      <widget class="QTabWidget" name="tabWidget_Navigation">
+       <property name="currentIndex">
+        <number>0</number>
        </property>
-       <property name="dragEnabled">
-        <bool>true</bool>
-       </property>
-       <property name="dragDropMode">
-        <enum>QAbstractItemView::InternalMove</enum>
-       </property>
-       <property name="alternatingRowColors">
-        <bool>true</bool>
-       </property>
-       <property name="selectionMode">
-        <enum>QAbstractItemView::SingleSelection</enum>
-       </property>
-       <property name="selectionBehavior">
-        <enum>QAbstractItemView::SelectRows</enum>
-       </property>
-       <property name="animated">
-        <bool>true</bool>
-       </property>
+       <widget class="FolderNavigationWidget" name="tab_Notes">
+        <attribute name="title">
+         <string>Notes</string>
+        </attribute>
+       </widget>
+       <widget class="TagsNavigationWidget" name="tab_Tags">
+        <attribute name="title">
+         <string>Tags</string>
+        </attribute>
+       </widget>
+       <widget class="DateNavigationWidget" name="tab_Dates">
+        <attribute name="title">
+         <string>Dates</string>
+        </attribute>
+       </widget>
       </widget>
-      <widget class="NotesTabWidget" name="tabNotes">
+      <widget class="QTabWidget" name="tabWidget_EditNotes">
        <property name="tabsClosable">
         <bool>true</bool>
        </property>
@@ -58,9 +55,21 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>NotesTabWidget</class>
-   <extends>QTabWidget</extends>
-   <header>Manager/pages/notestabwidget.h</header>
+   <class>FolderNavigationWidget</class>
+   <extends>QWidget</extends>
+   <header>NavigationPanel/src/foldernavigationwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>DateNavigationWidget</class>
+   <extends>QWidget</extends>
+   <header>NavigationPanel\src\datenavigationwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TagsNavigationWidget</class>
+   <extends>QWidget</extends>
+   <header>NavigationPanel/src/tagsnavigationwidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

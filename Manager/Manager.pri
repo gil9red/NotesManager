@@ -5,8 +5,7 @@ SOURCES += \
     $$PWD/Manager.cpp \
     $$PWD/pages/page_settings.cpp \
     $$PWD/pages/page_notes.cpp \
-    $$PWD/pages/page_about.cpp \
-    Manager/pages/notestabwidget.cpp
+    $$PWD/pages/page_about.cpp
 
 FORMS += \
     $$PWD/Manager.ui \
@@ -21,5 +20,4 @@ HEADERS += \
     $$PWD/pages/page_settings.h \
     $$PWD/pages/page_notes.h \
     $$PWD/pages/page_about.h \
-    $$PWD/Manager.h \
-    Manager/pages/notestabwidget.h
+    $$PWD/Manager.h

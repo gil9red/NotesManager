@@ -33,9 +33,9 @@ Page_Settings::Page_Settings( QWidget * parent )
         ui->comboBoxLanguage->addItem( pixmap, text, data );
     }
 
-    ui->sBoxWidth->setMinimum( Note::minimalWidth );
-    ui->sBoxHeight->setMinimum( Note::minimalHeight );
-    ui->sBoxOpacity->setRange( Note::minimalOpacity * 100, Note::maximalOpacity * 100 );
+    ui->sBoxWidth->setMinimum( nm_Note::minimalWidth );
+    ui->sBoxHeight->setMinimum( nm_Note::minimalHeight );
+    ui->sBoxOpacity->setRange( nm_Note::minimalOpacity * 100, nm_Note::maximalOpacity * 100 );
 
     const QString & textTemplateParserToolTip = TextTemplateParser::descriptionToHtmlTable();
     ui->lEditTitle->setToolTip( textTemplateParserToolTip );
@@ -90,7 +90,7 @@ void Page_Settings::mapToSettings()
     ui->sBoxHeight->setValue( size.height() );
     ui->sBoxLeft->setValue( position.x() );
     ui->sBoxTop->setValue( position.y() );
-    ui->sBoxOpacity->setValue( mapSettings.value( "NewNote_Opacity", Note::maximalOpacity ).toDouble() * 100 );
+    ui->sBoxOpacity->setValue( mapSettings.value( "NewNote_Opacity", nm_Note::maximalOpacity ).toDouble() * 100 );
     ui->lEditTitle->setText( mapSettings.value( "NewNote_Title", tr( "New note" ) + " %td%" ).toString() );
     ui->lEditTitle->setFont( fontTitle );
     ui->tEditText->setText( mapSettings.value( "NewNote_Text", "" ).toString() );
