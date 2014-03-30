@@ -67,8 +67,8 @@ FolderNavigationWidget::FolderNavigationWidget(QWidget *parent)
 	currentRootLabel->setAlignment(Qt::AlignRight | Qt::AlignCenter);
 
     pinFolderButton = new QPushButton();
-    pinFolderButton->setToolTip("Pin folder");
-    pinFolderButton->setIcon(QIcon(":/gui/pin"));
+    pinFolderButton->setToolTip( tr( "Pin folder" ));
+    pinFolderButton->setIcon(QIcon(":/gui/pin")); // NOTE: this icon
     pinFolderButton->setCheckable(true);
     pinFolderButton->setChecked(false);
     pinFolderButton->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
@@ -87,42 +87,42 @@ FolderNavigationWidget::FolderNavigationWidget(QWidget *parent)
     setLayout(layout);
 
     // Item actions
-	addNoteAction = new QAction(QIcon(":/gui/doc-add"), "Add Note", this);
+    addNoteAction = new QAction(QIcon(":/gui/doc-add"), tr( "Add Note" ), this); // NOTE: this icon
     QObject::connect(addNoteAction, SIGNAL(triggered()), SLOT(sl_AddNoteAction_Triggered()));
 
-	addFolderAction = new QAction (QIcon(":/gui/folder-add"), "Add Folder", this);
+    addFolderAction = new QAction (QIcon(":/gui/folder-add"), tr( "Add Folder" ), this); // NOTE: this icon
     QObject::connect(addFolderAction, SIGNAL(triggered()), SLOT(sl_AddFolderAction_Triggered()));
 
-	deleteItemAction = new QAction (QIcon(":/gui/bin"), "Delete", this);
+    deleteItemAction = new QAction (QIcon(":/gui/bin"), tr( "Delete" ), this); // NOTE: this icon // NOTE: change icon
 	QObject::connect(deleteItemAction, SIGNAL(triggered()), SLOT(sl_DeleteItemAction_Triggered()));
 
-    moveToBinAction = new QAction (QIcon(":/gui/bin"), "Move to Bin", this);
+    moveToBinAction = new QAction (QIcon(":/gui/bin"), tr( "Move to Bin" ), this); // NOTE: this icon
     QObject::connect(moveToBinAction, SIGNAL(triggered()), SLOT(sl_MoveToBinAction_Triggered()));
 
-    itemForeColorMenu = new QMenu("Set text color", this);
-    itemForeColorMenu->setIcon(QIcon(":/gui/text-color"));
-    itemBackColorMenu = new QMenu("Set back color", this);
-    itemBackColorMenu->setIcon(QIcon(":/gui/background-color"));
+    itemForeColorMenu = new QMenu( tr( "Set text color" ), this);
+    itemForeColorMenu->setIcon(QIcon(":/gui/text-color"));// NOTE: this icon
+    itemBackColorMenu = new QMenu( tr( "Set back color" ), this);
+    itemBackColorMenu->setIcon(QIcon(":/gui/background-color"));// NOTE: this icon
 
-    itemDefaultForeColorAction = new QAction("Default color", this);
+    itemDefaultForeColorAction = new QAction( tr( "Default color" ), this);
 	QObject::connect(itemDefaultForeColorAction, SIGNAL(triggered()), SLOT(sl_DefaultForeColor_Triggered()));
 
-	itemCustomForeColorAction = new QAction("Custom color", this);
+    itemCustomForeColorAction = new QAction( tr( "Custom color" ), this);
 	QObject::connect(itemCustomForeColorAction, SIGNAL(triggered()), SLOT(sl_CustomForeColor_Triggered()));
 
-	itemDefaultBackColorAction = new QAction("Default color", this);
+    itemDefaultBackColorAction = new QAction( tr( "Default color" ), this);
 	QObject::connect(itemDefaultBackColorAction, SIGNAL(triggered()), SLOT(sl_DefaultBackColor_Triggered()));
 
-	itemCustomBackColorAction = new QAction("Custom color", this);
+    itemCustomBackColorAction = new QAction( tr( "Custom color" ), this);
 	QObject::connect(itemCustomBackColorAction, SIGNAL(triggered()), SLOT(sl_CustomBackColor_Triggered()));
 
-	clearTrashAction = new QAction("Clear trash", this);
+    clearTrashAction = new QAction( tr( "Clear trash" ), this);
 	QObject::connect(clearTrashAction, SIGNAL(triggered()), SLOT(sl_ClearTrashAction_Triggered()));
 
-	openNoteAction = new QAction("Open", this);
+    openNoteAction = new QAction( tr( "Open" ), this);
     QObject::connect(openNoteAction, SIGNAL(triggered()), SLOT(sl_OpenNoteAction_Triggered()));
 
-	renameItemAction = new QAction(QIcon(":/gui/rename"), "Rename", this);
+    renameItemAction = new QAction(QIcon(":/gui/rename"), tr( "Rename" ), this);// NOTE: this icon
 	QObject::connect(renameItemAction, SIGNAL(triggered()), SLOT(sl_RenameItemAction_Triggered()));
 
     itemForeColorMenu->addAction(itemDefaultForeColorAction);
@@ -203,9 +203,9 @@ void FolderNavigationWidget::deleteItems(QModelIndexList& indexesList, bool perm
     foreach (QModelIndex index, indexesList)
         details.append("\n").append(index.model()->data(index, Qt::DisplayRole).toString());
 
-    QString message = permanently ? "Delete these items?" : "Put these items to Bin?";
+    QString message = permanently ? tr( "Delete these items?" ) : tr( "Put these items to Bin?" );
 
-    if (QMessageBox::question(0, "Confirm deletion", message + details, QMessageBox::Yes | QMessageBox::No) != QMessageBox::Yes)
+    if (QMessageBox::question(0, tr( "Confirm deletion" ), message + details, QMessageBox::Yes | QMessageBox::No) != QMessageBox::Yes)
         return;
 
     // FIXME: fix situation when parent folder was deleted and we try to delete child item
@@ -233,7 +233,7 @@ void FolderNavigationWidget::deleteItems(QModelIndexList& indexesList, bool perm
 
             if (itemToDelete == Notebook::instance()->tempFolder() || itemToDelete == Notebook::instance()->trashFolder())
             {
-                QMessageBox::information(0, "Information", "You cannot delete system folders");
+                QMessageBox::information(0, tr( "Information" ), tr( "You cannot delete system folders" ) );
                 continue;
             }
         } else if ( isNote )
@@ -327,137 +327,12 @@ void FolderNavigationWidget::restoreExpandedIndexes()
 
 void FolderNavigationWidget::sl_TreeView_ContextMenuRequested(const QPoint& p)
 {
-//    const QItemSelectionModel * selectionModel = treeView->selectionModel();
-//    if ( !selectionModel )
-//        return QList < QAction * > ();
-
-//    QAction * separatorAction = new QAction( this );
-//    separatorAction->setSeparator( true );
-
-//    QList < QAction * > list;
-//    list.append(addNoteAction);
-//    list.append(addFolderAction);
-//    list.append(separatorAction);
-
-//    const QModelIndexList indexesList = selectionModel->selectedIndexes();
-
-//    // 0 items
-//    if (indexesList.isEmpty())
-//    {
-//        if (model->GetPinnedFolder() != 0)
-//        {
-//            // Edd context menu items for pinned folder
-//            if (model->GetPinnedFolder() == Notebook::instance()->trashFolder() )
-//            {
-//                list.append(clearTrashAction);
-
-//                if ( Notebook::instance()->trashFolder()->Items.Count() == 0 )
-//                    clearTrashAction->setEnabled(false);
-//                else
-//                    clearTrashAction->setEnabled(true);
-
-//            } else if (model->GetPinnedFolder() == Notebook::instance()->tempFolder())
-//            {
-//                list.append(addNoteAction);
-//                list.append(addFolderAction);
-//            } else
-//            {
-//                list.append(addNoteAction);
-//                list.append(addFolderAction);
-//            }
-
-//            addNoteAction->setEnabled( true );
-//            addFolderAction->setEnabled( true );
-//        }
-//        return list;
-
-//    } else if (indexesList.size() == 1) // 1 item
-//    {
-//        const QModelIndex index = indexesList.first();
-//        if (!index.isValid())
-//            return list;
-
-//        const BaseModelItem* modelitem = static_cast<BaseModelItem*>(index.internalPointer());
-
-//        if (modelitem->DataType() == BaseModelItem::folder)
-//        {
-//            const FolderModelItem* folderModelItem = dynamic_cast<const FolderModelItem*>(modelitem);
-//            const AbstractFolderItem* folderItem = folderModelItem->GetStoredData();
-//            if (folderItem == Notebook::instance()->trashFolder())
-//            {
-//                list.append(clearTrashAction);
-
-//                if (Notebook::instance()->trashFolder()->Items.Count() == 0)
-//                    clearTrashAction->setEnabled(false);
-//                else
-//                    clearTrashAction->setEnabled(true);
-
-//            } else if (folderItem == Notebook::instance()->tempFolder())
-//            {
-//                list.append(addNoteAction);
-//                list.append(addFolderAction);
-//            } else
-//            {
-//                list.append(addNoteAction);
-//                list.append(addFolderAction);
-//                list.append(moveToBinAction);
-//                list.append(deleteItemAction);
-//                list.append(renameItemAction);
-//                list.append(itemForeColorMenu->menuAction());
-//                list.append(itemBackColorMenu->menuAction());
-//            }
-
-//        } else if (modelitem->DataType() == BaseModelItem::note)
-//        {
-//            list.append(openNoteAction);
-//            list.append(moveToBinAction);
-//            list.append(deleteItemAction);
-//            list.append(renameItemAction);
-//            list.append(itemForeColorMenu->menuAction());
-//            list.append(itemBackColorMenu->menuAction());
-
-//        } else
-//        {
-//            WARNING("Wrong item type");
-//        }
-
-//        addNoteAction->setEnabled(true);
-//        addFolderAction->setEnabled(true);
-//        renameItemAction->setEnabled(true);
-//        deleteItemAction->setEnabled(true);
-//        itemForeColorMenu->setEnabled(true);
-//        itemBackColorMenu->setEnabled(true);
-
-//    } else // few items
-//    {
-//        list.append(moveToBinAction);
-//        list.append(deleteItemAction);
-//        list.append(itemForeColorMenu->menuAction());
-//        list.append(itemBackColorMenu->menuAction());
-
-//        itemForeColorMenu->setEnabled(true);
-//        itemBackColorMenu->setEnabled(true);
-//    }
-
     const QItemSelectionModel * selectionModel = treeView->selectionModel();
     if ( !selectionModel )
         return;
 
     QMenu menu;
-//    menu.addAction(addNoteAction);
-//    menu.addAction(addFolderAction);
-//    menu.addSeparator();
-//    menu.addAction(openNoteAction);
-//    menu.addSeparator();
-//    menu.addAction(moveToBinAction);
-//    menu.addAction(deleteItemAction);
-//    menu.addSeparator();
-//    menu.addAction(renameItemAction);
-//    menu.addAction(itemForeColorMenu->menuAction());
-//    menu.addAction(itemBackColorMenu->menuAction());
-
     bool isEmptyTrash = Notebook::instance()->trashFolder()->Items.Count() == 0;
-
     const QModelIndexList & indexesList = selectionModel->selectedIndexes();
 
     // 0 items
@@ -536,7 +411,6 @@ void FolderNavigationWidget::sl_TreeView_ContextMenuRequested(const QPoint& p)
         menu.addAction(itemForeColorMenu->menuAction());
         menu.addAction(itemBackColorMenu->menuAction());
     }
-
 
     if ( menu.isEmpty() )
         return;

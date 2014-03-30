@@ -136,6 +136,24 @@
     </message>
 </context>
 <context>
+    <name>DateNavigationWidget</name>
+    <message>
+        <location filename="../NavigationPanel/src/datenavigationwidget.cpp" line="46"/>
+        <source>Creation date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/datenavigationwidget.cpp" line="49"/>
+        <source>Modification date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/datenavigationwidget.cpp" line="57"/>
+        <source>Traced date</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>DialogInsertHyperlink</name>
     <message>
         <location filename="../FormattingToolbar/DialogInsertHyperlink.ui" line="14"/>
@@ -267,6 +285,96 @@
     <message>
         <location filename="../NavigationPanel/src/folder.cpp" line="54"/>
         <source>New folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FolderNavigationWidget</name>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="70"/>
+        <source>Pin folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="90"/>
+        <source>Add Note</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="93"/>
+        <source>Add Folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="96"/>
+        <source>Delete</source>
+        <translation type="unfinished">Видаляти</translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="99"/>
+        <source>Move to Bin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="102"/>
+        <source>Set text color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="104"/>
+        <source>Set back color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="107"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="113"/>
+        <source>Default color</source>
+        <translation type="unfinished">Колір за замовчуванням</translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="110"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="116"/>
+        <source>Custom color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="119"/>
+        <source>Clear trash</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="122"/>
+        <source>Open</source>
+        <translation type="unfinished">Відкрито</translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="125"/>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="206"/>
+        <source>Delete these items?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="206"/>
+        <source>Put these items to Bin?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="208"/>
+        <source>Confirm deletion</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="236"/>
+        <source>Information</source>
+        <translation type="unfinished">Iнформація</translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="236"/>
+        <source>You cannot delete system folders</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

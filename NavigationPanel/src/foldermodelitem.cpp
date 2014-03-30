@@ -26,7 +26,6 @@ along with qNotesManager. If not, see <http://www.gnu.org/licenses/>.
 #include <QPainter>
 
 
-
 FolderModelItem::FolderModelItem(Folder* _folder) :
 		BaseModelItem(BaseModelItem::folder),
         folder(_folder)
@@ -66,7 +65,16 @@ QVariant FolderModelItem::data(int role) const {
     else if (role == Qt::ForegroundRole)
         return QBrush(folder->GetNameForeColor());
 
-    else
+    else if ( role == Qt::FontRole )
+    {
+        QFont font( qApp->font() );
+        // Системные папки должны хоть немного отличаться от создаваемых пользователем
+        if ( folder->GetType() == Folder::TempFolder || folder->GetType() == Folder::TrashFolder )
+            font.setBold( true );
+
+        return font;
+
+    } else
 		return QVariant();	
 }
 

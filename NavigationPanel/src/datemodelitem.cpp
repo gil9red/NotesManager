@@ -37,7 +37,7 @@ DateModelItem::DateModelItem(DateComponent c, int v) :
 QVariant DateModelItem::data(int role) const
 {
     if (role == Qt::DecorationRole)
-        return QIcon(":/gui/date");
+        return QIcon(":/gui/date"); // NOTE: this icon
 
     else if (role == Qt::DisplayRole)
     {

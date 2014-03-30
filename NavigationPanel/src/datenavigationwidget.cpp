@@ -43,10 +43,10 @@ DateNavigationWidget::DateNavigationWidget(QWidget *parent)
 	QObject::connect(treeView, SIGNAL(doubleClicked(QModelIndex)),
 					 this, SLOT(sl_View_doubleClicked(QModelIndex)));
 
-	creationDateButton = new QRadioButton("Creation date", this);
+    creationDateButton = new QRadioButton( tr( "Creation date" ), this);
 	QObject::connect(creationDateButton, SIGNAL(toggled(bool)),
 					 this, SLOT(sl_updateTreeModel(bool)));
-	modificationDateButton = new QRadioButton("Modification date", this);
+    modificationDateButton = new QRadioButton( tr( "Modification date" ), this);
 	QObject::connect(modificationDateButton, SIGNAL(toggled(bool)),
 					 this, SLOT(sl_updateTreeModel(bool)));
 
@@ -54,7 +54,7 @@ DateNavigationWidget::DateNavigationWidget(QWidget *parent)
 	buttonsLayout->addWidget(creationDateButton);
 	buttonsLayout->addWidget(modificationDateButton);
 
-	groupBox = new QGroupBox("Traced date", this);
+    groupBox = new QGroupBox( tr( "Traced date" ), this);
 	groupBox->setLayout(buttonsLayout);
 
 	QVBoxLayout* layout = new QVBoxLayout();

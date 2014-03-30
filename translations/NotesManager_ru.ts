@@ -144,6 +144,24 @@
     </message>
 </context>
 <context>
+    <name>DateNavigationWidget</name>
+    <message>
+        <location filename="../NavigationPanel/src/datenavigationwidget.cpp" line="46"/>
+        <source>Creation date</source>
+        <translation>Дата создания</translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/datenavigationwidget.cpp" line="49"/>
+        <source>Modification date</source>
+        <translation>Дата изменения</translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/datenavigationwidget.cpp" line="57"/>
+        <source>Traced date</source>
+        <translation>Проследить дату</translation>
+    </message>
+</context>
+<context>
     <name>DialogInsertHyperlink</name>
     <message>
         <location filename="../FormattingToolbar/DialogInsertHyperlink.ui" line="14"/>
@@ -280,6 +298,96 @@
         <location filename="../NavigationPanel/src/folder.cpp" line="54"/>
         <source>New folder</source>
         <translation>Новая папка</translation>
+    </message>
+</context>
+<context>
+    <name>FolderNavigationWidget</name>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="70"/>
+        <source>Pin folder</source>
+        <translation>Закрепить папку</translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="90"/>
+        <source>Add Note</source>
+        <translation>Добавить заметку</translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="93"/>
+        <source>Add Folder</source>
+        <translation>Добавить папку</translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="96"/>
+        <source>Delete</source>
+        <translation>Удалить</translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="99"/>
+        <source>Move to Bin</source>
+        <translation>Переместить в корзину</translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="102"/>
+        <source>Set text color</source>
+        <translation>Установить цвет текста</translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="104"/>
+        <source>Set back color</source>
+        <translation>Установить цвет заднего фона</translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="107"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="113"/>
+        <source>Default color</source>
+        <translation>Цвет по умолчанию</translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="110"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="116"/>
+        <source>Custom color</source>
+        <translation>Персональный цвет</translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="119"/>
+        <source>Clear trash</source>
+        <translation>Очистить корзину</translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="122"/>
+        <source>Open</source>
+        <translation>Открыть</translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="125"/>
+        <source>Rename</source>
+        <translation>Переименовать</translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="206"/>
+        <source>Delete these items?</source>
+        <translation>Удалить ти элементы?</translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="206"/>
+        <source>Put these items to Bin?</source>
+        <translation>Поместить  эти элементы в корзину?</translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="208"/>
+        <source>Confirm deletion</source>
+        <translation>Подтверждение удаления</translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="236"/>
+        <source>Information</source>
+        <translation>Информация</translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="236"/>
+        <source>You cannot delete system folders</source>
+        <translation>Вы не можете удалить системную папку</translation>
     </message>
 </context>
 <context>

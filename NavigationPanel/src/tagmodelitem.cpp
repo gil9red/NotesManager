@@ -23,8 +23,6 @@ along with qNotesManager. If not, see <http://www.gnu.org/licenses/>.
 
 #include <QPixmap>
 
-
-
 TagModelItem::TagModelItem(const Tag* t)
     : BaseModelItem(BaseModelItem::tag),
       tag(t)
@@ -44,7 +42,7 @@ QVariant TagModelItem::data(int role) const
 	}
 
     if (role == Qt::DecorationRole)
-		return QPixmap(":/gui/tag");
+        return QPixmap(":/gui/tag");// NOTE: this icon
 
     else if (role == Qt::DisplayRole)
     {

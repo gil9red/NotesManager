@@ -361,7 +361,7 @@ void Notebook::registerTag(Tag* tag)
     allTags.append(tag);
     tag->setParent(this);
     tagsByName.insert(tag->GetName(), tag);
-    QStandardItem* i = new QStandardItem( QIcon(":/gui/tag"), tag->GetName());
+    QStandardItem* i = new QStandardItem( QIcon(":/gui/tag"), tag->GetName());// NOTE: this icon
     tagsListModel->appendRow(i);
     tagsListModel->sort(0, Qt::AscendingOrder);
     emit sg_ItemRegistered(tag);
