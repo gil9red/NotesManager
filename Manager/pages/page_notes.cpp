@@ -11,6 +11,7 @@
 #include "NavigationPanel/src/hierarchymodel.h"
 #include "NavigationPanel/src/datenavigationwidget.h"
 #include "NavigationPanel/src/notebook.h"
+#include "NavigationPanel/src/noteeditwidget.h"
 
 Page_Notes::Page_Notes( QWidget * parent ) :
     QMainWindow( parent ),
@@ -54,18 +55,35 @@ void Page_Notes::read( QIODevice * device )
     // Загрузка вкладок
     {
         QDomElement rootTabs = root.firstChildElement( "Tabs" );
-        QDomElement tab = rootTabs.firstChildElement();
-        while( !tab.isNull() )
+        QDomElement dom_tab = rootTabs.firstChildElement();
+        while( !dom_tab.isNull() )
         {
-            const QString & id = tab.attribute( "id" );
+            const QString & id = dom_tab.attribute( "id" );
             if ( id.isEmpty() )
             {
-                tab = tab.nextSiblingElement();
+                dom_tab = dom_tab.nextSiblingElement();
                 continue;
             }
 
-            ui->tabWidget_EditNotes->openNote( Notebook::instance()->getNoteFromId( id ) );
-            tab = tab.nextSiblingElement();
+            Note * note = Notebook::instance()->getNoteFromId( id );
+            ui->tabWidget_EditNotes->openNote( note );
+
+            // Восстанавливаем состояние редактора заметок
+            {
+                QWidget * tab =  ui->tabWidget_EditNotes->getWidgetTab( note );
+                NoteEditWidget * noteEditWidget = dynamic_cast < NoteEditWidget * > ( tab );
+                if ( !noteEditWidget )
+                {
+                    WARNING( "Another type tab" );
+                    continue;
+                }
+
+                const QString & state = dom_tab.attribute( "state_edit" );;
+                if ( !state.isNull() )
+                    noteEditWidget->restoreStateNoteEdit( state );
+            }
+
+            dom_tab = dom_tab.nextSiblingElement();
         }
         int index = rootTabs.attribute( "current_index", "-1" ).toInt();
         ui->tabWidget_EditNotes->setCurrentIndex( index );
@@ -94,13 +112,26 @@ void Page_Notes::write( QIODevice * device )
         for ( int index = 0; index < ui->tabWidget_EditNotes->count(); index++ )
         {
             Note * note = ui->tabWidget_EditNotes->note( index );
-
             // С помощью указателя получаем id заметки, а id заметки на момент написания коммента было названием папки заметки
             const QString & id_name = Notebook::instance()->getIdFromNote( note );
 
             // Создаем элемент и указываем id
             QDomElement element = xmlDomDocument.createElement( "Note" );
             element.setAttribute( "id", id_name );
+
+            // Запоминаем состояние редактора заметок
+            {
+                QWidget * tab =  ui->tabWidget_EditNotes->widget( index );
+                NoteEditWidget * noteEditWidget = dynamic_cast < NoteEditWidget * > ( tab );
+                if ( !noteEditWidget )
+                {
+                    WARNING( "Another type tab" );
+                    continue;
+                }
+
+                const QString & state = noteEditWidget->saveStateNoteEdit();
+                element.setAttribute( "state_edit", state );
+            }
 
             // Добавляем в xml дерево, в узел Tabs
             rootTabs.appendChild( element );
@@ -140,4 +171,166 @@ void Page_Notes::writeSettings()
     settings->setValue( "Splitter_Main", ui->splitter->saveState() );
     settings->endGroup();
     settings->sync();
+}
+
+void Page_Notes::sl_AddFolder()
+{
+//    FolderModelItem * folderItem = new FolderModelItem( tr( "New folder" ) );
+//    addItemToModel( folderItem );
+}
+void Page_Notes::sl_AddNote()
+{
+//    qApp->setOverrideCursor( Qt::WaitCursor );
+
+//    RichTextNote * note = new RichTextNote();
+//    note->createNew();
+
+//    addNoteToModel( note );
+//    qApp->restoreOverrideCursor();
+}
+void Page_Notes::sl_AddNoteFromClipboard()
+{
+//    qApp->setOverrideCursor( Qt::WaitCursor );
+
+//    RichTextNote * note = new RichTextNote();
+//    note->createNew( false );
+//    note->setText( qApp->clipboard()->text() );
+//    note->save();
+
+//    addNoteToModel( note );
+//    qApp->restoreOverrideCursor();
+}
+void Page_Notes::sl_AddNoteFromScreen()
+{
+//    FullscreenshotCropper cropper;
+//    cropper.setImage( QPixmap::grabWindow( QApplication::desktop()->winId() ) );
+//    cropper.showFullScreen();
+//    if ( !cropper.exec() )
+//        return;
+
+//    const QPixmap & screenshot = cropper.cropperImage();
+
+//    qApp->setOverrideCursor( Qt::WaitCursor );
+
+//    RichTextNote * note = new RichTextNote();
+//    note->createNew( false );
+//    note->insertImage( screenshot );
+//    note->save();
+
+//    addNoteToModel( note );
+//    qApp->restoreOverrideCursor();
+}
+void Page_Notes::sl_Delete()
+{
+
+}
+void Page_Notes::sl_ClearTrash()
+{
+
+}
+void Page_Notes::sl_RemoveToTrash()
+{
+
+}
+
+void Page_Notes::sl_SaveNote()
+{
+//    const QModelIndex & index = ui->treeNotes->currentIndex();
+//    RichTextNote * note = noteFromIndex( index );
+//    note->save();
+//    emit about_updateStates();
+}
+void Page_Notes::sl_SaveAsNote()
+{
+//    const QModelIndex & index = ui->treeNotes->currentIndex();
+//    RichTextNote * note = noteFromIndex( index );
+//    note->saveAs();
+}
+void Page_Notes::sl_ShowNote()
+{
+//    const QModelIndex & index = ui->treeNotes->currentIndex();
+//    RichTextNote * note = noteFromIndex( index );
+//    if ( note->isVisible() )
+//        return;
+//    note->show();
+//    emit about_updateStates();
+}
+void Page_Notes::sl_HideNote()
+{
+//    const QModelIndex & index = ui->treeNotes->currentIndex();
+//    RichTextNote * note = noteFromIndex( index );
+//    if ( note->isHidden() )
+//        return;
+//    note->hide();
+//    emit about_updateStates();
+}
+void Page_Notes::sl_ShowAllNotes()
+{
+//    qApp->setOverrideCursor( Qt::WaitCursor );
+
+//    QHash < QStandardItem *, RichTextNote * >::iterator it;
+//    for ( it = hashItemNote.begin(); it != hashItemNote.end(); it++ )
+//    {
+//        RichTextNote * note = it.value();
+//        if ( note->isVisible() )
+//            continue;
+
+//        note->show();
+//        qApp->processEvents();
+//    }
+
+//    qApp->restoreOverrideCursor();
+//    emit about_updateStates();
+}
+void Page_Notes::sl_HideAllNotes()
+{
+//    qApp->setOverrideCursor( Qt::WaitCursor );
+
+//    QHash < QStandardItem *, RichTextNote * >::iterator it;
+//    for ( it = hashItemNote.begin(); it != hashItemNote.end(); it++ )
+//    {
+//        RichTextNote * note = it.value();
+//        if ( note->isHidden() )
+//            continue;
+
+//        note->hide();
+//        qApp->processEvents();
+//    }
+
+//    qApp->restoreOverrideCursor();
+//    emit about_updateStates();
+}
+void Page_Notes::sl_SaveAllNotes()
+{
+//    qApp->setOverrideCursor( Qt::WaitCursor );
+
+//    QHash < QStandardItem *, RichTextNote * >::iterator it;
+//    for ( it = hashItemNote.begin(); it != hashItemNote.end(); it++ )
+//    {
+//        RichTextNote * note = it.value();
+//        note->save();
+//        qApp->processEvents();
+//    }
+
+//    qApp->restoreOverrideCursor();
+//    emit about_updateStates();
+}
+void Page_Notes::sl_SetTopNote( bool top )
+{
+//    const QModelIndex & index = ui->treeNotes->currentIndex();
+//    RichTextNote * note = noteFromIndex( index );
+//    note->setTop( top );
+//    emit about_updateStates();
+}
+void Page_Notes::sl_PrintNote()
+{
+//    const QModelIndex & index = ui->treeNotes->currentIndex();
+//    RichTextNote * note = noteFromIndex( index );
+//    note->print();
+}
+void Page_Notes::sl_PreviewPrintNote()
+{
+//    const QModelIndex & index = ui->treeNotes->currentIndex();
+//    RichTextNote * note = noteFromIndex( index );
+//    note->previewPrint();
 }

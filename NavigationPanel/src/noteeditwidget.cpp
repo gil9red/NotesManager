@@ -47,6 +47,33 @@ Note * NoteEditWidget::note()
     return d_note;
 }
 
+QString NoteEditWidget::saveStateNoteEdit()
+{
+    QStringList list;
+
+    QTextCursor cursor = ui->editor->textCursor();
+    int pos = cursor.selectionStart();
+    int lenght = cursor.selectionEnd() - cursor.selectionStart();
+
+    list << QString::number( pos ) << QString::number( lenght );
+    return list.join(",");
+}
+void NoteEditWidget::restoreStateNoteEdit( const QString & state )
+{
+    int pos;
+    int lenght;
+
+    QStringList list = state.split(",");
+    pos = list.takeFirst().toInt();
+    lenght = list.takeFirst().toInt();
+
+    QTextCursor cursor = ui->editor->textCursor();
+    cursor.setPosition( pos );
+    cursor.movePosition( QTextCursor::Right, QTextCursor::KeepAnchor, lenght );
+    ui->editor->setTextCursor( cursor );
+    ui->editor->ensureCursorVisible();
+}
+
 void NoteEditWidget::noteChange( int event )
 {
     if ( !d_note )
@@ -73,6 +100,5 @@ void NoteEditWidget::titleChange()
     }
 
     RichTextNote * richTextNote = d_note->getRichTextNote();
-
     richTextNote->setTitle( ui->title->text() );
 }

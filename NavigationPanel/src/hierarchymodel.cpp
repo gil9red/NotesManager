@@ -114,13 +114,13 @@ void HierarchyModel::RegisterItem(Note* note) {
 	Folder* folder = note->GetParent();
     BaseModelItem* parentItem = bridge.value(folder);
 	NoteModelItem* noteItem = new NoteModelItem(note);
-	QObject::connect(noteItem, SIGNAL(sg_DataChanged(BaseModelItem*)),
-					 this, SLOT(sl_Item_DataChanged(BaseModelItem*)));
+	QObject::connect(noteItem, SIGNAL(sg_DataChanged(BaseModelItem*)), SLOT(sl_Item_DataChanged(BaseModelItem*)));
 	parentItem->AddChildTo(noteItem, note->GetParent()->Items.IndexOf(note));
     bridge.insert(note, noteItem);
 }
 
-void HierarchyModel::UnregisterItem(Folder* folder) {
+void HierarchyModel::UnregisterItem(Folder* folder)
+{
 	if (!folder) {
 		WARNING("Null pointer recieved");
 		return;

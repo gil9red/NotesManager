@@ -175,7 +175,6 @@
    <addaction name="toolBarAddFolder"/>
    <addaction name="toolBarDelete"/>
    <addaction name="toolBarClearTrash"/>
-   <addaction name="toolBarRemoveAllNotes"/>
    <addaction name="toolBarRemoveToTrash"/>
   </widget>
   <widget class="QToolBar" name="toolBarMain">
@@ -983,8 +982,8 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="Manager.qrc"/>
   <include location="../Note/Note.qrc"/>
+  <include location="Manager.qrc"/>
  </resources>
  <connections>
   <connection>

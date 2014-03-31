@@ -339,6 +339,9 @@ void FolderNavigationWidget::sl_TreeView_ContextMenuRequested(const QPoint& p)
     // 0 items
     if (indexesList.isEmpty())
     {
+        menu.addAction(addNoteAction);
+        menu.addAction(addFolderAction);
+
         if (model->GetPinnedFolder() != 0)
         {
             // Edd context menu items for pinned folder
@@ -349,10 +352,6 @@ void FolderNavigationWidget::sl_TreeView_ContextMenuRequested(const QPoint& p)
 
                 clearTrashAction->setEnabled( !isEmptyTrash );
 
-            } else
-            {
-                menu.addAction(addNoteAction);
-                menu.addAction(addFolderAction);
             }
         }
 
@@ -532,7 +531,7 @@ void FolderNavigationWidget::sl_AddNoteAction_Triggered()
     if ( !hasCurrentItem() && !model->GetPinnedFolder() )
     {
         RichTextNote * richTextNote = new RichTextNote();
-        richTextNote->createNew();
+        richTextNote->createNew();richTextNote->show();
 
         Note * note = new Note();
         note->setRichTextNote( richTextNote );

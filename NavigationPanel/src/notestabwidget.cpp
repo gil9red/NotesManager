@@ -96,6 +96,16 @@ void NotesTabWidget::setCurrentNote(Note* note)
         setCurrentWidget(noteEdit);
     }
 }
+QWidget * NotesTabWidget::getWidgetTab( Note * note )
+{
+    if (!note)
+    {
+        WARNING("Null pointer recieved");
+        return 0;
+    }
+
+    return hashNoteTabs.value( note, 0 );
+}
 
 void NotesTabWidget::openNote(Note* note)
 {

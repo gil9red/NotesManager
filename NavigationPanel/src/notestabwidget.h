@@ -37,7 +37,8 @@ public:
 
     Note * note( int );
     Note * currentNote();
-    void setCurrentNote(Note *);
+    void setCurrentNote( Note * );
+    QWidget * getWidgetTab( Note * );
 
 private:
     QHash < Note *, QWidget * > hashNoteTabs;

@@ -38,8 +38,8 @@ Manager::Manager( QWidget * parent ) :
 
 //    connect( pageNotes, SIGNAL( about_updateStates() ), SLOT( updateStates() ) );
 
-//    connect( pageSettings, SIGNAL( message(QString, int) ), ui->statusBar, SLOT( showMessage(QString, int) ) );
-//    connect( pageSettings, SIGNAL( acceptChangeSettings() ), SLOT( acceptChangeSettings() ) );
+    connect( pageSettings, SIGNAL( message(QString, int) ), ui->statusBar, SLOT( showMessage(QString, int) ) );
+    connect( pageSettings, SIGNAL( acceptChangeSettings() ), SLOT( acceptChangeSettings() ) );
 
     ui->stackedWidget_Pages->addWidget( pageNotes );
     ui->stackedWidget_Pages->addWidget( pageSettings );
@@ -50,7 +50,7 @@ Manager::Manager( QWidget * parent ) :
     createToolBars();
     createTray();
 
-//    connect( &autoSaveTimer, SIGNAL( timeout() ), SLOT( writeSettings() ) );
+    connect( &autoSaveTimer, SIGNAL( timeout() ), SLOT( writeSettings() ) );
 
     updateStates();
 }
@@ -96,9 +96,9 @@ void Manager::createToolBars()
         ui->toolBarCloseDict->setVisible( false );
     }
 
-//    connect( ui->toolBarSettings, SIGNAL( triggered() ), SLOT( show_page_settings() ) );
-//    connect( ui->toolBarAbout, SIGNAL( triggered() ), SLOT( show_page_about() ) );
-//    connect( ui->toolBarQuit, SIGNAL( triggered() ), SLOT( quit() ) );
+    connect( ui->toolBarSettings, SIGNAL( triggered() ), SLOT( show_page_settings() ) );
+    connect( ui->toolBarAbout, SIGNAL( triggered() ), SLOT( show_page_about() ) );
+    connect( ui->toolBarQuit, SIGNAL( triggered() ), SLOT( quit() ) );
 
 //    connect( ui->toolBarAddNote, SIGNAL( triggered() ), pageNotes, SLOT( addNote() ) );
 //    connect( ui->toolBarAddNoteFromClipboard, SIGNAL( triggered() ), pageNotes, SLOT( addNoteFromClipboard() ) );
@@ -109,8 +109,8 @@ void Manager::createToolBars()
 //    connect( ui->toolBarDelete, SIGNAL( triggered() ), pageNotes, SLOT( removeFromTrash() ) );
 //    connect( ui->toolBarClearTrash, SIGNAL( triggered() ), pageNotes, SLOT( clearTrash() ) );
 
-//    connect( ui->toolBarOpenDict, SIGNAL( triggered() ), SLOT( openDictionary() ) );
-//    connect( ui->toolBarCloseDict, SIGNAL( triggered() ), SLOT( closeDictionary() ) );
+    connect( ui->toolBarOpenDict, SIGNAL( triggered() ), SLOT( openDictionary() ) );
+    connect( ui->toolBarCloseDict, SIGNAL( triggered() ), SLOT( closeDictionary() ) );
 //    connect( ui->toolBarSaveAllNotes, SIGNAL( triggered() ), pageNotes, SLOT( saveAllNotes() ) );
 //    connect( ui->toolBarShowAllNotes, SIGNAL( triggered() ), pageNotes, SLOT( showAllNotes() ) );
 //    connect( ui->toolBarHideAllNotes, SIGNAL( triggered() ), pageNotes, SLOT( hideAllNotes() ) );
@@ -132,14 +132,13 @@ void Manager::createMenu()
         ui->actionCloseDict->setVisible( false );
     }
 
-//    connect( ui->actionShowSidebar, SIGNAL( triggered(bool) ), SLOT( setShowSidebar(bool) ) );
+    connect( ui->actionShowSidebar, SIGNAL( triggered(bool) ), SLOT( setShowSidebar(bool) ) );
+    connect( ui->actionFull_screen, SIGNAL( triggered(bool) ), SLOT( setFullScreen(bool) ) );
 
-//    connect( ui->actionFull_screen, SIGNAL( triggered(bool) ), SLOT( setFullScreen(bool) ) );
-
-//    connect( ui->actionQuit, SIGNAL( triggered() ), ui->toolBarQuit, SIGNAL( triggered() ) );
-//    connect( ui->actionSettings, SIGNAL( triggered() ), ui->toolBarSettings, SIGNAL( triggered() ) );
-//    connect( ui->actionAbout, SIGNAL( triggered() ), ui->toolBarAbout, SIGNAL( triggered() ) );
-//    connect( ui->actionDocumentation, SIGNAL( triggered() ), SLOT( show_page_documentation() ) );
+    connect( ui->actionQuit, SIGNAL( triggered() ), ui->toolBarQuit, SIGNAL( triggered() ) );
+    connect( ui->actionSettings, SIGNAL( triggered() ), ui->toolBarSettings, SIGNAL( triggered() ) );
+    connect( ui->actionAbout, SIGNAL( triggered() ), ui->toolBarAbout, SIGNAL( triggered() ) );
+    connect( ui->actionDocumentation, SIGNAL( triggered() ), SLOT( show_page_documentation() ) );
 
 //    //  TODO:  connect( ui->actionOpen, SIGNAL( triggered() ), SLOT( open() ) );
 
@@ -149,8 +148,8 @@ void Manager::createMenu()
 ////    connect( ui->actionRemoveNote, SIGNAL( triggered() ), SLOT( removeNote() ) );
 ////    connect( ui->actionRemoveAllNotes, SIGNAL( triggered() ), SLOT( removeAllNotes() ) );
 
-//    connect( ui->actionOpenDict, SIGNAL( triggered() ), ui->toolBarOpenDict, SIGNAL( triggered() ) );
-//    connect( ui->actionCloseDict, SIGNAL( triggered() ), ui->toolBarCloseDict, SIGNAL( triggered() ) );
+    connect( ui->actionOpenDict, SIGNAL( triggered() ), ui->toolBarOpenDict, SIGNAL( triggered() ) );
+    connect( ui->actionCloseDict, SIGNAL( triggered() ), ui->toolBarCloseDict, SIGNAL( triggered() ) );
 //    connect( ui->actionSaveAllNotes, SIGNAL( triggered() ), ui->toolBarSaveAllNotes, SIGNAL( triggered() ) );
 //    connect( ui->actionShowAllNotes, SIGNAL( triggered() ), ui->toolBarShowAllNotes, SIGNAL( triggered() ) );
 //    connect( ui->actionHideAllNotes, SIGNAL( triggered() ), ui->toolBarHideAllNotes, SIGNAL( triggered() ) );
@@ -289,11 +288,11 @@ void Manager::updateStates()
 //    ui->toolBarShowAllNotes->setEnabled( !isEmpty );
 //    ui->toolBarSaveAllNotes->setEnabled( !isEmpty );
 
-//    ui->actionFull_screen->setChecked( isFullScreen() );
+    ui->actionFull_screen->setChecked( isFullScreen() );
 
-//    bool isAutocomplete = Completer::instance()->isAutocomplete();
-//    ui->toolBarCloseDict->setEnabled( isAutocomplete );
-//    ui->toolBarOpenDict->setEnabled( !isAutocomplete );
+    bool isAutocomplete = Completer::instance()->isAutocomplete();
+    ui->toolBarCloseDict->setEnabled( isAutocomplete );
+    ui->toolBarOpenDict->setEnabled( !isAutocomplete );
 
 ////    ui->toolBarDuplicateNote->setEnabled( false );
 
@@ -335,9 +334,9 @@ void Manager::updateStates()
 //        ui->toolBarClearTrash->setEnabled( pageNotes->currentIsTrash() || isChildTrash );
 //    }
 
-//    ui->actionVisibleToolbarMain->setChecked( ui->toolBarMain->isVisible() );
-//    ui->actionVisibleToolbarManage->setChecked( ui->toolBarManage->isVisible() );
-//    ui->actionVisibleToolbarNote->setChecked( ui->toolBarNote->isVisible() );
+    ui->actionVisibleToolbarMain->setChecked( ui->toolBarMain->isVisible() );
+    ui->actionVisibleToolbarManage->setChecked( ui->toolBarManage->isVisible() );
+    ui->actionVisibleToolbarNote->setChecked( ui->toolBarNote->isVisible() );
 }
 
 void Manager::show_Manager()
