@@ -22,6 +22,7 @@ along with qNotesManager. If not, see <http://www.gnu.org/licenses/>.
 
 #include <QBoxLayout>
 #include <QApplication>
+#include <QToolButton>
 
 NotesTabWidget::NotesTabWidget( QWidget * parent )
     : QTabWidget( parent )
@@ -29,19 +30,46 @@ NotesTabWidget::NotesTabWidget( QWidget * parent )
     QObject::connect(this, SIGNAL(currentChanged(int)), SLOT(sl_TabWidget_CurrentChanged(int)));
     QObject::connect(this, SIGNAL(tabCloseRequested(int)), SLOT(sl_TabWidget_TabCloseRequested(int)));
     setTabsClosable(true);
+
+    // Контекстное меню
+    {
+        setContextMenuPolicy( Qt::DefaultContextMenu );
+
+        contextMenu = new QMenu();
+        QObject::connect( contextMenu, SIGNAL(aboutToShow()), SLOT( sl_UpdateEnabledContextMenu() ) );
+
+        // TODO: this NULL ICON
+//        actionHighlightCurrent = contextMenu->addAction( QIcon( "" ), tr( "Highlight the current tab on the tree" ), this, SLOT( sl_HighlightCurrentTabOnTree() ), QKeySequence() );
+        contextMenu->addSeparator();
+        actionCloseCurrent = contextMenu->addAction( QIcon( "" ), tr( "Close current tab" ), this, SLOT( sl_CloseCurrentTab() ), QKeySequence() );
+        actionCloseAll_Except = contextMenu->addAction( QIcon( "" ), tr( "Close all tabs except the current" ), this, SLOT( sl_CloseAllTabsExceptCurrent() ), QKeySequence() );
+        contextMenu->addSeparator();
+        actionCloseAll_Left = contextMenu->addAction( QIcon( "" ), tr( "Close all tabs to the left of the current" ), this, SLOT( sl_CloseAllTabsToLeftOfCurrent() ), QKeySequence() );
+        actionCloseAll_Right = contextMenu->addAction( QIcon( "" ), tr( "Close all tabs to the right of the current" ), this, SLOT( sl_CloseAllTabsToRightOfCurrent() ), QKeySequence() );
+        contextMenu->addSeparator();
+        actionCloseAll = contextMenu->addAction( QIcon( "" ), tr( "Close all tabs" ), this, SLOT( sl_CloseAllTabs() ), QKeySequence() );
+
+
+        QToolButton * contextMenuButton = new QToolButton();
+        contextMenuButton->setFocusPolicy( Qt::NoFocus );
+        contextMenuButton->setMenu( contextMenu );
+        contextMenuButton->setPopupMode( QToolButton::InstantPopup );
+        setCornerWidget( contextMenuButton, Qt::TopRightCorner );
+    }
 }
 
-QList<const Note*> NotesTabWidget::displayedNotes() const
+QList < Note * > NotesTabWidget::displayedNotes()
 {
-    return hash.keys();
+    return hashNoteTabs.keys();
 }
 
-Note * NotesTabWidget::currentNote() const
+Note * NotesTabWidget::note( int index )
 {
     if ( !count() )
         return 0;
 
-    NoteEditWidget * noteEdit = dynamic_cast < NoteEditWidget * > ( currentWidget() );
+    QWidget * tab = widget( index );
+    NoteEditWidget * noteEdit = dynamic_cast < NoteEditWidget * > ( tab );
     if ( !noteEdit )
     {
         WARNING("Casting error");
@@ -50,7 +78,11 @@ Note * NotesTabWidget::currentNote() const
 
     return noteEdit->note();
 }
-void NotesTabWidget::setCurrentNote(const Note* note)
+Note * NotesTabWidget::currentNote()
+{
+    return note( currentIndex() );
+}
+void NotesTabWidget::setCurrentNote(Note* note)
 {
     if (!note)
     {
@@ -58,9 +90,9 @@ void NotesTabWidget::setCurrentNote(const Note* note)
         return;
     }
 
-    if (hash.contains(note))
+    if (hashNoteTabs.contains(note))
     {
-        QWidget * noteEdit = hash.value(note);
+        QWidget * noteEdit = hashNoteTabs.value(note);
         setCurrentWidget(noteEdit);
     }
 }
@@ -73,9 +105,9 @@ void NotesTabWidget::openNote(Note* note)
 		return;
 	}
 
-    if (hash.contains(note))
+    if (hashNoteTabs.contains(note))
     {
-        QWidget * noteEdit = hash.value(note);
+        QWidget * noteEdit = hashNoteTabs.value(note);
         setCurrentWidget(noteEdit);
 		return;
 	}
@@ -85,13 +117,13 @@ void NotesTabWidget::openNote(Note* note)
     noteEdit->setNote( note );
     qApp->restoreOverrideCursor();
 
-    hash.insert(note, noteEdit);
+    hashNoteTabs.insert(note, noteEdit);
     QObject::connect(note, SIGNAL(sg_VisualPropertiesChanged()), SLOT(sl_Note_PropertiesChanged()));
 
     int index = addTab( noteEdit, note->GetIcon(), cropString( note->GetName() ) );
     setCurrentIndex( index );
 }
-void NotesTabWidget::closeNote(const Note* n)
+void NotesTabWidget::closeNote(Note* n)
 {
     if (!n)
     {
@@ -99,13 +131,13 @@ void NotesTabWidget::closeNote(const Note* n)
 		return;
 	}
 
-    if (!hash.contains(n))
+    if (!hashNoteTabs.contains(n))
     {
 		WARNING("Specified note is not open");
 		return;
 	}
 
-    QWidget * tab = hash.take(n);
+    QWidget * tab = hashNoteTabs.take(n);
     int tabIndex = indexOf(tab);
 
     if (tabIndex == -1)
@@ -140,27 +172,27 @@ void NotesTabWidget::closeTab(int index)
 }
 void NotesTabWidget::clear()
 {
-    while ( hash.count() )
-        closeNote( hash.keys().first() );
+    while ( hashNoteTabs.count() )
+        closeNote( hashNoteTabs.keys().first() );
 }
 
 void NotesTabWidget::sl_Note_PropertiesChanged()
 {
-    const Note * note = qobject_cast < Note * > ( QObject::sender() );
+    Note * note = qobject_cast < Note * > ( QObject::sender() );
     if ( !note )
     {
 		WARNING("Could not find sender note");
 		return;
 	}
 
-    if (!hash.contains(note))
+    if (!hashNoteTabs.contains(note))
     {
 		WARNING("Sender note is not registered");
 		QObject::disconnect(note, 0, this, 0);
 		return;
 	}
 
-    QWidget * tab = hash.value(note);
+    QWidget * tab = hashNoteTabs.value(note);
     int tabIndex = indexOf(tab);
 
     if (tabIndex == -1)
@@ -187,4 +219,80 @@ void NotesTabWidget::sl_TabWidget_CurrentChanged(int index)
 void NotesTabWidget::sl_TabWidget_TabCloseRequested(int index)
 {
 	closeTab(index);
+}
+
+void NotesTabWidget::sl_CloseAllTabs()
+{
+    qApp->setOverrideCursor( Qt::WaitCursor );
+    clear();
+    qApp->restoreOverrideCursor();
+}
+void NotesTabWidget::sl_CloseAllTabsToLeftOfCurrent()
+{
+    qApp->setOverrideCursor( Qt::WaitCursor );
+
+    int index = 0;
+    QWidget * tab = widget( index );
+    QWidget * currentTab = currentWidget();
+
+    // Пока указатели не совпали и индекс закрываемой вкладки меньше
+    // индекса текущей
+    while ( tab != currentTab && index < indexOf( currentTab ) )
+    {
+        closeTab( index );
+        tab = widget( index );
+    }
+
+    qApp->restoreOverrideCursor();
+}
+void NotesTabWidget::sl_CloseAllTabsToRightOfCurrent()
+{
+    qApp->setOverrideCursor( Qt::WaitCursor );
+
+    int index = count() - 1;
+    QWidget * tab = widget( index );
+    QWidget * currentTab = currentWidget();
+
+    // Пока указатели не совпали и индекс закрываемой вкладки меньше
+    // индекса текущей
+    while ( tab != currentTab && indexOf( currentTab ) < index )
+    {
+        closeTab( index );
+        tab = widget( index );
+        index = count() - 1;
+    }
+
+    qApp->restoreOverrideCursor();
+}
+void NotesTabWidget::sl_CloseAllTabsExceptCurrent()
+{
+    sl_CloseAllTabsToLeftOfCurrent();
+    sl_CloseAllTabsToRightOfCurrent();
+}
+void NotesTabWidget::sl_CloseCurrentTab()
+{
+    qApp->setOverrideCursor( Qt::WaitCursor );
+    closeTab( currentIndex() );
+    qApp->restoreOverrideCursor();
+}
+//void NotesTabWidget::sl_HighlightCurrentTabOnTree()
+//{
+
+//}
+
+void NotesTabWidget::sl_UpdateEnabledContextMenu()
+{
+    actionCloseAll_Except->setEnabled( count() != 1 );
+    actionCloseAll_Left->setEnabled( currentIndex() > 0 );
+    actionCloseAll_Right->setEnabled( currentIndex() < count() - 1 );
+    actionCloseAll->setEnabled( count() > 1 );
+}
+
+void NotesTabWidget::contextMenuEvent( QContextMenuEvent * event )
+{
+    // Если вкладок нет, не показываем меню
+    if ( count() == 0 )
+        return;
+
+    contextMenu->exec( event->globalPos() );
 }

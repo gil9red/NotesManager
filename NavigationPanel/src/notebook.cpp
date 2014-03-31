@@ -175,13 +175,8 @@ Notebook * Notebook::instance()
     return self;
 }
 
-void Notebook::read( QIODevice * device )
+void Notebook::read( QDomElement & root )
 {
-    QDomDocument xmlDomDocument;
-    xmlDomDocument.setContent( device );
-
-    // Корнем является тэг Notebook
-    QDomElement root = xmlDomDocument.documentElement();
     QDomElement rootNotes = root.firstChildElement( "Notes" );
     QDomElement rootTemp = root.firstChildElement( "Temp" );
     QDomElement rootTrash = root.firstChildElement( "Trash" );
@@ -190,32 +185,20 @@ void Notebook::read( QIODevice * device )
     parseDomElement( tempFolder(), rootTemp );
     parseDomElement( trashFolder(), rootTrash );
 }
-void Notebook::write( QIODevice * device )
+void Notebook::write( QDomElement & root, QDomDocument & xmlDomDocument )
 {
-        QDomDocument xmlDomDocument;
-        // Корень - тэг Notebook
-        QDomElement root = xmlDomDocument.createElement( "Notebook" );
-        xmlDomDocument.appendChild( root );
+    // У Notebook есть дети Notes и Tabs
+    QDomElement rootNotes = xmlDomDocument.createElement( "Notes" );
+    QDomElement rootTemp = xmlDomDocument.createElement( "Temp" );
+    QDomElement rootTrash = xmlDomDocument.createElement( "Trash" );
 
-        // У Notebook есть дети Notes и Tabs
-        QDomElement rootNotes = xmlDomDocument.createElement( "Notes" );
-        QDomElement rootTemp = xmlDomDocument.createElement( "Temp" );
-        QDomElement rootTrash = xmlDomDocument.createElement( "Trash" );
+    root.appendChild( rootNotes );
+    root.appendChild( rootTemp );
+    root.appendChild( rootTrash );
 
-        root.appendChild( rootNotes );
-        root.appendChild( rootTemp );
-        root.appendChild( rootTrash );
-
-        parseItem( rootFolder(), rootNotes, xmlDomDocument );
-        parseItem( tempFolder(), rootTemp, xmlDomDocument );
-        parseItem( trashFolder(), rootTrash, xmlDomDocument );
-
-
-        const int indentSize = 4;
-        QTextStream out( device );
-        out.setCodec( "UTF-8" );
-        out << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
-        xmlDomDocument.save( out, indentSize );
+    parseItem( rootFolder(), rootNotes, xmlDomDocument );
+    parseItem( tempFolder(), rootTemp, xmlDomDocument );
+    parseItem( trashFolder(), rootTrash, xmlDomDocument );
 }
 
 void Notebook::setRootFolder( Folder * f ) { p_rootFolder = f; }
@@ -256,6 +239,29 @@ DatesModel * Notebook::creationDateModel()
 DatesModel * Notebook::modificationDateModel()
 {
     return p_modificationDateModel;
+}
+
+QString Notebook::getIdFromNote( Note * note )
+{
+    return hash_Id_Note.key( note );
+}
+Note * Notebook::getNoteFromId( const QString & id )
+{
+    return hash_Id_Note.value( id, 0 );
+}
+RichTextNote * Notebook::getRichTextNoteFromId( const QString & id )
+{
+    if ( hash_Id_Note.contains( id ) )
+        return hash_Id_Note.value( id )->getRichTextNote();
+    return 0;
+}
+Note * Notebook::getNoteFromRichTextNote( RichTextNote * richTextNote )
+{
+    return hash_Note_RichTextNote.key( richTextNote, 0 );
+}
+RichTextNote * Notebook::getRichTextNoteFromNote( Note * note )
+{
+    return hash_Note_RichTextNote.value( note, 0 );
 }
 
 void Notebook::sl_Folder_ItemAdded(AbstractFolderItem* const item)
@@ -315,19 +321,21 @@ void Notebook::registerItem(AbstractFolderItem* const item)
             registerItem(f->Items.ItemAt(i));
 
     } else if (item->GetItemType() == AbstractFolderItem::Type_Note)
-    {
-        Note* n = dynamic_cast<Note*>(item);
-        n->setParent(this);  // QObject parentship
+    {       
+        Note * note = dynamic_cast < Note * > ( item );
+        note->setParent(this);  // QObject parentship
 
 //        if (n->GetIconID().isEmpty()) {
 //            n->SetIconID(DefaultNoteIcon);
 //        }
 //        QObject::connect(n, SIGNAL(sg_DataChanged()), this, SLOT(sl_ItemDataChanged()));
-        QObject::connect(n, SIGNAL(sg_TagAdded(Tag*)), SLOT(sl_Note_TagAdded(Tag*)));
-        QObject::connect(n, SIGNAL(sg_TagRemoved(Tag*)), SLOT(sl_Note_TagRemoved(Tag*)));
+        QObject::connect(note, SIGNAL(sg_TagAdded(Tag*)), SLOT(sl_Note_TagAdded(Tag*)));
+        QObject::connect(note, SIGNAL(sg_TagRemoved(Tag*)), SLOT(sl_Note_TagRemoved(Tag*)));
 
-        allNotes.append(n);
-        emit sg_ItemRegistered(n);
+        allNotes.append(note);
+        hash_Id_Note.insert( getIdFromRichTextNote( note->getRichTextNote() ), note );
+        hash_Note_RichTextNote.insert( note, note->getRichTextNote() );
+        emit sg_ItemRegistered(note);
     }
 }
 void Notebook::unregisterItem(AbstractFolderItem* const item)
@@ -345,14 +353,15 @@ void Notebook::unregisterItem(AbstractFolderItem* const item)
 
     } else if (item->GetItemType() == AbstractFolderItem::Type_Note)
     {
-        Note* n = dynamic_cast<Note*>(item);
-        QObject::disconnect(n, 0, this, 0);
+        Note * note = dynamic_cast < Note * > ( item );
+        QObject::disconnect(note, 0, this, 0);
 
-        n->Tags.Clear(); // ? Tags must be unregistered, but this line modifies note.
+        note->Tags.Clear(); // ? Tags must be unregistered, but this line modifies note.
 
-        allNotes.removeAll(n);
-
-        emit sg_ItemUnregistered(n);
+        allNotes.removeAll(note);
+        hash_Id_Note.remove( hash_Id_Note.key( note ) );
+        hash_Note_RichTextNote.remove( note );
+        emit sg_ItemUnregistered( note );
     }
 }
 

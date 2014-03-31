@@ -7,6 +7,11 @@
 #include "datesmodel.h"
 #include "tagsmodel.h"
 #include <QStandardItemModel>
+#include "Note/RichTextNote.h"
+#include "note.h"
+
+class QDomElement;
+class QDomDocument;
 
 class Notebook : public QObject
 {
@@ -18,8 +23,8 @@ public:
 
     static Notebook * instance();
 
-    void read( QIODevice * device );
-    void write( QIODevice * device );
+    void read( QDomElement & root );
+    void write( QDomElement & root, QDomDocument & xmlDomDocument );
 
     void setRootFolder( Folder * f );
     void setTempFolder( Folder * f );
@@ -40,6 +45,14 @@ public:
     DatesModel * creationDateModel();
     DatesModel * modificationDateModel();
 
+
+    QString getIdFromNote( Note * note );
+    Note * getNoteFromId( const QString & id );
+    RichTextNote * getRichTextNoteFromId( const QString & id );
+    Note * getNoteFromRichTextNote( RichTextNote * richTextNote );
+    RichTextNote * getRichTextNoteFromNote( Note * note );
+
+
 private:
     Folder * p_rootFolder;
     Folder * p_tempFolder;
@@ -49,6 +62,11 @@ private:
     QList < Note * > allNotes;
     QList < Folder * > allFolders;
     QList < Tag * > allTags;
+
+
+    QHash < QString, Note * > hash_Id_Note;
+    QHash < Note *, RichTextNote * > hash_Note_RichTextNote;
+
 
     HierarchyModel * p_hierarchyModel;
     TagsModel * p_tagsModel;

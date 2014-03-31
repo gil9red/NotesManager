@@ -27,9 +27,8 @@ along with qNotesManager. If not, see <http://www.gnu.org/licenses/>.
 
 #include <QDebug>
 
-
-
-HierarchyModel::HierarchyModel(QObject *parent) : BaseModel(parent)
+HierarchyModel::HierarchyModel(QObject *parent)
+    : BaseModel(parent)
 {
     Folder* rootFolder = Notebook::instance()->rootFolder();
     if (rootFolder == 0) {
@@ -54,11 +53,11 @@ HierarchyModel::HierarchyModel(QObject *parent) : BaseModel(parent)
     RegisterItem(trashFolder);
 
     SeparatorModelItem* separatorItem = new SeparatorModelItem();
-    BaseModelItem* rootItem = _bridge.value(Notebook::instance()->rootFolder());
+    BaseModelItem* rootItem = bridge.value(Notebook::instance()->rootFolder());
 
     rootItem->AddChild(separatorItem);
-    rootItem->AddChild(_bridge.value(tempFolder));
-    rootItem->AddChild(_bridge.value(trashFolder));
+    rootItem->AddChild(bridge.value(tempFolder));
+    rootItem->AddChild(bridge.value(trashFolder));
 
     SetRootItem(rootItem);
 }
@@ -68,7 +67,7 @@ void HierarchyModel::RegisterItem(Folder* folder) { // Register folder and all i
 		WARNING("Null pointer recieved");
 		return;
 	}
-	if (_bridge.contains(folder)) {
+    if (bridge.contains(folder)) {
 		WARNING("Item already registered");
 		return;
 	}
@@ -84,11 +83,11 @@ void HierarchyModel::RegisterItem(Folder* folder) { // Register folder and all i
 
 	FolderModelItem* fi = new FolderModelItem(folder);
 	QObject::connect(fi, SIGNAL(sg_DataChanged(BaseModelItem*)), this, SLOT(sl_Item_DataChanged(BaseModelItem*)));
-	BaseModelItem* parent = _bridge.value(folder->GetParent());
+    BaseModelItem* parent = bridge.value(folder->GetParent());
 	if (parent != 0) {
 		parent->AddChildTo(fi, folder->GetParent()->Items.IndexOf(folder));
 	}
-	_bridge.insert(folder, fi);
+    bridge.insert(folder, fi);
 
 	for (int i = 0; i < folder->Items.Count(); i++) {
 		AbstractFolderItem* item = folder->Items.ItemAt(i);
@@ -107,18 +106,18 @@ void HierarchyModel::RegisterItem(Note* note) {
 		WARNING("Null pointer recieved");
 		return;
 	}
-	if (_bridge.contains(note)) {
+    if (bridge.contains(note)) {
 		WARNING("Item already registered");
 		return;
 	}
 
 	Folder* folder = note->GetParent();
-	BaseModelItem* parentItem = _bridge.value(folder);
+    BaseModelItem* parentItem = bridge.value(folder);
 	NoteModelItem* noteItem = new NoteModelItem(note);
 	QObject::connect(noteItem, SIGNAL(sg_DataChanged(BaseModelItem*)),
 					 this, SLOT(sl_Item_DataChanged(BaseModelItem*)));
 	parentItem->AddChildTo(noteItem, note->GetParent()->Items.IndexOf(note));
-	_bridge.insert(note, noteItem);
+    bridge.insert(note, noteItem);
 }
 
 void HierarchyModel::UnregisterItem(Folder* folder) {
@@ -126,7 +125,7 @@ void HierarchyModel::UnregisterItem(Folder* folder) {
 		WARNING("Null pointer recieved");
 		return;
 	}
-	if (!_bridge.contains(folder)) {
+    if (!bridge.contains(folder)) {
 		WARNING("Item is not registered");
 		return;
 	}
@@ -144,19 +143,19 @@ void HierarchyModel::UnregisterItem(Folder* folder) {
 		}
 	}
 
-	BaseModelItem* childItem = _bridge.value(folder);
+    BaseModelItem* childItem = bridge.value(folder);
 
 	Folder* parent = folder->GetParent();
 	if (parent != 0) {
-		if (!_bridge.contains(parent)) {
+        if (!bridge.contains(parent)) {
 			WARNING("Item parent is not registered");
 		} else {
-			BaseModelItem* parentItem = _bridge.value(parent);
+            BaseModelItem* parentItem = bridge.value(parent);
 			parentItem->RemoveChild(childItem);
 		}
 	}
 
-	_bridge.remove(folder);
+    bridge.remove(folder);
 
 	if (GetDisplayRootItem() == childItem) {SetDisplayRootItem(GetRootItem());}
 	if (GetRootItem() == childItem) {SetRootItem(0);}
@@ -169,7 +168,7 @@ void HierarchyModel::UnregisterItem(Note* note) {
 		WARNING("Null pointer recieved");
 		return;
 	}
-	if (!_bridge.contains(note)) {
+    if (!bridge.contains(note)) {
 		WARNING("Item is not registered");
 		return;
 	}
@@ -179,18 +178,18 @@ void HierarchyModel::UnregisterItem(Note* note) {
 		WARNING("Null pointer recieved");
 		return;
 	}
-	if (!_bridge.contains(parent)) {
+    if (!bridge.contains(parent)) {
 		WARNING("Item is not registered");
 		return;
 	}
 
-	BaseModelItem* parentItem = _bridge.value(parent);
-	BaseModelItem* childItem = _bridge.value(note);
+    BaseModelItem* parentItem = bridge.value(parent);
+    BaseModelItem* childItem = bridge.value(note);
 
 
 	QObject::disconnect(note, 0, this, 0);
 	parentItem->RemoveChild(childItem);
-	_bridge.remove(note);
+    bridge.remove(note);
 	delete childItem;
 }
 
@@ -208,11 +207,11 @@ void HierarchyModel::SetPinnedFolder(Folder* f) {
 			emit sg_ApplySelection(list);
 		}
 	} else {
-		if (!_bridge.contains(f)) {
+        if (!bridge.contains(f)) {
 			WARNING("Folder is not registered");
 			return;
 		}
-		SetDisplayRootItem(_bridge.value(f));
+        SetDisplayRootItem(bridge.value(f));
 	}
 }
 
@@ -240,12 +239,12 @@ Folder* HierarchyModel::GetPinnedFolder() const {
 
 void HierarchyModel::sl_Folder_ItemAdded(AbstractFolderItem* const item, int) {
 	Folder* parent = static_cast<Folder*>(QObject::sender());
-	if (!_bridge.contains(parent)) {
+    if (!bridge.contains(parent)) {
 		WARNING("Unknown sender");
 		return;
 	}
 
-	BaseModelItem* parentItem = _bridge.value(parent);
+    BaseModelItem* parentItem = bridge.value(parent);
 
 	bool insertInVisibleBranch = false;
 	if (parentItem == GetDisplayRootItem() ||
@@ -283,12 +282,12 @@ void HierarchyModel::sl_Folder_ItemAdded(AbstractFolderItem* const item, int) {
 
 void HierarchyModel::sl_Folder_ItemAboutToBeRemoved(AbstractFolderItem* const item) {
 	Folder* parent = static_cast<Folder*>(QObject::sender());
-	if (!_bridge.contains(parent)) {
+    if (!bridge.contains(parent)) {
 		WARNING("Unknown sender");
 		return;
 	}
 
-	BaseModelItem* parentItem = _bridge.value(parent);
+    BaseModelItem* parentItem = bridge.value(parent);
 
 	bool removeFromVisibleBranch = false;
 	if (parentItem == GetDisplayRootItem() ||
@@ -322,22 +321,22 @@ void HierarchyModel::sl_Folder_ItemAboutToBeRemoved(AbstractFolderItem* const it
 void HierarchyModel::sl_Folder_ItemAboutToBeMoved(AbstractFolderItem* const item,
 												  int newPosition, Folder* newParent) {
 	Folder* parent = item->GetParent();
-	if (!_bridge.contains(parent)) {
+    if (!bridge.contains(parent)) {
 		WARNING("Item is not registered");
 		return;
 	}
-	if (!_bridge.contains(item)) {
+    if (!bridge.contains(item)) {
 		WARNING("Item is not registered");
 		return;
 	}
-	if (!_bridge.contains(newParent)) {
+    if (!bridge.contains(newParent)) {
 		WARNING("Item is not registered");
 		return;
 	}
 
-	BaseModelItem* oldParentItem = _bridge.value(parent);
-	BaseModelItem* childItem = _bridge.value(item);
-	BaseModelItem* newParentItem = _bridge.value(newParent);
+    BaseModelItem* oldParentItem = bridge.value(parent);
+    BaseModelItem* childItem = bridge.value(item);
+    BaseModelItem* newParentItem = bridge.value(newParent);
 
 	bool removeFromVisibleBranch = false;
 	if (oldParentItem == GetDisplayRootItem() ||

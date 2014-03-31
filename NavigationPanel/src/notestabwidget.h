@@ -23,6 +23,7 @@ along with qNotesManager. If not, see <http://www.gnu.org/licenses/>.
 #include <QHash>
 #include <QLayout>
 #include <QMenu>
+#include <QToolButton>
 
 class Note;
 
@@ -32,24 +33,44 @@ class NotesTabWidget : public QTabWidget
 
 public:
     explicit NotesTabWidget( QWidget * parent = 0 );
-    QList < const Note * > displayedNotes() const;
+    QList < Note * > displayedNotes();
 
-    Note * currentNote() const;
-    void setCurrentNote( const Note * );
+    Note * note( int );
+    Note * currentNote();
+    void setCurrentNote(Note *);
 
 private:
-    QHash < const Note *, QWidget * > hash;
+    QHash < Note *, QWidget * > hashNoteTabs;
+    QMenu * contextMenu;
+//    QAction * actionHighlightCurrent;
+    QAction * actionCloseCurrent;
+    QAction * actionCloseAll_Except;
+    QAction * actionCloseAll_Left;
+    QAction * actionCloseAll_Right;
+    QAction * actionCloseAll;
 
 public slots:
     void openNote( Note * );
-    void closeNote( const Note * );
+    void closeNote(Note * );
     void closeTab( int );
-    void clear();
+    void clear(); //!< Закрыть все вкладки
 
 private slots:
     void sl_Note_PropertiesChanged();
     void sl_TabWidget_CurrentChanged(int);
     void sl_TabWidget_TabCloseRequested(int);
+
+    void sl_CloseAllTabs(); //!< Закрыть все вкладки
+    void sl_CloseAllTabsToLeftOfCurrent(); //!< Закрыть все вкладки слева от текущей
+    void sl_CloseAllTabsToRightOfCurrent(); //!< Закрыть все вкладки справа от текущей
+    void sl_CloseAllTabsExceptCurrent(); //!< Закрыть все вкладки, кроме текущей
+    void sl_CloseCurrentTab(); //!< Закрыть текущую вкладку
+//    void sl_HighlightCurrentTabOnTree(); //!< Выделить текущую вкладку на дереве
+
+    void sl_UpdateEnabledContextMenu();
+
+protected:
+    void contextMenuEvent( QContextMenuEvent * );
 
 signals:
     void sg_CurrentNoteChanged(Note*);

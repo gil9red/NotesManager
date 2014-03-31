@@ -23,7 +23,7 @@ along with qNotesManager. If not, see <http://www.gnu.org/licenses/>.
 #include <QTreeView>
 #include <QListView>
 #include <QComboBox>
-#include <QPushButton>
+#include <QToolButton>
 #include <QMenu>
 #include <QAction>
 #include <QSortFilterProxyModel>
@@ -49,8 +49,8 @@ private:
     QTreeView* treeView;
     HierarchyModel* model;
 
-    QLabel* currentRootLabel;
-    QPushButton* pinFolderButton;
+    QLabel * currentRootLabel;
+    QToolButton * pinFolderButton;
 
 
     QMenu* itemForeColorMenu;

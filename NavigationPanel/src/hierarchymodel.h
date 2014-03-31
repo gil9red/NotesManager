@@ -45,7 +45,7 @@ public:
     Folder* GetPinnedFolder() const;
 
 private:
-    QHash<AbstractFolderItem*, BaseModelItem*>	_bridge;
+    QHash <AbstractFolderItem*, BaseModelItem*> bridge;
 
     void RegisterItem(Folder* folder);
     void RegisterItem(Note* note);

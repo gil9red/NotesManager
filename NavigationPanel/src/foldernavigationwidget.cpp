@@ -66,19 +66,20 @@ FolderNavigationWidget::FolderNavigationWidget(QWidget *parent)
 	currentRootLabel->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Preferred);
 	currentRootLabel->setAlignment(Qt::AlignRight | Qt::AlignCenter);
 
-    pinFolderButton = new QPushButton();
-    pinFolderButton->setToolTip( tr( "Pin folder" ));
+    pinFolderButton = new QToolButton();
+    pinFolderButton->setText( tr( "Pin folder" ) );
+    pinFolderButton->setToolTip( tr( "Pin folder" ) );
     pinFolderButton->setIcon(QIcon(":/gui/pin")); // NOTE: this icon
     pinFolderButton->setCheckable(true);
     pinFolderButton->setChecked(false);
-    pinFolderButton->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
-    pinFolderButton->setEnabled(false);;
+    pinFolderButton->setEnabled(false);
     pinFolderButton->setFocusPolicy(Qt::NoFocus);
     QObject::connect(pinFolderButton, SIGNAL(toggled(bool)), SLOT(sl_PinFolderButton_Toggled(bool)));
 
 
     QVBoxLayout* layout = new QVBoxLayout();
     QHBoxLayout* pinnedFolderLayout = new QHBoxLayout();
+    pinnedFolderLayout->setMargin(0);
     pinnedFolderLayout->addWidget(currentRootLabel);
     pinnedFolderLayout->setStretchFactor(currentRootLabel, 0);
     pinnedFolderLayout->addWidget(pinFolderButton);

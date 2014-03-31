@@ -5,8 +5,6 @@
 #include <QDomDocument>
 #include "appinfo.h"
 #include "utils/func.h"
-#include "noteeditor.h"
-#include "RegisterNote.h"
 #include "fullscreenshotcropper.h"
 #include <QClipboard>
 #include <QDesktopWidget>
@@ -37,15 +35,83 @@ void Page_Notes::setSettings( QSettings * s )
 
 void Page_Notes::read( QIODevice * device )
 {
-    Notebook::instance()->read( device );
-    ui->tab_Notes->setModel( Notebook::instance()->hierarchyModel() );
-    ui->tab_Tags->SetModel( Notebook::instance()->tagsModel() );
-    ui->tab_Dates->SetCreationModel( Notebook::instance()->creationDateModel() );
-    ui->tab_Dates->SetModificationModel( Notebook::instance()->modificationDateModel() );      
+    QDomDocument xmlDomDocument;
+    xmlDomDocument.setContent( device );
+
+    // Корнем является тэг Notebook
+    QDomElement root = xmlDomDocument.documentElement();
+
+    // Загрузка заметок в модель
+    {
+        Notebook::instance()->read( root );
+
+        ui->tab_Notes->setModel( Notebook::instance()->hierarchyModel() );
+        ui->tab_Tags->SetModel( Notebook::instance()->tagsModel() );
+        ui->tab_Dates->SetCreationModel( Notebook::instance()->creationDateModel() );
+        ui->tab_Dates->SetModificationModel( Notebook::instance()->modificationDateModel() );
+    }
+
+    // Загрузка вкладок
+    {
+        QDomElement rootTabs = root.firstChildElement( "Tabs" );
+        QDomElement tab = rootTabs.firstChildElement();
+        while( !tab.isNull() )
+        {
+            const QString & id = tab.attribute( "id" );
+            if ( id.isEmpty() )
+            {
+                tab = tab.nextSiblingElement();
+                continue;
+            }
+
+            ui->tabWidget_EditNotes->openNote( Notebook::instance()->getNoteFromId( id ) );
+            tab = tab.nextSiblingElement();
+        }
+        int index = rootTabs.attribute( "current_index", "-1" ).toInt();
+        ui->tabWidget_EditNotes->setCurrentIndex( index );
+    }
 }
 void Page_Notes::write( QIODevice * device )
 {
-    Notebook::instance()->write( device );
+    QDomDocument xmlDomDocument;
+
+    // Корень - тэг Notebook
+    QDomElement root = xmlDomDocument.createElement( "Notebook" );
+    xmlDomDocument.appendChild( root );
+
+    // Создаем xml, в котором будет описано иерархическое дерево
+    {
+        Notebook::instance()->write( root, xmlDomDocument );
+    }
+
+    // Сохранение вкладок
+    {
+        QDomElement rootTabs = xmlDomDocument.createElement( "Tabs" );
+        rootTabs.setAttribute( "current_index", ui->tabWidget_EditNotes->currentIndex() );
+        root.appendChild( rootTabs );
+
+        // Делаем перебор всех вкладок
+        for ( int index = 0; index < ui->tabWidget_EditNotes->count(); index++ )
+        {
+            Note * note = ui->tabWidget_EditNotes->note( index );
+
+            // С помощью указателя получаем id заметки, а id заметки на момент написания коммента было названием папки заметки
+            const QString & id_name = Notebook::instance()->getIdFromNote( note );
+
+            // Создаем элемент и указываем id
+            QDomElement element = xmlDomDocument.createElement( "Note" );
+            element.setAttribute( "id", id_name );
+
+            // Добавляем в xml дерево, в узел Tabs
+            rootTabs.appendChild( element );
+        }
+    }
+
+    const int indentSize = 4;
+    QTextStream out( device );
+    out.setCodec( "UTF-8" );
+    out << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+    xmlDomDocument.save( out, indentSize );
 }
 
 void Page_Notes::readSettings()

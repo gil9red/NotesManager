@@ -51,9 +51,10 @@ static const char codec[] = "utf8";
 // TODO: папки image(s) поменять на icons
 // TODO: добавить иконки из набора fugue-icons не забыть в О программе привести упоминание автора (пример см в qNotesManager)
 
-///// TODO: удалить noteeditor, RegisterNote
-///// TODO: сохранять открытые вкладки, и позицию курсора в редакторе
 //// TODO: настроить удаление заметки, когда она вызывает удаление. К примеру: если заметка при удалении не в корзине, то отправляется в нее, если в ней, то удаляется.
+/// Да и вообще, сделать удаление
+/// TODO: Добавить "Выделить текущую вкладку на дереве"
+///// TODO: сохранять позицию курсора в редакторе
 //// TODO: добавить выполнение скриптов
 /// TODO: можно настраивать видимость статус-бара
 ///
@@ -62,14 +63,11 @@ static const char codec[] = "utf8";
 
 QString nm_Note::style = "";
 
-#include "RegisterNote.h"
-
 #include "ScriptModule/foo.h"
 
 int main( int argc, char *argv[] )
 {
-//  TODO: или:  qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
-    qsrand( QDateTime().toMSecsSinceEpoch() );
+    qsrand( QTime( 0, 0, 0 ).secsTo( QTime::currentTime() ) );
     QTextCodec::setCodecForCStrings( QTextCodec::codecForName( codec ) );    
 
     QtSingleApplication app( argc, argv );
@@ -104,8 +102,6 @@ int main( int argc, char *argv[] )
         nm_Note::style = file.readAll();
 
     QSettings * settings = createSettings();
-
-    new RegisterNote();
 
     MySplashScreen * splashScreen = new MySplashScreen();
     QPixmap pixmap = QPixmap( ":/App/splash" );

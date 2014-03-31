@@ -292,88 +292,89 @@
     <name>FolderNavigationWidget</name>
     <message>
         <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="70"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="71"/>
         <source>Pin folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="90"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="91"/>
         <source>Add Note</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="93"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="94"/>
         <source>Add Folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="96"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="97"/>
         <source>Delete</source>
         <translation type="unfinished">Видаляти</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="99"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="100"/>
         <source>Move to Bin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="102"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="103"/>
         <source>Set text color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="104"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="105"/>
         <source>Set back color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="107"/>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="113"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="108"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="114"/>
         <source>Default color</source>
         <translation type="unfinished">Колір за замовчуванням</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="110"/>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="116"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="111"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="117"/>
         <source>Custom color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="119"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="120"/>
         <source>Clear trash</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="122"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="123"/>
         <source>Open</source>
         <translation type="unfinished">Відкрито</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="125"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="126"/>
         <source>Rename</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="206"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="207"/>
         <source>Delete these items?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="206"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="207"/>
         <source>Put these items to Bin?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="208"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="209"/>
         <source>Confirm deletion</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="236"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="237"/>
         <source>Information</source>
         <translation type="unfinished">Iнформація</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="236"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="237"/>
         <source>You cannot delete system folders</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1124,10 +1125,51 @@
     </message>
 </context>
 <context>
+    <name>NoteEditWidget</name>
+    <message>
+        <location filename="../NavigationPanel/src/noteeditwidget.ui" line="14"/>
+        <source>Note editor</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>NoteEditor</name>
     <message>
         <location filename="../Note/noteeditor.ui" line="14"/>
         <source>Note editor</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NotesTabWidget</name>
+    <message>
+        <location filename="../NavigationPanel/src/notestabwidget.cpp" line="38"/>
+        <source>Highlight the current tab on the tree</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/notestabwidget.cpp" line="40"/>
+        <source>Close current tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/notestabwidget.cpp" line="41"/>
+        <source>Close all tabs except the current</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/notestabwidget.cpp" line="43"/>
+        <source>Close all tabs to the left of the current</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/notestabwidget.cpp" line="44"/>
+        <source>Close all tabs to the right of the current</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/notestabwidget.cpp" line="46"/>
+        <source>Close all tabs</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1537,22 +1579,22 @@
         <translation type="obsolete">немає</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="117"/>
+        <location filename="../main.cpp" line="119"/>
         <source>Loading fonts</source>
         <translation>Завантаження шрифтів</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="120"/>
+        <location filename="../main.cpp" line="122"/>
         <source>Loading dictionaries</source>
         <translation>Завантаження словників</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="123"/>
+        <location filename="../main.cpp" line="125"/>
         <source>Creation</source>
         <translation>Creation</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="130"/>
+        <location filename="../main.cpp" line="132"/>
         <source>Loading settings</source>
         <translation>Завантаження налаштувань</translation>
     </message>
@@ -1561,7 +1603,7 @@
         <translation type="obsolete">Завантаження замітки</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="133"/>
+        <location filename="../main.cpp" line="135"/>
         <source>Now ready</source>
         <translation>Тепер готовий</translation>
     </message>
