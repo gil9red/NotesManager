@@ -35,8 +35,6 @@ public:
     void SetCreationModel(DatesModel*);
     void SetModificationModel(DatesModel*);
 
-    void SetModelItemDelegate(QItemDelegate*);
-
 private:
     QGroupBox*		groupBox;
     QRadioButton*	creationDateButton;
@@ -45,16 +43,15 @@ private:
     DatesModel*		creationDateModel;
     DatesModel*		modificationDateModel;
 
-signals:
-    void sg_NoteClicked(Note*);
-    void sg_NoteDoubleClicked(Note*);
-
 private slots:
     void sl_View_clicked (const QModelIndex&);
     void sl_View_doubleClicked (const QModelIndex&);
 
     void sl_updateTreeModel(bool = false);
 
+signals:
+    void sg_NoteClicked(Note*);
+    void sg_NoteDoubleClicked(Note*);
 };
 
 

@@ -26,7 +26,9 @@ HEADERS += \
     NavigationPanel/src/tagmodelitem.h \
     NavigationPanel/src/tagslineedit.h \
     NavigationPanel/src/tagsmodel.h \
-    NavigationPanel/src/tagsnavigationwidget.h
+    NavigationPanel/src/tagsnavigationwidget.h \
+    NavigationPanel/src/notestabwidget.h \
+    NavigationPanel/src/noteeditwidget.h
 
 SOURCES += \
     NavigationPanel/src/abstractfolderitem.cpp \
@@ -51,7 +53,12 @@ SOURCES += \
     NavigationPanel/src/tagmodelitem.cpp \
     NavigationPanel/src/tagslineedit.cpp \
     NavigationPanel/src/tagsmodel.cpp \
-    NavigationPanel/src/tagsnavigationwidget.cpp
+    NavigationPanel/src/tagsnavigationwidget.cpp \
+    NavigationPanel/src/notestabwidget.cpp \
+    NavigationPanel/src/noteeditwidget.cpp
 
 RESOURCES += \
     $$PWD/NavigationPanel.qrc
+
+FORMS += \
+    NavigationPanel/src/noteeditwidget.ui

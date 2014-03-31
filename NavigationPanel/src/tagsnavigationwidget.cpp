@@ -58,10 +58,6 @@ void TagsNavigationWidget::SetModel(TagsModel* m) {
 	}
 }
 
-void TagsNavigationWidget::SetModelItemDelegate(QItemDelegate* delegate) {
-	treeView->setItemDelegate(delegate);
-}
-
 void TagsNavigationWidget::sl_View_clicked (const QModelIndex& index) {
 	if (!index.isValid()) {return;}
 

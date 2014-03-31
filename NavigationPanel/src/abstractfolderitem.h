@@ -51,7 +51,7 @@ public:
 
 
     QString GetName() const;
-    void SetName (const QString &);
+    void SetName(const QString &);
 
     QIcon GetIcon() const;
     void SetIcon(const QIcon &);

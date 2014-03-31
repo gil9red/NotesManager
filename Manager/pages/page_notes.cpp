@@ -10,11 +10,9 @@
 #include "fullscreenshotcropper.h"
 #include <QClipboard>
 #include <QDesktopWidget>
-
 #include "NavigationPanel/src/hierarchymodel.h"
-#include "NavigationPanel/src/notebook.h"
-
 #include "NavigationPanel/src/datenavigationwidget.h"
+#include "NavigationPanel/src/notebook.h"
 
 Page_Notes::Page_Notes( QWidget * parent ) :
     QMainWindow( parent ),
@@ -22,6 +20,10 @@ Page_Notes::Page_Notes( QWidget * parent ) :
     settings(0)
 {
     ui->setupUi( this );
+
+    QObject::connect(ui->tab_Notes, SIGNAL(sg_NoteDoubleClicked(Note*)), ui->tabWidget_EditNotes, SLOT(openNote(Note*)));
+    QObject::connect(ui->tab_Tags, SIGNAL(sg_NoteDoubleClicked(Note*)), ui->tabWidget_EditNotes, SLOT(openNote(Note*)));
+    QObject::connect(ui->tab_Dates, SIGNAL(sg_NoteDoubleClicked(Note*)), ui->tabWidget_EditNotes, SLOT(openNote(Note*)));
 }
 Page_Notes::~Page_Notes()
 {
@@ -57,7 +59,6 @@ void Page_Notes::readSettings()
     settings->beginGroup( "Page_Notes" );
     ui->splitter->restoreState( settings->value( "Splitter_Main" ).toByteArray() );
     settings->endGroup();
-
 
     ui->tabWidget_Navigation->setCurrentWidget( ui->tab_Notes );
 }

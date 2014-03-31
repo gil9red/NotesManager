@@ -58,6 +58,7 @@ signals:
 
 private slots:
     void sl_TagsCollectionModified(Tag*);
+    void noteChange( int );
 };
 
 

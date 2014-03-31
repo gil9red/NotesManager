@@ -20,8 +20,6 @@ along with qNotesManager. If not, see <http://www.gnu.org/licenses/>.
 
 #include <QDebug>
 
-
-
 Note::Note()
     : AbstractFolderItem(AbstractFolderItem::Type_Note),
       Tags(this),
@@ -36,13 +34,22 @@ Note::Note()
     QObject::connect(&Tags, SIGNAL(sg_ItemRemoved(Tag*)), SLOT(sl_TagsCollectionModified(Tag*)));
 }
 
-Note::~Note() {
+Note::~Note()
+{
     Tags.Clear();
 }
 
 void Note::setRichTextNote( RichTextNote * richTextNote )
 {
+    if ( !richTextNote )
+    {
+        WARNING( "null pointer!" );
+        return;
+    }
+
     p_RichTextNote = richTextNote;
+    QObject::connect(richTextNote, SIGNAL(changed(int)), SLOT(noteChange(int)));
+
     SetName( p_RichTextNote->title() );
 }
 RichTextNote * Note::getRichTextNote()
@@ -52,11 +59,32 @@ RichTextNote * Note::getRichTextNote()
 
 void Note::SetName (const QString & s)
 {
-    getRichTextNote()->setTitle(s);
+    if ( !p_RichTextNote )
+    {
+        WARNING( "null pointer!" );
+        return;
+    }
+
+    p_RichTextNote->setTitle(s);
     AbstractFolderItem::SetName(s);
 }
 
 void Note::sl_TagsCollectionModified(Tag*)
 {
     onChange();
+}
+void Note::noteChange( int event )
+{
+    if ( !p_RichTextNote )
+    {
+        WARNING( "null pointer!" );
+        return;
+    }
+
+    switch ( event )
+    {
+    case EventsNote::ChangeTitle:
+        SetName( p_RichTextNote->title() );
+        break;
+    }
 }

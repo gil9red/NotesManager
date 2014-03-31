@@ -40,7 +40,7 @@
         </attribute>
        </widget>
       </widget>
-      <widget class="QTabWidget" name="tabWidget_EditNotes">
+      <widget class="NotesTabWidget" name="tabWidget_EditNotes">
        <property name="tabsClosable">
         <bool>true</bool>
        </property>
@@ -70,6 +70,12 @@
    <class>TagsNavigationWidget</class>
    <extends>QWidget</extends>
    <header>NavigationPanel/src/tagsnavigationwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>NotesTabWidget</class>
+   <extends>QTabWidget</extends>
+   <header>NavigationPanel/src/notestabwidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
