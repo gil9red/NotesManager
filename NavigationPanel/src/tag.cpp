@@ -19,8 +19,6 @@ along with qNotesManager. If not, see <http://www.gnu.org/licenses/>.
 
 #include <QDebug>
 
-
-
 Tag::Tag(const QString& name) : _name(name)
 {
     QObject::connect(&Owners, SIGNAL(sg_ItemAboutToBeAdded(Note*)), SIGNAL(sg_OwnerAboutToBeAdded(Note*)));

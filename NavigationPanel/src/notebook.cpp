@@ -22,9 +22,6 @@ AbstractFolderItem * createFromType( const QString & type )
     else if ( type == "Trash" )
         return Notebook::instance()->trashFolder();
 
-//    else if ( type == "Temp" )
-//        return Notebook::instance()->tempFolder();
-
     return 0;
 }
 
@@ -149,10 +146,6 @@ Notebook::Notebook( QObject * parent )
     QObject::connect( p_rootFolder, SIGNAL(sg_ItemAdded(AbstractFolderItem * const, int)), SLOT(sl_Folder_ItemAdded(AbstractFolderItem* const)) );
     QObject::connect( p_rootFolder, SIGNAL(sg_ItemRemoved(AbstractFolderItem*const)), SLOT(sl_Folder_ItemRemoved(AbstractFolderItem*const)) );
 
-//    p_tempFolder = new Folder( QString(), Folder::TempFolder );
-//    QObject::connect( p_tempFolder, SIGNAL(sg_ItemAdded(AbstractFolderItem*const, int)), SLOT(sl_Folder_ItemAdded(AbstractFolderItem* const)) );
-//    QObject::connect( p_tempFolder, SIGNAL(sg_ItemRemoved(AbstractFolderItem*const)), SLOT(sl_Folder_ItemRemoved(AbstractFolderItem*const)) );
-
     p_trashFolder = new Folder( QString(), Folder::TrashFolder );
     QObject::connect( p_trashFolder, SIGNAL(sg_ItemAdded(AbstractFolderItem*const, int)), SLOT(sl_Folder_ItemAdded(AbstractFolderItem* const)) );
     QObject::connect( p_trashFolder, SIGNAL(sg_ItemRemoved(AbstractFolderItem*const)), SLOT(sl_Folder_ItemRemoved(AbstractFolderItem*const)) );
@@ -178,36 +171,29 @@ Notebook * Notebook::instance()
 void Notebook::read( QDomElement & root )
 {
     QDomElement rootNotes = root.firstChildElement( "Notes" );
-//    QDomElement rootTemp = root.firstChildElement( "Temp" );
     QDomElement rootTrash = root.firstChildElement( "Trash" );
 
     parseDomElement( rootFolder(), rootNotes );
-//    parseDomElement( tempFolder(), rootTemp );
     parseDomElement( trashFolder(), rootTrash );
 }
 void Notebook::write( QDomElement & root, QDomDocument & xmlDomDocument )
 {
     // У Notebook есть дети Notes и Tabs
     QDomElement rootNotes = xmlDomDocument.createElement( "Notes" );
-//    QDomElement rootTemp = xmlDomDocument.createElement( "Temp" );
     QDomElement rootTrash = xmlDomDocument.createElement( "Trash" );
 
     root.appendChild( rootNotes );
-//    root.appendChild( rootTemp );
     root.appendChild( rootTrash );
 
     parseItem( rootFolder(), rootNotes, xmlDomDocument );
-//    parseItem( tempFolder(), rootTemp, xmlDomDocument );
     parseItem( trashFolder(), rootTrash, xmlDomDocument );
 }
 
 void Notebook::setRootFolder( Folder * f ) { p_rootFolder = f; }
-//void Notebook::setTempFolder( Folder * f ) { p_tempFolder = f; }
 void Notebook::setTrashFolder( Folder * f ) { p_trashFolder = f; }
 void Notebook::setPinnedFolder( Folder * f ) { hierarchyModel()->SetPinnedFolder(f); }
 
 Folder * Notebook::rootFolder() { return p_rootFolder; }
-//Folder * Notebook::tempFolder() { return p_tempFolder; }
 Folder * Notebook::trashFolder() { return p_trashFolder; }
 Folder * Notebook::pinnedFolder() { return hierarchyModel()->GetPinnedFolder(); }
 

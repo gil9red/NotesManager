@@ -19,12 +19,12 @@
     </qresource>
     <qresource prefix="/fugue-icons">
         <file alias="application-sidebar">icons/fugue-icons/32x32/application-sidebar.png</file>
-        <file alias="calendar-day">icons/fugue-icons/32x32/calendar-day.png</file>
         <file alias="cross">icons/fugue-icons/32x32/cross.png</file>
         <file alias="plus">icons/fugue-icons/32x32/plus.png</file>
         <file alias="tag-label">icons/fugue-icons/32x32/tag-label.png</file>
         <file alias="minus">icons/fugue-icons/32x32/minus.png</file>
         <file alias="folder-tree">icons/fugue-icons/16x16/folder-tree.png</file>
         <file alias="folder--plus">icons/fugue-icons/16x16/folder--plus.png</file>
+        <file alias="calendar-blue">icons/fugue-icons/32x32/calendar-blue.png</file>
     </qresource>
 </RCC>

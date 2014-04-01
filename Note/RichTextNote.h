@@ -38,16 +38,6 @@ public:
     QDateTime created();  //!< Возврат даты создания заметки.
     QDateTime modified(); //!< Возврат даты последнего изменения заметки.
 
-    //! Указывает на изменение содержимого заметки.
-    /*! Изменение заметки устанавливает это значение на true, сохранение - на false.
-     *  \sa isModified()
-     */
-    void setModified( bool b );
-
-    //! Функция вернет true, если содержимое заметки было изменено.
-    /*! \sa setModified() */
-    bool isModified();
-
     //! Функция создает заметке папку и нужные для функционирования файлы.
     /*! \param bsave если true, тогда после инициализации значениями
      *  по умолчанию, заметка сделает сохранение.
@@ -211,7 +201,6 @@ class d_RichTextNote: public d_AbstractNote
 {
 public:
     QTimer timerAutosave; //!< Таймер автосохранений
-    bool isModified;      //! "Заметка изменена"
     QString noteFileName; //! Путь до папки заметки
     TextEditor editor;  //! Редактор заметки
 };

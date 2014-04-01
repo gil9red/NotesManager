@@ -12,6 +12,7 @@
 #include "NavigationPanel/src/datenavigationwidget.h"
 #include "NavigationPanel/src/notebook.h"
 #include "NavigationPanel/src/noteeditwidget.h"
+#include "NavigationPanel/src/basemodelitem.h"
 
 Page_Notes::Page_Notes( QWidget * parent ) :
     QMainWindow( parent ),
@@ -26,6 +27,12 @@ Page_Notes::Page_Notes( QWidget * parent ) :
 
     QObject::connect( ui->tabWidget_Navigation, SIGNAL(currentChanged(int)), SIGNAL(sg_About_UpdateStates()) );
     QObject::connect( ui->tab_Notes, SIGNAL(sg_SelectedItemsActionsListChanged()), SIGNAL(sg_About_UpdateStates()) );
+    QObject::connect( Notebook::instance(), SIGNAL(sg_ItemRegistered(Tag*)), SIGNAL(sg_About_UpdateStates()) );
+    QObject::connect( Notebook::instance(), SIGNAL(sg_ItemRegistered(Note*)), SIGNAL(sg_About_UpdateStates()) );
+    QObject::connect( Notebook::instance(), SIGNAL(sg_ItemRegistered(Folder*)), SIGNAL(sg_About_UpdateStates()) );
+    QObject::connect( Notebook::instance(), SIGNAL(sg_ItemUnregistered(Tag*)), SIGNAL(sg_About_UpdateStates()) );
+    QObject::connect( Notebook::instance(), SIGNAL(sg_ItemUnregistered(Tag*)), SIGNAL(sg_About_UpdateStates()) );
+    QObject::connect( Notebook::instance(), SIGNAL(sg_ItemUnregistered(Tag*)), SIGNAL(sg_About_UpdateStates()) );
 }
 Page_Notes::~Page_Notes()
 {
@@ -92,6 +99,11 @@ void Page_Notes::read( QIODevice * device )
         int index = rootTabs.attribute( "current_index", "-1" ).toInt();
         ui->tabWidget_EditNotes->setCurrentIndex( index );
     }
+
+    // TODO: думаю, лучше сделать это настраиваемым
+    ui->tab_Notes->expandAll();
+    ui->tab_Tags->expandAll();
+    ui->tab_Dates->expandAll();
 }
 void Page_Notes::write( QIODevice * device )
 {
@@ -175,6 +187,78 @@ void Page_Notes::writeSettings()
     settings->setValue( "Splitter_Main", ui->splitter->saveState() );
     settings->endGroup();
     settings->sync();
+}
+
+bool Page_Notes::hasCurrent()
+{
+    return ui->tab_Notes->hasCurrentItem();
+}
+bool Page_Notes::currentIsNote()
+{
+    return ( ui->tab_Notes->getCurrentNote() != 0 );
+}
+bool Page_Notes::currentIsTrash()
+{
+    return ( ui->tab_Notes->getCurrentFolder() == Notebook::instance()->trashFolder() );
+}
+bool Page_Notes::currentNoteIsVisible()
+{
+    Note * note = ui->tab_Notes->getCurrentNote();
+    if ( !note )
+    {
+        WARNING( "Null pointer! Current is don't note" );
+        return false;
+    }
+
+    RichTextNote * richTextNote = note->getRichTextNote();
+    if ( !richTextNote )
+    {
+        WARNING( "Null pointer!" );
+        return false;
+    }
+
+    return richTextNote->isVisible();
+}
+bool Page_Notes::currentNoteIsTop()
+{
+    Note * note = ui->tab_Notes->getCurrentNote();
+    if ( !note )
+    {
+        WARNING( "Null pointer! Current is don't note" );
+        return false;
+    }
+
+    RichTextNote * richTextNote = note->getRichTextNote();
+    if ( !richTextNote )
+    {
+        WARNING( "Null pointer!" );
+        return false;
+    }
+
+    return richTextNote->isTop();
+}
+bool Page_Notes::currentIsChildTrash()
+{
+    BaseModelItem * item = ui->tab_Notes->getCurrentItem();
+    if ( !item )
+    {
+        WARNING( "Null pointer!" );
+        return false;
+    }
+
+    BaseModelItem * parentItem = item->parent();
+    while ( parentItem )
+    {
+        if ( Notebook::instance()->hierarchyModel()->getItem( parentItem ) == Notebook::instance()->trashFolder() )
+            return true;
+
+        parentItem = parentItem->parent();
+    }
+    return false;
+}
+bool Page_Notes::trashIsEmpty()
+{
+    return ( Notebook::instance()->trashFolder()->Items.Count() == 0 );
 }
 
 void Page_Notes::sl_AddFolder()

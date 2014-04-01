@@ -58,6 +58,11 @@ void TagsNavigationWidget::SetModel(TagsModel* m) {
 	}
 }
 
+void TagsNavigationWidget::expandAll()
+{
+    treeView->expandAll();
+}
+
 void TagsNavigationWidget::sl_View_clicked (const QModelIndex& index) {
 	if (!index.isValid()) {return;}
 

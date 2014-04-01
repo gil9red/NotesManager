@@ -37,6 +37,8 @@ public:
     void SetCreationModel(DatesModel*);
     void SetModificationModel(DatesModel*);
 
+    void expandAll();
+
 private:
     QGroupBox*		groupBox;
     QRadioButton*	creationDateButton;

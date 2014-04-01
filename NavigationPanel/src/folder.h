@@ -37,7 +37,6 @@ public:
     {
         UserFolder = 0,
         SystemFolder = 1,
-//        TempFolder = 3,
         TrashFolder = 5
     };
 

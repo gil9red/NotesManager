@@ -27,16 +27,16 @@ class Tag : public QObject
 {
     Q_OBJECT
 
-private:
-    const QString _name;
-    Tag(const Tag&) : QObject(0) {} // Prevent construction by copying
-    Tag& operator=(const Tag&){return *this;} // Prevent assignment
-
 public:
     explicit Tag(const QString& name);
     QString GetName() const;
 
     TagOwnersCollection Owners;
+
+private:
+    const QString _name;
+    Tag(const Tag&) : QObject(0) {} // Prevent construction by copying
+    Tag& operator=(const Tag&){return *this;} // Prevent assignment
 
 signals:
     void sg_OwnerAboutToBeAdded(Note*);

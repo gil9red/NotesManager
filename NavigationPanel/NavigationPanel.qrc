@@ -1,8 +1,17 @@
 <RCC>
-    <qresource prefix="/NavigationPanel"/>
     <qresource prefix="/fugue-icons">
         <file alias="bin">icons/fugue-icons/16x16/bin.png</file>
         <file alias="document">icons/fugue-icons/32x32/document.png</file>
         <file alias="folder-horizontal">icons/fugue-icons/32x32/folder-horizontal.png</file>
+        <file alias="document-rename">icons/fugue-icons/16x16/document-rename.png</file>
+        <file alias="color-swatch">icons/fugue-icons/16x16/color-swatch.png</file>
+        <file alias="edit-color">icons/fugue-icons/16x16/edit-color.png</file>
+        <file alias="paint-can-color">icons/fugue-icons/16x16/paint-can-color.png</file>
+        <file alias="book-open">icons/fugue-icons/16x16/book-open.png</file>
+        <file alias="ui-color-picker-default">icons/fugue-icons/16x16/ui-color-picker-default.png</file>
+        <file alias="calendar">icons/fugue-icons/24x24/calendar.png</file>
+        <file alias="calendar-day">icons/fugue-icons/24x24/calendar-day.png</file>
+        <file alias="calendar-month">icons/fugue-icons/24x24/calendar-month.png</file>
+        <file alias="pin">icons/fugue-icons/16x16/pin.png</file>
     </qresource>
 </RCC>

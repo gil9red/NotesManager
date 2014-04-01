@@ -30,6 +30,14 @@ public:
     void readSettings();
     void writeSettings();
 
+    bool hasCurrent();
+    bool currentIsNote();
+    bool currentIsTrash();
+    bool currentNoteIsVisible();
+    bool currentNoteIsTop();
+    bool currentIsChildTrash();
+    bool trashIsEmpty();
+
 private:
     Ui::Page_notes * ui;
     QSettings * settings;

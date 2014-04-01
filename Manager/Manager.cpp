@@ -12,6 +12,7 @@
 #include "FormattingToolbar/FormattingToolbar.h"
 #include "utils/func.h"
 #include "ImageCropper/fullscreenshotcropper.h"
+#include "NavigationPanel/src/notebook.h"
 
 Manager * Manager::self = 0;
 
@@ -144,7 +145,6 @@ void Manager::createMenu()
     connect( ui->actionAddNote, SIGNAL( triggered() ), ui->toolBarAddNote, SIGNAL( triggered() ) );
     connect( ui->actionAddNoteFromClipboard, SIGNAL( triggered() ), ui->toolBarAddNoteFromClipboard, SIGNAL( triggered() ) );
     connect( ui->actionAddNoteFromScreen, SIGNAL( triggered() ), ui->toolBarAddNoteFromScreen, SIGNAL( triggered() ) );
-    // TODO: действие Добавить папку
 
     connect( ui->actionOpenDict, SIGNAL( triggered() ), ui->toolBarOpenDict, SIGNAL( triggered() ) );
     connect( ui->actionCloseDict, SIGNAL( triggered() ), ui->toolBarCloseDict, SIGNAL( triggered() ) );
@@ -281,9 +281,10 @@ void Manager::show_page_documentation()
 void Manager::updateStates()
 {
 //    bool isEmpty = pageNotes->isEmpty();
-//    ui->toolBarHideAllNotes->setEnabled( !isEmpty );
-//    ui->toolBarShowAllNotes->setEnabled( !isEmpty );
-//    ui->toolBarSaveAllNotes->setEnabled( !isEmpty );
+    bool isEmpty = Notebook::instance()->notesList().isEmpty();
+    ui->toolBarHideAllNotes->setEnabled( !isEmpty );
+    ui->toolBarShowAllNotes->setEnabled( !isEmpty );
+    ui->toolBarSaveAllNotes->setEnabled( !isEmpty );
 
     ui->actionFull_screen->setChecked( isFullScreen() );
 
@@ -291,45 +292,44 @@ void Manager::updateStates()
     ui->toolBarCloseDict->setEnabled( isAutocomplete );
     ui->toolBarOpenDict->setEnabled( !isAutocomplete );
 
-////    ui->toolBarDuplicateNote->setEnabled( false );
+//    ui->toolBarDuplicateNote->setEnabled( false );
 
-//    ui->toolBarSaveNote->setEnabled( false );
-//    ui->toolBarSaveNoteAs->setEnabled( false );
-//    ui->toolBarPrintNote->setEnabled( false );
-//    ui->toolBarPreviewPrintNote->setEnabled( false );
-//    ui->toolBarHideNote->setEnabled( false );
-//    ui->toolBarShowNote->setEnabled( false );
-//    ui->toolBarTopNote->setEnabled( false );
+    ui->toolBarSaveNote->setEnabled( false );
+    ui->toolBarSaveNoteAs->setEnabled( false );
+    ui->toolBarPrintNote->setEnabled( false );
+    ui->toolBarPreviewPrintNote->setEnabled( false );
+    ui->toolBarHideNote->setEnabled( false );
+    ui->toolBarShowNote->setEnabled( false );
+    ui->toolBarTopNote->setEnabled( false );
 
-//    ui->toolBarRemoveAllNotes->setEnabled( !pageNotes->isEmpty() );
-//    ui->toolBarDelete->setEnabled( false );
-//    ui->toolBarRemoveToTrash->setEnabled( false );
-//    ui->toolBarClearTrash->setEnabled( !pageNotes->trashIsEmpty() );
+    ui->toolBarDelete->setEnabled( false );
+    ui->toolBarRemoveToTrash->setEnabled( false );
+    ui->toolBarClearTrash->setEnabled( Notebook::instance()->trashFolder()->Items.Count() > 0 );
 
-//    bool hasCurrent = pageNotes->hasCurrent();
-//    if ( hasCurrent )
-//    {
-//        bool isNote = pageNotes->currentIsNote();
-//        if ( isNote )
-//        {
-//            ui->toolBarSaveNote->setEnabled( true );
-//            ui->toolBarSaveNoteAs->setEnabled( true );
-//            ui->toolBarPrintNote->setEnabled( true );
-//            ui->toolBarPreviewPrintNote->setEnabled( true );
+    bool hasCurrent = pageNotes->hasCurrent();
+    if ( hasCurrent )
+    {
+        bool isNote = pageNotes->currentIsNote();
+        if ( isNote )
+        {
+            ui->toolBarSaveNote->setEnabled( true );
+            ui->toolBarSaveNoteAs->setEnabled( true );
+            ui->toolBarPrintNote->setEnabled( true );
+            ui->toolBarPreviewPrintNote->setEnabled( true );
 
-//            bool currentNoteIsVisible = pageNotes->currentNoteIsVisible();
-//            ui->toolBarHideNote->setEnabled( currentNoteIsVisible );
-//            ui->toolBarShowNote->setEnabled( !currentNoteIsVisible );
+            bool currentNoteIsVisible = pageNotes->currentNoteIsVisible();
+            ui->toolBarHideNote->setEnabled( currentNoteIsVisible );
+            ui->toolBarShowNote->setEnabled( !currentNoteIsVisible );
 
-//            bool currentNoteIsTop = pageNotes->currentNoteIsTop();
-//            ui->toolBarTopNote->setEnabled( currentNoteIsTop );
-//        }
+            bool currentNoteIsTop = pageNotes->currentNoteIsTop();
+            ui->toolBarTopNote->setEnabled( currentNoteIsTop );
+        }
 
-//        bool isChildTrash = pageNotes->currentIsChildTrash(); // если элемент есть в корзине
-//        ui->toolBarRemoveToTrash->setEnabled( !pageNotes->currentIsTrash() && !isChildTrash ); // переместить в корзину
-//        ui->toolBarDelete->setEnabled( isChildTrash );
-//        ui->toolBarClearTrash->setEnabled( pageNotes->currentIsTrash() || isChildTrash );
-//    }
+        bool isChildTrash = pageNotes->currentIsChildTrash(); // если элемент есть в корзине
+        ui->toolBarRemoveToTrash->setEnabled( !pageNotes->currentIsTrash() && !isChildTrash ); // переместить в корзину
+        ui->toolBarDelete->setEnabled( isChildTrash );
+        ui->toolBarClearTrash->setEnabled( (pageNotes->currentIsTrash() || isChildTrash) && !pageNotes->trashIsEmpty() );
+    }
 
     ui->actionVisibleToolbarMain->setChecked( ui->toolBarMain->isVisible() );
     ui->actionVisibleToolbarManage->setChecked( ui->toolBarManage->isVisible() );

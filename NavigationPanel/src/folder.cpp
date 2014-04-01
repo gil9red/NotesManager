@@ -42,10 +42,7 @@ Folder::Folder(QString _name, FolderType _type) :
 	QObject::connect(&Items, SIGNAL(sg_Cleared()), SIGNAL(sg_DataChanged()));
 
 
-    /*if (type == TempFolder)
-        name = tr( "Temporary" );
-
-    else */if (type == TrashFolder)
+    if (type == TrashFolder)
     {
         name = tr( "Trash bin" );
         SetIcon( QIcon( ":/fugue-icons/bin" ) );

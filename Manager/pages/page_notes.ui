@@ -45,7 +45,7 @@
        <widget class="DateNavigationWidget" name="tab_Dates">
         <attribute name="icon">
          <iconset resource="../Manager.qrc">
-          <normaloff>:/fugue-icons/calendar-day</normaloff>:/fugue-icons/calendar-day</iconset>
+          <normaloff>:/fugue-icons/calendar-blue</normaloff>:/fugue-icons/calendar-blue</iconset>
         </attribute>
         <attribute name="title">
          <string>Dates</string>

@@ -69,7 +69,7 @@ QVariant FolderModelItem::data(int role) const
     {
         QFont font( qApp->font() );
         // Системные папки должны хоть немного отличаться от создаваемых пользователем
-        if ( /*folder->GetType() == Folder::TempFolder ||*/ folder->GetType() == Folder::TrashFolder )
+        if ( folder->GetType() == Folder::TrashFolder )
             font.setBold( true );
 
         return font;

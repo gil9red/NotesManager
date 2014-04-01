@@ -37,9 +37,35 @@ DateModelItem::DateModelItem(DateComponent c, int v) :
 QVariant DateModelItem::data(int role) const
 {
     if (role == Qt::DecorationRole)
-        return QIcon(":/fugue-icons/calendar-day"); // TODO: можно настроить иконку под определенную дату: год, месяц, день
+    {
+        // Иконка под определенную дату: год, месяц, день
+        QString stringIcon;
+        switch (component)
+        {
+        case Year:
+            stringIcon = ":/fugue-icons/calendar";
+            break;
 
-    else if (role == Qt::DisplayRole)
+        case Month:
+            stringIcon = ":/fugue-icons/calendar-month";
+            break;
+
+        case Day:
+            stringIcon = ":/fugue-icons/calendar-day";
+            break;
+
+        case MonthAndDay:
+            WARNING( "Wrong component type" );
+            break;
+
+        default:
+            WARNING( "Wrong component type" );
+            break;
+        }
+
+        return QIcon( stringIcon );
+
+    }else if (role == Qt::DisplayRole)
     {
         QString childrenCount = QString(" (%1)").arg(QString::number(ChildrenCount()));
         QString returnValue = "";

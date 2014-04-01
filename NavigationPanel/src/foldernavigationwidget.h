@@ -34,6 +34,7 @@ along with qNotesManager. If not, see <http://www.gnu.org/licenses/>.
 class HierarchyModel;
 class Note;
 class Folder;
+class BaseModelItem;
 
 class FolderNavigationWidget : public QWidget
 {
@@ -45,31 +46,36 @@ public:
     void updatePinnedFolderData();
 
     bool hasCurrentItem();    
-    Note * getNote( const QModelIndex & index );
+    BaseModelItem * getItem( const QModelIndex & );
+    BaseModelItem * getCurrentItem();
+    Note * getNote( const QModelIndex & );
+    Folder * getFolder( const QModelIndex & );
     Note * getCurrentNote();
+    Folder * getCurrentFolder();
+
+    void expandAll();
 
 private:
-    QTreeView* treeView;
-    HierarchyModel* model;
+    QTreeView * treeView;
+    HierarchyModel * model;
 
     QLabel * currentRootLabel;
     QToolButton * pinFolderButton;
 
+    QMenu * itemForeColorMenu;
+    QMenu * itemBackColorMenu;
 
-    QMenu* itemForeColorMenu;
-    QMenu* itemBackColorMenu;
-
-    QAction* addNoteAction;
-    QAction* addFolderAction;
-    QAction* moveToBinAction;
-    QAction* deleteItemAction;
-    QAction* itemDefaultForeColorAction;
-    QAction* itemCustomForeColorAction;
-    QAction* itemDefaultBackColorAction;
-    QAction* itemCustomBackColorAction;
-    QAction* clearTrashAction;
-    QAction* openNoteAction;
-    QAction* renameItemAction;
+    QAction * addNoteAction;
+    QAction * addFolderAction;
+    QAction * moveToBinAction;
+    QAction * deleteItemAction;
+    QAction * itemDefaultForeColorAction;
+    QAction * itemCustomForeColorAction;
+    QAction * itemDefaultBackColorAction;
+    QAction * itemCustomBackColorAction;
+    QAction * clearTrashAction;
+    QAction * openNoteAction;
+    QAction * renameItemAction;
 
 private:
     void deleteItems(QModelIndexList& list, bool permanently = false);
@@ -88,6 +94,8 @@ private slots:
 
     void sl_Model_ApplySelection(const QModelIndexList&);
     void sl_Model_DisplayRootItemChanged();
+
+    void sl_UpdateStates();
 
 public slots:
     bool sl_AddNote( RichTextNote * richTextNote );

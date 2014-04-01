@@ -89,16 +89,6 @@ QDateTime RichTextNote::modified()
     return mapSettings[ "Modified" ].toDateTime();
 }
 
-void RichTextNote::setModified( bool b )
-{
-    d->isModified = b;
-    updateStates();
-}
-bool RichTextNote::isModified()
-{
-    return d->isModified;
-}
-
 void RichTextNote::createNew( bool bsave )
 {
     QString path = "Note_" + QDateTime::currentDateTime().toString( "yyyy-MM-dd_hh-mm-ss__zzz" );
@@ -314,7 +304,6 @@ void RichTextNote::setupGUI()
     connect( quickFind, SIGNAL( visibilityChanged(bool) ), actionVisibleQuickFind, SLOT( setChecked(bool) ) );
     actionVisibleQuickFind->setChecked( quickFind->isVisible() );
 
-    // NOTE: установка прозрачного заднего фона редактора
     d->editor.setFrameStyle( QFrame::NoFrame );
     d->editor.viewport()->setAutoFillBackground( false );
     d->editor.setStyleSheet( nm_Note::style );
@@ -389,11 +378,6 @@ void RichTextNote::setupGUI()
 
 void RichTextNote::save()
 {
-    // TODO: продумать!
-//    // Смысл сохраняться, если изменений не было?
-//    if( !isModified() )
-//        return;
-
     mapSettings[ "Top" ] = isTop();
     mapSettings[ "ColorTitle" ] = titleColor().name();
     mapSettings[ "ColorBody" ] = bodyColor().name();
@@ -498,11 +482,6 @@ void RichTextNote::load()
 }
 void RichTextNote::saveContent()
 {
-// TODO: продумать!
-    // Смысл сохраняться, если изменений не было?
-//    if( !isModified() )
-//        return;
-
     QFile content( contentFilePath() );
     if ( !content.open( QIODevice::Truncate | QIODevice::WriteOnly ) )
     {
@@ -515,7 +494,6 @@ void RichTextNote::saveContent()
     in << text();
     content.close();
 
-    setModified( false );
     updateStates();
 }
 void RichTextNote::loadContent()
@@ -629,7 +607,12 @@ void RichTextNote::saveAs()
     foreach ( const QString & format, imageFormats )
         filters.append( QString( "%1 ( *.%2 )\n" ).arg( format.toUpper() ).arg( format ) );
 
-    const QString & saveFileName = QFileDialog::getSaveFileName( this, QString(), QString(), filters );
+
+    QString title = this->title();
+    // Замена неугодных винде символов в именах файлов, знаком нижнего подчеркивания
+    title = title.replace( QRegExp( "[:/|*?\"<>]" ), "_" );
+
+    const QString & saveFileName = QFileDialog::getSaveFileName( this, QString(), title, filters );
     if ( saveFileName.isEmpty() )
         return;
 
@@ -798,12 +781,10 @@ void RichTextNote::print( QPrinter * printer )
 void RichTextNote::updateStates()
 {
     bool top = isTop();
-    bool isModified = this->isModified();
-
     tButtonSetTopBottom->setChecked( top );
     actionSetTopBottom->setChecked( top );
-    tButtonSave->setEnabled( isModified );
-    actionSave->setEnabled( isModified );
+    tButtonSave->setEnabled( true );
+    actionSave->setEnabled( true );
     actionVisibleToolBar->setChecked( isVisibleToolBar() );
     actionVisibleQuickFind->setChecked( quickFind->isVisible() );
 }
@@ -811,18 +792,15 @@ void RichTextNote::contentsChanged()
 {
     mapSettings[ "Modified" ] = QDateTime::currentDateTime();
 
-    setModified( true );
     updateStates();
     emit changed( EventsNote::ChangeText );
 }
 void RichTextNote::doubleClickingOnTitle()
 {
     int data = defaultMapSettings[ "ActionDoubleClickOnTitle" ].toInt();
-
     switch ( data )
     {
     case Shared::DoNothing:
-
         break;
 
     case Shared::EditTitle:

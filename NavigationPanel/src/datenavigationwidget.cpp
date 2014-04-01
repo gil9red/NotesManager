@@ -106,6 +106,11 @@ void DateNavigationWidget::SetModificationModel(DatesModel* model) {
 	sl_updateTreeModel();
 }
 
+void DateNavigationWidget::expandAll()
+{
+    treeView->expandAll();
+}
+
 void DateNavigationWidget::sl_updateTreeModel(bool) {
     if (creationDateButton->isChecked())
 		treeView->setModel(creationDateModel);

@@ -31,19 +31,12 @@ HierarchyModel::HierarchyModel(QObject *parent)
     : BaseModel(parent)
 {
     Folder* rootFolder = Notebook::instance()->rootFolder();
-    if (rootFolder == 0) {
+    if ( !rootFolder )
+    {
         WARNING("Null reference");
         return;
     }
     RegisterItem(rootFolder);
-
-
-//    Folder* tempFolder = Notebook::instance()->tempFolder();
-//    if (tempFolder == 0) {
-//        WARNING("Null reference");
-//        return;
-//    }
-//    RegisterItem(tempFolder);
 
     Folder* trashFolder = Notebook::instance()->trashFolder();
     if (trashFolder == 0) {
@@ -56,13 +49,13 @@ HierarchyModel::HierarchyModel(QObject *parent)
     BaseModelItem * rootItem = bridge.value(Notebook::instance()->rootFolder());
 
     rootItem->AddChild(separatorItem);
-//    rootItem->AddChild(bridge.value(tempFolder));
     rootItem->AddChild(bridge.value(trashFolder));
 
     SetRootItem(rootItem);
 }
 
-void HierarchyModel::RegisterItem(Folder* folder) { // Register folder and all items inside of it
+void HierarchyModel::RegisterItem(Folder* folder) // Register folder and all items inside of it
+{
 	if (!folder) {
 		WARNING("Null pointer recieved");
 		return;
@@ -72,29 +65,28 @@ void HierarchyModel::RegisterItem(Folder* folder) { // Register folder and all i
 		return;
 	}
 
-	QObject::connect(folder, SIGNAL(sg_ItemAdded(AbstractFolderItem* const, int)),
-					 this, SLOT(sl_Folder_ItemAdded(AbstractFolderItem* const, int)));
-	QObject::connect(folder, SIGNAL(sg_ItemAboutToBeRemoved(AbstractFolderItem*const)),
-					 this, SLOT(sl_Folder_ItemAboutToBeRemoved(AbstractFolderItem* const)));
-	QObject::connect(folder, SIGNAL(sg_ItemAboutToBeMoved(AbstractFolderItem*const, int, Folder*)),
-					 this, SLOT(sl_Folder_ItemAboutToBeMoved(AbstractFolderItem* const, int, Folder*)));
-	QObject::connect(folder, SIGNAL(sg_ItemsCollectionAboutToClear()),
-					 this, SLOT(sl_Folder_ItemsCollectionCleared()));
+    QObject::connect(folder, SIGNAL(sg_ItemAdded(AbstractFolderItem* const, int)), SLOT(sl_Folder_ItemAdded(AbstractFolderItem* const, int)));
+	QObject::connect(folder, SIGNAL(sg_ItemAboutToBeRemoved(AbstractFolderItem*const)), SLOT(sl_Folder_ItemAboutToBeRemoved(AbstractFolderItem* const)));
+	QObject::connect(folder, SIGNAL(sg_ItemAboutToBeMoved(AbstractFolderItem*const, int, Folder*)), SLOT(sl_Folder_ItemAboutToBeMoved(AbstractFolderItem* const, int, Folder*)));
+	QObject::connect(folder, SIGNAL(sg_ItemsCollectionAboutToClear()), SLOT(sl_Folder_ItemsCollectionCleared()));
 
 	FolderModelItem* fi = new FolderModelItem(folder);
 	QObject::connect(fi, SIGNAL(sg_DataChanged(BaseModelItem*)), this, SLOT(sl_Item_DataChanged(BaseModelItem*)));
     BaseModelItem* parent = bridge.value(folder->GetParent());
-	if (parent != 0) {
+    if ( parent )
 		parent->AddChildTo(fi, folder->GetParent()->Items.IndexOf(folder));
-	}
+
     bridge.insert(folder, fi);
 
-	for (int i = 0; i < folder->Items.Count(); i++) {
+    for (int i = 0; i < folder->Items.Count(); i++)
+    {
 		AbstractFolderItem* item = folder->Items.ItemAt(i);
-		if (item->GetItemType() == AbstractFolderItem::Type_Folder) {
+        if (item->GetItemType() == AbstractFolderItem::Type_Folder)
+        {
 			Folder* f = dynamic_cast<Folder*>(item);
 			RegisterItem(f);
-		} else {
+        } else
+        {
 			Note* n = dynamic_cast<Note*>(item);
 			RegisterItem(n);
 		}
@@ -425,7 +417,7 @@ Qt::ItemFlags HierarchyModel::flags (const QModelIndex& index ) const
 		if (modelItem->DataType() == BaseModelItem::folder) {
 			FolderModelItem* folderItem = dynamic_cast<FolderModelItem*>(modelItem);
 
-            if ( /*folderItem->GetStoredData() == Notebook::instance()->tempFolder() ||*/ folderItem->GetStoredData() == Notebook::instance()->trashFolder() )
+            if ( folderItem->GetStoredData() == Notebook::instance()->trashFolder() )
 				returnFlags = Qt::ItemIsDropEnabled | defaultFlags;
             else
 				returnFlags = Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled | defaultFlags;

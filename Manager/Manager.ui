@@ -917,6 +917,12 @@
    <property name="text">
     <string>Clear trash</string>
    </property>
+   <property name="statusTip">
+    <string>Clear trash</string>
+   </property>
+   <property name="whatsThis">
+    <string>Clear trash</string>
+   </property>
   </action>
   <action name="actionFull_screen">
    <property name="checkable">
@@ -975,8 +981,8 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="Manager.qrc"/>
   <include location="../Note/Note.qrc"/>
+  <include location="Manager.qrc"/>
  </resources>
  <connections>
   <connection>
