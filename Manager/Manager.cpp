@@ -9,12 +9,11 @@
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QDesktopServices>
-
-Manager * Manager::self = 0;
-
 #include "FormattingToolbar/FormattingToolbar.h"
 #include "utils/func.h"
 #include "ImageCropper/fullscreenshotcropper.h"
+
+Manager * Manager::self = 0;
 
 Manager::Manager( QWidget * parent ) :
     QMainWindow( parent ),
@@ -36,7 +35,7 @@ Manager::Manager( QWidget * parent ) :
     pageSettings = new Page_Settings();
     pageAbout = new Page_About();
 
-//    connect( pageNotes, SIGNAL( about_updateStates() ), SLOT( updateStates() ) );
+    connect( pageNotes, SIGNAL( sg_About_UpdateStates() ), SLOT( updateStates() ) );
 
     connect( pageSettings, SIGNAL( message(QString, int) ), ui->statusBar, SLOT( showMessage(QString, int) ) );
     connect( pageSettings, SIGNAL( acceptChangeSettings() ), SLOT( acceptChangeSettings() ) );
@@ -100,28 +99,27 @@ void Manager::createToolBars()
     connect( ui->toolBarAbout, SIGNAL( triggered() ), SLOT( show_page_about() ) );
     connect( ui->toolBarQuit, SIGNAL( triggered() ), SLOT( quit() ) );
 
-//    connect( ui->toolBarAddNote, SIGNAL( triggered() ), pageNotes, SLOT( addNote() ) );
-//    connect( ui->toolBarAddNoteFromClipboard, SIGNAL( triggered() ), pageNotes, SLOT( addNoteFromClipboard() ) );
-//    connect( ui->toolBarAddNoteFromScreen, SIGNAL( triggered() ), pageNotes, SLOT( addNoteFromScreen() ) );
-//    connect( ui->toolBarAddFolder, SIGNAL( triggered() ), pageNotes, SLOT( addFolder() ) );
-//    connect( ui->toolBarRemoveToTrash, SIGNAL( triggered() ), pageNotes, SLOT( removeToTrash() ) );
-//    connect( ui->toolBarRemoveAllNotes, SIGNAL( triggered() ), pageNotes, SLOT( removeAllToTrash() ) );
-//    connect( ui->toolBarDelete, SIGNAL( triggered() ), pageNotes, SLOT( removeFromTrash() ) );
-//    connect( ui->toolBarClearTrash, SIGNAL( triggered() ), pageNotes, SLOT( clearTrash() ) );
+    connect( ui->toolBarAddNote, SIGNAL( triggered() ), pageNotes, SLOT( sl_AddNote() ) );
+    connect( ui->toolBarAddNoteFromClipboard, SIGNAL( triggered() ), pageNotes, SLOT( sl_AddNoteFromClipboard() ) );
+    connect( ui->toolBarAddNoteFromScreen, SIGNAL( triggered() ), pageNotes, SLOT( sl_AddNoteFromScreen() ) );
+    connect( ui->toolBarAddFolder, SIGNAL( triggered() ), pageNotes, SLOT( sl_AddFolder() ) );
+    connect( ui->toolBarRemoveToTrash, SIGNAL( triggered() ), pageNotes, SLOT( sl_RemoveToTrash() ) );
+    connect( ui->toolBarDelete, SIGNAL( triggered() ), pageNotes, SLOT( sl_Delete() ) );
+    connect( ui->toolBarClearTrash, SIGNAL( triggered() ), pageNotes, SLOT( sl_ClearTrash() ) );
 
     connect( ui->toolBarOpenDict, SIGNAL( triggered() ), SLOT( openDictionary() ) );
     connect( ui->toolBarCloseDict, SIGNAL( triggered() ), SLOT( closeDictionary() ) );
-//    connect( ui->toolBarSaveAllNotes, SIGNAL( triggered() ), pageNotes, SLOT( saveAllNotes() ) );
-//    connect( ui->toolBarShowAllNotes, SIGNAL( triggered() ), pageNotes, SLOT( showAllNotes() ) );
-//    connect( ui->toolBarHideAllNotes, SIGNAL( triggered() ), pageNotes, SLOT( hideAllNotes() ) );
-//    connect( ui->toolBarSaveNoteAs, SIGNAL( triggered() ), pageNotes, SLOT( saveAsNote() ) );
-//    connect( ui->toolBarSaveNote, SIGNAL( triggered() ), pageNotes, SLOT( saveNote() ) );
-//    connect( ui->toolBarShowNote, SIGNAL( triggered() ), pageNotes, SLOT( showNote() ) );
-//    connect( ui->toolBarHideNote, SIGNAL( triggered() ), pageNotes, SLOT( hideNote() ) );
-//    connect( ui->toolBarPrintNote, SIGNAL( triggered() ), pageNotes, SLOT( printNote() ) );
-//    connect( ui->toolBarPreviewPrintNote, SIGNAL( triggered() ), pageNotes, SLOT( previewPrintNote() ) );
-//    connect( ui->toolBarTopNote, SIGNAL( triggered(bool) ), pageNotes, SLOT( setTopNote(bool) ) );
-//    //connect( ui->duplicateNote, SIGNAL( triggered() ), SLOT( duplicateNote() ) );
+    connect( ui->toolBarSaveAllNotes, SIGNAL( triggered() ), pageNotes, SLOT( sl_SaveAllNotes() ) );
+    connect( ui->toolBarShowAllNotes, SIGNAL( triggered() ), pageNotes, SLOT( sl_ShowAllNotes() ) );
+    connect( ui->toolBarHideAllNotes, SIGNAL( triggered() ), pageNotes, SLOT( sl_HideAllNotes() ) );
+    connect( ui->toolBarSaveNoteAs, SIGNAL( triggered() ), pageNotes, SLOT( sl_SaveAsNote() ) );
+    connect( ui->toolBarSaveNote, SIGNAL( triggered() ), pageNotes, SLOT( sl_SaveNote() ) );
+    connect( ui->toolBarShowNote, SIGNAL( triggered() ), pageNotes, SLOT( sl_ShowNote() ) );
+    connect( ui->toolBarHideNote, SIGNAL( triggered() ), pageNotes, SLOT( sl_HideNote() ) );
+    connect( ui->toolBarPrintNote, SIGNAL( triggered() ), pageNotes, SLOT( sl_PrintNote() ) );
+    connect( ui->toolBarPreviewPrintNote, SIGNAL( triggered() ), pageNotes, SLOT( sl_PreviewPrintNote() ) );
+    connect( ui->toolBarTopNote, SIGNAL( triggered(bool) ), pageNotes, SLOT( sl_SetTopNote(bool) ) );
+    //connect( ui->duplicateNote, SIGNAL( triggered() ), SLOT( duplicateNote() ) );
 }
 void Manager::createMenu()
 {
@@ -132,35 +130,35 @@ void Manager::createMenu()
         ui->actionCloseDict->setVisible( false );
     }
 
-    connect( ui->actionShowSidebar, SIGNAL( triggered(bool) ), SLOT( setShowSidebar(bool) ) );
     connect( ui->actionFull_screen, SIGNAL( triggered(bool) ), SLOT( setFullScreen(bool) ) );
+    connect( ui->actionShowSidebar, SIGNAL( triggered(bool) ), SLOT( setShowSidebar(bool) ) );
+    connect( ui->actionShow_Status_bar, SIGNAL( triggered(bool) ), SLOT( setShowStatusBar(bool) ) );
 
     connect( ui->actionQuit, SIGNAL( triggered() ), ui->toolBarQuit, SIGNAL( triggered() ) );
     connect( ui->actionSettings, SIGNAL( triggered() ), ui->toolBarSettings, SIGNAL( triggered() ) );
     connect( ui->actionAbout, SIGNAL( triggered() ), ui->toolBarAbout, SIGNAL( triggered() ) );
     connect( ui->actionDocumentation, SIGNAL( triggered() ), SLOT( show_page_documentation() ) );
 
-//    //  TODO:  connect( ui->actionOpen, SIGNAL( triggered() ), SLOT( open() ) );
+    //  TODO:  connect( ui->actionOpen, SIGNAL( triggered() ), SLOT( open() ) );
 
-//    connect( ui->actionAddNote, SIGNAL( triggered() ), ui->toolBarAddNote, SIGNAL( triggered() ) );
-//    connect( ui->actionAddNoteFromClipboard, SIGNAL( triggered() ), ui->toolBarAddNoteFromClipboard, SIGNAL( triggered() ) );
-//    connect( ui->actionAddNoteFromScreen, SIGNAL( triggered() ), ui->toolBarAddNoteFromScreen, SIGNAL( triggered() ) );
-////    connect( ui->actionRemoveNote, SIGNAL( triggered() ), SLOT( removeNote() ) );
-////    connect( ui->actionRemoveAllNotes, SIGNAL( triggered() ), SLOT( removeAllNotes() ) );
+    connect( ui->actionAddNote, SIGNAL( triggered() ), ui->toolBarAddNote, SIGNAL( triggered() ) );
+    connect( ui->actionAddNoteFromClipboard, SIGNAL( triggered() ), ui->toolBarAddNoteFromClipboard, SIGNAL( triggered() ) );
+    connect( ui->actionAddNoteFromScreen, SIGNAL( triggered() ), ui->toolBarAddNoteFromScreen, SIGNAL( triggered() ) );
+    // TODO: действие Добавить папку
 
     connect( ui->actionOpenDict, SIGNAL( triggered() ), ui->toolBarOpenDict, SIGNAL( triggered() ) );
     connect( ui->actionCloseDict, SIGNAL( triggered() ), ui->toolBarCloseDict, SIGNAL( triggered() ) );
-//    connect( ui->actionSaveAllNotes, SIGNAL( triggered() ), ui->toolBarSaveAllNotes, SIGNAL( triggered() ) );
-//    connect( ui->actionShowAllNotes, SIGNAL( triggered() ), ui->toolBarShowAllNotes, SIGNAL( triggered() ) );
-//    connect( ui->actionHideAllNotes, SIGNAL( triggered() ), ui->toolBarHideAllNotes, SIGNAL( triggered() ) );
-//    connect( ui->actionSaveNoteAs, SIGNAL( triggered() ), ui->toolBarSaveNoteAs, SIGNAL( triggered() ) );
-//    connect( ui->actionSaveNote, SIGNAL( triggered() ), ui->toolBarSaveNote, SIGNAL( triggered() ) );
-//    connect( ui->actionShowNote, SIGNAL( triggered() ), ui->toolBarShowNote, SIGNAL( triggered() ) );
-//    connect( ui->actionHideNote, SIGNAL( triggered() ), ui->toolBarHideNote, SIGNAL( triggered() ) );
-//    connect( ui->actionPrintNote, SIGNAL( triggered() ), ui->toolBarPrintNote, SIGNAL( triggered() ) );
-//    connect( ui->actionPreviewPrintNote, SIGNAL( triggered() ), ui->toolBarPreviewPrintNote, SIGNAL( triggered() ) );
-//    connect( ui->actionTopNote, SIGNAL( triggered(bool) ), ui->toolBarTopNote, SIGNAL( triggered() ) );
-//    //connect( ui->actionDuplicateNote, SIGNAL( triggered() ), SLOT( duplicateNote() ) );
+    connect( ui->actionSaveAllNotes, SIGNAL( triggered() ), ui->toolBarSaveAllNotes, SIGNAL( triggered() ) );
+    connect( ui->actionShowAllNotes, SIGNAL( triggered() ), ui->toolBarShowAllNotes, SIGNAL( triggered() ) );
+    connect( ui->actionHideAllNotes, SIGNAL( triggered() ), ui->toolBarHideAllNotes, SIGNAL( triggered() ) );
+    connect( ui->actionSaveNoteAs, SIGNAL( triggered() ), ui->toolBarSaveNoteAs, SIGNAL( triggered() ) );
+    connect( ui->actionSaveNote, SIGNAL( triggered() ), ui->toolBarSaveNote, SIGNAL( triggered() ) );
+    connect( ui->actionShowNote, SIGNAL( triggered() ), ui->toolBarShowNote, SIGNAL( triggered() ) );
+    connect( ui->actionHideNote, SIGNAL( triggered() ), ui->toolBarHideNote, SIGNAL( triggered() ) );
+    connect( ui->actionPrintNote, SIGNAL( triggered() ), ui->toolBarPrintNote, SIGNAL( triggered() ) );
+    connect( ui->actionPreviewPrintNote, SIGNAL( triggered() ), ui->toolBarPreviewPrintNote, SIGNAL( triggered() ) );
+    connect( ui->actionTopNote, SIGNAL( triggered(bool) ), ui->toolBarTopNote, SIGNAL( triggered() ) );
+    //connect( ui->actionDuplicateNote, SIGNAL( triggered() ), SLOT( duplicateNote() ) );
 }
 void Manager::createTray()
 {
@@ -247,7 +245,6 @@ void Manager::messageReceived( QSystemTrayIcon::ActivationReason reason )
             hide();
         else
             show_Manager();
-
     }
 }
 
@@ -365,7 +362,6 @@ void Manager::setFullScreen( bool fs )
 void Manager::quit()
 {
     bool askBeforeExiting = pageSettings->mapSettings[ "AskBeforeExiting" ].toBool();
-
     if ( askBeforeExiting )
     {
         QMessageBox::StandardButton result = showNewMessageBox( 0, QMessageBox::Question, tr( "Question" ), tr( "Really quit?" ), QMessageBox::Ok | QMessageBox::Cancel, QMessageBox::Ok );
@@ -386,6 +382,7 @@ void Manager::readSettings()
     restoreGeometry( settings->value( "Geometry" ).toByteArray() );
     restoreState( settings->value( "State" ).toByteArray() );
     setShowSidebar( settings->value( "Sidebar_Visible", true ).toBool() );
+    setShowStatusBar( settings->value( "StatusBar_Visible", true ).toBool() );
     settings->endGroup();
 
     pageNotes->readSettings();
@@ -403,6 +400,7 @@ void Manager::writeSettings()
     settings->setValue( "Geometry", saveGeometry() );
     settings->setValue( "State", saveState() );
     settings->setValue( "Sidebar_Visible", isShowSidebar() );
+    settings->setValue( "StatusBar_Visible", isShowStatusBar() );
     settings->endGroup();
 
     pageNotes->writeSettings();
@@ -413,14 +411,17 @@ void Manager::writeSettings()
     ui->statusBar->showMessage( tr( "Save completed" ), 5000 );
 
 
-    const QString & fileName = qApp->applicationDirPath() + "/notes/notebook.xml";
-    QFile file( fileName );
-    if ( !file.open( QFile::WriteOnly | QFile::Text ) )
+    // Передача xml файла, в котором будет описано иерархическое дерево с заметками
     {
-        QMessageBox::warning( this, tr( "Error" ), tr( "Cannot write file %1:\n%2." ).arg( fileName ).arg( file.errorString() ) );
-        return;
+        const QString & fileName = qApp->applicationDirPath() + "/notes/notebook.xml";
+        QFile file( fileName );
+        if ( !file.open( QFile::WriteOnly | QFile::Text ) )
+        {
+            QMessageBox::warning( this, tr( "Error" ), tr( "Cannot write file %1:\n%2." ).arg( fileName ).arg( file.errorString() ) );
+            return;
+        }
+        pageNotes->write( &file );
     }
-    pageNotes->write( &file );
 }
 
 void Manager::openDictionary()
@@ -442,6 +443,15 @@ void Manager::setShowSidebar( bool visible )
 bool Manager::isShowSidebar()
 {
     return ui->sidebar->isVisible();
+}
+void Manager::setShowStatusBar( bool show )
+{
+    ui->statusBar->setVisible( show );
+    ui->actionShow_Status_bar->setChecked( show );
+}
+bool Manager::isShowStatusBar()
+{
+    return ui->statusBar->isVisible();
 }
 void Manager::setActivateTimerAutosave( bool activate )
 {

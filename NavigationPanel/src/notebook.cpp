@@ -115,7 +115,7 @@ QDomElement createDomElementOfItem( AbstractFolderItem * item, QDomDocument & xm
     {
         Note * note = static_cast < Note * > ( item );
         RichTextNote * richTextNote = note->getRichTextNote();
-        richTextNote->save(); // TODO: remove this
+        richTextNote->save();
 
         const QString & id = getIdFromRichTextNote( richTextNote );
         element.setAttribute( "id", id );

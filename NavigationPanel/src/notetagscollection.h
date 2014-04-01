@@ -25,8 +25,6 @@ along with qNotesManager. If not, see <http://www.gnu.org/licenses/>.
 class Tag;
 class Note;
 
-// TODO: rename to TagsCollection
-
 class NoteTagsCollection : public QObject
 {
     Q_OBJECT

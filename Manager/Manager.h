@@ -99,6 +99,8 @@ public slots:
 
     void setShowSidebar( bool visible );
     bool isShowSidebar();
+    void setShowStatusBar( bool show );
+    bool isShowStatusBar();
     void setActivateTimerAutosave( bool activate ); //!< Активация таймера автосохранения.
     bool isActivateTimerAutosave();                 //!< Функция вернет true, если таймер автосохранения активен.
     void setIntervalAutosave( quint64 minutes );    //!< Установка интервала таймера автосохранения.

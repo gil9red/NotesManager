@@ -191,6 +191,34 @@ bool FolderNavigationWidget::hasCurrentItem()
 {
     return treeView->currentIndex().isValid();
 }
+Note * FolderNavigationWidget::getNote( const QModelIndex & index )
+{
+    if ( !index.isValid() )
+    {
+        WARNING( "is not valid index!" );
+        return 0;
+    }
+
+    BaseModelItem* item = static_cast < BaseModelItem * > ( index.internalPointer() );
+    if ( item->DataType() == BaseModelItem::note )
+    {
+        Note * note = dynamic_cast<NoteModelItem*>(item)->GetStoredData();
+        if ( !note )
+        {
+            WARNING("Casting error");
+            return 0;
+        }
+
+        return note;
+    }
+
+    return 0;
+}
+Note * FolderNavigationWidget::getCurrentNote()
+{
+    const QModelIndex & index = treeView->currentIndex();
+    return getNote( index );
+}
 
 void FolderNavigationWidget::deleteItems(QModelIndexList& indexesList, bool permanently)
 {
@@ -525,58 +553,94 @@ void FolderNavigationWidget::sl_PinFolderButton_Toggled(bool toggle)
     updatePinnedFolderData();
 }
 
-void FolderNavigationWidget::sl_AddNoteAction_Triggered()
+void FolderNavigationWidget::sl_Model_ApplySelection(const QModelIndexList& list)
 {
+    treeView->selectionModel()->clearSelection();
+
+    if (list.size() == 0) return;
+
+    treeView->selectionModel()->setCurrentIndex(list.at(0), QItemSelectionModel::NoUpdate);
+
+    foreach(QModelIndex index, list)
+    {
+        if (index.parent().isValid())
+            treeView->expand(index.parent());
+        treeView->selectionModel()->select(index, QItemSelectionModel::Select);
+    }
+}
+void FolderNavigationWidget::sl_Model_DisplayRootItemChanged()
+{
+    restoreExpandedIndexes();
+    emit sg_SelectedItemsActionsListChanged();
+}
+
+bool FolderNavigationWidget::sl_AddNote( RichTextNote * richTextNote )
+{
+    if ( !richTextNote )
+    {
+        WARNING("null pointer!");
+        return false;
+    }
+
+    Folder * root = Notebook::instance()->rootFolder();
+
     // Если нет выделенного элемента, добавляем в корень
     if ( !hasCurrentItem() && !model->GetPinnedFolder() )
     {
-        RichTextNote * richTextNote = new RichTextNote();
-        richTextNote->createNew();richTextNote->show();
-
         Note * note = new Note();
         note->setRichTextNote( richTextNote );
+        root->Items.Add( note );
 
-        Notebook::instance()->rootFolder()->Items.Add( note );
-        return;
+        return true;
     }
 
-	QModelIndexList indexesList = treeView->selectionModel()->selectedIndexes();
+    QModelIndexList indexesList = treeView->selectionModel()->selectedIndexes();
     if (indexesList.size() > 1)
     {
-		WARNING("Wrong item selection");
-		return;
-	}
+        WARNING("Wrong item selection");
+        return false;
+    }
 
-	Folder* parentFolder = 0;
+    Folder* parentFolder = 0;
 
     if (indexesList.size() == 0)
-        parentFolder = (model->GetPinnedFolder() == 0 ? Notebook::instance()->rootFolder() : model->GetPinnedFolder());
-
+        parentFolder = ( !model->GetPinnedFolder() ? root : model->GetPinnedFolder() );
     else
     {
         BaseModelItem* modelitem = static_cast<BaseModelItem*>(indexesList.value(0).internalPointer());
         if (modelitem->DataType() != BaseModelItem::folder)
         {
-			WARNING("Parent item is not a folder");
-			return;
-		}
+            WARNING("Parent item is not a folder");
+            return false;
+        }
         parentFolder = dynamic_cast<FolderModelItem*>(modelitem)->GetStoredData();
 
         if (parentFolder == Notebook::instance()->trashFolder())
         {
-			WARNING("Cannot create notes in bin");
-			return;
-		}
-	}
-
-
-    RichTextNote * richTextNote = new RichTextNote();
-    richTextNote->createNew();
+            WARNING("Cannot create notes in bin");
+            return false;
+        }
+    }
 
     Note * note = new Note();
     note->setRichTextNote( richTextNote );
-
     parentFolder->Items.Add( note );
+
+    return true;
+}
+
+void FolderNavigationWidget::sl_AddNoteAction_Triggered()
+{
+    RichTextNote * richTextNote = new RichTextNote();
+
+    bool successful = sl_AddNote( richTextNote );
+    if ( !successful )
+    {
+        CRITICAL( "Error when add new note" );
+        delete richTextNote;
+        return;
+    }
+    richTextNote->createNew();
 }
 void FolderNavigationWidget::sl_AddFolderAction_Triggered()
 {   
@@ -901,27 +965,6 @@ void FolderNavigationWidget::sl_RenameItemAction_Triggered()
 		return;
 	}
     treeView->edit( treeView->currentIndex() );
-}
-
-void FolderNavigationWidget::sl_Model_ApplySelection(const QModelIndexList& list)
-{
-	treeView->selectionModel()->clearSelection();
-
-    if (list.size() == 0) return;
-
-	treeView->selectionModel()->setCurrentIndex(list.at(0), QItemSelectionModel::NoUpdate);
-
-    foreach(QModelIndex index, list)
-    {
-        if (index.parent().isValid())
-			treeView->expand(index.parent());
-		treeView->selectionModel()->select(index, QItemSelectionModel::Select);
-	}
-}
-void FolderNavigationWidget::sl_Model_DisplayRootItemChanged()
-{
-	restoreExpandedIndexes();
-	emit sg_SelectedItemsActionsListChanged();
 }
 
 bool FolderNavigationWidget::eventFilter (QObject* watched, QEvent* event)

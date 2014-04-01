@@ -144,6 +144,7 @@
     </property>
     <addaction name="actionFull_screen"/>
     <addaction name="actionShowSidebar"/>
+    <addaction name="actionShow_Status_bar"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuToolbars"/>
@@ -275,47 +276,6 @@
    </property>
    <property name="whatsThis">
     <string>Add a note from the clipboard</string>
-   </property>
-  </action>
-  <action name="toolBarRemoveAllNotes">
-   <property name="text">
-    <string>Remove all notes to trash</string>
-   </property>
-   <property name="statusTip">
-    <string>Remove all notes to trash</string>
-   </property>
-   <property name="whatsThis">
-    <string>Remove all notes to trash</string>
-   </property>
-  </action>
-  <action name="actionRemoveAllNotes">
-   <property name="icon">
-    <iconset resource="Manager.qrc">
-     <normaloff>:/Manager/remove_all</normaloff>:/Manager/remove_all</iconset>
-   </property>
-   <property name="text">
-    <string>Remove all notes</string>
-   </property>
-   <property name="statusTip">
-    <string>Remove all notes</string>
-   </property>
-   <property name="whatsThis">
-    <string>Remove all notes</string>
-   </property>
-  </action>
-  <action name="actionRemoveNote">
-   <property name="icon">
-    <iconset resource="Manager.qrc">
-     <normaloff>:/Manager/remove</normaloff>:/Manager/remove</iconset>
-   </property>
-   <property name="text">
-    <string>Remove note</string>
-   </property>
-   <property name="statusTip">
-    <string>Remove note</string>
-   </property>
-   <property name="whatsThis">
-    <string>Remove note</string>
    </property>
   </action>
   <action name="toolBarSaveNote">
@@ -971,6 +931,23 @@
     <string>Settings</string>
    </property>
   </action>
+  <action name="actionShow_Status_bar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show status bar</string>
+   </property>
+   <property name="statusTip">
+    <string>Show status bar</string>
+   </property>
+   <property name="whatsThis">
+    <string>Show status bar</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
@@ -982,8 +959,8 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../Note/Note.qrc"/>
   <include location="Manager.qrc"/>
+  <include location="../Note/Note.qrc"/>
  </resources>
  <connections>
   <connection>

@@ -81,7 +81,6 @@ BaseModelItem* BaseModel::GetRootItem() const {
 	return rootItem;
 }
 
-/*virtual*/
 QModelIndex BaseModel::index(int row, int column, const QModelIndex& parent) const {
 	if (!hasIndex(row, column, parent)) {
 		return QModelIndex();
@@ -95,7 +94,6 @@ QModelIndex BaseModel::index(int row, int column, const QModelIndex& parent) con
 	return createIndex(row, column, item->ChildAt(row));
 }
 
-/*virtual*/
 QModelIndex BaseModel::parent(const QModelIndex& child) const {
 	if (!child.isValid()) {return QModelIndex();}
 

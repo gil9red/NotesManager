@@ -1,10 +1,10 @@
 <RCC>
     <qresource prefix="/FindAndReplace">
-        <file alias="previous">images/previous.png</file>
-        <file alias="casesensitively">images/casesensitively.png</file>
-        <file alias="next">images/next.png</file>
-        <file alias="regexp">images/regexp.png</file>
-        <file alias="wholewords">images/wholewords.png</file>
-        <file alias="magnifier">images/magnifier.png</file>
+        <file alias="previous">icons/previous.png</file>
+        <file alias="casesensitively">icons/casesensitively.png</file>
+        <file alias="next">icons/next.png</file>
+        <file alias="regexp">icons/regexp.png</file>
+        <file alias="wholewords">icons/wholewords.png</file>
+        <file alias="magnifier">icons/magnifier.png</file>
     </qresource>
 </RCC>

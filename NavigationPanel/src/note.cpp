@@ -21,8 +21,8 @@ along with qNotesManager. If not, see <http://www.gnu.org/licenses/>.
 #include <QDebug>
 
 Note::Note()
-    : AbstractFolderItem(AbstractFolderItem::Type_Note),
-      Tags(this),
+    : AbstractFolderItem( AbstractFolderItem::Type_Note ),
+      Tags( this ),
       p_RichTextNote(0)
 {
     QObject::connect(&Tags, SIGNAL(sg_ItemAboutToBeAdded(Tag*)), SIGNAL(sg_TagAboutToBeAdded(Tag*)));

@@ -1,10 +1,10 @@
 <RCC>
     <qresource prefix="/App">
-        <file alias="icon-mini">images/icon64x64.png</file>
-        <file alias="splash">images/splash.png</file>
-        <file alias="app-icon">images/app_icon.png</file>
+        <file alias="icon-mini">icons/icon64x64.png</file>
+        <file alias="splash">icons/splash.png</file>
+        <file alias="app-icon">icons/app_icon.png</file>
         <file alias="license">license</file>
-        <file alias="icon-license">images/gplv3-88x31.png</file>
+        <file alias="icon-license">icons/gplv3-88x31.png</file>
         <file alias="history_ru">history_ru</file>
     </qresource>
 </RCC>

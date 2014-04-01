@@ -29,6 +29,7 @@ along with qNotesManager. If not, see <http://www.gnu.org/licenses/>.
 #include <QSortFilterProxyModel>
 #include <QLineEdit>
 #include <QItemDelegate>
+#include "Note/RichTextNote.h"
 
 class HierarchyModel;
 class Note;
@@ -43,7 +44,9 @@ public:
     void setModel( HierarchyModel * );
     void updatePinnedFolderData();
 
-    bool hasCurrentItem();
+    bool hasCurrentItem();    
+    Note * getNote( const QModelIndex & index );
+    Note * getCurrentNote();
 
 private:
     QTreeView* treeView;
@@ -83,6 +86,12 @@ private slots:
 
     void sl_PinFolderButton_Toggled(bool);
 
+    void sl_Model_ApplySelection(const QModelIndexList&);
+    void sl_Model_DisplayRootItemChanged();
+
+public slots:
+    bool sl_AddNote( RichTextNote * richTextNote );
+
     // Actions event handlers
     void sl_AddNoteAction_Triggered();
     void sl_AddFolderAction_Triggered();
@@ -95,9 +104,6 @@ private slots:
     void sl_ClearTrashAction_Triggered();
     void sl_OpenNoteAction_Triggered();
     void sl_RenameItemAction_Triggered();
-
-    void sl_Model_ApplySelection(const QModelIndexList&);
-    void sl_Model_DisplayRootItemChanged();
 
 protected:
     bool eventFilter (QObject* watched, QEvent* event);

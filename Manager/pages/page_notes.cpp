@@ -75,6 +75,7 @@ void Page_Notes::read( QIODevice * device )
                 if ( !noteEditWidget )
                 {
                     WARNING( "Another type tab" );
+                    dom_tab = dom_tab.nextSiblingElement();
                     continue;
                 }
 
@@ -175,162 +176,265 @@ void Page_Notes::writeSettings()
 
 void Page_Notes::sl_AddFolder()
 {
-//    FolderModelItem * folderItem = new FolderModelItem( tr( "New folder" ) );
-//    addItemToModel( folderItem );
+    qApp->setOverrideCursor( Qt::WaitCursor );
+    ui->tab_Notes->sl_AddFolderAction_Triggered();
+    qApp->restoreOverrideCursor();
 }
 void Page_Notes::sl_AddNote()
 {
-//    qApp->setOverrideCursor( Qt::WaitCursor );
-
-//    RichTextNote * note = new RichTextNote();
-//    note->createNew();
-
-//    addNoteToModel( note );
-//    qApp->restoreOverrideCursor();
+    qApp->setOverrideCursor( Qt::WaitCursor );
+    ui->tab_Notes->sl_AddNoteAction_Triggered();
+    qApp->restoreOverrideCursor();
 }
 void Page_Notes::sl_AddNoteFromClipboard()
 {
-//    qApp->setOverrideCursor( Qt::WaitCursor );
+    qApp->setOverrideCursor( Qt::WaitCursor );
 
-//    RichTextNote * note = new RichTextNote();
-//    note->createNew( false );
-//    note->setText( qApp->clipboard()->text() );
-//    note->save();
+    RichTextNote * richTextNote = new RichTextNote();
+    richTextNote->createNew( false );
 
-//    addNoteToModel( note );
-//    qApp->restoreOverrideCursor();
+    bool successful = ui->tab_Notes->sl_AddNote( richTextNote );
+    if ( !successful )
+    {
+        CRITICAL( "Error when add new note" );
+        richTextNote->remove();
+        return;
+    }
+
+    richTextNote->setText( qApp->clipboard()->text() );
+    richTextNote->save();
+
+    qApp->restoreOverrideCursor();
 }
 void Page_Notes::sl_AddNoteFromScreen()
 {
-//    FullscreenshotCropper cropper;
-//    cropper.setImage( QPixmap::grabWindow( QApplication::desktop()->winId() ) );
-//    cropper.showFullScreen();
-//    if ( !cropper.exec() )
-//        return;
+    FullscreenshotCropper cropper;
+    cropper.setImage( QPixmap::grabWindow( QApplication::desktop()->winId() ) );
+    cropper.showFullScreen();
+    if ( !cropper.exec() )
+        return;
+    const QPixmap & screenshot = cropper.cropperImage();
 
-//    const QPixmap & screenshot = cropper.cropperImage();
 
-//    qApp->setOverrideCursor( Qt::WaitCursor );
+    qApp->setOverrideCursor( Qt::WaitCursor );
 
-//    RichTextNote * note = new RichTextNote();
-//    note->createNew( false );
-//    note->insertImage( screenshot );
-//    note->save();
+    RichTextNote * richTextNote = new RichTextNote();
+    richTextNote->createNew( false );
 
-//    addNoteToModel( note );
-//    qApp->restoreOverrideCursor();
+    bool successful = ui->tab_Notes->sl_AddNote( richTextNote );
+    if ( !successful )
+    {
+        CRITICAL( "Error when add new note" );
+        richTextNote->remove();
+        return;
+    }
+
+    richTextNote->insertImage( screenshot );
+    richTextNote->save();
+
+    qApp->restoreOverrideCursor();
 }
 void Page_Notes::sl_Delete()
 {
-
+    qApp->setOverrideCursor( Qt::WaitCursor );
+    ui->tab_Notes->sl_DeleteItemAction_Triggered();
+    qApp->restoreOverrideCursor();
 }
 void Page_Notes::sl_ClearTrash()
 {
-
+    qApp->setOverrideCursor( Qt::WaitCursor );
+    ui->tab_Notes->sl_ClearTrashAction_Triggered();
+    qApp->restoreOverrideCursor();
 }
 void Page_Notes::sl_RemoveToTrash()
 {
-
+    qApp->setOverrideCursor( Qt::WaitCursor );
+    ui->tab_Notes->sl_MoveToBinAction_Triggered();
+    qApp->restoreOverrideCursor();
 }
 
 void Page_Notes::sl_SaveNote()
 {
-//    const QModelIndex & index = ui->treeNotes->currentIndex();
-//    RichTextNote * note = noteFromIndex( index );
-//    note->save();
-//    emit about_updateStates();
+    Note * note = ui->tab_Notes->getCurrentNote();
+    if ( !note )
+    {
+        WARNING( "null pointer on note!" )
+        return;
+    }
+
+    RichTextNote * richTextNote = note->getRichTextNote();
+    if ( !richTextNote )
+    {
+        WARNING( "null pointer on richTextNote!" )
+        return;
+    }
+
+    richTextNote->save();
+    emit sg_About_UpdateStates();
 }
 void Page_Notes::sl_SaveAsNote()
 {
-//    const QModelIndex & index = ui->treeNotes->currentIndex();
-//    RichTextNote * note = noteFromIndex( index );
-//    note->saveAs();
+    Note * note = ui->tab_Notes->getCurrentNote();
+    if ( !note )
+    {
+        WARNING( "null pointer on note!" )
+        return;
+    }
+
+    RichTextNote * richTextNote = note->getRichTextNote();
+    if ( !richTextNote )
+    {
+        WARNING( "null pointer on richTextNote!" )
+        return;
+    }
+
+    richTextNote->saveAs();
 }
 void Page_Notes::sl_ShowNote()
 {
-//    const QModelIndex & index = ui->treeNotes->currentIndex();
-//    RichTextNote * note = noteFromIndex( index );
-//    if ( note->isVisible() )
-//        return;
-//    note->show();
-//    emit about_updateStates();
+    Note * note = ui->tab_Notes->getCurrentNote();
+    if ( !note )
+    {
+        WARNING( "null pointer on note!" )
+        return;
+    }
+
+    RichTextNote * richTextNote = note->getRichTextNote();
+    if ( !richTextNote )
+    {
+        WARNING( "null pointer on richTextNote!" )
+        return;
+    }
+
+    if ( richTextNote->isVisible() )
+        return;
+    richTextNote->show();
+
+    emit sg_About_UpdateStates();
 }
 void Page_Notes::sl_HideNote()
 {
-//    const QModelIndex & index = ui->treeNotes->currentIndex();
-//    RichTextNote * note = noteFromIndex( index );
-//    if ( note->isHidden() )
-//        return;
-//    note->hide();
-//    emit about_updateStates();
+    Note * note = ui->tab_Notes->getCurrentNote();
+    if ( !note )
+    {
+        WARNING( "null pointer on note!" )
+        return;
+    }
+
+    RichTextNote * richTextNote = note->getRichTextNote();
+    if ( !richTextNote )
+    {
+        WARNING( "null pointer on richTextNote!" )
+        return;
+    }
+
+    if ( richTextNote->isHidden() )
+        return;
+    richTextNote->hide();
+
+    emit sg_About_UpdateStates();
 }
 void Page_Notes::sl_ShowAllNotes()
 {
-//    qApp->setOverrideCursor( Qt::WaitCursor );
+    qApp->setOverrideCursor( Qt::WaitCursor );
 
-//    QHash < QStandardItem *, RichTextNote * >::iterator it;
-//    for ( it = hashItemNote.begin(); it != hashItemNote.end(); it++ )
-//    {
-//        RichTextNote * note = it.value();
-//        if ( note->isVisible() )
-//            continue;
+    foreach ( Note * note, Notebook::instance()->notesList() )
+    {
+        RichTextNote * richTextNote = note->getRichTextNote();
+        if ( richTextNote->isVisible() )
+            continue;
 
-//        note->show();
-//        qApp->processEvents();
-//    }
+        richTextNote->show();
+        qApp->processEvents();
+    }
 
-//    qApp->restoreOverrideCursor();
-//    emit about_updateStates();
+    qApp->restoreOverrideCursor();
+    emit sg_About_UpdateStates();
 }
 void Page_Notes::sl_HideAllNotes()
 {
-//    qApp->setOverrideCursor( Qt::WaitCursor );
+    qApp->setOverrideCursor( Qt::WaitCursor );
 
-//    QHash < QStandardItem *, RichTextNote * >::iterator it;
-//    for ( it = hashItemNote.begin(); it != hashItemNote.end(); it++ )
-//    {
-//        RichTextNote * note = it.value();
-//        if ( note->isHidden() )
-//            continue;
+    foreach ( Note * note, Notebook::instance()->notesList() )
+    {
+        RichTextNote * richTextNote = note->getRichTextNote();
+        if ( richTextNote->isHidden() )
+            continue;
 
-//        note->hide();
-//        qApp->processEvents();
-//    }
+        richTextNote->hide();
+        qApp->processEvents();
+    }
 
-//    qApp->restoreOverrideCursor();
-//    emit about_updateStates();
+    qApp->restoreOverrideCursor();
+    emit sg_About_UpdateStates();
 }
 void Page_Notes::sl_SaveAllNotes()
 {
-//    qApp->setOverrideCursor( Qt::WaitCursor );
+    qApp->setOverrideCursor( Qt::WaitCursor );
 
-//    QHash < QStandardItem *, RichTextNote * >::iterator it;
-//    for ( it = hashItemNote.begin(); it != hashItemNote.end(); it++ )
-//    {
-//        RichTextNote * note = it.value();
-//        note->save();
-//        qApp->processEvents();
-//    }
+    foreach ( Note * note, Notebook::instance()->notesList() )
+    {
+        RichTextNote * richTextNote = note->getRichTextNote();
+        richTextNote->save();
+        qApp->processEvents();
+    }
 
-//    qApp->restoreOverrideCursor();
-//    emit about_updateStates();
+    qApp->restoreOverrideCursor();
+    emit sg_About_UpdateStates();
 }
 void Page_Notes::sl_SetTopNote( bool top )
 {
-//    const QModelIndex & index = ui->treeNotes->currentIndex();
-//    RichTextNote * note = noteFromIndex( index );
-//    note->setTop( top );
-//    emit about_updateStates();
+    Note * note = ui->tab_Notes->getCurrentNote();
+    if ( !note )
+    {
+        WARNING( "null pointer on note!" )
+        return;
+    }
+
+    RichTextNote * richTextNote = note->getRichTextNote();
+    if ( !richTextNote )
+    {
+        WARNING( "null pointer on richTextNote!" )
+        return;
+    }
+
+    richTextNote->setTop( top );
+
+    emit sg_About_UpdateStates();
 }
 void Page_Notes::sl_PrintNote()
 {
-//    const QModelIndex & index = ui->treeNotes->currentIndex();
-//    RichTextNote * note = noteFromIndex( index );
-//    note->print();
+    Note * note = ui->tab_Notes->getCurrentNote();
+    if ( !note )
+    {
+        WARNING( "null pointer on note!" )
+        return;
+    }
+
+    RichTextNote * richTextNote = note->getRichTextNote();
+    if ( !richTextNote )
+    {
+        WARNING( "null pointer on richTextNote!" )
+        return;
+    }
+
+    richTextNote->print();
 }
 void Page_Notes::sl_PreviewPrintNote()
 {
-//    const QModelIndex & index = ui->treeNotes->currentIndex();
-//    RichTextNote * note = noteFromIndex( index );
-//    note->previewPrint();
+    Note * note = ui->tab_Notes->getCurrentNote();
+    if ( !note )
+    {
+        WARNING( "null pointer on note!" )
+        return;
+    }
+
+    RichTextNote * richTextNote = note->getRichTextNote();
+    if ( !richTextNote )
+    {
+        WARNING( "null pointer on richTextNote!" )
+        return;
+    }
+
+    richTextNote->previewPrint();
 }
