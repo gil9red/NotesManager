@@ -2,10 +2,7 @@
     <qresource prefix="/Manager">
         <file alias="settings">icons/settings.png</file>
         <file alias="about">icons/help.png</file>
-        <file alias="add">icons/add.png</file>
-        <file alias="remove">icons/delete.png</file>
         <file alias="quit">icons/quit.png</file>
-        <file alias="minus">icons/minus.png</file>
         <file alias="remove_all">icons/clear.png</file>
         <file alias="hide">icons/hide.png</file>
         <file alias="show">icons/show.png</file>
@@ -13,12 +10,21 @@
         <file alias="show_all">icons/show all.png</file>
         <file alias="hide_all">icons/hide all.png</file>
         <file alias="save_all">icons/save all.png</file>
-        <file alias="refresh">icons/refreshblue_8522.png</file>
         <file alias="open_dict">icons/open dictionary.png</file>
         <file alias="close_dict">icons/close dictionary.png</file>
         <file alias="clipboard">icons/notes_7219.png</file>
         <file alias="run">icons/play.png</file>
         <file alias="screenshot">icons/screenshot.png</file>
         <file alias="notebook">icons/notebook-64.png</file>
+    </qresource>
+    <qresource prefix="/fugue-icons">
+        <file alias="application-sidebar">icons/fugue-icons/32x32/application-sidebar.png</file>
+        <file alias="calendar-day">icons/fugue-icons/32x32/calendar-day.png</file>
+        <file alias="cross">icons/fugue-icons/32x32/cross.png</file>
+        <file alias="plus">icons/fugue-icons/32x32/plus.png</file>
+        <file alias="tag-label">icons/fugue-icons/32x32/tag-label.png</file>
+        <file alias="minus">icons/fugue-icons/32x32/minus.png</file>
+        <file alias="folder-tree">icons/fugue-icons/16x16/folder-tree.png</file>
+        <file alias="folder--plus">icons/fugue-icons/16x16/folder--plus.png</file>
     </qresource>
 </RCC>

@@ -38,12 +38,12 @@ HierarchyModel::HierarchyModel(QObject *parent)
     RegisterItem(rootFolder);
 
 
-    Folder* tempFolder = Notebook::instance()->tempFolder();
-    if (tempFolder == 0) {
-        WARNING("Null reference");
-        return;
-    }
-    RegisterItem(tempFolder);
+//    Folder* tempFolder = Notebook::instance()->tempFolder();
+//    if (tempFolder == 0) {
+//        WARNING("Null reference");
+//        return;
+//    }
+//    RegisterItem(tempFolder);
 
     Folder* trashFolder = Notebook::instance()->trashFolder();
     if (trashFolder == 0) {
@@ -53,10 +53,10 @@ HierarchyModel::HierarchyModel(QObject *parent)
     RegisterItem(trashFolder);
 
     SeparatorModelItem* separatorItem = new SeparatorModelItem();
-    BaseModelItem* rootItem = bridge.value(Notebook::instance()->rootFolder());
+    BaseModelItem * rootItem = bridge.value(Notebook::instance()->rootFolder());
 
     rootItem->AddChild(separatorItem);
-    rootItem->AddChild(bridge.value(tempFolder));
+//    rootItem->AddChild(bridge.value(tempFolder));
     rootItem->AddChild(bridge.value(trashFolder));
 
     SetRootItem(rootItem);
@@ -425,8 +425,7 @@ Qt::ItemFlags HierarchyModel::flags (const QModelIndex& index ) const
 		if (modelItem->DataType() == BaseModelItem::folder) {
 			FolderModelItem* folderItem = dynamic_cast<FolderModelItem*>(modelItem);
 
-            if (folderItem->GetStoredData() == Notebook::instance()->tempFolder() || folderItem->GetStoredData() == Notebook::instance()->trashFolder())
-//            if (folderItem->GetStoredData() == Application::I()->CurrentDocument()->GetTempFolder() || folderItem->GetStoredData() == Application::I()->CurrentDocument()->GetTrashFolder())
+            if ( /*folderItem->GetStoredData() == Notebook::instance()->tempFolder() ||*/ folderItem->GetStoredData() == Notebook::instance()->trashFolder() )
 				returnFlags = Qt::ItemIsDropEnabled | defaultFlags;
             else
 				returnFlags = Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled | defaultFlags;

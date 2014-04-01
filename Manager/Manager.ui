@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>854</width>
-    <height>372</height>
+    <width>633</width>
+    <height>410</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -62,7 +62,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>854</width>
+     <width>633</width>
      <height>20</height>
     </rect>
    </property>
@@ -251,7 +251,7 @@
   <action name="actionAddNote">
    <property name="icon">
     <iconset resource="Manager.qrc">
-     <normaloff>:/Manager/add</normaloff>:/Manager/add</iconset>
+     <normaloff>:/fugue-icons/plus</normaloff>:/fugue-icons/plus</iconset>
    </property>
    <property name="text">
     <string>Add note</string>
@@ -730,6 +730,10 @@
    <property name="checked">
     <bool>true</bool>
    </property>
+   <property name="icon">
+    <iconset resource="Manager.qrc">
+     <normaloff>:/fugue-icons/application-sidebar</normaloff>:/fugue-icons/application-sidebar</iconset>
+   </property>
    <property name="text">
     <string>Show Sidebar</string>
    </property>
@@ -743,7 +747,7 @@
   <action name="toolBarAddNote">
    <property name="icon">
     <iconset resource="Manager.qrc">
-     <normaloff>:/Manager/add</normaloff>:/Manager/add</iconset>
+     <normaloff>:/fugue-icons/plus</normaloff>:/fugue-icons/plus</iconset>
    </property>
    <property name="text">
     <string>Add note</string>
@@ -783,6 +787,10 @@
    </property>
   </action>
   <action name="toolBarAddFolder">
+   <property name="icon">
+    <iconset resource="Manager.qrc">
+     <normaloff>:/fugue-icons/folder--plus</normaloff>:/fugue-icons/folder--plus</iconset>
+   </property>
    <property name="text">
     <string>Add folder</string>
    </property>
@@ -796,7 +804,7 @@
   <action name="toolBarDelete">
    <property name="icon">
     <iconset resource="Manager.qrc">
-     <normaloff>:/Manager/remove</normaloff>:/Manager/remove</iconset>
+     <normaloff>:/fugue-icons/cross</normaloff>:/fugue-icons/cross</iconset>
    </property>
    <property name="text">
     <string>Remove from trash</string>
@@ -809,6 +817,10 @@
    </property>
   </action>
   <action name="toolBarRemoveToTrash">
+   <property name="icon">
+    <iconset resource="Manager.qrc">
+     <normaloff>:/fugue-icons/minus</normaloff>:/fugue-icons/minus</iconset>
+   </property>
    <property name="text">
     <string>Remove to trash</string>
    </property>
@@ -898,6 +910,10 @@
    </property>
   </action>
   <action name="toolBarClearTrash">
+   <property name="icon">
+    <iconset resource="Manager.qrc">
+     <normaloff>:/Manager/remove_all</normaloff>:/Manager/remove_all</iconset>
+   </property>
    <property name="text">
     <string>Clear trash</string>
    </property>

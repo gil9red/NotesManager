@@ -25,16 +25,28 @@
         <number>0</number>
        </property>
        <widget class="FolderNavigationWidget" name="tab_Notes">
+        <attribute name="icon">
+         <iconset resource="../Manager.qrc">
+          <normaloff>:/fugue-icons/folder-tree</normaloff>:/fugue-icons/folder-tree</iconset>
+        </attribute>
         <attribute name="title">
          <string>Notes</string>
         </attribute>
        </widget>
        <widget class="TagsNavigationWidget" name="tab_Tags">
+        <attribute name="icon">
+         <iconset resource="../Manager.qrc">
+          <normaloff>:/fugue-icons/tag-label</normaloff>:/fugue-icons/tag-label</iconset>
+        </attribute>
         <attribute name="title">
          <string>Tags</string>
         </attribute>
        </widget>
        <widget class="DateNavigationWidget" name="tab_Dates">
+        <attribute name="icon">
+         <iconset resource="../Manager.qrc">
+          <normaloff>:/fugue-icons/calendar-day</normaloff>:/fugue-icons/calendar-day</iconset>
+        </attribute>
         <attribute name="title">
          <string>Dates</string>
         </attribute>
@@ -79,6 +91,8 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="../Manager.qrc"/>
+ </resources>
  <connections/>
 </ui>

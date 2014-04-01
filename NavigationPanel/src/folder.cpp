@@ -42,16 +42,19 @@ Folder::Folder(QString _name, FolderType _type) :
 	QObject::connect(&Items, SIGNAL(sg_Cleared()), SIGNAL(sg_DataChanged()));
 
 
-    if (type == TempFolder)
+    /*if (type == TempFolder)
         name = tr( "Temporary" );
 
-    else if (type == TrashFolder)
+    else */if (type == TrashFolder)
+    {
         name = tr( "Trash bin" );
+        SetIcon( QIcon( ":/fugue-icons/bin" ) );
 
-    else if ( type == UserFolder )
+    }else if ( type == UserFolder )
     {
         if (name.isEmpty())
             name = tr( "New folder" );
+        SetIcon( QIcon( ":/fugue-icons/folder-horizontal" ) );
     }
 }
 
@@ -69,7 +72,8 @@ Folder::FolderType Folder::GetType() const {
 	return type;
 }
 
-void Folder::SetType(Folder::FolderType _type) {
+void Folder::SetType(Folder::FolderType _type)
+{
 	type = _type;
 }
 

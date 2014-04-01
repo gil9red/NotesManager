@@ -285,17 +285,16 @@
 <context>
     <name>Folder</name>
     <message>
-        <location filename="../NavigationPanel/src/folder.cpp" line="46"/>
         <source>Temporary</source>
-        <translation>Временная</translation>
+        <translation type="obsolete">Временная</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/folder.cpp" line="49"/>
+        <location filename="../NavigationPanel/src/folder.cpp" line="50"/>
         <source>Trash bin</source>
         <translation>Корзина</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/folder.cpp" line="54"/>
+        <location filename="../NavigationPanel/src/folder.cpp" line="56"/>
         <source>New folder</source>
         <translation>Новая папка</translation>
     </message>
@@ -700,20 +699,20 @@
     <message>
         <location filename="../Manager/Manager.ui" line="227"/>
         <location filename="../Manager/Manager.ui" line="230"/>
-        <location filename="../Manager/Manager.ui" line="843"/>
-        <location filename="../Manager/Manager.ui" line="846"/>
-        <location filename="../Manager/Manager.ui" line="849"/>
+        <location filename="../Manager/Manager.ui" line="855"/>
+        <location filename="../Manager/Manager.ui" line="858"/>
+        <location filename="../Manager/Manager.ui" line="861"/>
         <location filename="../Manager/Manager.cpp" line="29"/>
         <source>Quit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="828"/>
-        <location filename="../Manager/Manager.ui" line="831"/>
-        <location filename="../Manager/Manager.ui" line="834"/>
-        <location filename="../Manager/Manager.ui" line="925"/>
-        <location filename="../Manager/Manager.ui" line="928"/>
-        <location filename="../Manager/Manager.ui" line="931"/>
+        <location filename="../Manager/Manager.ui" line="840"/>
+        <location filename="../Manager/Manager.ui" line="843"/>
+        <location filename="../Manager/Manager.ui" line="846"/>
+        <location filename="../Manager/Manager.ui" line="941"/>
+        <location filename="../Manager/Manager.ui" line="944"/>
+        <location filename="../Manager/Manager.ui" line="947"/>
         <location filename="../Manager/Manager.cpp" line="27"/>
         <source>Settings</source>
         <translation>Настройки</translation>
@@ -722,9 +721,9 @@
         <location filename="../Manager/Manager.ui" line="242"/>
         <location filename="../Manager/Manager.ui" line="245"/>
         <location filename="../Manager/Manager.ui" line="248"/>
-        <location filename="../Manager/Manager.ui" line="858"/>
-        <location filename="../Manager/Manager.ui" line="861"/>
-        <location filename="../Manager/Manager.ui" line="864"/>
+        <location filename="../Manager/Manager.ui" line="870"/>
+        <location filename="../Manager/Manager.ui" line="873"/>
+        <location filename="../Manager/Manager.ui" line="876"/>
         <location filename="../Manager/Manager.cpp" line="28"/>
         <source>About</source>
         <translation>О программе</translation>
@@ -743,8 +742,8 @@
         <location filename="../Manager/Manager.ui" line="257"/>
         <location filename="../Manager/Manager.ui" line="260"/>
         <location filename="../Manager/Manager.ui" line="263"/>
-        <location filename="../Manager/Manager.ui" line="749"/>
-        <location filename="../Manager/Manager.ui" line="752"/>
+        <location filename="../Manager/Manager.ui" line="753"/>
+        <location filename="../Manager/Manager.ui" line="756"/>
         <source>Add note</source>
         <translation>Добавить заметку</translation>
     </message>
@@ -771,13 +770,13 @@
     </message>
     <message>
         <location filename="../Manager/Manager.ui" line="159"/>
-        <location filename="../Manager/Manager.ui" line="886"/>
+        <location filename="../Manager/Manager.ui" line="898"/>
         <source>Manage</source>
         <translation>Управление</translation>
     </message>
     <message>
         <location filename="../Manager/Manager.ui" line="183"/>
-        <location filename="../Manager/Manager.ui" line="875"/>
+        <location filename="../Manager/Manager.ui" line="887"/>
         <source>Main</source>
         <translation>Основные</translation>
     </message>
@@ -811,9 +810,9 @@
     </message>
     <message>
         <location filename="../Manager/Manager.ui" line="677"/>
-        <location filename="../Manager/Manager.ui" line="776"/>
-        <location filename="../Manager/Manager.ui" line="779"/>
-        <location filename="../Manager/Manager.ui" line="782"/>
+        <location filename="../Manager/Manager.ui" line="780"/>
+        <location filename="../Manager/Manager.ui" line="783"/>
+        <location filename="../Manager/Manager.ui" line="786"/>
         <source>Add a note from screen</source>
         <translation>Добавить заметку от снимка экрана</translation>
     </message>
@@ -826,9 +825,9 @@
         <translation>Дупликат</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="734"/>
-        <location filename="../Manager/Manager.ui" line="737"/>
-        <location filename="../Manager/Manager.ui" line="740"/>
+        <location filename="../Manager/Manager.ui" line="738"/>
+        <location filename="../Manager/Manager.ui" line="741"/>
+        <location filename="../Manager/Manager.ui" line="744"/>
         <source>Show Sidebar</source>
         <translation>Показать боковую панель</translation>
     </message>
@@ -837,35 +836,35 @@
         <translation type="obsolete">Левая панель</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="787"/>
-        <location filename="../Manager/Manager.ui" line="790"/>
-        <location filename="../Manager/Manager.ui" line="793"/>
+        <location filename="../Manager/Manager.ui" line="795"/>
+        <location filename="../Manager/Manager.ui" line="798"/>
+        <location filename="../Manager/Manager.ui" line="801"/>
         <source>Add folder</source>
         <translation>Добавить папку</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="802"/>
-        <location filename="../Manager/Manager.ui" line="805"/>
-        <location filename="../Manager/Manager.ui" line="808"/>
+        <location filename="../Manager/Manager.ui" line="810"/>
+        <location filename="../Manager/Manager.ui" line="813"/>
+        <location filename="../Manager/Manager.ui" line="816"/>
         <source>Remove from trash</source>
         <translation>Удалить из корзины</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="813"/>
-        <location filename="../Manager/Manager.ui" line="816"/>
-        <location filename="../Manager/Manager.ui" line="819"/>
+        <location filename="../Manager/Manager.ui" line="825"/>
+        <location filename="../Manager/Manager.ui" line="828"/>
+        <location filename="../Manager/Manager.ui" line="831"/>
         <source>Remove to trash</source>
         <translation>Переместить в корзину</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="902"/>
+        <location filename="../Manager/Manager.ui" line="918"/>
         <source>Clear trash</source>
         <translation>Очистить корзину</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="910"/>
-        <location filename="../Manager/Manager.ui" line="913"/>
-        <location filename="../Manager/Manager.ui" line="916"/>
+        <location filename="../Manager/Manager.ui" line="926"/>
+        <location filename="../Manager/Manager.ui" line="929"/>
+        <location filename="../Manager/Manager.ui" line="932"/>
         <source>Full screen</source>
         <translation>Полный экран</translation>
     </message>
@@ -949,9 +948,9 @@
         <translation>Открыть</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="942"/>
-        <location filename="../Manager/Manager.ui" line="945"/>
-        <location filename="../Manager/Manager.ui" line="948"/>
+        <location filename="../Manager/Manager.ui" line="958"/>
+        <location filename="../Manager/Manager.ui" line="961"/>
+        <location filename="../Manager/Manager.ui" line="964"/>
         <source>Show status bar</source>
         <translation>Показать строку состояния</translation>
     </message>
@@ -963,16 +962,16 @@
         <location filename="../Manager/Manager.ui" line="272"/>
         <location filename="../Manager/Manager.ui" line="275"/>
         <location filename="../Manager/Manager.ui" line="278"/>
-        <location filename="../Manager/Manager.ui" line="761"/>
-        <location filename="../Manager/Manager.ui" line="764"/>
-        <location filename="../Manager/Manager.ui" line="767"/>
+        <location filename="../Manager/Manager.ui" line="765"/>
+        <location filename="../Manager/Manager.ui" line="768"/>
+        <location filename="../Manager/Manager.ui" line="771"/>
         <source>Add a note from the clipboard</source>
         <translation>Добавить заметку от буфера обмена</translation>
     </message>
     <message>
         <location filename="../Manager/Manager.ui" line="120"/>
         <location filename="../Manager/Manager.ui" line="197"/>
-        <location filename="../Manager/Manager.ui" line="897"/>
+        <location filename="../Manager/Manager.ui" line="909"/>
         <source>Note</source>
         <translation>Заметка</translation>
     </message>
@@ -1434,56 +1433,106 @@
  Все права защищены</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_about.cpp" line="20"/>
         <source>The program creates notes</source>
-        <translation>Программа создает заметки</translation>
+        <translation type="obsolete">Программа создает заметки</translation>
     </message>
     <message>
         <source>All rights reserved</source>
         <translation type="obsolete">Все права защищены</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_about.cpp" line="24"/>
         <source>Mail</source>
-        <translation>Почта</translation>
+        <translation type="obsolete">Почта</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_about.cpp" line="22"/>
         <source>Version</source>
-        <translation>Версия</translation>
+        <translation type="obsolete">Версия</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_about.cpp" line="19"/>
         <source>Build</source>
-        <translation>Сборка</translation>
+        <translation type="obsolete">Сборка</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_about.cpp" line="21"/>
         <source>All rights reserved.</source>
-        <translation>Все права защищены.</translation>
+        <translation type="obsolete">Все права защищены.</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_about.cpp" line="23"/>
         <source>Author</source>
-        <translation>Автор</translation>
+        <translation type="obsolete">Автор</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_about.cpp" line="25"/>
         <source>Source code</source>
-        <translation>Исходный код</translation>
+        <translation type="obsolete">Исходный код</translation>
+    </message>
+    <message>
+        <source>Icons</source>
+        <translation type="obsolete">Иконки</translation>
     </message>
     <message>
         <source>Thank you for using this free program.</source>
         <translation type="obsolete">Спасибо за использование этой бесплатной программы.</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_about.ui" line="288"/>
+        <location filename="../Manager/pages/page_about.ui" line="115"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;The program creates notes&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Программа создает заметки&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_about.ui" line="151"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;%1 (Build %2)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;%1 (Сборка %2)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_about.ui" line="193"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mail:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Почта:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_about.ui" line="203"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Author:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Автор:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_about.ui" line="213"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Ilya Petrash&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Илья Петраш&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_about.ui" line="223"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Version:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Версия:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_about.ui" line="233"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/gil9red/NotesManager&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#0000ff;&quot;&gt;Source code&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/gil9red/NotesManager&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#0000ff;&quot;&gt;Исходный код&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_about.ui" line="279"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Icons&lt;/span&gt;: Fugue Icons pack. &lt;a href=&quot;http://p.yusukekamiyamane.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Yusuke Kamiyamane&lt;/span&gt;&lt;/a&gt;. The icons are licensed under a &lt;a href=&quot;http://creativecommons.org/licenses/by/3.0&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Creative Commons Attribution 3.0 license&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Иконки&lt;/span&gt;: Fugue Icons pack. &lt;a href=&quot;http://p.yusukekamiyamane.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Yusuke Kamiyamane&lt;/span&gt;&lt;/a&gt;. Иконки под лицензией &lt;a href=&quot;http://creativecommons.org/licenses/by/3.0&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Creative Commons Attribution 3.0 license&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Icons&lt;/span&gt;: Fugue Icons pack. Yusuke Kamiyamane. The icons are licensed under a &lt;a href=&quot;http://creativecommons.org/licenses/by/3.0&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Creative Commons Attribution 3.0 license&lt;/span&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="obsolete">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Иконки&lt;/span&gt;: Fugue Icons pack. Yusuke Kamiyamane. Иконки под лицензией &lt;a href=&quot;http://creativecommons.org/licenses/by/3.0&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Creative Commons Attribution 3.0 license&lt;/span&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Icons&lt;/span&gt;: Fugue Icons pack. Yusuke Kamiyamane.&lt;br&gt;The icons are licensed under a &lt;a href=&quot;http://creativecommons.org/licenses/by/3.0&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Creative Commons Attribution 3.0 license&lt;/span&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="obsolete">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Иконки&lt;/span&gt;: Fugue Icons pack. Yusuke Kamiyamane.&lt;br&gt;Иконки лицензированны по &lt;a href=&quot;http://creativecommons.org/licenses/by/3.0&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Creative Commons Attribution 3.0 license&lt;/span&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message utf8="true">
+        <location filename="../Manager/pages/page_about.ui" line="311"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;© 2013-2014 Ilya Petrash&lt;br/&gt;&lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;All rights reserved.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;© 2013-2014 Илья Петраш&lt;br/&gt;&lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Все права защищены.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_about.ui" line="335"/>
         <source>Revision history</source>
         <oldsource>History</oldsource>
         <translation>История изменений</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_about.ui" line="321"/>
+        <location filename="../Manager/pages/page_about.ui" line="368"/>
         <source>License</source>
         <translation>Лицензия</translation>
     </message>
@@ -1914,17 +1963,17 @@
     </message>
     <message>
         <location filename="../Manager/pages/page_notes.ui" line="14"/>
-        <location filename="../Manager/pages/page_notes.ui" line="29"/>
+        <location filename="../Manager/pages/page_notes.ui" line="33"/>
         <source>Notes</source>
         <translation>Заметки</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_notes.ui" line="34"/>
+        <location filename="../Manager/pages/page_notes.ui" line="42"/>
         <source>Tags</source>
         <translation>Тэги</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_notes.ui" line="39"/>
+        <location filename="../Manager/pages/page_notes.ui" line="51"/>
         <source>Dates</source>
         <translation>Даты</translation>
     </message>
@@ -1985,7 +2034,7 @@
         <translation type="obsolete">Менеджер заметок</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="116"/>
+        <location filename="../main.cpp" line="108"/>
         <source>Loading fonts</source>
         <oldsource>Load fonts</oldsource>
         <translation>Загрузка шрифтов</translation>
@@ -1995,19 +2044,19 @@
         <translation type="obsolete">Создать</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="119"/>
+        <location filename="../main.cpp" line="111"/>
         <source>Loading dictionaries</source>
         <oldsource>Load dictionaries</oldsource>
         <translation>Загрузка словарей</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="122"/>
+        <location filename="../main.cpp" line="114"/>
         <source>Creation</source>
         <oldsource>Created</oldsource>
         <translation>Создание</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="129"/>
+        <location filename="../main.cpp" line="121"/>
         <source>Loading settings</source>
         <oldsource>Load settings</oldsource>
         <translation>Загрузка настроек</translation>
@@ -2018,7 +2067,7 @@
         <translation type="obsolete">Загрузка заметок</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="132"/>
+        <location filename="../main.cpp" line="124"/>
         <source>Now ready</source>
         <translation>Готов</translation>
     </message>

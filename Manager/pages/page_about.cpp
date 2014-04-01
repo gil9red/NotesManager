@@ -14,16 +14,7 @@ Page_About::Page_About( QWidget * parent )
     ui->setupUi( this );
 
     const QString & strBuild = getBuildDateTime().toString( "dd.MM.yyyy hh:mm:ss" );
-
-    ui->labelName->setText( ui->labelName->text().arg( App::name ) );
-    ui->labelVersion->setText( ui->labelVersion->text().arg( App::version ).arg( tr( "Build" ) + " " + strBuild ) );
-    ui->labelDescription->setText( ui->labelDescription->text().arg( tr( "The program creates notes" ) ) );
-    ui->labelCopyright->setText( ui->labelCopyright->text().arg( tr( "All rights reserved." ) ) );
-    ui->labelTextVersion->setText( ui->labelTextVersion->text().arg( tr( "Version" ) ) );
-    ui->labelTextAuthor->setText( ui->labelTextAuthor->text().arg( tr( "Author" ) ) );
-    ui->labelTextMail->setText( ui->labelTextMail->text().arg( tr( "Mail" ) ) );
-    ui->labelSourceCode->setText( ui->labelSourceCode->text().arg( tr( "Source code" ) ) );
-
+    ui->labelVersion->setText( ui->labelVersion->text().arg( App::version ).arg( strBuild ) );
 
     QFile file;
     QTextStream in( &file );

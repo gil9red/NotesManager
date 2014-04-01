@@ -42,13 +42,12 @@ QVariant TagModelItem::data(int role) const
 	}
 
     if (role == Qt::DecorationRole)
-        return QPixmap(":/gui/tag");// NOTE: this icon
+        return QPixmap( ":/fugue-icons/tag-label" );
 
     else if (role == Qt::DisplayRole)
     {
         QString childrenCount = QString(" (%1)").arg(QString::number(tag->Owners.Count()));
         QString returnValue = tag->GetName();
-//		if (Application::I()->Settings.GetShowNumberOfItems())
 			returnValue.append(childrenCount);
 
 		return returnValue;

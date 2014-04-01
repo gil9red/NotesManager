@@ -19,8 +19,6 @@
         <file alias="strikeout">icons/textstrike.png</file>
         <file alias="subscript">icons/textSubScript.png</file>
         <file alias="hLine">icons/horizontal line.png</file>
-        <file alias="accept">icons/accept.png</file>
-        <file alias="cancel">icons/cancel.png</file>
         <file alias="hyperlink">icons/hyperlink.png</file>
         <file alias="picture">icons/picture.png</file>
         <file alias="table">icons/table2.png</file>

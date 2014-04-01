@@ -22,8 +22,10 @@ along with qNotesManager. If not, see <http://www.gnu.org/licenses/>.
 
 class Folder;
 
-class FolderModelItem : public BaseModelItem {
+class FolderModelItem : public BaseModelItem
+{
     Q_OBJECT
+
 private:
     Folder* folder;
 

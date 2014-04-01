@@ -37,7 +37,7 @@ DateModelItem::DateModelItem(DateComponent c, int v) :
 QVariant DateModelItem::data(int role) const
 {
     if (role == Qt::DecorationRole)
-        return QIcon(":/gui/date"); // NOTE: this icon
+        return QIcon(":/fugue-icons/calendar-day"); // TODO: можно настроить иконку под определенную дату: год, месяц, день
 
     else if (role == Qt::DisplayRole)
     {
@@ -46,26 +46,18 @@ QVariant DateModelItem::data(int role) const
         switch (component)
         {
         case Year:
-            returnValue =  QString::number(value);
-//            if (Application::I()->Settings.GetShowNumberOfItems())
+            returnValue = QString::number(value);
             returnValue.append(childrenCount);
             break;
 
         case Month:
-        {
-            QDate month(2000, value, 1);
-            returnValue = month.toString("MMMM");
-//            if (Application::I()->Settings.GetShowNumberOfItems())
+            returnValue = QDate( 2000, value, 1 ).toString("MMMM");
             returnValue.append(childrenCount);
-
-        }
             break;
 
         case Day:
             returnValue = QString::number(value).rightJustified(2, '0');
-//            if (Application::I()->Settings.GetShowNumberOfItems())
             returnValue.append(childrenCount);
-
             break;
 
         case MonthAndDay:

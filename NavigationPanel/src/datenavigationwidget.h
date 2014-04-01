@@ -27,8 +27,10 @@ along with qNotesManager. If not, see <http://www.gnu.org/licenses/>.
 class Note;
 class DatesModel;
 
-class DateNavigationWidget : public QWidget {
+class DateNavigationWidget : public QWidget
+{
     Q_OBJECT
+
 public:
     explicit DateNavigationWidget(QWidget *parent = 0);
 

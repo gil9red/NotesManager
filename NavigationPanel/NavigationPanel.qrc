@@ -1,3 +1,8 @@
 <RCC>
     <qresource prefix="/NavigationPanel"/>
+    <qresource prefix="/fugue-icons">
+        <file alias="bin">icons/fugue-icons/16x16/bin.png</file>
+        <file alias="document">icons/fugue-icons/32x32/document.png</file>
+        <file alias="folder-horizontal">icons/fugue-icons/32x32/folder-horizontal.png</file>
+    </qresource>
 </RCC>

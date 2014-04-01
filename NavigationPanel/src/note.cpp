@@ -32,6 +32,8 @@ Note::Note()
 
     QObject::connect(&Tags, SIGNAL(sg_ItemAdded(Tag*)), SLOT(sl_TagsCollectionModified(Tag*)));
     QObject::connect(&Tags, SIGNAL(sg_ItemRemoved(Tag*)), SLOT(sl_TagsCollectionModified(Tag*)));
+
+    SetIcon( QIcon( ":/fugue-icons/document" ) );
 }
 
 Note::~Note()

@@ -27,12 +27,12 @@ public:
     void write( QDomElement & root, QDomDocument & xmlDomDocument );
 
     void setRootFolder( Folder * f );
-    void setTempFolder( Folder * f );
+//    void setTempFolder( Folder * f );
     void setTrashFolder( Folder * f );
     void setPinnedFolder( Folder * f );
 
     Folder * rootFolder();
-    Folder * tempFolder();
+//    Folder * tempFolder();
     Folder * trashFolder();
     Folder * pinnedFolder();
 
@@ -55,7 +55,7 @@ public:
 
 private:
     Folder * p_rootFolder;
-    Folder * p_tempFolder;
+//    Folder * p_tempFolder;
     Folder * p_trashFolder;
     Folder * p_pinnedFolder;
 

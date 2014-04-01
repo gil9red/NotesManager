@@ -37,12 +37,13 @@ FolderModelItem::FolderModelItem(Folder* _folder) :
         QObject::connect(folder, SIGNAL(sg_VisualPropertiesChanged()), SLOT(sl_Folder_PropertiesChanged()));
 }
 
-QVariant FolderModelItem::data(int role) const {
+QVariant FolderModelItem::data(int role) const
+{
     if (!folder)
 		return QVariant();
 
     if (role == Qt::DecorationRole)
-			return folder->GetIcon();
+        return folder->GetIcon();
 
     else if (role == Qt::DisplayRole)
     {
@@ -68,7 +69,7 @@ QVariant FolderModelItem::data(int role) const {
     {
         QFont font( qApp->font() );
         // Системные папки должны хоть немного отличаться от создаваемых пользователем
-        if ( folder->GetType() == Folder::TempFolder || folder->GetType() == Folder::TrashFolder )
+        if ( /*folder->GetType() == Folder::TempFolder ||*/ folder->GetType() == Folder::TrashFolder )
             font.setBold( true );
 
         return font;

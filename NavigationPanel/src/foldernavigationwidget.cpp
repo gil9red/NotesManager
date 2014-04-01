@@ -88,16 +88,16 @@ FolderNavigationWidget::FolderNavigationWidget(QWidget *parent)
     setLayout(layout);
 
     // Item actions
-    addNoteAction = new QAction(QIcon(":/gui/doc-add"), tr( "Add Note" ), this); // NOTE: this icon
+    addNoteAction = new QAction(QIcon(":/fugue-icons/plus"), tr( "Add Note" ), this);
     QObject::connect(addNoteAction, SIGNAL(triggered()), SLOT(sl_AddNoteAction_Triggered()));
 
-    addFolderAction = new QAction (QIcon(":/gui/folder-add"), tr( "Add Folder" ), this); // NOTE: this icon
+    addFolderAction = new QAction (QIcon(":/fugue-icons/folder--plus"), tr( "Add Folder" ), this);
     QObject::connect(addFolderAction, SIGNAL(triggered()), SLOT(sl_AddFolderAction_Triggered()));
 
-    deleteItemAction = new QAction (QIcon(":/gui/bin"), tr( "Delete" ), this); // NOTE: this icon // NOTE: change icon
+    deleteItemAction = new QAction (QIcon(":/fugue-icons/bin"), tr( "Delete" ), this); // NOTE: change icon
 	QObject::connect(deleteItemAction, SIGNAL(triggered()), SLOT(sl_DeleteItemAction_Triggered()));
 
-    moveToBinAction = new QAction (QIcon(":/gui/bin"), tr( "Move to Bin" ), this); // NOTE: this icon
+    moveToBinAction = new QAction (QIcon(":/fugue-icons/bin"), tr( "Move to Bin" ), this);
     QObject::connect(moveToBinAction, SIGNAL(triggered()), SLOT(sl_MoveToBinAction_Triggered()));
 
     itemForeColorMenu = new QMenu( tr( "Set text color" ), this);
@@ -105,22 +105,22 @@ FolderNavigationWidget::FolderNavigationWidget(QWidget *parent)
     itemBackColorMenu = new QMenu( tr( "Set back color" ), this);
     itemBackColorMenu->setIcon(QIcon(":/gui/background-color"));// NOTE: this icon
 
-    itemDefaultForeColorAction = new QAction( tr( "Default color" ), this);
+    itemDefaultForeColorAction = new QAction( tr( "Default color" ), this);// NOTE: this icon
 	QObject::connect(itemDefaultForeColorAction, SIGNAL(triggered()), SLOT(sl_DefaultForeColor_Triggered()));
 
-    itemCustomForeColorAction = new QAction( tr( "Custom color" ), this);
+    itemCustomForeColorAction = new QAction( tr( "Custom color" ), this);// NOTE: this icon
 	QObject::connect(itemCustomForeColorAction, SIGNAL(triggered()), SLOT(sl_CustomForeColor_Triggered()));
 
-    itemDefaultBackColorAction = new QAction( tr( "Default color" ), this);
+    itemDefaultBackColorAction = new QAction( tr( "Default color" ), this);// NOTE: this icon
 	QObject::connect(itemDefaultBackColorAction, SIGNAL(triggered()), SLOT(sl_DefaultBackColor_Triggered()));
 
-    itemCustomBackColorAction = new QAction( tr( "Custom color" ), this);
+    itemCustomBackColorAction = new QAction( tr( "Custom color" ), this);// NOTE: this icon
 	QObject::connect(itemCustomBackColorAction, SIGNAL(triggered()), SLOT(sl_CustomBackColor_Triggered()));
 
-    clearTrashAction = new QAction( tr( "Clear trash" ), this);
+    clearTrashAction = new QAction( tr( "Clear trash" ), this);// NOTE: this icon
 	QObject::connect(clearTrashAction, SIGNAL(triggered()), SLOT(sl_ClearTrashAction_Triggered()));
 
-    openNoteAction = new QAction( tr( "Open" ), this);
+    openNoteAction = new QAction( tr( "Open" ), this);// NOTE: this icon
     QObject::connect(openNoteAction, SIGNAL(triggered()), SLOT(sl_OpenNoteAction_Triggered()));
 
     renameItemAction = new QAction(QIcon(":/gui/rename"), tr( "Rename" ), this);// NOTE: this icon
@@ -260,7 +260,7 @@ void FolderNavigationWidget::deleteItems(QModelIndexList& indexesList, bool perm
             FolderModelItem* fmi = dynamic_cast<FolderModelItem*>(modelItemToDelete);
             itemToDelete = fmi->GetStoredData();
 
-            if (itemToDelete == Notebook::instance()->tempFolder() || itemToDelete == Notebook::instance()->trashFolder())
+            if ( /*itemToDelete == Notebook::instance()->tempFolder() ||*/ itemToDelete == Notebook::instance()->trashFolder() )
             {
                 QMessageBox::information(0, tr( "Information" ), tr( "You cannot delete system folders" ) );
                 continue;
@@ -400,12 +400,13 @@ void FolderNavigationWidget::sl_TreeView_ContextMenuRequested(const QPoint& p)
 
                     clearTrashAction->setEnabled( !isEmptyTrash );
 
-                } else if ( folderItem == Notebook::instance()->tempFolder() )
+                } /*else if ( folderItem == Notebook::instance()->tempFolder() )
                 {
                     menu.addAction(addNoteAction);
                     menu.addAction(addFolderAction);
 
-                } else
+                } */
+                else
                 {
                     menu.addAction(addNoteAction);
                     menu.addAction(addFolderAction);

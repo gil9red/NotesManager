@@ -23,6 +23,9 @@ Page_Notes::Page_Notes( QWidget * parent ) :
     QObject::connect(ui->tab_Notes, SIGNAL(sg_NoteDoubleClicked(Note*)), ui->tabWidget_EditNotes, SLOT(openNote(Note*)));
     QObject::connect(ui->tab_Tags, SIGNAL(sg_NoteDoubleClicked(Note*)), ui->tabWidget_EditNotes, SLOT(openNote(Note*)));
     QObject::connect(ui->tab_Dates, SIGNAL(sg_NoteDoubleClicked(Note*)), ui->tabWidget_EditNotes, SLOT(openNote(Note*)));
+
+    QObject::connect( ui->tabWidget_Navigation, SIGNAL(currentChanged(int)), SIGNAL(sg_About_UpdateStates()) );
+    QObject::connect( ui->tab_Notes, SIGNAL(sg_SelectedItemsActionsListChanged()), SIGNAL(sg_About_UpdateStates()) );
 }
 Page_Notes::~Page_Notes()
 {
