@@ -13,7 +13,7 @@ ColorButton::ColorButton( QWidget * parent )
     createGUI();
     setColor( Qt::black );
     setDefaultColor( Qt::black );
-    connect( this, SIGNAL( clicked() ), SLOT( defaultColor() ) );
+    QObject::connect( this, SIGNAL( clicked() ), SLOT( defaultColor() ) );
 }
 ColorButton::~ColorButton()
 {
@@ -31,16 +31,16 @@ void ColorButton::createGUI()
     d->tButtonDefaultColor = new QToolButton();
     d->tButtonDefaultColor->setToolButtonStyle( Qt::ToolButtonTextBesideIcon );
     d->tButtonDefaultColor->setText( tr( "Default color" ) );
-    connect( d->tButtonDefaultColor, SIGNAL( clicked() ), SLOT( defaultColor() ) );
+    QObject::connect( d->tButtonDefaultColor, SIGNAL( clicked() ), SLOT( defaultColor() ) );
 
     d->colorPalette = new ColorPalette( ":/FormattingToolbar/palette" );
-    connect( d->colorPalette, SIGNAL( selectedColor( QColor ) ), SIGNAL( selectedColor( QColor ) ) );
+    QObject::connect( d->colorPalette, SIGNAL( selectedColor( QColor ) ), SIGNAL( selectedColor( QColor ) ) );
 
     d->tButtonSelectColor = new QToolButton();
     d->tButtonSelectColor->setToolButtonStyle( Qt::ToolButtonTextBesideIcon );
     d->tButtonSelectColor->setText( tr( "Another color" ) );
     d->tButtonSelectColor->setIcon( QIcon( ":/FormattingToolbar/icon palette" ) );
-    connect( d->tButtonSelectColor, SIGNAL( clicked() ), SLOT( anotherColor() ) );
+    QObject::connect( d->tButtonSelectColor, SIGNAL( clicked() ), SLOT( anotherColor() ) );
 
 
     QVBoxLayout * layout = new QVBoxLayout();

@@ -3,8 +3,8 @@
 ButtonList::ButtonList( QWidget * parent)
     : QToolButton( parent )
 {
-    connect( &buttonGroup, SIGNAL( buttonClicked(int) ), SIGNAL( selected(int) ) );
-    connect( this, SIGNAL( clicked() ), SLOT( clickDefault() ) );
+    QObject::connect( &buttonGroup, SIGNAL( buttonClicked(int) ), SIGNAL( selected(int) ) );
+    QObject::connect( this, SIGNAL( clicked() ), SLOT( clickDefault() ) );
 }
 void ButtonList::addButton( QAbstractButton * button, int id )
 {

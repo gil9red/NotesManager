@@ -16,15 +16,16 @@ include( FormattingToolbar/FormattingToolbar.pri )
 include( NavigationPanel/NavigationPanel.pri )
 include( ScriptModule/ScriptModule.pri )
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/qt-solutions/qtsingleapplication/lib/ -llibQtSingleApplication
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/qt-solutions/qtsingleapplication/lib/ -llibQtSingleApplicationd
+
 INCLUDEPATH += $$PWD/qt-solutions/qtsingleapplication/src
 DEPENDPATH += $$PWD/qt-solutions/qtsingleapplication/src
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/qt-solutions/qtsingleapplication/lib/ -llibQtSingleApplication
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/qt-solutions/qtsingleapplication/lib/ -llibQtSingleApplicationd
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/quazip-0.6.1/lib/ -llibQuaZIP
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/quazip-0.6.1/lib/ -llibQuaZIPd
 INCLUDEPATH += $$PWD/quazip-0.6.1/src
 DEPENDPATH += $$PWD/quazip-0.6.1/src
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/quazip-0.6.1/lib/ -llibQuaZIP
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/quazip-0.6.1/lib/ -llibQuaZIPd
 
 
 RC_FILE = app.rc

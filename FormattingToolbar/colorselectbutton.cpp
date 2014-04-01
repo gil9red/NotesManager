@@ -11,7 +11,7 @@ ColorSelectButton::ColorSelectButton( QWidget * parent )
 void ColorSelectButton::createGUI()
 {
     setPopupMode( QToolButton::InstantPopup );
-    connect( this, SIGNAL( selectedColor(QColor) ), SLOT( setColor(QColor) ) );
-    disconnect( this, SIGNAL( clicked() ), this, SLOT( defaultColor() ) );
+    QObject::connect( this, SIGNAL( selectedColor(QColor) ), SLOT( setColor(QColor) ) );
+    QObject::disconnect( this, SIGNAL( clicked() ), this, SLOT( defaultColor() ) );
     d->tButtonDefaultColor->deleteLater();
 }

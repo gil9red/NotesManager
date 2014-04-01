@@ -62,14 +62,14 @@ void Completer::setEditor( QTextEdit * textEdit )
         return;
 
     if ( d_editor )
-        disconnect( this, SIGNAL( activated(QString) ), this, SLOT( insertCompletion(QString) ) );
+        QObject::disconnect( this, SIGNAL( activated(QString) ), this, SLOT( insertCompletion(QString) ) );
 
     d_editor = textEdit;
     setWidget( d_editor );
     setCompletionMode( QCompleter::PopupCompletion );
     setCaseSensitivity( Qt::CaseInsensitive );
 
-    connect( this, SIGNAL( activated(QString) ), this, SLOT( insertCompletion(QString) ) );
+    QObject::connect( this, SIGNAL( activated(QString) ), this, SLOT( insertCompletion(QString) ) );
 }
 QTextEdit * Completer::editor()
 {

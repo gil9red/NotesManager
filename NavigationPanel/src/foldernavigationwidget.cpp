@@ -26,6 +26,7 @@ along with qNotesManager. If not, see <http://www.gnu.org/licenses/>.
 #include "modelitemdelegate.h"
 #include "utils/func.h"
 #include "notebook.h"
+#include "tag.h"
 
 #include <QVBoxLayout>
 #include <QColorDialog>
@@ -95,7 +96,7 @@ FolderNavigationWidget::FolderNavigationWidget(QWidget *parent)
     QObject::connect(addFolderAction, SIGNAL(triggered()), SLOT(sl_AddFolderAction_Triggered()));
 
     deleteItemAction = new QAction( QIcon( ":/fugue-icons/cross" ), tr( "Delete" ), this );
-	QObject::connect(deleteItemAction, SIGNAL(triggered()), SLOT(sl_DeleteItemAction_Triggered()));
+    QObject::connect(deleteItemAction, SIGNAL(triggered()), SLOT(sl_DeleteItemAction_Triggered()));
 
     moveToBinAction = new QAction( QIcon( ":/fugue-icons/minus" ), tr( "Move to Bin" ), this );
     QObject::connect(moveToBinAction, SIGNAL(triggered()), SLOT(sl_MoveToBinAction_Triggered()));
@@ -106,25 +107,25 @@ FolderNavigationWidget::FolderNavigationWidget(QWidget *parent)
     itemBackColorMenu->setIcon( QIcon( ":/fugue-icons/paint-can-color" ) );
 
     itemDefaultForeColorAction = new QAction( QIcon( ":/fugue-icons/ui-color-picker-default" ), tr( "Default color" ), this );
-	QObject::connect(itemDefaultForeColorAction, SIGNAL(triggered()), SLOT(sl_DefaultForeColor_Triggered()));
+    QObject::connect(itemDefaultForeColorAction, SIGNAL(triggered()), SLOT(sl_DefaultForeColor_Triggered()));
 
     itemCustomForeColorAction = new QAction( QIcon( ":/fugue-icons/color-swatch" ), tr( "Custom color" ), this );
-	QObject::connect(itemCustomForeColorAction, SIGNAL(triggered()), SLOT(sl_CustomForeColor_Triggered()));
+    QObject::connect(itemCustomForeColorAction, SIGNAL(triggered()), SLOT(sl_CustomForeColor_Triggered()));
 
     itemDefaultBackColorAction = new QAction( QIcon( ":/fugue-icons/ui-color-picker-default" ), tr( "Default color" ), this);
-	QObject::connect(itemDefaultBackColorAction, SIGNAL(triggered()), SLOT(sl_DefaultBackColor_Triggered()));
+    QObject::connect(itemDefaultBackColorAction, SIGNAL(triggered()), SLOT(sl_DefaultBackColor_Triggered()));
 
     itemCustomBackColorAction = new QAction( QIcon( ":/fugue-icons/color-swatch" ), tr( "Custom color" ), this );
-	QObject::connect(itemCustomBackColorAction, SIGNAL(triggered()), SLOT(sl_CustomBackColor_Triggered()));
+    QObject::connect(itemCustomBackColorAction, SIGNAL(triggered()), SLOT(sl_CustomBackColor_Triggered()));
 
     clearTrashAction = new QAction( QIcon( ":/Manager/remove_all" ), tr( "Clear trash" ), this );
-	QObject::connect(clearTrashAction, SIGNAL(triggered()), SLOT(sl_ClearTrashAction_Triggered()));
+    QObject::connect(clearTrashAction, SIGNAL(triggered()), SLOT(sl_ClearTrashAction_Triggered()));
 
     openNoteAction = new QAction( QIcon( ":/fugue-icons/book-open" ), tr( "Open" ), this);
     QObject::connect(openNoteAction, SIGNAL(triggered()), SLOT(sl_OpenNoteAction_Triggered()));
 
     renameItemAction = new QAction( QIcon( ":/fugue-icons/document-rename" ), tr( "Rename" ), this);
-	QObject::connect(renameItemAction, SIGNAL(triggered()), SLOT(sl_RenameItemAction_Triggered()));
+    QObject::connect(renameItemAction, SIGNAL(triggered()), SLOT(sl_RenameItemAction_Triggered()));
 
     itemForeColorMenu->addAction(itemDefaultForeColorAction);
     itemForeColorMenu->addAction(itemCustomForeColorAction);

@@ -38,8 +38,8 @@ TagsNavigationWidget::TagsNavigationWidget(QWidget *parent)
 	treeView->setHeaderHidden(true);
 	treeView->setEditTriggers(QAbstractItemView::SelectedClicked | QAbstractItemView::EditKeyPressed);
 
-	QObject::connect(treeView, SIGNAL(clicked(QModelIndex)), SLOT(sl_View_clicked(QModelIndex)));
-	QObject::connect(treeView, SIGNAL(doubleClicked(QModelIndex)), SLOT(sl_View_doubleClicked(QModelIndex)));
+    QObject::connect(treeView, SIGNAL(clicked(QModelIndex)), SLOT(sl_View_clicked(QModelIndex)));
+    QObject::connect(treeView, SIGNAL(doubleClicked(QModelIndex)), SLOT(sl_View_doubleClicked(QModelIndex)));
 
 	QVBoxLayout* layout = new QVBoxLayout();
 	layout->addWidget(treeView);

@@ -16,7 +16,7 @@ TextEditor::TextEditor( QWidget * parent ):
     setOpenLinks( false );
     setActivateLink( false );
     viewport()->setCursor( QCursor( Qt::IBeamCursor ) );
-    connect( this, SIGNAL( anchorClicked(QUrl) ), SLOT( openLink(QUrl) ) );
+    QObject::connect( this, SIGNAL( anchorClicked(QUrl) ), SLOT( openLink(QUrl) ) );
 }
 void TextEditor::setActivateLink( bool activate )
 {

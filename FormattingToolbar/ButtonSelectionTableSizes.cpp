@@ -23,8 +23,8 @@ ButtonSelectionTableSizes::ButtonSelectionTableSizes( QWidget * parent )
 
     setMenu( menu );
 
-    connect( &widgetSelectionTableSizes, SIGNAL( changeSelected(int,int) ), SLOT( changeSelected( int, int ) ) );
-    connect( &widgetSelectionTableSizes, SIGNAL( selected(int,int) ), SIGNAL( selected( int, int ) ) );
+    QObject::connect( &widgetSelectionTableSizes, SIGNAL( changeSelected(int,int) ), SLOT( changeSelected( int, int ) ) );
+    QObject::connect( &widgetSelectionTableSizes, SIGNAL( selected(int,int) ), SIGNAL( selected( int, int ) ) );
 
     changeSelected( -1, -1 );
 }

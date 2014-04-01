@@ -161,8 +161,8 @@ void RichTextNote::init()
     setVisibleToolBar( false );
     quickFind->setVisible( false );
 
-    connect( &d->timerAutosave, SIGNAL( timeout() ), SLOT( save() ) );
-    connect( this, SIGNAL( doubleClickHead() ), SLOT( doubleClickingOnTitle() ) );
+    QObject::connect( &d->timerAutosave, SIGNAL( timeout() ), SLOT( save() ) );
+    QObject::connect( this, SIGNAL( doubleClickHead() ), SLOT( doubleClickingOnTitle() ) );
 }
 void RichTextNote::setupActions()
 {
@@ -189,12 +189,12 @@ void RichTextNote::setupActions()
     QAction * actionDuplicate = Create::Action::triggered( tr( "Duplicate" ), QIcon::fromTheme( "", QIcon( ":/Note/duplicate" ) ), QKeySequence(), this, SLOT( duplicate() ) );
     QAction * actionAttach = Create::Action::triggered( tr( "Attach" ), QIcon::fromTheme( "", QIcon( ":/Note/attach" ) ), QKeySequence(), this, SLOT( selectAttach() ) );
 
-    connect( actionVisibleToolBar, SIGNAL( triggered(bool) ), SLOT( setVisibleToolBar(bool) ) );
-    connect( this, SIGNAL( changeVisibleToolbar(bool) ), actionVisibleToolBar, SLOT( setChecked(bool) ) );
+    QObject::connect( actionVisibleToolBar, SIGNAL( triggered(bool) ), SLOT( setVisibleToolBar(bool) ) );
+    QObject::connect( this, SIGNAL( changeVisibleToolbar(bool) ), actionVisibleToolBar, SLOT( setChecked(bool) ) );
 
 
     QActionGroup * group = createGroupActionsOpacity( this );
-    connect( group, SIGNAL( triggered(QAction*) ), SLOT( changeOpacity(QAction*)) );
+    QObject::connect( group, SIGNAL( triggered(QAction*) ), SLOT( changeOpacity(QAction*)) );
 
     QMenu * menuOpacity = new QMenu( tr( "Opacity" ) );
     menuOpacity->setIcon( QIcon( ":/Note/opacity" ) );
@@ -244,11 +244,11 @@ void RichTextNote::setupGUI()
     dockWidgetFormattingToolbar->setVisible( false );
 
     tButtonVisibleFormattingToolbar = Create::Button::get( this, tr( "Formatting toolbar" ), QIcon( ":/FormattingToolbar/formating" ), true );
-    connect( tButtonVisibleFormattingToolbar, SIGNAL( clicked(bool) ), dockWidgetFormattingToolbar, SLOT( setVisible(bool) ) );
-    connect( dockWidgetFormattingToolbar, SIGNAL( visibilityChanged(bool) ), tButtonVisibleFormattingToolbar, SLOT( setChecked(bool) ) );
+    QObject::connect( tButtonVisibleFormattingToolbar, SIGNAL( clicked(bool) ), dockWidgetFormattingToolbar, SLOT( setVisible(bool) ) );
+    QObject::connect( dockWidgetFormattingToolbar, SIGNAL( visibilityChanged(bool) ), tButtonVisibleFormattingToolbar, SLOT( setChecked(bool) ) );
 
-    connect( actionVisibleFormattingToolbar, SIGNAL( triggered(bool) ), dockWidgetFormattingToolbar, SLOT( setVisible(bool) ) );
-    connect( dockWidgetFormattingToolbar, SIGNAL( visibilityChanged(bool) ), actionVisibleFormattingToolbar, SLOT( setChecked(bool) ) );
+    QObject::connect( actionVisibleFormattingToolbar, SIGNAL( triggered(bool) ), dockWidgetFormattingToolbar, SLOT( setVisible(bool) ) );
+    QObject::connect( dockWidgetFormattingToolbar, SIGNAL( visibilityChanged(bool) ), actionVisibleFormattingToolbar, SLOT( setChecked(bool) ) );
 
     body->addDockWidget( Qt::RightDockWidgetArea, dockWidgetFormattingToolbar );
 
@@ -266,11 +266,11 @@ void RichTextNote::setupGUI()
     dockWidgetAttachPanel->setVisible( false );
 
     tButtonVisibleAttachPanel = Create::Button::get( this, tr( "Attach panel" ), QIcon( ":/Note/attach-panel" ), true );
-    connect( tButtonVisibleAttachPanel, SIGNAL( clicked(bool) ), dockWidgetAttachPanel, SLOT( setVisible(bool) ) );
-    connect( dockWidgetAttachPanel, SIGNAL( visibilityChanged(bool) ), tButtonVisibleAttachPanel, SLOT( setChecked(bool) ) );
+    QObject::connect( tButtonVisibleAttachPanel, SIGNAL( clicked(bool) ), dockWidgetAttachPanel, SLOT( setVisible(bool) ) );
+    QObject::connect( dockWidgetAttachPanel, SIGNAL( visibilityChanged(bool) ), tButtonVisibleAttachPanel, SLOT( setChecked(bool) ) );
 
-    connect( actionVisibleAttachPanel, SIGNAL( triggered(bool) ), dockWidgetAttachPanel, SLOT( setVisible(bool) ) );
-    connect( dockWidgetAttachPanel, SIGNAL( visibilityChanged(bool) ), actionVisibleAttachPanel, SLOT( setChecked(bool) ) );
+    QObject::connect( actionVisibleAttachPanel, SIGNAL( triggered(bool) ), dockWidgetAttachPanel, SLOT( setVisible(bool) ) );
+    QObject::connect( dockWidgetAttachPanel, SIGNAL( visibilityChanged(bool) ), actionVisibleAttachPanel, SLOT( setChecked(bool) ) );
 
     body->addDockWidget( Qt::RightDockWidgetArea, dockWidgetAttachPanel );
 
@@ -287,11 +287,11 @@ void RichTextNote::setupGUI()
     dockWidgetFindAndReplace->setVisible( false );
 
     tButtonVisibleFindAndReplace = Create::Button::get( this, tr( "Find/replace" ), QIcon( ":/Note/find-replace" ), true );
-    connect( tButtonVisibleFindAndReplace, SIGNAL( clicked(bool) ), dockWidgetFindAndReplace, SLOT( setVisible(bool) ) );
-    connect( dockWidgetFindAndReplace, SIGNAL( visibilityChanged(bool) ), tButtonVisibleFindAndReplace, SLOT( setChecked(bool) ) );
+    QObject::connect( tButtonVisibleFindAndReplace, SIGNAL( clicked(bool) ), dockWidgetFindAndReplace, SLOT( setVisible(bool) ) );
+    QObject::connect( dockWidgetFindAndReplace, SIGNAL( visibilityChanged(bool) ), tButtonVisibleFindAndReplace, SLOT( setChecked(bool) ) );
 
-    connect( actionVisibleFindAndReplace, SIGNAL( triggered(bool) ), dockWidgetFindAndReplace, SLOT( setVisible(bool) ) );
-    connect( dockWidgetFindAndReplace, SIGNAL( visibilityChanged(bool) ), actionVisibleFindAndReplace, SLOT( setChecked(bool) ) );
+    QObject::connect( actionVisibleFindAndReplace, SIGNAL( triggered(bool) ), dockWidgetFindAndReplace, SLOT( setVisible(bool) ) );
+    QObject::connect( dockWidgetFindAndReplace, SIGNAL( visibilityChanged(bool) ), actionVisibleFindAndReplace, SLOT( setChecked(bool) ) );
 
     body->addDockWidget( Qt::RightDockWidgetArea, dockWidgetFindAndReplace );
 
@@ -300,8 +300,8 @@ void RichTextNote::setupGUI()
     
 
     quickFind = new QuickFind( &d->editor );
-    connect( actionVisibleQuickFind, SIGNAL( triggered(bool) ), quickFind, SLOT( setVisible(bool) ) );
-    connect( quickFind, SIGNAL( visibilityChanged(bool) ), actionVisibleQuickFind, SLOT( setChecked(bool) ) );
+    QObject::connect( actionVisibleQuickFind, SIGNAL( triggered(bool) ), quickFind, SLOT( setVisible(bool) ) );
+    QObject::connect( quickFind, SIGNAL( visibilityChanged(bool) ), actionVisibleQuickFind, SLOT( setChecked(bool) ) );
     actionVisibleQuickFind->setChecked( quickFind->isVisible() );
 
     d->editor.setFrameStyle( QFrame::NoFrame );
@@ -363,7 +363,7 @@ void RichTextNote::setupGUI()
     body->addWidgetToToolBar( tButtonDelete );
 
     QActionGroup * group = createGroupActionsOpacity( this );
-    connect( group, SIGNAL( triggered(QAction*) ), SLOT( changeOpacity(QAction*)) );
+    QObject::connect( group, SIGNAL( triggered(QAction*) ), SLOT( changeOpacity(QAction*)) );
 
     QMenu * menuOpacity = new QMenu( tr( "Opacity" ) );
     menuOpacity->setIcon( QIcon( ":/Note/opacity" ) );
@@ -373,7 +373,7 @@ void RichTextNote::setupGUI()
     tButtonSetOpacity->setPopupMode( QToolButton::MenuButtonPopup );
 
 
-    connect( d->editor.document(), SIGNAL( contentsChanged() ), SLOT( contentsChanged() ) );
+    QObject::connect( d->editor.document(), SIGNAL( contentsChanged() ), SLOT( contentsChanged() ) );
 }
 
 void RichTextNote::save()
@@ -678,7 +678,7 @@ void RichTextNote::previewPrint()
 
     QPrintPreviewDialog preview( &printer, this, Qt::Dialog | Qt::WindowMaximizeButtonHint );
 
-    connect( &preview, SIGNAL( paintRequested( QPrinter * ) ), SLOT( print( QPrinter * ) ) );
+    QObject::connect( &preview, SIGNAL( paintRequested( QPrinter * ) ), SLOT( print( QPrinter * ) ) );
     preview.exec();
 }
 void RichTextNote::duplicate()

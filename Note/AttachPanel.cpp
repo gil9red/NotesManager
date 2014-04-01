@@ -45,7 +45,7 @@ void AttachPanel::setViewTo( RichTextNote * n )
     model = &note->attachModel;
 
     ui->listView->setModel( model );
-    connect( ui->listView->selectionModel(), SIGNAL( selectionChanged(QItemSelection,QItemSelection) ), this, SLOT( updateStates() ) );
+    QObject::connect( ui->listView->selectionModel(), SIGNAL( selectionChanged(QItemSelection,QItemSelection) ), this, SLOT( updateStates() ) );
 
     refresh();
 }

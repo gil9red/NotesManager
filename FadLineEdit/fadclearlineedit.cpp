@@ -26,11 +26,11 @@ void FadClearLineEdit::init()
     tButtonClearText.setWhatsThis( tr( "Clear text" ) );
     addButton( &tButtonClearText );
 
-    connect( &tButtonClearText, SIGNAL( clicked() ), SLOT( clear() ) );
-    connect( &tButtonClearText, SIGNAL( clicked() ), SIGNAL( cleansingText() ) );
-    connect( &tButtonClearText, SIGNAL( clicked() ), SLOT( updateStates() ) );
+    QObject::connect( &tButtonClearText, SIGNAL( clicked() ), SLOT( clear() ) );
+    QObject::connect( &tButtonClearText, SIGNAL( clicked() ), SIGNAL( cleansingText() ) );
+    QObject::connect( &tButtonClearText, SIGNAL( clicked() ), SLOT( updateStates() ) );
 
-    connect( this, SIGNAL( textEdited(QString) ), SLOT( updateStates() ) );
+    QObject::connect( this, SIGNAL( textEdited(QString) ), SLOT( updateStates() ) );
 }
 
 

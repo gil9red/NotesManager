@@ -100,7 +100,7 @@ void FancyTabBar::init()
     mTimerTriggerChangedSignal.setSingleShot(true);
 
     // We use a zerotimer to keep the sidebar responsive
-    connect(&mTimerTriggerChangedSignal, SIGNAL(timeout()), this, SLOT(emitCurrentIndex()));
+    QObject::connect(&mTimerTriggerChangedSignal, SIGNAL(timeout()), this, SLOT(emitCurrentIndex()));
 }
 QPoint FancyTabBar::getCorner(const QRect& rect, const Corner::Corner corner) const
 {

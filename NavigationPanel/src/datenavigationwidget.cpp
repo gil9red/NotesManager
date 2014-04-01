@@ -38,17 +38,13 @@ DateNavigationWidget::DateNavigationWidget(QWidget *parent)
 	treeView->setHeaderHidden(true);
 	treeView->setEditTriggers(QAbstractItemView::SelectedClicked | QAbstractItemView::EditKeyPressed);
 
-	QObject::connect(treeView, SIGNAL(clicked(QModelIndex)),
-					 this, SLOT(sl_View_clicked(QModelIndex)));
-	QObject::connect(treeView, SIGNAL(doubleClicked(QModelIndex)),
-					 this, SLOT(sl_View_doubleClicked(QModelIndex)));
+    QObject::connect(treeView, SIGNAL(clicked(QModelIndex)), SLOT(sl_View_clicked(QModelIndex)));
+    QObject::connect(treeView, SIGNAL(doubleClicked(QModelIndex)), SLOT(sl_View_doubleClicked(QModelIndex)));
 
     creationDateButton = new QRadioButton( tr( "Creation date" ), this);
-	QObject::connect(creationDateButton, SIGNAL(toggled(bool)),
-					 this, SLOT(sl_updateTreeModel(bool)));
+    QObject::connect(creationDateButton, SIGNAL(toggled(bool)), SLOT(sl_updateTreeModel(bool)));
     modificationDateButton = new QRadioButton( tr( "Modification date" ), this);
-	QObject::connect(modificationDateButton, SIGNAL(toggled(bool)),
-					 this, SLOT(sl_updateTreeModel(bool)));
+    QObject::connect(modificationDateButton, SIGNAL(toggled(bool)), SLOT(sl_updateTreeModel(bool)));
 
 	QVBoxLayout* buttonsLayout = new QVBoxLayout();
 	buttonsLayout->addWidget(creationDateButton);
@@ -67,7 +63,8 @@ DateNavigationWidget::DateNavigationWidget(QWidget *parent)
 }
 
 void DateNavigationWidget::sl_View_clicked (const QModelIndex& index) {
-	if (!index.isValid()) {return;}
+    if (!index.isValid())
+        return;
 
 	BaseModelItem* item = static_cast<BaseModelItem*>(index.internalPointer());
 	if (item->DataType() == BaseModelItem::note) {

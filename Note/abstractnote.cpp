@@ -34,8 +34,8 @@ AbstractNote::AbstractNote( QWidget * parent ) :
     propertyAttachable = new PropertyAttachable( this );
     propertyAttachable->installTo( head );
 
-    connect( head, SIGNAL( doubleClick() ), SIGNAL( doubleClickHead() ) );
-    connect( body, SIGNAL( changeVisibleToolbar(bool) ), SIGNAL( changeVisibleToolbar(bool) ) );
+    QObject::connect( head, SIGNAL( doubleClick() ), SIGNAL( doubleClickHead() ) );
+    QObject::connect( body, SIGNAL( changeVisibleToolbar(bool) ), SIGNAL( changeVisibleToolbar(bool) ) );
 
     QVBoxLayout * mainLayout = new QVBoxLayout();
     mainLayout->setSpacing( 0 );

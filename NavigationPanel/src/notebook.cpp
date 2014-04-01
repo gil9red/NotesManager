@@ -14,9 +14,11 @@ QString getIdFromRichTextNote( RichTextNote * note )
 AbstractFolderItem * createFromType( const QString & type )
 {
     if ( type == "Note" )
-        return new Note();
+    {
+        Note * note = new Note();
+        return note;
 
-    else if ( type == "Folder" )
+    } else if ( type == "Folder" )
         return new Folder();
 
     else if ( type == "Trash" )
@@ -356,9 +358,11 @@ void Notebook::registerTag(Tag* tag)
     allTags.append(tag);
     tag->setParent(this);
     tagsByName.insert(tag->GetName(), tag);
-    QStandardItem* i = new QStandardItem( QIcon(":/fugue-icons/tag-label"), tag->GetName());
-    tagsListModel->appendRow(i);
-    tagsListModel->sort(0, Qt::AscendingOrder);
+
+//    QStandardItem* i = new QStandardItem( QIcon(":/fugue-icons/tag-label"), tag->GetName());
+//    tagsListModel->appendRow(i);
+//    tagsListModel->sort(0, Qt::AscendingOrder);
+
     emit sg_ItemRegistered(tag);
 }
 void Notebook::unregisterTag(Tag* tag)
@@ -366,9 +370,10 @@ void Notebook::unregisterTag(Tag* tag)
     allTags.removeAll(tag);
     tag->setParent(0);
     tagsByName.remove(tag->GetName());
-    QList<QStandardItem*> itemsList = tagsListModel->findItems(tag->GetName(), Qt::MatchExactly, 0);
-    QStandardItem* item = tagsListModel->takeItem(itemsList.at(0)->row());
-    delete item;
+
+//    QList<QStandardItem*> itemsList = tagsListModel->findItems(tag->GetName(), Qt::MatchExactly, 0);
+//    QStandardItem* item = tagsListModel->takeItem(itemsList.at(0)->row());
+//    delete item;
 
     emit sg_ItemUnregistered(tag);
     delete tag;

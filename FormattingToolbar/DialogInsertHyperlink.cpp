@@ -10,8 +10,8 @@ DialogInsertHyperlink::DialogInsertHyperlink( QWidget * parent )
 {
     ui->setupUi( this );
 
-    connect( ui->lEditInputHyperlink, SIGNAL( textChanged(QString) ), SLOT( updateStates() ) );
-    connect( ui->lEditInputTextHyperlink, SIGNAL( textChanged(QString) ), SLOT( updateStates() ) );
+    QObject::connect( ui->lEditInputHyperlink, SIGNAL( textChanged(QString) ), SLOT( updateStates() ) );
+    QObject::connect( ui->lEditInputTextHyperlink, SIGNAL( textChanged(QString) ), SLOT( updateStates() ) );
 
     updateStates();
 }

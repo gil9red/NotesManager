@@ -66,12 +66,12 @@ void HierarchyModel::RegisterItem(Folder* folder) // Register folder and all ite
 	}
 
     QObject::connect(folder, SIGNAL(sg_ItemAdded(AbstractFolderItem* const, int)), SLOT(sl_Folder_ItemAdded(AbstractFolderItem* const, int)));
-	QObject::connect(folder, SIGNAL(sg_ItemAboutToBeRemoved(AbstractFolderItem*const)), SLOT(sl_Folder_ItemAboutToBeRemoved(AbstractFolderItem* const)));
-	QObject::connect(folder, SIGNAL(sg_ItemAboutToBeMoved(AbstractFolderItem*const, int, Folder*)), SLOT(sl_Folder_ItemAboutToBeMoved(AbstractFolderItem* const, int, Folder*)));
-	QObject::connect(folder, SIGNAL(sg_ItemsCollectionAboutToClear()), SLOT(sl_Folder_ItemsCollectionCleared()));
+    QObject::connect(folder, SIGNAL(sg_ItemAboutToBeRemoved(AbstractFolderItem*const)), SLOT(sl_Folder_ItemAboutToBeRemoved(AbstractFolderItem* const)));
+    QObject::connect(folder, SIGNAL(sg_ItemAboutToBeMoved(AbstractFolderItem*const, int, Folder*)), SLOT(sl_Folder_ItemAboutToBeMoved(AbstractFolderItem* const, int, Folder*)));
+    QObject::connect(folder, SIGNAL(sg_ItemsCollectionAboutToClear()), SLOT(sl_Folder_ItemsCollectionCleared()));
 
 	FolderModelItem* fi = new FolderModelItem(folder);
-	QObject::connect(fi, SIGNAL(sg_DataChanged(BaseModelItem*)), this, SLOT(sl_Item_DataChanged(BaseModelItem*)));
+    QObject::connect(fi, SIGNAL(sg_DataChanged(BaseModelItem*)), this, SLOT(sl_Item_DataChanged(BaseModelItem*)));
     BaseModelItem* parent = bridge.value(folder->GetParent());
     if ( parent )
 		parent->AddChildTo(fi, folder->GetParent()->Items.IndexOf(folder));
@@ -106,7 +106,7 @@ void HierarchyModel::RegisterItem(Note* note) {
 	Folder* folder = note->GetParent();
     BaseModelItem* parentItem = bridge.value(folder);
 	NoteModelItem* noteItem = new NoteModelItem(note);
-	QObject::connect(noteItem, SIGNAL(sg_DataChanged(BaseModelItem*)), SLOT(sl_Item_DataChanged(BaseModelItem*)));
+    QObject::connect(noteItem, SIGNAL(sg_DataChanged(BaseModelItem*)), SLOT(sl_Item_DataChanged(BaseModelItem*)));
 	parentItem->AddChildTo(noteItem, note->GetParent()->Items.IndexOf(note));
     bridge.insert(note, noteItem);
 }

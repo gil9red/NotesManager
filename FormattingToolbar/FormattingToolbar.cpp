@@ -40,14 +40,14 @@ FormattingToolbar::FormattingToolbar( QWidget * parent ) :
     group->addButton( ui->tButtonAlignLeft );
     group->addButton( ui->tButtonAlignRight );
 
-    connect( ui->tButtonTextColor, SIGNAL( selectedColor(QColor) ), SLOT( textColor(QColor) ) );
-    connect( ui->tButtonColorBackground, SIGNAL( selectedColor(QColor) ), SLOT( backgroundColor(QColor) ) );
-    connect( ui->tButtonColorBackground, SIGNAL( clearBackground() ), SLOT( clearBackgroundColor() ) );
-    connect( ui->tButtonBulletedList, SIGNAL( selected(int) ), SLOT( list(int) ) );
-    connect( ui->tButtonOrderedList, SIGNAL( selected(int) ), SLOT( list(int) ) );
-    connect( ui->tButtonUnderline, SIGNAL( selected(int) ), SLOT( underline(int) ) );
-    connect( ui->tButtonUnderline, SIGNAL( selected(QColor) ), SLOT( colorUnderline(QColor) ) );
-    connect( ui->tButtonInsertTable, SIGNAL( selected(int,int) ), SLOT( insertTable(int,int) ) );
+    QObject::connect( ui->tButtonTextColor, SIGNAL( selectedColor(QColor) ), SLOT( textColor(QColor) ) );
+    QObject::connect( ui->tButtonColorBackground, SIGNAL( selectedColor(QColor) ), SLOT( backgroundColor(QColor) ) );
+    QObject::connect( ui->tButtonColorBackground, SIGNAL( clearBackground() ), SLOT( clearBackgroundColor() ) );
+    QObject::connect( ui->tButtonBulletedList, SIGNAL( selected(int) ), SLOT( list(int) ) );
+    QObject::connect( ui->tButtonOrderedList, SIGNAL( selected(int) ), SLOT( list(int) ) );
+    QObject::connect( ui->tButtonUnderline, SIGNAL( selected(int) ), SLOT( underline(int) ) );
+    QObject::connect( ui->tButtonUnderline, SIGNAL( selected(QColor) ), SLOT( colorUnderline(QColor) ) );
+    QObject::connect( ui->tButtonInsertTable, SIGNAL( selected(int,int) ), SLOT( insertTable(int,int) ) );
 
     updateStates();
 }
@@ -61,10 +61,10 @@ void FormattingToolbar::installConnect( QTextEdit * editor )
 {
     this->editor = editor;
 
-    connect( editor, SIGNAL( currentCharFormatChanged( QTextCharFormat ) ), SLOT( currentCharFormatChanged(QTextCharFormat) ) );
-    connect( editor, SIGNAL( cursorPositionChanged() ), SLOT( cursorPositionChanged() ) );
-    connect( editor, SIGNAL( selectionChanged() ), SLOT( updateStates() ) );
-    connect( editor->document(), SIGNAL(contentsChanged() ), SLOT( updateStates() ) );
+    QObject::connect( editor, SIGNAL( currentCharFormatChanged( QTextCharFormat ) ), SLOT( currentCharFormatChanged(QTextCharFormat) ) );
+    QObject::connect( editor, SIGNAL( cursorPositionChanged() ), SLOT( cursorPositionChanged() ) );
+    QObject::connect( editor, SIGNAL( selectionChanged() ), SLOT( updateStates() ) );
+    QObject::connect( editor->document(), SIGNAL(contentsChanged() ), SLOT( updateStates() ) );
 
     currentCharFormatChanged( editor->currentCharFormat() );
 

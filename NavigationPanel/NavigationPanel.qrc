@@ -13,5 +13,6 @@
         <file alias="calendar-day">icons/fugue-icons/24x24/calendar-day.png</file>
         <file alias="calendar-month">icons/fugue-icons/24x24/calendar-month.png</file>
         <file alias="pin">icons/fugue-icons/16x16/pin.png</file>
+        <file alias="tag-label-black">icons/fugue-icons/16x16/tag-label-black.png</file>
     </qresource>
 </RCC>

@@ -17,8 +17,8 @@ void ColorBackgroundButton::createGUI()
     ColorButton::disconnect( this, SIGNAL( clicked() ), this, SLOT( defaultColor() ) );
     ColorButton::disconnect( d->tButtonDefaultColor, SIGNAL( clicked() ), this, SLOT( defaultColor() ) );
 
-    connect( this, SIGNAL( clicked() ), SLOT( defaultColor() ) );
-    connect( d->tButtonDefaultColor, SIGNAL( clicked() ), SLOT( defaultColor() ) );
+    QObject::connect( this, SIGNAL( clicked() ), SLOT( defaultColor() ) );
+    QObject::connect( d->tButtonDefaultColor, SIGNAL( clicked() ), SLOT( defaultColor() ) );
 }
 void ColorBackgroundButton::setColor( const QColor & color )
 {

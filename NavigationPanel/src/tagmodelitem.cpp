@@ -42,7 +42,7 @@ QVariant TagModelItem::data(int role) const
 	}
 
     if (role == Qt::DecorationRole)
-        return QPixmap( ":/fugue-icons/tag-label" );
+        return QPixmap( ":/fugue-icons/tag-label-black" );
 
     else if (role == Qt::DisplayRole)
     {

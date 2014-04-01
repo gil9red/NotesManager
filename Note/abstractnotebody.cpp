@@ -16,7 +16,7 @@ AbstractNoteBody::AbstractNoteBody( QWidget * parent )
 
     addToolBar( tBar );
 
-    connect( tBar, SIGNAL( visibilityChanged(bool) ), SIGNAL( changeVisibleToolbar(bool) ) );
+    QObject::connect( tBar, SIGNAL( visibilityChanged(bool) ), SIGNAL( changeVisibleToolbar(bool) ) );
 }
 
 AbstractNoteBody::~AbstractNoteBody()

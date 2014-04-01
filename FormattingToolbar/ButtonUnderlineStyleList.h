@@ -64,7 +64,7 @@ public:
         addButton( tButtonDashDotDotLine, QTextCharFormat::DashDotDotLine );
         addButton( tButtonWaveUnderline, QTextCharFormat::WaveUnderline );
 
-        connect( colorButton, SIGNAL( selectedColor(QColor) ), SIGNAL( selected(QColor) ) );
+        QObject::connect( colorButton, SIGNAL( selectedColor(QColor) ), SIGNAL( selected(QColor) ) );
     }
 
 private:

@@ -14,15 +14,15 @@ FullscreenshotCropper::FullscreenshotCropper( QWidget * parent )
 
     QToolButton * tButtonFullscreen = new QToolButton();
     tButtonFullscreen->setText( tr( "Fullscreen" ) );
-    connect( tButtonFullscreen, SIGNAL( clicked() ), SLOT( fullscreen() ) );
+    QObject::connect( tButtonFullscreen, SIGNAL( clicked() ), SLOT( fullscreen() ) );
 
     QToolButton * tButtonCropper = new QToolButton();
     tButtonCropper->setText( tr( "Cut" ) );
-    connect( tButtonCropper, SIGNAL( clicked() ), SLOT( cropper() ) );
+    QObject::connect( tButtonCropper, SIGNAL( clicked() ), SLOT( cropper() ) );
 
     QToolButton * tButtonQuit = new QToolButton();
     tButtonQuit->setText( tr( "Cancel" ) );
-    connect( tButtonQuit, SIGNAL( clicked() ), SLOT( reject() ) );
+    QObject::connect( tButtonQuit, SIGNAL( clicked() ), SLOT( reject() ) );
 
     QLabel * label = new QLabel();
     QString textHint;

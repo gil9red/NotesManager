@@ -22,11 +22,11 @@ along with qNotesManager. If not, see <http://www.gnu.org/licenses/>.
 Tag::Tag(const QString& name) : _name(name)
 {
     QObject::connect(&Owners, SIGNAL(sg_ItemAboutToBeAdded(Note*)), SIGNAL(sg_OwnerAboutToBeAdded(Note*)));
-	QObject::connect(&Owners, SIGNAL(sg_ItemAdded(Note*)), SIGNAL(sg_OwnerAdded(Note*)));
-	QObject::connect(&Owners, SIGNAL(sg_ItemAboutToBeRemoved(Note*)), SIGNAL(sg_OwnerAboutToBeRemoved(Note*)));
-	QObject::connect(&Owners, SIGNAL(sg_ItemRemoved(Note*)), SIGNAL(sg_OwnerRemoved(Note*)));
-	QObject::connect(&Owners, SIGNAL(sg_AboutToBeCleared()), SIGNAL(sg_OwnersAboutToBeRemoved()));
-	QObject::connect(&Owners, SIGNAL(sg_Cleared()), SIGNAL(sg_OwnersRemoved()));
+    QObject::connect(&Owners, SIGNAL(sg_ItemAdded(Note*)), SIGNAL(sg_OwnerAdded(Note*)));
+    QObject::connect(&Owners, SIGNAL(sg_ItemAboutToBeRemoved(Note*)), SIGNAL(sg_OwnerAboutToBeRemoved(Note*)));
+    QObject::connect(&Owners, SIGNAL(sg_ItemRemoved(Note*)), SIGNAL(sg_OwnerRemoved(Note*)));
+    QObject::connect(&Owners, SIGNAL(sg_AboutToBeCleared()), SIGNAL(sg_OwnersAboutToBeRemoved()));
+    QObject::connect(&Owners, SIGNAL(sg_Cleared()), SIGNAL(sg_OwnersRemoved()));
 }
 
 QString Tag::GetName() const

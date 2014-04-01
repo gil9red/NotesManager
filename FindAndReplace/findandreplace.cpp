@@ -15,11 +15,11 @@ FindAndReplace::FindAndReplace( QTextEdit * textedit, QWidget * parent )
     updateStates();
 
     timer.setSingleShot( true );
-    connect( &timer, SIGNAL( timeout() ), SLOT( rehighlight() ) );
+    QObject::connect( &timer, SIGNAL( timeout() ), SLOT( rehighlight() ) );
     setDelayInterval( 250 );
 
-    connect( ui->findEdit, SIGNAL( cleansingText() ), SLOT( rehighlight() ) );
-    connect( ui->findEdit, SIGNAL( findFlagsChanged() ), SLOT( rehighlight() ) );
+    QObject::connect( ui->findEdit, SIGNAL( cleansingText() ), SLOT( rehighlight() ) );
+    QObject::connect( ui->findEdit, SIGNAL( findFlagsChanged() ), SLOT( rehighlight() ) );
 }
 FindAndReplace::~FindAndReplace()
 {

@@ -29,17 +29,17 @@ Folder::Folder(QString _name, FolderType _type) :
         Items(this)
 {
     QObject::connect(&Items, SIGNAL(sg_ItemAdded(AbstractFolderItem* const, int)), SIGNAL(sg_ItemAdded(AbstractFolderItem* const, int)));
-	QObject::connect(&Items, SIGNAL(sg_ItemMoved(AbstractFolderItem* const,int, Folder*)), SIGNAL(sg_ItemMoved(AbstractFolderItem* const,int, Folder*)));
-	QObject::connect(&Items, SIGNAL(sg_ItemRemoved(AbstractFolderItem* const)), SIGNAL(sg_ItemRemoved(AbstractFolderItem* const)));
-	QObject::connect(&Items, SIGNAL(sg_Cleared()), SIGNAL(sg_ItemsCollectionCleared()));
-	QObject::connect(&Items, SIGNAL(sg_ItemAboutToBeAdded(AbstractFolderItem*const, int)), SIGNAL(sg_ItemAboutToBeAdded(AbstractFolderItem*const, int)));
-	QObject::connect(&Items, SIGNAL(sg_ItemAboutToBeMoved(AbstractFolderItem*const,int, Folder*)), SIGNAL(sg_ItemAboutToBeMoved(AbstractFolderItem*const,int, Folder*)));
-	QObject::connect(&Items, SIGNAL(sg_ItemAboutToBeRemoved(AbstractFolderItem*const)), SIGNAL(sg_ItemAboutToBeRemoved(AbstractFolderItem*const)));
-	QObject::connect(&Items, SIGNAL(sg_AboutToClear()), SIGNAL(sg_ItemsCollectionAboutToClear()));
-	QObject::connect(&Items, SIGNAL(sg_ItemAdded(AbstractFolderItem*const,int)), SIGNAL(sg_DataChanged()));
-	QObject::connect(&Items, SIGNAL(sg_ItemMoved(AbstractFolderItem*const,int,Folder*)), SIGNAL(sg_DataChanged()));
-	QObject::connect(&Items, SIGNAL(sg_ItemRemoved(AbstractFolderItem*const)), SIGNAL(sg_DataChanged()));
-	QObject::connect(&Items, SIGNAL(sg_Cleared()), SIGNAL(sg_DataChanged()));
+    QObject::connect(&Items, SIGNAL(sg_ItemMoved(AbstractFolderItem* const,int, Folder*)), SIGNAL(sg_ItemMoved(AbstractFolderItem* const,int, Folder*)));
+    QObject::connect(&Items, SIGNAL(sg_ItemRemoved(AbstractFolderItem* const)), SIGNAL(sg_ItemRemoved(AbstractFolderItem* const)));
+    QObject::connect(&Items, SIGNAL(sg_Cleared()), SIGNAL(sg_ItemsCollectionCleared()));
+    QObject::connect(&Items, SIGNAL(sg_ItemAboutToBeAdded(AbstractFolderItem*const, int)), SIGNAL(sg_ItemAboutToBeAdded(AbstractFolderItem*const, int)));
+    QObject::connect(&Items, SIGNAL(sg_ItemAboutToBeMoved(AbstractFolderItem*const,int, Folder*)), SIGNAL(sg_ItemAboutToBeMoved(AbstractFolderItem*const,int, Folder*)));
+    QObject::connect(&Items, SIGNAL(sg_ItemAboutToBeRemoved(AbstractFolderItem*const)), SIGNAL(sg_ItemAboutToBeRemoved(AbstractFolderItem*const)));
+    QObject::connect(&Items, SIGNAL(sg_AboutToClear()), SIGNAL(sg_ItemsCollectionAboutToClear()));
+    QObject::connect(&Items, SIGNAL(sg_ItemAdded(AbstractFolderItem*const,int)), SIGNAL(sg_DataChanged()));
+    QObject::connect(&Items, SIGNAL(sg_ItemMoved(AbstractFolderItem*const,int,Folder*)), SIGNAL(sg_DataChanged()));
+    QObject::connect(&Items, SIGNAL(sg_ItemRemoved(AbstractFolderItem*const)), SIGNAL(sg_DataChanged()));
+    QObject::connect(&Items, SIGNAL(sg_Cleared()), SIGNAL(sg_DataChanged()));
 
 
     if (type == TrashFolder)

@@ -27,15 +27,14 @@ using namespace qNotesManager;
 
 TagsLineEdit::TagsLineEdit (QWidget *parent) : QLineEdit(parent) {
 	completer = new QCompleter(this);
-	QObject::connect(completer, SIGNAL(activated(QString)),
-					 this, SLOT(sl_Completer_Activated(QString)));
+    QObject::connect(completer, SIGNAL(activated(QString)), SLOT(sl_Completer_Activated(QString)));
 	QListView* listView = new QListView();
 	completer->setPopup(listView);
 	completer->setWidget(this);
 	completer->setCaseSensitivity(Qt::CaseInsensitive);
 	completer->setModelSorting(QCompleter::CaseSensitivelySortedModel);
 
-	connect(this, SIGNAL(textEdited(QString)), SLOT(sl_textEdited(QString)));
+    QObject::connect(this, SIGNAL(textEdited(QString)), SLOT(sl_textEdited(QString)));
 }
 
 void TagsLineEdit::SetTagsModel(QAbstractItemModel* model) {

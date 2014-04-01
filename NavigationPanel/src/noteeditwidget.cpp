@@ -39,8 +39,8 @@ void NoteEditWidget::setNote( Note * note )
     ui->title->setText( richTextNote->title() );
     ui->editor->setDocument( richTextNote->document() );
 
-    connect( ui->title, SIGNAL( editingFinished() ), SLOT( titleChange() ) );
-    connect( richTextNote, SIGNAL( changed(int) ), SLOT( noteChange(int) ) );
+    QObject::connect( ui->title, SIGNAL( editingFinished() ), SLOT( titleChange() ) );
+    QObject::connect( richTextNote, SIGNAL( changed(int) ), SLOT( noteChange(int) ) );
 }
 Note * NoteEditWidget::note()
 {

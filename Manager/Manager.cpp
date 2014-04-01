@@ -29,17 +29,17 @@ Manager::Manager( QWidget * parent ) :
     ui->sidebar->addTab( QIcon( ":/Manager/about" ),    tr( "About" ) );
     ui->sidebar->addTab( QIcon( ":/Manager/quit" ),     tr( "Quit" ) );
     ui->sidebar->setCurrentIndex( 0 );
-    connect( ui->sidebar, SIGNAL( currentChanged(int) ), SLOT( buttonSidebarClicked(int) ) );
+    QObject::connect( ui->sidebar, SIGNAL( currentChanged(int) ), SLOT( buttonSidebarClicked(int) ) );
 
 
     pageNotes = new Page_Notes();
     pageSettings = new Page_Settings();
     pageAbout = new Page_About();
 
-    connect( pageNotes, SIGNAL( sg_About_UpdateStates() ), SLOT( updateStates() ) );
+    QObject::connect( pageNotes, SIGNAL( sg_About_UpdateStates() ), SLOT( updateStates() ) );
 
-    connect( pageSettings, SIGNAL( message(QString, int) ), ui->statusBar, SLOT( showMessage(QString, int) ) );
-    connect( pageSettings, SIGNAL( acceptChangeSettings() ), SLOT( acceptChangeSettings() ) );
+    QObject::connect( pageSettings, SIGNAL( message(QString, int) ), ui->statusBar, SLOT( showMessage(QString, int) ) );
+    QObject::connect( pageSettings, SIGNAL( acceptChangeSettings() ), SLOT( acceptChangeSettings() ) );
 
     ui->stackedWidget_Pages->addWidget( pageNotes );
     ui->stackedWidget_Pages->addWidget( pageSettings );
@@ -50,7 +50,7 @@ Manager::Manager( QWidget * parent ) :
     createToolBars();
     createTray();
 
-    connect( &autoSaveTimer, SIGNAL( timeout() ), SLOT( writeSettings() ) );
+    QObject::connect( &autoSaveTimer, SIGNAL( timeout() ), SLOT( writeSettings() ) );
 
     updateStates();
 }
@@ -96,31 +96,31 @@ void Manager::createToolBars()
         ui->toolBarCloseDict->setVisible( false );
     }
 
-    connect( ui->toolBarSettings, SIGNAL( triggered() ), SLOT( show_page_settings() ) );
-    connect( ui->toolBarAbout, SIGNAL( triggered() ), SLOT( show_page_about() ) );
-    connect( ui->toolBarQuit, SIGNAL( triggered() ), SLOT( quit() ) );
+    QObject::connect( ui->toolBarSettings, SIGNAL( triggered() ), SLOT( show_page_settings() ) );
+    QObject::connect( ui->toolBarAbout, SIGNAL( triggered() ), SLOT( show_page_about() ) );
+    QObject::connect( ui->toolBarQuit, SIGNAL( triggered() ), SLOT( quit() ) );
 
-    connect( ui->toolBarAddNote, SIGNAL( triggered() ), pageNotes, SLOT( sl_AddNote() ) );
-    connect( ui->toolBarAddNoteFromClipboard, SIGNAL( triggered() ), pageNotes, SLOT( sl_AddNoteFromClipboard() ) );
-    connect( ui->toolBarAddNoteFromScreen, SIGNAL( triggered() ), pageNotes, SLOT( sl_AddNoteFromScreen() ) );
-    connect( ui->toolBarAddFolder, SIGNAL( triggered() ), pageNotes, SLOT( sl_AddFolder() ) );
-    connect( ui->toolBarRemoveToTrash, SIGNAL( triggered() ), pageNotes, SLOT( sl_RemoveToTrash() ) );
-    connect( ui->toolBarDelete, SIGNAL( triggered() ), pageNotes, SLOT( sl_Delete() ) );
-    connect( ui->toolBarClearTrash, SIGNAL( triggered() ), pageNotes, SLOT( sl_ClearTrash() ) );
+    QObject::connect( ui->toolBarAddNote, SIGNAL( triggered() ), pageNotes, SLOT( sl_AddNote() ) );
+    QObject::connect( ui->toolBarAddNoteFromClipboard, SIGNAL( triggered() ), pageNotes, SLOT( sl_AddNoteFromClipboard() ) );
+    QObject::connect( ui->toolBarAddNoteFromScreen, SIGNAL( triggered() ), pageNotes, SLOT( sl_AddNoteFromScreen() ) );
+    QObject::connect( ui->toolBarAddFolder, SIGNAL( triggered() ), pageNotes, SLOT( sl_AddFolder() ) );
+    QObject::connect( ui->toolBarRemoveToTrash, SIGNAL( triggered() ), pageNotes, SLOT( sl_RemoveToTrash() ) );
+    QObject::connect( ui->toolBarDelete, SIGNAL( triggered() ), pageNotes, SLOT( sl_Delete() ) );
+    QObject::connect( ui->toolBarClearTrash, SIGNAL( triggered() ), pageNotes, SLOT( sl_ClearTrash() ) );
 
-    connect( ui->toolBarOpenDict, SIGNAL( triggered() ), SLOT( openDictionary() ) );
-    connect( ui->toolBarCloseDict, SIGNAL( triggered() ), SLOT( closeDictionary() ) );
-    connect( ui->toolBarSaveAllNotes, SIGNAL( triggered() ), pageNotes, SLOT( sl_SaveAllNotes() ) );
-    connect( ui->toolBarShowAllNotes, SIGNAL( triggered() ), pageNotes, SLOT( sl_ShowAllNotes() ) );
-    connect( ui->toolBarHideAllNotes, SIGNAL( triggered() ), pageNotes, SLOT( sl_HideAllNotes() ) );
-    connect( ui->toolBarSaveNoteAs, SIGNAL( triggered() ), pageNotes, SLOT( sl_SaveAsNote() ) );
-    connect( ui->toolBarSaveNote, SIGNAL( triggered() ), pageNotes, SLOT( sl_SaveNote() ) );
-    connect( ui->toolBarShowNote, SIGNAL( triggered() ), pageNotes, SLOT( sl_ShowNote() ) );
-    connect( ui->toolBarHideNote, SIGNAL( triggered() ), pageNotes, SLOT( sl_HideNote() ) );
-    connect( ui->toolBarPrintNote, SIGNAL( triggered() ), pageNotes, SLOT( sl_PrintNote() ) );
-    connect( ui->toolBarPreviewPrintNote, SIGNAL( triggered() ), pageNotes, SLOT( sl_PreviewPrintNote() ) );
-    connect( ui->toolBarTopNote, SIGNAL( triggered(bool) ), pageNotes, SLOT( sl_SetTopNote(bool) ) );
-    //connect( ui->duplicateNote, SIGNAL( triggered() ), SLOT( duplicateNote() ) );
+    QObject::connect( ui->toolBarOpenDict, SIGNAL( triggered() ), SLOT( openDictionary() ) );
+    QObject::connect( ui->toolBarCloseDict, SIGNAL( triggered() ), SLOT( closeDictionary() ) );
+    QObject::connect( ui->toolBarSaveAllNotes, SIGNAL( triggered() ), pageNotes, SLOT( sl_SaveAllNotes() ) );
+    QObject::connect( ui->toolBarShowAllNotes, SIGNAL( triggered() ), pageNotes, SLOT( sl_ShowAllNotes() ) );
+    QObject::connect( ui->toolBarHideAllNotes, SIGNAL( triggered() ), pageNotes, SLOT( sl_HideAllNotes() ) );
+    QObject::connect( ui->toolBarSaveNoteAs, SIGNAL( triggered() ), pageNotes, SLOT( sl_SaveAsNote() ) );
+    QObject::connect( ui->toolBarSaveNote, SIGNAL( triggered() ), pageNotes, SLOT( sl_SaveNote() ) );
+    QObject::connect( ui->toolBarShowNote, SIGNAL( triggered() ), pageNotes, SLOT( sl_ShowNote() ) );
+    QObject::connect( ui->toolBarHideNote, SIGNAL( triggered() ), pageNotes, SLOT( sl_HideNote() ) );
+    QObject::connect( ui->toolBarPrintNote, SIGNAL( triggered() ), pageNotes, SLOT( sl_PrintNote() ) );
+    QObject::connect( ui->toolBarPreviewPrintNote, SIGNAL( triggered() ), pageNotes, SLOT( sl_PreviewPrintNote() ) );
+    QObject::connect( ui->toolBarTopNote, SIGNAL( triggered(bool) ), pageNotes, SLOT( sl_SetTopNote(bool) ) );
+    //QObject::connect( ui->duplicateNote, SIGNAL( triggered() ), SLOT( duplicateNote() ) );
 }
 void Manager::createMenu()
 {
@@ -131,34 +131,34 @@ void Manager::createMenu()
         ui->actionCloseDict->setVisible( false );
     }
 
-    connect( ui->actionFull_screen, SIGNAL( triggered(bool) ), SLOT( setFullScreen(bool) ) );
-    connect( ui->actionShowSidebar, SIGNAL( triggered(bool) ), SLOT( setShowSidebar(bool) ) );
-    connect( ui->actionShow_Status_bar, SIGNAL( triggered(bool) ), SLOT( setShowStatusBar(bool) ) );
+    QObject::connect( ui->actionFull_screen, SIGNAL( triggered(bool) ), SLOT( setFullScreen(bool) ) );
+    QObject::connect( ui->actionShowSidebar, SIGNAL( triggered(bool) ), SLOT( setShowSidebar(bool) ) );
+    QObject::connect( ui->actionShow_Status_bar, SIGNAL( triggered(bool) ), SLOT( setShowStatusBar(bool) ) );
 
-    connect( ui->actionQuit, SIGNAL( triggered() ), ui->toolBarQuit, SIGNAL( triggered() ) );
-    connect( ui->actionSettings, SIGNAL( triggered() ), ui->toolBarSettings, SIGNAL( triggered() ) );
-    connect( ui->actionAbout, SIGNAL( triggered() ), ui->toolBarAbout, SIGNAL( triggered() ) );
-    connect( ui->actionDocumentation, SIGNAL( triggered() ), SLOT( show_page_documentation() ) );
+    QObject::connect( ui->actionQuit, SIGNAL( triggered() ), ui->toolBarQuit, SIGNAL( triggered() ) );
+    QObject::connect( ui->actionSettings, SIGNAL( triggered() ), ui->toolBarSettings, SIGNAL( triggered() ) );
+    QObject::connect( ui->actionAbout, SIGNAL( triggered() ), ui->toolBarAbout, SIGNAL( triggered() ) );
+    QObject::connect( ui->actionDocumentation, SIGNAL( triggered() ), SLOT( show_page_documentation() ) );
 
-    //  TODO:  connect( ui->actionOpen, SIGNAL( triggered() ), SLOT( open() ) );
+    //  TODO:  QObject::connect( ui->actionOpen, SIGNAL( triggered() ), SLOT( open() ) );
 
-    connect( ui->actionAddNote, SIGNAL( triggered() ), ui->toolBarAddNote, SIGNAL( triggered() ) );
-    connect( ui->actionAddNoteFromClipboard, SIGNAL( triggered() ), ui->toolBarAddNoteFromClipboard, SIGNAL( triggered() ) );
-    connect( ui->actionAddNoteFromScreen, SIGNAL( triggered() ), ui->toolBarAddNoteFromScreen, SIGNAL( triggered() ) );
+    QObject::connect( ui->actionAddNote, SIGNAL( triggered() ), ui->toolBarAddNote, SIGNAL( triggered() ) );
+    QObject::connect( ui->actionAddNoteFromClipboard, SIGNAL( triggered() ), ui->toolBarAddNoteFromClipboard, SIGNAL( triggered() ) );
+    QObject::connect( ui->actionAddNoteFromScreen, SIGNAL( triggered() ), ui->toolBarAddNoteFromScreen, SIGNAL( triggered() ) );
 
-    connect( ui->actionOpenDict, SIGNAL( triggered() ), ui->toolBarOpenDict, SIGNAL( triggered() ) );
-    connect( ui->actionCloseDict, SIGNAL( triggered() ), ui->toolBarCloseDict, SIGNAL( triggered() ) );
-    connect( ui->actionSaveAllNotes, SIGNAL( triggered() ), ui->toolBarSaveAllNotes, SIGNAL( triggered() ) );
-    connect( ui->actionShowAllNotes, SIGNAL( triggered() ), ui->toolBarShowAllNotes, SIGNAL( triggered() ) );
-    connect( ui->actionHideAllNotes, SIGNAL( triggered() ), ui->toolBarHideAllNotes, SIGNAL( triggered() ) );
-    connect( ui->actionSaveNoteAs, SIGNAL( triggered() ), ui->toolBarSaveNoteAs, SIGNAL( triggered() ) );
-    connect( ui->actionSaveNote, SIGNAL( triggered() ), ui->toolBarSaveNote, SIGNAL( triggered() ) );
-    connect( ui->actionShowNote, SIGNAL( triggered() ), ui->toolBarShowNote, SIGNAL( triggered() ) );
-    connect( ui->actionHideNote, SIGNAL( triggered() ), ui->toolBarHideNote, SIGNAL( triggered() ) );
-    connect( ui->actionPrintNote, SIGNAL( triggered() ), ui->toolBarPrintNote, SIGNAL( triggered() ) );
-    connect( ui->actionPreviewPrintNote, SIGNAL( triggered() ), ui->toolBarPreviewPrintNote, SIGNAL( triggered() ) );
-    connect( ui->actionTopNote, SIGNAL( triggered(bool) ), ui->toolBarTopNote, SIGNAL( triggered() ) );
-    //connect( ui->actionDuplicateNote, SIGNAL( triggered() ), SLOT( duplicateNote() ) );
+    QObject::connect( ui->actionOpenDict, SIGNAL( triggered() ), ui->toolBarOpenDict, SIGNAL( triggered() ) );
+    QObject::connect( ui->actionCloseDict, SIGNAL( triggered() ), ui->toolBarCloseDict, SIGNAL( triggered() ) );
+    QObject::connect( ui->actionSaveAllNotes, SIGNAL( triggered() ), ui->toolBarSaveAllNotes, SIGNAL( triggered() ) );
+    QObject::connect( ui->actionShowAllNotes, SIGNAL( triggered() ), ui->toolBarShowAllNotes, SIGNAL( triggered() ) );
+    QObject::connect( ui->actionHideAllNotes, SIGNAL( triggered() ), ui->toolBarHideAllNotes, SIGNAL( triggered() ) );
+    QObject::connect( ui->actionSaveNoteAs, SIGNAL( triggered() ), ui->toolBarSaveNoteAs, SIGNAL( triggered() ) );
+    QObject::connect( ui->actionSaveNote, SIGNAL( triggered() ), ui->toolBarSaveNote, SIGNAL( triggered() ) );
+    QObject::connect( ui->actionShowNote, SIGNAL( triggered() ), ui->toolBarShowNote, SIGNAL( triggered() ) );
+    QObject::connect( ui->actionHideNote, SIGNAL( triggered() ), ui->toolBarHideNote, SIGNAL( triggered() ) );
+    QObject::connect( ui->actionPrintNote, SIGNAL( triggered() ), ui->toolBarPrintNote, SIGNAL( triggered() ) );
+    QObject::connect( ui->actionPreviewPrintNote, SIGNAL( triggered() ), ui->toolBarPreviewPrintNote, SIGNAL( triggered() ) );
+    QObject::connect( ui->actionTopNote, SIGNAL( triggered(bool) ), ui->toolBarTopNote, SIGNAL( triggered() ) );
+    //QObject::connect( ui->actionDuplicateNote, SIGNAL( triggered() ), SLOT( duplicateNote() ) );
 }
 void Manager::createTray()
 {
@@ -167,7 +167,7 @@ void Manager::createTray()
     const QString & version = qApp->applicationVersion();
     const QString & description = tr( "The program creates notes" );
     tray.setToolTip( QString( "%1 %2\n%3" ).arg( name ).arg( version ).arg( description ) );
-    connect( &tray, SIGNAL( activated(QSystemTrayIcon::ActivationReason) ), SLOT( messageReceived(QSystemTrayIcon::ActivationReason) ) );
+    QObject::connect( &tray, SIGNAL( activated(QSystemTrayIcon::ActivationReason) ), SLOT( messageReceived(QSystemTrayIcon::ActivationReason) ) );
     tray.show();
 
     trayActionOpenManager = Create::Action::triggered( QIcon( "" ), tr( "Open manager" ), this, SLOT( show_Manager() ) );

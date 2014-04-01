@@ -43,7 +43,7 @@ void FindFadLineEdit::init()
     tButtonOptions.setToolTip( tr( "Options" ) );
     tButtonOptions.setStatusTip( tr( "Options" ) );
     tButtonOptions.setWhatsThis( tr( "Options" ) );
-    connect( &tButtonOptions, SIGNAL( clicked() ), SLOT( invokeShowOptions() ) );
+    QObject::connect( &tButtonOptions, SIGNAL( clicked() ), SLOT( invokeShowOptions() ) );
 
     addButton( &tButtonOptions, Left );
 
@@ -65,7 +65,7 @@ void FindFadLineEdit::init()
     findActionGroup->addAction( actionWholeWords );
     findActionGroup->addAction( actionRegExp );
 
-    connect( findActionGroup, SIGNAL( triggered(QAction*) ), SLOT( invokeFindFlagsChanged() ) );
+    QObject::connect( findActionGroup, SIGNAL( triggered(QAction*) ), SLOT( invokeFindFlagsChanged() ) );
 
     updateIcons();
 }

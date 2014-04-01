@@ -70,7 +70,7 @@ private:
     DatesModel * p_creationDateModel;
     DatesModel * p_modificationDateModel;
 
-    QStandardItemModel * tagsListModel; // used for completers in TagsLineEdit
+//    QStandardItemModel * tagsListModel; // used for completers in TagsLineEdit
     QMap < QString, Tag * > tagsByName; // для быстрого нахождение тэга по имени
 
     static Notebook * self;
