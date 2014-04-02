@@ -2,7 +2,6 @@
     <qresource prefix="/Note">
         <file alias="color">icons/color.png</file>
         <file alias="remove">icons/delete.png</file>
-        <file alias="duplicate">icons/duplicate.png</file>
         <file alias="hide">icons/hide.png</file>
         <file alias="read-only">icons/lock.png</file>
         <file alias="opacity">icons/opacity.png</file>

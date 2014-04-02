@@ -186,7 +186,6 @@ void RichTextNote::setupActions()
     QAction * actionPreviewPrint = Create::Action::triggered( tr( "Preview print" ), QIcon::fromTheme( "", QIcon( ":/Note/preview-print" ) ), QKeySequence(), this, SLOT( previewPrint() ) );
 #endif
     actionSave = Create::Action::triggered( tr( "Save" ), QIcon::fromTheme( "", QIcon( ":/Note/save" ) ), QKeySequence( QKeySequence::Save ), this, SLOT( save() ) );
-    QAction * actionDuplicate = Create::Action::triggered( tr( "Duplicate" ), QIcon::fromTheme( "", QIcon( ":/Note/duplicate" ) ), QKeySequence(), this, SLOT( duplicate() ) );
     QAction * actionAttach = Create::Action::triggered( tr( "Attach" ), QIcon::fromTheme( "", QIcon( ":/Note/attach" ) ), QKeySequence(), this, SLOT( selectAttach() ) );
 
     QObject::connect( actionVisibleToolBar, SIGNAL( triggered(bool) ), SLOT( setVisibleToolBar(bool) ) );
@@ -223,7 +222,6 @@ void RichTextNote::setupActions()
     addAction( actionPrint );
     addAction( actionPreviewPrint );
     addSeparator();
-    addAction( actionDuplicate );    
     addAction( actionAttach );
     addSeparator();
     addAction( actionHide );
@@ -331,7 +329,6 @@ void RichTextNote::setupGUI()
     QToolButton * tButtonPrint = Create::Button::clicked( tr( "Print" ),QIcon::fromTheme( "", QIcon( ":/Note/print" ) ), this, SLOT( print() ) );
     QToolButton * tButtonPreviewPrint = Create::Button::clicked( tr( "Preview print" ), QIcon::fromTheme( "", QIcon( ":/Note/preview-print" ) ), this, SLOT( previewPrint() ) );
     tButtonSave = Create::Button::clicked( tr( "Save" ), QIcon::fromTheme( "", QIcon( ":/Note/save" ) ), this, SLOT( save() ) );
-    QToolButton * tButtonDuplicate = Create::Button::clicked( tr( "Duplicate" ), QIcon::fromTheme( "", QIcon( ":/Note/duplicate" ) ), this, SLOT( duplicate() ) );
     QToolButton * tButtonAttach = Create::Button::clicked( tr( "Attach" ), QIcon::fromTheme( "", QIcon( ":/Note/attach" ) ), this, SLOT( selectAttach() ) );
 
 
@@ -354,7 +351,6 @@ void RichTextNote::setupGUI()
     body->addWidgetToToolBar( tButtonSaveAs );
     body->addWidgetToToolBar( tButtonSave );
     body->addSeparator();
-    body->addWidgetToToolBar( tButtonDuplicate );
     body->addWidgetToToolBar( tButtonAttach );
     body->addSeparator();
     body->addWidgetToToolBar( tButtonPrint );
@@ -680,10 +676,6 @@ void RichTextNote::previewPrint()
 
     QObject::connect( &preview, SIGNAL( paintRequested( QPrinter * ) ), SLOT( print( QPrinter * ) ) );
     preview.exec();
-}
-void RichTextNote::duplicate()
-{
-    emit changed( EventsNote::Duplicate );
 }
 void RichTextNote::selectAttach()
 {

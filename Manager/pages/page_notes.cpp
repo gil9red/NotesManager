@@ -170,6 +170,7 @@ void Page_Notes::readSettings()
     }
 
     settings->beginGroup( "Page_Notes" );
+    restoreState( settings->value( "State" ).toByteArray() );
     ui->splitter->restoreState( settings->value( "Splitter_Main" ).toByteArray() );
     settings->endGroup();
 
@@ -184,6 +185,7 @@ void Page_Notes::writeSettings()
     }
 
     settings->beginGroup( "Page_Notes" );
+    settings->setValue( "State", saveState() );
     settings->setValue( "Splitter_Main", ui->splitter->saveState() );
     settings->endGroup();
     settings->sync();

@@ -39,11 +39,6 @@ public:
 
     void nowReadyPhase();
 
-private:
-    void createToolBars(); //!< Создание панели инструментов.
-    void createMenu();     //!< Создание меню.
-    void createTray();     //!< Создание трея.
-
 public:
     static Manager * self;                //!< Статичный указатель на "себя".
     Ui::Manager * ui;                     //!< Форма UI.
@@ -52,18 +47,6 @@ public:
     Page_About * pageAbout;               //!< Страница менеджера, которая отображает "О программе".
 
     QSystemTrayIcon tray;                 //!< Класс системного трея.
-    QAction * trayActionOpenManager;          //!< Показ окна менеджера. Действие в меню трея.
-    QAction * trayActionAddNote;              //!< Создать заметку. Действие в меню трея.
-    QAction * trayActionAddNoteFromClipboard; //!< Создать заметку и содержимое брать из буфера обмена. Действие в меню трея.
-    QAction * trayActionAddNoteFromScreen;    //!< Создать заметку и содержимое брать из скриншота. Действие в меню трея.
-    QAction * trayActionShowAllNotes;         //!< Показать все заметки. Действие в меню трея.
-    QAction * trayActionHideAllNotes;         //!< Скрыть все заметки. Действие в меню трея.
-    QAction * trayActionSaveAllNotes;         //!< Сохранить все заметки. Действие в меню трея.
-    QAction * trayActionRemoveAllNotes;       //!< Удалить все заметки. Действие в меню трея.
-    QAction * trayActionSettings;             //!< Показать настройки менеджера. Действие в меню трея.
-    QAction * trayActionAbout;                //!< Показ окна "О программе". Действие в меню трея.
-    QAction * trayActionDocumentation;
-    QAction * trayActionQuit;                 //!< Сохранить все заметки и закрыть программу. Действие в меню трея.
 
     QSettings * settings;                 //!< Указатель на класс настроек.
     QTimer autoSaveTimer;                 //!< Таймер автосохранения.
@@ -89,7 +72,7 @@ private slots:
 
 public slots:
     void show_Manager();  //!< Показать менеджер.
-    void setFullScreen( bool fs );
+    void setFullScreen( bool );
     void quit();          //!< Закрыть программу.
     void readSettings();  //!< Считывание настроек менеджера.
     void writeSettings(); //!< Запись настроек менеджера.
@@ -97,11 +80,11 @@ public slots:
     void openDictionary();
     void closeDictionary();
 
-    void setShowSidebar( bool visible );
+    void setShowSidebar( bool );
     bool isShowSidebar();
-    void setShowStatusBar( bool show );
+    void setShowStatusBar( bool );
     bool isShowStatusBar();
-    void setActivateTimerAutosave( bool activate ); //!< Активация таймера автосохранения.
+    void setActivateTimerAutosave( bool ); //!< Активация таймера автосохранения.
     bool isActivateTimerAutosave();                 //!< Функция вернет true, если таймер автосохранения активен.
     void setIntervalAutosave( quint64 minutes );    //!< Установка интервала таймера автосохранения.
     int intervalAutosave();                         //!< Функция вернет интервал таймера автосохранения.
