@@ -38,8 +38,10 @@ public:
     bool currentIsChildTrash();
     bool trashIsEmpty();
 
-private:
+public:
     Ui::Page_notes * ui;
+
+private:
     QSettings * settings;
 
 public slots:
@@ -61,6 +63,9 @@ public slots:
     void sl_SetTopNote( bool top );
     void sl_PrintNote();
     void sl_PreviewPrintNote();
+
+private slots:
+    void sl_UpdateStates();
 
 signals:
     void sg_About_UpdateStates();

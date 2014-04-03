@@ -28,7 +28,7 @@
       </property>
       <widget class="QTabWidget" name="tabWidget_Navigation">
        <property name="currentIndex">
-        <number>0</number>
+        <number>2</number>
        </property>
        <widget class="FolderNavigationWidget" name="tab_Notes">
         <attribute name="icon">
@@ -70,7 +70,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QToolBar" name="toolBarManager">
+  <widget class="QToolBar" name="toolBarManage">
    <property name="windowTitle">
     <string>Manage</string>
    </property>
@@ -86,14 +86,16 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="toolBarAddNote"/>
-   <addaction name="toolBarAddNoteFromClipboard"/>
-   <addaction name="toolBarAddNoteFromScreen"/>
-   <addaction name="toolBarAddFolder"/>
-   <addaction name="toolBarDelete"/>
-   <addaction name="toolBarRemoveToTrash"/>
+   <addaction name="actionAddNote"/>
+   <addaction name="actionAddNoteFromClipboard"/>
+   <addaction name="actionAddNoteFromScreen"/>
+   <addaction name="actionAddFolder"/>
+   <addaction name="separator"/>
+   <addaction name="actionDelete"/>
+   <addaction name="actionRemoveToTrash"/>
+   <addaction name="actionClearTrash"/>
   </widget>
-   <widget class="QToolBar" name="toolBarNote">
+  <widget class="QToolBar" name="toolBarNote">
    <property name="windowTitle">
     <string>Note</string>
    </property>
@@ -103,23 +105,54 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="toolBarSaveNote"/>
-   <addaction name="toolBarSaveNoteAs"/>
-   <addaction name="toolBarOpenDict"/>
-   <addaction name="toolBarCloseDict"/>
-   <addaction name="toolBarShowNote"/>
-   <addaction name="toolBarHideNote"/>
-   <addaction name="toolBarShowAllNotes"/>
-   <addaction name="toolBarHideAllNotes"/>
-   <addaction name="toolBarSaveAllNotes"/>
-   <addaction name="toolBarTopNote"/>
-   <addaction name="toolBarPrintNote"/>
-   <addaction name="toolBarPreviewPrintNote"/>
+   <addaction name="actionSaveNote"/>
+   <addaction name="actionSaveNoteAs"/>
+   <addaction name="separator"/>
+   <addaction name="actionShowNote"/>
+   <addaction name="actionHideNote"/>
+   <addaction name="separator"/>
+   <addaction name="actionShowAllNotes"/>
+   <addaction name="actionHideAllNotes"/>
+   <addaction name="separator"/>
+   <addaction name="actionSaveAllNotes"/>
+   <addaction name="actionTopNote"/>
+   <addaction name="separator"/>
+   <addaction name="actionPrintNote"/>
+   <addaction name="actionPreviewPrintNote"/>
   </widget>
-  
-    <action name="toolBarSaveNote">
+  <action name="actionAddNote">
    <property name="icon">
-    <iconset resource="../Note/Note.qrc">
+    <iconset resource="../Manager.qrc">
+     <normaloff>:/fugue-icons/plus</normaloff>:/fugue-icons/plus</iconset>
+   </property>
+   <property name="text">
+    <string>Add Note</string>
+   </property>
+   <property name="statusTip">
+    <string>Add Note</string>
+   </property>
+   <property name="whatsThis">
+    <string>Add Note</string>
+   </property>
+  </action>
+  <action name="actionAddNoteFromClipboard">
+   <property name="icon">
+    <iconset resource="../Manager.qrc">
+     <normaloff>:/Manager/add-from_clipboard</normaloff>:/Manager/add-from_clipboard</iconset>
+   </property>
+   <property name="text">
+    <string>Add a Note From The Clipboard</string>
+   </property>
+   <property name="statusTip">
+    <string>Add a Note From The Clipboard</string>
+   </property>
+   <property name="whatsThis">
+    <string>Add a Note From The Clipboard</string>
+   </property>
+  </action>
+  <action name="actionSaveNote">
+   <property name="icon">
+    <iconset resource="../../Note/Note.qrc">
      <normaloff>:/Note/save</normaloff>:/Note/save</iconset>
    </property>
    <property name="text">
@@ -132,87 +165,72 @@
     <string>Save</string>
    </property>
   </action>
-    <action name="toolBarSaveNoteAs">
+  <action name="actionShowNote">
    <property name="icon">
-    <iconset resource="../Note/Note.qrc">
-     <normaloff>:/Note/save-as</normaloff>:/Note/save-as</iconset>
-   </property>
-   <property name="text">
-    <string>Save as</string>
-   </property>
-   <property name="statusTip">
-    <string>Save as</string>
-   </property>
-   <property name="whatsThis">
-    <string>Save as</string>
-   </property>
-  </action>
-    <action name="toolBarShowNote">
-   <property name="icon">
-    <iconset resource="Manager.qrc">
+    <iconset resource="../Manager.qrc">
      <normaloff>:/Manager/show</normaloff>:/Manager/show</iconset>
    </property>
    <property name="text">
-    <string>Show</string>
+    <string>Show Note</string>
    </property>
    <property name="statusTip">
-    <string>Show</string>
+    <string>Show Note</string>
    </property>
    <property name="whatsThis">
-    <string>Show</string>
+    <string>Show Note</string>
    </property>
   </action>
-    <action name="toolBarHideNote">
+  <action name="actionHideNote">
    <property name="icon">
-    <iconset resource="Manager.qrc">
+    <iconset resource="../Manager.qrc">
      <normaloff>:/Manager/hide</normaloff>:/Manager/hide</iconset>
    </property>
    <property name="text">
-    <string>Hide</string>
+    <string>Hide Note</string>
    </property>
    <property name="statusTip">
-    <string>Hide</string>
+    <string>Hide Note</string>
    </property>
    <property name="whatsThis">
-    <string>Hide</string>
+    <string>Hide Note</string>
    </property>
   </action>
-    <action name="toolBarShowAllNotes">
+  <action name="actionShowAllNotes">
    <property name="icon">
-    <iconset resource="Manager.qrc">
+    <iconset resource="../Manager.qrc">
      <normaloff>:/Manager/show_all</normaloff>:/Manager/show_all</iconset>
    </property>
    <property name="text">
-    <string>Show all notes</string>
+    <string>Show All Notes</string>
    </property>
    <property name="statusTip">
-    <string>Show all notes</string>
+    <string>Show All Notes</string>
    </property>
    <property name="whatsThis">
-    <string>Show all notes</string>
+    <string>Show All Notes</string>
    </property>
   </action>
-    <action name="toolBarHideAllNotes">
+  <action name="actionHideAllNotes">
    <property name="icon">
-    <iconset resource="Manager.qrc">
+    <iconset resource="../Manager.qrc">
      <normaloff>:/Manager/hide_all</normaloff>:/Manager/hide_all</iconset>
    </property>
    <property name="text">
-    <string>Hide all notes</string>
+    <string>Hide All Notes</string>
    </property>
    <property name="statusTip">
-    <string>Hide all notes</string>
+    <string>Hide All Notes</string>
    </property>
    <property name="whatsThis">
-    <string>Hide all notes</string>
+    <string>Hide All Notes</string>
    </property>
   </action>
-    <action name="toolBarTopNote">
+  <action name="actionTopNote">
    <property name="checkable">
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../Note/Note.qrc">
+    <iconset resource="../../Note/Note.qrc">
      <normaloff>:/Note/tacks</normaloff>:/Note/tacks</iconset>
    </property>
    <property name="text">
@@ -225,9 +243,9 @@
     <string>On top of all windows</string>
    </property>
   </action>
-    <action name="toolBarPrintNote">
+  <action name="actionPrintNote">
    <property name="icon">
-    <iconset resource="../Note/Note.qrc">
+    <iconset resource="../../Note/Note.qrc">
      <normaloff>:/Note/print</normaloff>:/Note/print</iconset>
    </property>
    <property name="text">
@@ -240,140 +258,129 @@
     <string>Print</string>
    </property>
   </action>
-    <action name="toolBarPreviewPrintNote">
+  <action name="actionPreviewPrintNote">
    <property name="icon">
-    <iconset resource="../Note/Note.qrc">
+    <iconset resource="../../Note/Note.qrc">
      <normaloff>:/Note/preview-print</normaloff>:/Note/preview-print</iconset>
    </property>
    <property name="text">
-    <string>Preview print</string>
+    <string>Preview Print</string>
    </property>
    <property name="statusTip">
-    <string>Preview print</string>
+    <string>Preview Print</string>
    </property>
    <property name="whatsThis">
-    <string>Preview print</string>
+    <string>Preview Print</string>
    </property>
   </action>
-    <action name="toolBarSaveAllNotes">
+  <action name="actionSaveAllNotes">
    <property name="icon">
-    <iconset resource="Manager.qrc">
+    <iconset resource="../Manager.qrc">
      <normaloff>:/Manager/save_all</normaloff>:/Manager/save_all</iconset>
    </property>
    <property name="text">
-    <string>Save all notes</string>
+    <string>Save All Notes</string>
    </property>
    <property name="statusTip">
-    <string>Save all notes</string>
+    <string>Save All Notes</string>
    </property>
    <property name="whatsThis">
-    <string>Save all notes</string>
+    <string>Save All Notes</string>
    </property>
   </action>
-    <action name="toolBarOpenDict">
+  <action name="actionOpenDict">
    <property name="icon">
-    <iconset resource="Manager.qrc">
+    <iconset resource="../Manager.qrc">
      <normaloff>:/Manager/open_dict</normaloff>:/Manager/open_dict</iconset>
    </property>
    <property name="text">
-    <string>Open dictionary</string>
+    <string>Open Dictionary</string>
    </property>
    <property name="statusTip">
-    <string>Open dictionary</string>
+    <string>Open Dictionary</string>
    </property>
    <property name="whatsThis">
-    <string>Open dictionary</string>
+    <string>Open Dictionary</string>
    </property>
   </action>
-    <action name="toolBarCloseDict">
+  <action name="actionCloseDict">
    <property name="icon">
-    <iconset resource="Manager.qrc">
+    <iconset resource="../Manager.qrc">
      <normaloff>:/Manager/close_dict</normaloff>:/Manager/close_dict</iconset>
    </property>
    <property name="text">
-    <string>Close dictionary</string>
+    <string>Close Dictionary</string>
+   </property>
+   <property name="iconText">
+    <string>Close Dictionary</string>
+   </property>
+   <property name="toolTip">
+    <string>Close Dictionary</string>
    </property>
    <property name="statusTip">
-    <string>Close dictionary</string>
+    <string>Close Dictionary</string>
    </property>
    <property name="whatsThis">
-    <string>Close dictionary</string>
+    <string>Close Dictionary</string>
    </property>
   </action>
-  
-  <action name="toolBarAddNote">
-   <property name="icon">
-    <iconset resource="../Manager.qrc">
-     <normaloff>:/fugue-icons/plus</normaloff>:/fugue-icons/plus</iconset>
-   </property>
-   <property name="text">
-    <string>Add note</string>
-   </property>
-   <property name="statusTip">
-    <string>Add note</string>
-   </property>
-  </action>
-  <action name="toolBarAddNoteFromClipboard">
-   <property name="icon">
-    <iconset resource="../Manager.qrc">
-     <normaloff>:/Manager/add-from_clipboard</normaloff>:/Manager/add-from_clipboard</iconset>
-   </property>
-   <property name="text">
-    <string>Add a note from the clipboard</string>
-   </property>
-   <property name="statusTip">
-    <string>Add a note from the clipboard</string>
-   </property>
-   <property name="whatsThis">
-    <string>Add a note from the clipboard</string>
-   </property>
-  </action>
-  <action name="toolBarAddNoteFromScreen">
+  <action name="actionAddNoteFromScreen">
    <property name="icon">
     <iconset resource="../Manager.qrc">
      <normaloff>:/Manager/screenshot</normaloff>:/Manager/screenshot</iconset>
    </property>
    <property name="text">
-    <string>Add a note from screen</string>
+    <string>Add a Note From Screen</string>
    </property>
    <property name="statusTip">
-    <string>Add a note from screen</string>
+    <string>Add a Note From Screen</string>
    </property>
    <property name="whatsThis">
-    <string>Add a note from screen</string>
+    <string>Add a Note From Screen</string>
    </property>
   </action>
-  <action name="toolBarAddFolder">
+  <action name="actionDocumentation">
+   <property name="text">
+    <string>Documentation</string>
+   </property>
+   <property name="statusTip">
+    <string>Documentation</string>
+   </property>
+   <property name="whatsThis">
+    <string>Documentation</string>
+   </property>
+  </action>
+  <action name="actionAddFolder">
    <property name="icon">
     <iconset resource="../Manager.qrc">
      <normaloff>:/fugue-icons/folder--plus</normaloff>:/fugue-icons/folder--plus</iconset>
    </property>
    <property name="text">
-    <string>Add folder</string>
+    <string>Add Folder</string>
    </property>
    <property name="statusTip">
-    <string>Add folder</string>
+    <string>Add Folder</string>
    </property>
    <property name="whatsThis">
-    <string>Add folder</string>
+    <string>Add Folder</string>
    </property>
   </action>
-  <action name="toolBarDelete">
+  <action name="actionDelete">
    <property name="icon">
     <iconset resource="../Manager.qrc">
      <normaloff>:/fugue-icons/cross</normaloff>:/fugue-icons/cross</iconset>
    </property>
    <property name="text">
-    <string>Remove from trash</string>
+    <string>Remove From Trash</string>
    </property>
    <property name="statusTip">
-    <string>Remove from trash</string>
+    <string>Remove From Trash</string>
    </property>
    <property name="whatsThis">
-    <string>Remove from trash</string>
+    <string>Remove From Trash</string>
    </property>
   </action>
-  <action name="toolBarRemoveToTrash">
+  <action name="actionRemoveToTrash">
    <property name="icon">
     <iconset resource="../Manager.qrc">
      <normaloff>:/fugue-icons/minus</normaloff>:/fugue-icons/minus</iconset>
@@ -388,49 +395,34 @@
     <string>Remove to trash</string>
    </property>
   </action>
-  <action name="toolBarSettings">
+  <action name="actionClearTrash">
    <property name="icon">
     <iconset resource="../Manager.qrc">
-     <normaloff>:/Manager/settings</normaloff>:/Manager/settings</iconset>
+     <normaloff>:/Manager/remove_all</normaloff>:/Manager/remove_all</iconset>
    </property>
    <property name="text">
-    <string>Settings</string>
+    <string>Clear Trash</string>
    </property>
    <property name="statusTip">
-    <string>Settings</string>
+    <string>Clear Trash</string>
    </property>
    <property name="whatsThis">
-    <string>Settings</string>
+    <string>Clear Trash</string>
    </property>
   </action>
-  <action name="toolBarQuit">
+  <action name="actionSaveNoteAs">
    <property name="icon">
-    <iconset resource="../Manager.qrc">
-     <normaloff>:/Manager/quit</normaloff>:/Manager/quit</iconset>
+    <iconset resource="../../Note/Note.qrc">
+     <normaloff>:/Note/save-as</normaloff>:/Note/save-as</iconset>
    </property>
    <property name="text">
-    <string>Quit</string>
+    <string>Save Note As</string>
    </property>
    <property name="statusTip">
-    <string>Quit</string>
+    <string>Save Note As</string>
    </property>
    <property name="whatsThis">
-    <string>Quit</string>
-   </property>
-  </action>
-  <action name="toolBarAbout">
-   <property name="icon">
-    <iconset resource="../Manager.qrc">
-     <normaloff>:/Manager/about</normaloff>:/Manager/about</iconset>
-   </property>
-   <property name="text">
-    <string>About</string>
-   </property>
-   <property name="statusTip">
-    <string>About</string>
-   </property>
-   <property name="whatsThis">
-    <string>About</string>
+    <string>Save Note As</string>
    </property>
   </action>
  </widget>
@@ -462,6 +454,7 @@
  </customwidgets>
  <resources>
   <include location="../Manager.qrc"/>
+  <include location="../../Note/Note.qrc"/>
  </resources>
  <connections/>
 </ui>

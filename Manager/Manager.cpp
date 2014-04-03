@@ -49,13 +49,13 @@ Manager::Manager( QWidget * parent ) :
 
     // Меню и действия
     {
-        ui->menuFile->addAction( ui->actionAddNote );
-        ui->menuFile->addAction( ui->actionAddNoteFromClipboard );
-        ui->menuFile->addAction( ui->actionAddNoteFromScreen );
+        ui->menuFile->addAction( pageNotes->ui->actionAddNote );
+        ui->menuFile->addAction( pageNotes->ui->actionAddNoteFromClipboard );
+        ui->menuFile->addAction( pageNotes->ui->actionAddNoteFromScreen );
         ui->menuFile->addSeparator();
         ui->menuFile->addAction( ui->actionQuit );
 
-        ui->menuNote->addActions( ui->toolBarNote->actions() );
+        ui->menuNote->addActions( pageNotes->ui->toolBarNote->actions() );
 
         ui->menuService->addAction( ui->actionSettings );
 
@@ -67,26 +67,8 @@ Manager::Manager( QWidget * parent ) :
         QObject::connect( ui->actionAbout, SIGNAL( triggered() ), SLOT( show_page_about() ) );
         QObject::connect( ui->actionQuit, SIGNAL( triggered() ), SLOT( quit() ) );
 
-        QObject::connect( ui->actionAddNote, SIGNAL( triggered() ), pageNotes, SLOT( sl_AddNote() ) );
-        QObject::connect( ui->actionAddNoteFromClipboard, SIGNAL( triggered() ), pageNotes, SLOT( sl_AddNoteFromClipboard() ) );
-        QObject::connect( ui->actionAddNoteFromScreen, SIGNAL( triggered() ), pageNotes, SLOT( sl_AddNoteFromScreen() ) );
-        QObject::connect( ui->actionAddFolder, SIGNAL( triggered() ), pageNotes, SLOT( sl_AddFolder() ) );
-        QObject::connect( ui->actionRemoveToTrash, SIGNAL( triggered() ), pageNotes, SLOT( sl_RemoveToTrash() ) );
-        QObject::connect( ui->actionDelete, SIGNAL( triggered() ), pageNotes, SLOT( sl_Delete() ) );
-        QObject::connect( ui->actionClearTrash, SIGNAL( triggered() ), pageNotes, SLOT( sl_ClearTrash() ) );
-
         QObject::connect( ui->actionOpenDict, SIGNAL( triggered() ), SLOT( openDictionary() ) );
         QObject::connect( ui->actionCloseDict, SIGNAL( triggered() ), SLOT( closeDictionary() ) );
-        QObject::connect( ui->actionSaveAllNotes, SIGNAL( triggered() ), pageNotes, SLOT( sl_SaveAllNotes() ) );
-        QObject::connect( ui->actionShowAllNotes, SIGNAL( triggered() ), pageNotes, SLOT( sl_ShowAllNotes() ) );
-        QObject::connect( ui->actionHideAllNotes, SIGNAL( triggered() ), pageNotes, SLOT( sl_HideAllNotes() ) );
-        QObject::connect( ui->actionSaveNoteAs, SIGNAL( triggered() ), pageNotes, SLOT( sl_SaveAsNote() ) );
-        QObject::connect( ui->actionSaveNote, SIGNAL( triggered() ), pageNotes, SLOT( sl_SaveNote() ) );
-        QObject::connect( ui->actionShowNote, SIGNAL( triggered() ), pageNotes, SLOT( sl_ShowNote() ) );
-        QObject::connect( ui->actionHideNote, SIGNAL( triggered() ), pageNotes, SLOT( sl_HideNote() ) );
-        QObject::connect( ui->actionPrintNote, SIGNAL( triggered() ), pageNotes, SLOT( sl_PrintNote() ) );
-        QObject::connect( ui->actionPreviewPrintNote, SIGNAL( triggered() ), pageNotes, SLOT( sl_PreviewPrintNote() ) );
-        QObject::connect( ui->actionTopNote, SIGNAL( triggered(bool) ), pageNotes, SLOT( sl_SetTopNote(bool) ) );
 
         QObject::connect( ui->actionFullScreen, SIGNAL( triggered(bool) ), SLOT( setFullScreen(bool) ) );
         QObject::connect( ui->actionShowSidebar, SIGNAL( triggered(bool) ), SLOT( setShowSidebar(bool) ) );
@@ -108,13 +90,13 @@ Manager::Manager( QWidget * parent ) :
             QMenu * trayMenu = new QMenu();
             trayMenu->addAction( QIcon( "" ), tr( "Open manager" ), this, SLOT( show_Manager() ), QKeySequence() ); // TODO: add icon
             trayMenu->addSeparator();
-            trayMenu->addAction( ui->actionAddNote );
-            trayMenu->addAction( ui->actionAddNoteFromClipboard );
-            trayMenu->addAction( ui->actionAddNoteFromScreen );
+            trayMenu->addAction( pageNotes->ui->actionAddNote );
+            trayMenu->addAction( pageNotes->ui->actionAddNoteFromClipboard );
+            trayMenu->addAction( pageNotes->ui->actionAddNoteFromScreen );
             trayMenu->addSeparator();
-            trayMenu->addAction( ui->actionShowAllNotes );
-            trayMenu->addAction( ui->actionHideAllNotes );
-            trayMenu->addAction( ui->actionSaveAllNotes );
+            trayMenu->addAction( pageNotes->ui->actionShowAllNotes );
+            trayMenu->addAction( pageNotes->ui->actionHideAllNotes );
+            trayMenu->addAction( pageNotes->ui->actionSaveAllNotes );
             trayMenu->addSeparator();
             trayMenu->addAction( ui->actionSettings );
             trayMenu->addSeparator();
@@ -125,6 +107,24 @@ Manager::Manager( QWidget * parent ) :
             trayMenu->addAction( ui->actionQuit );
 
             tray.setContextMenu( trayMenu );
+        }
+
+        // Управление видимостью тулбаров, размещенных на странице Заметки
+        {
+            QToolBar * toolBarManage = pageNotes->ui->toolBarManage;
+            QAction * actionVisibleToolbarManage = new QAction( QIcon( "" ), toolBarManage->windowTitle(), this );
+            actionVisibleToolbarManage->setCheckable( true );
+            QObject::connect( actionVisibleToolbarManage, SIGNAL(triggered(bool)), toolBarManage, SLOT(setVisible(bool)) );
+            QObject::connect( toolBarManage, SIGNAL(visibilityChanged(bool)), actionVisibleToolbarManage, SLOT(setChecked(bool)) );
+
+            QToolBar * toolBarNote = pageNotes->ui->toolBarNote;
+            QAction * actionVisibleToolbarNote = new QAction( QIcon( "" ), toolBarNote->windowTitle(), this );
+            actionVisibleToolbarNote->setCheckable( true );
+            QObject::connect( actionVisibleToolbarNote, SIGNAL(triggered(bool)), toolBarNote, SLOT(setVisible(bool)) );
+            QObject::connect( toolBarNote, SIGNAL(visibilityChanged(bool)), actionVisibleToolbarNote, SLOT(setChecked(bool)) );
+
+            ui->menuToolbars->addAction( actionVisibleToolbarManage );
+            ui->menuToolbars->addAction( actionVisibleToolbarNote );
         }
     }
 
@@ -241,58 +241,14 @@ void Manager::show_page_documentation()
 }
 
 void Manager::updateStates()
-{
-    bool isEmpty = Notebook::instance()->notesList().isEmpty();
-    ui->actionHideAllNotes->setEnabled( !isEmpty );
-    ui->actionShowAllNotes->setEnabled( !isEmpty );
-    ui->actionSaveAllNotes->setEnabled( !isEmpty );
-
+{    
     ui->actionFullScreen->setChecked( isFullScreen() );
 
     bool isAutocomplete = Completer::instance()->isAutocomplete();
     ui->actionCloseDict->setEnabled( isAutocomplete );
     ui->actionOpenDict->setEnabled( !isAutocomplete );
 
-    ui->actionSaveNote->setEnabled( false );
-    ui->actionSaveNoteAs->setEnabled( false );
-    ui->actionPrintNote->setEnabled( false );
-    ui->actionPreviewPrintNote->setEnabled( false );
-    ui->actionHideNote->setEnabled( false );
-    ui->actionShowNote->setEnabled( false );
-    ui->actionTopNote->setEnabled( false );
-
-    ui->actionDelete->setEnabled( false );
-    ui->actionRemoveToTrash->setEnabled( false );
-    ui->actionClearTrash->setEnabled( Notebook::instance()->trashFolder()->Items.Count() > 0 );
-
-    bool hasCurrent = pageNotes->hasCurrent();
-    if ( hasCurrent )
-    {
-        bool isNote = pageNotes->currentIsNote();
-        if ( isNote )
-        {
-            ui->actionSaveNote->setEnabled( true );
-            ui->actionSaveNoteAs->setEnabled( true );
-            ui->actionPrintNote->setEnabled( true );
-            ui->actionPreviewPrintNote->setEnabled( true );
-
-            bool currentNoteIsVisible = pageNotes->currentNoteIsVisible();
-            ui->actionHideNote->setEnabled( currentNoteIsVisible );
-            ui->actionShowNote->setEnabled( !currentNoteIsVisible );
-
-            bool currentNoteIsTop = pageNotes->currentNoteIsTop();
-            ui->actionTopNote->setEnabled( currentNoteIsTop );
-        }
-
-        bool isChildTrash = pageNotes->currentIsChildTrash(); // если элемент есть в корзине
-        ui->actionRemoveToTrash->setEnabled( !pageNotes->currentIsTrash() && !isChildTrash ); // переместить в корзину
-        ui->actionDelete->setEnabled( isChildTrash );
-        ui->actionClearTrash->setEnabled( (pageNotes->currentIsTrash() || isChildTrash) && !pageNotes->trashIsEmpty() );
-    }
-
     ui->actionVisibleToolbarMain->setChecked( ui->toolBarMain->isVisible() );
-    ui->actionVisibleToolbarManage->setChecked( ui->toolBarManage->isVisible() );
-    ui->actionVisibleToolbarNote->setChecked( ui->toolBarNote->isVisible() );
 }
 
 void Manager::show_Manager()

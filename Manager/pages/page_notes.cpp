@@ -33,6 +33,32 @@ Page_Notes::Page_Notes( QWidget * parent ) :
     QObject::connect( Notebook::instance(), SIGNAL(sg_ItemUnregistered(Tag*)), SIGNAL(sg_About_UpdateStates()) );
     QObject::connect( Notebook::instance(), SIGNAL(sg_ItemUnregistered(Tag*)), SIGNAL(sg_About_UpdateStates()) );
     QObject::connect( Notebook::instance(), SIGNAL(sg_ItemUnregistered(Tag*)), SIGNAL(sg_About_UpdateStates()) );
+
+    QObject::connect( this, SIGNAL(sg_About_UpdateStates()), SLOT(sl_UpdateStates()) );
+
+    // Действия тулбаров
+    {
+        QObject::connect( ui->actionAddNote, SIGNAL( triggered() ), SLOT( sl_AddNote() ) );
+        QObject::connect( ui->actionAddNoteFromClipboard, SIGNAL( triggered() ), SLOT( sl_AddNoteFromClipboard() ) );
+        QObject::connect( ui->actionAddNoteFromScreen, SIGNAL( triggered() ), SLOT( sl_AddNoteFromScreen() ) );
+        QObject::connect( ui->actionAddFolder, SIGNAL( triggered() ), SLOT( sl_AddFolder() ) );
+        QObject::connect( ui->actionRemoveToTrash, SIGNAL( triggered() ), SLOT( sl_RemoveToTrash() ) );
+        QObject::connect( ui->actionDelete, SIGNAL( triggered() ), SLOT( sl_Delete() ) );
+        QObject::connect( ui->actionClearTrash, SIGNAL( triggered() ), SLOT( sl_ClearTrash() ) );
+
+        QObject::connect( ui->actionSaveAllNotes, SIGNAL( triggered() ), SLOT( sl_SaveAllNotes() ) );
+        QObject::connect( ui->actionShowAllNotes, SIGNAL( triggered() ), SLOT( sl_ShowAllNotes() ) );
+        QObject::connect( ui->actionHideAllNotes, SIGNAL( triggered() ), SLOT( sl_HideAllNotes() ) );
+        QObject::connect( ui->actionSaveNoteAs, SIGNAL( triggered() ), SLOT( sl_SaveAsNote() ) );
+        QObject::connect( ui->actionSaveNote, SIGNAL( triggered() ), SLOT( sl_SaveNote() ) );
+        QObject::connect( ui->actionShowNote, SIGNAL( triggered() ), SLOT( sl_ShowNote() ) );
+        QObject::connect( ui->actionHideNote, SIGNAL( triggered() ), SLOT( sl_HideNote() ) );
+        QObject::connect( ui->actionPrintNote, SIGNAL( triggered() ), SLOT( sl_PrintNote() ) );
+        QObject::connect( ui->actionPreviewPrintNote, SIGNAL( triggered() ), SLOT( sl_PreviewPrintNote() ) );
+        QObject::connect( ui->actionTopNote, SIGNAL( triggered(bool) ), SLOT( sl_SetTopNote(bool) ) );
+    }
+
+    sl_UpdateStates();
 }
 Page_Notes::~Page_Notes()
 {
@@ -526,4 +552,49 @@ void Page_Notes::sl_PreviewPrintNote()
     }
 
     richTextNote->previewPrint();
+}
+
+void Page_Notes::sl_UpdateStates()
+{
+    bool isEmpty = Notebook::instance()->notesList().isEmpty();
+    ui->actionHideAllNotes->setEnabled( !isEmpty );
+    ui->actionShowAllNotes->setEnabled( !isEmpty );
+    ui->actionSaveAllNotes->setEnabled( !isEmpty );
+
+    ui->actionSaveNote->setEnabled( false );
+    ui->actionSaveNoteAs->setEnabled( false );
+    ui->actionPrintNote->setEnabled( false );
+    ui->actionPreviewPrintNote->setEnabled( false );
+    ui->actionHideNote->setEnabled( false );
+    ui->actionShowNote->setEnabled( false );
+    ui->actionTopNote->setEnabled( false );
+
+    ui->actionDelete->setEnabled( false );
+    ui->actionRemoveToTrash->setEnabled( false );
+    ui->actionClearTrash->setEnabled( Notebook::instance()->trashFolder()->Items.Count() > 0 );
+
+    bool hasCurrent = this->hasCurrent();
+    if ( hasCurrent )
+    {
+        bool isNote = this->currentIsNote();
+        if ( isNote )
+        {
+            ui->actionSaveNote->setEnabled( true );
+            ui->actionSaveNoteAs->setEnabled( true );
+            ui->actionPrintNote->setEnabled( true );
+            ui->actionPreviewPrintNote->setEnabled( true );
+
+            bool currentNoteIsVisible = this->currentNoteIsVisible();
+            ui->actionHideNote->setEnabled( currentNoteIsVisible );
+            ui->actionShowNote->setEnabled( !currentNoteIsVisible );
+
+            bool currentNoteIsTop = this->currentNoteIsTop();
+            ui->actionTopNote->setEnabled( currentNoteIsTop );
+        }
+
+        bool isChildTrash = this->currentIsChildTrash(); // если элемент есть в корзине
+        ui->actionRemoveToTrash->setEnabled( !this->currentIsTrash() && !isChildTrash ); // переместить в корзину
+        ui->actionDelete->setEnabled( isChildTrash );
+        ui->actionClearTrash->setEnabled( (this->currentIsTrash() || isChildTrash) && !this->trashIsEmpty() );
+    }
 }
