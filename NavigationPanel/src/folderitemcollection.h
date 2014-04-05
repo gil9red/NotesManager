@@ -28,15 +28,18 @@ FolderItemCollection is a collection of AbstractFolderItem items owned by a fold
 class AbstractFolderItem;
 class Folder;
 
-class FolderItemCollection : public QObject {
+class FolderItemCollection : public QObject
+{
     Q_OBJECT
-private:
-    QList<AbstractFolderItem*> _items;
-    Folder* const _owner;
 
 public:
-    explicit FolderItemCollection(Folder* owner);
+    explicit FolderItemCollection(Folder* parent);
 
+private:
+    QList<AbstractFolderItem*> items;
+    Folder* const owner;
+
+public:
     void Add(AbstractFolderItem* item);
     void AddTo(AbstractFolderItem* item, int index);
     void Remove(AbstractFolderItem* item);

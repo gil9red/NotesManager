@@ -26,14 +26,12 @@ along with qNotesManager. If not, see <http://www.gnu.org/licenses/>.
 
 #include <QList>
 
-
-
 TagsModel::TagsModel(QObject *parent)
     : BaseModel(parent)
 {
 	BaseModelItem* root = new BaseModelItem();
 	root->SetSorted(true);
-	SetRootItem(root);
+    setRootItem(root);
 
     QObject::connect(Notebook::instance(), SIGNAL(sg_ItemRegistered(Tag*)), SLOT(sl_Document_TagRegistered(Tag*)));
     QObject::connect(Notebook::instance(), SIGNAL(sg_ItemUnregistered(Tag*)), SLOT(sl_Document_TagUnregistered(Tag*)));
@@ -62,7 +60,7 @@ void TagsModel::sl_Tag_OwnerAdded(Note* note)
 	QObject::connect(noteItem, SIGNAL(sg_DataChanged(BaseModelItem*)),
 					 this, SLOT(sl_Item_DataChanged(BaseModelItem*)));
 
-	QModelIndex tagIndex = createIndex(GetRootItem()->IndexOfChild(tagItem), 0, tagItem);
+    QModelIndex tagIndex = createIndex(getRootItem()->IndexOfChild(tagItem), 0, tagItem);
 
 	int newPosition = tagItem->FindInsertIndex(noteItem);
 	beginInsertRows(tagIndex, newPosition, newPosition);
@@ -101,8 +99,7 @@ void TagsModel::sl_Tag_OwnerRemoved(Note* note) {
 		return;
 	}
 
-	BaseModelItem* root = GetRootItem();
-
+    BaseModelItem* root = getRootItem();
 	QModelIndex tagIndex = createIndex(root->IndexOfChild(tagItem), 0, tagItem);
 
 	beginRemoveRows(tagIndex, tagItem->IndexOfChild(noteItem), tagItem->IndexOfChild(noteItem));
@@ -129,7 +126,7 @@ void TagsModel::sl_Tag_OwnersRemoved() {
 	BaseModelItem* tagItem = tagsBridge.value(tag);
 
 
-	BaseModelItem* root = GetRootItem();
+    BaseModelItem* root = getRootItem();
 	QModelIndex tagIndex = createIndex(root->IndexOfChild(tagItem), 0, tagItem);
 
 	beginRemoveRows(tagIndex, 0, tagItem->ChildrenCount());
@@ -141,7 +138,7 @@ void TagsModel::sl_Tag_OwnersRemoved() {
 				continue;
 			}
 			NoteModelItem* noteItem = dynamic_cast<NoteModelItem*>(childItem);
-			Note* note = noteItem->GetStoredData();
+            Note* note = noteItem->getStoredData();
 			notesBridge.remove(note, noteItem);
 			delete noteItem;
 		}
@@ -180,8 +177,7 @@ void TagsModel::sl_Document_TagRegistered(Tag* tag) {
 		notesBridge.insert(tag->Owners.ItemAt(i), noteItem);
 	}
 
-	BaseModelItem* root = GetRootItem();
-
+    BaseModelItem* root = getRootItem();
 	newPosition = root->FindInsertIndex(item);//FindPositionForElement(root, item);
 
 	beginInsertRows(QModelIndex(), newPosition, newPosition);
@@ -207,8 +203,7 @@ void TagsModel::sl_Document_TagUnregistered(Tag* tag) {
 	TagModelItem* item = tagsBridge.value(tag);
 	tagsBridge.remove(tag);
 
-	BaseModelItem* root = GetRootItem();
-
+    BaseModelItem* root = getRootItem();
 	beginRemoveRows(QModelIndex(), root->IndexOfChild(item), root->IndexOfChild(item));
 		root->RemoveChild(item);
 	endRemoveRows();

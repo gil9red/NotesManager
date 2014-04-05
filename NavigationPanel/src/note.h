@@ -56,6 +56,8 @@ signals:
     void sg_TagAboutToBeRemoved(Tag*);
     void sg_TagRemoved(Tag*);
 
+    void sg_Removed();
+
 private slots:
     void sl_TagsCollectionModified(Tag*);
     void noteChange( int );

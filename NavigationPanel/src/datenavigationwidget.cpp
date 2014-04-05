@@ -62,6 +62,21 @@ DateNavigationWidget::DateNavigationWidget(QWidget *parent)
 	creationDateButton->toggle();
 }
 
+void DateNavigationWidget::SetCreationModel(DatesModel* model) {
+    creationDateModel = model;
+    sl_updateTreeModel();
+}
+
+void DateNavigationWidget::SetModificationModel(DatesModel* model) {
+    modificationDateModel = model;
+    sl_updateTreeModel();
+}
+
+void DateNavigationWidget::sl_ExpandAll()
+{
+    treeView->expandAll();
+}
+
 void DateNavigationWidget::sl_View_clicked (const QModelIndex& index) {
     if (!index.isValid())
         return;
@@ -73,7 +88,7 @@ void DateNavigationWidget::sl_View_clicked (const QModelIndex& index) {
 			WARNING("Casting error");
 			return;
 		}
-		Note* n = noteItem->GetStoredData();
+        Note* n = noteItem->getStoredData();
 		emit sg_NoteClicked(n);
 	}
 }
@@ -88,24 +103,9 @@ void DateNavigationWidget::sl_View_doubleClicked (const QModelIndex& index) {
 			WARNING("Casting error");
 			return;
 		}
-		Note* n = noteItem->GetStoredData();
+        Note* n = noteItem->getStoredData();
 		emit sg_NoteDoubleClicked(n);
 	}
-}
-
-void DateNavigationWidget::SetCreationModel(DatesModel* model) {
-	creationDateModel = model;
-	sl_updateTreeModel();
-}
-
-void DateNavigationWidget::SetModificationModel(DatesModel* model) {
-	modificationDateModel = model;
-	sl_updateTreeModel();
-}
-
-void DateNavigationWidget::expandAll()
-{
-    treeView->expandAll();
 }
 
 void DateNavigationWidget::sl_updateTreeModel(bool) {

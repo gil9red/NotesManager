@@ -127,9 +127,9 @@ void Page_Notes::read( QIODevice * device )
     }
 
     // TODO: думаю, лучше сделать это настраиваемым
-    ui->tab_Notes->expandAll();
-    ui->tab_Tags->expandAll();
-    ui->tab_Dates->expandAll();
+    ui->tab_Notes->sl_ExpandAll();
+    ui->tab_Tags->sl_ExpandAll();
+    ui->tab_Dates->sl_ExpandAll();
 }
 void Page_Notes::write( QIODevice * device )
 {
@@ -286,7 +286,7 @@ bool Page_Notes::currentIsChildTrash()
 }
 bool Page_Notes::trashIsEmpty()
 {
-    return ( Notebook::instance()->trashFolder()->Items.Count() == 0 );
+    return ( Notebook::instance()->trashFolder()->child.Count() == 0 );
 }
 
 void Page_Notes::sl_AddFolder()
@@ -571,7 +571,12 @@ void Page_Notes::sl_UpdateStates()
 
     ui->actionDelete->setEnabled( false );
     ui->actionRemoveToTrash->setEnabled( false );
-    ui->actionClearTrash->setEnabled( Notebook::instance()->trashFolder()->Items.Count() > 0 );
+    ui->actionClearTrash->setEnabled( Notebook::instance()->trashFolder()->child.Count() > 0 );
+
+    ui->actionAddNote->setEnabled( true );
+    ui->actionAddNoteFromClipboard->setEnabled( true );
+    ui->actionAddNoteFromScreen->setEnabled( true );
+    ui->actionAddFolder->setEnabled( true );
 
     bool hasCurrent = this->hasCurrent();
     if ( hasCurrent )
@@ -593,8 +598,15 @@ void Page_Notes::sl_UpdateStates()
         }
 
         bool isChildTrash = this->currentIsChildTrash(); // если элемент есть в корзине
-        ui->actionRemoveToTrash->setEnabled( !this->currentIsTrash() && !isChildTrash ); // переместить в корзину
+        bool isTrash = this->currentIsTrash();
+        ui->actionRemoveToTrash->setEnabled( !isTrash && !isChildTrash ); // переместить в корзину
         ui->actionDelete->setEnabled( isChildTrash );
-        ui->actionClearTrash->setEnabled( (this->currentIsTrash() || isChildTrash) && !this->trashIsEmpty() );
+        ui->actionClearTrash->setEnabled( (isTrash || isChildTrash) && !this->trashIsEmpty() );
+
+
+        ui->actionAddNote->setEnabled( !isNote && !isTrash );
+        ui->actionAddNoteFromClipboard->setEnabled( !isNote && !isTrash );
+        ui->actionAddNoteFromScreen->setEnabled( !isNote && !isTrash );
+        ui->actionAddFolder->setEnabled( !isNote && !isTrash );
     }
 }

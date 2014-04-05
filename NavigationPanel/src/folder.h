@@ -44,15 +44,15 @@ public:
     explicit Folder(QString _name = QString(), FolderType _type = UserFolder);
     ~Folder();
 
-    FolderType GetType() const;
-    void SetType(FolderType _type);
+    FolderType getType() const;
+    void setType(FolderType _type);
 
-    bool IsExpanded() const;
-    void SetExpanded(bool);
+    bool isExpanded() const;
+    void setExpanded(bool);
 
-    QString GetPath() const;
+    QString getPath() const;
 
-    FolderItemCollection Items;
+    FolderItemCollection child;
 
 private:
     FolderType type;

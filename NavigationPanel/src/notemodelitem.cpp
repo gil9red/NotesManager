@@ -27,8 +27,7 @@ along with qNotesManager. If not, see <http://www.gnu.org/licenses/>.
 #include <QPainter>
 
 
-
-NoteModelItem::NoteModelItem(Note* note) : BaseModelItem(BaseModelItem::note), _storedData(note) {
+NoteModelItem::NoteModelItem(Note* note) : BaseModelItem(BaseModelItem::note), storedData(note) {
 	if (!note) {
 		WARNING("Null pointer recieved");
 	} else {
@@ -37,26 +36,26 @@ NoteModelItem::NoteModelItem(Note* note) : BaseModelItem(BaseModelItem::note), _
 }
 
 QVariant NoteModelItem::data(int role) const {
-    if (!_storedData)
+    if (!storedData)
         return QVariant();
 
     if (role == Qt::DecorationRole)
-        return _storedData->GetIcon();
+        return storedData->getIcon();
 
     else if (role == Qt::DisplayRole)
-        return _storedData->GetName();
+        return storedData->getName();
 
     else if (role == Qt::ToolTipRole)
-        return _storedData->GetName();
+        return storedData->getName();
 
     else if (role == Qt::EditRole)
-        return _storedData->GetName();
+        return storedData->getName();
 
     else if (role == Qt::BackgroundRole)
-        return QBrush(_storedData->GetNameBackColor());
+        return QBrush(storedData->getNameBackColor());
 
     else if (role == Qt::ForegroundRole)
-        return QBrush(_storedData->GetNameForeColor());
+        return QBrush(storedData->getNameForeColor());
 
     else
         return QVariant();
@@ -68,7 +67,7 @@ bool NoteModelItem::setData(const QVariant& value, int role) {
 	if (role == Qt::EditRole) {
 		QString newName = value.toString();
 		newName.replace(QRegExp("[\a\e\f\n\r\t\v]"), " ");
-		_storedData->SetName(newName);
+        storedData->setName(newName);
 		return true;
 	}
 	return false;
@@ -78,18 +77,19 @@ Qt::ItemFlags NoteModelItem::flags () const {
     return BaseModelItem::flags() | Qt::ItemIsEditable;
 }
 
-Note* NoteModelItem::GetStoredData() const {
-	return _storedData;
+Note* NoteModelItem::getStoredData() const {
+    return storedData;
 }
 
 void NoteModelItem::sl_Note_PropertiesChanged() {
 	emit sg_DataChanged(this);
 }
 
-bool NoteModelItem::LessThan(const BaseModelItem* item) const {
-	if (item->DataType() != BaseModelItem::note) {
+bool NoteModelItem::lessThan(const BaseModelItem* item) const
+{
+    if (item->DataType() != BaseModelItem::note)
 		return BaseModelItem::LessThan(item);
-	}
+
 	const NoteModelItem* noteItem = dynamic_cast<const NoteModelItem*>(item);
-	return _storedData->GetName() < noteItem->_storedData->GetName();
+    return storedData->getName() < noteItem->storedData->getName();
 }

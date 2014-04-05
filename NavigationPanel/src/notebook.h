@@ -83,8 +83,8 @@ private slots:
     void sl_Note_TagRemoved(Tag* tag);
 
 protected:
-    void registerItem(AbstractFolderItem* const item);
-    void unregisterItem(AbstractFolderItem* const item);
+    void registerItem(AbstractFolderItem* item);
+    void unregisterItem(AbstractFolderItem* item);
 
     void registerTag(Tag* tag);
     void unregisterTag(Tag* tag);

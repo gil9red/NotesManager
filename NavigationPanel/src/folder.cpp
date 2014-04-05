@@ -26,70 +26,74 @@ Folder::Folder(QString _name, FolderType _type) :
         AbstractFolderItem(AbstractFolderItem::Type_Folder, _name),
 		type(_type),
 		expanded(false),
-        Items(this)
+        child(this)
 {
-    QObject::connect(&Items, SIGNAL(sg_ItemAdded(AbstractFolderItem* const, int)), SIGNAL(sg_ItemAdded(AbstractFolderItem* const, int)));
-    QObject::connect(&Items, SIGNAL(sg_ItemMoved(AbstractFolderItem* const,int, Folder*)), SIGNAL(sg_ItemMoved(AbstractFolderItem* const,int, Folder*)));
-    QObject::connect(&Items, SIGNAL(sg_ItemRemoved(AbstractFolderItem* const)), SIGNAL(sg_ItemRemoved(AbstractFolderItem* const)));
-    QObject::connect(&Items, SIGNAL(sg_Cleared()), SIGNAL(sg_ItemsCollectionCleared()));
-    QObject::connect(&Items, SIGNAL(sg_ItemAboutToBeAdded(AbstractFolderItem*const, int)), SIGNAL(sg_ItemAboutToBeAdded(AbstractFolderItem*const, int)));
-    QObject::connect(&Items, SIGNAL(sg_ItemAboutToBeMoved(AbstractFolderItem*const,int, Folder*)), SIGNAL(sg_ItemAboutToBeMoved(AbstractFolderItem*const,int, Folder*)));
-    QObject::connect(&Items, SIGNAL(sg_ItemAboutToBeRemoved(AbstractFolderItem*const)), SIGNAL(sg_ItemAboutToBeRemoved(AbstractFolderItem*const)));
-    QObject::connect(&Items, SIGNAL(sg_AboutToClear()), SIGNAL(sg_ItemsCollectionAboutToClear()));
-    QObject::connect(&Items, SIGNAL(sg_ItemAdded(AbstractFolderItem*const,int)), SIGNAL(sg_DataChanged()));
-    QObject::connect(&Items, SIGNAL(sg_ItemMoved(AbstractFolderItem*const,int,Folder*)), SIGNAL(sg_DataChanged()));
-    QObject::connect(&Items, SIGNAL(sg_ItemRemoved(AbstractFolderItem*const)), SIGNAL(sg_DataChanged()));
-    QObject::connect(&Items, SIGNAL(sg_Cleared()), SIGNAL(sg_DataChanged()));
+    QObject::connect(&child, SIGNAL(sg_ItemAdded(AbstractFolderItem* const, int)), SIGNAL(sg_ItemAdded(AbstractFolderItem* const, int)));
+    QObject::connect(&child, SIGNAL(sg_ItemMoved(AbstractFolderItem* const,int, Folder*)), SIGNAL(sg_ItemMoved(AbstractFolderItem* const,int, Folder*)));
+    QObject::connect(&child, SIGNAL(sg_ItemRemoved(AbstractFolderItem* const)), SIGNAL(sg_ItemRemoved(AbstractFolderItem* const)));
+    QObject::connect(&child, SIGNAL(sg_Cleared()), SIGNAL(sg_ItemsCollectionCleared()));
+    QObject::connect(&child, SIGNAL(sg_ItemAboutToBeAdded(AbstractFolderItem*const, int)), SIGNAL(sg_ItemAboutToBeAdded(AbstractFolderItem*const, int)));
+    QObject::connect(&child, SIGNAL(sg_ItemAboutToBeMoved(AbstractFolderItem*const,int, Folder*)), SIGNAL(sg_ItemAboutToBeMoved(AbstractFolderItem*const,int, Folder*)));
+    QObject::connect(&child, SIGNAL(sg_ItemAboutToBeRemoved(AbstractFolderItem*const)), SIGNAL(sg_ItemAboutToBeRemoved(AbstractFolderItem*const)));
+    QObject::connect(&child, SIGNAL(sg_AboutToClear()), SIGNAL(sg_ItemsCollectionAboutToClear()));
+    QObject::connect(&child, SIGNAL(sg_ItemAdded(AbstractFolderItem*const,int)), SIGNAL(sg_DataChanged()));
+    QObject::connect(&child, SIGNAL(sg_ItemMoved(AbstractFolderItem*const,int,Folder*)), SIGNAL(sg_DataChanged()));
+    QObject::connect(&child, SIGNAL(sg_ItemRemoved(AbstractFolderItem*const)), SIGNAL(sg_DataChanged()));
+    QObject::connect(&child, SIGNAL(sg_Cleared()), SIGNAL(sg_DataChanged()));
 
 
     if (type == TrashFolder)
     {
         name = tr( "Trash bin" );
-        SetIcon( QIcon( ":/fugue-icons/bin" ) );
+        setIcon( QIcon( ":/fugue-icons/bin" ) );
 
     }else if ( type == UserFolder )
     {
         if (name.isEmpty())
             name = tr( "New folder" );
-        SetIcon( QIcon( ":/fugue-icons/folder-horizontal" ) );
+        setIcon( QIcon( ":/fugue-icons/folder-horizontal" ) );
     }
 }
 
 Folder::~Folder()
 {
-    for (int i = Items.Count() - 1; i >= 0 ; i--)
+    for (int i = child.Count() - 1; i >= 0 ; i--)
     {
-		AbstractFolderItem* item = Items.ItemAt(i);
-		Items.Remove(item);
+        AbstractFolderItem* item = child.ItemAt(i);
+        child.Remove(item);
 		delete item;
 	}
 }
 
-Folder::FolderType Folder::GetType() const {
+Folder::FolderType Folder::getType() const
+{
 	return type;
 }
 
-void Folder::SetType(Folder::FolderType _type)
+void Folder::setType(Folder::FolderType _type)
 {
 	type = _type;
 }
 
-bool Folder::IsExpanded() const {
+bool Folder::isExpanded() const
+{
 	return expanded;
 }
 
-void Folder::SetExpanded(bool value) {
+void Folder::setExpanded(bool value)
+{
 	expanded = value;
 }
 
-QString Folder::GetPath() const {
+QString Folder::getPath() const
+{
 	QString path = name;
 
-	Folder* f = GetParent();
-    while(f != 0 && f->GetParent() != 0)
+    Folder* f = getParent();
+    while(f != 0 && f->getParent() != 0)
     {
 		path.prepend(f->name + "/");
-		f = f->GetParent();
+        f = f->getParent();
 	}
 
 	return path;

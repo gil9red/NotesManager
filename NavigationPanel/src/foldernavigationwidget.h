@@ -53,8 +53,6 @@ public:
     Note * getCurrentNote();
     Folder * getCurrentFolder();
 
-    void expandAll();
-
 private:
     QTreeView * treeView;
     HierarchyModel * model;
@@ -65,6 +63,7 @@ private:
     QMenu * itemForeColorMenu;
     QMenu * itemBackColorMenu;
 
+public:
     QAction * addNoteAction;
     QAction * addFolderAction;
     QAction * moveToBinAction;
@@ -98,6 +97,8 @@ private slots:
     void sl_UpdateStates();
 
 public slots:
+    void sl_ExpandAll();
+
     bool sl_AddNote( RichTextNote * richTextNote );
 
     // Actions event handlers

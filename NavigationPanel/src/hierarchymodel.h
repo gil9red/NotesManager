@@ -41,8 +41,8 @@ public:
     virtual QMimeData* mimeData ( const QModelIndexList & indexes ) const;
     virtual QStringList mimeTypes () const;
 
-    void SetPinnedFolder(Folder*);
-    Folder* GetPinnedFolder() const;
+    void setPinnedFolder(Folder*);
+    Folder* getPinnedFolder() const;
 
     BaseModelItem * getModelItem( AbstractFolderItem * item ) { return bridge.value( item, 0 ); }
     AbstractFolderItem * getItem( BaseModelItem * modelItem ) { return bridge.key( modelItem, 0 ); }
@@ -50,11 +50,11 @@ public:
 private:
     QHash <AbstractFolderItem*, BaseModelItem*> bridge;
 
-    void RegisterItem(Folder* folder);
-    void RegisterItem(Note* note);
+    void registerItem(Folder* folder);
+    void registerItem(Note* note);
 
-    void UnregisterItem(Folder* folder);
-    void UnregisterItem(Note* note);
+    void unregisterItem(Folder* folder);
+    void unregisterItem(Note* note);
 
 private slots:
     void sl_Folder_ItemAdded(AbstractFolderItem* const, int);

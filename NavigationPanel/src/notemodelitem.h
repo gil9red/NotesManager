@@ -25,18 +25,18 @@ class Note;
 class NoteModelItem : public BaseModelItem
 {
     Q_OBJECT
-private:
-    Note* _storedData;
 
 public:
-    NoteModelItem(Note*);
+    NoteModelItem( Note * );
+    Note * getStoredData() const;
 
-    Note* GetStoredData() const;
+    QVariant data( int role ) const;
+    bool setData( const QVariant & value, int role );
+    Qt::ItemFlags flags() const;
+    bool lessThan( const BaseModelItem * ) const;
 
-    QVariant data(int role) const;
-    bool setData(const QVariant& value, int role);
-    Qt::ItemFlags flags () const;
-    bool LessThan(const BaseModelItem*) const;
+private:
+    Note * storedData;
 
 private slots:
     void sl_Note_PropertiesChanged();

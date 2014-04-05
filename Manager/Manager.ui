@@ -122,6 +122,9 @@
    <property name="windowTitle">
     <string>Main</string>
    </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
    </attribute>

@@ -19,7 +19,7 @@ along with qNotesManager. If not, see <http://www.gnu.org/licenses/>.
 
 #include <QDebug>
 
-Tag::Tag(const QString& name) : _name(name)
+Tag::Tag(const QString& n) : name(n)
 {
     QObject::connect(&Owners, SIGNAL(sg_ItemAboutToBeAdded(Note*)), SIGNAL(sg_OwnerAboutToBeAdded(Note*)));
     QObject::connect(&Owners, SIGNAL(sg_ItemAdded(Note*)), SIGNAL(sg_OwnerAdded(Note*)));
@@ -29,7 +29,7 @@ Tag::Tag(const QString& name) : _name(name)
     QObject::connect(&Owners, SIGNAL(sg_Cleared()), SIGNAL(sg_OwnersRemoved()));
 }
 
-QString Tag::GetName() const
+QString Tag::getName() const
 {
-	return _name;
+    return name;
 }

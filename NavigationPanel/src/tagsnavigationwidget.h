@@ -35,7 +35,7 @@ public:
     explicit TagsNavigationWidget(QWidget *parent = 0);
     void SetModel(TagsModel*);
 
-    void expandAll();
+    void sl_ExpandAll();
 
 private:
     QTreeView * treeView;

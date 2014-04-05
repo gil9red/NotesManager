@@ -30,7 +30,7 @@ DatesModel::DatesModel(LookupField field, QObject * parent) :
 {
 	BaseModelItem* root = new BaseModelItem();
 	root->SetSorted(true);
-	SetRootItem(root);
+    setRootItem(root);
 
     QObject::connect(Notebook::instance(), SIGNAL(sg_ItemRegistered(Note*)), SLOT(sl_NoteRegistered(Note*)));
     QObject::connect(Notebook::instance(), SIGNAL(sg_ItemUnregistered(Note*)), SLOT(sl_NoteUnregistered(Note*)));
@@ -58,10 +58,10 @@ void DatesModel::sl_Note_DateChanged()
     switch (lookupField)
     {
 	case CreationDate:
-		noteDate = note->GetCreationDate().date();
+        noteDate = note->getCreationDate().date();
 		break;
 	case ModifyDate:
-		noteDate = note->GetModificationDate().date();
+        noteDate = note->getModificationDate().date();
 		break;
 	default:
 		return;
@@ -131,12 +131,12 @@ void DatesModel::sl_NoteRegistered(Note* note) {
     switch (lookupField)
     {
 	case CreationDate:
-		fp = &Note::GetCreationDate;
+        fp = &Note::getCreationDate;
 		break;
 
 	case ModifyDate:
 //		QObject::connect(note, SIGNAL(sg_ModifyDateChanged()), this, SLOT(sl_Note_DateChanged()));
-		fp = &Note::GetModificationDate;
+        fp = &Note::getModificationDate;
 		break;
 
 	default:
@@ -172,7 +172,7 @@ void DatesModel::addNoteToTree(NoteModelItem* noteItem) {
 		WARNING("Null pointer recieved");
 		return;
 	}
-	if (noteItem->GetStoredData() == 0) {
+    if (noteItem->getStoredData() == 0) {
 		WARNING("Item has no internal data");
 		return;
 	}
@@ -181,10 +181,10 @@ void DatesModel::addNoteToTree(NoteModelItem* noteItem) {
 
 	switch (lookupField) {
 	case CreationDate:
-		noteDate = noteItem->GetStoredData()->GetCreationDate().date();
+        noteDate = noteItem->getStoredData()->getCreationDate().date();
 		break;
 	case ModifyDate:
-		noteDate = noteItem->GetStoredData()->GetModificationDate().date();
+        noteDate = noteItem->getStoredData()->getModificationDate().date();
 		break;
 	default:
 		return;
@@ -218,7 +218,7 @@ void DatesModel::addNoteToTree(NoteModelItem* noteItem) {
 		BaseModelItem* yearItem = datesBridge.value(yearID);
 		DateModelItem* monthItem = new DateModelItem(DateModelItem::Month, noteDate.month());
 		monthItem->SetSorted(true);
-		QModelIndex yearIndex = createIndex(GetRootItem()->IndexOfChild(yearItem), 0, yearItem);
+        QModelIndex yearIndex = createIndex(getRootItem()->IndexOfChild(yearItem), 0, yearItem);
 
 		newElementPosition = yearItem->FindInsertIndex(monthItem);
 
@@ -245,17 +245,17 @@ void DatesModel::addNoteToTree(NoteModelItem* noteItem) {
 		DateModelItem* yearItem = new DateModelItem(DateModelItem::Year, noteDate.year());
 		yearItem->SetSorted(true);
 
-		newElementPosition = GetRootItem()->FindInsertIndex(yearItem);
+        newElementPosition = getRootItem()->FindInsertIndex(yearItem);
 
 		beginInsertRows(QModelIndex(), newElementPosition, newElementPosition);
-			GetRootItem()->AddChildTo(yearItem, newElementPosition);
+            getRootItem()->AddChildTo(yearItem, newElementPosition);
 		endInsertRows();
 
 		datesBridge.insert(yearID, yearItem);
 
 		DateModelItem* monthItem = new DateModelItem(DateModelItem::Month, noteDate.month());
 		monthItem->SetSorted(true);
-		QModelIndex yearIndex = createIndex(GetRootItem()->IndexOfChild(yearItem), 0, yearItem);
+        QModelIndex yearIndex = createIndex(getRootItem()->IndexOfChild(yearItem), 0, yearItem);
 
 		newElementPosition = yearItem->FindInsertIndex(monthItem);
 
@@ -313,7 +313,7 @@ void DatesModel::removeNoteFromTree(NoteModelItem* noteItem) {
 	if (monthItem->ChildrenCount() > 0) {return;}
 
 	BaseModelItem* yearItem = monthItem->parent();
-	QModelIndex yearIndex = createIndex(GetRootItem()->IndexOfChild(yearItem), 0, yearItem);
+    QModelIndex yearIndex = createIndex(getRootItem()->IndexOfChild(yearItem), 0, yearItem);
 	qint32 monthItemID = GenerateDateID(monthItem);
 
 	beginRemoveRows(yearIndex, yearItem->IndexOfChild(monthItem), yearItem->IndexOfChild(monthItem));
@@ -327,8 +327,8 @@ void DatesModel::removeNoteFromTree(NoteModelItem* noteItem) {
 
 	qint32 yearItemID = GenerateDateID(yearItem);
 
-	beginRemoveRows(QModelIndex(), GetRootItem()->IndexOfChild(yearItem), GetRootItem()->IndexOfChild(yearItem));
-		GetRootItem()->RemoveChild(yearItem);
+    beginRemoveRows(QModelIndex(), getRootItem()->IndexOfChild(yearItem), getRootItem()->IndexOfChild(yearItem));
+        getRootItem()->RemoveChild(yearItem);
 	endRemoveRows();
 
 	datesBridge.remove(yearItemID);

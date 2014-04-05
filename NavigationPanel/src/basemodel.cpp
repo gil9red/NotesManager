@@ -27,7 +27,7 @@ BaseModel::BaseModel(QObject *parent) : QAbstractItemModel(parent) {
 BaseModel::~BaseModel() {
 }
 
-void BaseModel::SetDisplayRootItem(BaseModelItem* item) {
+void BaseModel::setDisplayRootItem(BaseModelItem* item) {
 	if (item == displayRootItem) {return;}
 
 	// # Check if item belongs to current model's hierarchy
@@ -60,11 +60,11 @@ void BaseModel::SetDisplayRootItem(BaseModelItem* item) {
 	emit sg_DisplayRootItemChanged();
 }
 
-BaseModelItem* const BaseModel::GetDisplayRootItem() const {
+BaseModelItem* const BaseModel::getDisplayRootItem() const {
 	return displayRootItem;
 }
 
-void BaseModel::SetRootItem(BaseModelItem* item) {
+void BaseModel::setRootItem(BaseModelItem* item) {
 	if (rootItem == item) {return;}
 
 	if (rootItem) {
@@ -72,12 +72,12 @@ void BaseModel::SetRootItem(BaseModelItem* item) {
 	}
 
 	rootItem = item;
-	SetDisplayRootItem(rootItem);
+    setDisplayRootItem(rootItem);
 
 	item->setParent(this); // QObject parentship
 }
 
-BaseModelItem* BaseModel::GetRootItem() const {
+BaseModelItem* BaseModel::getRootItem() const {
 	return rootItem;
 }
 

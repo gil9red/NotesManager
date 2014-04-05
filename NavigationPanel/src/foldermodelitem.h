@@ -32,12 +32,12 @@ private:
 public:
     FolderModelItem(Folder*);
 
-    Folder*	GetStoredData() const;
+    Folder*	getStoredData() const;
 
     QVariant data(int role) const;
     bool setData(const QVariant& value, int role);
     Qt::ItemFlags flags () const;
-    bool LessThan(const BaseModelItem*) const;
+    bool lessThan(const BaseModelItem*) const;
 
 private slots:
     void sl_Folder_PropertiesChanged();

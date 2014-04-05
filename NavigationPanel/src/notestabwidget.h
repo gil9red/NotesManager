@@ -52,11 +52,13 @@ private:
 
 public slots:
     void openNote( Note * );
-    void closeNote(Note * );
+    void closeNote( Note * );
     void closeTab( int );
     void clear(); //!< Закрыть все вкладки
 
 private slots:
+    void sl_AboutRemoveNote();
+
     void sl_Note_PropertiesChanged();
     void sl_TabWidget_CurrentChanged(int);
     void sl_TabWidget_TabCloseRequested(int);

@@ -101,24 +101,24 @@ FolderNavigationWidget::FolderNavigationWidget(QWidget *parent)
     moveToBinAction = new QAction( QIcon( ":/fugue-icons/minus" ), tr( "Move to Bin" ), this );
     QObject::connect(moveToBinAction, SIGNAL(triggered()), SLOT(sl_MoveToBinAction_Triggered()));
 
-    itemForeColorMenu = new QMenu( tr( "Set text color" ), this );
+    itemForeColorMenu = new QMenu( tr( "Set Text Color" ), this );
     itemForeColorMenu->setIcon( QIcon( ":/fugue-icons/edit-color" ) );
-    itemBackColorMenu = new QMenu( tr( "Set back color" ), this );
+    itemBackColorMenu = new QMenu( tr( "Set Back Color" ), this );
     itemBackColorMenu->setIcon( QIcon( ":/fugue-icons/paint-can-color" ) );
 
-    itemDefaultForeColorAction = new QAction( QIcon( ":/fugue-icons/ui-color-picker-default" ), tr( "Default color" ), this );
+    itemDefaultForeColorAction = new QAction( QIcon( ":/fugue-icons/ui-color-picker-default" ), tr( "Default Color" ), this );
     QObject::connect(itemDefaultForeColorAction, SIGNAL(triggered()), SLOT(sl_DefaultForeColor_Triggered()));
 
-    itemCustomForeColorAction = new QAction( QIcon( ":/fugue-icons/color-swatch" ), tr( "Custom color" ), this );
+    itemCustomForeColorAction = new QAction( QIcon( ":/fugue-icons/color-swatch" ), tr( "Custom Color" ), this );
     QObject::connect(itemCustomForeColorAction, SIGNAL(triggered()), SLOT(sl_CustomForeColor_Triggered()));
 
-    itemDefaultBackColorAction = new QAction( QIcon( ":/fugue-icons/ui-color-picker-default" ), tr( "Default color" ), this);
+    itemDefaultBackColorAction = new QAction( QIcon( ":/fugue-icons/ui-color-picker-default" ), tr( "Default Color" ), this);
     QObject::connect(itemDefaultBackColorAction, SIGNAL(triggered()), SLOT(sl_DefaultBackColor_Triggered()));
 
-    itemCustomBackColorAction = new QAction( QIcon( ":/fugue-icons/color-swatch" ), tr( "Custom color" ), this );
+    itemCustomBackColorAction = new QAction( QIcon( ":/fugue-icons/color-swatch" ), tr( "Custom Color" ), this );
     QObject::connect(itemCustomBackColorAction, SIGNAL(triggered()), SLOT(sl_CustomBackColor_Triggered()));
 
-    clearTrashAction = new QAction( QIcon( ":/Manager/remove_all" ), tr( "Clear trash" ), this );
+    clearTrashAction = new QAction( QIcon( ":/Manager/remove_all" ), tr( "Clear Trash" ), this );
     QObject::connect(clearTrashAction, SIGNAL(triggered()), SLOT(sl_ClearTrashAction_Triggered()));
 
     openNoteAction = new QAction( QIcon( ":/fugue-icons/book-open" ), tr( "Open" ), this);
@@ -163,7 +163,7 @@ void FolderNavigationWidget::setModel(HierarchyModel* m)
     if (model)
     {
         pinFolderButton->blockSignals(true);
-        pinFolderButton->setChecked(model->GetPinnedFolder() != 0);
+        pinFolderButton->setChecked(model->getPinnedFolder() != 0);
         pinFolderButton->blockSignals(false);
         updatePinnedFolderData();
     } else
@@ -176,9 +176,9 @@ void FolderNavigationWidget::setModel(HierarchyModel* m)
 }
 void FolderNavigationWidget::updatePinnedFolderData()
 {
-    if (model && model->GetPinnedFolder())
+    if (model && model->getPinnedFolder())
     {
-        QString path = model->GetPinnedFolder()->GetPath();
+        QString path = model->getPinnedFolder()->getPath();
         currentRootLabel->setText(path);
         currentRootLabel->setToolTip(path);
     } else
@@ -220,7 +220,7 @@ Note * FolderNavigationWidget::getNote( const QModelIndex & index )
     BaseModelItem * item = getItem( index );
     if ( item->DataType() == BaseModelItem::note )
     {
-        Note * note = dynamic_cast < NoteModelItem * > ( item )->GetStoredData();
+        Note * note = dynamic_cast < NoteModelItem * > ( item )->getStoredData();
         if ( !note )
         {
             WARNING("Casting error");
@@ -237,7 +237,7 @@ Folder * FolderNavigationWidget::getFolder( const QModelIndex & index )
     BaseModelItem * item = getItem( index );
     if ( item->DataType() == BaseModelItem::folder )
     {
-        Folder * folder = dynamic_cast < FolderModelItem * > ( item )->GetStoredData();
+        Folder * folder = dynamic_cast < FolderModelItem * > ( item )->getStoredData();
         if ( !folder )
         {
             WARNING("Casting error");
@@ -260,11 +260,6 @@ Folder * FolderNavigationWidget::getCurrentFolder()
     return getFolder( index );
 }
 
-void FolderNavigationWidget::expandAll()
-{
-    treeView->expandAll();
-}
-
 void FolderNavigationWidget::deleteItems(QModelIndexList& indexesList, bool permanently)
 {
     QString details;
@@ -277,9 +272,9 @@ void FolderNavigationWidget::deleteItems(QModelIndexList& indexesList, bool perm
     foreach (QModelIndex index, indexesList)
         details.append("\n").append(index.model()->data(index, Qt::DisplayRole).toString());
 
-    QString message = permanently ? tr( "Delete these items?" ) : tr( "Put these items to Bin?" );
-
-    if (QMessageBox::question(0, tr( "Confirm deletion" ), message + details, QMessageBox::Yes | QMessageBox::No) != QMessageBox::Yes)
+    const QString & message = permanently ? tr( "Delete these items?" ) : tr( "Put these items to Bin?" );
+    bool hasCancel = QMessageBox::question( this, tr( "Confirm deletion" ), message + details, QMessageBox::Yes | QMessageBox::No ) != QMessageBox::Yes;
+    if ( hasCancel )
         return;
 
     // FIXME: fix situation when parent folder was deleted and we try to delete child item
@@ -303,7 +298,7 @@ void FolderNavigationWidget::deleteItems(QModelIndexList& indexesList, bool perm
         if ( isFolder )
         {
             FolderModelItem* fmi = dynamic_cast<FolderModelItem*>(modelItemToDelete);
-            itemToDelete = fmi->GetStoredData();
+            itemToDelete = fmi->getStoredData();
 
             if ( itemToDelete == Notebook::instance()->trashFolder() )
             {
@@ -313,7 +308,7 @@ void FolderNavigationWidget::deleteItems(QModelIndexList& indexesList, bool perm
         } else if ( isNote )
         {
             NoteModelItem* fmi = dynamic_cast<NoteModelItem*>(modelItemToDelete);
-            itemToDelete = fmi->GetStoredData();
+            itemToDelete = fmi->getStoredData();
         }
         if (!itemToDelete)
         {
@@ -321,7 +316,7 @@ void FolderNavigationWidget::deleteItems(QModelIndexList& indexesList, bool perm
             continue;
         }
 
-        Folder* parentFolder = itemToDelete->GetParent();
+        Folder * parentFolder = itemToDelete->getParent();
         if (!parentFolder)
         {
             WARNING("Cannot delete item without parent");
@@ -330,22 +325,11 @@ void FolderNavigationWidget::deleteItems(QModelIndexList& indexesList, bool perm
 
         if (permanently)
         {
-            if ( isNote )
-            {
-                Note * note = dynamic_cast < Note * > ( itemToDelete );
-                if ( !note )
-                {
-                    WARNING( "null pointer!" );
-                    return;
-                }
-                note->getRichTextNote()->remove();
-            }
-
-            parentFolder->Items.Remove(itemToDelete);
+            parentFolder->child.Remove(itemToDelete);
             delete itemToDelete;
 
         } else
-            parentFolder->Items.Move(itemToDelete, Notebook::instance()->trashFolder());
+            parentFolder->child.Move(itemToDelete, Notebook::instance()->trashFolder());
     }
 }
 void FolderNavigationWidget::deleteChildIndexes(QModelIndexList& list) const
@@ -392,8 +376,8 @@ void FolderNavigationWidget::restoreExpandedIndexes()
 
         if (modelItemToEdit->DataType() == BaseModelItem::folder)
         {
-            Folder* folder = (dynamic_cast<FolderModelItem*>(modelItemToEdit))->GetStoredData();
-            if (folder->IsExpanded())
+            Folder* folder = (dynamic_cast<FolderModelItem*>(modelItemToEdit))->getStoredData();
+            if (folder->isExpanded())
                 treeView->expand(index);
         }
     }
@@ -406,7 +390,7 @@ void FolderNavigationWidget::sl_TreeView_ContextMenuRequested(const QPoint& p)
         return;
 
     QMenu menu;
-    bool isEmptyTrash = Notebook::instance()->trashFolder()->Items.Count() == 0;
+    bool isEmptyTrash = Notebook::instance()->trashFolder()->child.Count() == 0;
     const QModelIndexList & indexesList = selectionModel->selectedIndexes();
 
     // 0 items
@@ -415,16 +399,15 @@ void FolderNavigationWidget::sl_TreeView_ContextMenuRequested(const QPoint& p)
         menu.addAction(addNoteAction);
         menu.addAction(addFolderAction);
 
-        if (model->GetPinnedFolder() != 0)
+        if (model->getPinnedFolder() != 0)
         {
             // Edd context menu items for pinned folder
-            if (model->GetPinnedFolder() == Notebook::instance()->trashFolder() )
+            if (model->getPinnedFolder() == Notebook::instance()->trashFolder() )
             {
                 menu.addSeparator();
                 menu.addAction(clearTrashAction);
 
                 clearTrashAction->setEnabled( !isEmptyTrash );
-
             }
         }
 
@@ -437,7 +420,7 @@ void FolderNavigationWidget::sl_TreeView_ContextMenuRequested(const QPoint& p)
             if (modelitem->DataType() == BaseModelItem::folder)
             {
                 const FolderModelItem * folderModelItem = dynamic_cast < const FolderModelItem * > ( modelitem );
-                const AbstractFolderItem * folderItem = folderModelItem->GetStoredData();
+                const AbstractFolderItem * folderItem = folderModelItem->getStoredData();
                 if ( folderItem == Notebook::instance()->trashFolder() )
                 {
                     menu.addSeparator();
@@ -494,7 +477,7 @@ void FolderNavigationWidget::sl_View_clicked (const QModelIndex& index)
     BaseModelItem* item = static_cast<BaseModelItem*>(index.internalPointer());
     if (item->DataType() == BaseModelItem::note)
     {
-        Note* n = dynamic_cast<NoteModelItem*>(item)->GetStoredData();
+        Note* n = dynamic_cast<NoteModelItem*>(item)->getStoredData();
         if (!n)
         {
             WARNING("Casting error");
@@ -511,7 +494,7 @@ void FolderNavigationWidget::sl_View_doubleClicked (const QModelIndex& index)
     BaseModelItem* item = static_cast<BaseModelItem*>(index.internalPointer());
     if (item->DataType() == BaseModelItem::note)
     {
-        Note* n = dynamic_cast<NoteModelItem*>(item)->GetStoredData();
+        Note* n = dynamic_cast<NoteModelItem*>(item)->getStoredData();
         if (!n) {
             WARNING("Casting error");
             return;
@@ -536,8 +519,8 @@ void FolderNavigationWidget::sl_View_Expanded(const QModelIndex& index)
 
     if (modelItemToEdit->DataType() == BaseModelItem::folder)
     {
-        Folder* folder = (dynamic_cast<FolderModelItem*>(modelItemToEdit))->GetStoredData();
-        folder->SetExpanded(true);
+        Folder* folder = (dynamic_cast<FolderModelItem*>(modelItemToEdit))->getStoredData();
+        folder->setExpanded(true);
     }
 }
 void FolderNavigationWidget::sl_View_Collapsed(const QModelIndex& index)
@@ -551,8 +534,8 @@ void FolderNavigationWidget::sl_View_Collapsed(const QModelIndex& index)
 
     if (modelItemToEdit->DataType() == BaseModelItem::folder)
     {
-        Folder* folder = (dynamic_cast<FolderModelItem*>(modelItemToEdit))->GetStoredData();
-        folder->SetExpanded(false);
+        Folder* folder = (dynamic_cast<FolderModelItem*>(modelItemToEdit))->getStoredData();
+        folder->setExpanded(false);
     }
 }
 
@@ -588,7 +571,7 @@ void FolderNavigationWidget::sl_PinFolderButton_Toggled(bool toggle)
             return;
         }
 
-        folderToPin = dynamic_cast<FolderModelItem*>(modelItem)->GetStoredData();
+        folderToPin = dynamic_cast<FolderModelItem*>(modelItem)->getStoredData();
     }
 
     Notebook::instance()->setPinnedFolder( folderToPin );
@@ -626,10 +609,15 @@ void FolderNavigationWidget::sl_UpdateStates()
         return;
     }
 
-    if ( model->GetPinnedFolder() )
+    if ( model->getPinnedFolder() )
         pinFolderButton->setEnabled( true );
     else
         pinFolderButton->setEnabled( hasCurrentItem() && getCurrentFolder() );
+}
+
+void FolderNavigationWidget::sl_ExpandAll()
+{
+    treeView->expandAll();
 }
 
 bool FolderNavigationWidget::sl_AddNote( RichTextNote * richTextNote )
@@ -643,11 +631,11 @@ bool FolderNavigationWidget::sl_AddNote( RichTextNote * richTextNote )
     Folder * root = Notebook::instance()->rootFolder();
 
     // Если нет выделенного элемента, добавляем в корень
-    if ( !hasCurrentItem() && !model->GetPinnedFolder() )
+    if ( !hasCurrentItem() && !model->getPinnedFolder() )
     {
         Note * note = new Note();
         note->setRichTextNote( richTextNote );
-        root->Items.Add( note );
+        root->child.Add( note );
 
         return true;
     }
@@ -662,7 +650,7 @@ bool FolderNavigationWidget::sl_AddNote( RichTextNote * richTextNote )
     Folder* parentFolder = 0;
 
     if (indexesList.size() == 0)
-        parentFolder = ( !model->GetPinnedFolder() ? root : model->GetPinnedFolder() );
+        parentFolder = ( !model->getPinnedFolder() ? root : model->getPinnedFolder() );
     else
     {
         BaseModelItem* modelitem = static_cast<BaseModelItem*>(indexesList.value(0).internalPointer());
@@ -671,7 +659,7 @@ bool FolderNavigationWidget::sl_AddNote( RichTextNote * richTextNote )
             WARNING("Parent item is not a folder");
             return false;
         }
-        parentFolder = dynamic_cast<FolderModelItem*>(modelitem)->GetStoredData();
+        parentFolder = dynamic_cast<FolderModelItem*>(modelitem)->getStoredData();
 
         if (parentFolder == Notebook::instance()->trashFolder())
         {
@@ -682,7 +670,7 @@ bool FolderNavigationWidget::sl_AddNote( RichTextNote * richTextNote )
 
     Note * note = new Note();
     note->setRichTextNote( richTextNote );
-    parentFolder->Items.Add( note );
+    parentFolder->child.Add( note );
 
     return true;
 }
@@ -703,9 +691,9 @@ void FolderNavigationWidget::sl_AddNoteAction_Triggered()
 void FolderNavigationWidget::sl_AddFolderAction_Triggered()
 {   
     // Если нет выделенного элемента, добавляем в корень
-    if ( !hasCurrentItem() && !model->GetPinnedFolder() )
+    if ( !hasCurrentItem() && !model->getPinnedFolder() )
     {
-        Notebook::instance()->rootFolder()->Items.Add( new Folder() );
+        Notebook::instance()->rootFolder()->child.Add( new Folder() );
         return;
     }
 
@@ -719,7 +707,7 @@ void FolderNavigationWidget::sl_AddFolderAction_Triggered()
     Folder * parentFolder = 0;
 
     if (indexesList.size() == 0)
-        parentFolder = (model->GetPinnedFolder() == 0 ? Notebook::instance()->rootFolder() : model->GetPinnedFolder());
+        parentFolder = (model->getPinnedFolder() == 0 ? Notebook::instance()->rootFolder() : model->getPinnedFolder());
 
     else
     {
@@ -730,7 +718,7 @@ void FolderNavigationWidget::sl_AddFolderAction_Triggered()
 			WARNING("Parent item is not a folder");
 			return;
 		}
-		parentFolder = dynamic_cast<FolderModelItem*>(modelitem)->GetStoredData();
+        parentFolder = dynamic_cast<FolderModelItem*>(modelitem)->getStoredData();
         if (parentFolder == Notebook::instance()->rootFolder())
         {
 			WARNING("Cannot create new items in system folders");
@@ -743,18 +731,16 @@ void FolderNavigationWidget::sl_AddFolderAction_Triggered()
         WARNING("Pointer 'parentFolder' is null!");
         return;
     }
-    parentFolder->Items.Add( new Folder() );
+    parentFolder->child.Add( new Folder() );
 }
 void FolderNavigationWidget::sl_MoveToBinAction_Triggered()
 {
     QModelIndexList list = treeView->selectionModel()->selectedIndexes();
-//	deleteItems(list, !Application::I()->Settings.GetMoveItemsToBin());
     deleteItems(list, false); // Пусть пока перемещает в корзину
 }
 void FolderNavigationWidget::sl_DeleteItemAction_Triggered()
 {
 	QModelIndexList list = treeView->selectionModel()->selectedIndexes();
-//	deleteItems(list, !Application::I()->Settings.GetMoveItemsToBin());
     deleteItems(list, true); // Удаление
 }
 
@@ -779,28 +765,28 @@ void FolderNavigationWidget::sl_DefaultForeColor_Triggered()
 
         if (modelItemToEdit->DataType() == BaseModelItem::folder)
         {
-			Folder* f = (dynamic_cast<FolderModelItem*>(modelItemToEdit))->GetStoredData();
+            Folder* f = (dynamic_cast<FolderModelItem*>(modelItemToEdit))->getStoredData();
             if (!f)
             {
 				WARNING("Casting error");
 				continue;
 			}
-            if (f->GetType() != Folder::UserFolder)
+            if (f->getType() != Folder::UserFolder)
             {
 				WARNING("Cannot perform action on system folder");
 				return;
 			}
-			f->SetNameForeColor(f->GetDefaultForeColor());
+            f->setNameForeColor(f->getDefaultForeColor());
 
         } else if (modelItemToEdit->DataType() == BaseModelItem::note)
         {
-			Note* n = (dynamic_cast<NoteModelItem*>(modelItemToEdit))->GetStoredData();
+            Note* n = (dynamic_cast<NoteModelItem*>(modelItemToEdit))->getStoredData();
             if (!n)
             {
 				WARNING("Casting error");
 				continue;
 			}
-			n->SetNameForeColor(n->GetDefaultForeColor());
+            n->setNameForeColor(n->getDefaultForeColor());
 		}
 	}
 }
@@ -824,28 +810,28 @@ void FolderNavigationWidget::sl_DefaultBackColor_Triggered()
 
         if (modelItemToEdit->DataType() == BaseModelItem::folder)
         {
-			Folder* f = (dynamic_cast<FolderModelItem*>(modelItemToEdit))->GetStoredData();
+            Folder* f = (dynamic_cast<FolderModelItem*>(modelItemToEdit))->getStoredData();
             if (!f)
             {
 				WARNING("Casting error");
 				continue;
 			}
-            if (f->GetType() != Folder::UserFolder)
+            if (f->getType() != Folder::UserFolder)
             {
 				WARNING("Cannot perform action on system folder");
 				return;
 			}
-			f->SetNameBackColor(f->GetDefaultBackColor());
+            f->setNameBackColor(f->getDefaultBackColor());
 
         } else if (modelItemToEdit->DataType() == BaseModelItem::note)
         {
-			Note* n = (dynamic_cast<NoteModelItem*>(modelItemToEdit))->GetStoredData();
+            Note* n = (dynamic_cast<NoteModelItem*>(modelItemToEdit))->getStoredData();
             if (!n)
             {
 				WARNING("Casting error");
 				continue;
             }
-			n->SetNameBackColor(n->GetDefaultBackColor());
+            n->setNameBackColor(n->getDefaultBackColor());
 		}
 	}
 }
@@ -865,15 +851,15 @@ void FolderNavigationWidget::sl_CustomForeColor_Triggered()
 
         if (modelItemToEdit->DataType() == BaseModelItem::folder)
         {
-			Folder* f = (dynamic_cast<FolderModelItem*>(modelItemToEdit))->GetStoredData();
+            Folder* f = (dynamic_cast<FolderModelItem*>(modelItemToEdit))->getStoredData();
             if (f)
-				oldColor = f->GetNameForeColor();			
+                oldColor = f->getNameForeColor();
 
         } else if (modelItemToEdit->DataType() == BaseModelItem::note)
         {
-			Note* n = (dynamic_cast<NoteModelItem*>(modelItemToEdit))->GetStoredData();
+            Note* n = (dynamic_cast<NoteModelItem*>(modelItemToEdit))->getStoredData();
             if (n)
-				oldColor = n->GetNameForeColor();
+                oldColor = n->getNameForeColor();
 		}
 	}
 
@@ -892,28 +878,28 @@ void FolderNavigationWidget::sl_CustomForeColor_Triggered()
 
         if (modelItemToEdit->DataType() == BaseModelItem::folder)
         {
-			Folder* f = (dynamic_cast<FolderModelItem*>(modelItemToEdit))->GetStoredData();
+            Folder* f = (dynamic_cast<FolderModelItem*>(modelItemToEdit))->getStoredData();
             if (!f)
             {
 				WARNING("Casting error");
 				continue;
 			}
-            if (f->GetType() != Folder::UserFolder)
+            if (f->getType() != Folder::UserFolder)
             {
 				WARNING("Cannot perform action on system folder");
 				return;
 			}
-			f->SetNameForeColor(newColor);
+            f->setNameForeColor(newColor);
 
         } else if (modelItemToEdit->DataType() == BaseModelItem::note)
         {
-			Note* n = (dynamic_cast<NoteModelItem*>(modelItemToEdit))->GetStoredData();
+            Note* n = (dynamic_cast<NoteModelItem*>(modelItemToEdit))->getStoredData();
             if (!n)
             {
 				WARNING("Casting error");
 				continue;
 			}
-			n->SetNameForeColor(newColor);
+            n->setNameForeColor(newColor);
 		}
 	}
 }
@@ -933,15 +919,15 @@ void FolderNavigationWidget::sl_CustomBackColor_Triggered()
 
         if (modelItemToEdit->DataType() == BaseModelItem::folder)
         {
-			Folder* f = (dynamic_cast<FolderModelItem*>(modelItemToEdit))->GetStoredData();
+            Folder* f = (dynamic_cast<FolderModelItem*>(modelItemToEdit))->getStoredData();
             if (f)
-				oldColor = f->GetNameBackColor();			
+                oldColor = f->getNameBackColor();
 
         } else if (modelItemToEdit->DataType() == BaseModelItem::note)
         {
-			Note* n = (dynamic_cast<NoteModelItem*>(modelItemToEdit))->GetStoredData();
+            Note* n = (dynamic_cast<NoteModelItem*>(modelItemToEdit))->getStoredData();
             if (n)
-				oldColor = n->GetNameBackColor();
+                oldColor = n->getNameBackColor();
 		}
 	}
 
@@ -960,57 +946,38 @@ void FolderNavigationWidget::sl_CustomBackColor_Triggered()
 
         if (modelItemToEdit->DataType() == BaseModelItem::folder)
         {
-			Folder* f = (dynamic_cast<FolderModelItem*>(modelItemToEdit))->GetStoredData();
+            Folder* f = (dynamic_cast<FolderModelItem*>(modelItemToEdit))->getStoredData();
             if (!f)
             {
 				WARNING("Casting error");
 				continue;
 			}
-            if (f->GetType() != Folder::UserFolder)
+            if (f->getType() != Folder::UserFolder)
             {
 				WARNING("Cannot perform action on system folder");
 				return;
 			}
-			f->SetNameBackColor(newColor);
+            f->setNameBackColor(newColor);
 
         } else if (modelItemToEdit->DataType() == BaseModelItem::note)
         {
-			Note* n = (dynamic_cast<NoteModelItem*>(modelItemToEdit))->GetStoredData();
+            Note* n = (dynamic_cast<NoteModelItem*>(modelItemToEdit))->getStoredData();
             if (!n)
             {
 				WARNING("Casting error");
 				continue;
 			}
-			n->SetNameBackColor(newColor);
+            n->setNameBackColor(newColor);
 		}
 	}
 }
 void FolderNavigationWidget::sl_ClearTrashAction_Triggered()
 {
-    // TODO: сделать рекурсивное удаление
-    Folder* f = Notebook::instance()->trashFolder();
-    while (f->Items.Count() > 0)
+    Folder * f = Notebook::instance()->trashFolder();
+    while (f->child.Count() > 0)
     {
-        AbstractFolderItem* item = f->Items.ItemAt(0);
-        if ( item->GetItemType() == AbstractFolderItem::Type_Note )
-        {
-            Note * note = dynamic_cast < Note * > ( item );
-            if ( !note )
-            {
-                WARNING( "error cast" );
-                return;
-            }
-            RichTextNote * richTextNote = note->getRichTextNote();
-            if ( !richTextNote )
-            {
-                WARNING( "Null pointer!" );
-                return;
-            }
-
-            richTextNote->remove();
-        }
-
-		f->Items.Remove(item);
+        AbstractFolderItem * item = f->child.ItemAt(0);
+        f->child.Remove(item);
 		delete item;
 	}
 }
@@ -1057,7 +1024,7 @@ bool FolderNavigationWidget::eventFilter (QObject* watched, QEvent* event)
                 return false;
             bool permanently = false;
             if ((keyEvent->modifiers() & Qt::ShiftModifier) || false)
-                //if ((keyEvent->modifiers() & Qt::ShiftModifier) || !Application::I()->Settings.GetMoveItemsToBin())
+                //if ((keyEvent->modifiers() & Qt::ShiftModifier) || !Application::I()->settings.getMoveItemsToBin())
                 permanently = true;
 
             QModelIndexList list = treeView->selectionModel()->selectedIndexes();
@@ -1077,7 +1044,7 @@ bool FolderNavigationWidget::eventFilter (QObject* watched, QEvent* event)
                 BaseModelItem* item = static_cast<BaseModelItem*>(index.internalPointer());
                 if (item->DataType() == BaseModelItem::note)
                 {
-                    Note* note = dynamic_cast<NoteModelItem*>(item)->GetStoredData();
+                    Note* note = dynamic_cast<NoteModelItem*>(item)->getStoredData();
                     if (!note)
                     {
                         WARNING("Casting error");

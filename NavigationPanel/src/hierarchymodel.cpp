@@ -36,14 +36,14 @@ HierarchyModel::HierarchyModel(QObject *parent)
         WARNING("Null reference");
         return;
     }
-    RegisterItem(rootFolder);
+    registerItem(rootFolder);
 
     Folder* trashFolder = Notebook::instance()->trashFolder();
     if (trashFolder == 0) {
         WARNING("Null reference");
         return;
     }
-    RegisterItem(trashFolder);
+    registerItem(trashFolder);
 
     SeparatorModelItem* separatorItem = new SeparatorModelItem();
     BaseModelItem * rootItem = bridge.value(Notebook::instance()->rootFolder());
@@ -51,10 +51,10 @@ HierarchyModel::HierarchyModel(QObject *parent)
     rootItem->AddChild(separatorItem);
     rootItem->AddChild(bridge.value(trashFolder));
 
-    SetRootItem(rootItem);
+    setRootItem(rootItem);
 }
 
-void HierarchyModel::RegisterItem(Folder* folder) // Register folder and all items inside of it
+void HierarchyModel::registerItem(Folder* folder) // Register folder and all items inside of it
 {
 	if (!folder) {
 		WARNING("Null pointer recieved");
@@ -72,28 +72,23 @@ void HierarchyModel::RegisterItem(Folder* folder) // Register folder and all ite
 
 	FolderModelItem* fi = new FolderModelItem(folder);
     QObject::connect(fi, SIGNAL(sg_DataChanged(BaseModelItem*)), this, SLOT(sl_Item_DataChanged(BaseModelItem*)));
-    BaseModelItem* parent = bridge.value(folder->GetParent());
+    BaseModelItem* parent = bridge.value(folder->getParent());
     if ( parent )
-		parent->AddChildTo(fi, folder->GetParent()->Items.IndexOf(folder));
+        parent->AddChildTo(fi, folder->getParent()->child.IndexOf(folder));
 
     bridge.insert(folder, fi);
 
-    for (int i = 0; i < folder->Items.Count(); i++)
+    for (int i = 0; i < folder->child.Count(); i++)
     {
-		AbstractFolderItem* item = folder->Items.ItemAt(i);
-        if (item->GetItemType() == AbstractFolderItem::Type_Folder)
-        {
-			Folder* f = dynamic_cast<Folder*>(item);
-			RegisterItem(f);
-        } else
-        {
-			Note* n = dynamic_cast<Note*>(item);
-			RegisterItem(n);
-		}
+        AbstractFolderItem* item = folder->child.ItemAt(i);
+        if ( item->getItemType() == AbstractFolderItem::Type_Folder )
+            registerItem( dynamic_cast < Folder * > ( item ) );
+        else
+            registerItem( dynamic_cast < Note * > ( item ) );
 	}
 }
 
-void HierarchyModel::RegisterItem(Note* note) {
+void HierarchyModel::registerItem(Note* note) {
 	if (!note) {
 		WARNING("Null pointer recieved");
 		return;
@@ -103,15 +98,15 @@ void HierarchyModel::RegisterItem(Note* note) {
 		return;
 	}
 
-	Folder* folder = note->GetParent();
+    Folder* folder = note->getParent();
     BaseModelItem* parentItem = bridge.value(folder);
 	NoteModelItem* noteItem = new NoteModelItem(note);
     QObject::connect(noteItem, SIGNAL(sg_DataChanged(BaseModelItem*)), SLOT(sl_Item_DataChanged(BaseModelItem*)));
-	parentItem->AddChildTo(noteItem, note->GetParent()->Items.IndexOf(note));
+    parentItem->AddChildTo(noteItem, note->getParent()->child.IndexOf(note));
     bridge.insert(note, noteItem);
 }
 
-void HierarchyModel::UnregisterItem(Folder* folder)
+void HierarchyModel::unregisterItem(Folder* folder)
 {
 	if (!folder) {
 		WARNING("Null pointer recieved");
@@ -124,20 +119,17 @@ void HierarchyModel::UnregisterItem(Folder* folder)
 
 	QObject::disconnect(folder, 0, this, 0);
 
-	for (int i = 0; i < folder->Items.Count(); i++) {
-		AbstractFolderItem* item = folder->Items.ItemAt(i);
-		if (item->GetItemType() == AbstractFolderItem::Type_Folder) {
-			Folder* f = dynamic_cast<Folder*>(item);
-			UnregisterItem(f);
-		} else {
-			Note* n = dynamic_cast<Note*>(item);
-			UnregisterItem(n);
-		}
+    for (int i = 0; i < folder->child.Count(); i++) {
+        AbstractFolderItem* item = folder->child.ItemAt(i);
+        if ( item->getItemType() == AbstractFolderItem::Type_Folder )
+            unregisterItem( dynamic_cast < Folder * > ( item ) );
+        else
+            unregisterItem( dynamic_cast < Note * > ( item ) );
 	}
 
     BaseModelItem* childItem = bridge.value(folder);
 
-	Folder* parent = folder->GetParent();
+    Folder* parent = folder->getParent();
 	if (parent != 0) {
         if (!bridge.contains(parent)) {
 			WARNING("Item parent is not registered");
@@ -149,13 +141,13 @@ void HierarchyModel::UnregisterItem(Folder* folder)
 
     bridge.remove(folder);
 
-	if (GetDisplayRootItem() == childItem) {SetDisplayRootItem(GetRootItem());}
-	if (GetRootItem() == childItem) {SetRootItem(0);}
+    if (getDisplayRootItem() == childItem) {setDisplayRootItem(getRootItem());}
+    if (getRootItem() == childItem) {setRootItem(0);}
 
 	delete childItem;
 }
 
-void HierarchyModel::UnregisterItem(Note* note) {
+void HierarchyModel::unregisterItem(Note* note) {
 	if (!note) {
 		WARNING("Null pointer recieved");
 		return;
@@ -165,7 +157,7 @@ void HierarchyModel::UnregisterItem(Note* note) {
 		return;
 	}
 
-	Folder* parent = note->GetParent();
+    Folder* parent = note->getParent();
 	if (!parent) {
 		WARNING("Null pointer recieved");
 		return;
@@ -185,11 +177,11 @@ void HierarchyModel::UnregisterItem(Note* note) {
 	delete childItem;
 }
 
-void HierarchyModel::SetPinnedFolder(Folder* f) {
+void HierarchyModel::setPinnedFolder(Folder* f) {
 	if (f == 0) {
-		BaseModelItem* currentDisplayRootItem = GetDisplayRootItem();
+        BaseModelItem* currentDisplayRootItem = getDisplayRootItem();
 
-		SetDisplayRootItem(GetRootItem());
+        setDisplayRootItem(getRootItem());
 
 		BaseModelItem* parentItem = currentDisplayRootItem->parent();
 		if (parentItem != 0) {
@@ -203,15 +195,15 @@ void HierarchyModel::SetPinnedFolder(Folder* f) {
 			WARNING("Folder is not registered");
 			return;
 		}
-        SetDisplayRootItem(bridge.value(f));
+        setDisplayRootItem(bridge.value(f));
 	}
 }
 
-Folder* HierarchyModel::GetPinnedFolder() const {
-	const BaseModelItem* displayRootItem = GetDisplayRootItem();
+Folder* HierarchyModel::getPinnedFolder() const {
+    const BaseModelItem* displayRootItem = getDisplayRootItem();
 
 	// No folder pinned
-	if (displayRootItem == GetRootItem()) {
+    if (displayRootItem == getRootItem()) {
 		return 0;
 	}
 
@@ -226,7 +218,7 @@ Folder* HierarchyModel::GetPinnedFolder() const {
 	}
 
 	const FolderModelItem* folderModelItem = dynamic_cast<const FolderModelItem*>(displayRootItem);
-	return folderModelItem->GetStoredData();
+    return folderModelItem->getStoredData();
 }
 
 void HierarchyModel::sl_Folder_ItemAdded(AbstractFolderItem* const item, int) {
@@ -239,33 +231,33 @@ void HierarchyModel::sl_Folder_ItemAdded(AbstractFolderItem* const item, int) {
     BaseModelItem* parentItem = bridge.value(parent);
 
 	bool insertInVisibleBranch = false;
-	if (parentItem == GetDisplayRootItem() ||
-		parentItem->IsOffspringOf(GetDisplayRootItem())) {
+    if (parentItem == getDisplayRootItem() ||
+        parentItem->IsOffspringOf(getDisplayRootItem())) {
 		insertInVisibleBranch = true;
 	}
 
 	QModelIndex parentIndex = QModelIndex();
-	if ( insertInVisibleBranch && (parentItem != GetDisplayRootItem()) ) {
+    if ( insertInVisibleBranch && (parentItem != getDisplayRootItem()) ) {
 		parentIndex = createIndex(parentItem->parent()->IndexOfChild(parentItem), 0, parentItem);
 	}
 
 	if (insertInVisibleBranch) {
-		beginInsertRows(parentIndex, parent->Items.IndexOf(item), parent->Items.IndexOf(item));
+        beginInsertRows(parentIndex, parent->child.IndexOf(item), parent->child.IndexOf(item));
 	}
 
-		if (item->GetItemType() == AbstractFolderItem::Type_Folder) {
+        if (item->getItemType() == AbstractFolderItem::Type_Folder) {
 			Folder* f = dynamic_cast<Folder*>(item);
-			RegisterItem(f);
+            registerItem(f);
 		} else {
 			Note* n = dynamic_cast<Note*>(item);
-			RegisterItem(n);
+            registerItem(n);
 		}
 
 	if (insertInVisibleBranch) {
 		endInsertRows();
 
 		QModelIndexList list;
-		BaseModelItem* newItem = parentItem->ChildAt(parent->Items.IndexOf(item));
+        BaseModelItem* newItem = parentItem->ChildAt(parent->child.IndexOf(item));
 		QModelIndex newItemIndex = createIndex(parentItem->IndexOfChild(newItem), 0, newItem);
 		list << newItemIndex;
 		emit sg_ApplySelection(list);
@@ -282,27 +274,27 @@ void HierarchyModel::sl_Folder_ItemAboutToBeRemoved(AbstractFolderItem* const it
     BaseModelItem* parentItem = bridge.value(parent);
 
 	bool removeFromVisibleBranch = false;
-	if (parentItem == GetDisplayRootItem() ||
-		parentItem->IsOffspringOf(GetDisplayRootItem())) {
+    if (parentItem == getDisplayRootItem() ||
+        parentItem->IsOffspringOf(getDisplayRootItem())) {
 		removeFromVisibleBranch = true;
 	}
 
 	QModelIndex parentIndex = QModelIndex();
-	if (removeFromVisibleBranch && (parentItem != GetDisplayRootItem())) {
+    if (removeFromVisibleBranch && (parentItem != getDisplayRootItem())) {
 		parentIndex = createIndex(parentItem->parent()->IndexOfChild(parentItem), 0, parentItem);
 	}
 
 	if (removeFromVisibleBranch) {
-		beginRemoveRows(parentIndex, parent->Items.IndexOf(item), parent->Items.IndexOf(item));
+        beginRemoveRows(parentIndex, parent->child.IndexOf(item), parent->child.IndexOf(item));
 	}
 
-		if (item->GetItemType() == AbstractFolderItem::Type_Folder) {
+        if (item->getItemType() == AbstractFolderItem::Type_Folder) {
 			Folder* f = dynamic_cast<Folder*>(item);
-			UnregisterItem(f);
+            unregisterItem(f);
 
 		} else {
 			Note* n = dynamic_cast<Note*>(item);
-			UnregisterItem(n);
+            unregisterItem(n);
 		}
 
 	if (removeFromVisibleBranch) {
@@ -312,7 +304,7 @@ void HierarchyModel::sl_Folder_ItemAboutToBeRemoved(AbstractFolderItem* const it
 
 void HierarchyModel::sl_Folder_ItemAboutToBeMoved(AbstractFolderItem* const item,
 												  int newPosition, Folder* newParent) {
-	Folder* parent = item->GetParent();
+    Folder* parent = item->getParent();
     if (!bridge.contains(parent)) {
 		WARNING("Item is not registered");
 		return;
@@ -331,17 +323,17 @@ void HierarchyModel::sl_Folder_ItemAboutToBeMoved(AbstractFolderItem* const item
     BaseModelItem* newParentItem = bridge.value(newParent);
 
 	bool removeFromVisibleBranch = false;
-	if (oldParentItem == GetDisplayRootItem() ||
-		oldParentItem->IsOffspringOf(GetDisplayRootItem())) {
+    if (oldParentItem == getDisplayRootItem() ||
+        oldParentItem->IsOffspringOf(getDisplayRootItem())) {
 		removeFromVisibleBranch = true;
 	}
 
 	QModelIndex oldParentIndex = QModelIndex();
-	if (removeFromVisibleBranch && (oldParentItem != GetDisplayRootItem())) {
+    if (removeFromVisibleBranch && (oldParentItem != getDisplayRootItem())) {
 		oldParentIndex = createIndex(oldParentItem->parent()->IndexOfChild(oldParentItem), 0, oldParentItem);
 	}
 
-	int oldPosition = parent->Items.IndexOf(item);
+    int oldPosition = parent->child.IndexOf(item);
 	if (removeFromVisibleBranch) {
 		beginRemoveRows (oldParentIndex, oldPosition, oldPosition);
 	}
@@ -352,8 +344,8 @@ void HierarchyModel::sl_Folder_ItemAboutToBeMoved(AbstractFolderItem* const item
 	}
 
 	bool insertInVisibleBranch = false;
-	if (newParentItem == GetDisplayRootItem() ||
-		newParentItem->IsOffspringOf(GetDisplayRootItem())) {
+    if (newParentItem == getDisplayRootItem() ||
+        newParentItem->IsOffspringOf(getDisplayRootItem())) {
 		insertInVisibleBranch = true;
 	}
 
@@ -362,7 +354,7 @@ void HierarchyModel::sl_Folder_ItemAboutToBeMoved(AbstractFolderItem* const item
 	if (parent == newParent) {
 		newParentIndex = oldParentIndex;
 	} else {
-		if (insertInVisibleBranch && (newParentItem != GetDisplayRootItem())) {
+        if (insertInVisibleBranch && (newParentItem != getDisplayRootItem())) {
 			newParentIndex = createIndex(newParentItem->parent()->IndexOfChild(newParentItem), 0, newParentItem);
 		}
 	}
@@ -385,8 +377,8 @@ void HierarchyModel::sl_Folder_ItemsCollectionCleared() {
 
 void HierarchyModel::sl_Item_DataChanged(BaseModelItem* modelItem) {
 	bool itemInVisibleBranch = false;
-	if (modelItem == GetDisplayRootItem() ||
-		modelItem->IsOffspringOf(GetDisplayRootItem())) {
+    if (modelItem == getDisplayRootItem() ||
+        modelItem->IsOffspringOf(getDisplayRootItem())) {
 		itemInVisibleBranch = true;
 	}
 
@@ -417,7 +409,7 @@ Qt::ItemFlags HierarchyModel::flags (const QModelIndex& index ) const
 		if (modelItem->DataType() == BaseModelItem::folder) {
 			FolderModelItem* folderItem = dynamic_cast<FolderModelItem*>(modelItem);
 
-            if ( folderItem->GetStoredData() == Notebook::instance()->trashFolder() )
+            if ( folderItem->getStoredData() == Notebook::instance()->trashFolder() )
 				returnFlags = Qt::ItemIsDropEnabled | defaultFlags;
             else
 				returnFlags = Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled | defaultFlags;
@@ -443,7 +435,7 @@ bool HierarchyModel::dropMimeData (const QMimeData* data, Qt::DropAction action,
 	if (parent.isValid()) {
 		newParentModelItem = static_cast<BaseModelItem*>(parent.internalPointer());
 	} else { // dropped to root item
-		newParentModelItem = GetDisplayRootItem(); // !
+        newParentModelItem = getDisplayRootItem(); // !
 	}
 
 	qDebug() << "To item '" << newParentModelItem->data(Qt::DisplayRole).toString() << "'";
@@ -452,8 +444,8 @@ bool HierarchyModel::dropMimeData (const QMimeData* data, Qt::DropAction action,
 
 	// Modify row variable to ensure 3 system items are always at the botton of the list
 	// Not a final version, just dirty hack
-	if (GetDisplayRootItem() == GetRootItem() && row >= 0 && row > GetRootItem()->ChildrenCount() - 3) {
-		row = GetRootItem()->ChildrenCount() - 3;
+    if (getDisplayRootItem() == getRootItem() && row >= 0 && row > getRootItem()->ChildrenCount() - 3) {
+        row = getRootItem()->ChildrenCount() - 3;
 	}
 
 	if (newParentModelItem->DataType() != BaseModelItem::folder) {
@@ -478,12 +470,12 @@ bool HierarchyModel::dropMimeData (const QMimeData* data, Qt::DropAction action,
         qDebug() << "Dropped item: " << droppedModelItem->data(Qt::DisplayRole).toString() << "'" << droppedModelItem->DataType();
 		qDebug() << "\n";
 
-		Folder* newParentFolder = (dynamic_cast<FolderModelItem*>(newParentModelItem))->GetStoredData();
+        Folder* newParentFolder = (dynamic_cast<FolderModelItem*>(newParentModelItem))->getStoredData();
 		AbstractFolderItem* droppedFolderItem = 0;
 		if (droppedModelItem->DataType() == BaseModelItem::folder) {
-			droppedFolderItem = (dynamic_cast<FolderModelItem*>(droppedModelItem))->GetStoredData();
+            droppedFolderItem = (dynamic_cast<FolderModelItem*>(droppedModelItem))->getStoredData();
 		} else if (droppedModelItem->DataType() == BaseModelItem::note) {
-			droppedFolderItem = (dynamic_cast<NoteModelItem*>(droppedModelItem))->GetStoredData();
+            droppedFolderItem = (dynamic_cast<NoteModelItem*>(droppedModelItem))->getStoredData();
 		}
 
 		if (!droppedFolderItem) {
@@ -492,33 +484,31 @@ bool HierarchyModel::dropMimeData (const QMimeData* data, Qt::DropAction action,
 		}
 
 		// Do not allow to drop item to it's own offspring
-		if (droppedFolderItem->GetItemType() == AbstractFolderItem::Type_Folder
-			&&
-			newParentFolder->IsOffspringOf(dynamic_cast<Folder*>(droppedFolderItem))) {
-
+        if (droppedFolderItem->getItemType() == AbstractFolderItem::Type_Folder && newParentFolder->isOffspringOf(dynamic_cast<Folder*>(droppedFolderItem)))
+        {
 			continue;
 		}
 
 		// Moving
-		if (droppedFolderItem->GetParent() == newParentFolder) {
+        if (droppedFolderItem->getParent() == newParentFolder) {
 			// Moved inside of the parent
 			if (-1 == row) {
 				// when dropped directly on parent folder, do nothing
-			} else if (newParentFolder->Items.IndexOf(droppedFolderItem) == row
+            } else if (newParentFolder->child.IndexOf(droppedFolderItem) == row
 					   ||
-					   newParentFolder->Items.IndexOf(droppedFolderItem) + 1 == row) {
+                       newParentFolder->child.IndexOf(droppedFolderItem) + 1 == row) {
 				// not moved, do nothing
 			} else {
 				// item moved inside parent folder to another row
 				// If new row index is greater than current item index, decrement it. It should be
 				// done because Move operation is insertItem(takeItem(i)), so when an item is taken
 				// from a list, it's size gets decremented and 'row' variable becomes invalid.
-				int actualRow = row > newParentFolder->Items.IndexOf(droppedFolderItem) ? row - 1 : row;
-				newParentFolder->Items.Move(droppedFolderItem, actualRow);
+                int actualRow = row > newParentFolder->child.IndexOf(droppedFolderItem) ? row - 1 : row;
+                newParentFolder->child.Move(droppedFolderItem, actualRow);
 			}
 		} else { // Moved outside of the parent
-			int newPosition = row == -1 ? newParentFolder->Items.Count() : row;
-			droppedFolderItem->GetParent()->Items.Move(droppedFolderItem, newPosition, newParentFolder);
+            int newPosition = row == -1 ? newParentFolder->child.Count() : row;
+            droppedFolderItem->getParent()->child.Move(droppedFolderItem, newPosition, newParentFolder);
 		}
 	}
 

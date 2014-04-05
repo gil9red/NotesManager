@@ -37,8 +37,6 @@ public:
     void SetCreationModel(DatesModel*);
     void SetModificationModel(DatesModel*);
 
-    void expandAll();
-
 private:
     QGroupBox*		groupBox;
     QRadioButton*	creationDateButton;
@@ -46,6 +44,9 @@ private:
     QTreeView*		treeView;
     DatesModel*		creationDateModel;
     DatesModel*		modificationDateModel;
+
+public slots:
+    void sl_ExpandAll();
 
 private slots:
     void sl_View_clicked (const QModelIndex&);

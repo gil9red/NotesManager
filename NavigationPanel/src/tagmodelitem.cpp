@@ -47,28 +47,28 @@ QVariant TagModelItem::data(int role) const
     else if (role == Qt::DisplayRole)
     {
         QString childrenCount = QString(" (%1)").arg(QString::number(tag->Owners.Count()));
-        QString returnValue = tag->GetName();
+        QString returnValue = tag->getName();
 			returnValue.append(childrenCount);
 
 		return returnValue;
 
     } else if (role == Qt::ToolTipRole)
-        return tag->GetName();
+        return tag->getName();
 
     else
 		return QVariant();	
 }
 
-const Tag* TagModelItem::GetTag() const
+const Tag* TagModelItem::getTag() const
 {
     return tag;
 }
 
-bool TagModelItem::LessThan(const BaseModelItem* item) const
+bool TagModelItem::lessThan(const BaseModelItem* item) const
 {
     if (item->DataType() != BaseModelItem::tag)
 		return BaseModelItem::LessThan(item);
 
 	const TagModelItem* tagItem = dynamic_cast<const TagModelItem*>(item);
-    return tag->GetName() < tagItem->tag->GetName();
+    return tag->getName() < tagItem->tag->getName();
 }

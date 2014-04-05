@@ -25,15 +25,15 @@ class Tag;
 class TagModelItem : public BaseModelItem
 {
 private:
-    const Tag*	tag;
+    const Tag * tag;
 
 public:
     TagModelItem(const Tag* tag);
 
     QVariant data(int role) const;
-    bool LessThan(const BaseModelItem*) const;
+    bool lessThan(const BaseModelItem*) const;
 
-    const Tag* GetTag() const;
+    const Tag * getTag() const;
 };
 
 #endif // TAGMODELITEM_H

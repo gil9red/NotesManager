@@ -33,12 +33,20 @@ Note::Note()
     QObject::connect(&Tags, SIGNAL(sg_ItemAdded(Tag*)), SLOT(sl_TagsCollectionModified(Tag*)));
     QObject::connect(&Tags, SIGNAL(sg_ItemRemoved(Tag*)), SLOT(sl_TagsCollectionModified(Tag*)));
 
-    SetIcon( QIcon( ":/fugue-icons/document" ) );
+    setIcon( QIcon( ":/fugue-icons/document" ) );
 }
 
 Note::~Note()
 {
     Tags.Clear();
+
+    RichTextNote * richTextNote = getRichTextNote();
+    if ( !richTextNote )
+    {
+        WARNING( "null pointer!" );
+        return;
+    }
+    richTextNote->remove();
 }
 
 void Note::setRichTextNote( RichTextNote * richTextNote )
@@ -52,7 +60,7 @@ void Note::setRichTextNote( RichTextNote * richTextNote )
     p_RichTextNote = richTextNote;
     QObject::connect(richTextNote, SIGNAL(changed(int)), SLOT(noteChange(int)));
 
-    SetName( p_RichTextNote->title() );
+    setName( p_RichTextNote->title() );
 }
 RichTextNote * Note::getRichTextNote()
 {
@@ -68,7 +76,7 @@ void Note::SetName (const QString & s)
     }
 
     p_RichTextNote->setTitle(s);
-    AbstractFolderItem::SetName(s);
+    AbstractFolderItem::setName(s);
 }
 
 void Note::sl_TagsCollectionModified(Tag*)
@@ -87,6 +95,10 @@ void Note::noteChange( int event )
     {
     case EventsNote::ChangeTitle:
         SetName( p_RichTextNote->title() );
+        break;
+
+    case EventsNote::Remove:
+        emit sg_Removed();
         break;
     }
 }

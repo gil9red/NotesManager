@@ -45,35 +45,35 @@ public:
         Type_Note
     };
 
-    ItemType GetItemType() const;
-    Folder* GetParent() const;
-    bool IsOffspringOf(const Folder*) const;
+    ItemType getItemType() const;
+    Folder* getParent() const;
+    bool isOffspringOf(const Folder*) const;
 
 
-    QString GetName() const;
-    void SetName(const QString &);
+    QString getName() const;
+    void setName(const QString &);
 
-    QIcon GetIcon() const;
-    void SetIcon(const QIcon &);
+    QIcon getIcon() const;
+    void setIcon(const QIcon &);
 
-    QDateTime GetCreationDate() const;
-    QDateTime GetModificationDate() const;
+    QDateTime getCreationDate() const;
+    QDateTime getModificationDate() const;
 
-    QColor GetNameForeColor() const;
-    void SetNameForeColor(const QColor &);
+    QColor getNameForeColor() const;
+    void setNameForeColor(const QColor &);
 
-    QColor GetNameBackColor() const;
-    void SetNameBackColor(const QColor &);
+    QColor getNameBackColor() const;
+    void setNameBackColor(const QColor &);
 
-    QColor GetDefaultForeColor() const;
-    QColor GetDefaultBackColor() const;
+    QColor getDefaultForeColor() const;
+    QColor getDefaultBackColor() const;
 
 
 private:
     Folder * parent;
     const ItemType itemType;
 
-    void SetParent(Folder*);
+    void setParent( Folder * newParent );
 
 protected:
     QString name;

@@ -128,9 +128,10 @@ void NotesTabWidget::openNote(Note* note)
     qApp->restoreOverrideCursor();
 
     hashNoteTabs.insert(note, noteEdit);
-    QObject::connect(note, SIGNAL(sg_VisualPropertiesChanged()), SLOT(sl_Note_PropertiesChanged()));
+    QObject::connect( note, SIGNAL(sg_VisualPropertiesChanged()), SLOT(sl_Note_PropertiesChanged()) );
+    QObject::connect( note, SIGNAL(sg_Removed()), SLOT(sl_AboutRemoveNote()) );
 
-    int index = addTab( noteEdit, note->GetIcon(), cropString( note->GetName() ) );
+    int index = addTab( noteEdit, note->getIcon(), cropString( note->getName() ) );
     setCurrentIndex( index );
 }
 void NotesTabWidget::closeNote(Note* n)
@@ -149,7 +150,6 @@ void NotesTabWidget::closeNote(Note* n)
 
     QWidget * tab = hashNoteTabs.take(n);
     int tabIndex = indexOf(tab);
-
     if (tabIndex == -1)
     {
 		WARNING("Could not find associated widget");
@@ -159,6 +159,8 @@ void NotesTabWidget::closeNote(Note* n)
 	QObject::disconnect(n, 0, this, 0);
     removeTab(tabIndex);
     delete tab;
+
+    WARNING( qPrintable( QString( "Close tab (%1)" ).arg( (int)n, 0, 16 ) ) );
 }
 void NotesTabWidget::closeTab(int index)
 {
@@ -186,6 +188,16 @@ void NotesTabWidget::clear()
         closeNote( hashNoteTabs.keys().first() );
 }
 
+void NotesTabWidget::sl_AboutRemoveNote()
+{
+    Note * note = qobject_cast < Note * > ( QObject::sender() );
+    if ( !note )
+    {
+        WARNING("Could not find sender note");
+        return;
+    }
+    closeNote( note );
+}
 void NotesTabWidget::sl_Note_PropertiesChanged()
 {
     Note * note = qobject_cast < Note * > ( QObject::sender() );
@@ -211,8 +223,8 @@ void NotesTabWidget::sl_Note_PropertiesChanged()
 		return;
 	}
 
-    setTabIcon(tabIndex, note->GetIcon());
-    setTabText(tabIndex, cropString(note->GetName()));
+    setTabIcon(tabIndex, note->getIcon());
+    setTabText(tabIndex, cropString(note->getName()));
 }
 void NotesTabWidget::sl_TabWidget_CurrentChanged(int index)
 {

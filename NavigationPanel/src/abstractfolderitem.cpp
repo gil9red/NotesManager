@@ -34,10 +34,12 @@ AbstractFolderItem::AbstractFolderItem(ItemType type, const QString & n )
 	parent = 0;
 }
 
-AbstractFolderItem::~AbstractFolderItem() {
+AbstractFolderItem::~AbstractFolderItem()
+{
 }
 
-void AbstractFolderItem::SetParent(Folder* newParent) {
+void AbstractFolderItem::setParent(Folder* newParent)
+{
     if (newParent == this)
     {
 		WARNING("Trying to set item as it's parent");
@@ -57,16 +59,17 @@ void AbstractFolderItem::onChange()
     emit sg_DataChanged();
 }
 
-AbstractFolderItem::ItemType AbstractFolderItem::GetItemType() const {
+AbstractFolderItem::ItemType AbstractFolderItem::getItemType() const {
 	return itemType;
 }
 
-Folder* AbstractFolderItem::GetParent() const {
+Folder* AbstractFolderItem::getParent() const {
 	return parent;
 }
 
-bool AbstractFolderItem::IsOffspringOf(const Folder* folder) const {
-	if (folder == 0) {
+bool AbstractFolderItem::isOffspringOf(const Folder* folder) const {
+    if (folder == 0)
+    {
 		WARNING("Null reference");
 		return false;
 	}
@@ -79,17 +82,17 @@ bool AbstractFolderItem::IsOffspringOf(const Folder* folder) const {
     {
         if (f == folder)
             return true;
-		f = f->GetParent();
+        f = f->getParent();
 	}
 	return false;
 }
 
 
-QString AbstractFolderItem::GetName() const {
+QString AbstractFolderItem::getName() const {
     return name;
 }
 
-void AbstractFolderItem::SetName(const QString &s) {
+void AbstractFolderItem::setName(const QString &s) {
     if (name == s)
         return;
     name = s;
@@ -98,7 +101,7 @@ void AbstractFolderItem::SetName(const QString &s) {
     onChange();
 }
 
-void AbstractFolderItem::SetIcon(const QIcon & ic) {
+void AbstractFolderItem::setIcon(const QIcon & ic) {
     if (ic.isNull())
     {
         WARNING("New icon is null");
@@ -111,23 +114,23 @@ void AbstractFolderItem::SetIcon(const QIcon & ic) {
     onChange();
 }
 
-QIcon AbstractFolderItem::GetIcon() const {
+QIcon AbstractFolderItem::getIcon() const {
     return icon;
 }
 
-QDateTime AbstractFolderItem::GetCreationDate() const {
+QDateTime AbstractFolderItem::getCreationDate() const {
     return creationDate;
 }
 
-QDateTime AbstractFolderItem::GetModificationDate() const {
+QDateTime AbstractFolderItem::getModificationDate() const {
     return modificationDate;
 }
 
-QColor AbstractFolderItem::GetNameForeColor() const {
+QColor AbstractFolderItem::getNameForeColor() const {
     return nameForeColor;
 }
 
-void AbstractFolderItem::SetNameForeColor(const QColor & c) {
+void AbstractFolderItem::setNameForeColor(const QColor & c) {
     if (!c.isValid())
         return;
     if (nameForeColor == c)
@@ -139,11 +142,11 @@ void AbstractFolderItem::SetNameForeColor(const QColor & c) {
     onChange();
 }
 
-QColor AbstractFolderItem::GetNameBackColor() const {
+QColor AbstractFolderItem::getNameBackColor() const {
     return nameBackColor;
 }
 
-void AbstractFolderItem::SetNameBackColor(const QColor & c) {
+void AbstractFolderItem::setNameBackColor(const QColor & c) {
     if (!c.isValid())
         return;
     if (nameBackColor == c)
@@ -155,10 +158,10 @@ void AbstractFolderItem::SetNameBackColor(const QColor & c) {
     onChange();
 }
 
-QColor AbstractFolderItem::GetDefaultForeColor() const {
+QColor AbstractFolderItem::getDefaultForeColor() const {
     return defaultForeColor;
 }
 
-QColor AbstractFolderItem::GetDefaultBackColor() const {
+QColor AbstractFolderItem::getDefaultBackColor() const {
     return defaultBackColor;
 }

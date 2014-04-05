@@ -31,10 +31,10 @@ private:
     BaseModelItem* rootItem;
 
 protected:
-    void SetDisplayRootItem(BaseModelItem*);
-    BaseModelItem* const GetDisplayRootItem() const;
-    void SetRootItem(BaseModelItem*);
-    BaseModelItem* GetRootItem() const;
+    void setDisplayRootItem(BaseModelItem*);
+    BaseModelItem* const getDisplayRootItem() const;
+    void setRootItem(BaseModelItem*);
+    BaseModelItem* getRootItem() const;
 
 public:
     explicit BaseModel(QObject *parent = 0);

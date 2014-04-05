@@ -29,12 +29,12 @@ class Tag : public QObject
 
 public:
     explicit Tag(const QString& name);
-    QString GetName() const;
+    QString getName() const;
 
     TagOwnersCollection Owners;
 
 private:
-    const QString _name;
+    const QString name;
     Tag(const Tag&) : QObject(0) {} // Prevent construction by copying
     Tag& operator=(const Tag&){return *this;} // Prevent assignment
 

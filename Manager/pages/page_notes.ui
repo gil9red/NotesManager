@@ -28,7 +28,7 @@
       </property>
       <widget class="QTabWidget" name="tabWidget_Navigation">
        <property name="currentIndex">
-        <number>2</number>
+        <number>0</number>
        </property>
        <widget class="FolderNavigationWidget" name="tab_Notes">
         <attribute name="icon">
@@ -75,7 +75,7 @@
     <string>Manage</string>
    </property>
    <property name="movable">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="allowedAreas">
     <set>Qt::AllToolBarAreas</set>
@@ -98,6 +98,9 @@
   <widget class="QToolBar" name="toolBarNote">
    <property name="windowTitle">
     <string>Note</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -288,42 +291,6 @@
     <string>Save All Notes</string>
    </property>
   </action>
-  <action name="actionOpenDict">
-   <property name="icon">
-    <iconset resource="../Manager.qrc">
-     <normaloff>:/Manager/open_dict</normaloff>:/Manager/open_dict</iconset>
-   </property>
-   <property name="text">
-    <string>Open Dictionary</string>
-   </property>
-   <property name="statusTip">
-    <string>Open Dictionary</string>
-   </property>
-   <property name="whatsThis">
-    <string>Open Dictionary</string>
-   </property>
-  </action>
-  <action name="actionCloseDict">
-   <property name="icon">
-    <iconset resource="../Manager.qrc">
-     <normaloff>:/Manager/close_dict</normaloff>:/Manager/close_dict</iconset>
-   </property>
-   <property name="text">
-    <string>Close Dictionary</string>
-   </property>
-   <property name="iconText">
-    <string>Close Dictionary</string>
-   </property>
-   <property name="toolTip">
-    <string>Close Dictionary</string>
-   </property>
-   <property name="statusTip">
-    <string>Close Dictionary</string>
-   </property>
-   <property name="whatsThis">
-    <string>Close Dictionary</string>
-   </property>
-  </action>
   <action name="actionAddNoteFromScreen">
    <property name="icon">
     <iconset resource="../Manager.qrc">
@@ -337,17 +304,6 @@
    </property>
    <property name="whatsThis">
     <string>Add a Note From Screen</string>
-   </property>
-  </action>
-  <action name="actionDocumentation">
-   <property name="text">
-    <string>Documentation</string>
-   </property>
-   <property name="statusTip">
-    <string>Documentation</string>
-   </property>
-   <property name="whatsThis">
-    <string>Documentation</string>
    </property>
   </action>
   <action name="actionAddFolder">

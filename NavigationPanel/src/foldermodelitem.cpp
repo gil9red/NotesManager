@@ -43,33 +43,33 @@ QVariant FolderModelItem::data(int role) const
 		return QVariant();
 
     if (role == Qt::DecorationRole)
-        return folder->GetIcon();
+        return folder->getIcon();
 
     else if (role == Qt::DisplayRole)
     {
-        QString childrenCount = QString(" (%1)").arg( folder->Items.Count() );
-        QString returnValue = folder->GetName();
+        QString childrenCount = QString(" (%1)").arg( folder->child.Count() );
+        QString returnValue = folder->getName();
 			returnValue.append(childrenCount);
 
 		return returnValue;
 
     } else if (role == Qt::ToolTipRole)
-		return folder->GetName();
+        return folder->getName();
 
     else if (role == Qt::EditRole)
-		return folder->GetName();
+        return folder->getName();
 
     else if (role == Qt::BackgroundRole)
-        return QBrush(folder->GetNameBackColor());
+        return QBrush(folder->getNameBackColor());
 
     else if (role == Qt::ForegroundRole)
-        return QBrush(folder->GetNameForeColor());
+        return QBrush(folder->getNameForeColor());
 
     else if ( role == Qt::FontRole )
     {
         QFont font( qApp->font() );
         // Системные папки должны хоть немного отличаться от создаваемых пользователем
-        if ( folder->GetType() == Folder::TrashFolder )
+        if ( folder->getType() == Folder::TrashFolder )
             font.setBold( true );
 
         return font;
@@ -86,7 +86,7 @@ bool FolderModelItem::setData(const QVariant& value, int role) {
     {
 		QString newName = value.toString();
 		newName.replace(QRegExp("[\a\e\f\n\r\t\v]"), " ");
-		folder->SetName(newName);
+        folder->setName(newName);
 		return true;
 	}
 	return false;
@@ -95,13 +95,13 @@ bool FolderModelItem::setData(const QVariant& value, int role) {
 Qt::ItemFlags FolderModelItem::flags () const
 {
 	Qt::ItemFlags flags = BaseModelItem::flags();
-    if ( folder->GetType() == Folder::UserFolder )
+    if ( folder->getType() == Folder::UserFolder )
         return flags | Qt::ItemIsEditable;
 
 	return flags;
 }
 
-Folder* FolderModelItem::GetStoredData() const {
+Folder* FolderModelItem::getStoredData() const {
 	return folder;
 }
 
@@ -109,11 +109,11 @@ void FolderModelItem::sl_Folder_PropertiesChanged() {
 	emit sg_DataChanged(this);
 }
 
-bool FolderModelItem::LessThan(const BaseModelItem* item) const
+bool FolderModelItem::lessThan(const BaseModelItem* item) const
 {
     if (item->DataType() != BaseModelItem::folder)
 		return BaseModelItem::LessThan(item);
 
 	const FolderModelItem* folderItem = dynamic_cast<const FolderModelItem*>(item);
-	return folder->GetName() < folderItem->folder->GetName();
+    return folder->getName() < folderItem->folder->getName();
 }

@@ -47,7 +47,8 @@ TagsNavigationWidget::TagsNavigationWidget(QWidget *parent)
 	setLayout(layout);
 }
 
-void TagsNavigationWidget::SetModel(TagsModel* m) {
+void TagsNavigationWidget::SetModel(TagsModel* m)
+{
     model = m;
 	treeView->setModel(model);
 
@@ -58,7 +59,7 @@ void TagsNavigationWidget::SetModel(TagsModel* m) {
 	}
 }
 
-void TagsNavigationWidget::expandAll()
+void TagsNavigationWidget::sl_ExpandAll()
 {
     treeView->expandAll();
 }
@@ -68,7 +69,7 @@ void TagsNavigationWidget::sl_View_clicked (const QModelIndex& index) {
 
 	BaseModelItem* item = static_cast<BaseModelItem*>(index.internalPointer());
 	if (item->DataType() == BaseModelItem::note) {
-		Note* n = dynamic_cast<NoteModelItem*>(item)->GetStoredData();
+        Note* n = dynamic_cast<NoteModelItem*>(item)->getStoredData();
 		if (!n) {
 			WARNING("Casting error");
 			return;
@@ -82,7 +83,7 @@ void TagsNavigationWidget::sl_View_doubleClicked (const QModelIndex& index) {
 
 	BaseModelItem* item = static_cast<BaseModelItem*>(index.internalPointer());
 	if (item->DataType() == BaseModelItem::note) {
-		Note* n = dynamic_cast<NoteModelItem*>(item)->GetStoredData();
+        Note* n = dynamic_cast<NoteModelItem*>(item)->getStoredData();
 		if (!n) {
 			WARNING("Casting error");
 			return;
