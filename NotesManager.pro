@@ -14,7 +14,7 @@ include( FindAndReplace/FindAndReplace.pri )
 include( FadLineEdit/FadLineEdit.pri )
 include( FormattingToolbar/FormattingToolbar.pri )
 include( NavigationPanel/NavigationPanel.pri )
-include( ScriptModule/ScriptModule.pri )
+#include( ScriptModule/ScriptModule.pri )
 
 
 INCLUDEPATH += $$PWD/qt-solutions/qtsingleapplication/src

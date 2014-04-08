@@ -56,21 +56,21 @@ HierarchyModel::HierarchyModel(QObject *parent)
 
 void HierarchyModel::registerItem(Folder* folder) // Register folder and all items inside of it
 {
-	if (!folder) {
-		WARNING("Null pointer recieved");
-		return;
-	}
+    if (!folder) {
+        WARNING("Null pointer recieved");
+        return;
+    }
     if (bridge.contains(folder)) {
-		WARNING("Item already registered");
-		return;
-	}
+        WARNING("Item already registered");
+        return;
+    }
 
     QObject::connect(folder, SIGNAL(sg_ItemAdded(AbstractFolderItem* const, int)), SLOT(sl_Folder_ItemAdded(AbstractFolderItem* const, int)));
     QObject::connect(folder, SIGNAL(sg_ItemAboutToBeRemoved(AbstractFolderItem*const)), SLOT(sl_Folder_ItemAboutToBeRemoved(AbstractFolderItem* const)));
     QObject::connect(folder, SIGNAL(sg_ItemAboutToBeMoved(AbstractFolderItem*const, int, Folder*)), SLOT(sl_Folder_ItemAboutToBeMoved(AbstractFolderItem* const, int, Folder*)));
     QObject::connect(folder, SIGNAL(sg_ItemsCollectionAboutToClear()), SLOT(sl_Folder_ItemsCollectionCleared()));
 
-	FolderModelItem* fi = new FolderModelItem(folder);
+    FolderModelItem* fi = new FolderModelItem(folder);
     QObject::connect(fi, SIGNAL(sg_DataChanged(BaseModelItem*)), this, SLOT(sl_Item_DataChanged(BaseModelItem*)));
     BaseModelItem* parent = bridge.value(folder->getParent());
     if ( parent )
@@ -85,22 +85,22 @@ void HierarchyModel::registerItem(Folder* folder) // Register folder and all ite
             registerItem( dynamic_cast < Folder * > ( item ) );
         else
             registerItem( dynamic_cast < Note * > ( item ) );
-	}
+    }
 }
 
 void HierarchyModel::registerItem(Note* note) {
-	if (!note) {
-		WARNING("Null pointer recieved");
-		return;
-	}
+    if (!note) {
+        WARNING("Null pointer recieved");
+        return;
+    }
     if (bridge.contains(note)) {
-		WARNING("Item already registered");
-		return;
-	}
+        WARNING("Item already registered");
+        return;
+    }
 
     Folder* folder = note->getParent();
     BaseModelItem* parentItem = bridge.value(folder);
-	NoteModelItem* noteItem = new NoteModelItem(note);
+    NoteModelItem* noteItem = new NoteModelItem(note);
     QObject::connect(noteItem, SIGNAL(sg_DataChanged(BaseModelItem*)), SLOT(sl_Item_DataChanged(BaseModelItem*)));
     parentItem->AddChildTo(noteItem, note->getParent()->child.IndexOf(note));
     bridge.insert(note, noteItem);
@@ -108,16 +108,16 @@ void HierarchyModel::registerItem(Note* note) {
 
 void HierarchyModel::unregisterItem(Folder* folder)
 {
-	if (!folder) {
-		WARNING("Null pointer recieved");
-		return;
-	}
+    if (!folder) {
+        WARNING("Null pointer recieved");
+        return;
+    }
     if (!bridge.contains(folder)) {
-		WARNING("Item is not registered");
-		return;
-	}
+        WARNING("Item is not registered");
+        return;
+    }
 
-	QObject::disconnect(folder, 0, this, 0);
+    QObject::disconnect(folder, 0, this, 0);
 
     for (int i = 0; i < folder->child.Count(); i++) {
         AbstractFolderItem* item = folder->child.ItemAt(i);
@@ -125,434 +125,422 @@ void HierarchyModel::unregisterItem(Folder* folder)
             unregisterItem( dynamic_cast < Folder * > ( item ) );
         else
             unregisterItem( dynamic_cast < Note * > ( item ) );
-	}
+    }
 
     BaseModelItem* childItem = bridge.value(folder);
 
     Folder* parent = folder->getParent();
-	if (parent != 0) {
+    if (parent != 0) {
         if (!bridge.contains(parent)) {
-			WARNING("Item parent is not registered");
-		} else {
+            WARNING("Item parent is not registered");
+        } else {
             BaseModelItem* parentItem = bridge.value(parent);
-			parentItem->RemoveChild(childItem);
-		}
-	}
+            parentItem->RemoveChild(childItem);
+        }
+    }
 
     bridge.remove(folder);
 
     if (getDisplayRootItem() == childItem) {setDisplayRootItem(getRootItem());}
     if (getRootItem() == childItem) {setRootItem(0);}
 
-	delete childItem;
+    delete childItem;
 }
 
 void HierarchyModel::unregisterItem(Note* note) {
-	if (!note) {
-		WARNING("Null pointer recieved");
-		return;
-	}
+    if (!note) {
+        WARNING("Null pointer recieved");
+        return;
+    }
     if (!bridge.contains(note)) {
-		WARNING("Item is not registered");
-		return;
-	}
+        WARNING("Item is not registered");
+        return;
+    }
 
     Folder* parent = note->getParent();
-	if (!parent) {
-		WARNING("Null pointer recieved");
-		return;
-	}
+    if (!parent) {
+        WARNING("Null pointer recieved");
+        return;
+    }
     if (!bridge.contains(parent)) {
-		WARNING("Item is not registered");
-		return;
-	}
+        WARNING("Item is not registered");
+        return;
+    }
 
     BaseModelItem* parentItem = bridge.value(parent);
     BaseModelItem* childItem = bridge.value(note);
 
 
-	QObject::disconnect(note, 0, this, 0);
-	parentItem->RemoveChild(childItem);
+    QObject::disconnect(note, 0, this, 0);
+    parentItem->RemoveChild(childItem);
     bridge.remove(note);
-	delete childItem;
+    delete childItem;
 }
 
 void HierarchyModel::setPinnedFolder(Folder* f) {
-	if (f == 0) {
+    if (f == 0) {
         BaseModelItem* currentDisplayRootItem = getDisplayRootItem();
 
         setDisplayRootItem(getRootItem());
 
-		BaseModelItem* parentItem = currentDisplayRootItem->parent();
-		if (parentItem != 0) {
-			QModelIndexList list;
-			QModelIndex newItemIndex = createIndex(parentItem->IndexOfChild(currentDisplayRootItem), 0, currentDisplayRootItem);
-			list << newItemIndex;
-			emit sg_ApplySelection(list);
-		}
-	} else {
+        BaseModelItem* parentItem = currentDisplayRootItem->parent();
+        if (parentItem != 0) {
+            QModelIndexList list;
+            QModelIndex newItemIndex = createIndex(parentItem->IndexOfChild(currentDisplayRootItem), 0, currentDisplayRootItem);
+            list << newItemIndex;
+            emit sg_ApplySelection(list);
+        }
+    } else {
         if (!bridge.contains(f)) {
-			WARNING("Folder is not registered");
-			return;
-		}
+            WARNING("Folder is not registered");
+            return;
+        }
         setDisplayRootItem(bridge.value(f));
-	}
+    }
 }
 
 Folder* HierarchyModel::getPinnedFolder() const {
     const BaseModelItem* displayRootItem = getDisplayRootItem();
 
-	// No folder pinned
+    // No folder pinned
     if (displayRootItem == getRootItem()) {
-		return 0;
-	}
+        return 0;
+    }
 
-	if (displayRootItem == 0) {
-		WARNING("Display root is NULL");
-		return 0;
-	}
+    if (displayRootItem == 0) {
+        WARNING("Display root is NULL");
+        return 0;
+    }
 
-	if (displayRootItem->DataType() != BaseModelItem::folder) {
-		WARNING("Display root is not a folder");
-		return 0;
-	}
+    if (displayRootItem->DataType() != BaseModelItem::folder) {
+        WARNING("Display root is not a folder");
+        return 0;
+    }
 
-	const FolderModelItem* folderModelItem = dynamic_cast<const FolderModelItem*>(displayRootItem);
+    const FolderModelItem* folderModelItem = dynamic_cast<const FolderModelItem*>(displayRootItem);
     return folderModelItem->getStoredData();
 }
 
 void HierarchyModel::sl_Folder_ItemAdded(AbstractFolderItem* const item, int) {
-	Folder* parent = static_cast<Folder*>(QObject::sender());
+    Folder* parent = static_cast<Folder*>(QObject::sender());
     if (!bridge.contains(parent)) {
-		WARNING("Unknown sender");
-		return;
-	}
+        WARNING("Unknown sender");
+        return;
+    }
 
     BaseModelItem* parentItem = bridge.value(parent);
 
-	bool insertInVisibleBranch = false;
-    if (parentItem == getDisplayRootItem() ||
-        parentItem->IsOffspringOf(getDisplayRootItem())) {
-		insertInVisibleBranch = true;
-	}
+    bool insertInVisibleBranch = false;
+    if (parentItem == getDisplayRootItem() || parentItem->IsOffspringOf(getDisplayRootItem()))
+        insertInVisibleBranch = true;
 
-	QModelIndex parentIndex = QModelIndex();
-    if ( insertInVisibleBranch && (parentItem != getDisplayRootItem()) ) {
-		parentIndex = createIndex(parentItem->parent()->IndexOfChild(parentItem), 0, parentItem);
-	}
+    QModelIndex parentIndex = QModelIndex();
+    if ( insertInVisibleBranch && (parentItem != getDisplayRootItem()) )
+        parentIndex = createIndex(parentItem->parent()->IndexOfChild(parentItem), 0, parentItem);
 
-	if (insertInVisibleBranch) {
+    if (insertInVisibleBranch)
         beginInsertRows(parentIndex, parent->child.IndexOf(item), parent->child.IndexOf(item));
-	}
 
-        if (item->getItemType() == AbstractFolderItem::Type_Folder) {
-			Folder* f = dynamic_cast<Folder*>(item);
-            registerItem(f);
-		} else {
-			Note* n = dynamic_cast<Note*>(item);
-            registerItem(n);
-		}
+    if (item->getItemType() == AbstractFolderItem::Type_Folder)
+        registerItem( dynamic_cast < Folder * > ( item ) );
+    else
+        registerItem( dynamic_cast < Note * > ( item ) );
 
-	if (insertInVisibleBranch) {
-		endInsertRows();
 
-		QModelIndexList list;
+    if (insertInVisibleBranch)
+    {
+        endInsertRows();
+
+        QModelIndexList list;
         BaseModelItem* newItem = parentItem->ChildAt(parent->child.IndexOf(item));
-		QModelIndex newItemIndex = createIndex(parentItem->IndexOfChild(newItem), 0, newItem);
-		list << newItemIndex;
-		emit sg_ApplySelection(list);
-	}
+        QModelIndex newItemIndex = createIndex(parentItem->IndexOfChild(newItem), 0, newItem);
+        list << newItemIndex;
+        emit sg_ApplySelection(list);
+    }
 }
 
-void HierarchyModel::sl_Folder_ItemAboutToBeRemoved(AbstractFolderItem* const item) {
-	Folder* parent = static_cast<Folder*>(QObject::sender());
-    if (!bridge.contains(parent)) {
-		WARNING("Unknown sender");
-		return;
-	}
+void HierarchyModel::sl_Folder_ItemAboutToBeRemoved(AbstractFolderItem* const item)
+{
+    Folder* parent = static_cast<Folder*>(QObject::sender());
+    if (!bridge.contains(parent))
+    {
+        WARNING("Unknown sender");
+        return;
+    }
 
     BaseModelItem* parentItem = bridge.value(parent);
 
-	bool removeFromVisibleBranch = false;
-    if (parentItem == getDisplayRootItem() ||
-        parentItem->IsOffspringOf(getDisplayRootItem())) {
-		removeFromVisibleBranch = true;
-	}
+    bool removeFromVisibleBranch = false;
+    if (parentItem == getDisplayRootItem() || parentItem->IsOffspringOf(getDisplayRootItem()))
+        removeFromVisibleBranch = true;
 
-	QModelIndex parentIndex = QModelIndex();
-    if (removeFromVisibleBranch && (parentItem != getDisplayRootItem())) {
-		parentIndex = createIndex(parentItem->parent()->IndexOfChild(parentItem), 0, parentItem);
-	}
+    QModelIndex parentIndex = QModelIndex();
+    if (removeFromVisibleBranch && (parentItem != getDisplayRootItem()))
+        parentIndex = createIndex(parentItem->parent()->IndexOfChild(parentItem), 0, parentItem);
 
-	if (removeFromVisibleBranch) {
+    if (removeFromVisibleBranch)
         beginRemoveRows(parentIndex, parent->child.IndexOf(item), parent->child.IndexOf(item));
-	}
 
-        if (item->getItemType() == AbstractFolderItem::Type_Folder) {
-			Folder* f = dynamic_cast<Folder*>(item);
-            unregisterItem(f);
+    if (item->getItemType() == AbstractFolderItem::Type_Folder)
+        unregisterItem( dynamic_cast < Folder * > ( item ) );
+    else
+        unregisterItem( dynamic_cast < Note * > ( item ) );
 
-		} else {
-			Note* n = dynamic_cast<Note*>(item);
-            unregisterItem(n);
-		}
-
-	if (removeFromVisibleBranch) {
-		endRemoveRows();
-	}
+    if (removeFromVisibleBranch)
+        endRemoveRows();
 }
 
-void HierarchyModel::sl_Folder_ItemAboutToBeMoved(AbstractFolderItem* const item,
-												  int newPosition, Folder* newParent) {
+void HierarchyModel::sl_Folder_ItemAboutToBeMoved(AbstractFolderItem* const item, int newPosition, Folder* newParent)
+{
     Folder* parent = item->getParent();
     if (!bridge.contains(parent)) {
-		WARNING("Item is not registered");
-		return;
-	}
+        WARNING("Item is not registered");
+        return;
+    }
     if (!bridge.contains(item)) {
-		WARNING("Item is not registered");
-		return;
-	}
+        WARNING("Item is not registered");
+        return;
+    }
     if (!bridge.contains(newParent)) {
-		WARNING("Item is not registered");
-		return;
-	}
+        WARNING("Item is not registered");
+        return;
+    }
 
     BaseModelItem* oldParentItem = bridge.value(parent);
     BaseModelItem* childItem = bridge.value(item);
     BaseModelItem* newParentItem = bridge.value(newParent);
 
-	bool removeFromVisibleBranch = false;
+    bool removeFromVisibleBranch = false;
     if (oldParentItem == getDisplayRootItem() ||
-        oldParentItem->IsOffspringOf(getDisplayRootItem())) {
-		removeFromVisibleBranch = true;
-	}
+            oldParentItem->IsOffspringOf(getDisplayRootItem())) {
+        removeFromVisibleBranch = true;
+    }
 
-	QModelIndex oldParentIndex = QModelIndex();
+    QModelIndex oldParentIndex = QModelIndex();
     if (removeFromVisibleBranch && (oldParentItem != getDisplayRootItem())) {
-		oldParentIndex = createIndex(oldParentItem->parent()->IndexOfChild(oldParentItem), 0, oldParentItem);
-	}
+        oldParentIndex = createIndex(oldParentItem->parent()->IndexOfChild(oldParentItem), 0, oldParentItem);
+    }
 
     int oldPosition = parent->child.IndexOf(item);
-	if (removeFromVisibleBranch) {
-		beginRemoveRows (oldParentIndex, oldPosition, oldPosition);
-	}
-		oldParentItem->RemoveChild(childItem);
+    if (removeFromVisibleBranch) {
+        beginRemoveRows (oldParentIndex, oldPosition, oldPosition);
+    }
+    oldParentItem->RemoveChild(childItem);
 
-	if (removeFromVisibleBranch) {
-		endRemoveRows();
-	}
+    if (removeFromVisibleBranch) {
+        endRemoveRows();
+    }
 
-	bool insertInVisibleBranch = false;
+    bool insertInVisibleBranch = false;
     if (newParentItem == getDisplayRootItem() ||
-        newParentItem->IsOffspringOf(getDisplayRootItem())) {
-		insertInVisibleBranch = true;
-	}
+            newParentItem->IsOffspringOf(getDisplayRootItem())) {
+        insertInVisibleBranch = true;
+    }
 
-	// Create model index for new item parent
-	QModelIndex newParentIndex = QModelIndex();
-	if (parent == newParent) {
-		newParentIndex = oldParentIndex;
-	} else {
+    // Create model index for new item parent
+    QModelIndex newParentIndex = QModelIndex();
+    if (parent == newParent) {
+        newParentIndex = oldParentIndex;
+    } else {
         if (insertInVisibleBranch && (newParentItem != getDisplayRootItem())) {
-			newParentIndex = createIndex(newParentItem->parent()->IndexOfChild(newParentItem), 0, newParentItem);
-		}
-	}
+            newParentIndex = createIndex(newParentItem->parent()->IndexOfChild(newParentItem), 0, newParentItem);
+        }
+    }
 
-	// Insert the item
-	if (insertInVisibleBranch) {
-		beginInsertRows(newParentIndex, newPosition, newPosition);
-	}
-		newParentItem->AddChildTo(childItem, newPosition);
+    // Insert the item
+    if (insertInVisibleBranch) {
+        beginInsertRows(newParentIndex, newPosition, newPosition);
+    }
+    newParentItem->AddChildTo(childItem, newPosition);
 
-	if (insertInVisibleBranch) {
-		endInsertRows();
-	}
+    if (insertInVisibleBranch) {
+        endInsertRows();
+    }
 }
 
 void HierarchyModel::sl_Folder_ItemsCollectionCleared() {
-	// TODO: Implement this
-	WARNING("Not implemented");
+    // TODO: Implement this
+    WARNING("Not implemented");
 }
 
 void HierarchyModel::sl_Item_DataChanged(BaseModelItem* modelItem) {
-	bool itemInVisibleBranch = false;
+    bool itemInVisibleBranch = false;
     if (modelItem == getDisplayRootItem() ||
-        modelItem->IsOffspringOf(getDisplayRootItem())) {
-		itemInVisibleBranch = true;
-	}
+            modelItem->IsOffspringOf(getDisplayRootItem())) {
+        itemInVisibleBranch = true;
+    }
 
-	if (!itemInVisibleBranch) {return;}
+    if (!itemInVisibleBranch) {return;}
 
-	QModelIndex itemIndex;
-	if (modelItem->parent() == 0) {
-		itemIndex = QModelIndex();
-	} else {
-		itemIndex = createIndex(modelItem->parent()->IndexOfChild(modelItem), 0, modelItem);
-	}
+    QModelIndex itemIndex;
+    if (modelItem->parent() == 0) {
+        itemIndex = QModelIndex();
+    } else {
+        itemIndex = createIndex(modelItem->parent()->IndexOfChild(modelItem), 0, modelItem);
+    }
 
-	emit dataChanged(itemIndex, itemIndex);
+    emit dataChanged(itemIndex, itemIndex);
 }
 
 Qt::DropActions HierarchyModel::supportedDropActions () const {
-	return Qt::MoveAction;
+    return Qt::MoveAction;
 }
 
 Qt::ItemFlags HierarchyModel::flags (const QModelIndex& index ) const
 {
-	Qt::ItemFlags defaultFlags = BaseModel::flags(index);
-	Qt::ItemFlags returnFlags = defaultFlags;
+    Qt::ItemFlags defaultFlags = BaseModel::flags(index);
+    Qt::ItemFlags returnFlags = defaultFlags;
 
     if (index.isValid())
     {
-		BaseModelItem* modelItem = static_cast<BaseModelItem*>(index.internalPointer());
-		if (modelItem->DataType() == BaseModelItem::folder) {
-			FolderModelItem* folderItem = dynamic_cast<FolderModelItem*>(modelItem);
+        BaseModelItem* modelItem = static_cast<BaseModelItem*>(index.internalPointer());
+        if (modelItem->DataType() == BaseModelItem::folder) {
+            FolderModelItem* folderItem = dynamic_cast<FolderModelItem*>(modelItem);
 
             if ( folderItem->getStoredData() == Notebook::instance()->trashFolder() )
-				returnFlags = Qt::ItemIsDropEnabled | defaultFlags;
+                returnFlags = Qt::ItemIsDropEnabled | defaultFlags;
             else
-				returnFlags = Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled | defaultFlags;
+                returnFlags = Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled | defaultFlags;
 
         } else if (modelItem->DataType() == BaseModelItem::note)
-			returnFlags = Qt::ItemIsDragEnabled | defaultFlags;
+            returnFlags = Qt::ItemIsDragEnabled | defaultFlags;
 
     } else
-		returnFlags = Qt::ItemIsDropEnabled | defaultFlags;	
+        returnFlags = Qt::ItemIsDropEnabled | defaultFlags;
 
-	return returnFlags;
+    return returnFlags;
 }
 
 bool HierarchyModel::dropMimeData (const QMimeData* data, Qt::DropAction action, int row, int column, const QModelIndex& parent) {
 
-	qDebug() << "Drop happened";
+    qDebug() << "Drop happened";
 
-	if (action == Qt::IgnoreAction) {return true;}
-	if (!data->hasFormat("application/ami.pointer")) {return false;}
-	if (column > 0) {return false;}
+    if (action == Qt::IgnoreAction) {return true;}
+    if (!data->hasFormat("application/ami.pointer")) {return false;}
+    if (column > 0) {return false;}
 
-	BaseModelItem* newParentModelItem = 0;
-	if (parent.isValid()) {
-		newParentModelItem = static_cast<BaseModelItem*>(parent.internalPointer());
-	} else { // dropped to root item
+    BaseModelItem* newParentModelItem = 0;
+    if (parent.isValid()) {
+        newParentModelItem = static_cast<BaseModelItem*>(parent.internalPointer());
+    } else { // dropped to root item
         newParentModelItem = getDisplayRootItem(); // !
-	}
+    }
 
-	qDebug() << "To item '" << newParentModelItem->data(Qt::DisplayRole).toString() << "'";
-	qDebug() << "At row " << row << ", column " << column << "\n";
-	//return false;
+    qDebug() << "To item '" << newParentModelItem->data(Qt::DisplayRole).toString() << "'";
+    qDebug() << "At row " << row << ", column " << column << "\n";
+    //return false;
 
-	// Modify row variable to ensure 3 system items are always at the botton of the list
-	// Not a final version, just dirty hack
+    // Modify row variable to ensure 3 system items are always at the botton of the list
+    // Not a final version, just dirty hack
     if (getDisplayRootItem() == getRootItem() && row >= 0 && row > getRootItem()->ChildrenCount() - 3) {
         row = getRootItem()->ChildrenCount() - 3;
-	}
+    }
 
-	if (newParentModelItem->DataType() != BaseModelItem::folder) {
-		WARNING("Item has wrong type");
-		return false;
-	}
+    if (newParentModelItem->DataType() != BaseModelItem::folder) {
+        WARNING("Item has wrong type");
+        return false;
+    }
 
-	QByteArray encodedData = data->data("application/ami.pointer");
-	QDataStream stream(&encodedData, QIODevice::ReadOnly);
-	void* p = 0;
+    QByteArray encodedData = data->data("application/ami.pointer");
+    QDataStream stream(&encodedData, QIODevice::ReadOnly);
+    void* p = 0;
 
-	QList<BaseModelItem*> movedItems;
+    QList<BaseModelItem*> movedItems;
 
-	while (!stream.atEnd()) {
-		p = 0;
-		stream.readRawData((char*)&p, sizeof(p));
+    while (!stream.atEnd()) {
+        p = 0;
+        stream.readRawData((char*)&p, sizeof(p));
 
 
-		qDebug() << "Dropped data pointer : " << p;
-		BaseModelItem* droppedModelItem = static_cast<BaseModelItem*>(p);
-		movedItems << droppedModelItem;
+        qDebug() << "Dropped data pointer : " << p;
+        BaseModelItem* droppedModelItem = static_cast<BaseModelItem*>(p);
+        movedItems << droppedModelItem;
         qDebug() << "Dropped item: " << droppedModelItem->data(Qt::DisplayRole).toString() << "'" << droppedModelItem->DataType();
-		qDebug() << "\n";
+        qDebug() << "\n";
 
         Folder* newParentFolder = (dynamic_cast<FolderModelItem*>(newParentModelItem))->getStoredData();
-		AbstractFolderItem* droppedFolderItem = 0;
-		if (droppedModelItem->DataType() == BaseModelItem::folder) {
+        AbstractFolderItem* droppedFolderItem = 0;
+        if (droppedModelItem->DataType() == BaseModelItem::folder) {
             droppedFolderItem = (dynamic_cast<FolderModelItem*>(droppedModelItem))->getStoredData();
-		} else if (droppedModelItem->DataType() == BaseModelItem::note) {
+        } else if (droppedModelItem->DataType() == BaseModelItem::note) {
             droppedFolderItem = (dynamic_cast<NoteModelItem*>(droppedModelItem))->getStoredData();
-		}
+        }
 
-		if (!droppedFolderItem) {
-			WARNING("Casting error");
-			continue;
-		}
+        if (!droppedFolderItem) {
+            WARNING("Casting error");
+            continue;
+        }
 
-		// Do not allow to drop item to it's own offspring
+        // Do not allow to drop item to it's own offspring
         if (droppedFolderItem->getItemType() == AbstractFolderItem::Type_Folder && newParentFolder->isOffspringOf(dynamic_cast<Folder*>(droppedFolderItem)))
         {
-			continue;
-		}
+            continue;
+        }
 
-		// Moving
+        // Moving
         if (droppedFolderItem->getParent() == newParentFolder) {
-			// Moved inside of the parent
-			if (-1 == row) {
-				// when dropped directly on parent folder, do nothing
+            // Moved inside of the parent
+            if (-1 == row) {
+                // when dropped directly on parent folder, do nothing
             } else if (newParentFolder->child.IndexOf(droppedFolderItem) == row
-					   ||
+                       ||
                        newParentFolder->child.IndexOf(droppedFolderItem) + 1 == row) {
-				// not moved, do nothing
-			} else {
-				// item moved inside parent folder to another row
-				// If new row index is greater than current item index, decrement it. It should be
-				// done because Move operation is insertItem(takeItem(i)), so when an item is taken
-				// from a list, it's size gets decremented and 'row' variable becomes invalid.
+                // not moved, do nothing
+            } else {
+                // item moved inside parent folder to another row
+                // If new row index is greater than current item index, decrement it. It should be
+                // done because Move operation is insertItem(takeItem(i)), so when an item is taken
+                // from a list, it's size gets decremented and 'row' variable becomes invalid.
                 int actualRow = row > newParentFolder->child.IndexOf(droppedFolderItem) ? row - 1 : row;
                 newParentFolder->child.Move(droppedFolderItem, actualRow);
-			}
-		} else { // Moved outside of the parent
+            }
+        } else { // Moved outside of the parent
             int newPosition = row == -1 ? newParentFolder->child.Count() : row;
             droppedFolderItem->getParent()->child.Move(droppedFolderItem, newPosition, newParentFolder);
-		}
-	}
+        }
+    }
 
-	// Send a signal for views to select moved items
-	QModelIndexList indexesToSelect;
-	foreach (BaseModelItem* movedItem, movedItems) {
-		QModelIndex movedItemIndex;
-		if (movedItem->parent() == 0) {
-			movedItemIndex = QModelIndex();
-		} else {
-			movedItemIndex = createIndex(movedItem->parent()->IndexOfChild(movedItem), 0, movedItem);
-		}
-		indexesToSelect << movedItemIndex;
-	}
-	emit sg_ApplySelection(indexesToSelect);
+    // Send a signal for views to select moved items
+    QModelIndexList indexesToSelect;
+    foreach (BaseModelItem* movedItem, movedItems) {
+        QModelIndex movedItemIndex;
+        if (movedItem->parent() == 0) {
+            movedItemIndex = QModelIndex();
+        } else {
+            movedItemIndex = createIndex(movedItem->parent()->IndexOfChild(movedItem), 0, movedItem);
+        }
+        indexesToSelect << movedItemIndex;
+    }
+    emit sg_ApplySelection(indexesToSelect);
 
 
-	return true;
+    return true;
 }
 
 QMimeData* HierarchyModel::mimeData (const QModelIndexList& indexes) const {
-	QMimeData *mimeData = new QMimeData();
-	QByteArray encodedData;
+    QMimeData *mimeData = new QMimeData();
+    QByteArray encodedData;
 
-	QDataStream stream(&encodedData, QIODevice::WriteOnly);
+    QDataStream stream(&encodedData, QIODevice::WriteOnly);
 
-	QListIterator<QModelIndex> iterator(indexes);
+    QListIterator<QModelIndex> iterator(indexes);
     while (iterator.hasNext())
     {
-		QModelIndex index = iterator.next();
+        QModelIndex index = iterator.next();
         if (index.isValid())
         {
-			void* p = index.internalPointer();
-			stream.writeRawData((char*)&p, sizeof(p)); // god forgive me
+            void* p = index.internalPointer();
+            stream.writeRawData((char*)&p, sizeof(p)); // god forgive me
             qDebug() << "Mime data pointer : " << p;
-		}
-	}
+        }
+    }
 
-	mimeData->setData("application/ami.pointer", encodedData);
-	return mimeData;
+    mimeData->setData("application/ami.pointer", encodedData);
+    return mimeData;
 }
 
 QStringList HierarchyModel::mimeTypes () const {
-	QStringList types;
-	types << "application/ami.pointer";
-	return types;
+    QStringList types;
+    types << "application/ami.pointer";
+    return types;
 }

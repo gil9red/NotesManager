@@ -43,7 +43,7 @@ public:
     void setRichTextNote( RichTextNote * );
     RichTextNote * getRichTextNote();
 
-    void SetName (const QString &s);
+    void setName (const QString &s);
 
     NoteTagsCollection Tags;
 

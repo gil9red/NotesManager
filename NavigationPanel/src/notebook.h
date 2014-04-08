@@ -76,6 +76,8 @@ private:
     static Notebook * self;
 
 private slots:
+    void sl_RichTextNote_EventChange( int event );
+
     void sl_Folder_ItemAdded(AbstractFolderItem* const item);
     void sl_Folder_ItemRemoved(AbstractFolderItem* const item);
 
@@ -90,6 +92,8 @@ protected:
     void unregisterTag(Tag* tag);
 
 signals:
+    void sg_RichTextNote_About_EventChange( RichTextNote * richTextNote , int event );
+
     void sg_ItemRegistered(Folder*);
     void sg_ItemRegistered(Note*);
     void sg_ItemRegistered(Tag*);

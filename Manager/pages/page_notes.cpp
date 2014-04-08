@@ -351,21 +351,15 @@ void Page_Notes::sl_AddNoteFromScreen()
 }
 void Page_Notes::sl_Delete()
 {
-    qApp->setOverrideCursor( Qt::WaitCursor );
     ui->tab_Notes->sl_DeleteItemAction_Triggered();
-    qApp->restoreOverrideCursor();
 }
 void Page_Notes::sl_ClearTrash()
 {
-    qApp->setOverrideCursor( Qt::WaitCursor );
     ui->tab_Notes->sl_ClearTrashAction_Triggered();
-    qApp->restoreOverrideCursor();
 }
 void Page_Notes::sl_RemoveToTrash()
 {
-    qApp->setOverrideCursor( Qt::WaitCursor );
     ui->tab_Notes->sl_MoveToBinAction_Triggered();
-    qApp->restoreOverrideCursor();
 }
 
 void Page_Notes::sl_SaveNote()
@@ -567,7 +561,7 @@ void Page_Notes::sl_UpdateStates()
     ui->actionPreviewPrintNote->setEnabled( false );
     ui->actionHideNote->setEnabled( false );
     ui->actionShowNote->setEnabled( false );
-    ui->actionTopNote->setEnabled( false );
+    ui->actionTopNote->setChecked( false );
 
     ui->actionDelete->setEnabled( false );
     ui->actionRemoveToTrash->setEnabled( false );
@@ -594,7 +588,7 @@ void Page_Notes::sl_UpdateStates()
             ui->actionShowNote->setEnabled( !currentNoteIsVisible );
 
             bool currentNoteIsTop = this->currentNoteIsTop();
-            ui->actionTopNote->setEnabled( currentNoteIsTop );
+            ui->actionTopNote->setChecked( currentNoteIsTop );
         }
 
         bool isChildTrash = this->currentIsChildTrash(); // если элемент есть в корзине

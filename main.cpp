@@ -53,7 +53,7 @@ static const char codec[] = "utf8";
 
 QString nm_Note::style = "";
 
-#include "ScriptModule/foo.h"
+//#include "ScriptModule/foo.h"
 
 int main( int argc, char *argv[] )
 {

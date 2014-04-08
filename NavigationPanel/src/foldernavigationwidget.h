@@ -96,6 +96,8 @@ private slots:
 
     void sl_UpdateStates();
 
+    void sl_NoteEventChange( RichTextNote * richTextNote, int event );
+
 public slots:
     void sl_ExpandAll();
 

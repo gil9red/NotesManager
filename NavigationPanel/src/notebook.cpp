@@ -252,6 +252,19 @@ RichTextNote * Notebook::getRichTextNoteFromNote( Note * note )
     return hash_Note_RichTextNote.value( note, 0 );
 }
 
+void Notebook::sl_RichTextNote_EventChange( int event )
+{
+    RichTextNote * richTextNote = qobject_cast < RichTextNote * > ( QObject::sender() );
+    if ( !richTextNote )
+    {
+        WARNING( "bad cast!" );
+        return;
+    }
+
+    WARNING("RichTextNote Event Changed");
+    emit sg_RichTextNote_About_EventChange( richTextNote, event );
+}
+
 void Notebook::sl_Folder_ItemAdded(AbstractFolderItem* const item)
 {
     registerItem(item);
@@ -296,7 +309,7 @@ void Notebook::registerItem(AbstractFolderItem* item)
         f->QObject::setParent(this); // QObject parentship
 
         QObject::connect(f, SIGNAL(sg_ItemAdded(AbstractFolderItem*const, int)), SLOT(sl_Folder_ItemAdded(AbstractFolderItem*const)));
-        QObject::connect(f, SIGNAL(sg_ItemRemoved(AbstractFolderItem*const)), SLOT(sl_Folder_ItemRemoved(AbstractFolderItem*const)));
+        QObject::connect(f, SIGNAL(sg_ItemRemoved(AbstractFolderItem*const)), SLOT(sl_Folder_ItemRemoved(AbstractFolderItem*const)));        
 
         allFolders.append(f);
         emit sg_ItemRegistered(f);
@@ -312,13 +325,16 @@ void Notebook::registerItem(AbstractFolderItem* item)
         QObject::connect(note, SIGNAL(sg_TagAdded(Tag*)), SLOT(sl_Note_TagAdded(Tag*)));
         QObject::connect(note, SIGNAL(sg_TagRemoved(Tag*)), SLOT(sl_Note_TagRemoved(Tag*)));
 
+        RichTextNote * richTextNote = note->getRichTextNote();
+        QObject::connect( richTextNote, SIGNAL(changed(int)), SLOT(sl_RichTextNote_EventChange(int)) );
+
         allNotes.append(note);
-        hash_Id_Note.insert( getIdFromRichTextNote( note->getRichTextNote() ), note );
-        hash_Note_RichTextNote.insert( note, note->getRichTextNote() );
+        hash_Id_Note.insert( getIdFromRichTextNote( richTextNote ), note );
+        hash_Note_RichTextNote.insert( note, richTextNote );
         emit sg_ItemRegistered(note);
     }
 
-    WARNING( qPrintable( QString( "Notes count: %1 -> %2" ).arg( allNotes.size() ).arg( (int)item, 0, 16 ) ) );
+//    WARNING( qPrintable( QString( "Notes count: %1 -> %2" ).arg( allNotes.size() ).arg( (int)item, 0, 16 ) ) );
 }
 void Notebook::unregisterItem(AbstractFolderItem* item)
 {
@@ -335,6 +351,8 @@ void Notebook::unregisterItem(AbstractFolderItem* item)
 
     } else if (item->getItemType() == AbstractFolderItem::Type_Note)
     {
+        WARNING("Unregister Note");
+
         Note * note = dynamic_cast < Note * > ( item );
         QObject::disconnect(note, 0, this, 0);
 
@@ -346,7 +364,7 @@ void Notebook::unregisterItem(AbstractFolderItem* item)
         emit sg_ItemUnregistered( note );
     }
 
-    WARNING( qPrintable( QString( "Notes count: %1 -> %2" ).arg( allNotes.size() ).arg( (int)item, 0, 16 ) ) );
+//    WARNING( qPrintable( QString( "Notes count: %1 -> %2" ).arg( allNotes.size() ).arg( (int)item, 0, 16 ) ) );
 }
 
 void Notebook::registerTag(Tag* tag)

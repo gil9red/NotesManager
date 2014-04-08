@@ -149,6 +149,12 @@ void NotesTabWidget::closeNote(Note* n)
 	}
 
     QWidget * tab = hashNoteTabs.take(n);
+    if ( !tab )
+    {
+        WARNING("Null pointer recieved");
+        return;
+    }
+
     int tabIndex = indexOf(tab);
     if (tabIndex == -1)
     {

@@ -134,6 +134,8 @@ FolderNavigationWidget::FolderNavigationWidget(QWidget *parent)
 
 
     sl_UpdateStates();
+
+    QObject::connect( Notebook::instance(), SIGNAL(sg_RichTextNote_About_EventChange(RichTextNote*,int)), SLOT(sl_NoteEventChange(RichTextNote*,int)) );
 }
 void FolderNavigationWidget::setModel(HierarchyModel* m)
 {
@@ -279,6 +281,8 @@ void FolderNavigationWidget::deleteItems(QModelIndexList& indexesList, bool perm
 
     // FIXME: fix situation when parent folder was deleted and we try to delete child item
 
+    qApp->setOverrideCursor( Qt::WaitCursor );
+
     deleteChildIndexes(indexesList);
 
     foreach (QModelIndex index, indexesList)
@@ -325,12 +329,15 @@ void FolderNavigationWidget::deleteItems(QModelIndexList& indexesList, bool perm
 
         if (permanently)
         {
+            WARNING("permanently delete");
             parentFolder->child.Remove(itemToDelete);
             delete itemToDelete;
 
         } else
             parentFolder->child.Move(itemToDelete, Notebook::instance()->trashFolder());
     }
+
+    qApp->restoreOverrideCursor();
 }
 void FolderNavigationWidget::deleteChildIndexes(QModelIndexList& list) const
 {
@@ -615,6 +622,40 @@ void FolderNavigationWidget::sl_UpdateStates()
         pinFolderButton->setEnabled( hasCurrentItem() && getCurrentFolder() );
 }
 
+void FolderNavigationWidget::sl_NoteEventChange( RichTextNote * richTextNote, int event )
+{
+    if ( !richTextNote )
+    {
+        WARNING("null pointer!");
+        return;
+    }
+
+    switch (event)
+    {
+    case EventsNote::Remove:
+        WARNING( "Delete pointer RichTextNote and dir" );
+//        // Удаление из модели
+//        Note * note = Notebook::instance()->getNoteFromRichTextNote( richTextNote );
+//        if ( !note )
+//        {
+//            WARNING("null pointer!");
+//            return;
+//        }
+
+//        Folder * parent = note->getParent();
+//        if ( !parent )
+//        {
+//            WARNING("null pointer!");
+//            return;
+//        }
+
+//        parent->child.Remove( note );
+//        delete note;
+
+        break;
+    }
+}
+
 void FolderNavigationWidget::sl_ExpandAll()
 {
     treeView->expandAll();
@@ -674,11 +715,9 @@ bool FolderNavigationWidget::sl_AddNote( RichTextNote * richTextNote )
 
     return true;
 }
-
 void FolderNavigationWidget::sl_AddNoteAction_Triggered()
 {
     RichTextNote * richTextNote = new RichTextNote();
-
     bool successful = sl_AddNote( richTextNote );
     if ( !successful )
     {
@@ -735,12 +774,12 @@ void FolderNavigationWidget::sl_AddFolderAction_Triggered()
 }
 void FolderNavigationWidget::sl_MoveToBinAction_Triggered()
 {
-    QModelIndexList list = treeView->selectionModel()->selectedIndexes();
+    QModelIndexList list = treeView->selectionModel()->selectedIndexes(); // TODO использовать ссылку
     deleteItems(list, false); // Пусть пока перемещает в корзину
 }
 void FolderNavigationWidget::sl_DeleteItemAction_Triggered()
 {
-	QModelIndexList list = treeView->selectionModel()->selectedIndexes();
+    QModelIndexList list = treeView->selectionModel()->selectedIndexes(); // TODO использовать ссылку
     deleteItems(list, true); // Удаление
 }
 
