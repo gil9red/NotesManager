@@ -455,7 +455,12 @@
     <message>
         <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="213"/>
         <source>Confirm deletion</source>
-        <translation>Подтверждение удаления</translation>
+        <translation>Подтверждение удаление</translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="213"/>
+        <source>Confirm moving</source>
+        <translation>Подтвердите  перемещение</translation>
     </message>
     <message>
         <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="244"/>
@@ -1393,6 +1398,26 @@
         <source>Select the files</source>
         <translation type="obsolete">Выберите файлы</translation>
     </message>
+    <message>
+        <location filename="../NavigationPanel/src/note.cpp" line="119"/>
+        <source>Delete this item?</source>
+        <translation>Удалить этот элемент?</translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/note.cpp" line="119"/>
+        <source>Put this item in the Bin?</source>
+        <translation>Поместить  этот элемент в корзину?</translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/note.cpp" line="120"/>
+        <source>Confirm deletion</source>
+        <translation>Подтверждение удаление</translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/note.cpp" line="120"/>
+        <source>Confirm moving</source>
+        <translation>Подтвердите  перемещение</translation>
+    </message>
 </context>
 <context>
     <name>NoteEditWidget</name>
@@ -2274,7 +2299,7 @@
         <translation type="obsolete">Менеджер заметок</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="86"/>
+        <location filename="../main.cpp" line="85"/>
         <source>Loading fonts</source>
         <oldsource>Load fonts</oldsource>
         <translation>Загрузка шрифтов</translation>
@@ -2284,19 +2309,19 @@
         <translation type="obsolete">Создать</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="89"/>
+        <location filename="../main.cpp" line="88"/>
         <source>Loading dictionaries</source>
         <oldsource>Load dictionaries</oldsource>
         <translation>Загрузка словарей</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="92"/>
+        <location filename="../main.cpp" line="91"/>
         <source>Creation</source>
         <oldsource>Created</oldsource>
         <translation>Создание</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="99"/>
+        <location filename="../main.cpp" line="98"/>
         <source>Loading settings</source>
         <oldsource>Load settings</oldsource>
         <translation>Загрузка настроек</translation>
@@ -2307,7 +2332,7 @@
         <translation type="obsolete">Загрузка заметок</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="102"/>
+        <location filename="../main.cpp" line="101"/>
         <source>Now ready</source>
         <translation>Готов</translation>
     </message>
@@ -2670,12 +2695,12 @@
         <translation>Сохранение завершено</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="596"/>
+        <location filename="../Note/RichTextNote.cpp" line="595"/>
         <source>File notes</source>
         <translation>Файл заметки</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="704"/>
+        <location filename="../Note/RichTextNote.cpp" line="703"/>
         <source>image</source>
         <translation>Изображение</translation>
     </message>
@@ -2706,7 +2731,7 @@
     </message>
     <message>
         <location filename="../Note/RichTextNote.cpp" line="484"/>
-        <location filename="../Note/RichTextNote.cpp" line="641"/>
+        <location filename="../Note/RichTextNote.cpp" line="640"/>
         <source>An error occurred saving notes</source>
         <translation>Невозможно сохранить заметки</translation>
     </message>
@@ -2715,7 +2740,7 @@
         <translation type="obsolete">Не возможно считать настройки заметок</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="641"/>
+        <location filename="../Note/RichTextNote.cpp" line="640"/>
         <source>Information</source>
         <translation>Информация</translation>
     </message>
@@ -2738,44 +2763,44 @@
         <translation>Не получается удалить</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="539"/>
+        <location filename="../Note/RichTextNote.cpp" line="538"/>
         <source>Select title</source>
         <translation>Выбор заголовка</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="539"/>
+        <location filename="../Note/RichTextNote.cpp" line="538"/>
         <source>Title: </source>
         <translation>Заголовок:</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="548"/>
+        <location filename="../Note/RichTextNote.cpp" line="547"/>
         <source>Select font</source>
         <translation>Выбор шрифта</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="557"/>
-        <location filename="../Note/RichTextNote.cpp" line="565"/>
+        <location filename="../Note/RichTextNote.cpp" line="556"/>
+        <location filename="../Note/RichTextNote.cpp" line="564"/>
         <source>Select color</source>
         <translation>Выбор цвета</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="578"/>
+        <location filename="../Note/RichTextNote.cpp" line="577"/>
         <source>Select opacity</source>
         <translation>Выбор непрозрачности</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="578"/>
+        <location filename="../Note/RichTextNote.cpp" line="577"/>
         <source>Opacity:</source>
         <translation>Непрозрачность:</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="665"/>
-        <location filename="../Note/RichTextNote.cpp" line="674"/>
+        <location filename="../Note/RichTextNote.cpp" line="664"/>
+        <location filename="../Note/RichTextNote.cpp" line="673"/>
         <source>document</source>
         <translation>документ</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="684"/>
+        <location filename="../Note/RichTextNote.cpp" line="683"/>
         <source>Select the files</source>
         <translation>Выберите файлы</translation>
     </message>

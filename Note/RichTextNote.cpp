@@ -521,7 +521,6 @@ void RichTextNote::remove()
 }
 void RichTextNote::invokeRemove()
 {
-    WARNING( "EventsNote::Remove" );
     emit changed( EventsNote::Remove );
 }
 

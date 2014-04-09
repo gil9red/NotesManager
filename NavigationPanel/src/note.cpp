@@ -18,6 +18,7 @@ along with qNotesManager. If not, see <http://www.gnu.org/licenses/>.
 #include "note.h"
 #include "folder.h"
 #include "utils/func.h"
+#include "notebook.h"
 
 #include <QDebug>
 
@@ -113,13 +114,31 @@ void Note::noteChange( int event )
         break;
 
     case EventsNote::Remove:
-        // Если заметка будет удалена, то будет также удалена из модели ее элемент-обертка
-        Folder * parent = this->getParent();
-        // Если еще состоим в "родстве", удаляем
-        if ( parent )
-            parent->child.Remove( this );
-        // Вызов удаления себя - увидимся в деструкторе
-        this->deleteLater();
+        // Если мы находимся в корзине, тогда удаляем себя, иначе перемещаем в нее
+        bool permanently = isOffspringOf( Notebook::instance()->getTrashFolder() );
+
+        const QString & title = permanently ? tr( "Confirm deletion" ) : tr( "Confirm moving" );
+        const QString & message = ( permanently ? tr( "Delete this item?" ) : tr( "Put this item in the Bin?" ) ) + "<br>" + getName();
+        bool hasCancel = QMessageBox::question( getRichTextNote(), title, message, QMessageBox::Yes | QMessageBox::No ) != QMessageBox::Yes;
+        if ( hasCancel )
+            return;
+
+        Folder * parent = getParent();
+
+        // Если true - удаляем себя, иначе перемещаем в корзину
+        if ( permanently )
+        {
+            // Если заметка будет удалена, то будет также удалена из модели ее элемент-обертка
+            // Если еще состоим в "родстве", удаляем
+            if ( parent )
+                parent->child.Remove( this );
+
+            // Вызов удаления себя -> увидимся в деструкторе
+            deleteLater();
+
+        } else
+            parent->child.Move( this, Notebook::instance()->getTrashFolder() );
+
         break;
     }
 }

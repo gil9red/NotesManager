@@ -47,7 +47,7 @@ public:
 
     ItemType getItemType() const;
     Folder * getParent() const;
-    bool isOffspringOf(const Folder*) const;
+    bool isOffspringOf( const Folder * ) const;
 
 
     QString getName() const;

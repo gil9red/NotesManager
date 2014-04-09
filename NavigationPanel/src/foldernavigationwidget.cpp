@@ -209,8 +209,9 @@ void FolderNavigationWidget::deleteItems(QModelIndexList& indexesList, bool perm
     foreach (QModelIndex index, indexesList)
         details.append("\n").append(index.model()->data(index, Qt::DisplayRole).toString());
 
+    const QString & title = permanently ? tr( "Confirm deletion" ) : tr( "Confirm moving" );
     const QString & message = permanently ? tr( "Delete these items?" ) : tr( "Put these items to Bin?" );
-    bool hasCancel = QMessageBox::question( this, tr( "Confirm deletion" ), message + details, QMessageBox::Yes | QMessageBox::No ) != QMessageBox::Yes;
+    bool hasCancel = QMessageBox::question( this, title, message + details, QMessageBox::Yes | QMessageBox::No ) != QMessageBox::Yes;
     if ( hasCancel )
         return;
 
@@ -228,7 +229,7 @@ void FolderNavigationWidget::deleteItems(QModelIndexList& indexesList, bool perm
             continue;
         }
 
-        BaseModelItem* modelItemToDelete = static_cast<BaseModelItem*>(index.internalPointer());
+        BaseModelItem * modelItemToDelete = static_cast < BaseModelItem * > ( index.internalPointer() );
 
         bool isFolder = modelItemToDelete->DataType() == BaseModelItem::folder;
         bool isNote = modelItemToDelete->DataType() == BaseModelItem::note;
@@ -246,7 +247,7 @@ void FolderNavigationWidget::deleteItems(QModelIndexList& indexesList, bool perm
             }
         } else if ( isNote )
         {
-            NoteModelItem* fmi = dynamic_cast<NoteModelItem*>(modelItemToDelete);
+            NoteModelItem * fmi = dynamic_cast<NoteModelItem*>(modelItemToDelete);
             itemToDelete = fmi->getStoredData();
         }
         if (!itemToDelete)
@@ -264,7 +265,6 @@ void FolderNavigationWidget::deleteItems(QModelIndexList& indexesList, bool perm
 
         if (permanently)
         {
-            WARNING("permanently delete");
             parentFolder->child.Remove(itemToDelete);
             delete itemToDelete;
 
@@ -299,28 +299,30 @@ void FolderNavigationWidget::deleteChildIndexes(QModelIndexList& list) const
 }
 void FolderNavigationWidget::restoreExpandedIndexes()
 {
-    QStack<QModelIndex> indexes;
-    indexes.push(ui->treeView->rootIndex());
+    QStack < QModelIndex > indexes;
+    indexes.push( ui->treeView->rootIndex() );
 
     while (!indexes.isEmpty())
     {
         QModelIndex index = indexes.pop();
-        for (int i = 0; i < model->rowCount(index); i++)
+        for ( int i = 0; i < model->rowCount( index ); i++ )
         {
             QModelIndex child = model->index(i, 0, index);
             if (child.isValid())
                 indexes.push(child);
         }
 
-        if (!index.isValid()) continue;
-        if (index.internalPointer() == 0) continue;
-        BaseModelItem* modelItemToEdit = static_cast<BaseModelItem*>(index.internalPointer());
+        if ( !index.isValid() )
+            continue;
+        if ( !index.internalPointer() )
+            continue;
+        BaseModelItem * modelItemToEdit = static_cast < BaseModelItem * > ( index.internalPointer() );
 
-        if (modelItemToEdit->DataType() == BaseModelItem::folder)
+        if ( modelItemToEdit->DataType() == BaseModelItem::folder )
         {
-            Folder* folder = (dynamic_cast<FolderModelItem*>(modelItemToEdit))->getStoredData();
-            if (folder->isExpanded())
-                ui->treeView->expand(index);
+            Folder * folder = dynamic_cast < FolderModelItem * > ( modelItemToEdit )->getStoredData();
+            if ( folder->isExpanded() )
+                ui->treeView->expand( index );
         }
     }
 }
@@ -336,59 +338,6 @@ void FolderNavigationWidget::sl_CollapseAll()
 
 bool FolderNavigationWidget::sl_AddNote( RichTextNote * richTextNote )
 {
-//    if ( !richTextNote )
-//    {
-//        WARNING("null pointer!");
-//        return false;
-//    }
-
-//    Folder * root = Notebook::instance()->getRootFolder();
-
-//    // Если нет выделенного элемента, добавляем в корень
-//    if ( !hasCurrentItem() && !model->getPinnedFolder() )
-//    {
-//        Note * note = new Note();
-//        note->setRichTextNote( richTextNote );
-//        root->child.Add( note );
-
-//        return true;
-//    }
-
-//    QModelIndexList indexesList = ui->treeView->selectionModel()->selectedIndexes();
-//    if ( indexesList.size() > 1 )
-//    {
-//        WARNING("Wrong item selection");
-//        return false;
-//    }
-
-//    Folder * parentFolder = 0;
-
-//    if ( !indexesList.size() )
-//        parentFolder = ( !model->getPinnedFolder() ? root : model->getPinnedFolder() );
-//    else
-//    {
-//        BaseModelItem * modelitem = static_cast < BaseModelItem * > ( indexesList.value(0).internalPointer() );
-//        if ( modelitem->DataType() != BaseModelItem::folder )
-//        {
-//            WARNING("Parent item is not a folder");
-//            return false;
-//        }
-//        parentFolder = dynamic_cast < FolderModelItem * > ( modelitem )->getStoredData();
-
-//        if ( parentFolder == Notebook::instance()->getTrashFolder() )
-//        {
-//            WARNING("Cannot create notes in bin");
-//            return false;
-//        }
-//    }
-
-//    Note * note = new Note();
-//    note->setRichTextNote( richTextNote );
-//    parentFolder->child.Add( note );
-
-//    return true;
-
-
     if ( !richTextNote )
     {
         WARNING("null pointer!");
@@ -480,14 +429,14 @@ void FolderNavigationWidget::sl_AddFolderAction_Triggered()
 
     Folder * parentFolder = 0;
 
-    if (indexesList.size() == 0)
-        parentFolder = (model->getPinnedFolder() == 0 ? Notebook::instance()->getRootFolder() : model->getPinnedFolder());
+    if ( indexesList.size() == 0 )
+        parentFolder = ( !model->getPinnedFolder() ? Notebook::instance()->getRootFolder() : model->getPinnedFolder() );
 
     else
     {
         BaseModelItem* modelitem = static_cast<BaseModelItem*>(indexesList.value(0).internalPointer());
 
-        // Если текущий элементом является заметка, то добавим новую заметку ниже ее
+        // Если текущий элементом является заметка, то добавим новую папку ниже ее
         if ( modelitem->DataType() == BaseModelItem::note )
         {
             NoteModelItem * currentNoteItem = dynamic_cast < NoteModelItem * > ( modelitem );
@@ -511,6 +460,7 @@ void FolderNavigationWidget::sl_AddFolderAction_Triggered()
         WARNING("Pointer 'parentFolder' is null!");
         return;
     }
+
     parentFolder->child.Add( new Folder() );
 }
 void FolderNavigationWidget::sl_MoveToBinAction_Triggered()

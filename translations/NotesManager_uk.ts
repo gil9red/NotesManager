@@ -418,6 +418,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="213"/>
+        <source>Confirm moving</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="244"/>
         <source>Information</source>
         <translation type="unfinished">Iнформація</translation>
@@ -1042,6 +1047,29 @@
         <location filename="../Manager/Manager.cpp" line="326"/>
         <source>Save completed</source>
         <translation>Зберегти завершена</translation>
+    </message>
+</context>
+<context>
+    <name>Note</name>
+    <message>
+        <location filename="../NavigationPanel/src/note.cpp" line="119"/>
+        <source>Delete this item?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/note.cpp" line="119"/>
+        <source>Put this item in the Bin?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/note.cpp" line="120"/>
+        <source>Confirm deletion</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/src/note.cpp" line="120"/>
+        <source>Confirm moving</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1701,22 +1729,22 @@
         <translation type="obsolete">немає</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="86"/>
+        <location filename="../main.cpp" line="85"/>
         <source>Loading fonts</source>
         <translation>Завантаження шрифтів</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="89"/>
+        <location filename="../main.cpp" line="88"/>
         <source>Loading dictionaries</source>
         <translation>Завантаження словників</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="92"/>
+        <location filename="../main.cpp" line="91"/>
         <source>Creation</source>
         <translation>Creation</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="99"/>
+        <location filename="../main.cpp" line="98"/>
         <source>Loading settings</source>
         <translation>Завантаження налаштувань</translation>
     </message>
@@ -1725,7 +1753,7 @@
         <translation type="obsolete">Завантаження замітки</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="102"/>
+        <location filename="../main.cpp" line="101"/>
         <source>Now ready</source>
         <translation>Тепер готовий</translation>
     </message>
@@ -2047,7 +2075,7 @@
     </message>
     <message>
         <location filename="../Note/RichTextNote.cpp" line="484"/>
-        <location filename="../Note/RichTextNote.cpp" line="641"/>
+        <location filename="../Note/RichTextNote.cpp" line="640"/>
         <source>An error occurred saving notes</source>
         <translation>Сталася помилка при збереженні замітки</translation>
     </message>
@@ -2056,7 +2084,7 @@
         <translation type="obsolete">Сталася помилка при читанні нотатки</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="641"/>
+        <location filename="../Note/RichTextNote.cpp" line="640"/>
         <source>Information</source>
         <translation>Iнформація</translation>
     </message>
@@ -2079,54 +2107,54 @@
         <translation>Я не можу видалити</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="539"/>
+        <location filename="../Note/RichTextNote.cpp" line="538"/>
         <source>Select title</source>
         <translation>Виберіть назву</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="539"/>
+        <location filename="../Note/RichTextNote.cpp" line="538"/>
         <source>Title: </source>
         <translation>Назва: </translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="548"/>
+        <location filename="../Note/RichTextNote.cpp" line="547"/>
         <source>Select font</source>
         <translation>Вибрати шрифт</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="557"/>
-        <location filename="../Note/RichTextNote.cpp" line="565"/>
+        <location filename="../Note/RichTextNote.cpp" line="556"/>
+        <location filename="../Note/RichTextNote.cpp" line="564"/>
         <source>Select color</source>
         <translation>Вибрати колір</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="578"/>
+        <location filename="../Note/RichTextNote.cpp" line="577"/>
         <source>Select opacity</source>
         <translation>Виберіть непрозорість</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="578"/>
+        <location filename="../Note/RichTextNote.cpp" line="577"/>
         <source>Opacity:</source>
         <translation>Непрозорість:</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="596"/>
+        <location filename="../Note/RichTextNote.cpp" line="595"/>
         <source>File notes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="665"/>
-        <location filename="../Note/RichTextNote.cpp" line="674"/>
+        <location filename="../Note/RichTextNote.cpp" line="664"/>
+        <location filename="../Note/RichTextNote.cpp" line="673"/>
         <source>document</source>
         <translation>документ</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="684"/>
+        <location filename="../Note/RichTextNote.cpp" line="683"/>
         <source>Select the files</source>
         <translation>Виберіть файли</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="704"/>
+        <location filename="../Note/RichTextNote.cpp" line="703"/>
         <source>image</source>
         <translation type="unfinished"></translation>
     </message>
