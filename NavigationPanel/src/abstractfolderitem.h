@@ -46,7 +46,7 @@ public:
     };
 
     ItemType getItemType() const;
-    Folder* getParent() const;
+    Folder * getParent() const;
     bool isOffspringOf(const Folder*) const;
 
 

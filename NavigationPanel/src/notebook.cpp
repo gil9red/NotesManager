@@ -332,8 +332,6 @@ void Notebook::registerItem(AbstractFolderItem* item)
         hash_Note_RichTextNote.insert( note, richTextNote );
         emit sg_ItemRegistered(note);
     }
-
-//    WARNING( qPrintable( QString( "Notes count: %1 -> %2" ).arg( allNotes.size() ).arg( (int)item, 0, 16 ) ) );
 }
 void Notebook::unregisterItem(AbstractFolderItem* item)
 {
@@ -350,8 +348,6 @@ void Notebook::unregisterItem(AbstractFolderItem* item)
 
     } else if (item->getItemType() == AbstractFolderItem::Type_Note)
     {
-        WARNING("Unregister Note");
-
         Note * note = dynamic_cast < Note * > ( item );
         QObject::disconnect(note, 0, this, 0);
 
@@ -362,8 +358,6 @@ void Notebook::unregisterItem(AbstractFolderItem* item)
         hash_Note_RichTextNote.remove( note );
         emit sg_ItemUnregistered( note );
     }
-
-//    WARNING( qPrintable( QString( "Notes count: %1 -> %2" ).arg( allNotes.size() ).arg( (int)item, 0, 16 ) ) );
 }
 
 void Notebook::registerTag(Tag* tag)
@@ -372,10 +366,6 @@ void Notebook::registerTag(Tag* tag)
     tag->setParent(this);
     tagsByName.insert(tag->getName(), tag);
 
-//    QStandardItem* i = new QStandardItem( QIcon(":/fugue-icons/tag-label"), tag->getName());
-//    tagsListModel->appendRow(i);
-//    tagsListModel->sort(0, Qt::AscendingOrder);
-
     emit sg_ItemRegistered(tag);
 }
 void Notebook::unregisterTag(Tag* tag)
@@ -383,10 +373,6 @@ void Notebook::unregisterTag(Tag* tag)
     allTags.removeAll(tag);
     tag->setParent(0);
     tagsByName.remove(tag->getName());
-
-//    QList<QStandardItem*> itemsList = tagsListModel->findItems(tag->getName(), Qt::MatchExactly, 0);
-//    QStandardItem* item = tagsListModel->takeItem(itemsList.at(0)->row());
-//    delete item;
 
     emit sg_ItemUnregistered(tag);
     delete tag;

@@ -42,7 +42,7 @@ public:
     virtual QStringList mimeTypes () const;
 
     void setPinnedFolder(Folder*);
-    Folder* getPinnedFolder() const;
+    Folder * getPinnedFolder() const;
 
     BaseModelItem * getModelItem( AbstractFolderItem * item ) { return bridge.value( item, 0 ); }
     AbstractFolderItem * getItem( BaseModelItem * modelItem ) { return bridge.key( modelItem, 0 ); }

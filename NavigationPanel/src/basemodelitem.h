@@ -30,6 +30,7 @@ class BaseModel;
 class BaseModelItem : public QObject
 {
     Q_OBJECT
+
 public:
     enum ItemType
     {
@@ -44,8 +45,8 @@ public:
     };
 
 private:
-    BaseModelItem*			parentItem;
-    QList<BaseModelItem*>	childrenList;
+    BaseModelItem * parentItem;
+    QList < BaseModelItem * > childrenList;
     const ItemType itemType;
 
     bool sorted;

@@ -336,6 +336,59 @@ void FolderNavigationWidget::sl_CollapseAll()
 
 bool FolderNavigationWidget::sl_AddNote( RichTextNote * richTextNote )
 {
+//    if ( !richTextNote )
+//    {
+//        WARNING("null pointer!");
+//        return false;
+//    }
+
+//    Folder * root = Notebook::instance()->getRootFolder();
+
+//    // Если нет выделенного элемента, добавляем в корень
+//    if ( !hasCurrentItem() && !model->getPinnedFolder() )
+//    {
+//        Note * note = new Note();
+//        note->setRichTextNote( richTextNote );
+//        root->child.Add( note );
+
+//        return true;
+//    }
+
+//    QModelIndexList indexesList = ui->treeView->selectionModel()->selectedIndexes();
+//    if ( indexesList.size() > 1 )
+//    {
+//        WARNING("Wrong item selection");
+//        return false;
+//    }
+
+//    Folder * parentFolder = 0;
+
+//    if ( !indexesList.size() )
+//        parentFolder = ( !model->getPinnedFolder() ? root : model->getPinnedFolder() );
+//    else
+//    {
+//        BaseModelItem * modelitem = static_cast < BaseModelItem * > ( indexesList.value(0).internalPointer() );
+//        if ( modelitem->DataType() != BaseModelItem::folder )
+//        {
+//            WARNING("Parent item is not a folder");
+//            return false;
+//        }
+//        parentFolder = dynamic_cast < FolderModelItem * > ( modelitem )->getStoredData();
+
+//        if ( parentFolder == Notebook::instance()->getTrashFolder() )
+//        {
+//            WARNING("Cannot create notes in bin");
+//            return false;
+//        }
+//    }
+
+//    Note * note = new Note();
+//    note->setRichTextNote( richTextNote );
+//    parentFolder->child.Add( note );
+
+//    return true;
+
+
     if ( !richTextNote )
     {
         WARNING("null pointer!");
@@ -355,27 +408,36 @@ bool FolderNavigationWidget::sl_AddNote( RichTextNote * richTextNote )
     }
 
     QModelIndexList indexesList = ui->treeView->selectionModel()->selectedIndexes();
-    if (indexesList.size() > 1)
+    if ( indexesList.size() > 1 )
     {
         WARNING("Wrong item selection");
         return false;
     }
 
-    Folder* parentFolder = 0;
+    Folder * parentFolder = 0;
 
-    if (indexesList.size() == 0)
+    if ( !indexesList.size() )
         parentFolder = ( !model->getPinnedFolder() ? root : model->getPinnedFolder() );
     else
     {
-        BaseModelItem* modelitem = static_cast<BaseModelItem*>(indexesList.value(0).internalPointer());
-        if (modelitem->DataType() != BaseModelItem::folder)
-        {
-            WARNING("Parent item is not a folder");
-            return false;
-        }
-        parentFolder = dynamic_cast<FolderModelItem*>(modelitem)->getStoredData();
+        BaseModelItem * modelitem = static_cast < BaseModelItem * > ( indexesList.value(0).internalPointer() );
 
-        if (parentFolder == Notebook::instance()->getTrashFolder())
+        // Если текущий элементом является заметка, то добавим новую заметку ниже ее
+        if ( modelitem->DataType() == BaseModelItem::note )
+        {
+            NoteModelItem * currentNoteItem = dynamic_cast < NoteModelItem * > ( modelitem );
+            Note * currentNote = currentNoteItem->getStoredData();
+            int index = currentNote->getParent()->child.IndexOf( currentNote );
+
+            Note * note = new Note();
+            note->setRichTextNote( richTextNote );
+            currentNote->getParent()->child.AddTo( note, index + 1 );
+
+            return true;
+        }
+
+        parentFolder = dynamic_cast < FolderModelItem * > ( modelitem )->getStoredData();
+        if ( parentFolder == Notebook::instance()->getTrashFolder() )
         {
             WARNING("Cannot create notes in bin");
             return false;
@@ -425,11 +487,17 @@ void FolderNavigationWidget::sl_AddFolderAction_Triggered()
     {
         BaseModelItem* modelitem = static_cast<BaseModelItem*>(indexesList.value(0).internalPointer());
 
-        if (modelitem->DataType() != BaseModelItem::folder)
+        // Если текущий элементом является заметка, то добавим новую заметку ниже ее
+        if ( modelitem->DataType() == BaseModelItem::note )
         {
-            WARNING("Parent item is not a folder");
+            NoteModelItem * currentNoteItem = dynamic_cast < NoteModelItem * > ( modelitem );
+            Note * currentNote = currentNoteItem->getStoredData();
+            int index = currentNote->getParent()->child.IndexOf( currentNote );
+            currentNote->getParent()->child.AddTo( new Folder(), index + 1 );
+
             return;
         }
+
         parentFolder = dynamic_cast<FolderModelItem*>(modelitem)->getStoredData();
         if (parentFolder == Notebook::instance()->getRootFolder())
         {
@@ -813,7 +881,8 @@ void FolderNavigationWidget::on_treeView_customContextMenuRequested(const QPoint
     QMenu menu;
     bool isEmptyTrash = Notebook::instance()->getTrashFolder()->child.Count() == 0;
     const QModelIndexList & indexesList = selectionModel->selectedIndexes();
-
+    menu.addAction(addNoteAction);
+    menu.addAction(addFolderAction);
     // 0 items
     if (indexesList.isEmpty())
     {

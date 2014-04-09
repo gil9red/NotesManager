@@ -36,7 +36,6 @@ public:
 
 private:
     Ui::FolderNavigationWidget * ui;
-
     HierarchyModel * model;
 
     QMenu * itemForeColorMenu;

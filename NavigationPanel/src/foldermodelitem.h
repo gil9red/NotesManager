@@ -27,12 +27,12 @@ class FolderModelItem : public BaseModelItem
     Q_OBJECT
 
 private:
-    Folder* folder;
+    Folder * folder;
 
 public:
     FolderModelItem(Folder*);
 
-    Folder*	getStoredData() const;
+    Folder * getStoredData() const;
 
     QVariant data(int role) const;
     bool setData(const QVariant& value, int role);

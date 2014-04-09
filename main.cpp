@@ -60,7 +60,7 @@ int main( int argc, char *argv[] )
     QtSingleApplication app( argc, argv );
     qApp->setApplicationName( App::name );
     qApp->setApplicationVersion( App::version );
-    qApp->setQuitOnLastWindowClosed( false );
+    qApp->setQuitOnLastWindowClosed( false ); // Приложение не завершится, даже если все окна закрыты/скрыты
 
     if ( app.isRunning() )
     {
