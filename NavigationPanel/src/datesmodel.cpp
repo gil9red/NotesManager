@@ -24,23 +24,24 @@ along with qNotesManager. If not, see <http://www.gnu.org/licenses/>.
 
 #include <QDebug>
 
-DatesModel::DatesModel(LookupField field, QObject * parent) :
-        BaseModel(parent),
-        lookupField(field)
+DatesModel::DatesModel( LookupField field, QObject * parent )
+    : BaseModel( parent ),
+      lookupField( field )
 {
-	BaseModelItem* root = new BaseModelItem();
-	root->SetSorted(true);
-    setRootItem(root);
+    BaseModelItem * root = new BaseModelItem();
+    root->SetSorted( true );
+    setRootItem( root );
 
     QObject::connect(Notebook::instance(), SIGNAL(sg_ItemRegistered(Note*)), SLOT(sl_NoteRegistered(Note*)));
     QObject::connect(Notebook::instance(), SIGNAL(sg_ItemUnregistered(Note*)), SLOT(sl_NoteUnregistered(Note*)));
 
-    const QList<Note*> notes = Notebook::instance()->notesList();
+    const QList < Note * > notes = Notebook::instance()->getNotesList();
     foreach( Note* n, notes )
 		sl_NoteRegistered(n);	
 }
 
-void DatesModel::sl_Item_DataChanged(BaseModelItem* item) {
+void DatesModel::sl_Item_DataChanged(BaseModelItem* item)
+{
 	QModelIndex noteItemIndex = createIndex(item->parent()->IndexOfChild(item), 0, item);
 	emit dataChanged(noteItemIndex, noteItemIndex);
 }

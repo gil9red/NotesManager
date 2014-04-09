@@ -1,123 +1,126 @@
-/*
-This file is part of qNotesManager.
-
-qNotesManager is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-qNotesManager is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with qNotesManager. If not, see <http://www.gnu.org/licenses/>.
-*/
-
 #include "datenavigationwidget.h"
+#include "ui_datenavigationwidget.h"
 
-#include "datesmodel.h"
+#include "utils/func.h"
 #include "basemodelitem.h"
 #include "notemodelitem.h"
-
+#include "datesmodel.h"
 #include "notebook.h"
-#include "utils/func.h"
 
-#include <QVBoxLayout>
-#include <QHeaderView>
-#include <QDebug>
-
-DateNavigationWidget::DateNavigationWidget(QWidget *parent)
-    : QWidget(parent)
+DateNavigationWidget::DateNavigationWidget( QWidget * parent )
+    : QMainWindow( parent ),
+      ui( new Ui::DateNavigationWidget ),
+      creationDateModel(0),
+      modificationDateModel(0)
 {
-	creationDateModel = 0;
-	modificationDateModel = 0;
+    ui->setupUi( this );
 
-	treeView = new QTreeView();
-	treeView->setHeaderHidden(true);
-	treeView->setEditTriggers(QAbstractItemView::SelectedClicked | QAbstractItemView::EditKeyPressed);
+    QObject::connect( Notebook::instance(), SIGNAL(sg_ItemRegistered(Note*)), SLOT(sl_UpdateStates()) );
+    QObject::connect( Notebook::instance(), SIGNAL(sg_ItemUnregistered(Note*)), SLOT(sl_UpdateStates()) );
 
-    QObject::connect(treeView, SIGNAL(clicked(QModelIndex)), SLOT(sl_View_clicked(QModelIndex)));
-    QObject::connect(treeView, SIGNAL(doubleClicked(QModelIndex)), SLOT(sl_View_doubleClicked(QModelIndex)));
-
-    creationDateButton = new QRadioButton( tr( "Creation date" ), this);
-    QObject::connect(creationDateButton, SIGNAL(toggled(bool)), SLOT(sl_updateTreeModel(bool)));
-    modificationDateButton = new QRadioButton( tr( "Modification date" ), this);
-    QObject::connect(modificationDateButton, SIGNAL(toggled(bool)), SLOT(sl_updateTreeModel(bool)));
-
-	QVBoxLayout* buttonsLayout = new QVBoxLayout();
-	buttonsLayout->addWidget(creationDateButton);
-	buttonsLayout->addWidget(modificationDateButton);
-
-    groupBox = new QGroupBox( tr( "Traced date" ), this);
-	groupBox->setLayout(buttonsLayout);
-
-	QVBoxLayout* layout = new QVBoxLayout();
-	layout->addWidget(groupBox);
-	layout->addWidget(treeView);
-
-	setLayout(layout);
-
-	creationDateButton->toggle();
+    sl_updateTreeModel();
+    sl_UpdateStates();
+}
+DateNavigationWidget::~DateNavigationWidget()
+{
+    delete ui;
 }
 
-void DateNavigationWidget::SetCreationModel(DatesModel* model) {
+void DateNavigationWidget::setCreationModel( DatesModel * model )
+{
     creationDateModel = model;
     sl_updateTreeModel();
+    sl_UpdateStates();
 }
-
-void DateNavigationWidget::SetModificationModel(DatesModel* model) {
+void DateNavigationWidget::setModificationModel( DatesModel * model )
+{
     modificationDateModel = model;
     sl_updateTreeModel();
+    sl_UpdateStates();
 }
 
 void DateNavigationWidget::sl_ExpandAll()
 {
-    treeView->expandAll();
+    ui->treeView->expandAll();
+}
+void DateNavigationWidget::sl_CollapseAll()
+{
+    ui->treeView->collapseAll();
 }
 
-void DateNavigationWidget::sl_View_clicked (const QModelIndex& index) {
-    if (!index.isValid())
+void DateNavigationWidget::sl_UpdateStates()
+{
+    bool hasEmpty = ( ui->treeView->model() ? ( ui->treeView->model()->rowCount() == 0 ) : false );
+    ui->tButtonExpandAll->setEnabled( !hasEmpty );
+    ui->tButtonCollapseAll->setEnabled( !hasEmpty );
+}
+
+void DateNavigationWidget::on_tButtonExpandAll_clicked()
+{
+    sl_ExpandAll();
+}
+void DateNavigationWidget::on_tButtonCollapseAll_clicked()
+{
+    sl_CollapseAll();
+}
+
+void DateNavigationWidget::on_treeView_clicked(const QModelIndex& index)
+{
+    if ( !index.isValid() )
         return;
 
-	BaseModelItem* item = static_cast<BaseModelItem*>(index.internalPointer());
-	if (item->DataType() == BaseModelItem::note) {
-		NoteModelItem* noteItem = dynamic_cast<NoteModelItem*>(item);
-		if (noteItem == 0) {
-			WARNING("Casting error");
-			return;
-		}
-        Note* n = noteItem->getStoredData();
-		emit sg_NoteClicked(n);
-	}
-}
-
-void DateNavigationWidget::sl_View_doubleClicked (const QModelIndex& index) {
-	if (!index.isValid()) {return;}
-
-	BaseModelItem* item = static_cast<BaseModelItem*>(index.internalPointer());
-	if (item->DataType() == BaseModelItem::note) {
-		NoteModelItem* noteItem = dynamic_cast<NoteModelItem*>(item);
-		if (noteItem == 0) {
-			WARNING("Casting error");
-			return;
-		}
-        Note* n = noteItem->getStoredData();
-		emit sg_NoteDoubleClicked(n);
-	}
-}
-
-void DateNavigationWidget::sl_updateTreeModel(bool) {
-    if (creationDateButton->isChecked())
-		treeView->setModel(creationDateModel);
-
-    else if (modificationDateButton->isChecked())
-		treeView->setModel(modificationDateModel);
-
-    if (treeView->model() != 0)
+    BaseModelItem * item = static_cast < BaseModelItem * > ( index.internalPointer() );
+    if ( item->DataType() == BaseModelItem::note )
     {
-        for (int i = 0; i < treeView->model()->columnCount(); i++)
-			treeView->resizeColumnToContents(i);		
-	}
+        NoteModelItem * noteItem = dynamic_cast < NoteModelItem * > ( item );
+        if ( !noteItem )
+        {
+            WARNING("Casting error");
+            return;
+        }
+        Note * n = noteItem->getStoredData();
+        emit sg_NoteClicked(n);
+    }
+}
+void DateNavigationWidget::on_treeView_doubleClicked( const QModelIndex & index )
+{
+    if ( !index.isValid() )
+        return;
+
+    BaseModelItem * item = static_cast < BaseModelItem * > ( index.internalPointer() );
+    if ( item->DataType() == BaseModelItem::note )
+    {
+        NoteModelItem * noteItem = dynamic_cast < NoteModelItem * > ( item );
+        if ( !noteItem )
+        {
+            WARNING("Casting error");
+            return;
+        }
+        Note * n = noteItem->getStoredData();
+        emit sg_NoteDoubleClicked(n);
+    }
+}
+
+void DateNavigationWidget::on_rButtonCreationDate_clicked( bool checked )
+{
+    sl_updateTreeModel( checked );
+    sl_UpdateStates();
+}
+void DateNavigationWidget::on_rButtonModificationDate_clicked( bool checked )
+{
+    sl_updateTreeModel( checked );
+    sl_UpdateStates();
+}
+
+void DateNavigationWidget::sl_updateTreeModel( bool )
+{
+    if ( ui->rButtonCreationDate->isChecked() )
+        ui->treeView->setModel( creationDateModel );
+
+    else if ( ui->rButtonModificationDate->isChecked() )
+        ui->treeView->setModel( modificationDateModel );
+
+    if ( ui->treeView->model() )
+        for ( int i = 0; i < ui->treeView->model()->columnCount(); i++ )
+            ui->treeView->resizeColumnToContents(i);
 }

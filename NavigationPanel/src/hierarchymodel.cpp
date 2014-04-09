@@ -27,10 +27,10 @@ along with qNotesManager. If not, see <http://www.gnu.org/licenses/>.
 
 #include <QDebug>
 
-HierarchyModel::HierarchyModel(QObject *parent)
-    : BaseModel(parent)
+HierarchyModel::HierarchyModel( QObject * parent )
+    : BaseModel( parent )
 {
-    Folder* rootFolder = Notebook::instance()->rootFolder();
+    Folder * rootFolder = Notebook::instance()->getRootFolder();
     if ( !rootFolder )
     {
         WARNING("Null reference");
@@ -38,20 +38,21 @@ HierarchyModel::HierarchyModel(QObject *parent)
     }
     registerItem(rootFolder);
 
-    Folder* trashFolder = Notebook::instance()->trashFolder();
-    if (trashFolder == 0) {
+    Folder * trashFolder = Notebook::instance()->getTrashFolder();
+    if ( !trashFolder )
+    {
         WARNING("Null reference");
         return;
     }
-    registerItem(trashFolder);
+    registerItem( trashFolder );
 
     SeparatorModelItem* separatorItem = new SeparatorModelItem();
-    BaseModelItem * rootItem = bridge.value(Notebook::instance()->rootFolder());
+    BaseModelItem * rootItem = bridge.value( Notebook::instance()->getRootFolder() );
 
-    rootItem->AddChild(separatorItem);
-    rootItem->AddChild(bridge.value(trashFolder));
+    rootItem->AddChild( separatorItem );
+    rootItem->AddChild( bridge.value( trashFolder ) );
 
-    setRootItem(rootItem);
+    setRootItem( rootItem );
 }
 
 void HierarchyModel::registerItem(Folder* folder) // Register folder and all items inside of it
@@ -397,7 +398,7 @@ Qt::ItemFlags HierarchyModel::flags (const QModelIndex& index ) const
         if (modelItem->DataType() == BaseModelItem::folder) {
             FolderModelItem* folderItem = dynamic_cast<FolderModelItem*>(modelItem);
 
-            if ( folderItem->getStoredData() == Notebook::instance()->trashFolder() )
+            if ( folderItem->getStoredData() == Notebook::instance()->getTrashFolder() )
                 returnFlags = Qt::ItemIsDropEnabled | defaultFlags;
             else
                 returnFlags = Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled | defaultFlags;

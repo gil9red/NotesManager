@@ -36,20 +36,22 @@ TagsModel::TagsModel(QObject *parent)
     QObject::connect(Notebook::instance(), SIGNAL(sg_ItemRegistered(Tag*)), SLOT(sl_Document_TagRegistered(Tag*)));
     QObject::connect(Notebook::instance(), SIGNAL(sg_ItemUnregistered(Tag*)), SLOT(sl_Document_TagUnregistered(Tag*)));
 
-    const QList<Tag*> tags = Notebook::instance()->tagsList();
-    foreach (Tag* tag, tags)
-		sl_Document_TagRegistered(tag);	
+    const QList<Tag*> tags = Notebook::instance()->getTagsList();
+    foreach( Tag * tag, tags )
+        sl_Document_TagRegistered( tag );
 }
 
 void TagsModel::sl_Tag_OwnerAdded(Note* note)
 {
 	Tag* tag = qobject_cast<Tag*>(QObject::sender());
 
-	if (!tag) {
+    if (!tag)
+    {
 		WARNING("Null pointer recieved");
 		return;
 	}
-	if (!tagsBridge.contains(tag)) {
+    if (!tagsBridge.contains(tag))
+    {
 		WARNING("Got signal from unknown item");
 		return;
 	}

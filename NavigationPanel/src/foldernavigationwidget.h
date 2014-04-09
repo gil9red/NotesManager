@@ -1,34 +1,13 @@
-/*
-This file is part of qNotesManager.
+#ifndef FOLDERNAVIGATIONWIDGET_H
+#define FOLDERNAVIGATIONWIDGET_H
 
-qNotesManager is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+#include <QMainWindow>
 
-qNotesManager is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+namespace Ui
+{
+    class FolderNavigationWidget;
+}
 
-You should have received a copy of the GNU General Public License
-along with qNotesManager. If not, see <http://www.gnu.org/licenses/>.
-*/
-
-#ifndef QNM_FOLDERNAVIGATIONWIDGET_H
-#define QNM_FOLDERNAVIGATIONWIDGET_H
-
-#include <QWidget>
-#include <QLabel>
-#include <QTreeView>
-#include <QListView>
-#include <QComboBox>
-#include <QToolButton>
-#include <QMenu>
-#include <QAction>
-#include <QSortFilterProxyModel>
-#include <QLineEdit>
-#include <QItemDelegate>
 #include "Note/RichTextNote.h"
 
 class HierarchyModel;
@@ -36,16 +15,18 @@ class Note;
 class Folder;
 class BaseModelItem;
 
-class FolderNavigationWidget : public QWidget
+class FolderNavigationWidget : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit FolderNavigationWidget(QWidget *parent = 0);
+    explicit FolderNavigationWidget( QWidget * parent = 0 );
+    ~FolderNavigationWidget();
+
     void setModel( HierarchyModel * );
     void updatePinnedFolderData();
 
-    bool hasCurrentItem();    
+    bool hasCurrentItem();
     BaseModelItem * getItem( const QModelIndex & );
     BaseModelItem * getCurrentItem();
     Note * getNote( const QModelIndex & );
@@ -54,11 +35,9 @@ public:
     Folder * getCurrentFolder();
 
 private:
-    QTreeView * treeView;
-    HierarchyModel * model;
+    Ui::FolderNavigationWidget * ui;
 
-    QLabel * currentRootLabel;
-    QToolButton * pinFolderButton;
+    HierarchyModel * model;
 
     QMenu * itemForeColorMenu;
     QMenu * itemBackColorMenu;
@@ -81,25 +60,9 @@ private:
     void deleteChildIndexes(QModelIndexList& list) const; // Delete indexes, which parents also in the list
     void restoreExpandedIndexes();
 
-private slots:
-    void sl_TreeView_ContextMenuRequested(const QPoint& p);
-    void sl_View_clicked (const QModelIndex&);
-    void sl_View_doubleClicked (const QModelIndex&);
-    void sl_View_SelectionChanged(const QItemSelection&, const QItemSelection&);
-    void sl_View_Expanded(const QModelIndex&);
-    void sl_View_Collapsed(const QModelIndex&);
-
-    void sl_PinFolderButton_Toggled(bool);
-
-    void sl_Model_ApplySelection(const QModelIndexList&);
-    void sl_Model_DisplayRootItemChanged();
-
-    void sl_UpdateStates();
-
-    void sl_NoteEventChange( RichTextNote * richTextNote, int event );
-
 public slots:
     void sl_ExpandAll();
+    void sl_CollapseAll();
 
     bool sl_AddNote( RichTextNote * richTextNote );
 
@@ -116,6 +79,23 @@ public slots:
     void sl_OpenNoteAction_Triggered();
     void sl_RenameItemAction_Triggered();
 
+private slots:
+    void sl_UpdateStates();
+
+    void sl_Model_ApplySelection(const QModelIndexList& list);
+    void sl_Model_DisplayRootItemChanged();
+
+    void on_tButtonPinFolder_clicked( bool checked );
+    void on_tButtonExpandAll_clicked();
+    void on_tButtonCollapseAll_clicked();
+
+    void on_treeView_customContextMenuRequested(const QPoint &pos);
+    void on_treeView_clicked(const QModelIndex &index);
+    void on_treeView_doubleClicked(const QModelIndex &index);
+    void on_treeView_expanded(const QModelIndex &index);
+    void on_treeView_collapsed(const QModelIndex &index);
+    void sl_treeView_SelectionChanged(const QItemSelection&, const QItemSelection&);
+
 protected:
     bool eventFilter (QObject* watched, QEvent* event);
 
@@ -125,4 +105,4 @@ signals:
     void sg_SelectedItemsActionsListChanged();
 };
 
-#endif // QNM_FOLDERNAVIGATIONWIDGET_H
+#endif // FOLDERNAVIGATIONWIDGET_H

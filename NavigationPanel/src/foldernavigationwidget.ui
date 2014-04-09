@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FolderNavigationWidget</class>
+ <widget class="QMainWindow" name="FolderNavigationWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>462</width>
+    <height>373</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Navigation window by folders</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="labelCurrentPinFolder">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="tButtonPinFolder">
+        <property name="toolTip">
+         <string>Pin folder</string>
+        </property>
+        <property name="statusTip">
+         <string>Pin folder</string>
+        </property>
+        <property name="whatsThis">
+         <string>Pin folder</string>
+        </property>
+        <property name="text">
+         <string>Pin folder</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../NavigationPanel.qrc">
+          <normaloff>:/fugue-icons/pin</normaloff>:/fugue-icons/pin</iconset>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="autoRaise">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>5</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QToolButton" name="tButtonExpandAll">
+        <property name="toolTip">
+         <string>Expand All</string>
+        </property>
+        <property name="statusTip">
+         <string>Expand All</string>
+        </property>
+        <property name="whatsThis">
+         <string>Expand All</string>
+        </property>
+        <property name="text">
+         <string>Expand All</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../NavigationPanel.qrc">
+          <normaloff>:/fugue-icons/blue-folder-horizontal-open</normaloff>:/fugue-icons/blue-folder-horizontal-open</iconset>
+        </property>
+        <property name="autoRaise">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="tButtonCollapseAll">
+        <property name="toolTip">
+         <string>Collapse All</string>
+        </property>
+        <property name="statusTip">
+         <string>Collapse All</string>
+        </property>
+        <property name="whatsThis">
+         <string>Collapse All</string>
+        </property>
+        <property name="text">
+         <string>Collapse All</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../NavigationPanel.qrc">
+          <normaloff>:/fugue-icons/blue-folder-horizontal</normaloff>:/fugue-icons/blue-folder-horizontal</iconset>
+        </property>
+        <property name="autoRaise">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QTreeView" name="treeView">
+      <property name="contextMenuPolicy">
+       <enum>Qt::CustomContextMenu</enum>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="dragEnabled">
+       <bool>true</bool>
+      </property>
+      <property name="dragDropMode">
+       <enum>QAbstractItemView::InternalMove</enum>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::ExtendedSelection</enum>
+      </property>
+      <attribute name="headerVisible">
+       <bool>false</bool>
+      </attribute>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../NavigationPanel.qrc"/>
+ </resources>
+ <connections/>
+</ui>

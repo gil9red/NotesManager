@@ -38,22 +38,19 @@ static const char codec[] = "utf8";
 // TODO: гиперссылки у заметок
 // TODO: настройки: добавить возможность у заметок убирать лишние компоненты: быстрый поиск и панель инструментов.
 // (учитывать, что в ос не все символы в названиях файлов разрешены)
-/// TODO: Вставка текстовых смайлов в редактор заметок
 // TODO: добавить заметку с снимком от вебкамеры (Думаю, лучше будет использовать opencv)
 
-/// TODO: добавить кнопку "Развернуть все" для иерархических деревьев
+//// TODO: добавить выполнение скриптов
 /// TODO: настроить удаление: если заметка в корзине - удаление ее, если вне корзины - то добавить в корзину
 /// TODO: foldernavigationwidget доработать добавление заметок/папок. Убрать ограничение на добавляемые объекты.
 /// TODO: доработать логику контекстного меню иерархического дерева заметок. В качестве основы, взять ту, что используется в page_notes. В идеале, использовать одни QAction - для page_notes и для иерархического дерева
-/// TODO: действие Открыть для множества выделенных заметок
+/// TODO: Вставка текстовых смайлов в редактор заметок
 /// TODO: Добавить "Выделить текущую вкладку на дереве"
 /// TODO: допилить словарь автодополнений
-//// TODO: добавить выполнение скриптов
+///
 /// NOTE: git после выпуска стабильных версий, создавать ветку develop для новой версии
 
 QString nm_Note::style = "";
-
-//#include "ScriptModule/foo.h"
 
 int main( int argc, char *argv[] )
 {
@@ -64,22 +61,6 @@ int main( int argc, char *argv[] )
     qApp->setApplicationName( App::name );
     qApp->setApplicationVersion( App::version );
     qApp->setQuitOnLastWindowClosed( false );
-
-
-//    /// Example Script
-//    qDebug() << ScriptModule::evaluate( "(1+2+3-2*2)/2");
-//    //
-//    QScriptEngine * scriptEngine = new QScriptEngine();
-//    QScriptValue fun = scriptEngine->evaluate("(function(a, b) { return a + b; })");
-//    QScriptValueList args;
-//    args << 1 << 2;
-//    QScriptValue result = fun.call(QScriptValue(), args);
-//    qDebug() << result.toString();
-//    //
-//    QScriptValue pow = scriptEngine->evaluate("(function(a, b) { var res = 1; while( b-- ) res *= a; return res; })");
-//    qDebug() << pow.call( QScriptValue(), QScriptValueList() << 5 << 3 ).toString();
-//    /// Example Script
-
 
     if ( app.isRunning() )
     {

@@ -22,7 +22,7 @@ AbstractFolderItem * createFromType( const QString & type )
         return new Folder();
 
     else if ( type == "Trash" )
-        return Notebook::instance()->trashFolder();
+        return Notebook::instance()->getTrashFolder();
 
     return 0;
 }
@@ -144,18 +144,18 @@ Notebook::Notebook( QObject * parent )
 {
     self = this;
 
-    p_rootFolder = new Folder( "_root_", Folder::SystemFolder );
-    QObject::connect( p_rootFolder, SIGNAL(sg_ItemAdded(AbstractFolderItem * const, int)), SLOT(sl_Folder_ItemAdded(AbstractFolderItem* const)) );
-    QObject::connect( p_rootFolder, SIGNAL(sg_ItemRemoved(AbstractFolderItem*const)), SLOT(sl_Folder_ItemRemoved(AbstractFolderItem*const)) );
+    rootFolder = new Folder( "_root_", Folder::SystemFolder );
+    QObject::connect( rootFolder, SIGNAL(sg_ItemAdded(AbstractFolderItem * const, int)), SLOT(sl_Folder_ItemAdded(AbstractFolderItem* const)) );
+    QObject::connect( rootFolder, SIGNAL(sg_ItemRemoved(AbstractFolderItem*const)), SLOT(sl_Folder_ItemRemoved(AbstractFolderItem*const)) );
 
-    p_trashFolder = new Folder( QString(), Folder::TrashFolder );
-    QObject::connect( p_trashFolder, SIGNAL(sg_ItemAdded(AbstractFolderItem*const, int)), SLOT(sl_Folder_ItemAdded(AbstractFolderItem* const)) );
-    QObject::connect( p_trashFolder, SIGNAL(sg_ItemRemoved(AbstractFolderItem*const)), SLOT(sl_Folder_ItemRemoved(AbstractFolderItem*const)) );
+    trashFolder = new Folder( QString(), Folder::TrashFolder );
+    QObject::connect( trashFolder, SIGNAL(sg_ItemAdded(AbstractFolderItem*const, int)), SLOT(sl_Folder_ItemAdded(AbstractFolderItem* const)) );
+    QObject::connect( trashFolder, SIGNAL(sg_ItemRemoved(AbstractFolderItem*const)), SLOT(sl_Folder_ItemRemoved(AbstractFolderItem*const)) );
 
-    p_hierarchyModel = new HierarchyModel( this );
-    p_tagsModel = new TagsModel( this );
-    p_creationDateModel = new DatesModel( DatesModel::CreationDate, this );
-    p_modificationDateModel = new DatesModel( DatesModel::ModifyDate, this );
+    hierarchyModel = new HierarchyModel( this );
+    tagsModel = new TagsModel( this );
+    creationDateModel = new DatesModel( DatesModel::CreationDate, this );
+    modificationDateModel = new DatesModel( DatesModel::ModifyDate, this );
 }
 Notebook::~Notebook()
 {
@@ -175,8 +175,8 @@ void Notebook::read( QDomElement & root )
     QDomElement rootNotes = root.firstChildElement( "Notes" );
     QDomElement rootTrash = root.firstChildElement( "Trash" );
 
-    parseDomElement( rootFolder(), rootNotes );
-    parseDomElement( trashFolder(), rootTrash );
+    parseDomElement( getRootFolder(), rootNotes );
+    parseDomElement( getTrashFolder(), rootTrash );
 }
 void Notebook::write( QDomElement & root, QDomDocument & xmlDomDocument )
 {
@@ -187,46 +187,46 @@ void Notebook::write( QDomElement & root, QDomDocument & xmlDomDocument )
     root.appendChild( rootNotes );
     root.appendChild( rootTrash );
 
-    parseItem( rootFolder(), rootNotes, xmlDomDocument );
-    parseItem( trashFolder(), rootTrash, xmlDomDocument );
+    parseItem( getRootFolder(), rootNotes, xmlDomDocument );
+    parseItem( getTrashFolder(), rootTrash, xmlDomDocument );
 }
 
-void Notebook::setRootFolder( Folder * f ) { p_rootFolder = f; }
-void Notebook::setTrashFolder( Folder * f ) { p_trashFolder = f; }
-void Notebook::setPinnedFolder( Folder * f ) { hierarchyModel()->setPinnedFolder(f); }
+void Notebook::setRootFolder( Folder * f ) { rootFolder = f; }
+void Notebook::setTrashFolder( Folder * f ) { trashFolder = f; }
+void Notebook::setPinnedFolder( Folder * f ) { getHierarchyModel()->setPinnedFolder(f); }
 
-Folder * Notebook::rootFolder() { return p_rootFolder; }
-Folder * Notebook::trashFolder() { return p_trashFolder; }
-Folder * Notebook::pinnedFolder() { return hierarchyModel()->getPinnedFolder(); }
+Folder * Notebook::getRootFolder() { return rootFolder; }
+Folder * Notebook::getTrashFolder() { return trashFolder; }
+Folder * Notebook::getPinnedFolder() { return getHierarchyModel()->getPinnedFolder(); }
 
-QList < Note * > Notebook::notesList()
+QList < Note * > Notebook::getNotesList()
 {
     return allNotes;
 }
-QList < Folder * > Notebook::foldersList()
+QList < Folder * > Notebook::getFoldersList()
 {
     return allFolders;
 }
-QList < Tag * > Notebook::tagsList()
+QList < Tag * > Notebook::getTagsList()
 {
     return allTags;
 }
 
-HierarchyModel * Notebook::hierarchyModel()
+HierarchyModel * Notebook::getHierarchyModel()
 {
-    return p_hierarchyModel;
+    return hierarchyModel;
 }
-TagsModel * Notebook::tagsModel()
+TagsModel * Notebook::getTagsModel()
 {
-    return p_tagsModel;
+    return tagsModel;
 }
-DatesModel * Notebook::creationDateModel()
+DatesModel * Notebook::getCreationDateModel()
 {
-    return p_creationDateModel;
+    return creationDateModel;
 }
-DatesModel * Notebook::modificationDateModel()
+DatesModel * Notebook::getModificationDateModel()
 {
-    return p_modificationDateModel;
+    return modificationDateModel;
 }
 
 QString Notebook::getIdFromNote( Note * note )
@@ -261,7 +261,6 @@ void Notebook::sl_RichTextNote_EventChange( int event )
         return;
     }
 
-    WARNING("RichTextNote Event Changed");
     emit sg_RichTextNote_About_EventChange( richTextNote, event );
 }
 

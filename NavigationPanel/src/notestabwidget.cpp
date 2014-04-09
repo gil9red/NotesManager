@@ -50,9 +50,10 @@ NotesTabWidget::NotesTabWidget( QWidget * parent )
         actionCloseAll = contextMenu->addAction( QIcon( "" ), tr( "Close all tabs" ), this, SLOT( sl_CloseAllTabs() ), QKeySequence() );
 
 
-        QToolButton * contextMenuButton = new QToolButton();
+        QToolButton * contextMenuButton = new QToolButton();        
         contextMenuButton->setFocusPolicy( Qt::NoFocus );
         contextMenuButton->setMenu( contextMenu );
+        contextMenuButton->setAutoRaise( true );
         contextMenuButton->setPopupMode( QToolButton::InstantPopup );
         setCornerWidget( contextMenuButton, Qt::TopRightCorner );
     }

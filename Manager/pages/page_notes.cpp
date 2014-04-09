@@ -82,10 +82,10 @@ void Page_Notes::read( QIODevice * device )
     {
         Notebook::instance()->read( root );
 
-        ui->tab_Notes->setModel( Notebook::instance()->hierarchyModel() );
-        ui->tab_Tags->SetModel( Notebook::instance()->tagsModel() );
-        ui->tab_Dates->SetCreationModel( Notebook::instance()->creationDateModel() );
-        ui->tab_Dates->SetModificationModel( Notebook::instance()->modificationDateModel() );
+        ui->tab_Notes->setModel( Notebook::instance()->getHierarchyModel() );
+        ui->tab_Tags->setModel( Notebook::instance()->getTagsModel() );
+        ui->tab_Dates->setCreationModel( Notebook::instance()->getCreationDateModel() );
+        ui->tab_Dates->setModificationModel( Notebook::instance()->getModificationDateModel() );
     }
 
     // Загрузка вкладок
@@ -227,7 +227,7 @@ bool Page_Notes::currentIsNote()
 }
 bool Page_Notes::currentIsTrash()
 {
-    return ( ui->tab_Notes->getCurrentFolder() == Notebook::instance()->trashFolder() );
+    return ( ui->tab_Notes->getCurrentFolder() == Notebook::instance()->getTrashFolder() );
 }
 bool Page_Notes::currentNoteIsVisible()
 {
@@ -277,7 +277,7 @@ bool Page_Notes::currentIsChildTrash()
     BaseModelItem * parentItem = item->parent();
     while ( parentItem )
     {
-        if ( Notebook::instance()->hierarchyModel()->getItem( parentItem ) == Notebook::instance()->trashFolder() )
+        if ( Notebook::instance()->getHierarchyModel()->getItem( parentItem ) == Notebook::instance()->getTrashFolder() )
             return true;
 
         parentItem = parentItem->parent();
@@ -286,7 +286,7 @@ bool Page_Notes::currentIsChildTrash()
 }
 bool Page_Notes::trashIsEmpty()
 {
-    return ( Notebook::instance()->trashFolder()->child.Count() == 0 );
+    return ( Notebook::instance()->getTrashFolder()->child.Count() == 0 );
 }
 
 void Page_Notes::sl_AddFolder()
@@ -447,7 +447,7 @@ void Page_Notes::sl_ShowAllNotes()
 {
     qApp->setOverrideCursor( Qt::WaitCursor );
 
-    foreach ( Note * note, Notebook::instance()->notesList() )
+    foreach ( Note * note, Notebook::instance()->getNotesList() )
     {
         RichTextNote * richTextNote = note->getRichTextNote();
         if ( richTextNote->isVisible() )
@@ -464,7 +464,7 @@ void Page_Notes::sl_HideAllNotes()
 {
     qApp->setOverrideCursor( Qt::WaitCursor );
 
-    foreach ( Note * note, Notebook::instance()->notesList() )
+    foreach ( Note * note, Notebook::instance()->getNotesList() )
     {
         RichTextNote * richTextNote = note->getRichTextNote();
         if ( richTextNote->isHidden() )
@@ -481,7 +481,7 @@ void Page_Notes::sl_SaveAllNotes()
 {
     qApp->setOverrideCursor( Qt::WaitCursor );
 
-    foreach ( Note * note, Notebook::instance()->notesList() )
+    foreach ( Note * note, Notebook::instance()->getNotesList() )
     {
         RichTextNote * richTextNote = note->getRichTextNote();
         richTextNote->save();
@@ -550,7 +550,7 @@ void Page_Notes::sl_PreviewPrintNote()
 
 void Page_Notes::sl_UpdateStates()
 {
-    bool isEmpty = Notebook::instance()->notesList().isEmpty();
+    bool isEmpty = Notebook::instance()->getNotesList().isEmpty();
     ui->actionHideAllNotes->setEnabled( !isEmpty );
     ui->actionShowAllNotes->setEnabled( !isEmpty );
     ui->actionSaveAllNotes->setEnabled( !isEmpty );
@@ -565,7 +565,7 @@ void Page_Notes::sl_UpdateStates()
 
     ui->actionDelete->setEnabled( false );
     ui->actionRemoveToTrash->setEnabled( false );
-    ui->actionClearTrash->setEnabled( Notebook::instance()->trashFolder()->child.Count() > 0 );
+    ui->actionClearTrash->setEnabled( Notebook::instance()->getTrashFolder()->child.Count() > 0 );
 
     ui->actionAddNote->setEnabled( true );
     ui->actionAddNoteFromClipboard->setEnabled( true );

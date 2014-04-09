@@ -30,18 +30,18 @@ public:
     void setTrashFolder( Folder * f );
     void setPinnedFolder( Folder * f );
 
-    Folder * rootFolder();
-    Folder * trashFolder();
-    Folder * pinnedFolder();
+    Folder * getRootFolder();
+    Folder * getTrashFolder();
+    Folder * getPinnedFolder();
 
-    QList < Note * > notesList();
-    QList < Folder * > foldersList();
-    QList < Tag * > tagsList();
+    QList < Note * > getNotesList();
+    QList < Folder * > getFoldersList();
+    QList < Tag * > getTagsList();
 
-    HierarchyModel * hierarchyModel();
-    TagsModel * tagsModel();
-    DatesModel * creationDateModel();
-    DatesModel * modificationDateModel();
+    HierarchyModel * getHierarchyModel();
+    TagsModel * getTagsModel();
+    DatesModel * getCreationDateModel();
+    DatesModel * getModificationDateModel();
 
 
     QString getIdFromNote( Note * note );
@@ -52,9 +52,9 @@ public:
 
 
 private:
-    Folder * p_rootFolder;
-    Folder * p_trashFolder;
-    Folder * p_pinnedFolder;
+    Folder * rootFolder;
+    Folder * trashFolder;
+    Folder * pinnedFolder;
 
     QList < Note * > allNotes;
     QList < Folder * > allFolders;
@@ -65,12 +65,12 @@ private:
     QHash < Note *, RichTextNote * > hash_Note_RichTextNote;
 
 
-    HierarchyModel * p_hierarchyModel;
-    TagsModel * p_tagsModel;
-    DatesModel * p_creationDateModel;
-    DatesModel * p_modificationDateModel;
+    HierarchyModel * hierarchyModel;
+    TagsModel * tagsModel;
+    DatesModel * creationDateModel;
+    DatesModel * modificationDateModel;
 
-//    QStandardItemModel * tagsListModel; // used for completers in TagsLineEdit
+
     QMap < QString, Tag * > tagsByName; // для быстрого нахождение тэга по имени
 
     static Notebook * self;
