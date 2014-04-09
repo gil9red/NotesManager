@@ -46,11 +46,11 @@ public:
     QAction * addFolderAction;
     QAction * moveToBinAction;
     QAction * deleteItemAction;
+    QAction * clearTrashAction;
     QAction * itemDefaultForeColorAction;
     QAction * itemCustomForeColorAction;
     QAction * itemDefaultBackColorAction;
     QAction * itemCustomBackColorAction;
-    QAction * clearTrashAction;
     QAction * openNoteAction;
     QAction * renameItemAction;
 

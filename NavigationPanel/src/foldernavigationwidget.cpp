@@ -831,15 +831,14 @@ void FolderNavigationWidget::on_treeView_customContextMenuRequested(const QPoint
     QMenu menu;
     bool isEmptyTrash = Notebook::instance()->getTrashFolder()->child.Count() == 0;
     const QModelIndexList & indexesList = selectionModel->selectedIndexes();
+
     menu.addAction(addNoteAction);
     menu.addAction(addFolderAction);
-    // 0 items
-    if (indexesList.isEmpty())
-    {
-        menu.addAction(addNoteAction);
-        menu.addAction(addFolderAction);
 
-        if (model->getPinnedFolder() != 0)
+    // 0 items
+    if ( indexesList.isEmpty() )
+    {
+        if ( model->getPinnedFolder() )
         {
             // Edd context menu items for pinned folder
             if (model->getPinnedFolder() == Notebook::instance()->getTrashFolder() )
@@ -851,7 +850,7 @@ void FolderNavigationWidget::on_treeView_customContextMenuRequested(const QPoint
             }
         }
 
-    } else if (indexesList.size() == 1) // 1 item
+    } else if ( indexesList.size() == 1 ) // 1 item
     {
         const QModelIndex index = indexesList.first();
         if ( index.isValid() )
@@ -863,15 +862,12 @@ void FolderNavigationWidget::on_treeView_customContextMenuRequested(const QPoint
                 const AbstractFolderItem * folderItem = folderModelItem->getStoredData();
                 if ( folderItem == Notebook::instance()->getTrashFolder() )
                 {
-                    menu.addSeparator();
+                    menu.clear();
                     menu.addAction(clearTrashAction);
-
                     clearTrashAction->setEnabled( !isEmptyTrash );
 
                 } else
                 {
-                    menu.addAction(addNoteAction);
-                    menu.addAction(addFolderAction);
                     menu.addSeparator();
                     menu.addAction(renameItemAction);
                     menu.addAction(itemForeColorMenu->menuAction());

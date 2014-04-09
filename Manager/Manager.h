@@ -63,15 +63,15 @@ private slots:
 
     void acceptChangeSettings();
 
-    void show_page_notes();      //!< Показать страницу с заметками.
-    void show_page_settings();   //!< Показать страницу настроек.
-    void show_page_about();      //!< Показать страницу "О программе".
-    void show_page_documentation(); //!< Показать страницу "Документация".
+    void showPageNotes();      //!< Показать страницу с заметками.
+    void showPageSettings();   //!< Показать страницу настроек.
+    void showPageAbout();      //!< Показать страницу "О программе".
+    void showPageDocumentation(); //!< Показать страницу "Документация".
 
     void updateStates();
 
 public slots:
-    void show_Manager();  //!< Показать менеджер.
+    void showManager();  //!< Показать менеджер.
     void setFullScreen( bool );
     void quit();          //!< Закрыть программу.
     void readSettings();  //!< Считывание настроек менеджера.

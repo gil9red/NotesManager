@@ -53,7 +53,6 @@ Note::~Note()
         WARNING( "null pointer!" );
         return;
     }
-    WARNING( "Delete pointer RichTextNote and dir" );
 
     // Пусть заметка перед удалением сотрет себя с жесткого диска
     p_RichTextNote->removeDir();

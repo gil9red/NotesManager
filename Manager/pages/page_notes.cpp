@@ -126,7 +126,6 @@ void Page_Notes::read( QIODevice * device )
         ui->tabWidget_EditNotes->setCurrentIndex( index );
     }
 
-    // TODO: думаю, лучше сделать это настраиваемым
     ui->tab_Notes->sl_ExpandAll();
     ui->tab_Tags->sl_ExpandAll();
     ui->tab_Dates->sl_ExpandAll();

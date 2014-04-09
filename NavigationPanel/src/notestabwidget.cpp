@@ -27,9 +27,9 @@ along with qNotesManager. If not, see <http://www.gnu.org/licenses/>.
 NotesTabWidget::NotesTabWidget( QWidget * parent )
     : QTabWidget( parent )
 {
-    QObject::connect(this, SIGNAL(currentChanged(int)), SLOT(sl_TabWidget_CurrentChanged(int)));
-    QObject::connect(this, SIGNAL(tabCloseRequested(int)), SLOT(sl_TabWidget_TabCloseRequested(int)));
-    setTabsClosable(true);
+    QObject::connect( this, SIGNAL(currentChanged(int)), SLOT(sl_TabWidget_CurrentChanged(int)) );
+    QObject::connect( this, SIGNAL(tabCloseRequested(int)), SLOT(sl_TabWidget_TabCloseRequested(int)) );
+    setTabsClosable( true );
 
     // Контекстное меню
     {
@@ -40,8 +40,9 @@ NotesTabWidget::NotesTabWidget( QWidget * parent )
 
         // TODO: this NULL ICON
 //        actionHighlightCurrent = contextMenu->addAction( QIcon( "" ), tr( "Highlight the current tab on the tree" ), this, SLOT( sl_HighlightCurrentTabOnTree() ), QKeySequence() );
-        contextMenu->addSeparator();
-        actionCloseCurrent = contextMenu->addAction( QIcon( "" ), tr( "Close current tab" ), this, SLOT( sl_CloseCurrentTab() ), QKeySequence() );
+        contextMenu->addSeparator();        
+
+        actionCloseCurrent = contextMenu->addAction( QIcon( ":/fugue-icons/cross" ), tr( "Close current tab" ), this, SLOT( sl_CloseCurrentTab() ), QKeySequence() );
         actionCloseAll_Except = contextMenu->addAction( QIcon( "" ), tr( "Close all tabs except the current" ), this, SLOT( sl_CloseAllTabsExceptCurrent() ), QKeySequence() );
         contextMenu->addSeparator();
         actionCloseAll_Left = contextMenu->addAction( QIcon( "" ), tr( "Close all tabs to the left of the current" ), this, SLOT( sl_CloseAllTabsToLeftOfCurrent() ), QKeySequence() );
@@ -83,23 +84,23 @@ Note * NotesTabWidget::currentNote()
 {
     return note( currentIndex() );
 }
-void NotesTabWidget::setCurrentNote(Note* note)
+void NotesTabWidget::setCurrentNote( Note * note )
 {
-    if (!note)
+    if ( !note )
     {
         WARNING("Null pointer recieved");
         return;
     }
 
-    if (hashNoteTabs.contains(note))
+    if ( hashNoteTabs.contains( note ) )
     {
-        QWidget * noteEdit = hashNoteTabs.value(note);
-        setCurrentWidget(noteEdit);
+        QWidget * noteEdit = hashNoteTabs.value( note );
+        setCurrentWidget( noteEdit );
     }
 }
 QWidget * NotesTabWidget::getWidgetTab( Note * note )
 {
-    if (!note)
+    if ( !note )
     {
         WARNING("Null pointer recieved");
         return 0;
@@ -108,17 +109,17 @@ QWidget * NotesTabWidget::getWidgetTab( Note * note )
     return hashNoteTabs.value( note, 0 );
 }
 
-void NotesTabWidget::openNote(Note* note)
+void NotesTabWidget::openNote( Note * note )
 {
-    if (!note)
+    if ( !note )
     {
 		WARNING("Null pointer recieved");
 		return;
 	}
 
-    if (hashNoteTabs.contains(note))
+    if ( hashNoteTabs.contains( note ) )
     {
-        QWidget * noteEdit = hashNoteTabs.value(note);
+        QWidget * noteEdit = hashNoteTabs.value( note );
         setCurrentWidget(noteEdit);
 		return;
 	}
@@ -128,48 +129,46 @@ void NotesTabWidget::openNote(Note* note)
     noteEdit->setNote( note );
     qApp->restoreOverrideCursor();
 
-    hashNoteTabs.insert(note, noteEdit);
+    hashNoteTabs.insert( note, noteEdit );
     QObject::connect( note, SIGNAL(sg_VisualPropertiesChanged()), SLOT(sl_Note_PropertiesChanged()) );
     QObject::connect( note, SIGNAL(sg_Removed()), SLOT(sl_AboutRemoveNote()) );
 
     int index = addTab( noteEdit, note->getIcon(), cropString( note->getName() ) );
     setCurrentIndex( index );
 }
-void NotesTabWidget::closeNote(Note* n)
+void NotesTabWidget::closeNote( Note * note )
 {
-    if (!n)
+    if ( !note )
     {
 		WARNING("Null pointer recieved");
 		return;
 	}
 
-    if (!hashNoteTabs.contains(n))
+    if ( !hashNoteTabs.contains( note ) )
     {
 		WARNING("Specified note is not open");
 		return;
 	}
 
-    QWidget * tab = hashNoteTabs.take(n);
+    QWidget * tab = hashNoteTabs.take( note );
     if ( !tab )
     {
         WARNING("Null pointer recieved");
         return;
     }
 
-    int tabIndex = indexOf(tab);
-    if (tabIndex == -1)
+    int tabIndex = indexOf( tab );
+    if ( tabIndex == -1 )
     {
 		WARNING("Could not find associated widget");
 		return;
 	}
 
-	QObject::disconnect(n, 0, this, 0);
-    removeTab(tabIndex);
+    QObject::disconnect( note, 0, this, 0 );
+    removeTab( tabIndex );
     delete tab;
-
-    WARNING( qPrintable( QString( "Close tab (%1)" ).arg( (int)n, 0, 16 ) ) );
 }
-void NotesTabWidget::closeTab(int index)
+void NotesTabWidget::closeTab( int index )
 {
     if (index == -1)
     {
@@ -177,7 +176,7 @@ void NotesTabWidget::closeTab(int index)
         return;
     }
 
-    QWidget * tab = widget(index);
+    QWidget * tab = widget( index );
     if ( !tab )
     {
         WARNING("Can't find widget by index");
@@ -214,38 +213,38 @@ void NotesTabWidget::sl_Note_PropertiesChanged()
 		return;
 	}
 
-    if (!hashNoteTabs.contains(note))
+    if ( !hashNoteTabs.contains( note ) )
     {
 		WARNING("Sender note is not registered");
-		QObject::disconnect(note, 0, this, 0);
+        QObject::disconnect( note, 0, this, 0 );
 		return;
 	}
 
-    QWidget * tab = hashNoteTabs.value(note);
-    int tabIndex = indexOf(tab);
+    QWidget * tab = hashNoteTabs.value( note );
+    int tabIndex = indexOf( tab );
 
-    if (tabIndex == -1)
+    if ( tabIndex == -1 )
     {
 		WARNING("Could not find associated widget");
 		return;
 	}
 
-    setTabIcon(tabIndex, note->getIcon());
-    setTabText(tabIndex, cropString(note->getName()));
+    setTabIcon( tabIndex, note->getIcon() );
+    setTabText( tabIndex, cropString( note->getName() ) );
 }
-void NotesTabWidget::sl_TabWidget_CurrentChanged(int index)
+void NotesTabWidget::sl_TabWidget_CurrentChanged( int index )
 {
-    if (index == -1)
+    if ( index == -1 )
     {
         emit sg_CurrentNoteChanged(0);
         return;
     }
 
-    QWidget * tab = widget(index);
+    QWidget * tab = widget( index );
     NoteEditWidget * noteEdit = dynamic_cast < NoteEditWidget * > ( tab );
     emit sg_CurrentNoteChanged( noteEdit->note() );
 }
-void NotesTabWidget::sl_TabWidget_TabCloseRequested(int index)
+void NotesTabWidget::sl_TabWidget_TabCloseRequested( int index )
 {
 	closeTab(index);
 }

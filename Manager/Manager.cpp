@@ -63,8 +63,8 @@ Manager::Manager( QWidget * parent ) :
         ui->menuHelp->addAction( ui->actionAbout );
 
 
-        QObject::connect( ui->actionSettings, SIGNAL( triggered() ), SLOT( show_page_settings() ) );
-        QObject::connect( ui->actionAbout, SIGNAL( triggered() ), SLOT( show_page_about() ) );
+        QObject::connect( ui->actionSettings, SIGNAL( triggered() ), SLOT( showPageSettings() ) );
+        QObject::connect( ui->actionAbout, SIGNAL( triggered() ), SLOT( showPageAbout() ) );
         QObject::connect( ui->actionQuit, SIGNAL( triggered() ), SLOT( quit() ) );
 
         QObject::connect( ui->actionOpenDict, SIGNAL( triggered() ), SLOT( openDictionary() ) );
@@ -74,7 +74,7 @@ Manager::Manager( QWidget * parent ) :
         QObject::connect( ui->actionShowSidebar, SIGNAL( triggered(bool) ), SLOT( setShowSidebar(bool) ) );
         QObject::connect( ui->actionShowStatusBar, SIGNAL( triggered(bool) ), SLOT( setShowStatusBar(bool) ) );
 
-        QObject::connect( ui->actionDocumentation, SIGNAL( triggered() ), SLOT( show_page_documentation() ) );
+        QObject::connect( ui->actionDocumentation, SIGNAL( triggered() ), SLOT( showPageDocumentation() ) );
 
 
         // Меню трея
@@ -88,7 +88,7 @@ Manager::Manager( QWidget * parent ) :
             tray.show();
 
             QMenu * trayMenu = new QMenu();
-            trayMenu->addAction( QIcon( "" ), tr( "Open manager" ), this, SLOT( show_Manager() ), QKeySequence() ); // TODO: add icon
+            trayMenu->addAction( QIcon( "" ), tr( "Open manager" ), this, SLOT( showManager() ), QKeySequence() ); // TODO: add icon
             trayMenu->addSeparator();
             trayMenu->addAction( pageNotes->ui->actionAddNote );
             trayMenu->addAction( pageNotes->ui->actionAddNoteFromClipboard );
@@ -163,7 +163,7 @@ void Manager::nowReadyPhase()
     if ( minimizeTrayOnStartup )
         hide();
     else
-        show_Manager();
+        showManager();
 }
 
 void Manager::buttonSidebarClicked( int index )
@@ -193,10 +193,13 @@ void Manager::messageReceived( const QString & text )
     foreach ( const QString & command, text.split(" ") )
     {
         if ( command == "-show" )
-            show_Manager();
+            showManager();
 
         else if ( command == "-message" )
             tray.showMessage( tr( "Information" ), tr( "Application is already running" ), QSystemTrayIcon::Information, 5000 );
+
+        else if ( command == "-beep" )
+            qApp->beep();
     }
 }
 void Manager::messageReceived( QSystemTrayIcon::ActivationReason reason )
@@ -206,7 +209,7 @@ void Manager::messageReceived( QSystemTrayIcon::ActivationReason reason )
         if ( isVisible() )
             hide();
         else
-            show_Manager();
+            showManager();
     }
 }
 
@@ -216,22 +219,22 @@ void Manager::acceptChangeSettings()
     setIntervalAutosave( pageSettings->mapSettings[ "AutosaveInterval" ].toInt() );
 }
 
-void Manager::show_page_notes()
+void Manager::showPageNotes()
 {
-    show_Manager();
+    showManager();
     ui->sidebar->setCurrentIndex( 0 );
 }
-void Manager::show_page_settings()
+void Manager::showPageSettings()
 {
-    show_Manager();
+    showManager();
     ui->sidebar->setCurrentIndex( 1 );
 }
-void Manager::show_page_about()
+void Manager::showPageAbout()
 {
-    show_Manager();
+    showManager();
     ui->sidebar->setCurrentIndex( 2 );
 }
-void Manager::show_page_documentation()
+void Manager::showPageDocumentation()
 {
     if ( !QDesktopServices::openUrl( QUrl::fromLocalFile( qApp->applicationDirPath() + "/doc/ru/html/index.html" ) ) )
     {
@@ -251,7 +254,7 @@ void Manager::updateStates()
     ui->actionVisibleToolbarMain->setChecked( ui->toolBarMain->isVisible() );
 }
 
-void Manager::show_Manager()
+void Manager::showManager()
 {
     if ( isHidden() )
         QTimer::singleShot( 0, this, SLOT( show() ) );
