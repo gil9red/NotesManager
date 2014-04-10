@@ -56,6 +56,13 @@ Page_Notes::Page_Notes( QWidget * parent ) :
         QObject::connect( ui->actionPrintNote, SIGNAL( triggered() ), SLOT( sl_PrintNote() ) );
         QObject::connect( ui->actionPreviewPrintNote, SIGNAL( triggered() ), SLOT( sl_PreviewPrintNote() ) );
         QObject::connect( ui->actionTopNote, SIGNAL( triggered(bool) ), SLOT( sl_SetTopNote(bool) ) );
+
+
+        ui->tab_Notes->actionAddNote = ui->actionAddNote;
+        ui->tab_Notes->actionAddFolder = ui->actionAddFolder;
+        ui->tab_Notes->actionMoveToBin = ui->actionRemoveToTrash;
+        ui->tab_Notes->actionDeleteItem = ui->actionDelete;
+        ui->tab_Notes->actionClearTrash = ui->actionClearTrash;
     }
 
     sl_UpdateStates();
@@ -597,9 +604,9 @@ void Page_Notes::sl_UpdateStates()
         ui->actionClearTrash->setEnabled( (isTrash || isChildTrash) && !this->trashIsEmpty() );
 
 
-        ui->actionAddNote->setEnabled( !isNote && !isTrash );
-        ui->actionAddNoteFromClipboard->setEnabled( !isNote && !isTrash );
-        ui->actionAddNoteFromScreen->setEnabled( !isNote && !isTrash );
-        ui->actionAddFolder->setEnabled( !isNote && !isTrash );
+        ui->actionAddNote->setEnabled( !isTrash );
+        ui->actionAddNoteFromClipboard->setEnabled( !isTrash );
+        ui->actionAddNoteFromScreen->setEnabled( !isTrash );
+        ui->actionAddFolder->setEnabled( !isTrash );
     }
 }

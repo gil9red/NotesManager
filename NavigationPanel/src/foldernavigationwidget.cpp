@@ -23,48 +23,34 @@ FolderNavigationWidget::FolderNavigationWidget( QWidget * parent )
 
     // Item actions
     {
-        addNoteAction = new QAction( QIcon( ":/fugue-icons/plus" ), tr( "Add Note" ), this );
-        QObject::connect(addNoteAction, SIGNAL(triggered()), SLOT(sl_AddNoteAction_Triggered()));
+        actionRenameItem = new QAction( QIcon( ":/fugue-icons/document-rename" ), tr( "Rename" ), this );
+        QObject::connect(actionRenameItem, SIGNAL(triggered()), SLOT(sl_RenameItemAction_Triggered()));
 
-        addFolderAction = new QAction( QIcon( ":/fugue-icons/folder--plus" ), tr( "Add Folder" ), this );
-        QObject::connect(addFolderAction, SIGNAL(triggered()), SLOT(sl_AddFolderAction_Triggered()));
+        actionOpenNote = new QAction( QIcon( ":/fugue-icons/book-open" ), tr( "Open" ), this );
+        QObject::connect(actionOpenNote, SIGNAL(triggered()), SLOT(sl_OpenNoteAction_Triggered()));
 
-        deleteItemAction = new QAction( QIcon( ":/fugue-icons/cross" ), tr( "Delete" ), this );
-        QObject::connect(deleteItemAction, SIGNAL(triggered()), SLOT(sl_DeleteItemAction_Triggered()));
 
-        moveToBinAction = new QAction( QIcon( ":/fugue-icons/minus" ), tr( "Move to Bin" ), this );
-        QObject::connect(moveToBinAction, SIGNAL(triggered()), SLOT(sl_MoveToBinAction_Triggered()));
+        menuItemForeColor = new QMenu( tr( "Set Text Color" ), this );
+        menuItemForeColor->setIcon( QIcon( ":/fugue-icons/edit-color" ) );
+        menuItemBackColor = new QMenu( tr( "Set Back Color" ), this );
+        menuItemBackColor->setIcon( QIcon( ":/fugue-icons/paint-can-color" ) );
 
-        itemForeColorMenu = new QMenu( tr( "Set Text Color" ), this );
-        itemForeColorMenu->setIcon( QIcon( ":/fugue-icons/edit-color" ) );
-        itemBackColorMenu = new QMenu( tr( "Set Back Color" ), this );
-        itemBackColorMenu->setIcon( QIcon( ":/fugue-icons/paint-can-color" ) );
+        actionItemDefaultForeColor = new QAction( QIcon( ":/fugue-icons/ui-color-picker-default" ), tr( "Default Color" ), this );
+        QObject::connect( actionItemDefaultForeColor, SIGNAL(triggered()), SLOT(sl_DefaultForeColor_Triggered()) );
 
-        itemDefaultForeColorAction = new QAction( QIcon( ":/fugue-icons/ui-color-picker-default" ), tr( "Default Color" ), this );
-        QObject::connect(itemDefaultForeColorAction, SIGNAL(triggered()), SLOT(sl_DefaultForeColor_Triggered()));
+        actionItemCustomForeColor = new QAction( QIcon( ":/fugue-icons/color-swatch" ), tr( "Custom Color" ), this );
+        QObject::connect( actionItemCustomForeColor, SIGNAL(triggered()), SLOT(sl_CustomForeColor_Triggered()) );
 
-        itemCustomForeColorAction = new QAction( QIcon( ":/fugue-icons/color-swatch" ), tr( "Custom Color" ), this );
-        QObject::connect(itemCustomForeColorAction, SIGNAL(triggered()), SLOT(sl_CustomForeColor_Triggered()));
+        actionItemDefaultBackColor = new QAction( QIcon( ":/fugue-icons/ui-color-picker-default" ), tr( "Default Color" ), this );
+        QObject::connect( actionItemDefaultBackColor, SIGNAL(triggered()), SLOT(sl_DefaultBackColor_Triggered()) );
 
-        itemDefaultBackColorAction = new QAction( QIcon( ":/fugue-icons/ui-color-picker-default" ), tr( "Default Color" ), this );
-        QObject::connect(itemDefaultBackColorAction, SIGNAL(triggered()), SLOT(sl_DefaultBackColor_Triggered()));
+        actionItemCustomBackColor = new QAction( QIcon( ":/fugue-icons/color-swatch" ), tr( "Custom Color" ), this );
+        QObject::connect( actionItemCustomBackColor, SIGNAL(triggered()), SLOT(sl_CustomBackColor_Triggered()) );
 
-        itemCustomBackColorAction = new QAction( QIcon( ":/fugue-icons/color-swatch" ), tr( "Custom Color" ), this );
-        QObject::connect(itemCustomBackColorAction, SIGNAL(triggered()), SLOT(sl_CustomBackColor_Triggered()));
-
-        clearTrashAction = new QAction( QIcon( ":/Manager/remove_all" ), tr( "Clear Trash" ), this );
-        QObject::connect(clearTrashAction, SIGNAL(triggered()), SLOT(sl_ClearTrashAction_Triggered()));
-
-        openNoteAction = new QAction( QIcon( ":/fugue-icons/book-open" ), tr( "Open" ), this );
-        QObject::connect(openNoteAction, SIGNAL(triggered()), SLOT(sl_OpenNoteAction_Triggered()));
-
-        renameItemAction = new QAction( QIcon( ":/fugue-icons/document-rename" ), tr( "Rename" ), this );
-        QObject::connect(renameItemAction, SIGNAL(triggered()), SLOT(sl_RenameItemAction_Triggered()));
-
-        itemForeColorMenu->addAction(itemDefaultForeColorAction);
-        itemForeColorMenu->addAction(itemCustomForeColorAction);
-        itemBackColorMenu->addAction(itemDefaultBackColorAction);
-        itemBackColorMenu->addAction(itemCustomBackColorAction);
+        menuItemForeColor->addAction( actionItemDefaultForeColor );
+        menuItemForeColor->addAction( actionItemCustomForeColor );
+        menuItemForeColor->addAction( actionItemDefaultBackColor );
+        menuItemForeColor->addAction( actionItemCustomBackColor );
     }
 
     QObject::connect( Notebook::instance(), SIGNAL(sg_ItemRegistered(Note*)), SLOT(sl_UpdateStates()) );
@@ -829,11 +815,10 @@ void FolderNavigationWidget::on_treeView_customContextMenuRequested(const QPoint
         return;
 
     QMenu menu;
-    bool isEmptyTrash = Notebook::instance()->getTrashFolder()->child.Count() == 0;
     const QModelIndexList & indexesList = selectionModel->selectedIndexes();
 
-    menu.addAction(addNoteAction);
-    menu.addAction(addFolderAction);
+    menu.addAction( actionAddNote );
+    menu.addAction( actionAddFolder );
 
     // 0 items
     if ( indexesList.isEmpty() )
@@ -844,9 +829,7 @@ void FolderNavigationWidget::on_treeView_customContextMenuRequested(const QPoint
             if (model->getPinnedFolder() == Notebook::instance()->getTrashFolder() )
             {
                 menu.addSeparator();
-                menu.addAction(clearTrashAction);
-
-                clearTrashAction->setEnabled( !isEmptyTrash );
+                menu.addAction( actionClearTrash );
             }
         }
 
@@ -863,42 +846,43 @@ void FolderNavigationWidget::on_treeView_customContextMenuRequested(const QPoint
                 if ( folderItem == Notebook::instance()->getTrashFolder() )
                 {
                     menu.clear();
-                    menu.addAction(clearTrashAction);
-                    clearTrashAction->setEnabled( !isEmptyTrash );
+                    menu.addAction( actionClearTrash );
 
                 } else
                 {
                     menu.addSeparator();
-                    menu.addAction(renameItemAction);
-                    menu.addAction(itemForeColorMenu->menuAction());
-                    menu.addAction(itemBackColorMenu->menuAction());
+                    menu.addAction( actionRenameItem );
+                    menu.addAction( menuItemForeColor->menuAction() );
+                    menu.addAction( menuItemBackColor->menuAction() );
                     menu.addSeparator();
-                    menu.addAction(moveToBinAction);
-                    menu.addAction(deleteItemAction);
+                    menu.addAction( actionMoveToBin );
+                    menu.addAction( actionDeleteItem );
                 }
 
             } else if ( modelitem->DataType() == BaseModelItem::note )
             {
-                menu.addAction(openNoteAction);
                 menu.addSeparator();
-                menu.addAction(renameItemAction);
-                menu.addAction(itemForeColorMenu->menuAction());
-                menu.addAction(itemBackColorMenu->menuAction());
+                menu.addAction( actionOpenNote );
                 menu.addSeparator();
-                menu.addAction(moveToBinAction);
-                menu.addAction(deleteItemAction);
+                menu.addAction( actionRenameItem );
+                menu.addAction( menuItemForeColor->menuAction() );
+                menu.addAction( menuItemBackColor->menuAction() );
+                menu.addSeparator();
+                menu.addAction( actionMoveToBin );
+                menu.addAction( actionDeleteItem );
             }
         }
 
     } else // few items
     {
-        menu.addAction(openNoteAction);
         menu.addSeparator();
-        menu.addAction(moveToBinAction);
-        menu.addAction(deleteItemAction);
+        menu.addAction( actionOpenNote );
         menu.addSeparator();
-        menu.addAction(itemForeColorMenu->menuAction());
-        menu.addAction(itemBackColorMenu->menuAction());
+        menu.addAction( actionMoveToBin );
+        menu.addAction( actionDeleteItem );
+        menu.addSeparator();
+        menu.addAction( menuItemForeColor->menuAction() );
+        menu.addAction( menuItemBackColor->menuAction() );
     }
 
     if ( menu.isEmpty() )

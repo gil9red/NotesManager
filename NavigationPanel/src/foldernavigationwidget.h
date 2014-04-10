@@ -38,21 +38,21 @@ private:
     Ui::FolderNavigationWidget * ui;
     HierarchyModel * model;
 
-    QMenu * itemForeColorMenu;
-    QMenu * itemBackColorMenu;
+    QMenu * menuItemForeColor;
+    QMenu * menuItemBackColor;
 
 public:
-    QAction * addNoteAction;
-    QAction * addFolderAction;
-    QAction * moveToBinAction;
-    QAction * deleteItemAction;
-    QAction * clearTrashAction;
-    QAction * itemDefaultForeColorAction;
-    QAction * itemCustomForeColorAction;
-    QAction * itemDefaultBackColorAction;
-    QAction * itemCustomBackColorAction;
-    QAction * openNoteAction;
-    QAction * renameItemAction;
+    QAction * actionAddNote;
+    QAction * actionAddFolder;
+    QAction * actionMoveToBin;
+    QAction * actionDeleteItem;
+    QAction * actionClearTrash;
+    QAction * actionItemDefaultForeColor;
+    QAction * actionItemCustomForeColor;
+    QAction * actionItemDefaultBackColor;
+    QAction * actionItemCustomBackColor;
+    QAction * actionOpenNote;
+    QAction * actionRenameItem;
 
 private:
     void deleteItems(QModelIndexList& list, bool permanently = false);

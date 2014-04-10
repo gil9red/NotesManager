@@ -33,13 +33,10 @@ static const char codec[] = "utf8";
 // TODO: настройка: активность автодополнения и сохранение значения автодополнения
 // TODO: настройка: кнопка восстановления значений по умолчанию
 // TODO: при сохранении заметки дата изменения меняется
-// TODO: ЗАМЕТКА: выбор цвета для: заголовка и тела заметки (взять из панели кнопку)
+// TODO: У заметок, выбор цвета для: заголовка и тела заметки (взять из панели кнопку)
 // TODO: гиперссылки у заметок
 // TODO: Вставка текстовых смайлов в редактор заметок
 //
-/// TODO: доработать логику контекстного меню иерархического дерева заметок. В качестве основы, взять ту, что используется в page_notes.
-/// В идеале, использовать одни QAction - для page_notes и для иерархического дерева -> брать из page_notes: addNoteAction; addFolderAction;
-/// moveToBinAction; deleteItemAction; clearTrashAction;
 ///
 //// TODO: добавить выполнение скриптов
 ///
@@ -57,9 +54,9 @@ int main( int argc, char *argv[] )
     QTextCodec::setCodecForCStrings( QTextCodec::codecForName( codec ) );    
 
     QtSingleApplication app( argc, argv );
-    qApp->setApplicationName( App::name );
-    qApp->setApplicationVersion( App::version );
-    qApp->setQuitOnLastWindowClosed( false ); // Приложение не завершится, даже если все окна закрыты/скрыты
+    app.setApplicationName( App::name );
+    app.setApplicationVersion( App::version );
+    app.setQuitOnLastWindowClosed( false ); // Приложение не завершится, даже если все окна закрыты/скрыты
 
     if ( app.isRunning() )
     {
@@ -88,7 +85,10 @@ int main( int argc, char *argv[] )
     loadDictionaries();
 
     splashScreen->setMessage( QTranslator::tr( "Creation" ), font );
+
     Manager manager;
+    QObject::connect( &app, SIGNAL( messageReceived(QString) ), &manager, SLOT( messageReceived(QString) ) );
+
     splashScreen->finish( &manager );
 
     manager.setSettings( settings );
@@ -100,12 +100,10 @@ int main( int argc, char *argv[] )
     splashScreen->setMessage( QTranslator::tr( "Now ready" ), font );
     manager.nowReadyPhase();
 
-    qApp->setActiveWindow( &manager );
+    app.setActiveWindow( &manager );
     splashScreen->deleteLater();
 
     manager.loadNotes();
-
-    QObject::connect( &app, SIGNAL( messageReceived(QString) ), &manager, SLOT( messageReceived(QString) ) );
 
 
     int code = app.exec();
