@@ -342,93 +342,72 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="26"/>
-        <source>Add Note</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="29"/>
-        <source>Add Folder</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="32"/>
         <source>Delete</source>
-        <translation type="unfinished">Видаляти</translation>
-    </message>
-    <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="35"/>
-        <source>Move to Bin</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Видаляти</translation>
     </message>
     <message>
         <source>Default color</source>
         <translation type="obsolete">Колір за замовчуванням</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="38"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="33"/>
         <source>Set Text Color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="40"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="35"/>
         <source>Set Back Color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="43"/>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="49"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="38"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="44"/>
         <source>Default Color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="46"/>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="52"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="41"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="47"/>
         <source>Custom Color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="55"/>
-        <source>Clear Trash</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="58"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="29"/>
         <source>Open</source>
         <translation type="unfinished">Відкрито</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="61"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="26"/>
         <source>Rename</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="212"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="199"/>
         <source>Delete these items?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="212"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="199"/>
         <source>Put these items to Bin?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="213"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="198"/>
         <source>Confirm deletion</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="213"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="198"/>
         <source>Confirm moving</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="244"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="231"/>
         <source>Information</source>
         <translation type="unfinished">Iнформація</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="244"/>
+        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="231"/>
         <source>You cannot delete system folders</source>
         <translation type="unfinished"></translation>
     </message>
@@ -721,39 +700,44 @@
         <translation>Менеджер</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="65"/>
         <source>&amp;File</source>
-        <translation>&amp;Файл</translation>
+        <translation type="obsolete">&amp;Файл</translation>
     </message>
     <message>
         <source>&amp;Service</source>
         <translation type="obsolete">&amp;Сервіс</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="81"/>
+        <location filename="../Manager/Manager.ui" line="99"/>
+        <location filename="../Manager/Manager.ui" line="102"/>
+        <location filename="../Manager/Manager.ui" line="105"/>
+        <location filename="../Manager/Manager.ui" line="108"/>
         <source>Help</source>
         <translation>Допомога</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="87"/>
-        <location filename="../Manager/Manager.ui" line="90"/>
-        <location filename="../Manager/Manager.ui" line="93"/>
         <source>Toolbar</source>
-        <translation>Панель інструментів</translation>
+        <translation type="obsolete">Панель інструментів</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="96"/>
+        <location filename="../Manager/Manager.ui" line="114"/>
+        <location filename="../Manager/Manager.ui" line="117"/>
+        <location filename="../Manager/Manager.ui" line="120"/>
+        <location filename="../Manager/Manager.ui" line="123"/>
         <source>Toolbars</source>
         <translation>Панелі інструментів</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="102"/>
+        <location filename="../Manager/Manager.ui" line="129"/>
+        <location filename="../Manager/Manager.ui" line="132"/>
+        <location filename="../Manager/Manager.ui" line="135"/>
+        <location filename="../Manager/Manager.ui" line="138"/>
         <source>Note</source>
         <translation>Примітка</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="123"/>
-        <location filename="../Manager/Manager.ui" line="250"/>
+        <location filename="../Manager/Manager.ui" line="184"/>
+        <location filename="../Manager/Manager.ui" line="311"/>
         <source>Main</source>
         <translation>Основний</translation>
     </message>
@@ -770,18 +754,18 @@
         <translation type="obsolete">Видалити всі нотатки</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="273"/>
-        <location filename="../Manager/Manager.ui" line="276"/>
-        <location filename="../Manager/Manager.ui" line="279"/>
-        <location filename="../Manager/Manager.cpp" line="28"/>
+        <location filename="../Manager/Manager.ui" line="334"/>
+        <location filename="../Manager/Manager.ui" line="337"/>
+        <location filename="../Manager/Manager.ui" line="340"/>
+        <location filename="../Manager/Manager.cpp" line="29"/>
         <source>Settings</source>
         <translation>Налаштування</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="165"/>
-        <location filename="../Manager/Manager.ui" line="168"/>
-        <location filename="../Manager/Manager.ui" line="171"/>
-        <location filename="../Manager/Manager.cpp" line="29"/>
+        <location filename="../Manager/Manager.ui" line="226"/>
+        <location filename="../Manager/Manager.ui" line="229"/>
+        <location filename="../Manager/Manager.ui" line="232"/>
+        <location filename="../Manager/Manager.cpp" line="30"/>
         <source>About</source>
         <translation>Про</translation>
     </message>
@@ -790,9 +774,9 @@
         <translation type="obsolete">Додати до відома</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="150"/>
-        <location filename="../Manager/Manager.ui" line="153"/>
-        <location filename="../Manager/Manager.cpp" line="30"/>
+        <location filename="../Manager/Manager.ui" line="211"/>
+        <location filename="../Manager/Manager.ui" line="214"/>
+        <location filename="../Manager/Manager.cpp" line="31"/>
         <source>Quit</source>
         <translation>Вихід</translation>
     </message>
@@ -857,56 +841,85 @@
         <translation type="obsolete">Дублювати</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="73"/>
+        <location filename="../Manager/Manager.ui" line="65"/>
+        <location filename="../Manager/Manager.ui" line="68"/>
+        <location filename="../Manager/Manager.ui" line="71"/>
+        <location filename="../Manager/Manager.ui" line="74"/>
+        <source>File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Manager/Manager.ui" line="82"/>
+        <location filename="../Manager/Manager.ui" line="85"/>
+        <location filename="../Manager/Manager.ui" line="88"/>
+        <location filename="../Manager/Manager.ui" line="91"/>
         <source>Service</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="107"/>
+        <location filename="../Manager/Manager.ui" line="143"/>
+        <location filename="../Manager/Manager.ui" line="146"/>
+        <location filename="../Manager/Manager.ui" line="149"/>
+        <location filename="../Manager/Manager.ui" line="152"/>
         <source>Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="147"/>
+        <location filename="../Manager/Manager.ui" line="160"/>
+        <location filename="../Manager/Manager.ui" line="163"/>
+        <location filename="../Manager/Manager.ui" line="166"/>
+        <location filename="../Manager/Manager.ui" line="169"/>
+        <source>Scripts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Manager/Manager.ui" line="208"/>
         <source>&amp;Quit</source>
         <translation>&amp;Вихід</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="156"/>
+        <location filename="../Manager/Manager.ui" line="217"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
+    </message>
+    <message>
+        <location filename="../Manager/Manager.ui" line="365"/>
+        <location filename="../Manager/Manager.ui" line="368"/>
+        <location filename="../Manager/Manager.ui" line="371"/>
+        <source>Show Scripts Manager</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save</source>
         <translation type="obsolete">Зберегти</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="180"/>
-        <location filename="../Manager/Manager.ui" line="183"/>
-        <location filename="../Manager/Manager.ui" line="186"/>
+        <location filename="../Manager/Manager.ui" line="241"/>
+        <location filename="../Manager/Manager.ui" line="244"/>
+        <location filename="../Manager/Manager.ui" line="247"/>
         <source>Open Dictionary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="195"/>
-        <location filename="../Manager/Manager.ui" line="198"/>
-        <location filename="../Manager/Manager.ui" line="201"/>
-        <location filename="../Manager/Manager.ui" line="204"/>
-        <location filename="../Manager/Manager.ui" line="207"/>
+        <location filename="../Manager/Manager.ui" line="256"/>
+        <location filename="../Manager/Manager.ui" line="259"/>
+        <location filename="../Manager/Manager.ui" line="262"/>
+        <location filename="../Manager/Manager.ui" line="265"/>
+        <location filename="../Manager/Manager.ui" line="268"/>
         <source>Close Dictionary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="258"/>
-        <location filename="../Manager/Manager.ui" line="261"/>
-        <location filename="../Manager/Manager.ui" line="264"/>
+        <location filename="../Manager/Manager.ui" line="319"/>
+        <location filename="../Manager/Manager.ui" line="322"/>
+        <location filename="../Manager/Manager.ui" line="325"/>
         <source>Full Screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="290"/>
-        <location filename="../Manager/Manager.ui" line="293"/>
-        <location filename="../Manager/Manager.ui" line="296"/>
+        <location filename="../Manager/Manager.ui" line="351"/>
+        <location filename="../Manager/Manager.ui" line="354"/>
+        <location filename="../Manager/Manager.ui" line="357"/>
         <source>Show Status Bar</source>
         <translation type="unfinished"></translation>
     </message>
@@ -931,9 +944,9 @@
         <translation type="obsolete">Попередній друку</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="212"/>
-        <location filename="../Manager/Manager.ui" line="215"/>
-        <location filename="../Manager/Manager.ui" line="218"/>
+        <location filename="../Manager/Manager.ui" line="273"/>
+        <location filename="../Manager/Manager.ui" line="276"/>
+        <location filename="../Manager/Manager.ui" line="279"/>
         <source>Documentation</source>
         <translation type="unfinished"></translation>
     </message>
@@ -942,9 +955,9 @@
         <translation type="obsolete">Відкрито</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="233"/>
-        <location filename="../Manager/Manager.ui" line="236"/>
-        <location filename="../Manager/Manager.ui" line="239"/>
+        <location filename="../Manager/Manager.ui" line="294"/>
+        <location filename="../Manager/Manager.ui" line="297"/>
+        <location filename="../Manager/Manager.ui" line="300"/>
         <source>Show Sidebar</source>
         <translation type="unfinished"></translation>
     </message>
@@ -965,7 +978,7 @@
         <translation type="obsolete">Модифікований</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="27"/>
+        <location filename="../Manager/Manager.cpp" line="28"/>
         <source>Notes</source>
         <translation>Замітка</translation>
     </message>
@@ -974,13 +987,13 @@
         <translation type="obsolete">Форматування тексту</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="148"/>
-        <location filename="../Manager/Manager.cpp" line="335"/>
+        <location filename="../Manager/Manager.cpp" line="159"/>
+        <location filename="../Manager/Manager.cpp" line="349"/>
         <source>Error</source>
         <translation type="unfinished">Помилка</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="148"/>
+        <location filename="../Manager/Manager.cpp" line="159"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation type="unfinished"></translation>
@@ -990,33 +1003,33 @@
         <translation type="obsolete">Програма створює замітки</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="85"/>
+        <location filename="../Manager/Manager.cpp" line="96"/>
         <source>The program creates notes</source>
         <translation type="unfinished">Програма створює замітки</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="91"/>
+        <location filename="../Manager/Manager.cpp" line="102"/>
         <source>Open manager</source>
         <translation>Відкрити менеджер</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="199"/>
-        <location filename="../Manager/Manager.cpp" line="238"/>
+        <location filename="../Manager/Manager.cpp" line="210"/>
+        <location filename="../Manager/Manager.cpp" line="252"/>
         <source>Information</source>
         <translation>Iнформація</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="199"/>
+        <location filename="../Manager/Manager.cpp" line="210"/>
         <source>Application is already running</source>
         <translation>Застосування вже запущений</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="238"/>
+        <location filename="../Manager/Manager.cpp" line="252"/>
         <source>Unable to open documents</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="335"/>
+        <location filename="../Manager/Manager.cpp" line="349"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation type="unfinished"></translation>
@@ -1026,7 +1039,7 @@
         <translation type="obsolete">Нова нотатка</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="282"/>
+        <location filename="../Manager/Manager.cpp" line="296"/>
         <source>Question</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1039,12 +1052,12 @@
         <translation type="obsolete">від</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="282"/>
+        <location filename="../Manager/Manager.cpp" line="296"/>
         <source>Really quit?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="326"/>
+        <location filename="../Manager/Manager.cpp" line="340"/>
         <source>Save completed</source>
         <translation>Зберегти завершена</translation>
     </message>
@@ -1052,22 +1065,22 @@
 <context>
     <name>Note</name>
     <message>
-        <location filename="../NavigationPanel/src/note.cpp" line="119"/>
+        <location filename="../NavigationPanel/src/note.cpp" line="120"/>
         <source>Delete this item?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/note.cpp" line="119"/>
+        <location filename="../NavigationPanel/src/note.cpp" line="120"/>
         <source>Put this item in the Bin?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/note.cpp" line="120"/>
+        <location filename="../NavigationPanel/src/note.cpp" line="119"/>
         <source>Confirm deletion</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/note.cpp" line="120"/>
+        <location filename="../NavigationPanel/src/note.cpp" line="119"/>
         <source>Confirm moving</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1083,27 +1096,27 @@
 <context>
     <name>NotesTabWidget</name>
     <message>
-        <location filename="../NavigationPanel/src/notestabwidget.cpp" line="44"/>
+        <location filename="../NavigationPanel/src/notestabwidget.cpp" line="45"/>
         <source>Close current tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/notestabwidget.cpp" line="45"/>
+        <location filename="../NavigationPanel/src/notestabwidget.cpp" line="46"/>
         <source>Close all tabs except the current</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/notestabwidget.cpp" line="47"/>
+        <location filename="../NavigationPanel/src/notestabwidget.cpp" line="48"/>
         <source>Close all tabs to the left of the current</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/notestabwidget.cpp" line="48"/>
+        <location filename="../NavigationPanel/src/notestabwidget.cpp" line="49"/>
         <source>Close all tabs to the right of the current</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/notestabwidget.cpp" line="50"/>
+        <location filename="../NavigationPanel/src/notestabwidget.cpp" line="51"/>
         <source>Close all tabs</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1729,22 +1742,22 @@
         <translation type="obsolete">немає</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="85"/>
+        <location filename="../main.cpp" line="84"/>
         <source>Loading fonts</source>
         <translation>Завантаження шрифтів</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="88"/>
+        <location filename="../main.cpp" line="87"/>
         <source>Loading dictionaries</source>
         <translation>Завантаження словників</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="91"/>
+        <location filename="../main.cpp" line="90"/>
         <source>Creation</source>
         <translation>Creation</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="98"/>
+        <location filename="../main.cpp" line="100"/>
         <source>Loading settings</source>
         <translation>Завантаження налаштувань</translation>
     </message>
@@ -1753,7 +1766,7 @@
         <translation type="obsolete">Завантаження замітки</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="101"/>
+        <location filename="../main.cpp" line="103"/>
         <source>Now ready</source>
         <translation>Тепер готовий</translation>
     </message>
@@ -2161,6 +2174,30 @@
     <message>
         <source>screenshot_%1.png</source>
         <translation type="obsolete">скріншот_%1.png</translation>
+    </message>
+</context>
+<context>
+    <name>ScriptsManager</name>
+    <message>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="14"/>
+        <source>Scripts Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="33"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="36"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="39"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="42"/>
+        <source>Use the Script Debugger</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="53"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="56"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="59"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="62"/>
+        <source>Run Script</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

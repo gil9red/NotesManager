@@ -14,6 +14,8 @@
 #include "NavigationPanel/src/noteeditwidget.h"
 #include "NavigationPanel/src/basemodelitem.h"
 
+#include "ScriptModule/scriptengine.h"
+#include <QMetaProperty>
 Page_Notes::Page_Notes( QWidget * parent ) :
     QMainWindow( parent ),
     ui( new Ui::Page_notes ),
@@ -38,17 +40,17 @@ Page_Notes::Page_Notes( QWidget * parent ) :
 
     // Действия тулбаров
     {
-        QObject::connect( ui->actionAddNote, SIGNAL( triggered() ), SLOT( sl_AddNote() ) );
-        QObject::connect( ui->actionAddNoteFromClipboard, SIGNAL( triggered() ), SLOT( sl_AddNoteFromClipboard() ) );
-        QObject::connect( ui->actionAddNoteFromScreen, SIGNAL( triggered() ), SLOT( sl_AddNoteFromScreen() ) );
-        QObject::connect( ui->actionAddFolder, SIGNAL( triggered() ), SLOT( sl_AddFolder() ) );
+        QObject::connect( ui->actionAddNote, SIGNAL( triggered() ), SLOT( addNote() ) );
+        QObject::connect( ui->actionAddNoteFromClipboard, SIGNAL( triggered() ), SLOT( addNoteFromClipboard() ) );
+        QObject::connect( ui->actionAddNoteFromScreen, SIGNAL( triggered() ), SLOT( addNoteFromScreen() ) );
+        QObject::connect( ui->actionAddFolder, SIGNAL( triggered() ), SLOT( addFolder() ) );
         QObject::connect( ui->actionRemoveToTrash, SIGNAL( triggered() ), SLOT( sl_RemoveToTrash() ) );
         QObject::connect( ui->actionDelete, SIGNAL( triggered() ), SLOT( sl_Delete() ) );
         QObject::connect( ui->actionClearTrash, SIGNAL( triggered() ), SLOT( sl_ClearTrash() ) );
 
-        QObject::connect( ui->actionSaveAllNotes, SIGNAL( triggered() ), SLOT( sl_SaveAllNotes() ) );
-        QObject::connect( ui->actionShowAllNotes, SIGNAL( triggered() ), SLOT( sl_ShowAllNotes() ) );
-        QObject::connect( ui->actionHideAllNotes, SIGNAL( triggered() ), SLOT( sl_HideAllNotes() ) );
+        QObject::connect( ui->actionSaveAllNotes, SIGNAL( triggered() ), SLOT( saveAllNotes() ) );
+        QObject::connect( ui->actionShowAllNotes, SIGNAL( triggered() ), SLOT( showAllNotes() ) );
+        QObject::connect( ui->actionHideAllNotes, SIGNAL( triggered() ), SLOT( hideAllNotes() ) );
         QObject::connect( ui->actionSaveNoteAs, SIGNAL( triggered() ), SLOT( sl_SaveAsNote() ) );
         QObject::connect( ui->actionSaveNote, SIGNAL( triggered() ), SLOT( sl_SaveNote() ) );
         QObject::connect( ui->actionShowNote, SIGNAL( triggered() ), SLOT( sl_ShowNote() ) );
@@ -63,6 +65,12 @@ Page_Notes::Page_Notes( QWidget * parent ) :
         ui->tab_Notes->actionMoveToBin = ui->actionRemoveToTrash;
         ui->tab_Notes->actionDeleteItem = ui->actionDelete;
         ui->tab_Notes->actionClearTrash = ui->actionClearTrash;
+    }
+
+    // Сценарии
+    {
+        QScriptValue scriptPageNotes = Script::ScriptEngine::instance()->newQObject( this );
+        Script::ScriptEngine::instance()->globalObject().setProperty( "PageNotes", scriptPageNotes );
     }
 
     sl_UpdateStates();
@@ -295,19 +303,19 @@ bool Page_Notes::trashIsEmpty()
     return ( Notebook::instance()->getTrashFolder()->child.Count() == 0 );
 }
 
-void Page_Notes::sl_AddFolder()
+void Page_Notes::addFolder()
 {
     qApp->setOverrideCursor( Qt::WaitCursor );
     ui->tab_Notes->sl_AddFolderAction_Triggered();
     qApp->restoreOverrideCursor();
 }
-void Page_Notes::sl_AddNote()
+void Page_Notes::addNote()
 {
     qApp->setOverrideCursor( Qt::WaitCursor );
     ui->tab_Notes->sl_AddNoteAction_Triggered();
     qApp->restoreOverrideCursor();
 }
-void Page_Notes::sl_AddNoteFromClipboard()
+void Page_Notes::addNoteFromClipboard()
 {
     qApp->setOverrideCursor( Qt::WaitCursor );
 
@@ -327,7 +335,7 @@ void Page_Notes::sl_AddNoteFromClipboard()
 
     qApp->restoreOverrideCursor();
 }
-void Page_Notes::sl_AddNoteFromScreen()
+void Page_Notes::addNoteFromScreen()
 {
     FullscreenshotCropper cropper;
     cropper.setImage( QPixmap::grabWindow( QApplication::desktop()->winId() ) );
@@ -449,7 +457,7 @@ void Page_Notes::sl_HideNote()
 
     emit sg_About_UpdateStates();
 }
-void Page_Notes::sl_ShowAllNotes()
+void Page_Notes::showAllNotes()
 {
     qApp->setOverrideCursor( Qt::WaitCursor );
 
@@ -466,7 +474,7 @@ void Page_Notes::sl_ShowAllNotes()
     qApp->restoreOverrideCursor();
     emit sg_About_UpdateStates();
 }
-void Page_Notes::sl_HideAllNotes()
+void Page_Notes::hideAllNotes()
 {
     qApp->setOverrideCursor( Qt::WaitCursor );
 
@@ -483,7 +491,7 @@ void Page_Notes::sl_HideAllNotes()
     qApp->restoreOverrideCursor();
     emit sg_About_UpdateStates();
 }
-void Page_Notes::sl_SaveAllNotes()
+void Page_Notes::saveAllNotes()
 {
     qApp->setOverrideCursor( Qt::WaitCursor );
 

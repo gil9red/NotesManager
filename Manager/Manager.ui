@@ -61,13 +61,31 @@
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
+    <property name="toolTip">
+     <string>File</string>
+    </property>
+    <property name="statusTip">
+     <string>File</string>
+    </property>
+    <property name="whatsThis">
+     <string>File</string>
+    </property>
     <property name="title">
-     <string>&amp;File</string>
+     <string>File</string>
     </property>
    </widget>
    <widget class="QMenu" name="menuService">
     <property name="enabled">
      <bool>true</bool>
+    </property>
+    <property name="toolTip">
+     <string>Service</string>
+    </property>
+    <property name="statusTip">
+     <string>Service</string>
+    </property>
+    <property name="whatsThis">
+     <string>Service</string>
     </property>
     <property name="title">
      <string>Service</string>
@@ -77,6 +95,15 @@
     <property name="enabled">
      <bool>true</bool>
     </property>
+    <property name="toolTip">
+     <string>Help</string>
+    </property>
+    <property name="statusTip">
+     <string>Help</string>
+    </property>
+    <property name="whatsThis">
+     <string>Help</string>
+    </property>
     <property name="title">
      <string>Help</string>
     </property>
@@ -84,13 +111,13 @@
    </widget>
    <widget class="QMenu" name="menuToolbars">
     <property name="toolTip">
-     <string>Toolbar</string>
+     <string>Toolbars</string>
     </property>
     <property name="statusTip">
-     <string>Toolbar</string>
+     <string>Toolbars</string>
     </property>
     <property name="whatsThis">
-     <string>Toolbar</string>
+     <string>Toolbars</string>
     </property>
     <property name="title">
      <string>Toolbars</string>
@@ -98,11 +125,29 @@
     <addaction name="actionVisibleToolbarMain"/>
    </widget>
    <widget class="QMenu" name="menuNote">
+    <property name="toolTip">
+     <string>Note</string>
+    </property>
+    <property name="statusTip">
+     <string>Note</string>
+    </property>
+    <property name="whatsThis">
+     <string>Note</string>
+    </property>
     <property name="title">
      <string>Note</string>
     </property>
    </widget>
    <widget class="QMenu" name="menuWindow">
+    <property name="toolTip">
+     <string>Window</string>
+    </property>
+    <property name="statusTip">
+     <string>Window</string>
+    </property>
+    <property name="whatsThis">
+     <string>Window</string>
+    </property>
     <property name="title">
      <string>Window</string>
     </property>
@@ -110,10 +155,26 @@
     <addaction name="actionShowSidebar"/>
     <addaction name="actionShowStatusBar"/>
    </widget>
+   <widget class="QMenu" name="menuScripts">
+    <property name="toolTip">
+     <string>Scripts</string>
+    </property>
+    <property name="statusTip">
+     <string>Scripts</string>
+    </property>
+    <property name="whatsThis">
+     <string>Scripts</string>
+    </property>
+    <property name="title">
+     <string>Scripts</string>
+    </property>
+    <addaction name="actionShowScriptsManager"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuToolbars"/>
    <addaction name="menuNote"/>
    <addaction name="menuService"/>
+   <addaction name="menuScripts"/>
    <addaction name="menuWindow"/>
    <addaction name="menuHelp"/>
   </widget>
@@ -294,6 +355,20 @@
    </property>
    <property name="whatsThis">
     <string>Show Status Bar</string>
+   </property>
+  </action>
+  <action name="actionShowScriptsManager">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Scripts Manager</string>
+   </property>
+   <property name="statusTip">
+    <string>Show Scripts Manager</string>
+   </property>
+   <property name="whatsThis">
+    <string>Show Scripts Manager</string>
    </property>
   </action>
  </widget>

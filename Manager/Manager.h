@@ -19,6 +19,8 @@ namespace Ui
 #include <QDateTime>
 #include <QTranslator>
 
+#include "ScriptModule/scriptsmanager.h"
+
 //! Главный класс. Создает и управляет заметками.
 class Manager: public QMainWindow
 {
@@ -50,6 +52,8 @@ public:
 
     QSettings * settings;                 //!< Указатель на класс настроек.
     QTimer autoSaveTimer;                 //!< Таймер автосохранения.
+
+    ScriptsManager * scriptsManager;
 
 private slots:
     //! Вызывается, когда на иконки панели кликают.

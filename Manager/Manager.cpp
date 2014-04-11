@@ -19,7 +19,8 @@ Manager * Manager::self = 0;
 Manager::Manager( QWidget * parent ) :
     QMainWindow( parent ),
     ui( new Ui::Manager ),
-    settings(0)
+    settings(0),
+    scriptsManager( new ScriptsManager )
 {
     self = this;       
     ui->setupUi( this );
@@ -84,6 +85,8 @@ Manager::Manager( QWidget * parent ) :
 
         QObject::connect( ui->actionDocumentation, SIGNAL( triggered() ), SLOT( showPageDocumentation() ) );
 
+        QObject::connect( ui->actionShowScriptsManager, SIGNAL(triggered(bool)), scriptsManager, SLOT(setVisible(bool)) );
+        QObject::connect( scriptsManager, SIGNAL(visibilityChanged(bool)), ui->actionShowScriptsManager, SLOT(setChecked(bool)) );
 
         // Меню трея
         {

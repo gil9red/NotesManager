@@ -14,7 +14,7 @@ include( FindAndReplace/FindAndReplace.pri )
 include( FadLineEdit/FadLineEdit.pri )
 include( FormattingToolbar/FormattingToolbar.pri )
 include( NavigationPanel/NavigationPanel.pri )
-#include( ScriptModule/ScriptModule.pri )
+include( ScriptModule/ScriptModule.pri )
 
 
 INCLUDEPATH += $$PWD/qt-solutions/qtsingleapplication/src
@@ -27,11 +27,7 @@ DEPENDPATH += $$PWD/quazip-0.6.1/src
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/quazip-0.6.1/lib/ -llibQuaZIP
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/quazip-0.6.1/lib/ -llibQuaZIPd
 
-
-RC_FILE = app.rc
-
 OTHER_FILES += \
-    app.rc \
     history_ru \
     license
 
@@ -52,3 +48,9 @@ HEADERS += \
     appinfo.h
 
 RESOURCES += app.qrc
+
+win32:
+{
+#    RC_FILE = app.rc
+    OTHER_FILES += app.rc
+}

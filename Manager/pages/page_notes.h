@@ -16,7 +16,14 @@ namespace Ui
 class Page_Notes: public QMainWindow
 {
     Q_OBJECT
-    
+    Q_PROPERTY( addFolder RESET )
+    Q_PROPERTY( addNote RESET )
+    Q_PROPERTY( addNoteFromClipboard RESET )
+    Q_PROPERTY( addNoteFromScreen RESET )
+    Q_PROPERTY( showAllNotes RESET )
+    Q_PROPERTY( hideAllNotes RESET )
+    Q_PROPERTY( saveAllNotes RESET )
+
 public:
     explicit Page_Notes( QWidget * parent = 0 );
     ~Page_Notes();
@@ -45,10 +52,10 @@ private:
     QSettings * settings;
 
 public slots:
-    void sl_AddFolder();
-    void sl_AddNote();
-    void sl_AddNoteFromClipboard();
-    void sl_AddNoteFromScreen();
+    void addFolder();
+    void addNote();
+    void addNoteFromClipboard();
+    void addNoteFromScreen();
     void sl_Delete();
     void sl_ClearTrash();
     void sl_RemoveToTrash();
@@ -57,9 +64,9 @@ public slots:
     void sl_SaveAsNote();
     void sl_ShowNote();
     void sl_HideNote();
-    void sl_ShowAllNotes();
-    void sl_HideAllNotes();
-    void sl_SaveAllNotes();
+    void showAllNotes();
+    void hideAllNotes();
+    void saveAllNotes();
     void sl_SetTopNote( bool top );
     void sl_PrintNote();
     void sl_PreviewPrintNote();

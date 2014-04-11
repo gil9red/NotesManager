@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ScriptsManager</class>
+ <widget class="QMainWindow" name="ScriptsManager">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>476</width>
+    <height>395</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Scripts Manager</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QTextEdit" name="textEditScript"/>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lEditLog">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="cBoxUseScriptDebugger">
+        <property name="toolTip">
+         <string>Use the Script Debugger</string>
+        </property>
+        <property name="statusTip">
+         <string>Use the Script Debugger</string>
+        </property>
+        <property name="whatsThis">
+         <string>Use the Script Debugger</string>
+        </property>
+        <property name="text">
+         <string>Use the Script Debugger</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QToolButton" name="tButtonRunScript">
+        <property name="toolTip">
+         <string>Run Script</string>
+        </property>
+        <property name="statusTip">
+         <string>Run Script</string>
+        </property>
+        <property name="whatsThis">
+         <string>Run Script</string>
+        </property>
+        <property name="text">
+         <string>Run Script</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../Manager/Manager.qrc">
+          <normaloff>:/Manager/run</normaloff>:/Manager/run</iconset>
+        </property>
+        <property name="autoRaise">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../Manager/Manager.qrc"/>
+ </resources>
+ <connections/>
+</ui>
