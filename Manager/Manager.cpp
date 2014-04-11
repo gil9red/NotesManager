@@ -53,6 +53,14 @@ Manager::Manager( QWidget * parent ) :
         ui->menuFile->addAction( pageNotes->ui->actionAddNoteFromClipboard );
         ui->menuFile->addAction( pageNotes->ui->actionAddNoteFromScreen );
         ui->menuFile->addSeparator();
+        ui->menuFile->addAction( pageNotes->ui->actionPrintNote );
+        ui->menuFile->addAction( pageNotes->ui->actionPreviewPrintNote );
+        ui->menuFile->addSeparator();
+        ui->menuFile->addAction( pageNotes->ui->actionSaveNoteAs );
+        ui->menuFile->addSeparator();
+        ui->menuFile->addAction( pageNotes->ui->actionShowAllNotes );
+        ui->menuFile->addAction( pageNotes->ui->actionHideAllNotes );
+        ui->menuFile->addSeparator();
         ui->menuFile->addAction( ui->actionQuit );
 
         ui->menuNote->addActions( pageNotes->ui->toolBarNote->actions() );

@@ -372,11 +372,10 @@ bool FolderNavigationWidget::sl_AddNote( RichTextNote * richTextNote )
         }
 
         parentFolder = dynamic_cast < FolderModelItem * > ( modelitem )->getStoredData();
+
+        // Если текущим элементом является корзина, то добавляем в корень
         if ( parentFolder == Notebook::instance()->getTrashFolder() )
-        {
-            WARNING("Cannot create notes in bin");
-            return false;
-        }
+            parentFolder = root;
     }
 
     Note * note = new Note();
@@ -399,15 +398,17 @@ void FolderNavigationWidget::sl_AddNoteAction_Triggered()
 }
 void FolderNavigationWidget::sl_AddFolderAction_Triggered()
 {
+    Folder * root = Notebook::instance()->getRootFolder();
+
     // Если нет выделенного элемента, добавляем в корень
     if ( !hasCurrentItem() && !model->getPinnedFolder() )
     {
-        Notebook::instance()->getRootFolder()->child.Add( new Folder() );
+        root->child.Add( new Folder() );
         return;
     }
 
     QModelIndexList indexesList = ui->treeView->selectionModel()->selectedIndexes();
-    if (indexesList.size() > 1)
+    if ( indexesList.size() > 1 )
     {
         WARNING("Wrong item selection");
         return;
@@ -416,11 +417,11 @@ void FolderNavigationWidget::sl_AddFolderAction_Triggered()
     Folder * parentFolder = 0;
 
     if ( indexesList.size() == 0 )
-        parentFolder = ( !model->getPinnedFolder() ? Notebook::instance()->getRootFolder() : model->getPinnedFolder() );
+        parentFolder = ( !model->getPinnedFolder() ? root : model->getPinnedFolder() );
 
     else
     {
-        BaseModelItem* modelitem = static_cast<BaseModelItem*>(indexesList.value(0).internalPointer());
+        BaseModelItem * modelitem = static_cast < BaseModelItem * > ( indexesList.value(0).internalPointer() );
 
         // Если текущий элементом является заметка, то добавим новую папку ниже ее
         if ( modelitem->DataType() == BaseModelItem::note )
@@ -434,11 +435,8 @@ void FolderNavigationWidget::sl_AddFolderAction_Triggered()
         }
 
         parentFolder = dynamic_cast<FolderModelItem*>(modelitem)->getStoredData();
-        if (parentFolder == Notebook::instance()->getRootFolder())
-        {
-            WARNING("Cannot create new items in system folders");
-            return;
-        }
+        if ( parentFolder == Notebook::instance()->getTrashFolder() )
+            parentFolder = root;
     }
 
     if ( !parentFolder )

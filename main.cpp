@@ -58,11 +58,13 @@ int main( int argc, char *argv[] )
     app.setApplicationVersion( App::version );
     app.setQuitOnLastWindowClosed( false ); // Приложение не завершится, даже если все окна закрыты/скрыты
 
+    // Если копия приложения уже запущена, тогда отсылаем сообщение той копии и заканчиваем процесс
     if ( app.isRunning() )
     {
         app.sendMessage( "-show -message" );
         return 0;
     }
+
     QFile file( ":/Note/Note.qss" );
     if ( file.open( QIODevice::ReadOnly ) )
         nm_Note::style = file.readAll();

@@ -573,15 +573,10 @@ void Page_Notes::sl_UpdateStates()
     ui->actionRemoveToTrash->setEnabled( false );
     ui->actionClearTrash->setEnabled( Notebook::instance()->getTrashFolder()->child.Count() > 0 );
 
-    ui->actionAddNote->setEnabled( true );
-    ui->actionAddNoteFromClipboard->setEnabled( true );
-    ui->actionAddNoteFromScreen->setEnabled( true );
-    ui->actionAddFolder->setEnabled( true );
-
     bool hasCurrent = this->hasCurrent();
     if ( hasCurrent )
     {
-        bool isNote = this->currentIsNote();
+        bool isNote = currentIsNote();
         if ( isNote )
         {
             ui->actionSaveNote->setEnabled( true );
@@ -601,12 +596,6 @@ void Page_Notes::sl_UpdateStates()
         bool isTrash = this->currentIsTrash();
         ui->actionRemoveToTrash->setEnabled( !isTrash && !isChildTrash ); // переместить в корзину
         ui->actionDelete->setEnabled( isChildTrash );
-        ui->actionClearTrash->setEnabled( (isTrash || isChildTrash) && !this->trashIsEmpty() );
-
-
-        ui->actionAddNote->setEnabled( !isTrash );
-        ui->actionAddNoteFromClipboard->setEnabled( !isTrash );
-        ui->actionAddNoteFromScreen->setEnabled( !isTrash );
-        ui->actionAddFolder->setEnabled( !isTrash );
+        ui->actionClearTrash->setEnabled( (isTrash || isChildTrash) && !trashIsEmpty() );
     }
 }
