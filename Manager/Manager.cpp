@@ -13,14 +13,14 @@
 #include "utils/func.h"
 #include "ImageCropper/fullscreenshotcropper.h"
 #include "NavigationPanel/src/notebook.h"
+#include <QDockWidget>
 
 Manager * Manager::self = 0;
 
 Manager::Manager( QWidget * parent ) :
     QMainWindow( parent ),
     ui( new Ui::Manager ),
-    settings(0),
-    scriptsManager( new ScriptsManager )
+    settings(0)  
 {
     self = this;       
     ui->setupUi( this );
@@ -85,9 +85,6 @@ Manager::Manager( QWidget * parent ) :
 
         QObject::connect( ui->actionDocumentation, SIGNAL( triggered() ), SLOT( showPageDocumentation() ) );
 
-        QObject::connect( ui->actionShowScriptsManager, SIGNAL(triggered(bool)), scriptsManager, SLOT(setVisible(bool)) );
-        QObject::connect( scriptsManager, SIGNAL(visibilityChanged(bool)), ui->actionShowScriptsManager, SLOT(setChecked(bool)) );
-
         // Меню трея
         {
             tray.setIcon( QIcon( ":/App/icon-mini" ) );
@@ -141,6 +138,21 @@ Manager::Manager( QWidget * parent ) :
 
     QObject::connect( &autoSaveTimer, SIGNAL( timeout() ), SLOT( writeSettings() ) );
 
+    // Добавление Менежера сценариев в прикрепляемый виджет
+    {
+        scriptsManager = new ScriptsManager();
+        dockScriptsManager = new QDockWidget( scriptsManager->windowTitle() );
+        dockScriptsManager->setObjectName( "Dock_ScriptsManager" );
+        dockScriptsManager->setWidget( scriptsManager );
+        dockScriptsManager->hide();
+        addDockWidget( Qt::RightDockWidgetArea, dockScriptsManager );
+
+        ui->actionShowScriptsManager->setChecked( dockScriptsManager->isVisible() );
+
+        QObject::connect( ui->actionShowScriptsManager, SIGNAL(toggled(bool)), dockScriptsManager, SLOT(setVisible(bool)) );
+        QObject::connect( dockScriptsManager, SIGNAL(visibilityChanged(bool)), ui->actionShowScriptsManager, SLOT(setChecked(bool)) );
+    }
+
     updateStates();
 }
 
@@ -167,6 +179,7 @@ void Manager::setSettings( QSettings * s )
     settings = s;
     pageNotes->setSettings( settings );
     pageSettings->setSettings( settings );
+    scriptsManager->setSettings( settings );
 }
 void Manager::nowReadyPhase()
 {
@@ -316,6 +329,8 @@ void Manager::readSettings()
 
     pageNotes->readSettings();
     pageSettings->readSettings();
+    scriptsManager->readSettings();
+
     acceptChangeSettings();
 
     updateStates();
@@ -334,6 +349,7 @@ void Manager::writeSettings()
 
     pageNotes->writeSettings();
     pageSettings->writeSettings();
+    scriptsManager->writeSettings();
 
     settings->sync();
 

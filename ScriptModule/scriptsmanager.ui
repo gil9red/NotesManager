@@ -189,18 +189,18 @@
          </widget>
         </item>
         <item>
-         <widget class="QCheckBox" name="cBoxUseScriptDebugger">
+         <widget class="QCheckBox" name="cBoxUseDebugger">
           <property name="toolTip">
-           <string>Use the Script Debugger</string>
+           <string>Use the  Debugger</string>
           </property>
           <property name="statusTip">
-           <string>Use the Script Debugger</string>
+           <string>Use the  Debugger</string>
           </property>
           <property name="whatsThis">
-           <string>Use the Script Debugger</string>
+           <string>Use the  Debugger</string>
           </property>
           <property name="text">
-           <string>Use the Script Debugger</string>
+           <string>Use the  Debugger</string>
           </property>
          </widget>
         </item>

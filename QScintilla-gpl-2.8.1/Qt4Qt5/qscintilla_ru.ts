@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0">
+<TS version="2.0" language="ru_RU">
 <context>
     <name>QsciCommand</name>
     <message>
@@ -3297,37 +3297,37 @@
     <message>
         <location filename="qsciscintilla.cpp" line="4178"/>
         <source>&amp;Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>Отменить действие</translation>
     </message>
     <message>
         <location filename="qsciscintilla.cpp" line="4182"/>
         <source>&amp;Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>Повторить действие</translation>
     </message>
     <message>
         <location filename="qsciscintilla.cpp" line="4188"/>
         <source>Cu&amp;t</source>
-        <translation type="unfinished"></translation>
+        <translation>Вырезать</translation>
     </message>
     <message>
         <location filename="qsciscintilla.cpp" line="4193"/>
         <source>&amp;Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать</translation>
     </message>
     <message>
         <location filename="qsciscintilla.cpp" line="4199"/>
         <source>&amp;Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Вставить</translation>
     </message>
     <message>
         <location filename="qsciscintilla.cpp" line="4203"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить</translation>
     </message>
     <message>
         <location filename="qsciscintilla.cpp" line="4210"/>
         <source>Select All</source>
-        <translation type="unfinished"></translation>
+        <translation>Выделить все</translation>
     </message>
 </context>
 </TS>

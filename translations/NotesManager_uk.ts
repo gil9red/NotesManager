@@ -987,13 +987,13 @@
         <translation type="obsolete">Форматування тексту</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="159"/>
-        <location filename="../Manager/Manager.cpp" line="349"/>
+        <location filename="../Manager/Manager.cpp" line="171"/>
+        <location filename="../Manager/Manager.cpp" line="365"/>
         <source>Error</source>
         <translation type="unfinished">Помилка</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="159"/>
+        <location filename="../Manager/Manager.cpp" line="171"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation type="unfinished"></translation>
@@ -1003,33 +1003,33 @@
         <translation type="obsolete">Програма створює замітки</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="96"/>
+        <location filename="../Manager/Manager.cpp" line="93"/>
         <source>The program creates notes</source>
         <translation type="unfinished">Програма створює замітки</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="102"/>
+        <location filename="../Manager/Manager.cpp" line="99"/>
         <source>Open manager</source>
         <translation>Відкрити менеджер</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="210"/>
-        <location filename="../Manager/Manager.cpp" line="252"/>
+        <location filename="../Manager/Manager.cpp" line="223"/>
+        <location filename="../Manager/Manager.cpp" line="265"/>
         <source>Information</source>
         <translation>Iнформація</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="210"/>
+        <location filename="../Manager/Manager.cpp" line="223"/>
         <source>Application is already running</source>
         <translation>Застосування вже запущений</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="252"/>
+        <location filename="../Manager/Manager.cpp" line="265"/>
         <source>Unable to open documents</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="349"/>
+        <location filename="../Manager/Manager.cpp" line="365"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation type="unfinished"></translation>
@@ -1039,7 +1039,7 @@
         <translation type="obsolete">Нова нотатка</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="296"/>
+        <location filename="../Manager/Manager.cpp" line="309"/>
         <source>Question</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1052,12 +1052,12 @@
         <translation type="obsolete">від</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="296"/>
+        <location filename="../Manager/Manager.cpp" line="309"/>
         <source>Really quit?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="340"/>
+        <location filename="../Manager/Manager.cpp" line="356"/>
         <source>Save completed</source>
         <translation>Зберегти завершена</translation>
     </message>
@@ -2220,7 +2220,7 @@
         <location filename="../ScriptModule/scriptsmanager.ui" line="197"/>
         <location filename="../ScriptModule/scriptsmanager.ui" line="200"/>
         <location filename="../ScriptModule/scriptsmanager.ui" line="203"/>
-        <source>Use the Script Debugger</source>
+        <source>Use the  Debugger</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2232,7 +2232,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ScriptModule/scriptsmanager.cpp" line="109"/>
+        <location filename="../ScriptModule/scriptsmanager.cpp" line="149"/>
         <source>New script</source>
         <translation type="unfinished"></translation>
     </message>

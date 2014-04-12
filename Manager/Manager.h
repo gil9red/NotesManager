@@ -18,7 +18,6 @@ namespace Ui
 #include <QDir>
 #include <QDateTime>
 #include <QTranslator>
-
 #include "ScriptModule/scriptsmanager.h"
 
 //! Главный класс. Создает и управляет заметками.
@@ -54,6 +53,7 @@ public:
     QTimer autoSaveTimer;                 //!< Таймер автосохранения.
 
     ScriptsManager * scriptsManager;
+    QDockWidget * dockScriptsManager;
 
 private slots:
     //! Вызывается, когда на иконки панели кликают.
@@ -78,6 +78,7 @@ public slots:
     void showManager();  //!< Показать менеджер.
     void setFullScreen( bool );
     void quit();          //!< Закрыть программу.
+
     void readSettings();  //!< Считывание настроек менеджера.
     void writeSettings(); //!< Запись настроек менеджера.
 

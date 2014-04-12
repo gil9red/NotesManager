@@ -10,6 +10,7 @@ namespace Ui
 
 #include <QScriptEngineDebugger>
 #include <QCloseEvent>
+#include <QSettings>
 
 class ScriptsManager : public QMainWindow
 {
@@ -19,11 +20,17 @@ public:
     explicit ScriptsManager( QWidget * parent = 0 );
     ~ScriptsManager();
 
+    //! В функции указываем с каким классом настроек будем работать.
+    void setSettings( QSettings * );
+
+    void readSettings();
+    void writeSettings();
+
 private slots:
     void sl_UpdateStates();
 
     void on_tButtonRunScript_clicked();
-    void on_cBoxUseScriptDebugger_clicked( bool checked );
+    void on_cBoxUseDebugger_clicked( bool );
     void on_tButtonAddScript_clicked();
     void on_tButtonDeleteScript_clicked();
     void on_tButtonRenameScript_clicked();
@@ -34,6 +41,7 @@ private slots:
 private:
     Ui::ScriptsManager * ui;
     QScriptEngineDebugger * scriptEngineDebugger;
+    QSettings * settings;
 
 protected:
     void showEvent( QShowEvent * ) { emit visibilityChanged( isVisible() ); }

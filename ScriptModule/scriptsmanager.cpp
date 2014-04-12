@@ -4,13 +4,15 @@
 #include <Qsci/qsciscintilla.h>
 #include <Qsci/qscilexerjavascript.h>
 #include <QDebug>
+#include "utils/func.h"
 
 using namespace Script;
 
 ScriptsManager::ScriptsManager( QWidget * parent )
     : QMainWindow( parent ),
       ui( new Ui::ScriptsManager ),
-      scriptEngineDebugger( new QScriptEngineDebugger )
+      scriptEngineDebugger( new QScriptEngineDebugger ),
+      settings(0)
 {
     ui->setupUi( this );
 
@@ -79,6 +81,44 @@ ScriptsManager::~ScriptsManager()
     delete ui;
 }
 
+//! В функции указываем с каким классом настроек будем работать.
+void ScriptsManager::setSettings( QSettings * s )
+{
+    settings = s;
+}
+
+void ScriptsManager::readSettings()
+{
+    if ( !settings )
+    {
+        WARNING( "null pointer!" );
+        return;
+    }
+
+    settings->beginGroup( "ScriptsManager" );
+    restoreState( settings->value( "State" ).toByteArray() );
+    ui->splitter->restoreState( settings->value( "Splitter_Main" ).toByteArray() );
+    ui->cBoxUseDebugger->setChecked( settings->value( "UseDebugger", false ).toBool() );
+
+    settings->endGroup();
+}
+void ScriptsManager::writeSettings()
+{
+    if ( !settings )
+    {
+        WARNING( "null pointer!" );
+        return;
+    }
+
+    settings->beginGroup( "ScriptsManager" );
+    settings->setValue( "State", saveState() );
+    settings->setValue( "Splitter_Main", ui->splitter->saveState() );
+    settings->setValue( "UseDebugger", ui->cBoxUseDebugger->isChecked() );
+    settings->endGroup();
+
+    settings->sync();
+}
+
 void ScriptsManager::sl_UpdateStates()
 {
     bool hasSelection = ui->scripts->selectionModel()->hasSelection();
@@ -97,7 +137,7 @@ void ScriptsManager::on_tButtonRunScript_clicked()
     ui->lEditLog->setText( result );
 }
 
-void ScriptsManager::on_cBoxUseScriptDebugger_clicked( bool checked )
+void ScriptsManager::on_cBoxUseDebugger_clicked( bool checked )
 {
     if ( checked )
         scriptEngineDebugger->attachTo( Script::ScriptEngine::instance() );
