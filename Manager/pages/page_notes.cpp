@@ -200,6 +200,18 @@ void Page_Notes::write( QIODevice * device )
     out << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
     xmlDomDocument.save( out, indentSize );
 }
+void Page_Notes::writeToXmlStateNotes()
+{
+    // Передача xml файла, в котором будет описано иерархическое дерево с заметками
+    const QString & fileName = qApp->applicationDirPath() + "/notes/notebook.xml";
+    QFile file( fileName );
+    if ( !file.open( QFile::WriteOnly | QFile::Text ) )
+    {
+        QMessageBox::warning( this, tr( "Error" ), tr( "Cannot write file %1:\n%2." ).arg( fileName ).arg( file.errorString() ) );
+        return;
+    }
+    write( &file );
+}
 
 void Page_Notes::readSettings()
 {
@@ -307,12 +319,14 @@ void Page_Notes::addFolder()
 {
     qApp->setOverrideCursor( Qt::WaitCursor );
     ui->tab_Notes->sl_AddFolderAction_Triggered();
+    writeToXmlStateNotes();
     qApp->restoreOverrideCursor();
 }
 void Page_Notes::addNote()
 {
     qApp->setOverrideCursor( Qt::WaitCursor );
     ui->tab_Notes->sl_AddNoteAction_Triggered();
+    writeToXmlStateNotes();
     qApp->restoreOverrideCursor();
 }
 void Page_Notes::addNoteFromClipboard()
@@ -332,7 +346,7 @@ void Page_Notes::addNoteFromClipboard()
 
     richTextNote->setText( qApp->clipboard()->text() );
     richTextNote->save();
-
+    writeToXmlStateNotes();
     qApp->restoreOverrideCursor();
 }
 void Page_Notes::addNoteFromScreen()
@@ -360,20 +374,23 @@ void Page_Notes::addNoteFromScreen()
 
     richTextNote->insertImage( screenshot );
     richTextNote->save();
-
+    writeToXmlStateNotes();
     qApp->restoreOverrideCursor();
 }
 void Page_Notes::sl_Delete()
 {
     ui->tab_Notes->sl_DeleteItemAction_Triggered();
+    writeToXmlStateNotes();
 }
 void Page_Notes::sl_ClearTrash()
 {
     ui->tab_Notes->sl_ClearTrashAction_Triggered();
+    writeToXmlStateNotes();
 }
 void Page_Notes::sl_RemoveToTrash()
 {
     ui->tab_Notes->sl_MoveToBinAction_Triggered();
+    writeToXmlStateNotes();
 }
 
 void Page_Notes::sl_SaveNote()

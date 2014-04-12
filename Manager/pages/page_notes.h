@@ -34,6 +34,7 @@ public:
 
     void read( QIODevice * device );
     void write( QIODevice * device );
+    void writeToXmlStateNotes();
 
     void readSettings();
     void writeSettings();

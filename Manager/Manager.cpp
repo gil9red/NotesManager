@@ -348,25 +348,13 @@ void Manager::writeSettings()
     settings->endGroup();
 
     pageNotes->writeSettings();
+    pageNotes->writeToXmlStateNotes();
     pageSettings->writeSettings();
     scriptsManager->writeSettings();
 
     settings->sync();
 
-    ui->statusBar->showMessage( tr( "Save completed" ), 5000 );
-
-
-    // Передача xml файла, в котором будет описано иерархическое дерево с заметками
-    {
-        const QString & fileName = qApp->applicationDirPath() + "/notes/notebook.xml";
-        QFile file( fileName );
-        if ( !file.open( QFile::WriteOnly | QFile::Text ) )
-        {
-            QMessageBox::warning( this, tr( "Error" ), tr( "Cannot write file %1:\n%2." ).arg( fileName ).arg( file.errorString() ) );
-            return;
-        }
-        pageNotes->write( &file );
-    }
+    ui->statusBar->showMessage( tr( "Save completed" ), 5000 );    
 }
 
 void Manager::openDictionary()
