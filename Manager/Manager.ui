@@ -361,6 +361,10 @@
    <property name="checkable">
     <bool>true</bool>
    </property>
+   <property name="icon">
+    <iconset resource="../ScriptModule/ScriptModule.qrc">
+     <normaloff>:/fugue-icons/script-smiley</normaloff>:/fugue-icons/script-smiley</iconset>
+   </property>
    <property name="text">
     <string>Show Scripts Manager</string>
    </property>
@@ -383,6 +387,7 @@
  </customwidgets>
  <resources>
   <include location="Manager.qrc"/>
+  <include location="../ScriptModule/ScriptModule.qrc"/>
  </resources>
  <connections>
   <connection>

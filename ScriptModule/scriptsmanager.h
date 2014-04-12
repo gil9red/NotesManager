@@ -21,8 +21,15 @@ public:
 
 private slots:
     void sl_UpdateStates();
+
     void on_tButtonRunScript_clicked();
     void on_cBoxUseScriptDebugger_clicked( bool checked );
+    void on_tButtonAddScript_clicked();
+    void on_tButtonDeleteScript_clicked();
+    void on_tButtonRenameScript_clicked();
+    void on_tButtonDeleteAllScripts_clicked();
+
+    void on_scripts_itemSelectionChanged();
 
 private:
     Ui::ScriptsManager * ui;

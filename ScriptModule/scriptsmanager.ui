@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>476</width>
-    <height>395</height>
+    <width>640</width>
+    <height>480</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,37 +16,10 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
-      <item>
-       <widget class="QTextEdit" name="textEditScript"/>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="lEditLog">
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QCheckBox" name="cBoxUseScriptDebugger">
-        <property name="toolTip">
-         <string>Use the Script Debugger</string>
-        </property>
-        <property name="statusTip">
-         <string>Use the Script Debugger</string>
-        </property>
-        <property name="whatsThis">
-         <string>Use the Script Debugger</string>
-        </property>
-        <property name="text">
-         <string>Use the Script Debugger</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
      <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="spacing">
+       <number>2</number>
+      </property>
       <item>
        <widget class="QToolButton" name="tButtonRunScript">
         <property name="toolTip">
@@ -66,12 +39,120 @@
           <normaloff>:/Manager/run</normaloff>:/Manager/run</iconset>
         </property>
         <property name="autoRaise">
-         <bool>false</bool>
+         <bool>true</bool>
         </property>
        </widget>
       </item>
       <item>
        <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>10</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QToolButton" name="tButtonAddScript">
+        <property name="toolTip">
+         <string>Add Script</string>
+        </property>
+        <property name="statusTip">
+         <string>Add Script</string>
+        </property>
+        <property name="whatsThis">
+         <string>Add Script</string>
+        </property>
+        <property name="text">
+         <string>Add Script</string>
+        </property>
+        <property name="icon">
+         <iconset resource="ScriptModule.qrc">
+          <normaloff>:/fugue-icons/script-plus</normaloff>:/fugue-icons/script-plus</iconset>
+        </property>
+        <property name="autoRaise">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="tButtonDeleteScript">
+        <property name="toolTip">
+         <string>Delete Script</string>
+        </property>
+        <property name="statusTip">
+         <string>Delete Script</string>
+        </property>
+        <property name="whatsThis">
+         <string>Delete Script</string>
+        </property>
+        <property name="text">
+         <string>Delete Script</string>
+        </property>
+        <property name="icon">
+         <iconset resource="ScriptModule.qrc">
+          <normaloff>:/fugue-icons/script--minus</normaloff>:/fugue-icons/script--minus</iconset>
+        </property>
+        <property name="autoRaise">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="tButtonRenameScript">
+        <property name="toolTip">
+         <string>Rename Script</string>
+        </property>
+        <property name="statusTip">
+         <string>Rename Script</string>
+        </property>
+        <property name="whatsThis">
+         <string>Rename Script</string>
+        </property>
+        <property name="text">
+         <string>Rename Script</string>
+        </property>
+        <property name="icon">
+         <iconset resource="ScriptModule.qrc">
+          <normaloff>:/fugue-icons/script--pencil</normaloff>:/fugue-icons/script--pencil</iconset>
+        </property>
+        <property name="autoRaise">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="tButtonDeleteAllScripts">
+        <property name="toolTip">
+         <string>Delete All Scripts</string>
+        </property>
+        <property name="statusTip">
+         <string>Delete All Scripts</string>
+        </property>
+        <property name="whatsThis">
+         <string>Delete All Scripts</string>
+        </property>
+        <property name="text">
+         <string>Delete All Scripts</string>
+        </property>
+        <property name="icon">
+         <iconset resource="ScriptModule.qrc">
+          <normaloff>:/fugue-icons/cross-script</normaloff>:/fugue-icons/cross-script</iconset>
+        </property>
+        <property name="autoRaise">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_2">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
@@ -85,11 +166,62 @@
       </item>
      </layout>
     </item>
+    <item>
+     <widget class="QSplitter" name="splitter">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <widget class="QListWidget" name="scripts">
+       <property name="sortingEnabled">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QWidget" name="layoutWidget">
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QsciScintilla" name="editScript" native="true"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lEditLog">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="cBoxUseScriptDebugger">
+          <property name="toolTip">
+           <string>Use the Script Debugger</string>
+          </property>
+          <property name="statusTip">
+           <string>Use the Script Debugger</string>
+          </property>
+          <property name="whatsThis">
+           <string>Use the Script Debugger</string>
+          </property>
+          <property name="text">
+           <string>Use the Script Debugger</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
    </layout>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QsciScintilla</class>
+   <extends>QWidget</extends>
+   <header location="global">Qsci/qsciscintilla.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../Manager/Manager.qrc"/>
+  <include location="ScriptModule.qrc"/>
  </resources>
  <connections/>
 </ui>

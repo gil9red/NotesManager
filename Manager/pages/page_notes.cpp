@@ -457,39 +457,37 @@ void Page_Notes::sl_HideNote()
 
     emit sg_About_UpdateStates();
 }
-void Page_Notes::showAllNotes()
+void Page_Notes::setVisibleAllNotes( bool visible )
 {
     qApp->setOverrideCursor( Qt::WaitCursor );
 
     foreach ( Note * note, Notebook::instance()->getNotesList() )
     {
         RichTextNote * richTextNote = note->getRichTextNote();
-        if ( richTextNote->isVisible() )
-            continue;
+        if ( visible )
+        {
+            if ( richTextNote->isVisible() )
+                continue;
+        } else
+        {
+            if ( richTextNote->isHidden() )
+                continue;
+        }
 
-        richTextNote->show();
+        richTextNote->setVisible( visible );
         qApp->processEvents();
     }
 
     qApp->restoreOverrideCursor();
     emit sg_About_UpdateStates();
 }
+void Page_Notes::showAllNotes()
+{
+    setVisibleAllNotes( true );
+}
 void Page_Notes::hideAllNotes()
 {
-    qApp->setOverrideCursor( Qt::WaitCursor );
-
-    foreach ( Note * note, Notebook::instance()->getNotesList() )
-    {
-        RichTextNote * richTextNote = note->getRichTextNote();
-        if ( richTextNote->isHidden() )
-            continue;
-
-        richTextNote->hide();
-        qApp->processEvents();
-    }
-
-    qApp->restoreOverrideCursor();
-    emit sg_About_UpdateStates();
+    setVisibleAllNotes( false );
 }
 void Page_Notes::saveAllNotes()
 {

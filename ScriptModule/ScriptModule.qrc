@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/fugue-icons">
+        <file alias="cross-script">icons/cross-script.png</file>
+        <file alias="script-code">icons/script-code.png</file>
+        <file alias="script--minus">icons/script--minus.png</file>
+        <file alias="script--pencil">icons/script--pencil.png</file>
+        <file alias="script-plus">icons/script--plus.png</file>
+        <file alias="script-smiley">icons/script-smiley.png</file>
+    </qresource>
+</RCC>

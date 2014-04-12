@@ -20,6 +20,7 @@ class Page_Notes: public QMainWindow
     Q_PROPERTY( addNote RESET )
     Q_PROPERTY( addNoteFromClipboard RESET )
     Q_PROPERTY( addNoteFromScreen RESET )
+    Q_PROPERTY( setVisibleAllNotes RESET )
     Q_PROPERTY( showAllNotes RESET )
     Q_PROPERTY( hideAllNotes RESET )
     Q_PROPERTY( saveAllNotes RESET )
@@ -64,6 +65,7 @@ public slots:
     void sl_SaveAsNote();
     void sl_ShowNote();
     void sl_HideNote();
+    void setVisibleAllNotes( bool visible );
     void showAllNotes();
     void hideAllNotes();
     void saveAllNotes();

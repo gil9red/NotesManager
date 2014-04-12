@@ -11,3 +11,6 @@ SOURCES += \
 
 FORMS += \
     ScriptModule/scriptsmanager.ui
+
+RESOURCES += \
+    ScriptModule/ScriptModule.qrc
