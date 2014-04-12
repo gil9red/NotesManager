@@ -69,8 +69,10 @@ Page_Notes::Page_Notes( QWidget * parent ) :
 
     // Сценарии
     {
-        QScriptValue scriptPageNotes = Script::ScriptEngine::instance()->newQObject( this );
-        Script::ScriptEngine::instance()->globalObject().setProperty( "PageNotes", scriptPageNotes );
+        Script::ScriptEngine * engine = Script::ScriptEngine::instance();
+        QScriptValue scriptPageNotes = engine->newQObject( this );
+
+        engine->globalObject().setProperty( "PageNotes", scriptPageNotes );
     }
 
     sl_UpdateStates();

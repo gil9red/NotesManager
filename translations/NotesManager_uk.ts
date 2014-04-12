@@ -988,7 +988,6 @@
     </message>
     <message>
         <location filename="../Manager/Manager.cpp" line="171"/>
-        <location filename="../Manager/Manager.cpp" line="365"/>
         <source>Error</source>
         <translation type="unfinished">Помилка</translation>
     </message>
@@ -1013,25 +1012,19 @@
         <translation>Відкрити менеджер</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="223"/>
-        <location filename="../Manager/Manager.cpp" line="265"/>
+        <location filename="../Manager/Manager.cpp" line="229"/>
+        <location filename="../Manager/Manager.cpp" line="271"/>
         <source>Information</source>
         <translation>Iнформація</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="223"/>
+        <location filename="../Manager/Manager.cpp" line="229"/>
         <source>Application is already running</source>
         <translation>Застосування вже запущений</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="265"/>
+        <location filename="../Manager/Manager.cpp" line="271"/>
         <source>Unable to open documents</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Manager/Manager.cpp" line="365"/>
-        <source>Cannot write file %1:
-%2.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1039,7 +1032,7 @@
         <translation type="obsolete">Нова нотатка</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="309"/>
+        <location filename="../Manager/Manager.cpp" line="315"/>
         <source>Question</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1052,12 +1045,12 @@
         <translation type="obsolete">від</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="309"/>
+        <location filename="../Manager/Manager.cpp" line="315"/>
         <source>Really quit?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="356"/>
+        <location filename="../Manager/Manager.cpp" line="364"/>
         <source>Save completed</source>
         <translation>Зберегти завершена</translation>
     </message>
@@ -1230,6 +1223,17 @@
     <message>
         <source>Delete</source>
         <translation type="obsolete">Видаляти</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_notes.cpp" line="210"/>
+        <source>Error</source>
+        <translation type="unfinished">Помилка</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_notes.cpp" line="210"/>
+        <source>Cannot write file %1:
+%2.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1742,24 +1746,29 @@
         <translation type="obsolete">немає</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="83"/>
+        <location filename="../main.cpp" line="80"/>
         <source>Loading fonts</source>
         <translation>Завантаження шрифтів</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="86"/>
+        <location filename="../main.cpp" line="83"/>
         <source>Loading dictionaries</source>
         <translation>Завантаження словників</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="89"/>
+        <location filename="../main.cpp" line="86"/>
         <source>Creation</source>
         <translation>Creation</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="99"/>
+        <location filename="../main.cpp" line="96"/>
         <source>Loading settings</source>
         <translation>Завантаження налаштувань</translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="99"/>
+        <source>Loading scripts</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Loading notes</source>
@@ -2232,7 +2241,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ScriptModule/scriptsmanager.cpp" line="149"/>
+        <location filename="../ScriptModule/scriptsmanager.cpp" line="158"/>
         <source>New script</source>
         <translation type="unfinished"></translation>
     </message>

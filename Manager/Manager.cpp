@@ -174,6 +174,12 @@ void Manager::loadNotes()
     pageNotes->read( &file );
     updateStates();
 }
+
+void Manager::loadScripts()
+{
+    scriptsManager->read();
+}
+
 void Manager::setSettings( QSettings * s )
 {
     settings = s;
@@ -351,6 +357,7 @@ void Manager::writeSettings()
     pageNotes->writeToXmlStateNotes();
     pageSettings->writeSettings();
     scriptsManager->writeSettings();
+    scriptsManager->write();
 
     settings->sync();
 

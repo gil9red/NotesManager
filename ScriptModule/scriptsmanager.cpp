@@ -5,6 +5,8 @@
 #include <Qsci/qscilexerjavascript.h>
 #include <QDebug>
 #include "utils/func.h"
+#include <QSqlDatabase>
+#include <QSqlError>
 
 using namespace Script;
 
@@ -73,6 +75,15 @@ ScriptsManager::ScriptsManager( QWidget * parent )
         ui->editScript->setUnmatchedBraceForegroundColor( Qt::blue );
     }
 
+    // SQL база данных
+    {
+        QSqlDatabase database = QSqlDatabase::addDatabase( "QSQLITE" );
+        database.setDatabaseName( "Scripts.database" );
+
+        if( !database.open() )
+            WARNING( qPrintable( database.lastError().text() ) );
+    }
+
     QObject::connect( ui->editScript, SIGNAL(textChanged()), SLOT(sl_UpdateStates()) );
     sl_UpdateStates();
 }
@@ -85,6 +96,17 @@ ScriptsManager::~ScriptsManager()
 void ScriptsManager::setSettings( QSettings * s )
 {
     settings = s;
+}
+
+void ScriptsManager::read()
+{
+
+
+    sl_UpdateStates();
+}
+void ScriptsManager::write()
+{
+
 }
 
 void ScriptsManager::readSettings()

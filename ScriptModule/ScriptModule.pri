@@ -1,4 +1,5 @@
 QT += script
+QT += sql
 QT += scripttools
 
 HEADERS += \

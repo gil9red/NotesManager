@@ -96,6 +96,9 @@ int main( int argc, char *argv[] )
     splashScreen->setMessage( QTranslator::tr( "Loading settings" ), font );
     manager.readSettings();
 
+    splashScreen->setMessage( QTranslator::tr( "Loading scripts" ), font );
+    manager.loadScripts();
+
     splashScreen->setMessage( QTranslator::tr( "Now ready" ), font );
     manager.nowReadyPhase();
 

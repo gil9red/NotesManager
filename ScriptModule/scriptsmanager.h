@@ -23,6 +23,9 @@ public:
     //! В функции указываем с каким классом настроек будем работать.
     void setSettings( QSettings * );
 
+    void read();
+    void write();
+
     void readSettings();
     void writeSettings();
 
