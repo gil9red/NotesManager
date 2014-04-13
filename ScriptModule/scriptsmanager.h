@@ -11,6 +11,7 @@ namespace Ui
 #include <QScriptEngineDebugger>
 #include <QCloseEvent>
 #include <QSettings>
+#include <QListWidgetItem>
 
 class ScriptsManager : public QMainWindow
 {
@@ -29,22 +30,31 @@ public:
     void readSettings();
     void writeSettings();
 
+private:
+    void deleteRow( int row );
+    void addToListOfModified( QListWidgetItem * );
+    void removeFromListOfModified( QListWidgetItem * );
+
 private slots:
     void sl_UpdateStates();
+    void sl_ContentScriptChanged();
+    void sl_SaveScripts();
 
-    void on_tButtonRunScript_clicked();
+    void on_actionRunScript_triggered();
+    void on_actionAddScript_triggered();
+    void on_actionDeleteScript_triggered();
+    void on_actionRenameScript_triggered();
+    void on_actionDeleteAllScripts_triggered();
+    void on_actionSaveAllScripts_triggered();
     void on_cBoxUseDebugger_clicked( bool );
-    void on_tButtonAddScript_clicked();
-    void on_tButtonDeleteScript_clicked();
-    void on_tButtonRenameScript_clicked();
-    void on_tButtonDeleteAllScripts_clicked();
-
     void on_scripts_itemSelectionChanged();
+    void on_scripts_itemChanged( QListWidgetItem * );
 
 private:
     Ui::ScriptsManager * ui;
     QScriptEngineDebugger * scriptEngineDebugger;
     QSettings * settings;
+    QList < QListWidgetItem * > listOfModified;
 
 protected:
     void showEvent( QShowEvent * ) { emit visibilityChanged( isVisible() ); }

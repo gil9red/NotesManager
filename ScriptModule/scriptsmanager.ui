@@ -16,162 +16,14 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <property name="spacing">
-       <number>2</number>
-      </property>
-      <item>
-       <widget class="QToolButton" name="tButtonRunScript">
-        <property name="toolTip">
-         <string>Run Script</string>
-        </property>
-        <property name="statusTip">
-         <string>Run Script</string>
-        </property>
-        <property name="whatsThis">
-         <string>Run Script</string>
-        </property>
-        <property name="text">
-         <string>Run Script</string>
-        </property>
-        <property name="icon">
-         <iconset resource="../Manager/Manager.qrc">
-          <normaloff>:/Manager/run</normaloff>:/Manager/run</iconset>
-        </property>
-        <property name="autoRaise">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="verticalSpacer">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Fixed</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>10</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QToolButton" name="tButtonAddScript">
-        <property name="toolTip">
-         <string>Add Script</string>
-        </property>
-        <property name="statusTip">
-         <string>Add Script</string>
-        </property>
-        <property name="whatsThis">
-         <string>Add Script</string>
-        </property>
-        <property name="text">
-         <string>Add Script</string>
-        </property>
-        <property name="icon">
-         <iconset resource="ScriptModule.qrc">
-          <normaloff>:/fugue-icons/script-plus</normaloff>:/fugue-icons/script-plus</iconset>
-        </property>
-        <property name="autoRaise">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QToolButton" name="tButtonDeleteScript">
-        <property name="toolTip">
-         <string>Delete Script</string>
-        </property>
-        <property name="statusTip">
-         <string>Delete Script</string>
-        </property>
-        <property name="whatsThis">
-         <string>Delete Script</string>
-        </property>
-        <property name="text">
-         <string>Delete Script</string>
-        </property>
-        <property name="icon">
-         <iconset resource="ScriptModule.qrc">
-          <normaloff>:/fugue-icons/script--minus</normaloff>:/fugue-icons/script--minus</iconset>
-        </property>
-        <property name="autoRaise">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QToolButton" name="tButtonRenameScript">
-        <property name="toolTip">
-         <string>Rename Script</string>
-        </property>
-        <property name="statusTip">
-         <string>Rename Script</string>
-        </property>
-        <property name="whatsThis">
-         <string>Rename Script</string>
-        </property>
-        <property name="text">
-         <string>Rename Script</string>
-        </property>
-        <property name="icon">
-         <iconset resource="ScriptModule.qrc">
-          <normaloff>:/fugue-icons/script--pencil</normaloff>:/fugue-icons/script--pencil</iconset>
-        </property>
-        <property name="autoRaise">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QToolButton" name="tButtonDeleteAllScripts">
-        <property name="toolTip">
-         <string>Delete All Scripts</string>
-        </property>
-        <property name="statusTip">
-         <string>Delete All Scripts</string>
-        </property>
-        <property name="whatsThis">
-         <string>Delete All Scripts</string>
-        </property>
-        <property name="text">
-         <string>Delete All Scripts</string>
-        </property>
-        <property name="icon">
-         <iconset resource="ScriptModule.qrc">
-          <normaloff>:/fugue-icons/cross-script</normaloff>:/fugue-icons/cross-script</iconset>
-        </property>
-        <property name="autoRaise">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="verticalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-     </layout>
-    </item>
-    <item>
      <widget class="QSplitter" name="splitter">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
       <widget class="QListWidget" name="scripts">
+       <property name="editTriggers">
+        <set>QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed</set>
+       </property>
        <property name="sortingEnabled">
         <bool>false</bool>
        </property>
@@ -210,6 +62,149 @@
     </item>
    </layout>
   </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>Main</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>16</width>
+     <height>16</height>
+    </size>
+   </property>
+   <property name="floatable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionRunScript"/>
+   <addaction name="separator"/>
+   <addaction name="actionAddScript"/>
+   <addaction name="separator"/>
+   <addaction name="actionRenameScript"/>
+   <addaction name="actionSaveAllScripts"/>
+   <addaction name="separator"/>
+   <addaction name="actionDeleteScript"/>
+   <addaction name="actionDeleteAllScripts"/>
+  </widget>
+  <action name="actionRunScript">
+   <property name="icon">
+    <iconset resource="../Manager/Manager.qrc">
+     <normaloff>:/Manager/run</normaloff>:/Manager/run</iconset>
+   </property>
+   <property name="text">
+    <string>Run Script</string>
+   </property>
+   <property name="toolTip">
+    <string>Run Script</string>
+   </property>
+   <property name="statusTip">
+    <string>Run Script</string>
+   </property>
+   <property name="whatsThis">
+    <string>Run Script</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="actionAddScript">
+   <property name="icon">
+    <iconset resource="ScriptModule.qrc">
+     <normaloff>:/fugue-icons/script-plus</normaloff>:/fugue-icons/script-plus</iconset>
+   </property>
+   <property name="text">
+    <string>Add Script</string>
+   </property>
+   <property name="toolTip">
+    <string>Add Script</string>
+   </property>
+   <property name="statusTip">
+    <string>Add Script</string>
+   </property>
+   <property name="whatsThis">
+    <string>Add Script</string>
+   </property>
+  </action>
+  <action name="actionRenameScript">
+   <property name="icon">
+    <iconset resource="ScriptModule.qrc">
+     <normaloff>:/fugue-icons/script--pencil</normaloff>:/fugue-icons/script--pencil</iconset>
+   </property>
+   <property name="text">
+    <string>Rename Script</string>
+   </property>
+   <property name="toolTip">
+    <string>Rename Script</string>
+   </property>
+   <property name="statusTip">
+    <string>Rename Script</string>
+   </property>
+   <property name="whatsThis">
+    <string>Rename Script</string>
+   </property>
+  </action>
+  <action name="actionSaveAllScripts">
+   <property name="icon">
+    <iconset resource="ScriptModule.qrc">
+     <normaloff>:/fugue-icons/disks-black</normaloff>:/fugue-icons/disks-black</iconset>
+   </property>
+   <property name="text">
+    <string>Save All Scripts</string>
+   </property>
+   <property name="toolTip">
+    <string>Save All Scripts</string>
+   </property>
+   <property name="statusTip">
+    <string>Save All Scripts</string>
+   </property>
+   <property name="whatsThis">
+    <string>Save All Scripts</string>
+   </property>
+  </action>
+  <action name="actionDeleteScript">
+   <property name="icon">
+    <iconset resource="ScriptModule.qrc">
+     <normaloff>:/fugue-icons/script--minus</normaloff>:/fugue-icons/script--minus</iconset>
+   </property>
+   <property name="text">
+    <string>Delete Script</string>
+   </property>
+   <property name="toolTip">
+    <string>Delete Script</string>
+   </property>
+   <property name="statusTip">
+    <string>Delete Script</string>
+   </property>
+   <property name="whatsThis">
+    <string>Delete Script</string>
+   </property>
+  </action>
+  <action name="actionDeleteAllScripts">
+   <property name="icon">
+    <iconset resource="ScriptModule.qrc">
+     <normaloff>:/fugue-icons/cross-script</normaloff>:/fugue-icons/cross-script</iconset>
+   </property>
+   <property name="text">
+    <string>Delete All Scripts</string>
+   </property>
+   <property name="toolTip">
+    <string>Delete All Scripts</string>
+   </property>
+   <property name="statusTip">
+    <string>Delete All Scripts</string>
+   </property>
+   <property name="whatsThis">
+    <string>Delete All Scripts</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>

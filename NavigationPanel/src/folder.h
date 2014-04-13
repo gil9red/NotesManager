@@ -55,8 +55,8 @@ public:
     FolderItemCollection child;
 
 private:
-    FolderType type;
     bool expanded;
+    FolderType type;
 
 signals:
     void sg_ItemAboutToBeAdded(AbstractFolderItem* const, int);

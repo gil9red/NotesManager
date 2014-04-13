@@ -35,6 +35,9 @@ Page_Notes::Page_Notes( QWidget * parent ) :
     QObject::connect( Notebook::instance(), SIGNAL(sg_ItemUnregistered(Tag*)), SIGNAL(sg_About_UpdateStates()) );
     QObject::connect( Notebook::instance(), SIGNAL(sg_ItemUnregistered(Tag*)), SIGNAL(sg_About_UpdateStates()) );
     QObject::connect( Notebook::instance(), SIGNAL(sg_ItemUnregistered(Tag*)), SIGNAL(sg_About_UpdateStates()) );
+    QObject::connect( Notebook::instance()->getTrashFolder(), SIGNAL(sg_ItemMoved(AbstractFolderItem*const,int,Folder*)), SIGNAL(sg_About_UpdateStates()) );
+    QObject::connect( Notebook::instance()->getTrashFolder(), SIGNAL(sg_ItemAdded(AbstractFolderItem*const,int)), SIGNAL(sg_About_UpdateStates()) );
+    QObject::connect( Notebook::instance()->getTrashFolder(), SIGNAL(sg_ItemRemoved(AbstractFolderItem*const)), SIGNAL(sg_About_UpdateStates()) );
 
     QObject::connect( this, SIGNAL(sg_About_UpdateStates()), SLOT(sl_UpdateStates()) );
 
@@ -621,6 +624,5 @@ void Page_Notes::sl_UpdateStates()
         bool isTrash = this->currentIsTrash();
         ui->actionRemoveToTrash->setEnabled( !isTrash && !isChildTrash ); // переместить в корзину
         ui->actionDelete->setEnabled( isChildTrash );
-        ui->actionClearTrash->setEnabled( (isTrash || isChildTrash) && !trashIsEmpty() );
     }
 }

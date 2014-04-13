@@ -1225,12 +1225,12 @@
         <translation type="obsolete">Видаляти</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_notes.cpp" line="210"/>
+        <location filename="../Manager/pages/page_notes.cpp" line="212"/>
         <source>Error</source>
         <translation type="unfinished">Помилка</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_notes.cpp" line="210"/>
+        <location filename="../Manager/pages/page_notes.cpp" line="212"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation type="unfinished"></translation>
@@ -1746,27 +1746,27 @@
         <translation type="obsolete">немає</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="80"/>
+        <location filename="../main.cpp" line="82"/>
         <source>Loading fonts</source>
         <translation>Завантаження шрифтів</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="83"/>
+        <location filename="../main.cpp" line="85"/>
         <source>Loading dictionaries</source>
         <translation>Завантаження словників</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="86"/>
+        <location filename="../main.cpp" line="88"/>
         <source>Creation</source>
         <translation>Creation</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="96"/>
+        <location filename="../main.cpp" line="98"/>
         <source>Loading settings</source>
         <translation>Завантаження налаштувань</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="99"/>
+        <location filename="../main.cpp" line="101"/>
         <source>Loading scripts</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1775,7 +1775,7 @@
         <translation type="obsolete">Завантаження замітки</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="102"/>
+        <location filename="../main.cpp" line="104"/>
         <source>Now ready</source>
         <translation>Тепер готовий</translation>
     </message>
@@ -2193,55 +2193,73 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="65"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="68"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="71"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="74"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="67"/>
+        <source>Main</source>
+        <translation type="unfinished">Основний</translation>
+    </message>
+    <message>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="115"/>
+        <source>Ctrl+R</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="124"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="127"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="130"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="133"/>
         <source>Add Script</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="88"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="91"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="94"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="97"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="160"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="163"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="166"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="169"/>
+        <source>Save All Scripts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="178"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="181"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="184"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="187"/>
         <source>Delete Script</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="111"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="114"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="117"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="120"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="142"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="145"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="148"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="151"/>
         <source>Rename Script</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="134"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="137"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="140"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="143"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="196"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="199"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="202"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="205"/>
         <source>Delete All Scripts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="194"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="197"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="200"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="203"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="46"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="49"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="52"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="55"/>
         <source>Use the  Debugger</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="26"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="29"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="32"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="35"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="103"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="106"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="109"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="112"/>
         <source>Run Script</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ScriptModule/scriptsmanager.cpp" line="158"/>
+        <location filename="../ScriptModule/scriptsmanager.cpp" line="318"/>
         <source>New script</source>
         <translation type="unfinished"></translation>
     </message>
