@@ -357,7 +357,7 @@ void Page_Notes::addNoteFromClipboard()
 void Page_Notes::addNoteFromScreen()
 {
     FullscreenshotCropper cropper;
-    cropper.setImage( QPixmap::grabWindow( QApplication::desktop()->winId() ) );
+    cropper.setImage( QPixmap::grabWindow( qApp->desktop()->winId() ) );
     cropper.showFullScreen();
     if ( !cropper.exec() )
         return;
@@ -374,6 +374,7 @@ void Page_Notes::addNoteFromScreen()
     {
         CRITICAL( "Error when add new note" );
         richTextNote->remove();
+        qApp->restoreOverrideCursor();
         return;
     }
 

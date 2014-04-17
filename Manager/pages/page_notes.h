@@ -16,14 +16,6 @@ namespace Ui
 class Page_Notes: public QMainWindow
 {
     Q_OBJECT
-//    Q_PROPERTY( addFolder RESET )
-//    Q_PROPERTY( addNote RESET )
-//    Q_PROPERTY( addNoteFromClipboard RESET )
-//    Q_PROPERTY( addNoteFromScreen RESET )
-//    Q_PROPERTY( setVisibleAllNotes RESET )
-//    Q_PROPERTY( showAllNotes RESET )
-//    Q_PROPERTY( hideAllNotes RESET )
-//    Q_PROPERTY( saveAllNotes RESET )
 
 public:
     explicit Page_Notes( QWidget * parent = 0 );

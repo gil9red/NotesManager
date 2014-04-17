@@ -39,7 +39,7 @@ public:
     void setSettings( QSettings * s );
     
     //! Функция возвращает статичный указатель на "себя".
-    static Manager * instance() { return self; }
+    static Manager * instance();
 
     void nowReadyPhase();
 
@@ -50,7 +50,7 @@ public:
     Page_Settings * pageSettings;         //!< Страница менеджера, которая отображает настройки программы.
     Page_About * pageAbout;               //!< Страница менеджера, которая отображает "О программе".
 
-    QSystemTrayIcon tray;                 //!< Класс системного трея.
+    QSystemTrayIcon * tray;                 //!< Класс системного трея.
 
     QSettings * settings;                 //!< Указатель на класс настроек.
     QTimer autoSaveTimer;                 //!< Таймер автосохранения.
@@ -63,7 +63,7 @@ public slots:
     void buttonSidebarClicked( int index );
 
     //! Функция принимает сообщения, которые отправляются при создании дупликатов программы.
-    void messageReceived( const QString & text );
+    void messageReceived( const QString & );
 
     //! Функция принимает сигнал, отсылаемый треем.
     void messageReceived( QSystemTrayIcon::ActivationReason );
@@ -98,8 +98,8 @@ public slots:
     Q_SCRIPTABLE int intervalAutosave(); //!< Функция вернет интервал таймера автосохранения.
 
 protected:
-    void closeEvent( QCloseEvent * event );
-    void changeEvent( QEvent * event );
+    void closeEvent( QCloseEvent * );
+    void changeEvent( QEvent * );
 };
 
 #endif // MANAGER_H

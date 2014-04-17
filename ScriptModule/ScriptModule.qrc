@@ -7,5 +7,8 @@
         <file alias="script-plus">icons/16x16/script--plus.png</file>
         <file alias="script-smiley">icons/16x16/script-smiley.png</file>
         <file alias="disks-black">icons/16x16/disks-black.png</file>
+        <file alias="book-open-bookmark">icons/16x16/book-open-bookmark.png</file>
+        <file alias="bookmark">icons/16x16/bookmark.png</file>
+        <file alias="script-code--bookmark">icons/16x16/script-code--bookmark.png</file>
     </qresource>
 </RCC>

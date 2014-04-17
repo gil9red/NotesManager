@@ -12,26 +12,19 @@
 #include <QSqlQuery>
 #include <QSqlRecord>
 #include <QTimer>
+#include <QMenu>
 
 using namespace Script;
 
-const QString & nameTable = "Scripts";
-enum { ID = Qt::UserRole, NAME, CONTENT };
+const QString & nameTableScripts = "Scripts";
+enum { ID = Qt::UserRole, NAME, CONTENT, BOOKMARK };
 
-QSqlQuery sendQuery( QString query, bool runInSeparateThread = false )
+QSqlQuery sendQuery( QString query )
 {
     QSqlQuery sqlQuery;
-    bool successful = false;
-
-    if ( runInSeparateThread )
-        QtConcurrent::run( sqlQuery, &QSqlQuery::exec, query );
-    else
-    {
-        successful = sqlQuery.exec( query );
-
-        if( !successful )
-            WARNING( qPrintable( QString( query + ", error:" + sqlQuery.lastError().text() ) ) );
-    }
+    bool successful = sqlQuery.exec( query );
+    if( !successful )
+        WARNING( qPrintable( QString( query + ", error:" + sqlQuery.lastError().text() ) ) );
 
     return sqlQuery;
 }
@@ -40,7 +33,8 @@ ScriptsManager::ScriptsManager( QWidget * parent )
     : QMainWindow( parent ),
       ui( new Ui::ScriptsManager ),
       scriptEngineDebugger( new QScriptEngineDebugger ),
-      settings(0)
+      settings(0),
+      menuBookmarkScript( new QMenu( tr( "Bookmarks" ) ) )
 {
     ui->setupUi( this );
 
@@ -121,12 +115,20 @@ ScriptsManager::ScriptsManager( QWidget * parent )
             WARNING( qPrintable( database.lastError().text() ) );
 
         // Если таблицы в базе нет, создаем ее
-        if ( !database.tables().contains( nameTable ) )
+        if ( !database.tables().contains( nameTableScripts ) )
             sendQuery( QString( "CREATE TABLE %1("
                                 "id INTEGER PRIMARY KEY AUTOINCREMENT, "
                                 "name TEXT, "
                                 "content TEXT"
-                                ");" ).arg( nameTable ) );
+                                ");" ).arg( nameTableScripts ) );
+    }
+
+    // Закладки
+    {
+        menuBookmarkScript->setIcon( QIcon( ":/fugue-icons/book-open-bookmark" ) );
+        menuBookmarkScript->setToolTip( menuBookmarkScript->title() );
+        menuBookmarkScript->setStatusTip( menuBookmarkScript->title() );
+        menuBookmarkScript->setWhatsThis( menuBookmarkScript->title() );
     }
 
     sl_UpdateStates();
@@ -147,26 +149,43 @@ void ScriptsManager::read()
     ui->scripts->clear();
     listOfModified.clear();
 
-    QSqlQuery query = sendQuery( QString( "SELECT * FROM %1" ).arg( nameTable ) );
-    QSqlRecord record = query.record();
-
-    while ( query.next() )
+    // Загрузка сценариев
     {
-        qApp->processEvents();
+        QSqlQuery query = sendQuery( QString( "SELECT * FROM %1" ).arg( nameTableScripts ) );
+        QSqlRecord record = query.record();
 
-        const QString & id = query.value( record.indexOf( "id" ) ).toString();
-        const QString & name = query.value( record.indexOf( "name" ) ).toString();
-        const QString & content = query.value( record.indexOf( "content" ) ).toString();
+        while ( query.next() )
+        {
+            qApp->processEvents();
 
-        QListWidgetItem * item = new QListWidgetItem();
-        item->setText( name );
-        item->setIcon( QIcon( ":/fugue-icons/script-code" ) );
-        item->setFlags( item->flags() | Qt::ItemIsEditable );
-        item->setData( ID, id );
-        item->setData( NAME, name );
-        item->setData( CONTENT, content );
+            const QString & id = query.value( record.indexOf( "id" ) ).toString();
+            const QString & name = query.value( record.indexOf( "name" ) ).toString();
+            const QString & content = query.value( record.indexOf( "content" ) ).toString();
 
-        ui->scripts->addItem( item );
+            QListWidgetItem * item = new QListWidgetItem();
+            item->setText( name );
+            item->setFlags( item->flags() | Qt::ItemIsEditable );
+            item->setData( ID, id );
+            item->setData( NAME, name );
+            item->setData( CONTENT, content );
+
+            hash_Id_Item.insert( id, item );
+
+            // Действие, вызов которого запустит выполнение скрипта
+            {
+                QAction * action = new QAction( item->icon(), name, this );
+                QObject::connect( action, SIGNAL(triggered()), SLOT(sl_invokeBookmarkAction()) );
+                hash_Item_Action.insert( item, action );
+
+                // Закладки
+                {
+                    bool isBookmark = query.value( record.indexOf( "isBookmark" ) ).toBool();
+                    setBookmarkItem( item, isBookmark );
+                }
+            }
+
+            ui->scripts->addItem( item );
+        }
     }
 
     sl_UpdateStates();
@@ -186,6 +205,7 @@ void ScriptsManager::readSettings()
     }
 
     settings->beginGroup( "ScriptsManager" );
+    restoreGeometry( settings->value( "Geometry" ).toByteArray() );
     restoreState( settings->value( "State" ).toByteArray() );
     ui->splitter->restoreState( settings->value( "Splitter_Main" ).toByteArray() );
     ui->cBoxUseDebugger->setChecked( settings->value( "UseDebugger", false ).toBool() );
@@ -201,6 +221,7 @@ void ScriptsManager::writeSettings()
     }
 
     settings->beginGroup( "ScriptsManager" );
+    settings->setValue( "Geometry", saveGeometry() );
     settings->setValue( "State", saveState() );
     settings->setValue( "Splitter_Main", ui->splitter->saveState() );
     settings->setValue( "UseDebugger", ui->cBoxUseDebugger->isChecked() );
@@ -214,10 +235,16 @@ void ScriptsManager::deleteRow( int row )
     QListWidgetItem * item = ui->scripts->takeItem( row );
     removeFromListOfModified( item );
     const QString & id = item->data( ID ).toString();
+
+    delete hash_Item_Action.value( item ); // удаление action, связанного с данным элементом
+    hash_Item_Action.remove( item );
+    hash_Id_Item.remove( id );
+    hash_Id_Bookmark.remove( id );
+
     delete item;
-    sendQuery( QString( "DELETE FROM %1 WHERE id = '%2';" ).arg( nameTable ).arg( id ) );
+    sendQuery( QString( "DELETE FROM %1 WHERE id = '%2';" ).arg( nameTableScripts ).arg( id ) );
+
     sl_UpdateStates();
-    qApp->restoreOverrideCursor();
 }
 void ScriptsManager::addToListOfModified( QListWidgetItem * item )
 {
@@ -257,6 +284,27 @@ void ScriptsManager::removeFromListOfModified( QListWidgetItem * item )
 
     sl_UpdateStates();
 }
+void ScriptsManager::setBookmarkItem( QListWidgetItem * item, bool value )
+{
+    item->setData( BOOKMARK, value );
+
+    QAction * actionBookmark = hash_Item_Action.value( item );
+    if ( value )
+        menuBookmarkScript->addAction( actionBookmark );
+    else
+        menuBookmarkScript->removeAction( actionBookmark );
+
+    item->setIcon( QIcon( value ? ":/fugue-icons/script-code--bookmark" : ":/fugue-icons/script-code" ) );
+    actionBookmark->setIcon( item->icon() );
+
+    const QString & id = item->data( ID ).toString();
+    hash_Id_Bookmark.insert( id, value );
+}
+void ScriptsManager::runScript( const QString & script )
+{
+    const QString & result = Script::ScriptEngine::instance()->evaluate( script ).toString();
+    ui->lEditLog->setText( result );
+}
 
 void ScriptsManager::sl_UpdateStates()
 {
@@ -264,6 +312,11 @@ void ScriptsManager::sl_UpdateStates()
     ui->actionRunScript->setEnabled( hasSelection );
     ui->actionDeleteScript->setEnabled( hasSelection );
     ui->actionRenameScript->setEnabled( hasSelection );
+    ui->actionBookmarkScript->setEnabled( hasSelection );
+    if ( hasSelection )
+        ui->actionBookmarkScript->setChecked( ui->scripts->currentItem()->data( BOOKMARK ).toBool() );
+    else
+        ui->actionBookmarkScript->setChecked( false );
 
     ui->editScript->setEnabled( hasSelection );
     ui->lEditLog->setEnabled( hasSelection );
@@ -293,10 +346,26 @@ void ScriptsManager::sl_SaveScripts()
         qApp->processEvents();
 
         const QString & id = item->data( ID ).toString();
-        const QString & name = item->data( NAME ).toString();
-        const QString & content = item->data( CONTENT ).toString();
-        sendQuery( QString( "UPDATE %1 SET content='%2' WHERE id=%3;" ).arg( nameTable ).arg( content ).arg( id ) );
-        sendQuery( QString( "UPDATE %1 SET name='%2' WHERE id=%3;" ).arg( nameTable ).arg( name ).arg( id ) );
+        QString name = item->data( NAME ).toString();
+        QString content = item->data( CONTENT ).toString();
+        bool isBookmark = item->data( BOOKMARK ).toBool();
+
+        {
+            QSqlQuery query;
+            query.prepare( QString( "UPDATE %1 SET name=:name WHERE id=%2;" ).arg( nameTableScripts ).arg( id ) );
+            query.bindValue( ":name", name );
+            query.exec();
+        }
+        {
+            QSqlQuery query;
+            query.prepare( QString( "UPDATE %1 SET content=:content WHERE id=%2;" ).arg( nameTableScripts ).arg( id ) );
+            query.bindValue( ":content", content );
+            query.exec();
+        }
+
+//        sendQuery( QString( "UPDATE %1 SET content='%2' WHERE id=%3;" ).arg( nameTableScripts ).arg( content.replace( "'", "\'" ) ).arg( id ) );
+//        sendQuery( QString( "UPDATE %1 SET name='%2' WHERE id=%3;" ).arg( nameTableScripts ).arg( name.replace( "'", "\\'" ) ).arg( id ) );
+        sendQuery( QString( "UPDATE %1 SET isBookmark='%2' WHERE id=%3;" ).arg( nameTableScripts ).arg( isBookmark ).arg( id ) );
 
         removeFromListOfModified( item );
     }
@@ -310,8 +379,7 @@ void ScriptsManager::on_actionRunScript_triggered()
     if ( script.isEmpty() )
         return;
 
-    const QString & result = Script::ScriptEngine::instance()->evaluate( script ).toString();
-    ui->lEditLog->setText( result );
+    runScript( script );
 }
 void ScriptsManager::on_actionAddScript_triggered()
 {
@@ -325,9 +393,23 @@ void ScriptsManager::on_actionAddScript_triggered()
 
     const QString & name = item->data( NAME ).toString();
     const QString & content = item->data( CONTENT ).toString();
-    QSqlQuery query = sendQuery( QString( "INSERT INTO %1(name, content) VALUES('%2', '%3');").arg( nameTable ).arg( name ).arg( content ) );
+    bool isBookmark = false;
+    QSqlQuery query = sendQuery( QString( "INSERT INTO %1(name, content, isBookmark) VALUES('%2', '%3', '%4');").arg( nameTableScripts ).arg( name ).arg( content ).arg( isBookmark ) );
     const QString & id = query.lastInsertId().toString();
     item->setData( ID, id );
+
+    // Действие, вызов которого запустит выполнение скрипта
+    {
+        QAction * action = new QAction( item->icon(), name, this );
+        QObject::connect( action, SIGNAL(triggered()), SLOT(sl_invokeBookmarkAction()) );
+        hash_Item_Action.insert( item, action );
+
+        // Закладки
+        {
+            setBookmarkItem( item, isBookmark );
+        }
+    }
+    hash_Id_Item.insert( id, item );
 
     removeFromListOfModified( item );
 
@@ -335,9 +417,16 @@ void ScriptsManager::on_actionAddScript_triggered()
 }
 void ScriptsManager::on_actionDeleteScript_triggered()
 {
+    const QString & title = tr( "Confirm deletion" );
+    const QString & message = tr( "Delete this script?" );
+    bool hasCancel = QMessageBox::question( this, title, message, QMessageBox::Yes | QMessageBox::No ) != QMessageBox::Yes;
+    if ( hasCancel )
+        return;
+
     qApp->setOverrideCursor( Qt::WaitCursor );
     int row = ui->scripts->currentRow();
     deleteRow( row );
+    qApp->restoreOverrideCursor();
 }
 void ScriptsManager::on_actionRenameScript_triggered()
 {
@@ -352,6 +441,12 @@ void ScriptsManager::on_actionRenameScript_triggered()
 }
 void ScriptsManager::on_actionDeleteAllScripts_triggered()
 {
+    const QString & title = tr( "Confirm deletion" );
+    const QString & message = tr( "Delete all scripts?" );
+    bool hasCancel = QMessageBox::question( this, title, message, QMessageBox::Yes | QMessageBox::No ) != QMessageBox::Yes;
+    if ( hasCancel )
+        return;
+
     while ( ui->scripts->count() > 0 )
     {
         qApp->processEvents();
@@ -363,6 +458,18 @@ void ScriptsManager::on_actionSaveAllScripts_triggered()
 {
     sl_SaveScripts();
 }
+void ScriptsManager::on_actionBookmarkScript_triggered( bool checked )
+{
+    QListWidgetItem * item = ui->scripts->currentItem();
+    if ( !item )
+    {
+        WARNING( "Null pointer!" );
+        return;
+    }
+
+    setBookmarkItem( item, checked );
+}
+
 void ScriptsManager::on_cBoxUseDebugger_clicked( bool checked )
 {
     if ( checked )
@@ -397,5 +504,31 @@ void ScriptsManager::on_scripts_itemChanged( QListWidgetItem * item )
     const QString & name = item->text();
     item->setData( NAME, name );
 
+    QAction * action = hash_Item_Action.value( item );
+    if ( action )
+    {
+        action->setText( name );
+        action->setIcon( item->icon() );
+    }
+
     addToListOfModified( item );
+}
+
+void ScriptsManager::sl_invokeBookmarkAction()
+{
+    QAction * action = qobject_cast < QAction * > ( sender() );
+    if ( !action )
+    {
+        WARNING( "Null pointer!" );
+        return;
+    }
+
+    QListWidgetItem * item = hash_Item_Action.key( action, 0 );
+    if ( !item )
+    {
+        WARNING( "Null pointer!" );
+        return;
+    }
+
+    runScript( item->data( CONTENT ).toString() );
 }

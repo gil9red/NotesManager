@@ -99,6 +99,8 @@
    <addaction name="actionAddScript"/>
    <addaction name="separator"/>
    <addaction name="actionRenameScript"/>
+   <addaction name="actionBookmarkScript"/>
+   <addaction name="separator"/>
    <addaction name="actionSaveAllScripts"/>
    <addaction name="separator"/>
    <addaction name="actionDeleteScript"/>
@@ -213,6 +215,27 @@
    </property>
    <property name="whatsThis">
     <string>Delete All Scripts</string>
+   </property>
+  </action>
+  <action name="actionBookmarkScript">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="ScriptModule.qrc">
+     <normaloff>:/fugue-icons/bookmark</normaloff>:/fugue-icons/bookmark</iconset>
+   </property>
+   <property name="text">
+    <string>Bookmark</string>
+   </property>
+   <property name="toolTip">
+    <string>Bookmark</string>
+   </property>
+   <property name="statusTip">
+    <string>Bookmark</string>
+   </property>
+   <property name="whatsThis">
+    <string>Bookmark</string>
    </property>
   </action>
  </widget>

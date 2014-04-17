@@ -226,15 +226,15 @@ QString getSettingsPath()
 }
 QString getTrPath()
 {
-    return QDir::toNativeSeparators( qApp->applicationDirPath() + "/translations" );
+    return QDir::toNativeSeparators( qApp->applicationDirPath() + "/plugins/translations" );
 }
 QString getFontsPath()
 {
-    return QDir::toNativeSeparators( qApp->applicationDirPath() + "/fonts" );
+    return QDir::toNativeSeparators( qApp->applicationDirPath() + "/plugins/fonts" );
 }
 QString getDictionariesPath()
 {
-    return QDir::toNativeSeparators( qApp->applicationDirPath() + "/dictionaries" );
+    return QDir::toNativeSeparators( qApp->applicationDirPath() + "/plugins/dictionaries" );
 }
 
 #include <QTranslator>

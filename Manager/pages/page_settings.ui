@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>512</width>
-    <height>427</height>
+    <width>1108</width>
+    <height>666</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -116,7 +116,16 @@
          <property name="spacing">
           <number>0</number>
          </property>
-         <property name="margin">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
           <number>0</number>
          </property>
          <item>
@@ -132,8 +141,8 @@
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>278</width>
-              <height>378</height>
+              <width>510</width>
+              <height>533</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout">
@@ -279,7 +288,16 @@
          <property name="spacing">
           <number>0</number>
          </property>
-         <property name="margin">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
           <number>0</number>
          </property>
          <item>
@@ -295,8 +313,8 @@
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>341</width>
-              <height>361</height>
+              <width>510</width>
+              <height>533</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -351,7 +369,16 @@
          <property name="spacing">
           <number>0</number>
          </property>
-         <property name="margin">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
           <number>0</number>
          </property>
          <item>
@@ -367,8 +394,8 @@
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>278</width>
-              <height>378</height>
+              <width>619</width>
+              <height>617</height>
              </rect>
             </property>
             <property name="sizePolicy">
@@ -379,243 +406,341 @@
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_3">
              <item>
-              <layout class="QGridLayout" name="gridLayout_5">
-               <item row="1" column="0">
-                <layout class="QHBoxLayout" name="horizontalLayout_7">
+              <widget class="QCheckBox" name="cBoxRandomColor">
+               <property name="text">
+                <string>Random color </string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="cBoxRandomPositionOnScreen">
+               <property name="text">
+                <string>Random position on screen </string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="cBoxVisible">
+               <property name="text">
+                <string>Visible</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="cBoxOnTop">
+               <property name="text">
+                <string>On top of all windows </string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_7">
+               <item>
+                <widget class="QLabel" name="label_8">
+                 <property name="text">
+                  <string>Opacity:</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QSpinBox" name="sBoxOpacity">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="statusTip">
+                  <string>Opacity new note</string>
+                 </property>
+                 <property name="suffix">
+                  <string notr="true"> %</string>
+                 </property>
+                 <property name="prefix">
+                  <string/>
+                 </property>
+                 <property name="minimum">
+                  <number>0</number>
+                 </property>
+                 <property name="maximum">
+                  <number>100</number>
+                 </property>
+                 <property name="value">
+                  <number>100</number>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="groupBox_3">
+               <property name="title">
+                <string>Position</string>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_2">
+                <property name="horizontalSpacing">
+                 <number>6</number>
+                </property>
+                <property name="verticalSpacing">
+                 <number>1</number>
+                </property>
+                <item row="2" column="0" colspan="2">
+                 <widget class="QLabel" name="label_5">
+                  <property name="text">
+                   <string>Top:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="0" colspan="2">
+                 <widget class="QLabel" name="label_3">
+                  <property name="text">
+                   <string>Left:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="2">
+                 <widget class="QSpinBox" name="sBoxTop">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="maximum">
+                   <number>10000</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="2">
+                 <widget class="QSpinBox" name="sBoxLeft">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="maximum">
+                   <number>10000</number>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="groupBox_2">
+               <property name="title">
+                <string>Size</string>
+               </property>
+               <layout class="QGridLayout" name="gridLayout">
+                <property name="verticalSpacing">
+                 <number>1</number>
+                </property>
+                <item row="0" column="1">
+                 <widget class="QSpinBox" name="sBoxWidth">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="maximum">
+                   <number>10000</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_2">
+                  <property name="text">
+                   <string>Width:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_4">
+                  <property name="text">
+                   <string>Height:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QSpinBox" name="sBoxHeight">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="maximum">
+                   <number>10000</number>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_9">
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_6">
                  <item>
-                  <widget class="QLabel" name="label_8">
+                  <widget class="QLabel" name="label_7">
                    <property name="text">
-                    <string>Opacity:</string>
+                    <string>Title color:</string>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QSpinBox" name="sBoxOpacity">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
+                  <widget class="ColorSelectButton" name="tButtonColorTitle">
+                   <property name="toolTip">
+                    <string>Color title new note</string>
                    </property>
                    <property name="statusTip">
-                    <string>Opacity new note</string>
+                    <string>Color title new note</string>
                    </property>
-                   <property name="suffix">
-                    <string notr="true"> %</string>
+                   <property name="whatsThis">
+                    <string>Color title new note</string>
                    </property>
-                   <property name="prefix">
+                   <property name="text">
                     <string/>
                    </property>
-                   <property name="minimum">
-                    <number>0</number>
-                   </property>
-                   <property name="maximum">
-                    <number>100</number>
-                   </property>
-                   <property name="value">
-                    <number>100</number>
-                   </property>
                   </widget>
                  </item>
                 </layout>
                </item>
-               <item row="0" column="0">
-                <layout class="QGridLayout" name="gridLayout_4">
-                 <item row="0" column="0">
-                  <widget class="QCheckBox" name="cBoxRandomColor">
-                   <property name="text">
-                    <string>Random color </string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="0" column="1">
-                  <widget class="QCheckBox" name="cBoxRandomPositionOnScreen">
-                   <property name="text">
-                    <string>Random position on screen </string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="1" column="0">
-                  <widget class="QCheckBox" name="cBoxVisible">
-                   <property name="text">
-                    <string>Visible</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="1" column="1">
-                  <widget class="QCheckBox" name="cBoxOnTop">
-                   <property name="text">
-                    <string>On top of all windows </string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
+               <item>
+                <spacer name="horizontalSpacer_2">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeType">
+                  <enum>QSizePolicy::Fixed</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>13</width>
+                   <height>13</height>
+                  </size>
+                 </property>
+                </spacer>
                </item>
-               <item row="2" column="0">
-                <layout class="QHBoxLayout" name="horizontalLayout_3">
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_8">
                  <item>
-                  <widget class="QGroupBox" name="groupBox_2">
-                   <property name="title">
-                    <string>Size</string>
+                  <widget class="QLabel" name="label_9">
+                   <property name="text">
+                    <string>Body color:</string>
                    </property>
-                   <layout class="QGridLayout" name="gridLayout">
-                    <property name="verticalSpacing">
-                     <number>1</number>
-                    </property>
-                    <item row="0" column="0">
-                     <widget class="QLabel" name="label_2">
-                      <property name="text">
-                       <string>Width:</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="1" column="1">
-                     <widget class="QSpinBox" name="sBoxHeight">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="maximum">
-                       <number>10000</number>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="1" column="0">
-                     <widget class="QLabel" name="label_4">
-                      <property name="text">
-                       <string>Height:</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="0" column="1">
-                     <widget class="QSpinBox" name="sBoxWidth">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="maximum">
-                       <number>10000</number>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QGroupBox" name="groupBox_3">
-                   <property name="title">
-                    <string>Position</string>
+                  <widget class="ColorSelectButton" name="tButtonColorBody">
+                   <property name="statusTip">
+                    <string>Body color new note</string>
                    </property>
-                   <layout class="QGridLayout" name="gridLayout_2">
-                    <property name="horizontalSpacing">
-                     <number>6</number>
-                    </property>
-                    <property name="verticalSpacing">
-                     <number>1</number>
-                    </property>
-                    <item row="2" column="0" colspan="2">
-                     <widget class="QLabel" name="label_5">
-                      <property name="text">
-                       <string>Top:</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="2" column="2">
-                     <widget class="QSpinBox" name="sBoxTop">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="maximum">
-                       <number>10000</number>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="0" column="2">
-                     <widget class="QSpinBox" name="sBoxLeft">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="maximum">
-                       <number>10000</number>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="0" column="0" colspan="2">
-                     <widget class="QLabel" name="label_3">
-                      <property name="text">
-                       <string>Left:</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
+                   <property name="text">
+                    <string/>
+                   </property>
                   </widget>
                  </item>
                 </layout>
                </item>
-               <item row="3" column="0">
-                <layout class="QGridLayout" name="gridLayout_3">
-                 <item row="0" column="2">
-                  <layout class="QHBoxLayout" name="horizontalLayout_6">
-                   <item>
-                    <widget class="QLabel" name="label_9">
-                     <property name="text">
-                      <string>Body color:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="ColorSelectButton" name="tButtonColorBody">
-                     <property name="statusTip">
-                      <string>Body color new note</string>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
+               <item>
+                <spacer name="horizontalSpacer_4">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_9">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QLineEdit" name="lEditViewTitle">
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgba(0, 0, 0, 0);</string>
+                 </property>
+                 <property name="inputMask">
+                  <string notr="true"/>
+                 </property>
+                 <property name="text">
+                  <string notr="true">View title</string>
+                 </property>
+                 <property name="frame">
+                  <bool>false</bool>
+                 </property>
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_5">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_6">
+                   <property name="text">
+                    <string>Titile:</string>
+                   </property>
+                  </widget>
                  </item>
-                 <item row="0" column="0">
-                  <layout class="QHBoxLayout" name="horizontalLayout_8">
-                   <item>
-                    <widget class="QLabel" name="label_7">
-                     <property name="text">
-                      <string>Title color:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="ColorSelectButton" name="tButtonColorTitle">
-                     <property name="toolTip">
-                      <string>Color title new note</string>
-                     </property>
-                     <property name="statusTip">
-                      <string>Color title new note</string>
-                     </property>
-                     <property name="whatsThis">
-                      <string>Color title new note</string>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </item>
-                 <item row="0" column="1">
-                  <spacer name="horizontalSpacer_2">
+                 <item>
+                  <spacer name="horizontalSpacer_3">
                    <property name="orientation">
                     <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeType">
+                    <enum>QSizePolicy::Fixed</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>6</width>
+                     <height>6</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="lEditTitle">
+                   <property name="statusTip">
+                    <string>Title a new note</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QToolButton" name="tButtonFontTitle">
+                   <property name="statusTip">
+                    <string>Title font new note</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="icon">
+                    <iconset resource="../../Note/Note.qrc">
+                     <normaloff>:/Note/title-font</normaloff>:/Note/title-font</iconset>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QVBoxLayout" name="verticalLayout_5">
+                 <item>
+                  <spacer name="verticalSpacer_3">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
                    </property>
                    <property name="sizeType">
                     <enum>QSizePolicy::Fixed</enum>
@@ -628,119 +753,22 @@
                    </property>
                   </spacer>
                  </item>
-                </layout>
-               </item>
-               <item row="4" column="0">
-                <layout class="QVBoxLayout" name="verticalLayout_9">
-                 <property name="spacing">
-                  <number>0</number>
-                 </property>
                  <item>
-                  <widget class="QLineEdit" name="lEditViewTitle">
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgba(0, 0, 0, 0);</string>
-                   </property>
-                   <property name="inputMask">
-                    <string notr="true"/>
-                   </property>
+                  <widget class="QLabel" name="label_10">
                    <property name="text">
-                    <string notr="true">View title</string>
-                   </property>
-                   <property name="frame">
-                    <bool>false</bool>
-                   </property>
-                   <property name="readOnly">
-                    <bool>true</bool>
+                    <string>Text:</string>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_5">
-                   <property name="spacing">
-                    <number>0</number>
+                  <widget class="QTextEdit" name="tEditText">
+                   <property name="statusTip">
+                    <string>Text of the new notes</string>
                    </property>
-                   <item>
-                    <widget class="QLabel" name="label_6">
-                     <property name="text">
-                      <string>Titile:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <spacer name="horizontalSpacer_3">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                     <property name="sizeType">
-                      <enum>QSizePolicy::Fixed</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>6</width>
-                       <height>6</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                   <item>
-                    <widget class="QLineEdit" name="lEditTitle">
-                     <property name="statusTip">
-                      <string>Title a new note</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QToolButton" name="tButtonFontTitle">
-                     <property name="statusTip">
-                      <string>Title font new note</string>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="icon">
-                      <iconset resource="../../Note/Note.qrc">
-                       <normaloff>:/Note/title-font</normaloff>:/Note/title-font</iconset>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </item>
-                 <item>
-                  <layout class="QVBoxLayout" name="verticalLayout_5">
-                   <item>
-                    <spacer name="verticalSpacer_3">
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
-                     </property>
-                     <property name="sizeType">
-                      <enum>QSizePolicy::Fixed</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>10</width>
-                       <height>10</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                   <item>
-                    <widget class="QLabel" name="label_10">
-                     <property name="text">
-                      <string>Text:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QTextEdit" name="tEditText">
-                     <property name="statusTip">
-                      <string>Text of the new notes</string>
-                     </property>
-                     <property name="acceptRichText">
-                      <bool>false</bool>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
+                   <property name="acceptRichText">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
                  </item>
                 </layout>
                </item>

@@ -1164,12 +1164,12 @@
         <translation type="obsolete">Форматирование текста</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="171"/>
+        <location filename="../Manager/Manager.cpp" line="178"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="171"/>
+        <location filename="../Manager/Manager.cpp" line="178"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>Невозможно прочитать файл %1:
@@ -1190,18 +1190,18 @@
         <translation>Открыть менеджер</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="229"/>
-        <location filename="../Manager/Manager.cpp" line="271"/>
+        <location filename="../Manager/Manager.cpp" line="236"/>
+        <location filename="../Manager/Manager.cpp" line="278"/>
         <source>Information</source>
         <translation>Информация</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="229"/>
+        <location filename="../Manager/Manager.cpp" line="236"/>
         <source>Application is already running</source>
         <translation>Приложение уже запущено</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="271"/>
+        <location filename="../Manager/Manager.cpp" line="278"/>
         <source>Unable to open documents</source>
         <translation>Не удалось открыть документацию</translation>
     </message>
@@ -1228,7 +1228,7 @@
         <translation type="obsolete">Произошла ошибка при распаковки файлов и папок заметки</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="315"/>
+        <location filename="../Manager/Manager.cpp" line="322"/>
         <source>Question</source>
         <translation>Вопрос</translation>
     </message>
@@ -1237,7 +1237,7 @@
         <translation type="obsolete">Удалить все заметки?</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="315"/>
+        <location filename="../Manager/Manager.cpp" line="322"/>
         <source>Really quit?</source>
         <translation>Действительно выйти?</translation>
     </message>
@@ -1266,7 +1266,7 @@
         <translation type="obsolete">нет</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="364"/>
+        <location filename="../Manager/Manager.cpp" line="371"/>
         <source>Save completed</source>
         <translation>Сохранение завершено</translation>
     </message>
@@ -1716,12 +1716,12 @@
         <translation type="obsolete">Очистить корзину</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_notes.cpp" line="212"/>
+        <location filename="../Manager/pages/page_notes.cpp" line="215"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_notes.cpp" line="212"/>
+        <location filename="../Manager/pages/page_notes.cpp" line="215"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>Невозможно записать файл %1:
@@ -2338,7 +2338,7 @@
         <translation type="obsolete">Менеджер заметок</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="82"/>
+        <location filename="../main.cpp" line="123"/>
         <source>Loading fonts</source>
         <oldsource>Load fonts</oldsource>
         <translation>Загрузка шрифтов</translation>
@@ -2348,25 +2348,25 @@
         <translation type="obsolete">Создать</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="85"/>
+        <location filename="../main.cpp" line="126"/>
         <source>Loading dictionaries</source>
         <oldsource>Load dictionaries</oldsource>
         <translation>Загрузка словарей</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="88"/>
+        <location filename="../main.cpp" line="129"/>
         <source>Creation</source>
         <oldsource>Created</oldsource>
         <translation>Создание</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="98"/>
+        <location filename="../main.cpp" line="139"/>
         <source>Loading settings</source>
         <oldsource>Load settings</oldsource>
         <translation>Загрузка настроек</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="101"/>
+        <location filename="../main.cpp" line="142"/>
         <source>Loading scripts</source>
         <translation>Загрузка сценариев</translation>
     </message>
@@ -2376,7 +2376,7 @@
         <translation type="obsolete">Загрузка заметок</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="104"/>
+        <location filename="../main.cpp" line="145"/>
         <source>Now ready</source>
         <translation>Готов</translation>
     </message>
@@ -2856,57 +2856,65 @@
 <context>
     <name>ScriptsManager</name>
     <message>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="14"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="17"/>
         <source>Scripts Manager</source>
         <translation>Менеджер сценариев</translation>
     </message>
     <message>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="67"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="77"/>
         <source>Main</source>
         <translation>Основные</translation>
     </message>
     <message>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="115"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="127"/>
         <source>Ctrl+R</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="124"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="127"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="130"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="133"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="136"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="139"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="142"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="145"/>
         <source>Add Script</source>
         <translation>Добавить сценарий</translation>
     </message>
     <message>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="160"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="163"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="166"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="169"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="172"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="175"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="178"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="181"/>
         <source>Save All Scripts</source>
         <translation>Сохранить все сценарии</translation>
     </message>
     <message>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="178"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="181"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="184"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="187"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="190"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="193"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="196"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="199"/>
         <source>Delete Script</source>
         <translation>Удалить сценарий</translation>
     </message>
     <message>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="142"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="145"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="148"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="151"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="229"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="232"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="235"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="238"/>
+        <source>Bookmark</source>
+        <translation>Закладка</translation>
+    </message>
+    <message>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="154"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="157"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="160"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="163"/>
         <source>Rename Script</source>
         <translation>Переименовать сценарий</translation>
     </message>
     <message>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="46"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="49"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="52"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="55"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="56"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="59"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="62"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="65"/>
         <source>Use the  Debugger</source>
         <translation>Использовать отладчик</translation>
     </message>
@@ -2915,10 +2923,10 @@
         <translation type="obsolete">Переименовать</translation>
     </message>
     <message>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="196"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="199"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="202"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="205"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="208"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="211"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="214"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="217"/>
         <source>Delete All Scripts</source>
         <translation>Удалить все сценарии</translation>
     </message>
@@ -2927,17 +2935,38 @@
         <translation type="obsolete">Использовать отладчик сценариев</translation>
     </message>
     <message>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="103"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="106"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="109"/>
-        <location filename="../ScriptModule/scriptsmanager.ui" line="112"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="115"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="118"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="121"/>
+        <location filename="../ScriptModule/scriptsmanager.ui" line="124"/>
         <source>Run Script</source>
         <translation>Выполнить сценарий</translation>
     </message>
     <message>
-        <location filename="../ScriptModule/scriptsmanager.cpp" line="318"/>
+        <location filename="../ScriptModule/scriptsmanager.cpp" line="45"/>
+        <source>Bookmarks</source>
+        <translation>Закладки</translation>
+    </message>
+    <message>
+        <location filename="../ScriptModule/scriptsmanager.cpp" line="357"/>
         <source>New script</source>
         <translation>Новый сценарий</translation>
+    </message>
+    <message>
+        <location filename="../ScriptModule/scriptsmanager.cpp" line="386"/>
+        <location filename="../ScriptModule/scriptsmanager.cpp" line="410"/>
+        <source>Confirm deletion</source>
+        <translation>Подтверждение удаление</translation>
+    </message>
+    <message>
+        <location filename="../ScriptModule/scriptsmanager.cpp" line="387"/>
+        <source>Delete this script?</source>
+        <translation>Удалить этот сценарий?</translation>
+    </message>
+    <message>
+        <location filename="../ScriptModule/scriptsmanager.cpp" line="411"/>
+        <source>Delete all scripts?</source>
+        <translation>Удалить все сценарии?</translation>
     </message>
 </context>
 <context>

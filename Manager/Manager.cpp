@@ -20,7 +20,8 @@ Manager * Manager::self = 0;
 Manager::Manager( QWidget * parent ) :
     QMainWindow( parent ),
     ui( new Ui::Manager ),
-    settings(0)  
+    tray( new QSystemTrayIcon( QIcon( ":/App/icon-mini" ) ) ),
+    settings(0)
 {
     self = this;       
     ui->setupUi( this );
@@ -87,13 +88,14 @@ Manager::Manager( QWidget * parent ) :
 
         // Меню трея
         {
-            tray.setIcon( QIcon( ":/App/icon-mini" ) );
+            QObject::connect( tray, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), SLOT(messageReceived(QSystemTrayIcon::ActivationReason)) );
+            QObject::connect( tray, SIGNAL(messageClicked()), SLOT(showManager()) );
+
             const QString & name = qApp->applicationName();
             const QString & version = qApp->applicationVersion();
             const QString & description = tr( "The program creates notes" );
-            tray.setToolTip( QString( "%1 %2\n%3" ).arg( name ).arg( version ).arg( description ) );
-            QObject::connect( &tray, SIGNAL( activated(QSystemTrayIcon::ActivationReason) ), SLOT( messageReceived(QSystemTrayIcon::ActivationReason) ) );
-            tray.show();
+            tray->setToolTip( QString( "%1 %2\n%3" ).arg( name ).arg( version ).arg( description ) );
+            tray->show();
 
             QMenu * trayMenu = new QMenu();
             trayMenu->addAction( QIcon( "" ), tr( "Open manager" ), this, SLOT( showManager() ), QKeySequence() ); // TODO: add icon
@@ -114,7 +116,7 @@ Manager::Manager( QWidget * parent ) :
             trayMenu->addSeparator();
             trayMenu->addAction( ui->actionQuit );
 
-            tray.setContextMenu( trayMenu );
+            tray->setContextMenu( trayMenu );
         }
 
         // Управление видимостью тулбаров, размещенных на странице Заметки
@@ -138,19 +140,25 @@ Manager::Manager( QWidget * parent ) :
 
     QObject::connect( &autoSaveTimer, SIGNAL( timeout() ), SLOT( writeSettings() ) );
 
-    // Добавление Менежера сценариев в прикрепляемый виджет
+    // Меню "Сценарии"
     {
-        scriptsManager = new ScriptsManager();
-        dockScriptsManager = new QDockWidget( scriptsManager->windowTitle() );
-        dockScriptsManager->setObjectName( "Dock_ScriptsManager" );
-        dockScriptsManager->setWidget( scriptsManager );
-        dockScriptsManager->hide();
-        addDockWidget( Qt::RightDockWidgetArea, dockScriptsManager );
+        // Добавление Менежера сценариев в прикрепляемый виджет
+        {
+            scriptsManager = new ScriptsManager();
+            dockScriptsManager = new QDockWidget( scriptsManager->windowTitle() );
+            dockScriptsManager->setObjectName( "Dock_ScriptsManager" );
+            dockScriptsManager->setWidget( scriptsManager );
+            addDockWidget( Qt::RightDockWidgetArea, dockScriptsManager );
 
-        ui->actionShowScriptsManager->setChecked( dockScriptsManager->isVisible() );
+            ui->actionShowScriptsManager->setChecked( dockScriptsManager->isVisible() );
 
-        QObject::connect( ui->actionShowScriptsManager, SIGNAL(toggled(bool)), dockScriptsManager, SLOT(setVisible(bool)) );
-        QObject::connect( dockScriptsManager, SIGNAL(visibilityChanged(bool)), ui->actionShowScriptsManager, SLOT(setChecked(bool)) );
+            QObject::connect( ui->actionShowScriptsManager, SIGNAL(toggled(bool)), dockScriptsManager, SLOT(setVisible(bool)) );
+            QObject::connect( dockScriptsManager, SIGNAL(visibilityChanged(bool)), ui->actionShowScriptsManager, SLOT(setChecked(bool)) );
+        }
+
+        // Меню "Закладки"
+        ui->menuScripts->addSeparator();
+        ui->menuScripts->addMenu( scriptsManager->menuBookmarkScript );
     }
 
     updateStates();
@@ -187,6 +195,12 @@ void Manager::setSettings( QSettings * s )
     pageSettings->setSettings( settings );
     scriptsManager->setSettings( settings );
 }
+
+Manager * Manager::instance()
+{
+    return self;
+}
+
 void Manager::nowReadyPhase()
 {
     bool minimizeTrayOnStartup = pageSettings->mapSettings[ "MinimizeTrayOnStartup" ].toBool();
@@ -226,7 +240,7 @@ void Manager::messageReceived( const QString & text )
             showManager();
 
         else if ( command == "-message" )
-            tray.showMessage( tr( "Information" ), tr( "Application is already running" ), QSystemTrayIcon::Information, 5000 );
+            tray->showMessage( tr( "Information" ), tr( "Application is already running" ), QSystemTrayIcon::Information, 5000 );
 
         else if ( command == "-beep" )
             qApp->beep();

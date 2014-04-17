@@ -34,6 +34,8 @@ private:
     void deleteRow( int row );
     void addToListOfModified( QListWidgetItem * );
     void removeFromListOfModified( QListWidgetItem * );
+    void setBookmarkItem( QListWidgetItem * item, bool value = true );
+    void runScript( const QString & );
 
 private slots:
     void sl_UpdateStates();
@@ -46,15 +48,23 @@ private slots:
     void on_actionRenameScript_triggered();
     void on_actionDeleteAllScripts_triggered();
     void on_actionSaveAllScripts_triggered();
+    void on_actionBookmarkScript_triggered( bool );
     void on_cBoxUseDebugger_clicked( bool );
     void on_scripts_itemSelectionChanged();
     void on_scripts_itemChanged( QListWidgetItem * );
 
-private:
+    void sl_invokeBookmarkAction();
+
+public:
     Ui::ScriptsManager * ui;
     QScriptEngineDebugger * scriptEngineDebugger;
     QSettings * settings;
     QList < QListWidgetItem * > listOfModified;
+    QMenu * menuBookmarkScript;
+
+    QHash < QString, QListWidgetItem * > hash_Id_Item;
+    QHash < QString, bool > hash_Id_Bookmark;
+    QHash < QListWidgetItem *, QAction * > hash_Item_Action;
 
 protected:
     void showEvent( QShowEvent * ) { emit visibilityChanged( isVisible() ); }
