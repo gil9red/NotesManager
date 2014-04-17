@@ -24,6 +24,34 @@ static const char codec[] = "utf8";
 
 #include "NoteShared.h"
 
+#include "ScriptModule/scriptengine.h"
+//! Дает возможность получить из сценария доступ к любому виджету нашего приложения по имени.
+QScriptValue getWidgetByName( QScriptContext * content, QScriptEngine * engine )
+{
+    const QString & name = content->argument(0).toString();
+    QObject * object = 0;
+    foreach( QWidget * widget, qApp->topLevelWidgets() )
+    {
+        if ( name == widget->objectName() )
+        {
+            object = widget;
+            break;
+
+        } else if ( object == widget->findChild < QObject * > ( name ) )
+            break;
+    }
+
+    return engine->newQObject( object );
+}
+QScriptValue getAllNotes( QScriptContext *, QScriptEngine * engine )
+{
+    return qScriptValueFromSequence( engine, QStringList() << "1" << "2" << "666" );
+}
+static QScriptValue importExtension( QScriptContext *context, QScriptEngine * engine )
+{
+    return engine->importExtension( context->argument(0).toString() );
+}
+
 // TODO: изменение таблицы, списка и гиперссылок через меню редактора заметки
 // TODO: добавить режим чтения (а может и редактирования?) заметок: полноэкранный режим (goodword1.04)
 // TODO: добавить напоминания
@@ -45,6 +73,15 @@ static const char codec[] = "utf8";
 /// TODO: добавить в список менеджера контекстное меню.
 /// TODO: поразбираться с QScintilla. Возможно нужно будет перенастроить стиль редактора.
 /// TODO: Добавить "Выделить текущую вкладку на дереве"
+/// TODO: при создании заметки от буфера обмена, можно заголовок ее брать от части текста (например, первые 10 символов)
+/// TODO: добавить возможность выбора иконок для иерархического дерева
+/// TODO: расширить функционал панели форматирования на странице заметок
+/// TODO: менеджер сценариев: сохранять последний выбранный сценарий и позицию курсора
+/// TODO: при добавлении заметки от буфера обмена, пропадают символы перехода на следующую строку (обнаружил копировал из башорга цитаты и вставлял).
+/// TODO: Настройки -> Новая заметки: настроить расположение виджетов размера, положения цвета
+/// TODO: добавить в tooltip трея инфу об количестве заметок, сколько видимо/скрыто
+/// TODO: диалог подтвержения удаления/перемещения - выводить список итемов в qlistwidget
+/// TODO: при сохранение в бд скрипт, нужно учитывать, что в нем могут быть апостровы ', а с ними не получается выполнять запрос.
 /// TODO: допилить словарь автодополнений
 
 QString nm_Note::style = "";
@@ -57,7 +94,7 @@ int main( int argc, char *argv[] )
     QtSingleApplication app( argc, argv );
     app.setApplicationName( App::name );
     app.setApplicationVersion( App::version );
-    app.setQuitOnLastWindowClosed( false ); // Приложение не завершится, даже если все окна закрыты/скрыты
+    app.setQuitOnLastWindowClosed( false ); // Приложение не завершится, даже если все окна закрыты/скрыты    
 
     // Если копия приложения уже запущена, тогда отсылаем сообщение той копии и заканчиваем процесс
     if ( app.isRunning() )
@@ -111,6 +148,49 @@ int main( int argc, char *argv[] )
 
     manager.loadNotes();
 
+
+    // Расширения скриптового движка
+    {
+        Script::ScriptEngine * engine = Script::ScriptEngine::instance();
+        QScriptValue globalObject = engine->globalObject();
+
+//        globalObject.setProperty( "qApp", engine->newQObject( app ) );
+//        {
+//            QScriptValue qscript = engine->newObject();
+//            qscript.setProperty( "importExtension", engine->newFunction( importExtension ) );
+//            globalObject.property( "qt" ).setProperty( "script", qscript );
+//        }
+
+        globalObject.setProperty( "importExtension", engine->newFunction( importExtension ) );
+
+        globalObject.setProperty( "getWidgetByName", engine->newFunction( getWidgetByName ) );
+        globalObject.setProperty( "getAllNotes", engine->newFunction( getAllNotes ) );
+
+        QScriptValue scriptManager = engine->newQObject( &manager );
+        scriptManager.setProperty( "PageNotes", engine->newQObject( manager.pageNotes ) );
+        scriptManager.setProperty( "PageSettings", engine->newQObject( manager.pageSettings ) );
+        scriptManager.setProperty( "PageAbout", engine->newQObject( manager.pageAbout ) );
+
+        globalObject.setProperty( "Manager", scriptManager );
+
+
+        // Загрузка плагинов
+        {
+            app.addLibraryPath( "plugins" );
+
+            foreach ( const QFileInfo & fileInfo, QDir( "plugins/script" ).entryInfoList() )
+            {
+                QString fileName = fileInfo.baseName();
+                if ( fileName.isEmpty() || fileName.isNull() )
+                    continue;
+
+                QString name = fileName.replace( "qtscript_", "qt.", Qt::CaseInsensitive );
+                QScriptValue extension_Qt = engine->importExtension( name );
+                if ( extension_Qt.isError() )
+                    WARNING( qPrintable( extension_Qt.toString() ) );
+            }
+        }
+    }
 
     int code = app.exec();
     printf( "Exit code: %i\n", code );

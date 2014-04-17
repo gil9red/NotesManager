@@ -10,6 +10,9 @@
     <height>480</height>
    </rect>
   </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::NoContextMenu</enum>
+  </property>
   <property name="windowTitle">
    <string>Scripts Manager</string>
   </property>
@@ -31,7 +34,14 @@
       <widget class="QWidget" name="layoutWidget">
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
-         <widget class="QsciScintilla" name="editScript" native="true"/>
+         <widget class="QsciScintilla" name="editScript" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+         </widget>
         </item>
         <item>
          <widget class="QLineEdit" name="lEditLog">
@@ -215,8 +225,8 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../Manager/Manager.qrc"/>
   <include location="ScriptModule.qrc"/>
+  <include location="../Manager/Manager.qrc"/>
  </resources>
  <connections/>
 </ui>

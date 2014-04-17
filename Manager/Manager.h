@@ -30,10 +30,10 @@ public:
     ~Manager();
 
     //! Загрузка заметок в менеджер.
-    void loadNotes();
+    Q_SCRIPTABLE void loadNotes();
 
     //! Загрузка сценариев в менеджер сценариев.
-    void loadScripts();
+    Q_SCRIPTABLE void loadScripts();
 
     //! В функции указываем с каким классом настроек будем работать.
     void setSettings( QSettings * s );
@@ -58,7 +58,7 @@ public:
     ScriptsManager * scriptsManager;
     QDockWidget * dockScriptsManager;
 
-private slots:
+public slots:
     //! Вызывается, когда на иконки панели кликают.
     void buttonSidebarClicked( int index );
 
@@ -70,32 +70,32 @@ private slots:
 
     void acceptChangeSettings();
 
-    void showPageNotes();      //!< Показать страницу с заметками.
-    void showPageSettings();   //!< Показать страницу настроек.
-    void showPageAbout();      //!< Показать страницу "О программе".
-    void showPageDocumentation(); //!< Показать страницу "Документация".
+    Q_SCRIPTABLE void showPageNotes();  //!< Показать страницу с заметками.
+    Q_SCRIPTABLE void showPageSettings(); //!< Показать страницу настроек.
+    Q_SCRIPTABLE void showPageAbout(); //!< Показать страницу "О программе".
+    Q_SCRIPTABLE void showPageDocumentation(); //!< Показать страницу "Документация".
 
     void updateStates();
 
 public slots:
-    void showManager();  //!< Показать менеджер.
-    void setFullScreen( bool );
-    void quit();          //!< Закрыть программу.
+    Q_SCRIPTABLE void showManager();  //!< Показать менеджер.
+    Q_SCRIPTABLE void setFullScreen( bool );
+    Q_SCRIPTABLE void quit(); //!< Закрыть программу.
 
-    void readSettings();  //!< Считывание настроек менеджера.
-    void writeSettings(); //!< Запись настроек менеджера.
+    Q_SCRIPTABLE void readSettings();  //!< Считывание настроек менеджера.
+    Q_SCRIPTABLE void writeSettings(); //!< Запись настроек менеджера.
 
-    void openDictionary();
-    void closeDictionary();
+    Q_SCRIPTABLE void openDictionary();
+    Q_SCRIPTABLE void closeDictionary();
 
-    void setShowSidebar( bool );
-    bool isShowSidebar();
-    void setShowStatusBar( bool );
-    bool isShowStatusBar();
-    void setActivateTimerAutosave( bool ); //!< Активация таймера автосохранения.
-    bool isActivateTimerAutosave();                 //!< Функция вернет true, если таймер автосохранения активен.
-    void setIntervalAutosave( quint64 minutes );    //!< Установка интервала таймера автосохранения.
-    int intervalAutosave();                         //!< Функция вернет интервал таймера автосохранения.
+    Q_SCRIPTABLE void setShowSidebar( bool );
+    Q_SCRIPTABLE bool isShowSidebar();
+    Q_SCRIPTABLE void setShowStatusBar( bool );
+    Q_SCRIPTABLE bool isShowStatusBar();
+    Q_SCRIPTABLE void setActivateTimerAutosave( bool ); //!< Активация таймера автосохранения.
+    Q_SCRIPTABLE bool isActivateTimerAutosave();  //!< Функция вернет true, если таймер автосохранения активен.
+    Q_SCRIPTABLE void setIntervalAutosave( quint64 minutes ); //!< Установка интервала таймера автосохранения.
+    Q_SCRIPTABLE int intervalAutosave(); //!< Функция вернет интервал таймера автосохранения.
 
 protected:
     void closeEvent( QCloseEvent * event );

@@ -32,7 +32,6 @@ DEPENDPATH += $$PWD/QScintilla-gpl-2.8.1/Qt4Qt5
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/QScintilla-gpl-2.8.1/lib/ -llibqscintilla2
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/QScintilla-gpl-2.8.1/lib/ -llibqscintilla2d
 
-
 OTHER_FILES += \
     history_ru \
     license
