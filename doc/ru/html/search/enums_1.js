@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['columns',['Columns',['../namespace_columns.html#aa8a1b665b1098b356965f602898681b9',1,'Columns']]]
+  ['bracematch',['BraceMatch',['../class_qsci_scintilla.html#ae8277ccb3a2af0ae9a1495d8f8ea0523',1,'QsciScintilla']]]
 ];

@@ -49,8 +49,8 @@ FolderNavigationWidget::FolderNavigationWidget( QWidget * parent )
 
         menuItemForeColor->addAction( actionItemDefaultForeColor );
         menuItemForeColor->addAction( actionItemCustomForeColor );
-        menuItemForeColor->addAction( actionItemDefaultBackColor );
-        menuItemForeColor->addAction( actionItemCustomBackColor );
+        menuItemBackColor->addAction( actionItemDefaultBackColor );
+        menuItemBackColor->addAction( actionItemCustomBackColor );
     }
 
     QObject::connect( Notebook::instance(), SIGNAL(sg_ItemRegistered(Note*)), SLOT(sl_UpdateStates()) );

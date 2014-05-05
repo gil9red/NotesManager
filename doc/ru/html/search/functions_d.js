@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['previewprint',['previewPrint',['../class_rich_text_note.html#ad2cc98a0b9b505a61b94f09533dbfc7f',1,'RichTextNote']]],
-  ['print',['print',['../class_rich_text_note.html#a42a07532089c704f0bb807dad3d38665',1,'RichTextNote']]]
+  ['opacity',['opacity',['../class_abstract_note.html#a8baea23991175676c857574755f69826',1,'AbstractNote']]],
+  ['open',['open',['../class_rich_text_note.html#a98ad946d205af7edfcdb341cb5ab223d',1,'RichTextNote::open()'],['../class_qt_l_p___private_1_1_qt_locked_file.html#a2e81bbaa7b1aaa83cf79284e66dbad79',1,'QtLP_Private::QtLockedFile::open()']]],
+  ['overwritemode',['overwriteMode',['../class_qsci_scintilla.html#a9a623e31794900edb7ae17527f5bc4c0',1,'QsciScintilla']]]
 ];

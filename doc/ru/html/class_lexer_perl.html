@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Notes Manager: Класс LexerPerl</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Notes Manager
+   &#160;<span id="projectnumber">0.0.1</span>
+   </div>
+   <div id="projectbrief">Программа создает заметки</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&#160;имен</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Классы</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Классы</span></a></li>
+      <li><a href="classes.html"><span>Алфавитный&#160;указатель&#160;классов</span></a></li>
+      <li><a href="hierarchy.html"><span>Иерархия&#160;классов</span></a></li>
+      <li><a href="functions.html"><span>Члены&#160;классов</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_lexer_perl.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Указатель</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Классы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Пространства имен</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Файлы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Функции</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Переменные</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Определения типов</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Перечисления</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Элементы перечислений</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-static-methods">Открытые статические члены</a> &#124;
+<a href="class_lexer_perl-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Класс LexerPerl</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Граф наследования:LexerPerl:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_lexer_perl.png" usemap="#LexerPerl_map" alt=""/>
+  <map id="LexerPerl_map" name="LexerPerl_map">
+<area href="class_i_lexer.html" alt="ILexer" shape="rect" coords="0,0,67,24"/>
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a73b9e27e240ac9d203f29f444b7af89b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a73b9e27e240ac9d203f29f444b7af89b"></a>
+void SCI_METHOD&#160;</td><td class="memItemRight" valign="bottom"><b>Release</b> ()</td></tr>
+<tr class="separator:a73b9e27e240ac9d203f29f444b7af89b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8d7cf35288957fb9217a665d5059ce8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab8d7cf35288957fb9217a665d5059ce8"></a>
+int SCI_METHOD&#160;</td><td class="memItemRight" valign="bottom"><b>Version</b> () const </td></tr>
+<tr class="separator:ab8d7cf35288957fb9217a665d5059ce8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c96791c4817d6f4a0113adc4b79f518"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3c96791c4817d6f4a0113adc4b79f518"></a>
+const char *SCI_METHOD&#160;</td><td class="memItemRight" valign="bottom"><b>PropertyNames</b> ()</td></tr>
+<tr class="separator:a3c96791c4817d6f4a0113adc4b79f518"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d5bb04e9220adbef5d4fc801d43d207"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5d5bb04e9220adbef5d4fc801d43d207"></a>
+int SCI_METHOD&#160;</td><td class="memItemRight" valign="bottom"><b>PropertyType</b> (const char *name)</td></tr>
+<tr class="separator:a5d5bb04e9220adbef5d4fc801d43d207"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1ff587e7d940b34daec00e05a5c3bd2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab1ff587e7d940b34daec00e05a5c3bd2"></a>
+const char *SCI_METHOD&#160;</td><td class="memItemRight" valign="bottom"><b>DescribeProperty</b> (const char *name)</td></tr>
+<tr class="separator:ab1ff587e7d940b34daec00e05a5c3bd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a287d50b367bc375815e8058692ca3fca"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a287d50b367bc375815e8058692ca3fca"></a>
+int SCI_METHOD&#160;</td><td class="memItemRight" valign="bottom"><b>PropertySet</b> (const char *key, const char *val)</td></tr>
+<tr class="separator:a287d50b367bc375815e8058692ca3fca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff0c0be005795d2e31840dadec7f31ff"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aff0c0be005795d2e31840dadec7f31ff"></a>
+const char *SCI_METHOD&#160;</td><td class="memItemRight" valign="bottom"><b>DescribeWordListSets</b> ()</td></tr>
+<tr class="separator:aff0c0be005795d2e31840dadec7f31ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4aa82bdb235d971e0170ca2ca98a53de"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4aa82bdb235d971e0170ca2ca98a53de"></a>
+int SCI_METHOD&#160;</td><td class="memItemRight" valign="bottom"><b>WordListSet</b> (int n, const char *wl)</td></tr>
+<tr class="separator:a4aa82bdb235d971e0170ca2ca98a53de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1438ab2c9455753fb5c3c946727f101c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1438ab2c9455753fb5c3c946727f101c"></a>
+void SCI_METHOD&#160;</td><td class="memItemRight" valign="bottom"><b>Lex</b> (unsigned int startPos, int length, int initStyle, <a class="el" href="class_i_document.html">IDocument</a> *pAccess)</td></tr>
+<tr class="separator:a1438ab2c9455753fb5c3c946727f101c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96503677f3d26e8764abd783b1ad25a9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a96503677f3d26e8764abd783b1ad25a9"></a>
+void SCI_METHOD&#160;</td><td class="memItemRight" valign="bottom"><b>Fold</b> (unsigned int startPos, int length, int initStyle, <a class="el" href="class_i_document.html">IDocument</a> *pAccess)</td></tr>
+<tr class="separator:a96503677f3d26e8764abd783b1ad25a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76b36552ddff817ce2f5d9659f5012ce"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a76b36552ddff817ce2f5d9659f5012ce"></a>
+void *SCI_METHOD&#160;</td><td class="memItemRight" valign="bottom"><b>PrivateCall</b> (int, void *)</td></tr>
+<tr class="separator:a76b36552ddff817ce2f5d9659f5012ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57e72fd2ba0aaf01d7620156f263525e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a57e72fd2ba0aaf01d7620156f263525e"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>InputSymbolScan</b> (<a class="el" href="class_style_context.html">StyleContext</a> &amp;sc)</td></tr>
+<tr class="separator:a57e72fd2ba0aaf01d7620156f263525e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa26bf2550587d1e8c4fdbcdfa716032"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afa26bf2550587d1e8c4fdbcdfa716032"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>InterpolateSegment</b> (<a class="el" href="class_style_context.html">StyleContext</a> &amp;sc, int maxSeg, bool isPattern=false)</td></tr>
+<tr class="separator:afa26bf2550587d1e8c4fdbcdfa716032"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Открытые статические члены</h2></td></tr>
+<tr class="memitem:a1e9c88fdfd0feee55f635f70cdfff004"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1e9c88fdfd0feee55f635f70cdfff004"></a>
+static <a class="el" href="class_i_lexer.html">ILexer</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>LexerFactoryPerl</b> ()</td></tr>
+<tr class="separator:a1e9c88fdfd0feee55f635f70cdfff004"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>NotesManager/QScintilla-gpl-2.8.1/lexers/LexPerl.cpp</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_lexer_perl.html">LexerPerl</a></li>
+    <li class="footer">Документация по Notes Manager. Последние изменения: Пн 5 Май 2014 20:41:37. Создано системой
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
+</body>
+</html>

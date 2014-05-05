@@ -1,4 +1,22 @@
 var searchData=
 [
-  ['editor',['editor',['../class_completer.html#abc5ee77bfc5257bcde8a6f31c9fe7122',1,'Completer']]]
+  ['edgecolor',['edgeColor',['../class_qsci_scintilla.html#a45b8093761b75601fa43f2d4c6829439',1,'QsciScintilla']]],
+  ['edgecolumn',['edgeColumn',['../class_qsci_scintilla.html#a510fb0df5a5fdb8d374837f7383dd67b',1,'QsciScintilla']]],
+  ['edgemode',['edgeMode',['../class_qsci_scintilla.html#aed283e063ce354db402e8fba89711904',1,'QsciScintilla']]],
+  ['editor',['editor',['../class_completer.html#abc5ee77bfc5257bcde8a6f31c9fe7122',1,'Completer::editor()'],['../class_qsci_lexer.html#a196d8f3fdd8285788be8915b59ed1889',1,'QsciLexer::editor()']]],
+  ['endrecording',['endRecording',['../class_qsci_macro.html#a4448f4dd4c61d0891d2d1913bb60b3b1',1,'QsciMacro']]],
+  ['endundoaction',['endUndoAction',['../class_qsci_scintilla.html#a5d08214cc5bab0a03b383809f5c626f7',1,'QsciScintilla']]],
+  ['ensurecursorvisible',['ensureCursorVisible',['../class_qsci_scintilla.html#a1077f407604f1e21f59897289349b2ae',1,'QsciScintilla']]],
+  ['ensurelength',['EnsureLength',['../class_split_vector.html#a2bd8dabac9edcd78bea54392d48c97f6',1,'SplitVector']]],
+  ['ensurelinevisible',['ensureLineVisible',['../class_qsci_scintilla.html#a4ecc1a83adb30592f58a6aec2255d3da',1,'QsciScintilla::ensureLineVisible()'],['../class_editor.html#a87d0a188424dbd46111d22b8862656c0',1,'Editor::EnsureLineVisible()']]],
+  ['eolfill',['eolFill',['../class_qsci_lexer.html#a6d87aa06bb02de81c5d07e8c9f4db0ff',1,'QsciLexer::eolFill()'],['../class_qsci_style.html#a208c29644f1a7efed3ea7ebbf8f18ccd',1,'QsciStyle::eolFill()']]],
+  ['eolfillchanged',['eolFillChanged',['../class_qsci_lexer.html#a66c01f0c9470164d4575c2b64f0e4220',1,'QsciLexer']]],
+  ['eolmode',['eolMode',['../class_qsci_scintilla.html#ace50e7fd837118f76c750926eb09c589',1,'QsciScintilla']]],
+  ['eolvisibility',['eolVisibility',['../class_qsci_scintilla.html#a6650178ae5dc8ebee2947dc54e8189d5',1,'QsciScintilla']]],
+  ['event',['event',['../class_qsci_a_p_is.html#ae37d7a92e897cd4ec52c4d0ed23bbb7f',1,'QsciAPIs::event()'],['../class_qsci_scintilla.html#a669ffda6c63dddc9928ccda1cb692fdc',1,'QsciScintilla::event()']]],
+  ['execute',['execute',['../class_qsci_command.html#aa0bf23ebd61dd46a4eb59447e43c4cab',1,'QsciCommand']]],
+  ['expandline',['ExpandLine',['../class_editor.html#a0496e4394085e46964be6526c7de9f3d',1,'Editor']]],
+  ['extendwordselect',['ExtendWordSelect',['../class_document.html#a05641a4812ca072658a37bfb9e650544',1,'Document']]],
+  ['extraascent',['extraAscent',['../class_qsci_scintilla.html#af4cc9ec111ac0201de66708552f1a00a',1,'QsciScintilla']]],
+  ['extradescent',['extraDescent',['../class_qsci_scintilla.html#ad2ac6461629e762b2f987c164d79e63b',1,'QsciScintilla']]]
 ];

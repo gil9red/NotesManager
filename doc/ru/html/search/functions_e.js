@@ -1,5 +1,20 @@
 var searchData=
 [
-  ['quickfind',['QuickFind',['../class_quick_find.html#aa2c523b48122a2e649ac46bdd259dcf1',1,'QuickFind']]],
-  ['quit',['quit',['../class_manager.html#a9970486a341fc8a4e85f68c67b715da1',1,'Manager']]]
+  ['pagemove',['PageMove',['../class_editor.html#a2b2b8f42c662559fef842c2bbea54a44',1,'Editor']]],
+  ['paintevent',['paintEvent',['../class_qsci_scintilla_base.html#afa29805c4573ca9c94c3e8aabde4586f',1,'QsciScintillaBase']]],
+  ['paper',['paper',['../class_qsci_lexer.html#a638da762835f6b5508a85480801da09c',1,'QsciLexer::paper()'],['../class_qsci_scintilla.html#a58b875bb9976807c1b52ee4ec54e7963',1,'QsciScintilla::paper()'],['../class_qsci_style.html#a3a4af554b71f5ea620fb167066e14d0f',1,'QsciStyle::paper()']]],
+  ['paperchanged',['paperChanged',['../class_qsci_lexer.html#adf8de1727583e902c7cae673673a78a1',1,'QsciLexer']]],
+  ['partitionfromposition',['PartitionFromPosition',['../class_partitioning.html#a4abadebbe8b20b026a69dafa800ac99d',1,'Partitioning']]],
+  ['paste',['paste',['../class_qsci_scintilla.html#a1f898c5675422a844e654344ff99d4ae',1,'QsciScintilla']]],
+  ['play',['play',['../class_qsci_macro.html#a30b9bd13317717b6e7e23e8ca2e678d9',1,'QsciMacro']]],
+  ['pool',['pool',['../class_qsci_scintilla_base.html#a25bccc26da1f0151c2d27dbfcdbc9c76',1,'QsciScintillaBase']]],
+  ['positionfromlineindex',['positionFromLineIndex',['../class_qsci_scintilla.html#a540654e6e1bf1d2f8953e6260ba3121c',1,'QsciScintilla']]],
+  ['positioninselection',['PositionInSelection',['../class_editor.html#a997e080e1267b5b1c1593ecde2ab33a8',1,'Editor']]],
+  ['prepare',['prepare',['../class_qsci_a_p_is.html#a5c26b8395c49cf61243e5f73c0ce577f',1,'QsciAPIs']]],
+  ['previewprint',['previewPrint',['../class_rich_text_note.html#ad2cc98a0b9b505a61b94f09533dbfc7f',1,'RichTextNote']]],
+  ['print',['print',['../class_rich_text_note.html#a42a07532089c704f0bb807dad3d38665',1,'RichTextNote']]],
+  ['printrange',['printRange',['../class_qsci_printer.html#ab14b9c464ebfafb7ac46d08ab65cb30d',1,'QsciPrinter']]],
+  ['processcomments',['processComments',['../class_qsci_lexer_te_x.html#add3dde63461a1ea4a6378e3985b0452f',1,'QsciLexerTeX']]],
+  ['processif',['processIf',['../class_qsci_lexer_te_x.html#ad5d5a224be8105ae85a4bd5b07013a88',1,'QsciLexerTeX']]],
+  ['propertychanged',['propertyChanged',['../class_qsci_lexer.html#acd8475f0da36449dc6b1189a587d7a83',1,'QsciLexer']]]
 ];

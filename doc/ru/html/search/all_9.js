@@ -1,14 +1,16 @@
 var searchData=
 [
-  ['label',['label',['../class_abstract_note_head.html#a2bab18619a5e7e173b321977733fc074',1,'AbstractNoteHead']]],
-  ['language',['language',['../class_dictionary.html#ab4f7862a7785cfd783a111e66fad0ec0',1,'Dictionary']]],
-  ['languages',['languages',['../class_completer.html#a4099a57d5b2eb8087daced13571db7b8',1,'Completer']]],
-  ['left',['Left',['../class_fad_line_edit.html#a13dc43726acf763e5921395e45775627a8e44ae60f732ef4ea4610ff9f4543a39',1,'FadLineEdit::Left()'],['../namespace_shared.html#a790c189a87f2714d136851a8e07d3543a89153d5b16352117ebfdac34e6a7c971',1,'Shared::Left()']]],
-  ['leftpanel',['leftPanel',['../class_manager.html#a84b454890190e7af6e58c5bf353e8163',1,'Manager']]],
-  ['leftsidebuttons',['leftSideButtons',['../class_fad_line_edit.html#aca8bf3783004ab95ba647a0b4698dbc0',1,'FadLineEdit']]],
-  ['license',['License',['../class_page___about.html#afe6855fc19be6b36c369e19429236922adab9557c03b28fab77248046af1852ca',1,'Page_About']]],
-  ['load',['load',['../class_dictionary.html#a31ac5f96b7abfeb8a1b2a1fed2b7f73b',1,'Dictionary::load()'],['../class_rich_text_note.html#ade4731495fca0ac06117f7c37aab2d29',1,'RichTextNote::load()']]],
-  ['loadcontent',['loadContent',['../class_rich_text_note.html#afd17e4ab85c2d6387397cadc91194f09',1,'RichTextNote']]],
-  ['loadended',['LoadEnded',['../namespace_events_note.html#abdde343f4b2248d4d6a2f483f88667f4a9a49694c497fcffdfd945d13e2fd4748',1,'EventsNote']]],
-  ['loadnotes',['loadNotes',['../class_manager.html#a55eaed44c6c65b0583f47baada6fe3e3',1,'Manager::loadNotes()'],['../class_page___trash.html#a75b7526bbf02b91fe226651e923f4bd2',1,'Page_Trash::loadNotes()']]]
+  ['javascriptcomment',['JavaScriptComment',['../class_qsci_lexer_h_t_m_l.html#ad7c379aa46cd6fd9a4af7ffe0cfd7b6ba4abd3fe4667e3f3e07a349fe38465772',1,'QsciLexerHTML']]],
+  ['javascriptcommentdoc',['JavaScriptCommentDoc',['../class_qsci_lexer_h_t_m_l.html#ad7c379aa46cd6fd9a4af7ffe0cfd7b6ba956ea631c098271e1dbda2480f2ee7bf',1,'QsciLexerHTML']]],
+  ['javascriptcommentline',['JavaScriptCommentLine',['../class_qsci_lexer_h_t_m_l.html#ad7c379aa46cd6fd9a4af7ffe0cfd7b6ba7fd719a9c762649493cdddf21e77b3d4',1,'QsciLexerHTML']]],
+  ['javascriptdefault',['JavaScriptDefault',['../class_qsci_lexer_h_t_m_l.html#ad7c379aa46cd6fd9a4af7ffe0cfd7b6ba48c75a37cb9808fb8e38b57ade4235f3',1,'QsciLexerHTML']]],
+  ['javascriptdoublequotedstring',['JavaScriptDoubleQuotedString',['../class_qsci_lexer_h_t_m_l.html#ad7c379aa46cd6fd9a4af7ffe0cfd7b6ba0df9d0b6ab51f5da9178a0627025a542',1,'QsciLexerHTML']]],
+  ['javascriptkeyword',['JavaScriptKeyword',['../class_qsci_lexer_h_t_m_l.html#ad7c379aa46cd6fd9a4af7ffe0cfd7b6ba359bd714cc1ad89a586d749034a1141c',1,'QsciLexerHTML']]],
+  ['javascriptnumber',['JavaScriptNumber',['../class_qsci_lexer_h_t_m_l.html#ad7c379aa46cd6fd9a4af7ffe0cfd7b6bae783df661533d59fe987b3cffdfe65fd',1,'QsciLexerHTML']]],
+  ['javascriptregex',['JavaScriptRegex',['../class_qsci_lexer_h_t_m_l.html#ad7c379aa46cd6fd9a4af7ffe0cfd7b6ba24fefe909c415666e66b25379c5ea447',1,'QsciLexerHTML']]],
+  ['javascriptsinglequotedstring',['JavaScriptSingleQuotedString',['../class_qsci_lexer_h_t_m_l.html#ad7c379aa46cd6fd9a4af7ffe0cfd7b6ba23fc5cfa88114fc586c9d055e06ed97c',1,'QsciLexerHTML']]],
+  ['javascriptstart',['JavaScriptStart',['../class_qsci_lexer_h_t_m_l.html#ad7c379aa46cd6fd9a4af7ffe0cfd7b6ba812edec51acbc5656d061534adb92963',1,'QsciLexerHTML']]],
+  ['javascriptsymbol',['JavaScriptSymbol',['../class_qsci_lexer_h_t_m_l.html#ad7c379aa46cd6fd9a4af7ffe0cfd7b6bae761e0897e90e25a7fe59a99b68215b9',1,'QsciLexerHTML']]],
+  ['javascriptunclosedstring',['JavaScriptUnclosedString',['../class_qsci_lexer_h_t_m_l.html#ad7c379aa46cd6fd9a4af7ffe0cfd7b6baa7eb7816b851a536f4834c0bdaa89639',1,'QsciLexerHTML']]],
+  ['javascriptword',['JavaScriptWord',['../class_qsci_lexer_h_t_m_l.html#ad7c379aa46cd6fd9a4af7ffe0cfd7b6ba3958baaa0ee358fbc7deef59528138a6',1,'QsciLexerHTML']]]
 ];

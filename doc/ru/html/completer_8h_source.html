@@ -70,6 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&#160;членов&#160;всех&#160;файлов</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -92,7 +93,7 @@ $(document).ready(function(){initNavTree('completer_8h_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Указатель</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Классы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Пространства имен</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Функции</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Переменные</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Перечисления</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Элементы перечислений</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Указатель</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Классы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Пространства имен</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Файлы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Функции</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Переменные</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Определения типов</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Перечисления</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Элементы перечислений</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -106,99 +107,76 @@ $(document).ready(function(){initNavTree('completer_8h_source.html','');});
 <div class="title">completer.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*************************************************************************</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">**</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">** Copyright (C) 2013-2014 by Ilya Petrash</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">** All rights reserved.</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">** Contact: gil9red@gmail.com</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">**</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">** This program is free software; you can redistribute it and/or modify</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">** it under the terms of the GNU General Public License as published by</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">** the Free Software Foundation; either version 3 of the License, or</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">** (at your option) any later version.</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">**</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">** This program is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">** but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">** GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">**</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">** You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">** along with this program; if not, write to the</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">** Free Software Foundation, Inc.,</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">** 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">**</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">**************************************************************************/</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef COMPLETER_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define COMPLETER_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QCompleter&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QMap&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;QTextEdit&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;QEvent&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;dictionary.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_completer.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_completer.html">Completer</a>: <span class="keyword">public</span> QCompleter</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="class_completer.html">Completer</a>( QObject * parent = 0 );</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    ~<a class="code" href="class_completer.html">Completer</a>();</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#ifndef COMPLETER_H</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define COMPLETER_H</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;QCompleter&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;QMap&gt;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;QTextEdit&gt;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;QEvent&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_completer.html#a36cbb02e6b052937c5c16d76b418032b">   25</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="class_completer.html">Completer</a> * <a class="code" href="class_completer.html#a36cbb02e6b052937c5c16d76b418032b">instance</a>() { <span class="keywordflow">return</span> <span class="keyword">self</span>; }</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_completer.html#a273ce3547ba1f9e2bb344199cb58b800">addDictionary</a>( <a class="code" href="class_dictionary.html">Dictionary</a> * dict );</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;dictionary.h&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_completer.html">   39</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_completer.html">Completer</a>: <span class="keyword">public</span> QCompleter</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="class_completer.html">Completer</a>( QObject * parent = 0 );</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    ~<a class="code" href="class_completer.html">Completer</a>();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="class_dictionary.html">Dictionary</a> * <a class="code" href="class_completer.html#a0e7221aae129f5a133bb75515562bb7c">dictionary</a>( <span class="keyword">const</span> QString &amp; lang );</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_completer.html#a0e628d8b31e286936712c636d7b92aa6">setDictionary</a>( <span class="keyword">const</span> QString &amp; lang );</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_completer.html#a730e21edcc4a9ccfe20519f57c7dce51">setEditor</a>( QTextEdit * textEdit );</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="class_completer.html#a36cbb02e6b052937c5c16d76b418032b">   48</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="class_completer.html">Completer</a> * <a class="code" href="class_completer.html#a36cbb02e6b052937c5c16d76b418032b">instance</a>() { <span class="keywordflow">return</span> <span class="keyword">self</span>; }</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_completer.html#a273ce3547ba1f9e2bb344199cb58b800">addDictionary</a>( <a class="code" href="class_dictionary.html">Dictionary</a> * dict );</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="class_dictionary.html">Dictionary</a> * <a class="code" href="class_completer.html#a0e7221aae129f5a133bb75515562bb7c">dictionary</a>( <span class="keyword">const</span> QString &amp; lang );</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_completer.html#a0e628d8b31e286936712c636d7b92aa6">setDictionary</a>( <span class="keyword">const</span> QString &amp; lang );</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_completer.html#a730e21edcc4a9ccfe20519f57c7dce51">setEditor</a>( QTextEdit * textEdit );</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    QTextEdit * <a class="code" href="class_completer.html#abc5ee77bfc5257bcde8a6f31c9fe7122">editor</a>();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    QStringList <a class="code" href="class_completer.html#a4099a57d5b2eb8087daced13571db7b8">languages</a>();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_completer.html#aa5b20ba7ac79aa69ab747184dab3ee13">count</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    QMap &lt; QString, Dictionary * &gt; dictionaries; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_completer.html">Completer</a> * <span class="keyword">self</span>;                     </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">bool</span> autocomplete;                           </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    QTextEdit * d_editor;                        </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    QString textUnderCursor(); </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">private</span> slots:</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> insertCompletion( <span class="keyword">const</span> QString &amp; completion );</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    QTextEdit * <a class="code" href="class_completer.html#abc5ee77bfc5257bcde8a6f31c9fe7122">editor</a>();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">public</span> slots:</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_completer.html#a1b79c46e0bcbaf7c1bd3b97873096821">setAutocomplete</a>( <span class="keywordtype">bool</span> b );</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    QStringList <a class="code" href="class_completer.html#a4099a57d5b2eb8087daced13571db7b8">languages</a>();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">bool</span> isAutocomplete();</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_completer.html#aa5b20ba7ac79aa69ab747184dab3ee13">count</a>();</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    QMap &lt; QString, Dictionary * &gt; dictionaries; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_completer.html">Completer</a> * <span class="keyword">self</span>;                     </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">bool</span> autocomplete;                           </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    QTextEdit * d_editor;                        </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    QString textUnderCursor(); </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keyword">private</span> slots:</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span> insertCompletion( <span class="keyword">const</span> QString &amp; completion );</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keyword">public</span> slots:</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_completer.html#a1b79c46e0bcbaf7c1bd3b97873096821">setAutocomplete</a>( <span class="keywordtype">bool</span> b );</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">bool</span> isAutocomplete();</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">bool</span> eventFilter( QObject * <span class="keywordtype">object</span>, QEvent * event );</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;};</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#endif // COMPLETER_H</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">bool</span> eventFilter( QObject * <span class="keywordtype">object</span>, QEvent * event );</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;};</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif // COMPLETER_H</span></div>
 <div class="ttc" id="class_completer_html_aa5b20ba7ac79aa69ab747184dab3ee13"><div class="ttname"><a href="class_completer.html#aa5b20ba7ac79aa69ab747184dab3ee13">Completer::count</a></div><div class="ttdeci">int count()</div><div class="ttdoc">Возврат количества языков словарей, доступных комплектору . </div><div class="ttdef"><b>Definition:</b> completer.cpp:92</div></div>
 <div class="ttc" id="class_completer_html_a1b79c46e0bcbaf7c1bd3b97873096821"><div class="ttname"><a href="class_completer.html#a1b79c46e0bcbaf7c1bd3b97873096821">Completer::setAutocomplete</a></div><div class="ttdeci">void setAutocomplete(bool b)</div><div class="ttdoc">&lt; Включение автодополнения. </div><div class="ttdef"><b>Definition:</b> completer.cpp:114</div></div>
 <div class="ttc" id="class_completer_html_a273ce3547ba1f9e2bb344199cb58b800"><div class="ttname"><a href="class_completer.html#a273ce3547ba1f9e2bb344199cb58b800">Completer::addDictionary</a></div><div class="ttdeci">void addDictionary(Dictionary *dict)</div><div class="ttdoc">Добавление словаря. </div><div class="ttdef"><b>Definition:</b> completer.cpp:31</div></div>
 <div class="ttc" id="class_completer_html_a0e628d8b31e286936712c636d7b92aa6"><div class="ttname"><a href="class_completer.html#a0e628d8b31e286936712c636d7b92aa6">Completer::setDictionary</a></div><div class="ttdeci">bool setDictionary(const QString &amp;lang)</div><div class="ttdoc">Функция устанавливает словарь. </div><div class="ttdef"><b>Definition:</b> completer.cpp:50</div></div>
 <div class="ttc" id="class_completer_html_a730e21edcc4a9ccfe20519f57c7dce51"><div class="ttname"><a href="class_completer.html#a730e21edcc4a9ccfe20519f57c7dce51">Completer::setEditor</a></div><div class="ttdeci">void setEditor(QTextEdit *textEdit)</div><div class="ttdoc">Установка текстового редактора, к которому подключается комплектор. </div><div class="ttdef"><b>Definition:</b> completer.cpp:59</div></div>
 <div class="ttc" id="class_completer_html_abc5ee77bfc5257bcde8a6f31c9fe7122"><div class="ttname"><a href="class_completer.html#abc5ee77bfc5257bcde8a6f31c9fe7122">Completer::editor</a></div><div class="ttdeci">QTextEdit * editor()</div><div class="ttdoc">Возврат указателя текстового редактора, к которому подключен комплектор. </div><div class="ttdef"><b>Definition:</b> completer.cpp:74</div></div>
-<div class="ttc" id="class_dictionary_html"><div class="ttname"><a href="class_dictionary.html">Dictionary</a></div><div class="ttdoc">Класс-словарь. </div><div class="ttdef"><b>Definition:</b> dictionary.h:34</div></div>
-<div class="ttc" id="class_completer_html_a36cbb02e6b052937c5c16d76b418032b"><div class="ttname"><a href="class_completer.html#a36cbb02e6b052937c5c16d76b418032b">Completer::instance</a></div><div class="ttdeci">static Completer * instance()</div><div class="ttdoc">Возврат статичного указателя на &quot;себя&quot;. </div><div class="ttdef"><b>Definition:</b> completer.h:48</div></div>
+<div class="ttc" id="class_dictionary_html"><div class="ttname"><a href="class_dictionary.html">Dictionary</a></div><div class="ttdoc">Класс-словарь. </div><div class="ttdef"><b>Definition:</b> dictionary.h:11</div></div>
+<div class="ttc" id="class_completer_html_a36cbb02e6b052937c5c16d76b418032b"><div class="ttname"><a href="class_completer.html#a36cbb02e6b052937c5c16d76b418032b">Completer::instance</a></div><div class="ttdeci">static Completer * instance()</div><div class="ttdoc">Возврат статичного указателя на &quot;себя&quot;. </div><div class="ttdef"><b>Definition:</b> completer.h:25</div></div>
 <div class="ttc" id="class_completer_html_a4099a57d5b2eb8087daced13571db7b8"><div class="ttname"><a href="class_completer.html#a4099a57d5b2eb8087daced13571db7b8">Completer::languages</a></div><div class="ttdeci">QStringList languages()</div><div class="ttdoc">Возврат списка языков словарей, доступных комплектору. </div><div class="ttdef"><b>Definition:</b> completer.cpp:79</div></div>
-<div class="ttc" id="class_completer_html"><div class="ttname"><a href="class_completer.html">Completer</a></div><div class="ttdoc">Класс реализует комплетер. </div><div class="ttdef"><b>Definition:</b> completer.h:39</div></div>
+<div class="ttc" id="class_completer_html"><div class="ttname"><a href="class_completer.html">Completer</a></div><div class="ttdoc">Класс реализует комплетер. </div><div class="ttdef"><b>Definition:</b> completer.h:16</div></div>
 <div class="ttc" id="class_completer_html_a0e7221aae129f5a133bb75515562bb7c"><div class="ttname"><a href="class_completer.html#a0e7221aae129f5a133bb75515562bb7c">Completer::dictionary</a></div><div class="ttdeci">Dictionary * dictionary(const QString &amp;lang)</div><div class="ttdoc">Функция возвращает указатель на словарь. </div><div class="ttdef"><b>Definition:</b> completer.cpp:36</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -206,7 +184,7 @@ $(document).ready(function(){initNavTree('completer_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_4521060be2f87b8a21ee082fc5cc2755.html">NotesManager</a></li><li class="navelem"><a class="el" href="dir_8ddbc3f07fee76b9b166d7f51edb323e.html">Note</a></li><li class="navelem"><b>completer.h</b></li>
-    <li class="footer">Документация по Notes Manager. Последние изменения: Сб 1 Фев 2014 21:15:11. Создано системой
+    <li class="footer">Документация по Notes Manager. Последние изменения: Пн 5 Май 2014 20:41:30. Создано системой
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

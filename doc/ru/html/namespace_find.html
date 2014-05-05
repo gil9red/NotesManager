@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('namespace_find.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Указатель</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Классы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Пространства имен</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Функции</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Переменные</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Перечисления</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Элементы перечислений</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Указатель</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Классы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Пространства имен</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Файлы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Функции</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Переменные</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Определения типов</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Перечисления</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Элементы перечислений</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -103,6 +103,8 @@ $(document).ready(function(){initNavTree('namespace_find.html','');});
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
   <div class="headertitle">
 <div class="title">Пространство имен Find</div>  </div>
 </div><!--header-->
@@ -110,15 +112,48 @@ $(document).ready(function(){initNavTree('namespace_find.html','');});
 
 <p>Содержит функции, связанные с виджетами-поисковиками.  
 <a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:a2c283450c94b177cf63993cf7d4c5dff"><td class="memItemLeft" align="right" valign="top">QIcon&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_find.html#a2c283450c94b177cf63993cf7d4c5dff">iconForFindFlags</a> (Shared::FindFlags flags)</td></tr>
+<tr class="memdesc:a2c283450c94b177cf63993cf7d4c5dff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция, в зависимости от переданных флагов возвращает иконку.  <a href="#a2c283450c94b177cf63993cf7d4c5dff">Подробнее...</a><br/></td></tr>
+<tr class="separator:a2c283450c94b177cf63993cf7d4c5dff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
 <div class="textblock"><p>Содержит функции, связанные с виджетами-поисковиками. </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Функции</h2>
+<a class="anchor" id="a2c283450c94b177cf63993cf7d4c5dff"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QIcon Find::iconForFindFlags </td>
+          <td>(</td>
+          <td class="paramtype">Shared::FindFlags&#160;</td>
+          <td class="paramname"><em>flags</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Функция, в зависимости от переданных флагов возвращает иконку. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">flags</td><td>поисковые флаги </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>иконка </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_find.html">Find</a></li>
-    <li class="footer">Документация по Notes Manager. Последние изменения: Сб 1 Фев 2014 21:17:10. Создано системой
+    <li class="footer">Документация по Notes Manager. Последние изменения: Пн 5 Май 2014 20:41:42. Создано системой
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

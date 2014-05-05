@@ -14,7 +14,9 @@
         <file alias="calendar-month">icons/fugue-icons/24x24/calendar-month.png</file>
         <file alias="pin">icons/fugue-icons/16x16/pin.png</file>
         <file alias="tag-label-black">icons/fugue-icons/16x16/tag-label-black.png</file>
-        <file alias="blue-folder-horizontal-open">icons/fugue-icons/24x24/blue-folder-horizontal-open.png</file>
-        <file alias="blue-folder-horizontal">icons/fugue-icons/24x24/blue-folder-horizontal.png</file>
+    </qresource>
+    <qresource prefix="/">
+        <file alias="collapse all">icons/collapse all.png</file>
+        <file alias="expand all">icons/expand all.png</file>
     </qresource>
 </RCC>

@@ -1,0 +1,385 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Notes Manager: Класс QsciLexerOctave</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Notes Manager
+   &#160;<span id="projectnumber">0.0.1</span>
+   </div>
+   <div id="projectbrief">Программа создает заметки</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&#160;имен</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Классы</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Классы</span></a></li>
+      <li><a href="classes.html"><span>Алфавитный&#160;указатель&#160;классов</span></a></li>
+      <li><a href="hierarchy.html"><span>Иерархия&#160;классов</span></a></li>
+      <li><a href="functions.html"><span>Члены&#160;классов</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_qsci_lexer_octave.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Указатель</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Классы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Пространства имен</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Файлы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Функции</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Переменные</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Определения типов</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Перечисления</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Элементы перечислений</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="class_qsci_lexer_octave-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Класс QsciLexerOctave</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>The <a class="el" href="class_qsci_lexer_octave.html" title="The QsciLexerOctave class encapsulates the Scintilla Octave file lexer. ">QsciLexerOctave</a> class encapsulates the Scintilla Octave file lexer.  
+ <a href="class_qsci_lexer_octave.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="qscilexeroctave_8h_source.html">qscilexeroctave.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:QsciLexerOctave:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_qsci_lexer_octave.png" usemap="#QsciLexerOctave_map" alt=""/>
+  <map id="QsciLexerOctave_map" name="QsciLexerOctave_map">
+<area href="class_qsci_lexer_matlab.html" title="The QsciLexerMatlab class encapsulates the Scintilla Matlab file lexer. " alt="QsciLexerMatlab" shape="rect" coords="0,112,111,136"/>
+<area href="class_qsci_lexer.html" title="The QsciLexer class is an abstract class used as a base for language lexers. " alt="QsciLexer" shape="rect" coords="0,56,111,80"/>
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:aca3644f3fed3a83716d794cca822549a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer_octave.html#aca3644f3fed3a83716d794cca822549a">QsciLexerOctave</a> (QObject *parent=0)</td></tr>
+<tr class="separator:aca3644f3fed3a83716d794cca822549a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf178f4f55454bd3217cdc5852606560"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acf178f4f55454bd3217cdc5852606560"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer_octave.html#acf178f4f55454bd3217cdc5852606560">~QsciLexerOctave</a> ()</td></tr>
+<tr class="memdesc:acf178f4f55454bd3217cdc5852606560"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the <a class="el" href="class_qsci_lexer_octave.html" title="The QsciLexerOctave class encapsulates the Scintilla Octave file lexer. ">QsciLexerOctave</a> instance. <br/></td></tr>
+<tr class="separator:acf178f4f55454bd3217cdc5852606560"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebd7bcc19de044531e85eb66eb4118f9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aebd7bcc19de044531e85eb66eb4118f9"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer_octave.html#aebd7bcc19de044531e85eb66eb4118f9">language</a> () const </td></tr>
+<tr class="memdesc:aebd7bcc19de044531e85eb66eb4118f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of the language. <br/></td></tr>
+<tr class="separator:aebd7bcc19de044531e85eb66eb4118f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb20b421f2196c145f8fa297bc5cdd1f"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer_octave.html#adb20b421f2196c145f8fa297bc5cdd1f">lexer</a> () const </td></tr>
+<tr class="separator:adb20b421f2196c145f8fa297bc5cdd1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3b7b01aab0fc1747395d8f03f214c9c"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer_octave.html#af3b7b01aab0fc1747395d8f03f214c9c">keywords</a> (int set) const </td></tr>
+<tr class="separator:af3b7b01aab0fc1747395d8f03f214c9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_qsci_lexer_matlab"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_qsci_lexer_matlab')"><img src="closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="class_qsci_lexer_matlab.html">QsciLexerMatlab</a></td></tr>
+<tr class="memitem:a382aa49629299c9694d3b225bace0c16 inherit pub_methods_class_qsci_lexer_matlab"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer_matlab.html#a382aa49629299c9694d3b225bace0c16">QsciLexerMatlab</a> (QObject *parent=0)</td></tr>
+<tr class="separator:a382aa49629299c9694d3b225bace0c16 inherit pub_methods_class_qsci_lexer_matlab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66ca9a7af8c5cea0410fecf1d156c7b0 inherit pub_methods_class_qsci_lexer_matlab"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a66ca9a7af8c5cea0410fecf1d156c7b0"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer_matlab.html#a66ca9a7af8c5cea0410fecf1d156c7b0">~QsciLexerMatlab</a> ()</td></tr>
+<tr class="memdesc:a66ca9a7af8c5cea0410fecf1d156c7b0 inherit pub_methods_class_qsci_lexer_matlab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the <a class="el" href="class_qsci_lexer_matlab.html" title="The QsciLexerMatlab class encapsulates the Scintilla Matlab file lexer. ">QsciLexerMatlab</a> instance. <br/></td></tr>
+<tr class="separator:a66ca9a7af8c5cea0410fecf1d156c7b0 inherit pub_methods_class_qsci_lexer_matlab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f9e762fe03eb353268f717d2d298e47 inherit pub_methods_class_qsci_lexer_matlab"><td class="memItemLeft" align="right" valign="top">QColor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer_matlab.html#a7f9e762fe03eb353268f717d2d298e47">defaultColor</a> (int style) const </td></tr>
+<tr class="separator:a7f9e762fe03eb353268f717d2d298e47 inherit pub_methods_class_qsci_lexer_matlab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8634a91efeb930ea258a271540268e69 inherit pub_methods_class_qsci_lexer_matlab"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8634a91efeb930ea258a271540268e69"></a>
+QFont&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer_matlab.html#a8634a91efeb930ea258a271540268e69">defaultFont</a> (int style) const </td></tr>
+<tr class="memdesc:a8634a91efeb930ea258a271540268e69 inherit pub_methods_class_qsci_lexer_matlab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the font for style number <em>style</em>. <br/></td></tr>
+<tr class="separator:a8634a91efeb930ea258a271540268e69 inherit pub_methods_class_qsci_lexer_matlab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a993d0c2713fbfb6550245689c9d1e04e inherit pub_methods_class_qsci_lexer_matlab"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer_matlab.html#a993d0c2713fbfb6550245689c9d1e04e">description</a> (int style) const </td></tr>
+<tr class="separator:a993d0c2713fbfb6550245689c9d1e04e inherit pub_methods_class_qsci_lexer_matlab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_qsci_lexer"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_qsci_lexer')"><img src="closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="class_qsci_lexer.html">QsciLexer</a></td></tr>
+<tr class="memitem:a49fc2fb49ed07f1cb5f8b0a96e07d0d4 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a49fc2fb49ed07f1cb5f8b0a96e07d0d4">QsciLexer</a> (QObject *parent=0)</td></tr>
+<tr class="separator:a49fc2fb49ed07f1cb5f8b0a96e07d0d4 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa952f0e8a9e80f737fa99f1a6cf77dc4 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa952f0e8a9e80f737fa99f1a6cf77dc4"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#aa952f0e8a9e80f737fa99f1a6cf77dc4">~QsciLexer</a> ()</td></tr>
+<tr class="memdesc:aa952f0e8a9e80f737fa99f1a6cf77dc4 inherit pub_methods_class_qsci_lexer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the QSciLexer. <br/></td></tr>
+<tr class="separator:aa952f0e8a9e80f737fa99f1a6cf77dc4 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3c8c307f78ba5a0d12b1e3b9446ccb4 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#ab3c8c307f78ba5a0d12b1e3b9446ccb4">lexerId</a> () const </td></tr>
+<tr class="separator:ab3c8c307f78ba5a0d12b1e3b9446ccb4 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67443769a5499043efefacf0b0c46de2 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_qsci_abstract_a_p_is.html">QsciAbstractAPIs</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a67443769a5499043efefacf0b0c46de2">apis</a> () const </td></tr>
+<tr class="separator:a67443769a5499043efefacf0b0c46de2 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5119f76d8e8cd231197c3cd00bed96da inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5119f76d8e8cd231197c3cd00bed96da"></a>
+virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><b>autoCompletionFillups</b> () const </td></tr>
+<tr class="separator:a5119f76d8e8cd231197c3cd00bed96da inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0b17c22eab0cf00d87ab803499a2810 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab0b17c22eab0cf00d87ab803499a2810"></a>
+virtual QStringList&#160;</td><td class="memItemRight" valign="bottom"><b>autoCompletionWordSeparators</b> () const </td></tr>
+<tr class="separator:ab0b17c22eab0cf00d87ab803499a2810 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79c27285b6033c553b3f54cb6c56b338 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a79c27285b6033c553b3f54cb6c56b338">autoIndentStyle</a> ()</td></tr>
+<tr class="separator:a79c27285b6033c553b3f54cb6c56b338 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9da911f9e92c06b8fec4db4840815cc inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa9da911f9e92c06b8fec4db4840815cc"></a>
+virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><b>blockEnd</b> (int *style=0) const </td></tr>
+<tr class="separator:aa9da911f9e92c06b8fec4db4840815cc inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c97201d8edde971ba87e73b5f399154 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3c97201d8edde971ba87e73b5f399154"></a>
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>blockLookback</b> () const </td></tr>
+<tr class="separator:a3c97201d8edde971ba87e73b5f399154 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cec7c8311be98aa47175b307cb23a58 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3cec7c8311be98aa47175b307cb23a58"></a>
+virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><b>blockStart</b> (int *style=0) const </td></tr>
+<tr class="separator:a3cec7c8311be98aa47175b307cb23a58 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22abbc86efec8a749bcb1b9d4b8f740a inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a22abbc86efec8a749bcb1b9d4b8f740a"></a>
+virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><b>blockStartKeyword</b> (int *style=0) const </td></tr>
+<tr class="separator:a22abbc86efec8a749bcb1b9d4b8f740a inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafbc653244c6cbc343ee535199747adc inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aafbc653244c6cbc343ee535199747adc"></a>
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>braceStyle</b> () const </td></tr>
+<tr class="separator:aafbc653244c6cbc343ee535199747adc inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad225e84b857b88d4d32c980a349f261b inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad225e84b857b88d4d32c980a349f261b"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>caseSensitive</b> () const </td></tr>
+<tr class="separator:ad225e84b857b88d4d32c980a349f261b inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a817f0334c711a82eea03997b05147762 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">virtual QColor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a817f0334c711a82eea03997b05147762">color</a> (int style) const </td></tr>
+<tr class="separator:a817f0334c711a82eea03997b05147762 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d87aa06bb02de81c5d07e8c9f4db0ff inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a6d87aa06bb02de81c5d07e8c9f4db0ff">eolFill</a> (int style) const </td></tr>
+<tr class="separator:a6d87aa06bb02de81c5d07e8c9f4db0ff inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fb4225c6554e7ee543ea1efdbf338dd inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">virtual QFont&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a0fb4225c6554e7ee543ea1efdbf338dd">font</a> (int style) const </td></tr>
+<tr class="separator:a0fb4225c6554e7ee543ea1efdbf338dd inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a2666de65ca27e9e985aef873c8a30d inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2a2666de65ca27e9e985aef873c8a30d"></a>
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>indentationGuideView</b> () const </td></tr>
+<tr class="separator:a2a2666de65ca27e9e985aef873c8a30d inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ec42a58fc81a9f18350327380b729e4 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3ec42a58fc81a9f18350327380b729e4"></a>
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>defaultStyle</b> () const </td></tr>
+<tr class="separator:a3ec42a58fc81a9f18350327380b729e4 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a638da762835f6b5508a85480801da09c inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">virtual QColor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a638da762835f6b5508a85480801da09c">paper</a> (int style) const </td></tr>
+<tr class="separator:a638da762835f6b5508a85480801da09c inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0afe2419326969871275fb7dd7edf69 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">QColor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#ae0afe2419326969871275fb7dd7edf69">defaultColor</a> () const </td></tr>
+<tr class="separator:ae0afe2419326969871275fb7dd7edf69 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7620da7e50ef5420d2719842672dc14 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#ac7620da7e50ef5420d2719842672dc14">defaultEolFill</a> (int style) const </td></tr>
+<tr class="separator:ac7620da7e50ef5420d2719842672dc14 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefc2cc14d45c167e71de37bb335c02eb inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">QFont&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#aefc2cc14d45c167e71de37bb335c02eb">defaultFont</a> () const </td></tr>
+<tr class="separator:aefc2cc14d45c167e71de37bb335c02eb inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31126a12c4a841bb471af77d868c6d41 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">QColor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a31126a12c4a841bb471af77d868c6d41">defaultPaper</a> () const </td></tr>
+<tr class="separator:a31126a12c4a841bb471af77d868c6d41 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a865ee8ede55a49e425972a20270ca850 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a865ee8ede55a49e425972a20270ca850"></a>
+virtual QColor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a865ee8ede55a49e425972a20270ca850">defaultPaper</a> (int style) const </td></tr>
+<tr class="memdesc:a865ee8ede55a49e425972a20270ca850 inherit pub_methods_class_qsci_lexer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the default paper colour for style number <em>style</em>. <br/></td></tr>
+<tr class="separator:a865ee8ede55a49e425972a20270ca850 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a196d8f3fdd8285788be8915b59ed1889 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_qsci_scintilla.html">QsciScintilla</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a196d8f3fdd8285788be8915b59ed1889">editor</a> () const </td></tr>
+<tr class="separator:a196d8f3fdd8285788be8915b59ed1889 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2e1ada934a5dc7685c1ee6a464de5fd inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#ac2e1ada934a5dc7685c1ee6a464de5fd">setAPIs</a> (<a class="el" href="class_qsci_abstract_a_p_is.html">QsciAbstractAPIs</a> *<a class="el" href="class_qsci_lexer.html#a67443769a5499043efefacf0b0c46de2">apis</a>)</td></tr>
+<tr class="separator:ac2e1ada934a5dc7685c1ee6a464de5fd inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32b16ee95c3dabbc7de61541dd110521 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a32b16ee95c3dabbc7de61541dd110521">setDefaultColor</a> (const QColor &amp;c)</td></tr>
+<tr class="separator:a32b16ee95c3dabbc7de61541dd110521 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19f0b390b5594d0dff5e4d4b484e43d2 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a19f0b390b5594d0dff5e4d4b484e43d2">setDefaultFont</a> (const QFont &amp;f)</td></tr>
+<tr class="separator:a19f0b390b5594d0dff5e4d4b484e43d2 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ebaedee6979d4cb17399361b37e33e0 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a7ebaedee6979d4cb17399361b37e33e0">setDefaultPaper</a> (const QColor &amp;c)</td></tr>
+<tr class="separator:a7ebaedee6979d4cb17399361b37e33e0 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1b690207eebbaf37dcf4b044438b653 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af1b690207eebbaf37dcf4b044438b653"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setEditor</b> (<a class="el" href="class_qsci_scintilla.html">QsciScintilla</a> *<a class="el" href="class_qsci_lexer.html#a196d8f3fdd8285788be8915b59ed1889">editor</a>)</td></tr>
+<tr class="separator:af1b690207eebbaf37dcf4b044438b653 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27728e4e361c5f4bf87690d34d83057d inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a27728e4e361c5f4bf87690d34d83057d">readSettings</a> (QSettings &amp;qs, const char *prefix=&quot;/Scintilla&quot;)</td></tr>
+<tr class="separator:a27728e4e361c5f4bf87690d34d83057d inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a358f76a8685c06ba851721773387eb7f inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a358f76a8685c06ba851721773387eb7f">refreshProperties</a> ()</td></tr>
+<tr class="separator:a358f76a8685c06ba851721773387eb7f inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a348cc3c9d2a5afaff7b93fb02c4cc520 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a348cc3c9d2a5afaff7b93fb02c4cc520">styleBitsNeeded</a> () const </td></tr>
+<tr class="separator:a348cc3c9d2a5afaff7b93fb02c4cc520 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af33464851b06e0245421e3f30a6fe1f0 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#af33464851b06e0245421e3f30a6fe1f0">wordCharacters</a> () const </td></tr>
+<tr class="separator:af33464851b06e0245421e3f30a6fe1f0 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae53dc53e318939e9d52ae544b9995856 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#ae53dc53e318939e9d52ae544b9995856">writeSettings</a> (QSettings &amp;qs, const char *prefix=&quot;/Scintilla&quot;) const </td></tr>
+<tr class="separator:ae53dc53e318939e9d52ae544b9995856 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Дополнительные унаследованные члены</h2></td></tr>
+<tr class="inherit_header pub_types_class_qsci_lexer_matlab"><td colspan="2" onclick="javascript:toggleInherit('pub_types_class_qsci_lexer_matlab')"><img src="closed.png" alt="-"/>&#160;Открытые типы унаследованные от <a class="el" href="class_qsci_lexer_matlab.html">QsciLexerMatlab</a></td></tr>
+<tr class="memitem:ae534659b0be96fe14708dd0d0f7d675d inherit pub_types_class_qsci_lexer_matlab"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br/>
+&#160;&#160;<a class="el" href="class_qsci_lexer_matlab.html#ae534659b0be96fe14708dd0d0f7d675da55be77ea514d8c6260a639a1a7e5490e">Default</a> = 0, 
+<a class="el" href="class_qsci_lexer_matlab.html#ae534659b0be96fe14708dd0d0f7d675da2c7ee3027be2a0e66cc22b2924ef27cd">Comment</a> = 1, 
+<a class="el" href="class_qsci_lexer_matlab.html#ae534659b0be96fe14708dd0d0f7d675da1d8eab4b3a40889f09b5fdc7bc7f3501">Command</a> = 2, 
+<a class="el" href="class_qsci_lexer_matlab.html#ae534659b0be96fe14708dd0d0f7d675dad8ba5183e6ccba79944f27f0b74a22ab">Number</a> = 3, 
+<br/>
+&#160;&#160;<a class="el" href="class_qsci_lexer_matlab.html#ae534659b0be96fe14708dd0d0f7d675dac53233ada5686cd1065b8ecdb056e157">Keyword</a> = 4, 
+<a class="el" href="class_qsci_lexer_matlab.html#ae534659b0be96fe14708dd0d0f7d675da86c3d10694b6eaa6c28029fa00a59c81">SingleQuotedString</a> = 5, 
+<a class="el" href="class_qsci_lexer_matlab.html#ae534659b0be96fe14708dd0d0f7d675dacc468c29f510fde205206fcaf3d25f2e">Operator</a> = 6, 
+<a class="el" href="class_qsci_lexer_matlab.html#ae534659b0be96fe14708dd0d0f7d675da3de8abf631bb373bd866e45d59789790">Identifier</a> = 7, 
+<br/>
+&#160;&#160;<a class="el" href="class_qsci_lexer_matlab.html#ae534659b0be96fe14708dd0d0f7d675daa209603481aa02f044a3e0eeb94593ed">DoubleQuotedString</a> = 8
+<br/>
+ }</td></tr>
+<tr class="separator:ae534659b0be96fe14708dd0d0f7d675d inherit pub_types_class_qsci_lexer_matlab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_slots_class_qsci_lexer"><td colspan="2" onclick="javascript:toggleInherit('pub_slots_class_qsci_lexer')"><img src="closed.png" alt="-"/>&#160;Открытые слоты унаследованные от <a class="el" href="class_qsci_lexer.html">QsciLexer</a></td></tr>
+<tr class="memitem:ae2be832e7e32b211c9eb019dfdcfc95b inherit pub_slots_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#ae2be832e7e32b211c9eb019dfdcfc95b">setAutoIndentStyle</a> (int autoindentstyle)</td></tr>
+<tr class="separator:ae2be832e7e32b211c9eb019dfdcfc95b inherit pub_slots_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af00c1a250f8213163f47c1b4ee6004ae inherit pub_slots_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#af00c1a250f8213163f47c1b4ee6004ae">setColor</a> (const QColor &amp;c, int style=-1)</td></tr>
+<tr class="separator:af00c1a250f8213163f47c1b4ee6004ae inherit pub_slots_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace228a3eeed4816c2b3382aa279e1460 inherit pub_slots_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#ace228a3eeed4816c2b3382aa279e1460">setEolFill</a> (bool eoffill, int style=-1)</td></tr>
+<tr class="separator:ace228a3eeed4816c2b3382aa279e1460 inherit pub_slots_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb0931f1e29f41782c367932a20f4bff inherit pub_slots_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#adb0931f1e29f41782c367932a20f4bff">setFont</a> (const QFont &amp;f, int style=-1)</td></tr>
+<tr class="separator:adb0931f1e29f41782c367932a20f4bff inherit pub_slots_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6ed142c63350ef0a12a55ebf9f2c3f3 inherit pub_slots_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#ac6ed142c63350ef0a12a55ebf9f2c3f3">setPaper</a> (const QColor &amp;c, int style=-1)</td></tr>
+<tr class="separator:ac6ed142c63350ef0a12a55ebf9f2c3f3 inherit pub_slots_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header signals_class_qsci_lexer"><td colspan="2" onclick="javascript:toggleInherit('signals_class_qsci_lexer')"><img src="closed.png" alt="-"/>&#160;Сигналы унаследованные от <a class="el" href="class_qsci_lexer.html">QsciLexer</a></td></tr>
+<tr class="memitem:a901cf93072b3db3ffe503eab78ae6954 inherit signals_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a901cf93072b3db3ffe503eab78ae6954">colorChanged</a> (const QColor &amp;c, int style)</td></tr>
+<tr class="separator:a901cf93072b3db3ffe503eab78ae6954 inherit signals_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66c01f0c9470164d4575c2b64f0e4220 inherit signals_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a66c01f0c9470164d4575c2b64f0e4220">eolFillChanged</a> (bool eolfilled, int style)</td></tr>
+<tr class="separator:a66c01f0c9470164d4575c2b64f0e4220 inherit signals_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac04ade8be901b67af681e5e3516c0946 inherit signals_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#ac04ade8be901b67af681e5e3516c0946">fontChanged</a> (const QFont &amp;f, int style)</td></tr>
+<tr class="separator:ac04ade8be901b67af681e5e3516c0946 inherit signals_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf8de1727583e902c7cae673673a78a1 inherit signals_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#adf8de1727583e902c7cae673673a78a1">paperChanged</a> (const QColor &amp;c, int style)</td></tr>
+<tr class="separator:adf8de1727583e902c7cae673673a78a1 inherit signals_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd8475f0da36449dc6b1189a587d7a83 inherit signals_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#acd8475f0da36449dc6b1189a587d7a83">propertyChanged</a> (const char *prop, const char *val)</td></tr>
+<tr class="separator:acd8475f0da36449dc6b1189a587d7a83 inherit signals_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_class_qsci_lexer"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_qsci_lexer')"><img src="closed.png" alt="-"/>&#160;Защищенные члены унаследованные от <a class="el" href="class_qsci_lexer.html">QsciLexer</a></td></tr>
+<tr class="memitem:aa4e8df76d6599ec4c1dbffb81f01b1b4 inherit pro_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#aa4e8df76d6599ec4c1dbffb81f01b1b4">readProperties</a> (QSettings &amp;qs, const QString &amp;prefix)</td></tr>
+<tr class="separator:aa4e8df76d6599ec4c1dbffb81f01b1b4 inherit pro_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a846ec450b4c3e4a8bbb3e4c806f9e10d inherit pro_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a846ec450b4c3e4a8bbb3e4c806f9e10d">writeProperties</a> (QSettings &amp;qs, const QString &amp;prefix) const </td></tr>
+<tr class="separator:a846ec450b4c3e4a8bbb3e4c806f9e10d inherit pro_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>The <a class="el" href="class_qsci_lexer_octave.html" title="The QsciLexerOctave class encapsulates the Scintilla Octave file lexer. ">QsciLexerOctave</a> class encapsulates the Scintilla Octave file lexer. </p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a class="anchor" id="aca3644f3fed3a83716d794cca822549a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QsciLexerOctave::QsciLexerOctave </td>
+          <td>(</td>
+          <td class="paramtype">QObject *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>0</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Construct a <a class="el" href="class_qsci_lexer_octave.html" title="The QsciLexerOctave class encapsulates the Scintilla Octave file lexer. ">QsciLexerOctave</a> with parent <em>parent</em>. <em>parent</em> is typically the <a class="el" href="class_qsci_scintilla.html" title="The QsciScintilla class implements a higher level, more Qt-like, API to the Scintilla editor widget...">QsciScintilla</a> instance. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a class="anchor" id="af3b7b01aab0fc1747395d8f03f214c9c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * QsciLexerOctave::keywords </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>set</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the set of keywords for the keyword set <em>set</em> recognised by the lexer as a space separated string. </p>
+
+<p>Переопределяет метод предка <a class="el" href="class_qsci_lexer_matlab.html#ab38cd0f6d33ffa4cb079140705a7ab66">QsciLexerMatlab</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adb20b421f2196c145f8fa297bc5cdd1f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * QsciLexerOctave::lexer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the name of the lexer. Some lexers support a number of languages. </p>
+
+<p>Переопределяет метод предка <a class="el" href="class_qsci_lexer_matlab.html#a1ac6f5a2febb6a4390bf735b1fa678a2">QsciLexerMatlab</a>.</p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>NotesManager/QScintilla-gpl-2.8.1/Qt4Qt5/Qsci/<a class="el" href="qscilexeroctave_8h_source.html">qscilexeroctave.h</a></li>
+<li>NotesManager/QScintilla-gpl-2.8.1/Qt4Qt5/qscilexeroctave.cpp</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_qsci_lexer_octave.html">QsciLexerOctave</a></li>
+    <li class="footer">Документация по Notes Manager. Последние изменения: Пн 5 Май 2014 20:41:39. Создано системой
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
+</body>
+</html>

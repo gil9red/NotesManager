@@ -70,6 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&#160;членов&#160;всех&#160;файлов</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -92,7 +93,7 @@ $(document).ready(function(){initNavTree('page__notes_8h_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Указатель</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Классы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Пространства имен</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Функции</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Переменные</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Перечисления</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Элементы перечислений</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Указатель</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Классы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Пространства имен</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Файлы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Функции</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Переменные</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Определения типов</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Перечисления</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Элементы перечислений</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -106,119 +107,89 @@ $(document).ready(function(){initNavTree('page__notes_8h_source.html','');});
 <div class="title">page_notes.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*************************************************************************</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">**</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">** Copyright (C) 2013-2014 by Ilya Petrash</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">** All rights reserved.</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">** Contact: gil9red@gmail.com</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">**</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">** This program is free software; you can redistribute it and/or modify</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">** it under the terms of the GNU General Public License as published by</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">** the Free Software Foundation; either version 3 of the License, or</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">** (at your option) any later version.</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">**</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">** This program is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">** but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">** GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">**</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">** You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">** along with this program; if not, write to the</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">** Free Software Foundation, Inc.,</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">** 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">**</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">**************************************************************************/</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef PAGE_NOTES_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PAGE_NOTES_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QMainWindow&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QStandardItemModel&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span>Ui</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">class </span>Page_notes;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;}</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;ui_page_notes.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;QSettings&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_page___notes.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_page___notes.html">Page_Notes</a>: <span class="keyword">public</span> QMainWindow</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_page___notes.html">Page_Notes</a>( QWidget * parent = 0 );</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    ~<a class="code" href="class_page___notes.html">Page_Notes</a>();</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#ifndef PAGE_NOTES_H</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PAGE_NOTES_H</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;QMainWindow&gt;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;QStandardItemModel&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_page___notes.html#a702838a6ac3d54b2775980d84c271ab0">setSettings</a>( QSettings * s );</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">void</span> read( QIODevice * device );</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> write( QIODevice * device );</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> writeToXmlStateNotes();</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span>Ui</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">class </span>Page_notes;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;ui_page_notes.h&quot;</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;Note/RichTextNote.h&quot;</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;Note/AttachPanel.h&quot;</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="class_page___notes.html">   41</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_page___notes.html">Page_Notes</a>: <span class="keyword">public</span> QMainWindow</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_page___notes.html">Page_Notes</a>( QWidget * parent = 0, QAbstractItemModel * m = 0 );</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    ~<a class="code" href="class_page___notes.html">Page_Notes</a>();</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_page___notes.html#a20c3f37d86d495af0284c3778d6dac05">sort</a>( <span class="keywordtype">int</span> column, Qt::SortOrder <a class="code" href="class_page___notes.html#a20c3f37d86d495af0284c3778d6dac05">sort</a> = Qt::AscendingOrder );</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_page___notes.html#afcc7dc108530f7385eed87bdb7123b26">sortColumn</a>();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    Qt::SortOrder <a class="code" href="class_page___notes.html#a14f4976f818f208a312a4e73acfd01c3">sortOrder</a>();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    QModelIndex <a class="code" href="class_page___notes.html#a294dd08ace8bcb66ed1f7b0ed17eebb0">currentIndex</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_page___notes.html#ac3edd136371dd9f75273889361400ac3">currentRow</a>();</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_page___notes.html#aa22cfa72193c58840aae8d64b57228ef">hasSelection</a>();</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_page___notes.html#a85275f837e65b62b32f14278f73e7bc6">displayContentNote</a>( <span class="keywordtype">int</span> row );</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_page___notes.html#a1eaf9a7521ccdc3b4ee642d415e5b367">clearContentNote</a>();</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_page___notes.html#a702838a6ac3d54b2775980d84c271ab0">setSettings</a>( QSettings * s );</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> readSettings();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> writeSettings();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">bool</span> hasCurrent();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">bool</span> currentIsNote();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">bool</span> currentIsTrash();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">bool</span> currentNoteIsVisible();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">bool</span> currentNoteIsTop();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">bool</span> currentIsChildTrash();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">bool</span> trashIsEmpty();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    Ui::Page_notes * ui;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    QSettings * settings;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">public</span> slots:</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    Q_SCRIPTABLE <span class="keywordtype">void</span> addFolder();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    Q_SCRIPTABLE <span class="keywordtype">void</span> addNote();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    Q_SCRIPTABLE <span class="keywordtype">void</span> addNoteFromClipboard();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    Q_SCRIPTABLE <span class="keywordtype">void</span> addNoteFromScreen();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> sl_Delete();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> sl_ClearTrash();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> sl_RemoveToTrash();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> sl_SaveNote();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> sl_SaveAsNote();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> sl_ShowNote();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> sl_HideNote();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    Q_SCRIPTABLE <span class="keywordtype">void</span> setVisibleAllNotes( <span class="keywordtype">bool</span> visible );</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    Q_SCRIPTABLE <span class="keywordtype">void</span> showAllNotes();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    Q_SCRIPTABLE <span class="keywordtype">void</span> hideAllNotes();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    Q_SCRIPTABLE <span class="keywordtype">void</span> saveAllNotes();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> sl_SetTopNote( <span class="keywordtype">bool</span> top );</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> sl_PrintNote();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> sl_PreviewPrintNote();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">private</span> slots:</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> sl_UpdateStates();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;signals:</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> sg_About_UpdateStates();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;};</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="class_page___notes.html#a080876f8a650714014cb5dbb8899b63d">   77</a></span>&#160;    Ui::Page_notes * <a class="code" href="class_page___notes.html#a080876f8a650714014cb5dbb8899b63d">ui</a>;                  </div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="class_page___notes.html#af2b4609d680c735704ad9305cc77c494">   78</a></span>&#160;    QAbstractItemModel * <a class="code" href="class_page___notes.html#af2b4609d680c735704ad9305cc77c494">model</a>;           </div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="class_page___notes.html#a65f7348372b25e8e13bb057c01cd65bf">   79</a></span>&#160;    QItemSelectionModel * <a class="code" href="class_page___notes.html#a65f7348372b25e8e13bb057c01cd65bf">selectionModel</a>; </div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="class_page___notes.html#a4075b139cfa90e8aa5852ef2bd2d8682">   80</a></span>&#160;    QSettings * <a class="code" href="class_page___notes.html#a4075b139cfa90e8aa5852ef2bd2d8682">settings</a>; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">public</span> slots:</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_page___notes.html#a666863efc1565651be1db9244346da0b">readSettings</a>();  </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_page___notes.html#ac695c71d1b2ce099dc8dbd1d163bc4ef">writeSettings</a>(); </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">private</span> slots:</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">void</span> clicked( <span class="keyword">const</span> QModelIndex &amp;index );</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span> updateStates();</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">void</span> selectionChanged(QItemSelection,QItemSelection);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">void</span> noteChange( <span class="keywordtype">int</span> index );</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;signals:</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_page___notes.html#a2787d245efee45d0de5275999235722f">changeSelection</a>();</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;};</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#endif // PAGE_NOTES_H</span></div>
-<div class="ttc" id="class_page___notes_html_ac695c71d1b2ce099dc8dbd1d163bc4ef"><div class="ttname"><a href="class_page___notes.html#ac695c71d1b2ce099dc8dbd1d163bc4ef">Page_Notes::writeSettings</a></div><div class="ttdeci">void writeSettings()</div><div class="ttdoc">Запись настроек. </div><div class="ttdef"><b>Definition:</b> page_notes.cpp:124</div></div>
-<div class="ttc" id="class_page___notes_html_a294dd08ace8bcb66ed1f7b0ed17eebb0"><div class="ttname"><a href="class_page___notes.html#a294dd08ace8bcb66ed1f7b0ed17eebb0">Page_Notes::currentIndex</a></div><div class="ttdeci">QModelIndex currentIndex() const </div><div class="ttdoc">Функция возвращает текущий индекс. </div><div class="ttdef"><b>Definition:</b> page_notes.cpp:70</div></div>
-<div class="ttc" id="class_page___notes_html_a4075b139cfa90e8aa5852ef2bd2d8682"><div class="ttname"><a href="class_page___notes.html#a4075b139cfa90e8aa5852ef2bd2d8682">Page_Notes::settings</a></div><div class="ttdeci">QSettings * settings</div><div class="ttdoc">Класс настройки. </div><div class="ttdef"><b>Definition:</b> page_notes.h:80</div></div>
-<div class="ttc" id="class_page___notes_html_a65f7348372b25e8e13bb057c01cd65bf"><div class="ttname"><a href="class_page___notes.html#a65f7348372b25e8e13bb057c01cd65bf">Page_Notes::selectionModel</a></div><div class="ttdeci">QItemSelectionModel * selectionModel</div><div class="ttdoc">Модель выделения элементов. </div><div class="ttdef"><b>Definition:</b> page_notes.h:79</div></div>
-<div class="ttc" id="class_page___notes_html_a1eaf9a7521ccdc3b4ee642d415e5b367"><div class="ttname"><a href="class_page___notes.html#a1eaf9a7521ccdc3b4ee642d415e5b367">Page_Notes::clearContentNote</a></div><div class="ttdeci">void clearContentNote()</div><div class="ttdoc">Очистить с дисплея-виджета содержимое заметки. </div><div class="ttdef"><b>Definition:</b> page_notes.cpp:102</div></div>
-<div class="ttc" id="class_page___notes_html_a85275f837e65b62b32f14278f73e7bc6"><div class="ttname"><a href="class_page___notes.html#a85275f837e65b62b32f14278f73e7bc6">Page_Notes::displayContentNote</a></div><div class="ttdeci">void displayContentNote(int row)</div><div class="ttdoc">Отобразить содержимое заметки, находящаяся в строке row. </div><div class="ttdef"><b>Definition:</b> page_notes.cpp:83</div></div>
-<div class="ttc" id="class_page___notes_html_a14f4976f818f208a312a4e73acfd01c3"><div class="ttname"><a href="class_page___notes.html#a14f4976f818f208a312a4e73acfd01c3">Page_Notes::sortOrder</a></div><div class="ttdeci">Qt::SortOrder sortOrder()</div><div class="ttdoc">Порядок сортировки. </div><div class="ttdef"><b>Definition:</b> page_notes.cpp:66</div></div>
-<div class="ttc" id="class_page___notes_html_aa22cfa72193c58840aae8d64b57228ef"><div class="ttname"><a href="class_page___notes.html#aa22cfa72193c58840aae8d64b57228ef">Page_Notes::hasSelection</a></div><div class="ttdeci">bool hasSelection()</div><div class="ttdoc">Функция возвращает true, если есть выделенные ячейки. </div><div class="ttdef"><b>Definition:</b> page_notes.cpp:78</div></div>
-<div class="ttc" id="class_page___notes_html_a702838a6ac3d54b2775980d84c271ab0"><div class="ttname"><a href="class_page___notes.html#a702838a6ac3d54b2775980d84c271ab0">Page_Notes::setSettings</a></div><div class="ttdeci">void setSettings(QSettings *s)</div><div class="ttdoc">В функции указываем с каким классом настроек будем работать. </div><div class="ttdef"><b>Definition:</b> page_notes.cpp:108</div></div>
-<div class="ttc" id="class_page___notes_html_ac3edd136371dd9f75273889361400ac3"><div class="ttname"><a href="class_page___notes.html#ac3edd136371dd9f75273889361400ac3">Page_Notes::currentRow</a></div><div class="ttdeci">int currentRow()</div><div class="ttdoc">Функция возвращает текущий выделенную строку. </div><div class="ttdef"><b>Definition:</b> page_notes.cpp:74</div></div>
-<div class="ttc" id="class_page___notes_html_af2b4609d680c735704ad9305cc77c494"><div class="ttname"><a href="class_page___notes.html#af2b4609d680c735704ad9305cc77c494">Page_Notes::model</a></div><div class="ttdeci">QAbstractItemModel * model</div><div class="ttdoc">Модель хранит заметки. </div><div class="ttdef"><b>Definition:</b> page_notes.h:78</div></div>
-<div class="ttc" id="class_page___notes_html_afcc7dc108530f7385eed87bdb7123b26"><div class="ttname"><a href="class_page___notes.html#afcc7dc108530f7385eed87bdb7123b26">Page_Notes::sortColumn</a></div><div class="ttdeci">int sortColumn()</div><div class="ttdoc">Индекс отсортированного столбца. </div><div class="ttdef"><b>Definition:</b> page_notes.cpp:62</div></div>
-<div class="ttc" id="class_page___notes_html_a080876f8a650714014cb5dbb8899b63d"><div class="ttname"><a href="class_page___notes.html#a080876f8a650714014cb5dbb8899b63d">Page_Notes::ui</a></div><div class="ttdeci">Ui::Page_notes * ui</div><div class="ttdoc">Форма UI. </div><div class="ttdef"><b>Definition:</b> page_notes.h:77</div></div>
-<div class="ttc" id="class_page___notes_html_a666863efc1565651be1db9244346da0b"><div class="ttname"><a href="class_page___notes.html#a666863efc1565651be1db9244346da0b">Page_Notes::readSettings</a></div><div class="ttdeci">void readSettings()</div><div class="ttdoc">Считывание настроек. </div><div class="ttdef"><b>Definition:</b> page_notes.cpp:113</div></div>
-<div class="ttc" id="class_page___notes_html"><div class="ttname"><a href="class_page___notes.html">Page_Notes</a></div><div class="ttdoc">Класс, реализующий виджет &quot;Заметки&quot;. </div><div class="ttdef"><b>Definition:</b> page_notes.h:41</div></div>
-<div class="ttc" id="class_page___notes_html_a2787d245efee45d0de5275999235722f"><div class="ttname"><a href="class_page___notes.html#a2787d245efee45d0de5275999235722f">Page_Notes::changeSelection</a></div><div class="ttdeci">void changeSelection()</div><div class="ttdoc">Вызывается при изменении выделения элементов. </div></div>
-<div class="ttc" id="class_page___notes_html_a20c3f37d86d495af0284c3778d6dac05"><div class="ttname"><a href="class_page___notes.html#a20c3f37d86d495af0284c3778d6dac05">Page_Notes::sort</a></div><div class="ttdeci">void sort(int column, Qt::SortOrder sort=Qt::AscendingOrder)</div><div class="ttdoc">Сортировка указанного столбца. </div><div class="ttdef"><b>Definition:</b> page_notes.cpp:58</div></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#endif // PAGE_NOTES_H</span></div>
+<div class="ttc" id="class_page___notes_html_a702838a6ac3d54b2775980d84c271ab0"><div class="ttname"><a href="class_page___notes.html#a702838a6ac3d54b2775980d84c271ab0">Page_Notes::setSettings</a></div><div class="ttdeci">void setSettings(QSettings *s)</div><div class="ttdoc">В функции указываем с каким классом настроек будем работать. </div><div class="ttdef"><b>Definition:</b> page_notes.cpp:88</div></div>
+<div class="ttc" id="class_page___notes_html"><div class="ttname"><a href="class_page___notes.html">Page_Notes</a></div><div class="ttdoc">Класс, реализующий виджет &quot;Заметки&quot;. </div><div class="ttdef"><b>Definition:</b> page_notes.h:16</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_4521060be2f87b8a21ee082fc5cc2755.html">NotesManager</a></li><li class="navelem"><a class="el" href="dir_3a525d6fa808ece491ac5edbea7d108d.html">Manager</a></li><li class="navelem"><a class="el" href="dir_d573e7bb8d7f3a847ca0627d2378ec60.html">pages</a></li><li class="navelem"><b>page_notes.h</b></li>
-    <li class="footer">Документация по Notes Manager. Последние изменения: Сб 1 Фев 2014 21:15:10. Создано системой
+    <li class="footer">Документация по Notes Manager. Последние изменения: Пн 5 Май 2014 20:41:30. Создано системой
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

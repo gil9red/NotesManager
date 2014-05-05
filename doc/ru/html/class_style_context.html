@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Notes Manager: Класс StyleContext</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Notes Manager
+   &#160;<span id="projectnumber">0.0.1</span>
+   </div>
+   <div id="projectbrief">Программа создает заметки</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&#160;имен</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Классы</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Классы</span></a></li>
+      <li><a href="classes.html"><span>Алфавитный&#160;указатель&#160;классов</span></a></li>
+      <li><a href="hierarchy.html"><span>Иерархия&#160;классов</span></a></li>
+      <li><a href="functions.html"><span>Члены&#160;классов</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_style_context.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Указатель</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Классы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Пространства имен</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Файлы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Функции</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Переменные</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Определения типов</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Перечисления</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Элементы перечислений</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-attribs">Открытые атрибуты</a> &#124;
+<a href="class_style_context-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Класс StyleContext</div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:abaa7755a8d7bc5dfdde0d67b4d981bce"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abaa7755a8d7bc5dfdde0d67b4d981bce"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>StyleContext</b> (unsigned int startPos, unsigned int length, int initStyle, <a class="el" href="class_lex_accessor.html">LexAccessor</a> &amp;styler_, char chMask=31)</td></tr>
+<tr class="separator:abaa7755a8d7bc5dfdde0d67b4d981bce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c88e7bf016b47f1bcff2f7e819d0b55"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2c88e7bf016b47f1bcff2f7e819d0b55"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Complete</b> ()</td></tr>
+<tr class="separator:a2c88e7bf016b47f1bcff2f7e819d0b55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a246854f80a4958cc82b5ab4778549467"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a246854f80a4958cc82b5ab4778549467"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>More</b> () const </td></tr>
+<tr class="separator:a246854f80a4958cc82b5ab4778549467"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2e139c2c73ef52b4f7a5a9889e405a3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad2e139c2c73ef52b4f7a5a9889e405a3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Forward</b> ()</td></tr>
+<tr class="separator:ad2e139c2c73ef52b4f7a5a9889e405a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8f64563d37dec1fded467d34e1d2508"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad8f64563d37dec1fded467d34e1d2508"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Forward</b> (int nb)</td></tr>
+<tr class="separator:ad8f64563d37dec1fded467d34e1d2508"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a173d348b5f645888b1cf8774231b8667"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a173d348b5f645888b1cf8774231b8667"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ForwardBytes</b> (int nb)</td></tr>
+<tr class="separator:a173d348b5f645888b1cf8774231b8667"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7e234163bedd5c88aa065d35d124650"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab7e234163bedd5c88aa065d35d124650"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ChangeState</b> (int state_)</td></tr>
+<tr class="separator:ab7e234163bedd5c88aa065d35d124650"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fb1bb2709d9e26eeb1be925fd9e521b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9fb1bb2709d9e26eeb1be925fd9e521b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetState</b> (int state_)</td></tr>
+<tr class="separator:a9fb1bb2709d9e26eeb1be925fd9e521b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34f0ff6216a39518bca8cb4dabb44980"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a34f0ff6216a39518bca8cb4dabb44980"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ForwardSetState</b> (int state_)</td></tr>
+<tr class="separator:a34f0ff6216a39518bca8cb4dabb44980"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94bb86c66efa2955979eb5096d8a1714"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a94bb86c66efa2955979eb5096d8a1714"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>LengthCurrent</b> () const </td></tr>
+<tr class="separator:a94bb86c66efa2955979eb5096d8a1714"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bb37e311baa7252e154616251897d8f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5bb37e311baa7252e154616251897d8f"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>GetRelative</b> (int n)</td></tr>
+<tr class="separator:a5bb37e311baa7252e154616251897d8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf6631c4057b1414bc1f53b140a6619c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaf6631c4057b1414bc1f53b140a6619c"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>GetRelativeCharacter</b> (int n)</td></tr>
+<tr class="separator:aaf6631c4057b1414bc1f53b140a6619c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4317eddff5dd056914dfd9d15090286e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4317eddff5dd056914dfd9d15090286e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>Match</b> (char ch0) const </td></tr>
+<tr class="separator:a4317eddff5dd056914dfd9d15090286e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b9bbc144e324975289e309b27888364"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b9bbc144e324975289e309b27888364"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>Match</b> (char ch0, char ch1) const </td></tr>
+<tr class="separator:a0b9bbc144e324975289e309b27888364"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab99eae8f305b5c983213108eb487479a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab99eae8f305b5c983213108eb487479a"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>Match</b> (const char *s)</td></tr>
+<tr class="separator:ab99eae8f305b5c983213108eb487479a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a556903db2984d1eaab59cdc163258aac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a556903db2984d1eaab59cdc163258aac"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>MatchIgnoreCase</b> (const char *s)</td></tr>
+<tr class="separator:a556903db2984d1eaab59cdc163258aac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5479fd4c276cd5505aa25cdbacc0e0f0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5479fd4c276cd5505aa25cdbacc0e0f0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>GetCurrent</b> (char *s, unsigned int len)</td></tr>
+<tr class="separator:a5479fd4c276cd5505aa25cdbacc0e0f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86129025768435788ed40811456d6730"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a86129025768435788ed40811456d6730"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>GetCurrentLowered</b> (char *s, unsigned int len)</td></tr>
+<tr class="separator:a86129025768435788ed40811456d6730"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Открытые атрибуты</h2></td></tr>
+<tr class="memitem:ab5ae32f03085c7e9452bff33199882c7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab5ae32f03085c7e9452bff33199882c7"></a>
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>currentPos</b></td></tr>
+<tr class="separator:ab5ae32f03085c7e9452bff33199882c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0921e6a3c2926595a65831ba47c089e1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0921e6a3c2926595a65831ba47c089e1"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>currentLine</b></td></tr>
+<tr class="separator:a0921e6a3c2926595a65831ba47c089e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1b5efafc7ea4ed97f93f96e7cdc443f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af1b5efafc7ea4ed97f93f96e7cdc443f"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>lineDocEnd</b></td></tr>
+<tr class="separator:af1b5efafc7ea4ed97f93f96e7cdc443f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ab50c6b10d9a9d81c5ade6b9d3adcf4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8ab50c6b10d9a9d81c5ade6b9d3adcf4"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>lineStartNext</b></td></tr>
+<tr class="separator:a8ab50c6b10d9a9d81c5ade6b9d3adcf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3850dc94b812be24afafadb96a5424c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac3850dc94b812be24afafadb96a5424c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>atLineStart</b></td></tr>
+<tr class="separator:ac3850dc94b812be24afafadb96a5424c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a778b07fac285c32ba0e0bbd6d17c1da8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a778b07fac285c32ba0e0bbd6d17c1da8"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>atLineEnd</b></td></tr>
+<tr class="separator:a778b07fac285c32ba0e0bbd6d17c1da8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a018e80187cb24602c4be728a720f14d7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a018e80187cb24602c4be728a720f14d7"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>state</b></td></tr>
+<tr class="separator:a018e80187cb24602c4be728a720f14d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79d8274f6ef1901282feb56a69c6bb61"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a79d8274f6ef1901282feb56a69c6bb61"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>chPrev</b></td></tr>
+<tr class="separator:a79d8274f6ef1901282feb56a69c6bb61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6024875e58dde73abca6f5a13475eccb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6024875e58dde73abca6f5a13475eccb"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ch</b></td></tr>
+<tr class="separator:a6024875e58dde73abca6f5a13475eccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf368e254363c572241353c9d5401afa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaf368e254363c572241353c9d5401afa"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>width</b></td></tr>
+<tr class="separator:aaf368e254363c572241353c9d5401afa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace47b258cc94fa109aa6091aed83fad1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ace47b258cc94fa109aa6091aed83fad1"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>chNext</b></td></tr>
+<tr class="separator:ace47b258cc94fa109aa6091aed83fad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af888805fc736ee019dbd31420f334276"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af888805fc736ee019dbd31420f334276"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>widthNext</b></td></tr>
+<tr class="separator:af888805fc736ee019dbd31420f334276"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>NotesManager/QScintilla-gpl-2.8.1/lexlib/<a class="el" href="_style_context_8h_source.html">StyleContext.h</a></li>
+<li>NotesManager/QScintilla-gpl-2.8.1/lexlib/StyleContext.cpp</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_style_context.html">StyleContext</a></li>
+    <li class="footer">Документация по Notes Manager. Последние изменения: Пн 5 Май 2014 20:41:41. Создано системой
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
+</body>
+</html>

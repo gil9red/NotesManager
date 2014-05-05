@@ -1,0 +1,37 @@
+var class_abstract_folder_item =
+[
+    [ "ItemType", "class_abstract_folder_item.html#ad0132fb4044c7b0ed79c922c308ca826", [
+      [ "Type_Folder", "class_abstract_folder_item.html#ad0132fb4044c7b0ed79c922c308ca826a6747c40c9a3f942066c8623e0ab2ea93", null ],
+      [ "Type_Note", "class_abstract_folder_item.html#ad0132fb4044c7b0ed79c922c308ca826a618ef7453c35e16b1be84b83506065c6", null ]
+    ] ],
+    [ "~AbstractFolderItem", "class_abstract_folder_item.html#a1942fc7d54bd1db0c126f7306bd4f3b0", null ],
+    [ "AbstractFolderItem", "class_abstract_folder_item.html#ab05f90be8e2408eaf72ab2f4a14613ac", null ],
+    [ "getCreationDate", "class_abstract_folder_item.html#a359780d5f7889be3ed6ab01cac986601", null ],
+    [ "getDefaultBackColor", "class_abstract_folder_item.html#a6fbc4384d82b0b5822c7944e23c80016", null ],
+    [ "getDefaultForeColor", "class_abstract_folder_item.html#aa8ec422a59aeb6c8430fde9a6404d061", null ],
+    [ "getIcon", "class_abstract_folder_item.html#a40611167896f3c5063d32d8863c7211a", null ],
+    [ "getItemType", "class_abstract_folder_item.html#a737af3dca3c129351494cd4d7546a72e", null ],
+    [ "getModificationDate", "class_abstract_folder_item.html#a10dbdf101fe94191e14689aa38b12b04", null ],
+    [ "getName", "class_abstract_folder_item.html#a78adadf2d1e40b8cbf42a6edd4b9c7cb", null ],
+    [ "getNameBackColor", "class_abstract_folder_item.html#afad4c44f04c95105f582df97df1d2d46", null ],
+    [ "getNameForeColor", "class_abstract_folder_item.html#af47fe63086bfd0f15dbcd0568b1744a2", null ],
+    [ "getParent", "class_abstract_folder_item.html#af3d570bfe3d090bc4c005ae6d2885db5", null ],
+    [ "isOffspringOf", "class_abstract_folder_item.html#ad04a9507a312cfd790ac27d1c068f7e6", null ],
+    [ "onChange", "class_abstract_folder_item.html#aeb187edd0d05c4b8c13785fd0b581709", null ],
+    [ "setIcon", "class_abstract_folder_item.html#ac399aca83b18ac04f6bdbb309b1ce0fe", null ],
+    [ "setName", "class_abstract_folder_item.html#a9781eca9c7531a7e0a8ebb747c1b864d", null ],
+    [ "setNameBackColor", "class_abstract_folder_item.html#ab1af2bad0daf7146d8902279d306b163", null ],
+    [ "setNameForeColor", "class_abstract_folder_item.html#ab87c0965a7b682594caf2704ab7dce8d", null ],
+    [ "sg_DataChanged", "class_abstract_folder_item.html#afee51e60fcfdc33d68522f8c2f83c44f", null ],
+    [ "sg_ParentChanged", "class_abstract_folder_item.html#acc2805794e2f32e02f58e65b3c942ed2", null ],
+    [ "sg_VisualPropertiesChanged", "class_abstract_folder_item.html#abac7c763c1fcb2b357970d1ce2dfa151", null ],
+    [ "FolderItemCollection", "class_abstract_folder_item.html#a8f2ef832737b16b15f1b5e66c87058c0", null ],
+    [ "creationDate", "class_abstract_folder_item.html#a03ba14ec5e22fff6a9dcf47a55c9d6a9", null ],
+    [ "defaultBackColor", "class_abstract_folder_item.html#aabbdb67a72b0a160c99e51f138735667", null ],
+    [ "defaultForeColor", "class_abstract_folder_item.html#a3ae08e23ab9fc653afd2cff573f72717", null ],
+    [ "icon", "class_abstract_folder_item.html#a68209cb3c583d5aa33d0b19b5294d5e4", null ],
+    [ "modificationDate", "class_abstract_folder_item.html#a94adcb25d1c4ca00c14a08b99dd38092", null ],
+    [ "name", "class_abstract_folder_item.html#a25747a0198b7ac30cbc075cf8ffb8e99", null ],
+    [ "nameBackColor", "class_abstract_folder_item.html#a92720416a677a765c094293d2b007aa0", null ],
+    [ "nameForeColor", "class_abstract_folder_item.html#af45f86a099c24b096f7655e937869c43", null ]
+];

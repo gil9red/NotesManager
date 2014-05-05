@@ -1,6 +1,10 @@
 var searchData=
 [
-  ['widget',['widget',['../class_abstract_note.html#ad96682605c965d6adb6361ba1d30c951',1,'AbstractNote::widget()'],['../class_abstract_note_body.html#a545232b633a661d0c5ee927cd3f15fd4',1,'AbstractNoteBody::widget()']]],
-  ['widthpensides',['widthPenSides',['../class_abstract_note.html#a632d68f7699c0928b9259c84b3feda22',1,'AbstractNote']]],
-  ['writesettings',['writeSettings',['../class_manager.html#a99ff070b8b307d2d043e70102b25a245',1,'Manager::writeSettings()'],['../class_page___notes.html#ac695c71d1b2ce099dc8dbd1d163bc4ef',1,'Page_Notes::writeSettings()'],['../class_page___settings.html#a30a7ab0fb5bea7c03fc40077727e90ad',1,'Page_Settings::writeSettings()'],['../class_page___trash.html#a7fd03326c267a0118d21fd502943c1e1',1,'Page_Trash::writeSettings()']]]
+  ['v2unicodeallowed',['v2UnicodeAllowed',['../class_qsci_lexer_python.html#aed1273f9e4d1e3bebd28bc57e31ea92a',1,'QsciLexerPython']]],
+  ['v3binaryoctalallowed',['v3BinaryOctalAllowed',['../class_qsci_lexer_python.html#a5389f3e138f6ee689e3f26bed5ae5530',1,'QsciLexerPython']]],
+  ['v3bytesallowed',['v3BytesAllowed',['../class_qsci_lexer_python.html#ab38fe6717b19c3aaf79d55036ab75732',1,'QsciLexerPython']]],
+  ['validkey',['validKey',['../class_qsci_command.html#a04ab6db97dd0d0ad7fb890ef12d1467f',1,'QsciCommand']]],
+  ['valueat',['ValueAt',['../class_split_vector.html#ac42cd115856fdf082e07157517377fb3',1,'SplitVector']]],
+  ['visibilitychanged',['visibilityChanged',['../class_find_and_replace.html#ad1c54a7660288da0bfa4bb71a77046e7',1,'FindAndReplace::visibilityChanged()'],['../class_formatting_toolbar.html#a403f24e2d95cd7bdfebeaa5ffcb93196',1,'FormattingToolbar::visibilityChanged()']]],
+  ['visible',['visible',['../class_qsci_style.html#aff6f0fd26d472d2ea9ab2992526c50c8',1,'QsciStyle']]]
 ];

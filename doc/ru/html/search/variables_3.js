@@ -6,5 +6,6 @@ var searchData=
   ['d_5fhead',['d_head',['../classd___abstract_note.html#a9863b4edb87178e08d945c2f65187149',1,'d_AbstractNote']]],
   ['d_5fleftsidebuttons',['d_leftSideButtons',['../class_fad_line_edit.html#aa1d88ac02abb6cae6706df1ed6d9f875',1,'FadLineEdit']]],
   ['d_5frightsidebuttons',['d_rightSideButtons',['../class_fad_line_edit.html#a254790b25dd1ba20e45ca9df8dc4c77e',1,'FadLineEdit']]],
+  ['dbcscodepage',['dbcsCodePage',['../class_document.html#ac23c63d0eb6755b62b23eeb45422a918',1,'Document']]],
   ['defaultmapsettings',['defaultMapSettings',['../class_rich_text_note.html#ad322abdaec7c5799e5fc3a7d9e01dca0',1,'RichTextNote']]]
 ];

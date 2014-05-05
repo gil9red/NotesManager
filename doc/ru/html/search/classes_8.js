@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['richtextnote',['RichTextNote',['../class_rich_text_note.html',1,'']]]
+  ['keymap',['KeyMap',['../class_key_map.html',1,'']]],
+  ['keytocommand',['KeyToCommand',['../class_key_to_command.html',1,'']]]
 ];

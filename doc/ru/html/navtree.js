@@ -5,6 +5,7 @@ var NAVTREE =
       [ "Пространства имен", "namespaces.html", "namespaces" ],
       [ "Члены пространств имен", "namespacemembers.html", [
         [ "Указатель", "namespacemembers.html", null ],
+        [ "Функции", "namespacemembers_func.html", null ],
         [ "Переменные", "namespacemembers_vars.html", null ],
         [ "Перечисления", "namespacemembers_enum.html", null ],
         [ "Элементы перечислений", "namespacemembers_eval.html", null ]
@@ -19,20 +20,60 @@ var NAVTREE =
         [ "Функции", "functions_func.html", "functions_func" ],
         [ "Переменные", "functions_vars.html", null ],
         [ "Перечисления", "functions_enum.html", null ],
-        [ "Элементы перечислений", "functions_eval.html", null ]
+        [ "Элементы перечислений", "functions_eval.html", "functions_eval" ]
       ] ]
     ] ],
     [ "Файлы", null, [
-      [ "Файлы", "files.html", "files" ]
+      [ "Файлы", "files.html", "files" ],
+      [ "Список членов всех файлов", "globals.html", [
+        [ "Указатель", "globals.html", null ],
+        [ "Функции", "globals_func.html", null ],
+        [ "Определения типов", "globals_type.html", null ]
+      ] ]
     ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"_attach_panel_8h_source.html",
-"class_manager.html#a762e8b887679900509583f078c53f7c2",
-"functions_func_h.html"
+".html",
+"_sci_lexer_8h.html#a068fd4edb0ffc28025adcfa337e6ecd7",
+"_sci_lexer_8h.html#a2bfc3341e6ed900a3ed944534fa48b6d",
+"_sci_lexer_8h.html#a5377c7d8785b5d4393c04f98acc23481",
+"_sci_lexer_8h.html#a7ab40ec40347134a91185b49ce9a6ad9",
+"_sci_lexer_8h.html#aa0b6d4c74364422e3b3f17c7e273d7ed",
+"_sci_lexer_8h.html#ac81055554b4b67fa6eda1ca33f0b7e45",
+"_sci_lexer_8h.html#aed0cdf8f1dde7f758d46234f8117fe67",
+"_scintilla_8h.html#a1df61c5da167e198a0071f26c5925f48",
+"_scintilla_8h.html#a5b259e25d9d651000f220d01fcd59477",
+"_scintilla_8h.html#aa1d06d5464687844f12e462da6c2742b",
+"_scintilla_8h.html#ae3f892839d09437af005a23435cba1b3",
+"class_abstract_note.html#ad96682605c965d6adb6361ba1d30c951",
+"class_cell_buffer.html#a4c68639cb2c25f6b7198ffc84908e952",
+"class_document.html#a4a078caf9ba6b98e7e8451f1523a8754",
+"class_editor.html#a489e7bca597253af437a998a986b4b68",
+"class_editor.html#afc0d5ba7ef75efd76db9ab1d2dfef163",
+"class_i_lexer.html#a583a0461f4ea2809067ad337a255b1d3",
+"class_lexer_rust.html#aca860a35add1762dc4cff9301abea0b7",
+"class_manager.html#ad918c571f69957c3b7ac60b1139dc21b",
+"class_prop_set_simple.html#a48037c99c3d9cd2d7053ab343d8413da",
+"class_qsci_lexer_bash.html#a6658ef166e6cbd1dfb76da75a892bf17a921bbb2e53761aa5835fd674130b65b5",
+"class_qsci_lexer_d.html#aa594aded172e2b43c760ee8b5d11630da682cc956cd52ccfff101565bd51327e1",
+"class_qsci_lexer_lua.html#a8767a1ed74c86a959742565674115226a03fe51d98c72f4af37b148cfb2a1319f",
+"class_qsci_lexer_post_script.html#a87168d5b174ba3a9b969ef689f67b355",
+"class_qsci_lexer_t_c_l.html#a85d58e3cdaa1cff49902a7d9dc480227",
+"class_qsci_scintilla.html#a0b5bd8dd6dfb80937cf61361065b07d0",
+"class_qsci_scintilla.html#ad85546712df2387738e63be38dc41d61",
+"class_qsci_scintilla_base.html#a36b85609dd203b3b27c14a16e24321b9a15c86f0c6f0f09406e541e678c4e0a11",
+"class_qsci_scintilla_base.html#a36b85609dd203b3b27c14a16e24321b9a7681d4112341453b72e298a148915c86",
+"class_qsci_scintilla_base.html#a36b85609dd203b3b27c14a16e24321b9ae1a45c2ca598c2a34a2af823d78d2836",
+"class_qsci_scintilla_base.html#a76f793f6e6ce5b6f14b3925e78ea2aa6a4364725e65bc7fefd54303b7643dd194",
+"class_quick_find.html#aa2c523b48122a2e649ac46bdd259dcf1",
+"class_selection.html#a63251a64e020f04a4568f05a607cf7f7",
+"class_surface_impl.html#aeb79bb9b9749568f73a749d4a52bb32a",
+"class_x_p_m.html#a18ecd36a16a7400e205dfe0571605221",
+"qtlocalpeer_8h_source.html",
+"struct_selection_range.html#a6c08965f31ee2c1de78b36dfecf08872"
 ];
 
 var SYNCONMSG = 'нажмите на выключить для синхронизации панелей';

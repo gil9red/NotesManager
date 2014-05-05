@@ -1,0 +1,509 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Notes Manager: Класс QtSingleApplication</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Notes Manager
+   &#160;<span id="projectnumber">0.0.1</span>
+   </div>
+   <div id="projectbrief">Программа создает заметки</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&#160;имен</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Классы</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Классы</span></a></li>
+      <li><a href="classes.html"><span>Алфавитный&#160;указатель&#160;классов</span></a></li>
+      <li><a href="hierarchy.html"><span>Иерархия&#160;классов</span></a></li>
+      <li><a href="functions.html"><span>Члены&#160;классов</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_qt_single_application.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Указатель</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Классы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Пространства имен</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Файлы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Функции</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Переменные</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Определения типов</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Перечисления</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Элементы перечислений</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-slots">Открытые слоты</a> &#124;
+<a href="#signals">Сигналы</a> &#124;
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="class_qt_single_application-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Класс QtSingleApplication</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>The <a class="el" href="class_qt_single_application.html" title="The QtSingleApplication class provides an API to detect and communicate with running instances of an ...">QtSingleApplication</a> class provides an API to detect and communicate with running instances of an application.  
+ <a href="class_qt_single_application.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="qtsingleapplication_8h_source.html">qtsingleapplication.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:QtSingleApplication:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_qt_single_application.png" usemap="#QtSingleApplication_map" alt=""/>
+  <map id="QtSingleApplication_map" name="QtSingleApplication_map">
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
+Открытые слоты</h2></td></tr>
+<tr class="memitem:a0e2f3900f0290913c738ec6b4b959922"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qt_single_application.html#a0e2f3900f0290913c738ec6b4b959922">sendMessage</a> (const QString &amp;message, int timeout=5000)</td></tr>
+<tr class="separator:a0e2f3900f0290913c738ec6b4b959922"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0881b32c76132b499f3180064006abc1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qt_single_application.html#a0881b32c76132b499f3180064006abc1">activateWindow</a> ()</td></tr>
+<tr class="separator:a0881b32c76132b499f3180064006abc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
+Сигналы</h2></td></tr>
+<tr class="memitem:a69340cef3d26d026e11424930e5a5866"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qt_single_application.html#a69340cef3d26d026e11424930e5a5866">messageReceived</a> (const QString &amp;message)</td></tr>
+<tr class="separator:a69340cef3d26d026e11424930e5a5866"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:afe5e96d236e42949e65669eca282acbd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qt_single_application.html#afe5e96d236e42949e65669eca282acbd">QtSingleApplication</a> (int &amp;argc, char **argv, bool GUIenabled=true)</td></tr>
+<tr class="separator:afe5e96d236e42949e65669eca282acbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a746192779985e28f22fd17766884518e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qt_single_application.html#a746192779985e28f22fd17766884518e">QtSingleApplication</a> (const QString &amp;<a class="el" href="class_qt_single_application.html#affd094410862f30fce83afcba3457b19">id</a>, int &amp;argc, char **argv)</td></tr>
+<tr class="separator:a746192779985e28f22fd17766884518e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcb7a28eec3eef34c6474fb419509895"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qt_single_application.html#adcb7a28eec3eef34c6474fb419509895">QtSingleApplication</a> (int &amp;argc, char **argv, Type type)</td></tr>
+<tr class="separator:adcb7a28eec3eef34c6474fb419509895"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9f0e6e4f18ac79bbb7a955cd860894d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qt_single_application.html#aa9f0e6e4f18ac79bbb7a955cd860894d">isRunning</a> ()</td></tr>
+<tr class="separator:aa9f0e6e4f18ac79bbb7a955cd860894d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affd094410862f30fce83afcba3457b19"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qt_single_application.html#affd094410862f30fce83afcba3457b19">id</a> () const </td></tr>
+<tr class="separator:affd094410862f30fce83afcba3457b19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb5347f6dc6822dbe4d6a78804043528"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qt_single_application.html#acb5347f6dc6822dbe4d6a78804043528">setActivationWindow</a> (QWidget *aw, bool activateOnMessage=true)</td></tr>
+<tr class="separator:acb5347f6dc6822dbe4d6a78804043528"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e6be5adba2282fcfe547596b2aee18a"><td class="memItemLeft" align="right" valign="top">QWidget *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qt_single_application.html#a1e6be5adba2282fcfe547596b2aee18a">activationWindow</a> () const </td></tr>
+<tr class="separator:a1e6be5adba2282fcfe547596b2aee18a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a622807c60657c1a1fadec15ea5903b47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qt_single_application.html#a622807c60657c1a1fadec15ea5903b47">initialize</a> (bool dummy=true)</td></tr>
+<tr class="separator:a622807c60657c1a1fadec15ea5903b47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>The <a class="el" href="class_qt_single_application.html" title="The QtSingleApplication class provides an API to detect and communicate with running instances of an ...">QtSingleApplication</a> class provides an API to detect and communicate with running instances of an application. </p>
+<p>This class allows you to create applications where only one instance should be running at a time. I.e., if the user tries to launch another instance, the already running instance will be activated instead. Another usecase is a client-server system, where the first started instance will assume the role of server, and the later instances will act as clients of that server.</p>
+<p>By default, the full path of the executable file is used to determine whether two processes are instances of the same application. You can also provide an explicit identifier string that will be compared instead.</p>
+<p>The application should create the <a class="el" href="class_qt_single_application.html" title="The QtSingleApplication class provides an API to detect and communicate with running instances of an ...">QtSingleApplication</a> object early in the startup phase, and call <a class="el" href="class_qt_single_application.html#aa9f0e6e4f18ac79bbb7a955cd860894d">isRunning()</a> to find out if another instance of this application is already running. If <a class="el" href="class_qt_single_application.html#aa9f0e6e4f18ac79bbb7a955cd860894d">isRunning()</a> returns false, it means that no other instance is running, and this instance has assumed the role as the running instance. In this case, the application should continue with the initialization of the application user interface before entering the event loop with exec(), as normal.</p>
+<p>The <a class="el" href="class_qt_single_application.html#a69340cef3d26d026e11424930e5a5866">messageReceived()</a> signal will be emitted when the running application receives messages from another instance of the same application. When a message is received it might be helpful to the user to raise the application so that it becomes visible. To facilitate this, <a class="el" href="class_qt_single_application.html" title="The QtSingleApplication class provides an API to detect and communicate with running instances of an ...">QtSingleApplication</a> provides the <a class="el" href="class_qt_single_application.html#acb5347f6dc6822dbe4d6a78804043528">setActivationWindow()</a> function and the <a class="el" href="class_qt_single_application.html#a0881b32c76132b499f3180064006abc1">activateWindow()</a> slot.</p>
+<p>If <a class="el" href="class_qt_single_application.html#aa9f0e6e4f18ac79bbb7a955cd860894d">isRunning()</a> returns true, another instance is already running. It may be alerted to the fact that another instance has started by using the <a class="el" href="class_qt_single_application.html#a0e2f3900f0290913c738ec6b4b959922">sendMessage()</a> function. Also data such as startup parameters (e.g. the name of the file the user wanted this new instance to open) can be passed to the running instance with this function. Then, the application should terminate (or enter client mode).</p>
+<p>If <a class="el" href="class_qt_single_application.html#aa9f0e6e4f18ac79bbb7a955cd860894d">isRunning()</a> returns true, but <a class="el" href="class_qt_single_application.html#a0e2f3900f0290913c738ec6b4b959922">sendMessage()</a> fails, that is an indication that the running instance is frozen.</p>
+<p>Here's an example that shows how to convert an existing application to use <a class="el" href="class_qt_single_application.html" title="The QtSingleApplication class provides an API to detect and communicate with running instances of an ...">QtSingleApplication</a>. It is very simple and does not make use of all <a class="el" href="class_qt_single_application.html" title="The QtSingleApplication class provides an API to detect and communicate with running instances of an ...">QtSingleApplication</a>'s functionality (see the examples for that).</p>
+<div class="fragment"><div class="line"><span class="comment">// Original</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv)</div>
+<div class="line">{</div>
+<div class="line">    QApplication app(argc, argv);</div>
+<div class="line"></div>
+<div class="line">    MyMainWidget mmw;</div>
+<div class="line">    mmw.show();</div>
+<div class="line">    <span class="keywordflow">return</span> app.exec();</div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// Single instance</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_qt_single_application.html">QtSingleApplication</a> app(argc, argv);</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">if</span> (app.isRunning())</div>
+<div class="line">        <span class="keywordflow">return</span> !app.sendMessage(someDataString);</div>
+<div class="line"></div>
+<div class="line">    MyMainWidget mmw;</div>
+<div class="line">    app.setActivationWindow(&amp;mmw);</div>
+<div class="line">    mmw.show();</div>
+<div class="line">    <span class="keywordflow">return</span> app.exec();</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Once this <a class="el" href="class_qt_single_application.html" title="The QtSingleApplication class provides an API to detect and communicate with running instances of an ...">QtSingleApplication</a> instance is destroyed (normally when the process exits or crashes), when the user next attempts to run the application this instance will not, of course, be encountered. The next instance to call <a class="el" href="class_qt_single_application.html#aa9f0e6e4f18ac79bbb7a955cd860894d">isRunning()</a> or <a class="el" href="class_qt_single_application.html#a0e2f3900f0290913c738ec6b4b959922">sendMessage()</a> will assume the role as the new running instance.</p>
+<p>For console (non-GUI) applications, <a class="el" href="class_qt_single_core_application.html" title="A variant of the QtSingleApplication class for non-GUI applications. ">QtSingleCoreApplication</a> may be used instead of this class, to avoid the dependency on the QtGui library.</p>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="class_qt_single_core_application.html" title="A variant of the QtSingleApplication class for non-GUI applications. ">QtSingleCoreApplication</a> </dd></dl>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a class="anchor" id="afe5e96d236e42949e65669eca282acbd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QtSingleApplication::QtSingleApplication </td>
+          <td>(</td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>argv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>GUIenabled</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Creates a <a class="el" href="class_qt_single_application.html" title="The QtSingleApplication class provides an API to detect and communicate with running instances of an ...">QtSingleApplication</a> object. The application identifier will be QCoreApplication::applicationFilePath(). <em>argc</em>, <em>argv</em>, and <em>GUIenabled</em> are passed on to the QAppliation constructor.</p>
+<p>If you are creating a console application (i.e. setting <em>GUIenabled</em> to false), you may consider using <a class="el" href="class_qt_single_core_application.html" title="A variant of the QtSingleApplication class for non-GUI applications. ">QtSingleCoreApplication</a> instead. </p>
+
+</div>
+</div>
+<a class="anchor" id="a746192779985e28f22fd17766884518e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QtSingleApplication::QtSingleApplication </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>appId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>argv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Creates a <a class="el" href="class_qt_single_application.html" title="The QtSingleApplication class provides an API to detect and communicate with running instances of an ...">QtSingleApplication</a> object with the application identifier <em>appId</em>. <em>argc</em> and <em>argv</em> are passed on to the QAppliation constructor. </p>
+
+</div>
+</div>
+<a class="anchor" id="adcb7a28eec3eef34c6474fb419509895"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QtSingleApplication::QtSingleApplication </td>
+          <td>(</td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>argv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Type&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Creates a <a class="el" href="class_qt_single_application.html" title="The QtSingleApplication class provides an API to detect and communicate with running instances of an ...">QtSingleApplication</a> object. The application identifier will be QCoreApplication::applicationFilePath(). <em>argc</em>, <em>argv</em>, and <em>type</em> are passed on to the QAppliation constructor. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a class="anchor" id="a0881b32c76132b499f3180064006abc1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QtSingleApplication::activateWindow </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>De-minimizes, raises, and activates this application's activation window. This function does nothing if no activation window has been set.</p>
+<p>This is a convenience function to show the user that this application instance has been activated when he has tried to start another instance.</p>
+<p>This function should typically be called in response to the <a class="el" href="class_qt_single_application.html#a69340cef3d26d026e11424930e5a5866">messageReceived()</a> signal. By default, that will happen automatically, if an activation window has been set.</p>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="class_qt_single_application.html#acb5347f6dc6822dbe4d6a78804043528">setActivationWindow()</a>, <a class="el" href="class_qt_single_application.html#a69340cef3d26d026e11424930e5a5866">messageReceived()</a>, <a class="el" href="class_qt_single_application.html#a622807c60657c1a1fadec15ea5903b47">initialize()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1e6be5adba2282fcfe547596b2aee18a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QWidget * QtSingleApplication::activationWindow </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns the applications activation window if one has been set by calling <a class="el" href="class_qt_single_application.html#acb5347f6dc6822dbe4d6a78804043528">setActivationWindow()</a>, otherwise returns 0.</p>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="class_qt_single_application.html#acb5347f6dc6822dbe4d6a78804043528">setActivationWindow()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="affd094410862f30fce83afcba3457b19"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString QtSingleApplication::id </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns the application identifier. Two processes with the same identifier will be regarded as instances of the same application. </p>
+
+</div>
+</div>
+<a class="anchor" id="a622807c60657c1a1fadec15ea5903b47"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QtSingleApplication::initialize </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>dummy</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa9f0e6e4f18ac79bbb7a955cd860894d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QtSingleApplication::isRunning </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns true if another instance of this application is running; otherwise false.</p>
+<p>This function does not find instances of this application that are being run by a different user (on Windows: that are running in another session).</p>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="class_qt_single_application.html#a0e2f3900f0290913c738ec6b4b959922">sendMessage()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a69340cef3d26d026e11424930e5a5866"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QtSingleApplication::messageReceived </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>message</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This signal is emitted when the current instance receives a <em>message</em> from another instance of this application.</p>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="class_qt_single_application.html#a0e2f3900f0290913c738ec6b4b959922">sendMessage()</a>, <a class="el" href="class_qt_single_application.html#acb5347f6dc6822dbe4d6a78804043528">setActivationWindow()</a>, <a class="el" href="class_qt_single_application.html#a0881b32c76132b499f3180064006abc1">activateWindow()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0e2f3900f0290913c738ec6b4b959922"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QtSingleApplication::sendMessage </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>5000</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Tries to send the text <em>message</em> to the currently running instance. The <a class="el" href="class_qt_single_application.html" title="The QtSingleApplication class provides an API to detect and communicate with running instances of an ...">QtSingleApplication</a> object in the running instance will emit the <a class="el" href="class_qt_single_application.html#a69340cef3d26d026e11424930e5a5866">messageReceived()</a> signal when it receives the message.</p>
+<p>This function returns true if the message has been sent to, and processed by, the current instance. If there is no instance currently running, or if the running instance fails to process the message within <em>timeout</em> milliseconds, this function return false.</p>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="class_qt_single_application.html#aa9f0e6e4f18ac79bbb7a955cd860894d">isRunning()</a>, <a class="el" href="class_qt_single_application.html#a69340cef3d26d026e11424930e5a5866">messageReceived()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="acb5347f6dc6822dbe4d6a78804043528"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QtSingleApplication::setActivationWindow </td>
+          <td>(</td>
+          <td class="paramtype">QWidget *&#160;</td>
+          <td class="paramname"><em>aw</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>activateOnMessage</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the activation window of this application to <em>aw</em>. The activation window is the widget that will be activated by <a class="el" href="class_qt_single_application.html#a0881b32c76132b499f3180064006abc1">activateWindow()</a>. This is typically the application's main window.</p>
+<p>If <em>activateOnMessage</em> is true (the default), the window will be activated automatically every time a message is received, just prior to the <a class="el" href="class_qt_single_application.html#a69340cef3d26d026e11424930e5a5866">messageReceived()</a> signal being emitted.</p>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="class_qt_single_application.html#a0881b32c76132b499f3180064006abc1">activateWindow()</a>, <a class="el" href="class_qt_single_application.html#a69340cef3d26d026e11424930e5a5866">messageReceived()</a> </dd></dl>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>NotesManager/qt-solutions/qtsingleapplication/src/<a class="el" href="qtsingleapplication_8h_source.html">qtsingleapplication.h</a></li>
+<li>NotesManager/qt-solutions/qtsingleapplication/src/QtSingleApplication.cpp</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_qt_single_application.html">QtSingleApplication</a></li>
+    <li class="footer">Документация по Notes Manager. Последние изменения: Пн 5 Май 2014 20:41:40. Создано системой
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
+</body>
+</html>

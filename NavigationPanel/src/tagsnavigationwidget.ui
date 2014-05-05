@@ -52,7 +52,7 @@
         </property>
         <property name="icon">
          <iconset resource="../NavigationPanel.qrc">
-          <normaloff>:/fugue-icons/blue-folder-horizontal-open</normaloff>:/fugue-icons/blue-folder-horizontal-open</iconset>
+          <normaloff>:/expand all</normaloff>:/expand all</iconset>
         </property>
         <property name="autoRaise">
          <bool>true</bool>
@@ -75,7 +75,7 @@
         </property>
         <property name="icon">
          <iconset resource="../NavigationPanel.qrc">
-          <normaloff>:/fugue-icons/blue-folder-horizontal</normaloff>:/fugue-icons/blue-folder-horizontal</iconset>
+          <normaloff>:/collapse all</normaloff>:/collapse all</iconset>
         </property>
         <property name="autoRaise">
          <bool>true</bool>

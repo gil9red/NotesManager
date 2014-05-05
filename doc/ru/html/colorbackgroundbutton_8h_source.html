@@ -70,6 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&#160;членов&#160;всех&#160;файлов</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -92,7 +93,7 @@ $(document).ready(function(){initNavTree('colorbackgroundbutton_8h_source.html',
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Указатель</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Классы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Пространства имен</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Функции</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Переменные</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Перечисления</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Элементы перечислений</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Указатель</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Классы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Пространства имен</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Файлы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Функции</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Переменные</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Определения типов</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Перечисления</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Элементы перечислений</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -134,16 +135,16 @@ $(document).ready(function(){initNavTree('colorbackgroundbutton_8h_source.html',
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif // COLORBACKGROUNDBUTTON_H</span></div>
 <div class="ttc" id="class_color_background_button_html"><div class="ttname"><a href="class_color_background_button.html">ColorBackgroundButton</a></div><div class="ttdoc">Кнопка выбора цвета заднего фона. </div><div class="ttdef"><b>Definition:</b> colorbackgroundbutton.h:7</div></div>
 <div class="ttc" id="class_color_background_button_html_a009c1a762a7fad96cda242795b4874b1"><div class="ttname"><a href="class_color_background_button.html#a009c1a762a7fad96cda242795b4874b1">ColorBackgroundButton::setColor</a></div><div class="ttdeci">void setColor(const QColor &amp;color)</div><div class="ttdoc">Выбор текущего цвета. </div><div class="ttdef"><b>Definition:</b> colorbackgroundbutton.cpp:23</div></div>
-<div class="ttc" id="class_color_button_html_ac6464963af81df83005515dac12ae377"><div class="ttname"><a href="class_color_button.html#ac6464963af81df83005515dac12ae377">ColorButton::color</a></div><div class="ttdeci">QColor color()</div><div class="ttdoc">Текущий цвет. </div><div class="ttdef"><b>Definition:</b> ColorButton.cpp:46</div></div>
+<div class="ttc" id="class_color_button_html_ac6464963af81df83005515dac12ae377"><div class="ttname"><a href="class_color_button.html#ac6464963af81df83005515dac12ae377">ColorButton::color</a></div><div class="ttdeci">QColor color()</div><div class="ttdoc">Текущий цвет. </div><div class="ttdef"><b>Definition:</b> ColorButton.cpp:22</div></div>
 <div class="ttc" id="class_color_background_button_html_a0558c5d0d454510d880362fee33fe91d"><div class="ttname"><a href="class_color_background_button.html#a0558c5d0d454510d880362fee33fe91d">ColorBackgroundButton::clearBackground</a></div><div class="ttdeci">void clearBackground()</div><div class="ttdoc">Вызов сигнала, символизирующий о том, что нужно очистить задний фон. </div></div>
-<div class="ttc" id="class_color_button_html"><div class="ttname"><a href="class_color_button.html">ColorButton</a></div><div class="ttdoc">Кнопка выбора цвета. </div><div class="ttdef"><b>Definition:</b> ColorButton.h:37</div></div>
+<div class="ttc" id="class_color_button_html"><div class="ttname"><a href="class_color_button.html">ColorButton</a></div><div class="ttdoc">Кнопка выбора цвета. </div><div class="ttdef"><b>Definition:</b> ColorButton.h:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_4521060be2f87b8a21ee082fc5cc2755.html">NotesManager</a></li><li class="navelem"><a class="el" href="dir_9259dd08e0b6d9742e2e2fc5d7f635a9.html">FormattingToolbar</a></li><li class="navelem"><b>colorbackgroundbutton.h</b></li>
-    <li class="footer">Документация по Notes Manager. Последние изменения: Сб 1 Фев 2014 21:15:10. Создано системой
+    <li class="footer">Документация по Notes Manager. Последние изменения: Пн 5 Май 2014 20:41:30. Создано системой
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

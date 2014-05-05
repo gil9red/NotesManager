@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Notes Manager: Класс SurfaceImpl</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Notes Manager
+   &#160;<span id="projectnumber">0.0.1</span>
+   </div>
+   <div id="projectbrief">Программа создает заметки</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&#160;имен</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Классы</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Классы</span></a></li>
+      <li><a href="classes.html"><span>Алфавитный&#160;указатель&#160;классов</span></a></li>
+      <li><a href="hierarchy.html"><span>Иерархия&#160;классов</span></a></li>
+      <li><a href="functions.html"><span>Члены&#160;классов</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_surface_impl.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Указатель</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Классы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Пространства имен</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Файлы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Функции</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Переменные</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Определения типов</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Перечисления</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Элементы перечислений</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="class_surface_impl-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Класс SurfaceImpl</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Граф наследования:SurfaceImpl:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_surface_impl.png" usemap="#SurfaceImpl_map" alt=""/>
+  <map id="SurfaceImpl_map" name="SurfaceImpl_map">
+<area href="class_surface.html" alt="Surface" shape="rect" coords="0,0,79,24"/>
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a1b97fcd30f8454cb5a724ebb6a3eae95"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1b97fcd30f8454cb5a724ebb6a3eae95"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> (WindowID wid)</td></tr>
+<tr class="separator:a1b97fcd30f8454cb5a724ebb6a3eae95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d803f256752ccd7ba0556f76472dde8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3d803f256752ccd7ba0556f76472dde8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> (SurfaceID sid, WindowID)</td></tr>
+<tr class="separator:a3d803f256752ccd7ba0556f76472dde8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ae8538941b44efa27666ed68cab3526"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8ae8538941b44efa27666ed68cab3526"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> (QPainter *p)</td></tr>
+<tr class="separator:a8ae8538941b44efa27666ed68cab3526"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75f48f4f6d1880a2efdb15b0db4234c2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a75f48f4f6d1880a2efdb15b0db4234c2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>InitPixMap</b> (int width, int height, <a class="el" href="class_surface.html">Surface</a> *, WindowID wid)</td></tr>
+<tr class="separator:a75f48f4f6d1880a2efdb15b0db4234c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae30b5cd80e522ea3d760a9a78fddca32"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae30b5cd80e522ea3d760a9a78fddca32"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Release</b> ()</td></tr>
+<tr class="separator:ae30b5cd80e522ea3d760a9a78fddca32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34b2ed5f183484425ff851c1af164ebb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a34b2ed5f183484425ff851c1af164ebb"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>Initialised</b> ()</td></tr>
+<tr class="separator:a34b2ed5f183484425ff851c1af164ebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57b4699136c9d67510a1b608ec7949b6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a57b4699136c9d67510a1b608ec7949b6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>PenColour</b> (<a class="el" href="class_colour_desired.html">ColourDesired</a> fore)</td></tr>
+<tr class="separator:a57b4699136c9d67510a1b608ec7949b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78f20fa6f03f07bf3b7fff48e54729f4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a78f20fa6f03f07bf3b7fff48e54729f4"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>LogPixelsY</b> ()</td></tr>
+<tr class="separator:a78f20fa6f03f07bf3b7fff48e54729f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a262938cbf0b2358df4d99688d80bdf25"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a262938cbf0b2358df4d99688d80bdf25"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>DeviceHeightFont</b> (int points)</td></tr>
+<tr class="separator:a262938cbf0b2358df4d99688d80bdf25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b590f9272167cf8be4d8d5a0c7291c3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b590f9272167cf8be4d8d5a0c7291c3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>MoveTo</b> (int x_, int y_)</td></tr>
+<tr class="separator:a0b590f9272167cf8be4d8d5a0c7291c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2aa916101e93670e3c90b819dacf5221"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2aa916101e93670e3c90b819dacf5221"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>LineTo</b> (int x_, int y_)</td></tr>
+<tr class="separator:a2aa916101e93670e3c90b819dacf5221"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8eabe31c860b720fd24b926219180725"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8eabe31c860b720fd24b926219180725"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Polygon</b> (<a class="el" href="class_point.html">Point</a> *pts, int npts, <a class="el" href="class_colour_desired.html">ColourDesired</a> fore, <a class="el" href="class_colour_desired.html">ColourDesired</a> back)</td></tr>
+<tr class="separator:a8eabe31c860b720fd24b926219180725"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3087c911ea03aadafa8b4d4e1e1566d7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3087c911ea03aadafa8b4d4e1e1566d7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>RectangleDraw</b> (<a class="el" href="class_p_rectangle.html">PRectangle</a> rc, <a class="el" href="class_colour_desired.html">ColourDesired</a> fore, <a class="el" href="class_colour_desired.html">ColourDesired</a> back)</td></tr>
+<tr class="separator:a3087c911ea03aadafa8b4d4e1e1566d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60c63875f3564b3aaecc33c1df66f52e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a60c63875f3564b3aaecc33c1df66f52e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>FillRectangle</b> (<a class="el" href="class_p_rectangle.html">PRectangle</a> rc, <a class="el" href="class_colour_desired.html">ColourDesired</a> back)</td></tr>
+<tr class="separator:a60c63875f3564b3aaecc33c1df66f52e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea678c0e94a3b481138dd24c0b6240a6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aea678c0e94a3b481138dd24c0b6240a6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>FillRectangle</b> (<a class="el" href="class_p_rectangle.html">PRectangle</a> rc, <a class="el" href="class_surface.html">Surface</a> &amp;surfacePattern)</td></tr>
+<tr class="separator:aea678c0e94a3b481138dd24c0b6240a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a626b6cb75becd404661171bac045734f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a626b6cb75becd404661171bac045734f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>RoundedRectangle</b> (<a class="el" href="class_p_rectangle.html">PRectangle</a> rc, <a class="el" href="class_colour_desired.html">ColourDesired</a> fore, <a class="el" href="class_colour_desired.html">ColourDesired</a> back)</td></tr>
+<tr class="separator:a626b6cb75becd404661171bac045734f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f8df636ed3f70cf061cd25bc69507c3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7f8df636ed3f70cf061cd25bc69507c3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>AlphaRectangle</b> (<a class="el" href="class_p_rectangle.html">PRectangle</a> rc, int cornerSize, <a class="el" href="class_colour_desired.html">ColourDesired</a> fill, int alphaFill, <a class="el" href="class_colour_desired.html">ColourDesired</a> outline, int alphaOutline, int flags)</td></tr>
+<tr class="separator:a7f8df636ed3f70cf061cd25bc69507c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a449e839892fb320a0bfa5933f6c11db3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a449e839892fb320a0bfa5933f6c11db3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawRGBAImage</b> (<a class="el" href="class_p_rectangle.html">PRectangle</a> rc, int width, int height, const unsigned char *pixelsImage)</td></tr>
+<tr class="separator:a449e839892fb320a0bfa5933f6c11db3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a203354f9ddc5ab46b2e87b0a0cbd33c2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a203354f9ddc5ab46b2e87b0a0cbd33c2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Ellipse</b> (<a class="el" href="class_p_rectangle.html">PRectangle</a> rc, <a class="el" href="class_colour_desired.html">ColourDesired</a> fore, <a class="el" href="class_colour_desired.html">ColourDesired</a> back)</td></tr>
+<tr class="separator:a203354f9ddc5ab46b2e87b0a0cbd33c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa215c8ce732ea6a47a80d0a29b26a84e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa215c8ce732ea6a47a80d0a29b26a84e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Copy</b> (<a class="el" href="class_p_rectangle.html">PRectangle</a> rc, <a class="el" href="class_point.html">Point</a> from, <a class="el" href="class_surface.html">Surface</a> &amp;surfaceSource)</td></tr>
+<tr class="separator:aa215c8ce732ea6a47a80d0a29b26a84e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8984a6aa462515814172affceba9689"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa8984a6aa462515814172affceba9689"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawTextNoClip</b> (<a class="el" href="class_p_rectangle.html">PRectangle</a> rc, <a class="el" href="class_font.html">Font</a> &amp;font_, XYPOSITION ybase, const char *s, int len, <a class="el" href="class_colour_desired.html">ColourDesired</a> fore, <a class="el" href="class_colour_desired.html">ColourDesired</a> back)</td></tr>
+<tr class="separator:aa8984a6aa462515814172affceba9689"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c3b0c4a5b829dc005707af10d38ea65"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9c3b0c4a5b829dc005707af10d38ea65"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawTextClipped</b> (<a class="el" href="class_p_rectangle.html">PRectangle</a> rc, <a class="el" href="class_font.html">Font</a> &amp;font_, XYPOSITION ybase, const char *s, int len, <a class="el" href="class_colour_desired.html">ColourDesired</a> fore, <a class="el" href="class_colour_desired.html">ColourDesired</a> back)</td></tr>
+<tr class="separator:a9c3b0c4a5b829dc005707af10d38ea65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4be2991b85d64f3e4522700a755cc532"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4be2991b85d64f3e4522700a755cc532"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawTextTransparent</b> (<a class="el" href="class_p_rectangle.html">PRectangle</a> rc, <a class="el" href="class_font.html">Font</a> &amp;font_, XYPOSITION ybase, const char *s, int len, <a class="el" href="class_colour_desired.html">ColourDesired</a> fore)</td></tr>
+<tr class="separator:a4be2991b85d64f3e4522700a755cc532"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33d956267d6bfa6594baa62cbb5fd737"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a33d956267d6bfa6594baa62cbb5fd737"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>MeasureWidths</b> (<a class="el" href="class_font.html">Font</a> &amp;font_, const char *s, int len, XYPOSITION *positions)</td></tr>
+<tr class="separator:a33d956267d6bfa6594baa62cbb5fd737"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae31da0565b93872fdd30dfc4a9db54a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aae31da0565b93872fdd30dfc4a9db54a"></a>
+XYPOSITION&#160;</td><td class="memItemRight" valign="bottom"><b>WidthText</b> (<a class="el" href="class_font.html">Font</a> &amp;font_, const char *s, int len)</td></tr>
+<tr class="separator:aae31da0565b93872fdd30dfc4a9db54a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87a79476cf0d2c811e9d2c89da78b01e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a87a79476cf0d2c811e9d2c89da78b01e"></a>
+XYPOSITION&#160;</td><td class="memItemRight" valign="bottom"><b>WidthChar</b> (<a class="el" href="class_font.html">Font</a> &amp;font_, char ch)</td></tr>
+<tr class="separator:a87a79476cf0d2c811e9d2c89da78b01e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af515492953155959e3afd14b4b6ddd25"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af515492953155959e3afd14b4b6ddd25"></a>
+XYPOSITION&#160;</td><td class="memItemRight" valign="bottom"><b>Ascent</b> (<a class="el" href="class_font.html">Font</a> &amp;font_)</td></tr>
+<tr class="separator:af515492953155959e3afd14b4b6ddd25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb79bb9b9749568f73a749d4a52bb32a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeb79bb9b9749568f73a749d4a52bb32a"></a>
+XYPOSITION&#160;</td><td class="memItemRight" valign="bottom"><b>Descent</b> (<a class="el" href="class_font.html">Font</a> &amp;font_)</td></tr>
+<tr class="separator:aeb79bb9b9749568f73a749d4a52bb32a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae934e42c99471bff04d089a2abbcd4f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aae934e42c99471bff04d089a2abbcd4f"></a>
+XYPOSITION&#160;</td><td class="memItemRight" valign="bottom"><b>InternalLeading</b> (<a class="el" href="class_font.html">Font</a> &amp;font_)</td></tr>
+<tr class="separator:aae934e42c99471bff04d089a2abbcd4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfe4e775c4dbbccd83d8dd9e8288c908"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abfe4e775c4dbbccd83d8dd9e8288c908"></a>
+XYPOSITION&#160;</td><td class="memItemRight" valign="bottom"><b>ExternalLeading</b> (<a class="el" href="class_font.html">Font</a> &amp;font_)</td></tr>
+<tr class="separator:abfe4e775c4dbbccd83d8dd9e8288c908"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f7ba1f1af93c40c251faefe1f6e21ae"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9f7ba1f1af93c40c251faefe1f6e21ae"></a>
+XYPOSITION&#160;</td><td class="memItemRight" valign="bottom"><b>Height</b> (<a class="el" href="class_font.html">Font</a> &amp;font_)</td></tr>
+<tr class="separator:a9f7ba1f1af93c40c251faefe1f6e21ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b74a77e3f4d8040cc187267265e3488"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b74a77e3f4d8040cc187267265e3488"></a>
+XYPOSITION&#160;</td><td class="memItemRight" valign="bottom"><b>AverageCharWidth</b> (<a class="el" href="class_font.html">Font</a> &amp;font_)</td></tr>
+<tr class="separator:a2b74a77e3f4d8040cc187267265e3488"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad38c61e66c4377cd4d2615a7bf2d5221"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad38c61e66c4377cd4d2615a7bf2d5221"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetClip</b> (<a class="el" href="class_p_rectangle.html">PRectangle</a> rc)</td></tr>
+<tr class="separator:ad38c61e66c4377cd4d2615a7bf2d5221"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2ded405b6f43995f413cd8ebe74ce22"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af2ded405b6f43995f413cd8ebe74ce22"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>FlushCachedState</b> ()</td></tr>
+<tr class="separator:af2ded405b6f43995f413cd8ebe74ce22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa31b61f327cd16ee2ede6ad9eca5a661"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa31b61f327cd16ee2ede6ad9eca5a661"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetUnicodeMode</b> (bool unicodeMode_)</td></tr>
+<tr class="separator:aa31b61f327cd16ee2ede6ad9eca5a661"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a911181f1e6a0942dccfdfa13e771afb1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a911181f1e6a0942dccfdfa13e771afb1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetDBCSMode</b> (int codePage)</td></tr>
+<tr class="separator:a911181f1e6a0942dccfdfa13e771afb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a15d96a7e1614e799a306dafbfafeeb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6a15d96a7e1614e799a306dafbfafeeb"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawXPM</b> (<a class="el" href="class_p_rectangle.html">PRectangle</a> rc, const <a class="el" href="class_x_p_m.html">XPM</a> *xpm)</td></tr>
+<tr class="separator:a6a15d96a7e1614e799a306dafbfafeeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Дополнительные унаследованные члены</h2></td></tr>
+<tr class="inherit_header pub_static_methods_class_surface"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_class_surface')"><img src="closed.png" alt="-"/>&#160;Открытые статические члены унаследованные от <a class="el" href="class_surface.html">Surface</a></td></tr>
+<tr class="memitem:a3880f4f1a8aa852883f43f0a315b29a3 inherit pub_static_methods_class_surface"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3880f4f1a8aa852883f43f0a315b29a3"></a>
+static <a class="el" href="class_surface.html">Surface</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>Allocate</b> (int technology)</td></tr>
+<tr class="separator:a3880f4f1a8aa852883f43f0a315b29a3 inherit pub_static_methods_class_surface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>NotesManager/QScintilla-gpl-2.8.1/Qt4Qt5/PlatQt.cpp</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_surface_impl.html">SurfaceImpl</a></li>
+    <li class="footer">Документация по Notes Manager. Последние изменения: Пн 5 Май 2014 20:41:42. Создано системой
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
+</body>
+</html>

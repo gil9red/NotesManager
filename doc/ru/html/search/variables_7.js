@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['ismousepress',['isMousePress',['../classd___abstract_head.html#ab916be6422d759fc6377d9d8fa36624c',1,'d_AbstractHead']]]
+  ['head',['head',['../class_abstract_note.html#aed6ded8273174cdc1a530491264237b9',1,'AbstractNote']]],
+  ['highlighter',['highlighter',['../class_find_and_replace.html#a6db86f03e1ea10a9ec7371cb065a7ce2',1,'FindAndReplace']]]
 ];
