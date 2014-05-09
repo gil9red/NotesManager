@@ -46,12 +46,13 @@ Page_Settings::Page_Settings( QWidget * parent )
     ui->lEditViewTitle->setPalette( palette );
 
     ui->comboBoxActionsDoubleClickOnTitleNote->clear();
-    ui->comboBoxActionsDoubleClickOnTitleNote->addItem( tr( "do nothing" ), Shared::DoNothing );
-    ui->comboBoxActionsDoubleClickOnTitleNote->addItem( tr( "edit the title" ), Shared::EditTitle );
-    ui->comboBoxActionsDoubleClickOnTitleNote->addItem( tr( "hide note" ), Shared::HideNote );
+    ui->comboBoxActionsDoubleClickOnTitleNote->addItem( tr( "do nothing" ),      Shared::DoNothing );
+    ui->comboBoxActionsDoubleClickOnTitleNote->addItem( tr( "edit note title" ), Shared::EditTitleNote );
+    ui->comboBoxActionsDoubleClickOnTitleNote->addItem( tr( "hide note" ),       Shared::HideNote );
     ui->comboBoxActionsDoubleClickOnTitleNote->addItem( tr( "delete the note" ), Shared::DeleteNote );
-    ui->comboBoxActionsDoubleClickOnTitleNote->addItem( tr( "save as" ), Shared::SaveAs );
-    ui->comboBoxActionsDoubleClickOnTitleNote->addItem( tr( "print notes" ), Shared::PrintNotes );
+    ui->comboBoxActionsDoubleClickOnTitleNote->addItem( tr( "save note" ),       Shared::SaveNote );
+    ui->comboBoxActionsDoubleClickOnTitleNote->addItem( tr( "save note as" ),    Shared::SaveNoteAs );
+    ui->comboBoxActionsDoubleClickOnTitleNote->addItem( tr( "print note" ),      Shared::PrintNotes );
 }
 
 Page_Settings::~Page_Settings()
@@ -99,7 +100,7 @@ void Page_Settings::mapToSettings()
 
     ui->checkBoxAutosaveNotes->setChecked( mapSettings.value( "Notes_Autosave", true ).toBool() );
     ui->sBoxAutosaveIntervalNotes->setValue( mapSettings.value( "Notes_AutosaveInterval", 7 ).toInt() );    
-    index = ui->comboBoxActionsDoubleClickOnTitleNote->findData( mapSettings.value( "Notes_ActionDoubleClickOnTitle", Shared::EditTitle ) );
+    index = ui->comboBoxActionsDoubleClickOnTitleNote->findData( mapSettings.value( "Notes_ActionDoubleClickOnTitle", Shared::EditTitleNote ) );
     ui->comboBoxActionsDoubleClickOnTitleNote->setCurrentIndex( index );
 }
 void Page_Settings::settingsToMap()

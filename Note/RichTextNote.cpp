@@ -795,7 +795,7 @@ void RichTextNote::doubleClickingOnTitle()
     case Shared::DoNothing:
         break;
 
-    case Shared::EditTitle:
+    case Shared::EditTitleNote:
         selectTitle();
         break;
 
@@ -807,7 +807,11 @@ void RichTextNote::doubleClickingOnTitle()
         invokeRemove();
         break;
 
-    case Shared::SaveAs:
+    case Shared::SaveNote:
+        save();
+        break;
+
+    case Shared::SaveNoteAs:
         saveAs();
         break;
 

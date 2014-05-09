@@ -150,44 +150,44 @@
         <translation type="obsolete">Главное окно</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="14"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="14"/>
         <source>Navigation window by date</source>
         <translation>Окно навигации по дате</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="45"/>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="48"/>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="51"/>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="54"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="45"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="48"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="51"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="54"/>
         <source>Expand All</source>
         <translation>Развернуть все</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="68"/>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="71"/>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="74"/>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="77"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="68"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="71"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="74"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="77"/>
         <source>Collapse All</source>
         <translation>Свернуть все</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="99"/>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="102"/>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="105"/>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="108"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="99"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="102"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="105"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="108"/>
         <source>Creation date</source>
         <translation>Дата создания</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="118"/>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="121"/>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="124"/>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="127"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="118"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="121"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="124"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="127"/>
         <source>Modification date</source>
         <translation>Дата изменения</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="93"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="93"/>
         <source>Traced date</source>
         <translation>Проследить дату</translation>
     </message>
@@ -320,12 +320,12 @@
         <translation type="obsolete">Временная</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/folder.cpp" line="47"/>
+        <location filename="../NavigationPanel/folder.cpp" line="47"/>
         <source>Trash bin</source>
         <translation>Корзина</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/folder.cpp" line="53"/>
+        <location filename="../NavigationPanel/folder.cpp" line="53"/>
         <source>New folder</source>
         <translation>Новая папка</translation>
     </message>
@@ -337,31 +337,31 @@
         <translation type="obsolete">Главное окно</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.ui" line="14"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.ui" line="14"/>
         <source>Navigation window by folders</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.ui" line="39"/>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.ui" line="42"/>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.ui" line="45"/>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.ui" line="48"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.ui" line="39"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.ui" line="42"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.ui" line="45"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.ui" line="48"/>
         <source>Pin folder</source>
         <translation>Закрепить папку</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.ui" line="81"/>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.ui" line="84"/>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.ui" line="87"/>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.ui" line="90"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.ui" line="81"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.ui" line="84"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.ui" line="87"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.ui" line="90"/>
         <source>Expand All</source>
         <translation>Развернуть все</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.ui" line="104"/>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.ui" line="107"/>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.ui" line="110"/>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.ui" line="113"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.ui" line="104"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.ui" line="107"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.ui" line="110"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.ui" line="113"/>
         <source>Collapse All</source>
         <translation>Свернуть все</translation>
     </message>
@@ -402,24 +402,24 @@
         <translation type="obsolete">Очистить корзину</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="33"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="33"/>
         <source>Set Text Color</source>
         <translation>Установить цвет текста</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="35"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="35"/>
         <source>Set Back Color</source>
         <translation>Установить цвет заднего фона</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="38"/>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="44"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="38"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="44"/>
         <source>Default Color</source>
         <translation>Цвет по умолчанию</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="41"/>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="47"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="41"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="47"/>
         <source>Custom Color</source>
         <translation>Персональный цвет</translation>
     </message>
@@ -428,42 +428,42 @@
         <translation type="obsolete">Очистить корзину</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="29"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="29"/>
         <source>Open</source>
         <translation>Открыть</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="26"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="26"/>
         <source>Rename</source>
         <translation>Переименовать</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="199"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="199"/>
         <source>Delete these items?</source>
         <translation>Удалить эти элементы?</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="199"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="199"/>
         <source>Put these items to Bin?</source>
         <translation>Поместить  эти элементы в корзину?</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="198"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="198"/>
         <source>Confirm deletion</source>
         <translation>Подтверждение удаление</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="198"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="198"/>
         <source>Confirm moving</source>
         <translation>Подтвердите  перемещение</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="231"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="231"/>
         <source>Information</source>
         <translation>Информация</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="231"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="231"/>
         <source>You cannot delete system folders</source>
         <translation>Вы не можете удалить системную папку</translation>
     </message>
@@ -1426,22 +1426,22 @@
         <translation type="obsolete">Выберите файлы</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/note.cpp" line="120"/>
+        <location filename="../NavigationPanel/note.cpp" line="120"/>
         <source>Delete this item?</source>
         <translation>Удалить этот элемент?</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/note.cpp" line="120"/>
+        <location filename="../NavigationPanel/note.cpp" line="120"/>
         <source>Put this item in the Bin?</source>
         <translation>Поместить  этот элемент в корзину?</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/note.cpp" line="119"/>
+        <location filename="../NavigationPanel/note.cpp" line="119"/>
         <source>Confirm deletion</source>
         <translation>Подтверждение удаление</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/note.cpp" line="119"/>
+        <location filename="../NavigationPanel/note.cpp" line="119"/>
         <source>Confirm moving</source>
         <translation>Подтвердите  перемещение</translation>
     </message>
@@ -1449,7 +1449,7 @@
 <context>
     <name>NoteEditWidget</name>
     <message>
-        <location filename="../NavigationPanel/src/noteeditwidget.ui" line="14"/>
+        <location filename="../NavigationPanel/noteeditwidget.ui" line="14"/>
         <source>Note editor</source>
         <translation>Редактор заметки</translation>
     </message>
@@ -1472,27 +1472,27 @@
         <translation type="obsolete">Выделить текущую вкладку на дереве</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/notestabwidget.cpp" line="45"/>
+        <location filename="../NavigationPanel/notestabwidget.cpp" line="45"/>
         <source>Close current tab</source>
         <translation>Закрыть текущую вкладку</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/notestabwidget.cpp" line="46"/>
+        <location filename="../NavigationPanel/notestabwidget.cpp" line="46"/>
         <source>Close all tabs except the current</source>
         <translation>Закрыть все вкладки, кроме текущей</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/notestabwidget.cpp" line="48"/>
+        <location filename="../NavigationPanel/notestabwidget.cpp" line="48"/>
         <source>Close all tabs to the left of the current</source>
         <translation>Закрыть все вкладки слева от текущей</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/notestabwidget.cpp" line="49"/>
+        <location filename="../NavigationPanel/notestabwidget.cpp" line="49"/>
         <source>Close all tabs to the right of the current</source>
         <translation>Закрыть все вкладки справа текущей</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/notestabwidget.cpp" line="51"/>
+        <location filename="../NavigationPanel/notestabwidget.cpp" line="51"/>
         <source>Close all tabs</source>
         <translation>Закрыть все вкладки</translation>
     </message>
@@ -1750,7 +1750,7 @@
     </message>
     <message>
         <location filename="../Manager/pages/page_settings.ui" line="77"/>
-        <location filename="../Manager/pages/page_settings.cpp" line="94"/>
+        <location filename="../Manager/pages/page_settings.cpp" line="95"/>
         <source>New note</source>
         <translation>Новая заметка</translation>
     </message>
@@ -1978,9 +1978,8 @@
         <translation>ничего не делать</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.cpp" line="50"/>
         <source>edit the title</source>
-        <translation>редактировать заголовок</translation>
+        <translation type="obsolete">редактировать заголовок</translation>
     </message>
     <message>
         <location filename="../Manager/pages/page_settings.cpp" line="51"/>
@@ -1993,27 +1992,45 @@
         <translation>удалить заметку</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.cpp" line="53"/>
         <source>save as</source>
-        <translation>сохранить как</translation>
+        <translation type="obsolete">сохранить как</translation>
+    </message>
+    <message>
+        <source>print notes</source>
+        <translation type="obsolete">печать заметки</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_settings.cpp" line="50"/>
+        <source>edit note title</source>
+        <translation>редактировать заголовок заметки</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_settings.cpp" line="53"/>
+        <source>save note</source>
+        <translation>сохранить заметку</translation>
     </message>
     <message>
         <location filename="../Manager/pages/page_settings.cpp" line="54"/>
-        <source>print notes</source>
+        <source>save note as</source>
+        <translation>сохранить заметку как</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_settings.cpp" line="55"/>
+        <source>print note</source>
         <translation>печать заметки</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.cpp" line="207"/>
+        <location filename="../Manager/pages/page_settings.cpp" line="208"/>
         <source>Restart requires </source>
         <translation>Требуется перезапуск</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.cpp" line="207"/>
+        <location filename="../Manager/pages/page_settings.cpp" line="208"/>
         <source>The language change will take effect after a restart</source>
         <translation>Изменения языка вступят в силу после перезапуска</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.cpp" line="213"/>
+        <location filename="../Manager/pages/page_settings.cpp" line="214"/>
         <source>Settings received and stored</source>
         <translation>Настройки приняты и сохранены</translation>
     </message>
@@ -2022,7 +2039,7 @@
         <translation type="obsolete">&lt;системный язык&gt;</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.cpp" line="141"/>
+        <location filename="../Manager/pages/page_settings.cpp" line="142"/>
         <source>systems language</source>
         <translation>системный язык</translation>
     </message>
@@ -2342,7 +2359,7 @@
         <translation type="obsolete">Менеджер заметок</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="126"/>
+        <location filename="../main.cpp" line="125"/>
         <source>Loading fonts</source>
         <oldsource>Load fonts</oldsource>
         <translation>Загрузка шрифтов</translation>
@@ -2352,25 +2369,25 @@
         <translation type="obsolete">Создать</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="129"/>
+        <location filename="../main.cpp" line="128"/>
         <source>Loading dictionaries</source>
         <oldsource>Load dictionaries</oldsource>
         <translation>Загрузка словарей</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="132"/>
+        <location filename="../main.cpp" line="131"/>
         <source>Creation</source>
         <oldsource>Created</oldsource>
         <translation>Создание</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="142"/>
+        <location filename="../main.cpp" line="141"/>
         <source>Loading settings</source>
         <oldsource>Load settings</oldsource>
         <translation>Загрузка настроек</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="145"/>
+        <location filename="../main.cpp" line="144"/>
         <source>Loading scripts</source>
         <translation>Загрузка сценариев</translation>
     </message>
@@ -2380,7 +2397,7 @@
         <translation type="obsolete">Загрузка заметок</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="148"/>
+        <location filename="../main.cpp" line="147"/>
         <source>Now ready</source>
         <translation>Готов</translation>
     </message>
@@ -3066,23 +3083,23 @@
         <translation type="obsolete">Главное окно</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/tagsnavigationwidget.ui" line="14"/>
+        <location filename="../NavigationPanel/tagsnavigationwidget.ui" line="14"/>
         <source>Navigation window by tags</source>
         <translation>Окно навигации по тэгам</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/tagsnavigationwidget.ui" line="42"/>
-        <location filename="../NavigationPanel/src/tagsnavigationwidget.ui" line="45"/>
-        <location filename="../NavigationPanel/src/tagsnavigationwidget.ui" line="48"/>
-        <location filename="../NavigationPanel/src/tagsnavigationwidget.ui" line="51"/>
+        <location filename="../NavigationPanel/tagsnavigationwidget.ui" line="42"/>
+        <location filename="../NavigationPanel/tagsnavigationwidget.ui" line="45"/>
+        <location filename="../NavigationPanel/tagsnavigationwidget.ui" line="48"/>
+        <location filename="../NavigationPanel/tagsnavigationwidget.ui" line="51"/>
         <source>Expand All</source>
         <translation>Развернуть все</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/tagsnavigationwidget.ui" line="65"/>
-        <location filename="../NavigationPanel/src/tagsnavigationwidget.ui" line="68"/>
-        <location filename="../NavigationPanel/src/tagsnavigationwidget.ui" line="71"/>
-        <location filename="../NavigationPanel/src/tagsnavigationwidget.ui" line="74"/>
+        <location filename="../NavigationPanel/tagsnavigationwidget.ui" line="65"/>
+        <location filename="../NavigationPanel/tagsnavigationwidget.ui" line="68"/>
+        <location filename="../NavigationPanel/tagsnavigationwidget.ui" line="71"/>
+        <location filename="../NavigationPanel/tagsnavigationwidget.ui" line="74"/>
         <source>Collapse All</source>
         <translation>Свернуть все</translation>
     </message>

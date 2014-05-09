@@ -138,44 +138,44 @@
 <context>
     <name>DateNavigationWidget</name>
     <message>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="14"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="14"/>
         <source>Navigation window by date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="45"/>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="48"/>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="51"/>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="54"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="45"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="48"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="51"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="54"/>
         <source>Expand All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="68"/>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="71"/>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="74"/>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="77"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="68"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="71"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="74"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="77"/>
         <source>Collapse All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="99"/>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="102"/>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="105"/>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="108"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="99"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="102"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="105"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="108"/>
         <source>Creation date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="118"/>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="121"/>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="124"/>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="127"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="118"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="121"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="124"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="127"/>
         <source>Modification date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/datenavigationwidget.ui" line="93"/>
+        <location filename="../NavigationPanel/datenavigationwidget.ui" line="93"/>
         <source>Traced date</source>
         <translation type="unfinished"></translation>
     </message>
@@ -300,12 +300,12 @@
 <context>
     <name>Folder</name>
     <message>
-        <location filename="../NavigationPanel/src/folder.cpp" line="47"/>
+        <location filename="../NavigationPanel/folder.cpp" line="47"/>
         <source>Trash bin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/folder.cpp" line="53"/>
+        <location filename="../NavigationPanel/folder.cpp" line="53"/>
         <source>New folder</source>
         <translation type="unfinished"></translation>
     </message>
@@ -313,31 +313,31 @@
 <context>
     <name>FolderNavigationWidget</name>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.ui" line="14"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.ui" line="14"/>
         <source>Navigation window by folders</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.ui" line="39"/>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.ui" line="42"/>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.ui" line="45"/>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.ui" line="48"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.ui" line="39"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.ui" line="42"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.ui" line="45"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.ui" line="48"/>
         <source>Pin folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.ui" line="81"/>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.ui" line="84"/>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.ui" line="87"/>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.ui" line="90"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.ui" line="81"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.ui" line="84"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.ui" line="87"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.ui" line="90"/>
         <source>Expand All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.ui" line="104"/>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.ui" line="107"/>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.ui" line="110"/>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.ui" line="113"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.ui" line="104"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.ui" line="107"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.ui" line="110"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.ui" line="113"/>
         <source>Collapse All</source>
         <translation type="unfinished"></translation>
     </message>
@@ -350,64 +350,64 @@
         <translation type="obsolete">Колір за замовчуванням</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="33"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="33"/>
         <source>Set Text Color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="35"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="35"/>
         <source>Set Back Color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="38"/>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="44"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="38"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="44"/>
         <source>Default Color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="41"/>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="47"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="41"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="47"/>
         <source>Custom Color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="29"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="29"/>
         <source>Open</source>
         <translation type="unfinished">Відкрито</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="26"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="26"/>
         <source>Rename</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="199"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="199"/>
         <source>Delete these items?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="199"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="199"/>
         <source>Put these items to Bin?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="198"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="198"/>
         <source>Confirm deletion</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="198"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="198"/>
         <source>Confirm moving</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="231"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="231"/>
         <source>Information</source>
         <translation type="unfinished">Iнформація</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/foldernavigationwidget.cpp" line="231"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="231"/>
         <source>You cannot delete system folders</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1058,22 +1058,22 @@
 <context>
     <name>Note</name>
     <message>
-        <location filename="../NavigationPanel/src/note.cpp" line="120"/>
+        <location filename="../NavigationPanel/note.cpp" line="120"/>
         <source>Delete this item?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/note.cpp" line="120"/>
+        <location filename="../NavigationPanel/note.cpp" line="120"/>
         <source>Put this item in the Bin?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/note.cpp" line="119"/>
+        <location filename="../NavigationPanel/note.cpp" line="119"/>
         <source>Confirm deletion</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/note.cpp" line="119"/>
+        <location filename="../NavigationPanel/note.cpp" line="119"/>
         <source>Confirm moving</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1081,7 +1081,7 @@
 <context>
     <name>NoteEditWidget</name>
     <message>
-        <location filename="../NavigationPanel/src/noteeditwidget.ui" line="14"/>
+        <location filename="../NavigationPanel/noteeditwidget.ui" line="14"/>
         <source>Note editor</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1089,27 +1089,27 @@
 <context>
     <name>NotesTabWidget</name>
     <message>
-        <location filename="../NavigationPanel/src/notestabwidget.cpp" line="45"/>
+        <location filename="../NavigationPanel/notestabwidget.cpp" line="45"/>
         <source>Close current tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/notestabwidget.cpp" line="46"/>
+        <location filename="../NavigationPanel/notestabwidget.cpp" line="46"/>
         <source>Close all tabs except the current</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/notestabwidget.cpp" line="48"/>
+        <location filename="../NavigationPanel/notestabwidget.cpp" line="48"/>
         <source>Close all tabs to the left of the current</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/notestabwidget.cpp" line="49"/>
+        <location filename="../NavigationPanel/notestabwidget.cpp" line="49"/>
         <source>Close all tabs to the right of the current</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/notestabwidget.cpp" line="51"/>
+        <location filename="../NavigationPanel/notestabwidget.cpp" line="51"/>
         <source>Close all tabs</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1256,7 +1256,7 @@
     </message>
     <message>
         <location filename="../Manager/pages/page_settings.ui" line="77"/>
-        <location filename="../Manager/pages/page_settings.cpp" line="94"/>
+        <location filename="../Manager/pages/page_settings.cpp" line="95"/>
         <source>New note</source>
         <translation type="unfinished">Нова нотатка</translation>
     </message>
@@ -1466,11 +1466,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.cpp" line="50"/>
-        <source>edit the title</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../Manager/pages/page_settings.cpp" line="51"/>
         <source>hide note</source>
         <translation type="unfinished"></translation>
@@ -1481,32 +1476,42 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../Manager/pages/page_settings.cpp" line="50"/>
+        <source>edit note title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../Manager/pages/page_settings.cpp" line="53"/>
-        <source>save as</source>
+        <source>save note</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Manager/pages/page_settings.cpp" line="54"/>
-        <source>print notes</source>
+        <source>save note as</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.cpp" line="207"/>
+        <location filename="../Manager/pages/page_settings.cpp" line="55"/>
+        <source>print note</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_settings.cpp" line="208"/>
         <source>Restart requires </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.cpp" line="207"/>
+        <location filename="../Manager/pages/page_settings.cpp" line="208"/>
         <source>The language change will take effect after a restart</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.cpp" line="213"/>
+        <location filename="../Manager/pages/page_settings.cpp" line="214"/>
         <source>Settings received and stored</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.cpp" line="141"/>
+        <location filename="../Manager/pages/page_settings.cpp" line="142"/>
         <source>systems language</source>
         <translation>системний мову</translation>
     </message>
@@ -1746,27 +1751,27 @@
         <translation type="obsolete">немає</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="126"/>
+        <location filename="../main.cpp" line="125"/>
         <source>Loading fonts</source>
         <translation>Завантаження шрифтів</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="129"/>
+        <location filename="../main.cpp" line="128"/>
         <source>Loading dictionaries</source>
         <translation>Завантаження словників</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="132"/>
+        <location filename="../main.cpp" line="131"/>
         <source>Creation</source>
         <translation>Creation</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="142"/>
+        <location filename="../main.cpp" line="141"/>
         <source>Loading settings</source>
         <translation>Завантаження налаштувань</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="145"/>
+        <location filename="../main.cpp" line="144"/>
         <source>Loading scripts</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1775,7 +1780,7 @@
         <translation type="obsolete">Завантаження замітки</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="148"/>
+        <location filename="../main.cpp" line="147"/>
         <source>Now ready</source>
         <translation>Тепер готовий</translation>
     </message>
@@ -2296,23 +2301,23 @@
 <context>
     <name>TagsNavigationWidget</name>
     <message>
-        <location filename="../NavigationPanel/src/tagsnavigationwidget.ui" line="14"/>
+        <location filename="../NavigationPanel/tagsnavigationwidget.ui" line="14"/>
         <source>Navigation window by tags</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/tagsnavigationwidget.ui" line="42"/>
-        <location filename="../NavigationPanel/src/tagsnavigationwidget.ui" line="45"/>
-        <location filename="../NavigationPanel/src/tagsnavigationwidget.ui" line="48"/>
-        <location filename="../NavigationPanel/src/tagsnavigationwidget.ui" line="51"/>
+        <location filename="../NavigationPanel/tagsnavigationwidget.ui" line="42"/>
+        <location filename="../NavigationPanel/tagsnavigationwidget.ui" line="45"/>
+        <location filename="../NavigationPanel/tagsnavigationwidget.ui" line="48"/>
+        <location filename="../NavigationPanel/tagsnavigationwidget.ui" line="51"/>
         <source>Expand All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/src/tagsnavigationwidget.ui" line="65"/>
-        <location filename="../NavigationPanel/src/tagsnavigationwidget.ui" line="68"/>
-        <location filename="../NavigationPanel/src/tagsnavigationwidget.ui" line="71"/>
-        <location filename="../NavigationPanel/src/tagsnavigationwidget.ui" line="74"/>
+        <location filename="../NavigationPanel/tagsnavigationwidget.ui" line="65"/>
+        <location filename="../NavigationPanel/tagsnavigationwidget.ui" line="68"/>
+        <location filename="../NavigationPanel/tagsnavigationwidget.ui" line="71"/>
+        <location filename="../NavigationPanel/tagsnavigationwidget.ui" line="74"/>
         <source>Collapse All</source>
         <translation type="unfinished"></translation>
     </message>

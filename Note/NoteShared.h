@@ -12,10 +12,10 @@ namespace Shared
     /*! Перечисление сторон рамки заметки. */
     enum Side
     {
-        Left = 0x0001,  //!< Левая
-        Right = 0x0002, //!< Правая
-        Top = 0x0004,   //!< Верхняя
-        Bottom = 0x0008 //!< Нижняя
+        Left   = 0x0001, //!< Левая
+        Right  = 0x0002, //!< Правая
+        Top    = 0x0004, //!< Верхняя
+        Bottom = 0x0008  //!< Нижняя
     };
     Q_DECLARE_FLAGS ( Sides, Side )
 
@@ -23,12 +23,13 @@ namespace Shared
     //! Действия при двойном клике на заголовок
     enum ActionDoubleClickingOnTitle
     {
-        DoNothing,  //!< Ничего не делать.
-        EditTitle,  //!< Редактировать заголовок.
-        HideNote,   //!< Скрыть заметку.
-        DeleteNote, //!< Удалить заметку.
-        SaveAs,     //!< Сохранить заметку как....
-        PrintNotes  //!< Печать заметки.
+        DoNothing,     //!< Ничего не делать.
+        EditTitleNote, //!< Редактировать заголовок.
+        HideNote,      //!< Скрыть заметку.
+        DeleteNote,    //!< Удалить заметку.
+        SaveNote,      //!< Сохранить заметку.
+        SaveNoteAs,    //!< Сохранить заметку как....
+        PrintNotes     //!< Печать заметки.
     };
 }
 
