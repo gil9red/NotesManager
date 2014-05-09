@@ -8,11 +8,11 @@
 #include "fullscreenshotcropper.h"
 #include <QClipboard>
 #include <QDesktopWidget>
-#include "NavigationPanel/src/hierarchymodel.h"
-#include "NavigationPanel/src/datenavigationwidget.h"
-#include "NavigationPanel/src/notebook.h"
-#include "NavigationPanel/src/noteeditwidget.h"
-#include "NavigationPanel/src/basemodelitem.h"
+#include "NavigationPanel/hierarchymodel.h"
+#include "NavigationPanel/datenavigationwidget.h"
+#include "NavigationPanel/notebook.h"
+#include "NavigationPanel/noteeditwidget.h"
+#include "NavigationPanel/basemodelitem.h"
 
 #include "ScriptModule/scriptengine.h"
 #include <QMetaProperty>

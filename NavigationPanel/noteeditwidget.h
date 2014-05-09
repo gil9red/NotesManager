@@ -8,7 +8,7 @@ namespace Ui
     class NoteEditWidget;
 }
 
-#include "NavigationPanel/src/note.h"
+#include "NavigationPanel/note.h"
 #include <QByteArray>
 
 class NoteEditWidget : public QMainWindow

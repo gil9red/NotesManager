@@ -327,13 +327,13 @@
      <normaloff>:/fugue-icons/cross</normaloff>:/fugue-icons/cross</iconset>
    </property>
    <property name="text">
-    <string>Remove From Trash</string>
+    <string>Delete</string>
    </property>
    <property name="statusTip">
-    <string>Remove From Trash</string>
+    <string>Delete</string>
    </property>
    <property name="whatsThis">
-    <string>Remove From Trash</string>
+    <string>Delete</string>
    </property>
   </action>
   <action name="actionRemoveToTrash">
@@ -386,31 +386,31 @@
   <customwidget>
    <class>FolderNavigationWidget</class>
    <extends>QWidget</extends>
-   <header>NavigationPanel/src/foldernavigationwidget.h</header>
+   <header>NavigationPanel/foldernavigationwidget.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>DateNavigationWidget</class>
    <extends>QWidget</extends>
-   <header>NavigationPanel\src\datenavigationwidget.h</header>
+   <header>NavigationPanel\datenavigationwidget.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>TagsNavigationWidget</class>
    <extends>QWidget</extends>
-   <header>NavigationPanel/src/tagsnavigationwidget.h</header>
+   <header>NavigationPanel/tagsnavigationwidget.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>NotesTabWidget</class>
    <extends>QTabWidget</extends>
-   <header>NavigationPanel/src/notestabwidget.h</header>
+   <header>NavigationPanel/notestabwidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../Manager.qrc"/>
   <include location="../../Note/Note.qrc"/>
+  <include location="../Manager.qrc"/>
  </resources>
  <connections/>
 </ui>

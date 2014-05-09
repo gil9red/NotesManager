@@ -12,7 +12,7 @@
 #include "FormattingToolbar/FormattingToolbar.h"
 #include "utils/func.h"
 #include "ImageCropper/fullscreenshotcropper.h"
-#include "NavigationPanel/src/notebook.h"
+#include "NavigationPanel/notebook.h"
 #include <QDockWidget>
 
 Manager * Manager::self = 0;

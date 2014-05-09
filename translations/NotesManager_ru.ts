@@ -779,7 +779,7 @@
     <message>
         <location filename="../Manager/Manager.ui" line="211"/>
         <location filename="../Manager/Manager.ui" line="214"/>
-        <location filename="../Manager/Manager.cpp" line="31"/>
+        <location filename="../Manager/Manager.cpp" line="32"/>
         <source>Quit</source>
         <translation>Выход</translation>
     </message>
@@ -850,7 +850,7 @@
         <location filename="../Manager/Manager.ui" line="334"/>
         <location filename="../Manager/Manager.ui" line="337"/>
         <location filename="../Manager/Manager.ui" line="340"/>
-        <location filename="../Manager/Manager.cpp" line="29"/>
+        <location filename="../Manager/Manager.cpp" line="30"/>
         <source>Settings</source>
         <translation>Настройки</translation>
     </message>
@@ -873,7 +873,7 @@
         <location filename="../Manager/Manager.ui" line="226"/>
         <location filename="../Manager/Manager.ui" line="229"/>
         <location filename="../Manager/Manager.ui" line="232"/>
-        <location filename="../Manager/Manager.cpp" line="30"/>
+        <location filename="../Manager/Manager.cpp" line="31"/>
         <source>About</source>
         <translation>О программе</translation>
     </message>
@@ -1123,7 +1123,7 @@
         <translation type="obsolete">Добавить заметку</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="28"/>
+        <location filename="../Manager/Manager.cpp" line="29"/>
         <source>Notes</source>
         <translation>Заметки</translation>
     </message>
@@ -1164,12 +1164,12 @@
         <translation type="obsolete">Форматирование текста</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="178"/>
+        <location filename="../Manager/Manager.cpp" line="179"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="178"/>
+        <location filename="../Manager/Manager.cpp" line="179"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>Невозможно прочитать файл %1:
@@ -1180,28 +1180,28 @@
         <translation type="obsolete">Программа создания заметок</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="93"/>
+        <location filename="../Manager/Manager.cpp" line="96"/>
         <source>The program creates notes</source>
         <translation>Программа создает заметки</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="99"/>
+        <location filename="../Manager/Manager.cpp" line="101"/>
         <source>Open manager</source>
         <translation>Открыть менеджер</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="236"/>
-        <location filename="../Manager/Manager.cpp" line="278"/>
+        <location filename="../Manager/Manager.cpp" line="243"/>
+        <location filename="../Manager/Manager.cpp" line="285"/>
         <source>Information</source>
         <translation>Информация</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="236"/>
+        <location filename="../Manager/Manager.cpp" line="243"/>
         <source>Application is already running</source>
         <translation>Приложение уже запущено</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="278"/>
+        <location filename="../Manager/Manager.cpp" line="285"/>
         <source>Unable to open documents</source>
         <translation>Не удалось открыть документацию</translation>
     </message>
@@ -1228,7 +1228,7 @@
         <translation type="obsolete">Произошла ошибка при распаковки файлов и папок заметки</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="322"/>
+        <location filename="../Manager/Manager.cpp" line="329"/>
         <source>Question</source>
         <translation>Вопрос</translation>
     </message>
@@ -1237,7 +1237,7 @@
         <translation type="obsolete">Удалить все заметки?</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="322"/>
+        <location filename="../Manager/Manager.cpp" line="329"/>
         <source>Really quit?</source>
         <translation>Действительно выйти?</translation>
     </message>
@@ -1266,7 +1266,7 @@
         <translation type="obsolete">нет</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="371"/>
+        <location filename="../Manager/Manager.cpp" line="378"/>
         <source>Save completed</source>
         <translation>Сохранение завершено</translation>
     </message>
@@ -1760,12 +1760,12 @@
         <translation>Заметки</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="143"/>
+        <location filename="../Manager/pages/page_settings.ui" line="152"/>
         <source>Interface language</source>
         <translation>Язык интерфейса</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="149"/>
+        <location filename="../Manager/pages/page_settings.ui" line="158"/>
         <source>Language:</source>
         <translation>Язык:</translation>
     </message>
@@ -1774,8 +1774,8 @@
         <translation type="obsolete">по умолчанию</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="205"/>
-        <location filename="../Manager/pages/page_settings.ui" line="777"/>
+        <location filename="../Manager/pages/page_settings.ui" line="214"/>
+        <location filename="../Manager/pages/page_settings.ui" line="805"/>
         <source>Autosave</source>
         <translation>Автосохранение</translation>
     </message>
@@ -1784,173 +1784,173 @@
         <translation type="obsolete">Интервал автосохранения</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="196"/>
-        <location filename="../Manager/pages/page_settings.ui" line="199"/>
-        <location filename="../Manager/pages/page_settings.ui" line="202"/>
+        <location filename="../Manager/pages/page_settings.ui" line="205"/>
+        <location filename="../Manager/pages/page_settings.ui" line="208"/>
+        <location filename="../Manager/pages/page_settings.ui" line="211"/>
         <source>Autosave manager</source>
         <translation>Автосохранение менеджера</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="224"/>
-        <location filename="../Manager/pages/page_settings.ui" line="227"/>
-        <location filename="../Manager/pages/page_settings.ui" line="230"/>
+        <location filename="../Manager/pages/page_settings.ui" line="233"/>
+        <location filename="../Manager/pages/page_settings.ui" line="236"/>
+        <location filename="../Manager/pages/page_settings.ui" line="239"/>
         <source>Autosave interval manager</source>
         <translation>Интервал автосохранение менеджера</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="233"/>
-        <location filename="../Manager/pages/page_settings.ui" line="805"/>
+        <location filename="../Manager/pages/page_settings.ui" line="242"/>
+        <location filename="../Manager/pages/page_settings.ui" line="833"/>
         <source> minute(s)</source>
         <translation> минута(ы)</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="248"/>
+        <location filename="../Manager/pages/page_settings.ui" line="257"/>
         <source>Ask for confirmation before exiting</source>
         <translation>Спрашивать подтверждение перед закрытием</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="306"/>
+        <location filename="../Manager/pages/page_settings.ui" line="324"/>
         <source>Minimize the program to tray when closing a window manager</source>
         <translation>Сворачивать программу в трей при закрытии окна менеджера</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="313"/>
+        <location filename="../Manager/pages/page_settings.ui" line="331"/>
         <source>Minimize the program to tray when minimizing window manager</source>
         <translation>Сворачивать программу в трей при минимизации окна менеджера</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="320"/>
+        <location filename="../Manager/pages/page_settings.ui" line="338"/>
         <source>Minimize the program to tray on startup</source>
         <translation>Сворачивать программу в трей при запуске</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="427"/>
+        <location filename="../Manager/pages/page_settings.ui" line="411"/>
         <source>Random color </source>
         <translation>Случайный цвет</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="434"/>
+        <location filename="../Manager/pages/page_settings.ui" line="418"/>
         <source>Random position on screen </source>
         <translation>Случайная позиция на экране</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="459"/>
+        <location filename="../Manager/pages/page_settings.ui" line="533"/>
         <source>Size</source>
         <translation>Размер</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="468"/>
+        <location filename="../Manager/pages/page_settings.ui" line="555"/>
         <source>Width:</source>
         <translation>Ширина:</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="488"/>
+        <location filename="../Manager/pages/page_settings.ui" line="562"/>
         <source>Height:</source>
         <translation>Высота:</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="511"/>
+        <location filename="../Manager/pages/page_settings.ui" line="478"/>
         <source>Position</source>
         <translation>Позиция</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="523"/>
+        <location filename="../Manager/pages/page_settings.ui" line="490"/>
         <source>Top:</source>
         <translation>Сверху:</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="556"/>
+        <location filename="../Manager/pages/page_settings.ui" line="497"/>
         <source>Left:</source>
         <translation>Слева:</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="822"/>
+        <location filename="../Manager/pages/page_settings.ui" line="850"/>
         <source>When you double-click on the title of the note:</source>
         <translation>При двойном клике на заголовок заметки:</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="829"/>
+        <location filename="../Manager/pages/page_settings.ui" line="857"/>
         <source>Actions by double-clicking on the title of the note</source>
         <translation>Действия при двойном клике на заголовке заметке</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="441"/>
+        <location filename="../Manager/pages/page_settings.ui" line="425"/>
         <source>Visible</source>
         <translation>Видимость</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="448"/>
+        <location filename="../Manager/pages/page_settings.ui" line="432"/>
         <source>On top of all windows </source>
         <translation>Поверх всех окон</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="388"/>
+        <location filename="../Manager/pages/page_settings.ui" line="441"/>
         <source>Opacity:</source>
         <translation>Непрозрачность:</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="401"/>
+        <location filename="../Manager/pages/page_settings.ui" line="454"/>
         <source>Opacity new note</source>
         <translation>Непрозрачность новой заметки</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="665"/>
+        <location filename="../Manager/pages/page_settings.ui" line="695"/>
         <source>Titile:</source>
         <translation>Заголовок:</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="688"/>
+        <location filename="../Manager/pages/page_settings.ui" line="718"/>
         <source>Title a new note</source>
         <translation>Заголовок новой заметки</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="695"/>
+        <location filename="../Manager/pages/page_settings.ui" line="725"/>
         <source>Title font new note</source>
         <translation>Шрифт заголовка новой заметки</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="729"/>
+        <location filename="../Manager/pages/page_settings.ui" line="759"/>
         <source>Text:</source>
         <translation>Текст:</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="736"/>
+        <location filename="../Manager/pages/page_settings.ui" line="766"/>
         <source>Text of the new notes</source>
         <translation>Текст новой заметки</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="593"/>
+        <location filename="../Manager/pages/page_settings.ui" line="589"/>
         <source>Title color:</source>
         <translation>Цвет заголовка:</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="600"/>
-        <location filename="../Manager/pages/page_settings.ui" line="603"/>
-        <location filename="../Manager/pages/page_settings.ui" line="606"/>
+        <location filename="../Manager/pages/page_settings.ui" line="596"/>
+        <location filename="../Manager/pages/page_settings.ui" line="599"/>
+        <location filename="../Manager/pages/page_settings.ui" line="602"/>
         <source>Color title new note</source>
         <translation>Цвет заголовка новой заметки</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="572"/>
+        <location filename="../Manager/pages/page_settings.ui" line="632"/>
         <source>Body color:</source>
         <translation>Цвет тела:</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_settings.ui" line="579"/>
+        <location filename="../Manager/pages/page_settings.ui" line="639"/>
         <source>Body color new note</source>
         <translation>Цвет тела новой заметки</translation>
-    </message>
-    <message>
-        <location filename="../Manager/pages/page_settings.ui" line="768"/>
-        <location filename="../Manager/pages/page_settings.ui" line="771"/>
-        <location filename="../Manager/pages/page_settings.ui" line="774"/>
-        <source>Autosave notes</source>
-        <translation>Автосохранение заметок</translation>
     </message>
     <message>
         <location filename="../Manager/pages/page_settings.ui" line="796"/>
         <location filename="../Manager/pages/page_settings.ui" line="799"/>
         <location filename="../Manager/pages/page_settings.ui" line="802"/>
+        <source>Autosave notes</source>
+        <translation>Автосохранение заметок</translation>
+    </message>
+    <message>
+        <location filename="../Manager/pages/page_settings.ui" line="824"/>
+        <location filename="../Manager/pages/page_settings.ui" line="827"/>
+        <location filename="../Manager/pages/page_settings.ui" line="830"/>
         <source>Autosave interval notes</source>
         <translation>Интервал автосохранения заметок</translation>
     </message>
@@ -2146,6 +2146,13 @@
         <translation>Сохранить все заметки</translation>
     </message>
     <message>
+        <location filename="../Manager/pages/page_notes.ui" line="330"/>
+        <location filename="../Manager/pages/page_notes.ui" line="333"/>
+        <location filename="../Manager/pages/page_notes.ui" line="336"/>
+        <source>Delete</source>
+        <translation>Удалить</translation>
+    </message>
+    <message>
         <source>Open Dictionary</source>
         <translation type="obsolete">Открыть словарь</translation>
     </message>
@@ -2172,11 +2179,8 @@
         <translation>Добавить папку</translation>
     </message>
     <message>
-        <location filename="../Manager/pages/page_notes.ui" line="330"/>
-        <location filename="../Manager/pages/page_notes.ui" line="333"/>
-        <location filename="../Manager/pages/page_notes.ui" line="336"/>
         <source>Remove From Trash</source>
-        <translation>Переместить из корзины</translation>
+        <translation type="obsolete">Переместить из корзины</translation>
     </message>
     <message>
         <location filename="../Manager/pages/page_notes.ui" line="360"/>
@@ -2338,7 +2342,7 @@
         <translation type="obsolete">Менеджер заметок</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="123"/>
+        <location filename="../main.cpp" line="126"/>
         <source>Loading fonts</source>
         <oldsource>Load fonts</oldsource>
         <translation>Загрузка шрифтов</translation>
@@ -2348,25 +2352,25 @@
         <translation type="obsolete">Создать</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="126"/>
+        <location filename="../main.cpp" line="129"/>
         <source>Loading dictionaries</source>
         <oldsource>Load dictionaries</oldsource>
         <translation>Загрузка словарей</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="129"/>
+        <location filename="../main.cpp" line="132"/>
         <source>Creation</source>
         <oldsource>Created</oldsource>
         <translation>Создание</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="139"/>
+        <location filename="../main.cpp" line="142"/>
         <source>Loading settings</source>
         <oldsource>Load settings</oldsource>
         <translation>Загрузка настроек</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="142"/>
+        <location filename="../main.cpp" line="145"/>
         <source>Loading scripts</source>
         <translation>Загрузка сценариев</translation>
     </message>
@@ -2376,7 +2380,7 @@
         <translation type="obsolete">Загрузка заметок</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="145"/>
+        <location filename="../main.cpp" line="148"/>
         <source>Now ready</source>
         <translation>Готов</translation>
     </message>
@@ -2943,28 +2947,28 @@
         <translation>Выполнить сценарий</translation>
     </message>
     <message>
-        <location filename="../ScriptModule/scriptsmanager.cpp" line="45"/>
+        <location filename="../ScriptModule/scriptsmanager.cpp" line="37"/>
         <source>Bookmarks</source>
         <translation>Закладки</translation>
     </message>
     <message>
-        <location filename="../ScriptModule/scriptsmanager.cpp" line="357"/>
+        <location filename="../ScriptModule/scriptsmanager.cpp" line="386"/>
         <source>New script</source>
         <translation>Новый сценарий</translation>
     </message>
     <message>
-        <location filename="../ScriptModule/scriptsmanager.cpp" line="386"/>
-        <location filename="../ScriptModule/scriptsmanager.cpp" line="410"/>
+        <location filename="../ScriptModule/scriptsmanager.cpp" line="420"/>
+        <location filename="../ScriptModule/scriptsmanager.cpp" line="444"/>
         <source>Confirm deletion</source>
         <translation>Подтверждение удаление</translation>
     </message>
     <message>
-        <location filename="../ScriptModule/scriptsmanager.cpp" line="387"/>
+        <location filename="../ScriptModule/scriptsmanager.cpp" line="421"/>
         <source>Delete this script?</source>
         <translation>Удалить этот сценарий?</translation>
     </message>
     <message>
-        <location filename="../ScriptModule/scriptsmanager.cpp" line="411"/>
+        <location filename="../ScriptModule/scriptsmanager.cpp" line="445"/>
         <source>Delete all scripts?</source>
         <translation>Удалить все сценарии?</translation>
     </message>
