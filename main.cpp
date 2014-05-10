@@ -86,6 +86,7 @@ static QScriptValue importExtension( QScriptContext *context, QScriptEngine * en
 ///
 /// TODO: динамическое заполнение меню Документация (например, считывать из папки doc по папкам, или описывать в файлах документации и пути к ним)
 /// TODO: дополнить splash screen: картинку побольше, так чтобы вместила название программы, желательно также уместить версию и автора
+/// TODO: кнопки панели заметок заменить на действия (QAction)
 
 QString nm_Note::style = "";
 
@@ -131,7 +132,8 @@ int main( int argc, char * argv[] )
     splashScreen->setMessage( QTranslator::tr( "Creation" ), font );
 
     Manager manager;
-    QObject::connect( &app, SIGNAL( messageReceived(QString) ), &manager, SLOT( messageReceived(QString) ) );
+    QObject::connect( &app, SIGNAL(messageReceived(QString)), &manager, SLOT(messageReceived(QString)) );
+    QObject::connect( &app, SIGNAL(aboutToQuit()), &manager, SLOT(quit()) );
 
     splashScreen->finish( &manager );
 
@@ -158,13 +160,6 @@ int main( int argc, char * argv[] )
         Script::ScriptEngine * engine = Script::ScriptEngine::instance();
         QScriptValue globalObject = engine->globalObject();
 
-//        globalObject.setProperty( "qApp", engine->newQObject( app ) );
-//        {
-//            QScriptValue qscript = engine->newObject();
-//            qscript.setProperty( "importExtension", engine->newFunction( importExtension ) );
-//            globalObject.property( "qt" ).setProperty( "script", qscript );
-//        }
-
         globalObject.setProperty( "importExtension", engine->newFunction( importExtension ) );
 
         globalObject.setProperty( "getWidgetByName", engine->newFunction( getWidgetByName ) );
@@ -176,7 +171,6 @@ int main( int argc, char * argv[] )
         scriptManager.setProperty( "PageAbout", engine->newQObject( manager.pageAbout ) );
 
         globalObject.setProperty( "Manager", scriptManager );
-
 
         // Загрузка плагинов
         {            

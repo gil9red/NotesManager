@@ -35,7 +35,7 @@
 #include "utils/texttemplateparser.h"
 #include "settingsnotedialog.h"
 
-static QActionGroup * createGroupActionsOpacity( QObject * parent = 0 )
+QActionGroup * createGroupActionsOpacity( QObject * parent = 0 )
 {
     QActionGroup * group = new QActionGroup( parent );
     for ( qreal op = nm_Note::maximalOpacity; op > nm_Note::minimalOpacity; op -= 0.1 )
@@ -161,28 +161,28 @@ void RichTextNote::init()
 }
 void RichTextNote::setupActions()
 {
-    actionVisibleToolBar = Create::Action::get( tr( "Toolbar" ), QIcon( "" ), true );
-    actionVisibleQuickFind = Create::Action::get( tr( "Quick find" ), QIcon( "" ), true );
-    actionVisibleAttachPanel = Create::Action::get( tr( "Attach panel" ), QIcon( ":/Note/attach-panel" ), true );
-    actionVisibleFindAndReplace = Create::Action::get( tr( "Find/replace" ), QIcon( ":/Note/find-replace" ), true );
+    actionVisibleToolBar           = Create::Action::get( tr( "Toolbar" ), QIcon( "" ), true );
+    actionVisibleQuickFind         = Create::Action::get( tr( "Quick find" ), QIcon( "" ), true );
+    actionVisibleAttachPanel       = Create::Action::get( tr( "Attach panel" ), QIcon( ":/Note/attach-panel" ), true );
+    actionVisibleFindAndReplace    = Create::Action::get( tr( "Find/replace" ), QIcon( ":/Note/find-replace" ), true );
     actionVisibleFormattingToolbar = Create::Action::get( tr( "Formatting toolbar" ), QIcon( ":/FormattingToolbar/formating" ), true );
 
-    QAction * actionDelete = Create::Action::triggered( tr( "Delete" ), QIcon( ":/Note/remove" ), QKeySequence(), this, SLOT( invokeRemove() ) );
-    QAction * actionSetTitle = Create::Action::triggered( tr( "Set title" ), QIcon( ":/Note/title" ), QKeySequence(), this, SLOT( selectTitle() ) );
-    QAction * actionSetTitleFont = Create::Action::triggered( tr( "Set title font" ), QIcon( ":/Note/title-font" ), QKeySequence(), this, SLOT( selectTitleFont() ) );
-    QAction * actionSetTitleColor = Create::Action::triggered( tr( "Set title color" ), QIcon( ":/Note/title-color" ), QKeySequence(), this, SLOT( selectTitleColor() ) );
-    QAction * actionSetColor = Create::Action::triggered( tr( "Set window color" ), QIcon::fromTheme( "", QIcon( ":/Note/color" ) ), QKeySequence(), this, SLOT( selectColor() ) );
-    QAction * actionHide = Create::Action::triggered( tr( "Hide" ), QIcon::fromTheme( "", QIcon( ":/Note/hide" ) ), QKeySequence(), this, SLOT( hide() ) );
-    actionSetTopBottom = Create::Action::bTriggered( tr( "On top of all windows" ), QIcon::fromTheme( "", QIcon( ":/Note/tacks" ) ), QKeySequence(), this, SLOT( setTop( bool ) ) );
-    QAction * actionOpen = Create::Action::triggered( tr( "Open" ), QIcon::fromTheme( "", QIcon( ":/Note/open" ) ), QKeySequence( QKeySequence::Open ), this, SLOT( open() ) );
-    QAction * actionSaveAs = Create::Action::triggered( tr( "Save as" ), QIcon::fromTheme( "", QIcon( ":/Note/save-as" ) ), QKeySequence( QKeySequence::SaveAs ), this, SLOT( saveAs() ) );
+    QAction * actionDelete         = Create::Action::triggered( tr( "Delete" ), QIcon( ":/Note/remove" ), QKeySequence(), this, SLOT( invokeRemove() ) );
+    QAction * actionSetTitle       = Create::Action::triggered( tr( "Set title" ), QIcon( ":/Note/title" ), QKeySequence(), this, SLOT( selectTitle() ) );
+    QAction * actionSetTitleFont   = Create::Action::triggered( tr( "Set title font" ), QIcon( ":/Note/title-font" ), QKeySequence(), this, SLOT( selectTitleFont() ) );
+    QAction * actionSetTitleColor  = Create::Action::triggered( tr( "Set title color" ), QIcon( ":/Note/title-color" ), QKeySequence(), this, SLOT( selectTitleColor() ) );
+    QAction * actionSetColor       = Create::Action::triggered( tr( "Set window color" ), QIcon::fromTheme( "", QIcon( ":/Note/color" ) ), QKeySequence(), this, SLOT( selectColor() ) );
+    QAction * actionHide           = Create::Action::triggered( tr( "Hide" ), QIcon::fromTheme( "", QIcon( ":/Note/hide" ) ), QKeySequence(), this, SLOT( hide() ) );
+    actionSetTopBottom             = Create::Action::bTriggered( tr( "On top of all windows" ), QIcon::fromTheme( "", QIcon( ":/Note/tacks" ) ), QKeySequence(), this, SLOT( setTop( bool ) ) );
+    QAction * actionOpen           = Create::Action::triggered( tr( "Open" ), QIcon::fromTheme( "", QIcon( ":/Note/open" ) ), QKeySequence( QKeySequence::Open ), this, SLOT( open() ) );
+    QAction * actionSaveAs         = Create::Action::triggered( tr( "Save as" ), QIcon::fromTheme( "", QIcon( ":/Note/save-as" ) ), QKeySequence( QKeySequence::SaveAs ), this, SLOT( saveAs() ) );
 #ifndef QT_NO_PRINTER
-    QAction * actionPrint = Create::Action::triggered( tr( "Print" ), QIcon::fromTheme( "", QIcon( ":/Note/print" ) ), QKeySequence( QKeySequence::Print ), this, SLOT( print() ) );
-    QAction * actionPreviewPrint = Create::Action::triggered( tr( "Preview print" ), QIcon::fromTheme( "", QIcon( ":/Note/preview-print" ) ), QKeySequence(), this, SLOT( previewPrint() ) );
+    QAction * actionPrint          = Create::Action::triggered( tr( "Print" ), QIcon::fromTheme( "", QIcon( ":/Note/print" ) ), QKeySequence( QKeySequence::Print ), this, SLOT( print() ) );
+    QAction * actionPreviewPrint   = Create::Action::triggered( tr( "Preview print" ), QIcon::fromTheme( "", QIcon( ":/Note/preview-print" ) ), QKeySequence(), this, SLOT( previewPrint() ) );
 #endif
-    actionSave = Create::Action::triggered( tr( "Save" ), QIcon::fromTheme( "", QIcon( ":/Note/save" ) ), QKeySequence( QKeySequence::Save ), this, SLOT( save() ) );
-    QAction * actionAttach = Create::Action::triggered( tr( "Attach" ), QIcon::fromTheme( "", QIcon( ":/Note/attach" ) ), QKeySequence(), this, SLOT( selectAttach() ) );    
-    QAction * actionSettings = Create::Action::triggered( tr( "Settings" ), QIcon::fromTheme( "", QIcon( ":/Manager/settings" ) ), QKeySequence(), this, SLOT(settings()) );
+    actionSave                     = Create::Action::triggered( tr( "Save" ), QIcon::fromTheme( "", QIcon( ":/Note/save" ) ), QKeySequence( QKeySequence::Save ), this, SLOT( save() ) );
+    QAction * actionAttach         = Create::Action::triggered( tr( "Attach" ), QIcon::fromTheme( "", QIcon( ":/Note/attach" ) ), QKeySequence(), this, SLOT( selectAttach() ) );
+    QAction * actionSettings       = Create::Action::triggered( tr( "Settings" ), QIcon::fromTheme( "", QIcon( ":/Manager/settings" ) ), QKeySequence(), this, SLOT(settings()) );
 
 
     QObject::connect( actionVisibleToolBar, SIGNAL( triggered(bool) ), SLOT( setVisibleToolBar(bool) ) );
@@ -315,21 +315,21 @@ void RichTextNote::setupGUI()
     body->widget()->setLayout( mainLayout );
     body->setToolBarIconSize( QSize( 15, 15 ) );
 
-    QToolButton * tButtonDelete = Create::Button::clicked( tr( "Delete" ), QIcon::fromTheme( "", QIcon( ":/Note/remove" ) ), this, SLOT( invokeRemove() ) );
-    QToolButton * tButtonSetTitle = Create::Button::clicked( tr( "Set title" ), QIcon::fromTheme( "", QIcon( ":/Note/title" ) ), this, SLOT( selectTitle() ) );
-    QToolButton * tButtonSetTitleFont = Create::Button::clicked( tr( "Set title font" ), QIcon::fromTheme( "", QIcon( ":/Note/title-font" ) ), this, SLOT( selectTitleFont() ) );
+    QToolButton * tButtonDelete        = Create::Button::clicked( tr( "Delete" ), QIcon::fromTheme( "", QIcon( ":/Note/remove" ) ), this, SLOT( invokeRemove() ) );
+    QToolButton * tButtonSetTitle      = Create::Button::clicked( tr( "Set title" ), QIcon::fromTheme( "", QIcon( ":/Note/title" ) ), this, SLOT( selectTitle() ) );
+    QToolButton * tButtonSetTitleFont  = Create::Button::clicked( tr( "Set title font" ), QIcon::fromTheme( "", QIcon( ":/Note/title-font" ) ), this, SLOT( selectTitleFont() ) );
     QToolButton * tButtonSetTitleColor = Create::Button::clicked( tr( "Set title color" ), QIcon::fromTheme( "", QIcon( ":/Note/title-color" ) ), this, SLOT( selectTitleColor() ) );
-    QToolButton * tButtonSetColor = Create::Button::clicked( tr( "Set window color" ),QIcon::fromTheme( "", QIcon( ":/Note/color" ) ), this, SLOT( selectColor() ) );
-    QToolButton * tButtonSetOpacity = Create::Button::clicked( tr( "Opacity" ), QIcon::fromTheme( "", QIcon( ":/Note/opacity" ) ), this, SLOT( selectOpacity() ) );
-    QToolButton * tButtonHide = Create::Button::clicked( tr( "Hide" ), QIcon::fromTheme( "", QIcon( ":/Note/hide" ) ), this, SLOT( hide() ) );
-    tButtonSetTopBottom = Create::Button::bClicked( tr( "On top of all windows" ), QIcon::fromTheme( "", QIcon( ":/Note/tacks" ) ), this, SLOT( setTop( bool ) ) );
-    QToolButton * tButtonOpen = Create::Button::clicked( tr( "Open" ), QIcon::fromTheme( "", QIcon( ":/Note/open" ) ), this, SLOT( open() ) );
-    QToolButton * tButtonSaveAs = Create::Button::clicked( tr( "Save as" ), QIcon::fromTheme( "", QIcon( ":/Note/save-as" ) ), this, SLOT( saveAs() ) );
-    QToolButton * tButtonPrint = Create::Button::clicked( tr( "Print" ),QIcon::fromTheme( "", QIcon( ":/Note/print" ) ), this, SLOT( print() ) );
-    QToolButton * tButtonPreviewPrint = Create::Button::clicked( tr( "Preview print" ), QIcon::fromTheme( "", QIcon( ":/Note/preview-print" ) ), this, SLOT( previewPrint() ) );
-    tButtonSave = Create::Button::clicked( tr( "Save" ), QIcon::fromTheme( "", QIcon( ":/Note/save" ) ), this, SLOT( save() ) );
-    QToolButton * tButtonAttach = Create::Button::clicked( tr( "Attach" ), QIcon::fromTheme( "", QIcon( ":/Note/attach" ) ), this, SLOT( selectAttach() ) );
-    QToolButton * tButtonSettings = Create::Button::clicked( tr( "Settings" ), QIcon::fromTheme( "", QIcon( ":/Manager/settings" ) ), this, SLOT(settings()) );
+    QToolButton * tButtonSetColor      = Create::Button::clicked( tr( "Set window color" ),QIcon::fromTheme( "", QIcon( ":/Note/color" ) ), this, SLOT( selectColor() ) );
+    QToolButton * tButtonSetOpacity    = Create::Button::clicked( tr( "Opacity" ), QIcon::fromTheme( "", QIcon( ":/Note/opacity" ) ), this, SLOT( selectOpacity() ) );
+    QToolButton * tButtonHide          = Create::Button::clicked( tr( "Hide" ), QIcon::fromTheme( "", QIcon( ":/Note/hide" ) ), this, SLOT( hide() ) );
+    tButtonSetTopBottom                = Create::Button::bClicked( tr( "On top of all windows" ), QIcon::fromTheme( "", QIcon( ":/Note/tacks" ) ), this, SLOT( setTop( bool ) ) );
+    QToolButton * tButtonOpen          = Create::Button::clicked( tr( "Open" ), QIcon::fromTheme( "", QIcon( ":/Note/open" ) ), this, SLOT( open() ) );
+    QToolButton * tButtonSaveAs        = Create::Button::clicked( tr( "Save as" ), QIcon::fromTheme( "", QIcon( ":/Note/save-as" ) ), this, SLOT( saveAs() ) );
+    QToolButton * tButtonPrint         = Create::Button::clicked( tr( "Print" ),QIcon::fromTheme( "", QIcon( ":/Note/print" ) ), this, SLOT( print() ) );
+    QToolButton * tButtonPreviewPrint  = Create::Button::clicked( tr( "Preview print" ), QIcon::fromTheme( "", QIcon( ":/Note/preview-print" ) ), this, SLOT( previewPrint() ) );
+    tButtonSave                        = Create::Button::clicked( tr( "Save" ), QIcon::fromTheme( "", QIcon( ":/Note/save" ) ), this, SLOT( save() ) );
+    QToolButton * tButtonAttach        = Create::Button::clicked( tr( "Attach" ), QIcon::fromTheme( "", QIcon( ":/Note/attach" ) ), this, SLOT( selectAttach() ) );
+    QToolButton * tButtonSettings      = Create::Button::clicked( tr( "Settings" ), QIcon::fromTheme( "", QIcon( ":/Manager/settings" ) ), this, SLOT(settings()) );
 
     body->addWidgetToToolBar( tButtonHide );
     body->addSeparator();
@@ -375,15 +375,15 @@ void RichTextNote::setupGUI()
 
 void RichTextNote::save()
 {
-    mapSettings[ "Top" ] = isTop();
+    mapSettings[ "Top" ]        = isTop();
     mapSettings[ "ColorTitle" ] = titleColor().name();
-    mapSettings[ "ColorBody" ] = bodyColor().name();
-    mapSettings[ "Opacity" ] = opacity();
-    mapSettings[ "Visible" ] = isVisible();
-    mapSettings[ "Title" ] = title();
-    mapSettings[ "FontTitle" ] = titleFont().toString();
-    mapSettings[ "Position" ] = pos();
-    mapSettings[ "Size" ] = size();
+    mapSettings[ "ColorBody" ]  = bodyColor().name();
+    mapSettings[ "Opacity" ]    = opacity();
+    mapSettings[ "Visible" ]    = isVisible();
+    mapSettings[ "Title" ]      = title();
+    mapSettings[ "FontTitle" ]  = titleFont().toString();
+    mapSettings[ "Position" ]   = pos();
+    mapSettings[ "Size" ]       = size();
 
     QSettings ini( settingsFilePath(), QSettings::IniFormat );
     ini.setIniCodec( "utf8" );
@@ -437,7 +437,7 @@ void RichTextNote::load()
         } else
         {
             _titleColor = QColor( defaultMapSettings[ "ColorTitle" ].toString() );
-            _bodyColor = QColor( defaultMapSettings[ "ColorBody" ].toString() );
+            _bodyColor  = QColor( defaultMapSettings[ "ColorBody" ].toString() );
         }
 
         _top = defaultMapSettings[ "Top" ].toBool();
@@ -448,15 +448,15 @@ void RichTextNote::load()
 
     } else
     {
-        _title = mapSettings[ "Title" ].toString();
         _fontTitle.fromString( mapSettings[ "FontTitle" ].toString() );
-        _size = mapSettings[ "Size" ].toSize();
-        _position = mapSettings[ "Position" ].toPoint();
+        _title      = mapSettings[ "Title" ].toString();
+        _size       = mapSettings[ "Size" ].toSize();
+        _position   = mapSettings[ "Position" ].toPoint();
         _titleColor = QColor( mapSettings[ "ColorTitle" ].toString() );
-        _bodyColor = QColor( mapSettings[ "ColorBody" ].toString() );
-        _top = mapSettings[ "Top" ].toBool();
-        _opacity = mapSettings[ "Opacity" ].toDouble();
-        _visible = mapSettings.value( "Visible" ).toBool();
+        _bodyColor  = QColor( mapSettings[ "ColorBody" ].toString() );
+        _top        = mapSettings[ "Top" ].toBool();
+        _opacity    = mapSettings[ "Opacity" ].toDouble();
+        _visible    = mapSettings.value( "Visible" ).toBool();
 
         loadContent();
     }

@@ -342,11 +342,14 @@ void FormattingToolbar::currentCharFormatChanged( QTextCharFormat format )
 }
 void FormattingToolbar::cursorPositionChanged()
 {
-    alignmentChanged( editor->alignment() );
+    const QTextCursor & textCursor = editor->textCursor();
 
-    if ( editor->textCursor().currentList() )
+    alignmentChanged( editor->alignment() );
+    fontChanged( textCursor.charFormat().font() );
+
+    if ( textCursor.currentList() )
     {
-        QTextListFormat::Style style = editor->textCursor().currentList()->format().style();
+        QTextListFormat::Style style = textCursor.currentList()->format().style();
         bool isBulleted = ui->tButtonBulletedList->checkedButton( style );
         bool isOrdered = ui->tButtonOrderedList->checkedButton( style );
 
