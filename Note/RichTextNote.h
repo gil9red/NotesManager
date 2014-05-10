@@ -14,8 +14,6 @@
 #include "findandreplace.h"
 #include "utils/func.h"
 
-class d_RichTextNote;
-
 //! Заметка с редактором rich-текста.
 class RichTextNote: public AbstractNote
 {
@@ -30,7 +28,6 @@ public:
 
     /*! Перегруженный конструктор. */
     RichTextNote( QWidget * parent = 0 );
-    ~RichTextNote();
 
     QTextDocument * document(); //!< Возврат указателя на модель-документ заметки.
     TextEditor * textEditor();  //!< Возврат указателя на текстовый редактор заметки.
@@ -53,7 +50,7 @@ public:
     //! В функцию передается путь до папки заметки.
     void setFileName(const QString & dirPath );
 
-    static void setDefaultSettingsFromMap( const QVariantMap & s );
+    static void setDefaultSettingsFromMap( const QVariantMap & data );
 
 private:
     void init();         //!< Инициализация заметки.
@@ -87,6 +84,7 @@ public slots:
     /*! \sa isTop(), AbstractNote::setTop() */
     void setTop( bool b );
 
+    void settings();         //!< Вызов диалога настроек.
     void selectTitle();      //!< Вызов диалога выбора заголовка.
     void selectTitleFont();  //!< Вызов диалога выбора шрифта заголовка.
     void selectTitleColor(); //!< Вызов диалога выбора цвета заголовка (шапки).
@@ -158,7 +156,6 @@ private slots:
     void doubleClickingOnTitle();
 
 public:
-    d_RichTextNote * d; //!< Данные
     QToolButton * tButtonSetTopBottom;
     QToolButton * tButtonSave;
 
@@ -186,22 +183,17 @@ public:
 
     static QVariantMap defaultMapSettings; //!< Карта с дэфолтными настройками для заметок.
 
+private:
+    QTimer timerAutosave; //!< Таймер автосохранений
+    QString noteFileName; //! Путь до папки заметки
+    TextEditor editor;  //! Редактор заметки
+
 public:
     friend class AttachPanel;
 
 protected:
     void enterEvent( QEvent * );
     void leaveEvent( QEvent * );
-};
-
-//! Класс данных rich-text заметки.
-/*! \sa RichTextNote, d_AbstractNote */
-class d_RichTextNote: public d_AbstractNote
-{
-public:
-    QTimer timerAutosave; //!< Таймер автосохранений
-    QString noteFileName; //! Путь до папки заметки
-    TextEditor editor;  //! Редактор заметки
 };
 
 Q_DECLARE_METATYPE( RichTextNote * )

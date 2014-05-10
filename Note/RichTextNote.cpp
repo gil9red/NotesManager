@@ -33,6 +33,7 @@
 #include "JlCompress.h"
 #include "FormattingToolbar.h"
 #include "utils/texttemplateparser.h"
+#include "settingsnotedialog.h"
 
 static QActionGroup * createGroupActionsOpacity( QObject * parent = 0 )
 {
@@ -54,30 +55,24 @@ static QActionGroup * createGroupActionsOpacity( QObject * parent = 0 )
 QVariantMap RichTextNote::defaultMapSettings;
 
 RichTextNote::RichTextNote( const QString & fileName, QWidget * parent )
-    : AbstractNote( parent ),
-      d( new d_RichTextNote )
+    : AbstractNote( parent )
 {    
     setFileName( fileName );
     init(); 
 }
 RichTextNote::RichTextNote( QWidget * parent )
-    : AbstractNote( parent ),
-      d( new d_RichTextNote )
+    : AbstractNote( parent )
 {
     init();
-}
-RichTextNote::~RichTextNote()
-{
-    delete d;
 }
 
 QTextDocument * RichTextNote::document()
 {
-    return d->editor.document();
+    return editor.document();
 }
 TextEditor * RichTextNote::textEditor()
 {
-    return &d->editor;
+    return &editor;
 }
 
 QDateTime RichTextNote::created()
@@ -102,52 +97,52 @@ void RichTextNote::createNew( bool bsave )
 
 QString RichTextNote::fileName()
 {
-    return d->noteFileName;
+    return noteFileName;
 }
 QString RichTextNote::attachDirPath()
 {
-    return QDir::fromNativeSeparators( d->noteFileName + "/attach" );
+    return QDir::fromNativeSeparators( noteFileName + "/attach" );
 }
 QString RichTextNote::contentFilePath()
 {
-    return QDir::fromNativeSeparators( d->noteFileName + "/content.html" );
+    return QDir::fromNativeSeparators( noteFileName + "/content.html" );
 }
 QString RichTextNote::settingsFilePath()
 {
-    return QDir::fromNativeSeparators( d->noteFileName + "/settings.ini" );
+    return QDir::fromNativeSeparators( noteFileName + "/settings.ini" );
 }
 
 void RichTextNote::setFileName( const QString & dirName )
 {    
-    d->noteFileName = dirName;
+    noteFileName = dirName;
 
-    if ( QDir( d->noteFileName ).exists() )
+    if ( QDir( noteFileName ).exists() )
         return;
 
     // Создадим папку заметки с нужными папками и файлами
-    QDir().mkdir( d->noteFileName );
+    QDir().mkdir( noteFileName );
     QDir().mkdir( attachDirPath() );
     QFile( contentFilePath() ).open( QIODevice::WriteOnly );
     QFile( settingsFilePath() ).open( QIODevice::WriteOnly );
 }
 
-void RichTextNote::setDefaultSettingsFromMap( const QVariantMap & s )
+void RichTextNote::setDefaultSettingsFromMap(const QVariantMap & data )
 {
-    defaultMapSettings[ "Top" ] = s.value( "NewNote_Top" );
-    defaultMapSettings[ "ColorTitle" ] = s.value( "NewNote_ColorTitle" );
-    defaultMapSettings[ "ColorBody" ] = s.value( "NewNote_ColorBody" );
-    defaultMapSettings[ "Opacity" ] = s.value( "NewNote_Opacity" );
-    defaultMapSettings[ "Visible" ] = s.value( "NewNote_Visible" );
-    defaultMapSettings[ "Title" ] = s.value( "NewNote_Title" );
-    defaultMapSettings[ "Text" ] = s.value( "NewNote_Text" );
-    defaultMapSettings[ "FontTitle" ] = s.value( "NewNote_FontTitle" );
-    defaultMapSettings[ "Position" ] = s.value( "NewNote_Position" );
-    defaultMapSettings[ "Size" ] = s.value( "NewNote_Size" );
-    defaultMapSettings[ "RandomColor" ] = s.value( "NewNote_RandomColor" );
-    defaultMapSettings[ "RandomPositionOnScreen" ] = s.value( "NewNote_RandomPositionOnScreen" );
-    defaultMapSettings[ "Autosave" ] = s.value( "Notes_Autosave" );
-    defaultMapSettings[ "AutosaveInterval" ] = s.value( "Notes_AutosaveInterval" );
-    defaultMapSettings[ "ActionDoubleClickOnTitle" ] = s.value( "Notes_ActionDoubleClickOnTitle" );
+    defaultMapSettings[ "Top" ]                      = data.value( "NewNote_Top" );
+    defaultMapSettings[ "ColorTitle" ]               = data.value( "NewNote_ColorTitle" );
+    defaultMapSettings[ "ColorBody" ]                = data.value( "NewNote_ColorBody" );
+    defaultMapSettings[ "Opacity" ]                  = data.value( "NewNote_Opacity" );
+    defaultMapSettings[ "Visible" ]                  = data.value( "NewNote_Visible" );
+    defaultMapSettings[ "Title" ]                    = data.value( "NewNote_Title" );
+    defaultMapSettings[ "Text" ]                     = data.value( "NewNote_Text" );
+    defaultMapSettings[ "FontTitle" ]                = data.value( "NewNote_FontTitle" );
+    defaultMapSettings[ "Position" ]                 = data.value( "NewNote_Position" );
+    defaultMapSettings[ "Size" ]                     = data.value( "NewNote_Size" );
+    defaultMapSettings[ "RandomColor" ]              = data.value( "NewNote_RandomColor" );
+    defaultMapSettings[ "RandomPositionOnScreen" ]   = data.value( "NewNote_RandomPositionOnScreen" );
+    defaultMapSettings[ "Autosave" ]                 = data.value( "Notes_Autosave" );
+    defaultMapSettings[ "AutosaveInterval" ]         = data.value( "Notes_AutosaveInterval" );
+    defaultMapSettings[ "ActionDoubleClickOnTitle" ] = data.value( "Notes_ActionDoubleClickOnTitle" );
 }
 
 void RichTextNote::init()
@@ -161,7 +156,7 @@ void RichTextNote::init()
     setVisibleToolBar( false );
     quickFind->setVisible( false );
 
-    QObject::connect( &d->timerAutosave, SIGNAL( timeout() ), SLOT( save() ) );
+    QObject::connect( &timerAutosave, SIGNAL( timeout() ), SLOT( save() ) );
     QObject::connect( this, SIGNAL( doubleClickHead() ), SLOT( doubleClickingOnTitle() ) );
 }
 void RichTextNote::setupActions()
@@ -186,7 +181,9 @@ void RichTextNote::setupActions()
     QAction * actionPreviewPrint = Create::Action::triggered( tr( "Preview print" ), QIcon::fromTheme( "", QIcon( ":/Note/preview-print" ) ), QKeySequence(), this, SLOT( previewPrint() ) );
 #endif
     actionSave = Create::Action::triggered( tr( "Save" ), QIcon::fromTheme( "", QIcon( ":/Note/save" ) ), QKeySequence( QKeySequence::Save ), this, SLOT( save() ) );
-    QAction * actionAttach = Create::Action::triggered( tr( "Attach" ), QIcon::fromTheme( "", QIcon( ":/Note/attach" ) ), QKeySequence(), this, SLOT( selectAttach() ) );
+    QAction * actionAttach = Create::Action::triggered( tr( "Attach" ), QIcon::fromTheme( "", QIcon( ":/Note/attach" ) ), QKeySequence(), this, SLOT( selectAttach() ) );    
+    QAction * actionSettings = Create::Action::triggered( tr( "Settings" ), QIcon::fromTheme( "", QIcon( ":/Manager/settings" ) ), QKeySequence(), this, SLOT(settings()) );
+
 
     QObject::connect( actionVisibleToolBar, SIGNAL( triggered(bool) ), SLOT( setVisibleToolBar(bool) ) );
     QObject::connect( this, SIGNAL( changeVisibleToolbar(bool) ), actionVisibleToolBar, SLOT( setChecked(bool) ) );
@@ -205,6 +202,8 @@ void RichTextNote::setupActions()
     addAction( actionVisibleFindAndReplace );
     addAction( actionVisibleToolBar );
     addAction( actionVisibleQuickFind );
+    addSeparator();
+    addAction( actionSettings );
     addSeparator();
     addAction( actionSetTitle );
     addAction( actionSetTitleFont );
@@ -232,7 +231,7 @@ void RichTextNote::setupGUI()
     Qt::DockWidgetAreas areas = Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea;
 
     FormattingToolbar * formattingToolbar = new FormattingToolbar();
-    formattingToolbar->installConnect( &d->editor );
+    formattingToolbar->installConnect( &editor );
     formattingToolbar->setNote( this );
 
     dockWidgetFormattingToolbar = new QDockWidget();
@@ -276,7 +275,7 @@ void RichTextNote::setupGUI()
     actionVisibleAttachPanel->setChecked( dockWidgetAttachPanel->isVisible() );
     
     
-    findAndReplace = new FindAndReplace( &d->editor );
+    findAndReplace = new FindAndReplace( &editor );
 
     dockWidgetFindAndReplace = new QDockWidget();
     dockWidgetFindAndReplace->setAllowedAreas( areas );
@@ -297,19 +296,19 @@ void RichTextNote::setupGUI()
     actionVisibleFindAndReplace->setChecked( dockWidgetFindAndReplace->isVisible() );
     
 
-    quickFind = new QuickFind( &d->editor );
+    quickFind = new QuickFind( &editor );
     QObject::connect( actionVisibleQuickFind, SIGNAL( triggered(bool) ), quickFind, SLOT( setVisible(bool) ) );
     QObject::connect( quickFind, SIGNAL( visibilityChanged(bool) ), actionVisibleQuickFind, SLOT( setChecked(bool) ) );
     actionVisibleQuickFind->setChecked( quickFind->isVisible() );
 
-    d->editor.setFrameStyle( QFrame::NoFrame );
-    d->editor.viewport()->setAutoFillBackground( false );
-    d->editor.setStyleSheet( nm_Note::style );
+    editor.setFrameStyle( QFrame::NoFrame );
+    editor.viewport()->setAutoFillBackground( false );
+    editor.setStyleSheet( nm_Note::style );
 
     QVBoxLayout * mainLayout = new QVBoxLayout();
     mainLayout->setSpacing( 0 );
     mainLayout->setContentsMargins( 5, 0, 5, 0 );
-    mainLayout->addWidget( &d->editor );
+    mainLayout->addWidget( &editor );
     mainLayout->addWidget( quickFind );
 
     body->setWidget( new QWidget() );
@@ -330,13 +329,15 @@ void RichTextNote::setupGUI()
     QToolButton * tButtonPreviewPrint = Create::Button::clicked( tr( "Preview print" ), QIcon::fromTheme( "", QIcon( ":/Note/preview-print" ) ), this, SLOT( previewPrint() ) );
     tButtonSave = Create::Button::clicked( tr( "Save" ), QIcon::fromTheme( "", QIcon( ":/Note/save" ) ), this, SLOT( save() ) );
     QToolButton * tButtonAttach = Create::Button::clicked( tr( "Attach" ), QIcon::fromTheme( "", QIcon( ":/Note/attach" ) ), this, SLOT( selectAttach() ) );
-
+    QToolButton * tButtonSettings = Create::Button::clicked( tr( "Settings" ), QIcon::fromTheme( "", QIcon( ":/Manager/settings" ) ), this, SLOT(settings()) );
 
     body->addWidgetToToolBar( tButtonHide );
     body->addSeparator();
     body->addWidgetToToolBar( tButtonVisibleFormattingToolbar );
     body->addWidgetToToolBar( tButtonVisibleAttachPanel );
     body->addWidgetToToolBar( tButtonVisibleFindAndReplace );
+    body->addSeparator();
+    body->addWidgetToToolBar( tButtonSettings );
     body->addSeparator();
     body->addWidgetToToolBar( tButtonSetTitle );
     body->addWidgetToToolBar( tButtonSetTitleFont );
@@ -369,7 +370,7 @@ void RichTextNote::setupGUI()
     tButtonSetOpacity->setPopupMode( QToolButton::MenuButtonPopup );
 
 
-    QObject::connect( d->editor.document(), SIGNAL( contentsChanged() ), SLOT( contentsChanged() ) );
+    QObject::connect( editor.document(), SIGNAL( contentsChanged() ), SLOT( contentsChanged() ) );
 }
 
 void RichTextNote::save()
@@ -494,18 +495,18 @@ void RichTextNote::saveContent()
 }
 void RichTextNote::loadContent()
 {
-   d->editor.setSource( QUrl::fromLocalFile( contentFilePath() ) );
+   editor.setSource( QUrl::fromLocalFile( contentFilePath() ) );
 }
 void RichTextNote::setText( const QString & str )
 {
     if ( text() == str )
         return;
 
-    d->editor.setHtml( str );
+    editor.setHtml( str );
 }
 QString RichTextNote::text()
 {
-    return d->editor.document()->toHtml( "utf-8" );
+    return editor.document()->toHtml( "utf-8" );
 }
 void RichTextNote::removeDir()
 {
@@ -533,6 +534,14 @@ void RichTextNote::setTop( bool b )
     updateStates();
 }
 
+void RichTextNote::settings()
+{
+    SettingsNoteDialog settingsDialog( this );
+    settingsDialog.setNote( this );
+    settingsDialog.setWindowTitle( tr( "Settings" ) + QString( " \"%1\"" ).arg( title() ) );
+    settingsDialog.resize( settingsDialog.minimumSizeHint() );
+    settingsDialog.exec();
+}
 void RichTextNote::selectTitle()
 {
     const QString & text = QInputDialog::getText( this, tr( "Select title" ), tr( "Title: " ), QLineEdit::Normal, title() );
@@ -695,7 +704,7 @@ void RichTextNote::insertImage( const QString & fileName )
     relativePath = QDir::toNativeSeparators( relativePath );
 
     document()->addResource( QTextDocument::ImageResource, QUrl( relativePath ), QImage( newFileName ) );
-    d->editor.textCursor().insertImage( relativePath );
+    editor.textCursor().insertImage( relativePath );
 }
 void RichTextNote::insertImage( const QPixmap & pixmap )
 {
@@ -706,7 +715,7 @@ void RichTextNote::insertImage( const QPixmap & pixmap )
 
     if ( !pixmap.save( path ) )
     {
-        qDebug() << "Произошла ошибка при сохранении";
+        WARNING( "Error when saving!" )
         return;
     }
 
@@ -736,26 +745,26 @@ int RichTextNote::numberOfAttachments()
 
 void RichTextNote::setActivateTimerAutosave( bool activate )
 {
-    if ( activate == d->timerAutosave.isActive() )
+    if ( activate == timerAutosave.isActive() )
         return;
 
     if ( activate )
-        d->timerAutosave.start();
+        timerAutosave.start();
     else
-        d->timerAutosave.stop();
+        timerAutosave.stop();
 }
 bool RichTextNote::isActivateTimerAutosave()
 {
-    return d->timerAutosave.isActive();
+    return timerAutosave.isActive();
 }
 
 void RichTextNote::setIntervalAutosave( quint64 minutes )
 {
-    d->timerAutosave.setInterval( 1000 * 60 * minutes );
+    timerAutosave.setInterval( 1000 * 60 * minutes );
 }
 quint64 RichTextNote::intervalAutosave()
 {
-    return d->timerAutosave.interval() / ( 1000 * 60 );
+    return timerAutosave.interval() / ( 1000 * 60 );
 }
 
 void RichTextNote::changeOpacity( QAction * action )
@@ -768,7 +777,7 @@ void RichTextNote::changeOpacity( QAction * action )
 }
 void RichTextNote::print( QPrinter * printer )
 {
-    d->editor.print( printer );
+    editor.print( printer );
 }
 void RichTextNote::updateStates()
 {

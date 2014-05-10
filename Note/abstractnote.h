@@ -56,7 +56,6 @@ class AbstractNote: public QMainWindow
 public:
     //! Создание и инициализация заметки.
     explicit AbstractNote( QWidget * parent = 0 );
-    virtual ~AbstractNote();
 
     //! Указание центрального виджета.
     /*! Центральный виджет будет размещен на теле заметки.
@@ -125,11 +124,25 @@ public:
     void addMenu( QMenu * menu );
 
 protected:
-    d_AbstractNote * d; //!< Дата абстрактной заметки
     AbstractNoteHead * head; //!< Голова (шапка) заметки
     AbstractNoteBody * body; //!< Тело заметки
+    d_AbstractHead * d_head;    //!< Дата "головы" заметки
+    d_AbstractBody * d_body;    //!< Дата "тела" заметки
+
+    //! Класс описывающий рамку абстрактной заметки.
+    class Sides
+    {
+    public:
+        bool visible;               //!< Видимость рамки
+        Shared::Sides pen;     //!< Указание какие стороны рамки показывать
+        QColor color;          //!< Цвет рамки
+        qreal widthPen;        //!< Ширина рамки
+    };
+    Sides sides;
+
     QMenu contextMenu; //!< Меню заметки
     PropertyAttachable * propertyAttachable; //!< Класс, который дает возможность прикрепляться к краю экрана
+
     QVariantMap mapSettings;
 
 public slots:    
@@ -241,21 +254,7 @@ protected:
     void contextMenuEvent( QContextMenuEvent * event );
     void showEvent(QShowEvent * event);
     void hideEvent( QHideEvent * event );
-    void paintEvent(QPaintEvent * event);
-};
-
-//! Класс данных абстрактной заметки.
-/*! \sa AbstractNote */
-class d_AbstractNote
-{
-public:
-    d_AbstractHead * d_head;    //!< Дата "головы" заметки
-    d_AbstractBody * d_body;    //!< Дата "тела" заметки
-
-    bool sides;                 //!< Видимость рамки
-    Shared::Sides penSides;     //!< Указание какие стороны рамки показывать
-    QColor colorSides;          //!< Цвет рамки
-    qreal widthPenSides;        //!< Ширина рамки
+    void paintEvent(QPaintEvent * );
 };
 
 #endif // ABSTRACTNOTE_H

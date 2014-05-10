@@ -10,7 +10,8 @@ HEADERS += \
     $$PWD/RichTextNote.h \
     $$PWD/abstractnotehead.h \
     $$PWD/abstractnotebody.h \
-    $$PWD/NoteShared.h
+    $$PWD/NoteShared.h \
+    Note/settingsnotedialog.h
 
 SOURCES += \
     $$PWD/texteditor.cpp \
@@ -20,10 +21,12 @@ SOURCES += \
     $$PWD/AttachPanel.cpp \
     $$PWD/RichTextNote.cpp \
     $$PWD/abstractnotehead.cpp \
-    $$PWD/abstractnotebody.cpp
+    $$PWD/abstractnotebody.cpp \
+    Note/settingsnotedialog.cpp
 
 RESOURCES += \
     $$PWD/Note.qrc \
 
 FORMS += \
-    $$PWD/AttachPanel.ui
+    $$PWD/AttachPanel.ui \
+    Note/settingsnotedialog.ui

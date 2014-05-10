@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SettingsNoteDialog</class>
+ <widget class="QDialog" name="SettingsNoteDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>396</width>
+    <height>189</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Settings of note</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QFormLayout" name="formLayout">
+     <item row="5" column="0">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>Opacity:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Titile:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="title">
+       <property name="toolTip">
+        <string>Title</string>
+       </property>
+       <property name="statusTip">
+        <string>Title</string>
+       </property>
+       <property name="whatsThis">
+        <string>Title</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Titile font:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>Title color:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>Window color:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLineEdit" name="titleColor">
+         <property name="toolTip">
+          <string>Title color</string>
+         </property>
+         <property name="statusTip">
+          <string>Title color</string>
+         </property>
+         <property name="whatsThis">
+          <string>Title color</string>
+         </property>
+         <property name="inputMask">
+          <string notr="true">\#HHHHHH</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="selectTitleColor">
+         <property name="toolTip">
+          <string>Select title color</string>
+         </property>
+         <property name="statusTip">
+          <string>Select title color</string>
+         </property>
+         <property name="whatsThis">
+          <string>Select title color</string>
+         </property>
+         <property name="text">
+          <string notr="true">...</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="4" column="1">
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLineEdit" name="windowColor">
+         <property name="toolTip">
+          <string>Window color</string>
+         </property>
+         <property name="statusTip">
+          <string>Window color</string>
+         </property>
+         <property name="whatsThis">
+          <string>Window color</string>
+         </property>
+         <property name="inputMask">
+          <string notr="true">\#HHHHHH</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="selectWindowColor">
+         <property name="toolTip">
+          <string>Select window color</string>
+         </property>
+         <property name="statusTip">
+          <string>Select window color</string>
+         </property>
+         <property name="whatsThis">
+          <string>Select window color</string>
+         </property>
+         <property name="text">
+          <string notr="true">...</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="2" column="1">
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLineEdit" name="titleFont">
+         <property name="toolTip">
+          <string>Title font</string>
+         </property>
+         <property name="statusTip">
+          <string>Title font</string>
+         </property>
+         <property name="whatsThis">
+          <string>Title font</string>
+         </property>
+         <property name="inputMask">
+          <string notr="true"/>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="selectTitleFont">
+         <property name="toolTip">
+          <string>Select title font</string>
+         </property>
+         <property name="statusTip">
+          <string>Select title font</string>
+         </property>
+         <property name="whatsThis">
+          <string>Select title font</string>
+         </property>
+         <property name="text">
+          <string notr="true">...</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="5" column="1">
+      <widget class="QSpinBox" name="opacity">
+       <property name="toolTip">
+        <string>Opacity</string>
+       </property>
+       <property name="statusTip">
+        <string>Opacity</string>
+       </property>
+       <property name="whatsThis">
+        <string>Opacity</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>SettingsNoteDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>167</x>
+     <y>218</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>167</x>
+     <y>119</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>SettingsNoteDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>167</x>
+     <y>218</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>167</x>
+     <y>119</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

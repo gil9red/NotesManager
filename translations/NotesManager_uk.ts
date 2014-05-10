@@ -1735,7 +1735,7 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="49"/>
+        <location filename="../Note/RichTextNote.cpp" line="50"/>
         <source>Other</source>
         <translation type="unfinished">Iнший</translation>
     </message>
@@ -1934,112 +1934,119 @@
         <translation type="obsolete">Відомий панель інструментів</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="169"/>
+        <location filename="../Note/RichTextNote.cpp" line="164"/>
         <source>Toolbar</source>
         <translation>Панель інструментів</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="170"/>
+        <location filename="../Note/RichTextNote.cpp" line="165"/>
         <source>Quick find</source>
         <translation>Швидкий пошук</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="171"/>
-        <location filename="../Note/RichTextNote.cpp" line="266"/>
+        <location filename="../Note/RichTextNote.cpp" line="166"/>
+        <location filename="../Note/RichTextNote.cpp" line="265"/>
         <source>Attach panel</source>
         <translation>Прикріплені файли</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="172"/>
-        <location filename="../Note/RichTextNote.cpp" line="287"/>
+        <location filename="../Note/RichTextNote.cpp" line="167"/>
+        <location filename="../Note/RichTextNote.cpp" line="286"/>
         <source>Find/replace</source>
         <translation>Знайти/замінити</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="173"/>
-        <location filename="../Note/RichTextNote.cpp" line="244"/>
+        <location filename="../Note/RichTextNote.cpp" line="168"/>
+        <location filename="../Note/RichTextNote.cpp" line="243"/>
         <source>Formatting toolbar</source>
         <translation>Форматування панель інструментів</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="175"/>
-        <location filename="../Note/RichTextNote.cpp" line="319"/>
+        <location filename="../Note/RichTextNote.cpp" line="170"/>
+        <location filename="../Note/RichTextNote.cpp" line="318"/>
         <source>Delete</source>
         <translation>Видаляти</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="176"/>
-        <location filename="../Note/RichTextNote.cpp" line="320"/>
+        <location filename="../Note/RichTextNote.cpp" line="171"/>
+        <location filename="../Note/RichTextNote.cpp" line="319"/>
         <source>Set title</source>
         <translation>Встановити назву</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="177"/>
-        <location filename="../Note/RichTextNote.cpp" line="321"/>
+        <location filename="../Note/RichTextNote.cpp" line="172"/>
+        <location filename="../Note/RichTextNote.cpp" line="320"/>
         <source>Set title font</source>
         <translation>Встановити шрифт назву</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="178"/>
-        <location filename="../Note/RichTextNote.cpp" line="322"/>
+        <location filename="../Note/RichTextNote.cpp" line="173"/>
+        <location filename="../Note/RichTextNote.cpp" line="321"/>
         <source>Set title color</source>
         <translation>Встановити назву кольору</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="179"/>
-        <location filename="../Note/RichTextNote.cpp" line="323"/>
+        <location filename="../Note/RichTextNote.cpp" line="174"/>
+        <location filename="../Note/RichTextNote.cpp" line="322"/>
         <source>Set window color</source>
         <translation>Встановіть колір вікна</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="180"/>
-        <location filename="../Note/RichTextNote.cpp" line="325"/>
+        <location filename="../Note/RichTextNote.cpp" line="175"/>
+        <location filename="../Note/RichTextNote.cpp" line="324"/>
         <source>Hide</source>
         <translation>Приховувати</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="181"/>
-        <location filename="../Note/RichTextNote.cpp" line="326"/>
+        <location filename="../Note/RichTextNote.cpp" line="176"/>
+        <location filename="../Note/RichTextNote.cpp" line="325"/>
         <source>On top of all windows</source>
         <translation>На поверх всіх вікон</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="182"/>
-        <location filename="../Note/RichTextNote.cpp" line="327"/>
+        <location filename="../Note/RichTextNote.cpp" line="177"/>
+        <location filename="../Note/RichTextNote.cpp" line="326"/>
         <source>Open</source>
         <translation>Відкрито</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="183"/>
-        <location filename="../Note/RichTextNote.cpp" line="328"/>
+        <location filename="../Note/RichTextNote.cpp" line="178"/>
+        <location filename="../Note/RichTextNote.cpp" line="327"/>
         <source>Save as</source>
         <translation>Зберегти як</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="185"/>
-        <location filename="../Note/RichTextNote.cpp" line="329"/>
+        <location filename="../Note/RichTextNote.cpp" line="180"/>
+        <location filename="../Note/RichTextNote.cpp" line="328"/>
         <source>Print</source>
         <translation>Друк</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="186"/>
-        <location filename="../Note/RichTextNote.cpp" line="330"/>
+        <location filename="../Note/RichTextNote.cpp" line="181"/>
+        <location filename="../Note/RichTextNote.cpp" line="329"/>
         <source>Preview print</source>
         <translation>Попередній друку</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="188"/>
-        <location filename="../Note/RichTextNote.cpp" line="331"/>
+        <location filename="../Note/RichTextNote.cpp" line="183"/>
+        <location filename="../Note/RichTextNote.cpp" line="330"/>
         <source>Save</source>
         <translation>Зберегти</translation>
+    </message>
+    <message>
+        <location filename="../Note/RichTextNote.cpp" line="185"/>
+        <location filename="../Note/RichTextNote.cpp" line="332"/>
+        <location filename="../Note/RichTextNote.cpp" line="541"/>
+        <source>Settings</source>
+        <translation type="unfinished">Налаштування</translation>
     </message>
     <message>
         <source>Duplicate</source>
         <translation type="obsolete">Дублювати</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="189"/>
-        <location filename="../Note/RichTextNote.cpp" line="332"/>
+        <location filename="../Note/RichTextNote.cpp" line="184"/>
+        <location filename="../Note/RichTextNote.cpp" line="331"/>
         <source>Attach</source>
         <translation>Приєднувати</translation>
     </message>
@@ -2084,25 +2091,25 @@
         <translation type="obsolete">Iнший</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="198"/>
-        <location filename="../Note/RichTextNote.cpp" line="324"/>
-        <location filename="../Note/RichTextNote.cpp" line="364"/>
+        <location filename="../Note/RichTextNote.cpp" line="195"/>
+        <location filename="../Note/RichTextNote.cpp" line="323"/>
+        <location filename="../Note/RichTextNote.cpp" line="365"/>
         <source>Opacity</source>
         <translation>Непрозорість</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="392"/>
+        <location filename="../Note/RichTextNote.cpp" line="393"/>
         <source>Save completed</source>
         <translation type="unfinished">Зберегти завершена</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="484"/>
+        <location filename="../Note/RichTextNote.cpp" line="485"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="484"/>
-        <location filename="../Note/RichTextNote.cpp" line="640"/>
+        <location filename="../Note/RichTextNote.cpp" line="485"/>
+        <location filename="../Note/RichTextNote.cpp" line="649"/>
         <source>An error occurred saving notes</source>
         <translation>Сталася помилка при збереженні замітки</translation>
     </message>
@@ -2111,7 +2118,7 @@
         <translation type="obsolete">Сталася помилка при читанні нотатки</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="640"/>
+        <location filename="../Note/RichTextNote.cpp" line="649"/>
         <source>Information</source>
         <translation>Iнформація</translation>
     </message>
@@ -2124,64 +2131,64 @@
         <translation type="obsolete">Неможливо перейменувати замітку</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="513"/>
+        <location filename="../Note/RichTextNote.cpp" line="514"/>
         <source>Warning</source>
         <translation>Попередження</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="513"/>
+        <location filename="../Note/RichTextNote.cpp" line="514"/>
         <source>I can not delete</source>
         <translation>Я не можу видалити</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="538"/>
+        <location filename="../Note/RichTextNote.cpp" line="547"/>
         <source>Select title</source>
         <translation>Виберіть назву</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="538"/>
+        <location filename="../Note/RichTextNote.cpp" line="547"/>
         <source>Title: </source>
         <translation>Назва: </translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="547"/>
+        <location filename="../Note/RichTextNote.cpp" line="556"/>
         <source>Select font</source>
         <translation>Вибрати шрифт</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="556"/>
-        <location filename="../Note/RichTextNote.cpp" line="564"/>
+        <location filename="../Note/RichTextNote.cpp" line="565"/>
+        <location filename="../Note/RichTextNote.cpp" line="573"/>
         <source>Select color</source>
         <translation>Вибрати колір</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="577"/>
+        <location filename="../Note/RichTextNote.cpp" line="586"/>
         <source>Select opacity</source>
         <translation>Виберіть непрозорість</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="577"/>
+        <location filename="../Note/RichTextNote.cpp" line="586"/>
         <source>Opacity:</source>
         <translation>Непрозорість:</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="595"/>
+        <location filename="../Note/RichTextNote.cpp" line="604"/>
         <source>File notes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="664"/>
         <location filename="../Note/RichTextNote.cpp" line="673"/>
+        <location filename="../Note/RichTextNote.cpp" line="682"/>
         <source>document</source>
         <translation>документ</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="683"/>
+        <location filename="../Note/RichTextNote.cpp" line="692"/>
         <source>Select the files</source>
         <translation>Виберіть файли</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="703"/>
+        <location filename="../Note/RichTextNote.cpp" line="712"/>
         <source>image</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2296,6 +2303,95 @@
         <location filename="../ScriptModule/scriptsmanager.cpp" line="445"/>
         <source>Delete all scripts?</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SettingsNoteDialog</name>
+    <message>
+        <location filename="../Note/settingsnotedialog.ui" line="14"/>
+        <source>Settings of note</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Note/settingsnotedialog.ui" line="22"/>
+        <source>Opacity:</source>
+        <translation type="unfinished">Непрозорість:</translation>
+    </message>
+    <message>
+        <location filename="../Note/settingsnotedialog.ui" line="29"/>
+        <source>Titile:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Note/settingsnotedialog.ui" line="36"/>
+        <location filename="../Note/settingsnotedialog.ui" line="39"/>
+        <location filename="../Note/settingsnotedialog.ui" line="42"/>
+        <source>Title</source>
+        <translation type="unfinished">Назва</translation>
+    </message>
+    <message>
+        <location filename="../Note/settingsnotedialog.ui" line="49"/>
+        <source>Titile font:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Note/settingsnotedialog.ui" line="56"/>
+        <source>Title color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Note/settingsnotedialog.ui" line="63"/>
+        <source>Window color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Note/settingsnotedialog.ui" line="75"/>
+        <location filename="../Note/settingsnotedialog.ui" line="78"/>
+        <location filename="../Note/settingsnotedialog.ui" line="81"/>
+        <source>Title color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Note/settingsnotedialog.ui" line="91"/>
+        <location filename="../Note/settingsnotedialog.ui" line="94"/>
+        <location filename="../Note/settingsnotedialog.ui" line="97"/>
+        <source>Select title color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Note/settingsnotedialog.ui" line="114"/>
+        <location filename="../Note/settingsnotedialog.ui" line="117"/>
+        <location filename="../Note/settingsnotedialog.ui" line="120"/>
+        <source>Window color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Note/settingsnotedialog.ui" line="130"/>
+        <location filename="../Note/settingsnotedialog.ui" line="133"/>
+        <location filename="../Note/settingsnotedialog.ui" line="136"/>
+        <source>Select window color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Note/settingsnotedialog.ui" line="153"/>
+        <location filename="../Note/settingsnotedialog.ui" line="156"/>
+        <location filename="../Note/settingsnotedialog.ui" line="159"/>
+        <source>Title font</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Note/settingsnotedialog.ui" line="172"/>
+        <location filename="../Note/settingsnotedialog.ui" line="175"/>
+        <location filename="../Note/settingsnotedialog.ui" line="178"/>
+        <source>Select title font</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Note/settingsnotedialog.ui" line="190"/>
+        <location filename="../Note/settingsnotedialog.ui" line="193"/>
+        <location filename="../Note/settingsnotedialog.ui" line="196"/>
+        <source>Opacity</source>
+        <translation type="unfinished">Непрозорість</translation>
     </message>
 </context>
 <context>

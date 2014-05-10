@@ -17,19 +17,11 @@
 
 AbstractNote::AbstractNote( QWidget * parent ) :
     QMainWindow( parent ),
-    d( new d_AbstractNote() ),
     head( new AbstractNoteHead() ),
     body( new AbstractNoteBody() )
 {
     setContextMenuPolicy( Qt::DefaultContextMenu );
     setStatusBar( new QStatusBar() );
-
-    d->d_head = head->d;
-    d->d_body = body->d;
-    d->sides = nm_Note::Frame::visible;
-    d->penSides = Shared::Left | Shared::Right | Shared::Top | Shared::Bottom;
-    d->colorSides = nm_Note::Frame::color;
-    d->widthPenSides = nm_Note::Frame::width;
 
     propertyAttachable = new PropertyAttachable( this );
     propertyAttachable->installTo( head );
@@ -51,13 +43,10 @@ AbstractNote::AbstractNote( QWidget * parent ) :
     setMinimumSize( nm_Note::minimalWidth, nm_Note::minimalHeight );
     setWindowFlags( nm_Note::flags | Qt::WindowStaysOnTopHint );
 
-    d->sides = nm_Note::Frame::visible;
-    d->widthPenSides = nm_Note::Frame::width;
-    d->colorSides = nm_Note::Frame::color;
-}
-AbstractNote::~AbstractNote()
-{
-    delete d;
+    sides.visible  = nm_Note::Frame::visible;
+    sides.pen      = Shared::Left | Shared::Right | Shared::Top | Shared::Bottom;
+    sides.color    = nm_Note::Frame::color;
+    sides.widthPen = nm_Note::Frame::width;
 }
 
 void AbstractNote::setWidget( QWidget * w )
@@ -267,32 +256,33 @@ void AbstractNote::hideEvent( QHideEvent * event )
     emit changed( EventsNote::IHidden );
     emit changed( EventsNote::ChangeVisibility );
 }
-void AbstractNote::paintEvent( QPaintEvent * event )
+void AbstractNote::paintEvent( QPaintEvent * )
 {
     QPainter painter( this );
     painter.setRenderHint( QPainter::Antialiasing );
+
     const QColor & color = bodyColor();
     painter.setBrush( color );
     painter.setPen( color );
     painter.drawRect( rect() );
 
-    if ( !d->sides )
+    if ( !sides.visible )
         return;
 
-    int indent = d->widthPenSides;
+    int indent = sides.widthPen;
 
     // Нарисуем обводку
-    painter.setPen( QPen( d->colorSides, indent ) );
+    painter.setPen( QPen( sides.color, indent ) );
 
-    if ( d->penSides.testFlag( Shared::Top ) )
+    if ( sides.pen.testFlag( Shared::Top ) )
         painter.drawLine( QPoint( indent, indent ), QPoint( width() - indent, indent ) );
 
-    if ( d->penSides.testFlag( Shared::Left ) )
+    if ( sides.pen.testFlag( Shared::Left ) )
         painter.drawLine( QPoint( indent, indent ), QPoint( indent, height() - indent ) );
 
-    if ( d->penSides.testFlag( Shared::Right ) )
+    if ( sides.pen.testFlag( Shared::Right ) )
         painter.drawLine( QPoint( width() - indent, indent ), QPoint( width() - indent, height() - indent ) );
 
-    if ( d->penSides.testFlag( Shared::Bottom ) )
+    if ( sides.pen.testFlag( Shared::Bottom ) )
         painter.drawLine( QPoint( indent, height() - indent ), QPoint( width() - indent, height() - indent ) );
 }

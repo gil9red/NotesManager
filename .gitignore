@@ -20,3 +20,5 @@ Makefile*
 
 # QtCreator
 *.autosave
+
+Thumbs.db
