@@ -61,9 +61,15 @@ QWidget * AbstractNoteBody::widget()
 }
 
 void AbstractNoteBody::addWidgetToToolBar( QWidget * widget )
-{
+{   
     tBar->addWidget( widget );
 }
+
+void AbstractNoteBody::addActionToToolBar( QAction * action )
+{
+    tBar->addAction( action );
+}
+
 void AbstractNoteBody::addSeparator()
 {
     tBar->addSeparator();

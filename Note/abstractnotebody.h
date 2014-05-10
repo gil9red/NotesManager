@@ -65,6 +65,8 @@ public:
      */
     void addWidgetToToolBar( QWidget * widget );
 
+    void addActionToToolBar( QAction * action );
+
     //! Добавление разделителя на панель инструментов.
     /*! \sa addWidgetToToolBar() */
     void addSeparator();

@@ -54,7 +54,6 @@ public:
 
 private:
     void init();         //!< Инициализация заметки.
-    void setupActions(); //!< Установка действий.
     void setupGUI();     //!< Установка графического интерфейса.
 
 public slots:
@@ -156,32 +155,22 @@ private slots:
     void doubleClickingOnTitle();
 
 public:
-    QToolButton * tButtonSetTopBottom;
-    QToolButton * tButtonSave;
-
     QAction * actionSetTopBottom;
-    QAction * actionSave;
     QAction * actionVisibleToolBar;
 
     QDockWidget * dockWidgetFormattingToolbar;
-    QToolButton * tButtonVisibleFormattingToolbar;
-    QAction * actionVisibleFormattingToolbar;
 
     QDockWidget * dockWidgetFindAndReplace;
     FindAndReplace * findAndReplace;
-    QToolButton * tButtonVisibleFindAndReplace;
-    QAction * actionVisibleFindAndReplace;
 
     QuickFind * quickFind;
     QAction * actionVisibleQuickFind;
 
     QDockWidget * dockWidgetAttachPanel;
     AttachPanel * attachPanel;
-    QStandardItemModel attachModel;
-    QToolButton * tButtonVisibleAttachPanel;
-    QAction * actionVisibleAttachPanel;
+    QStandardItemModel attachModel;    
 
-    static QVariantMap defaultMapSettings; //!< Карта с дэфолтными настройками для заметок.
+    static QVariantMap defaultMapSettings; //!< Массив с дэфолтными настройками для заметок.
 
 private:
     QTimer timerAutosave; //!< Таймер автосохранений
