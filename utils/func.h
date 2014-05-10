@@ -186,6 +186,8 @@ void copyPath( const QString & oldPath, const QString & newPath );
 bool copyPath2( const QString & oldPath, const QString & newPath );
 bool copyPathE( const QString & oldPath, const QString & newPath, bool interruptCopyingWhenError = false, bool logError = true );
 
+QString getPluginsPath();
+QString getDocumentationPath();
 QString getSettingsPath();
 QString getTrPath();
 QString getFontsPath();

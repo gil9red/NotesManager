@@ -35,8 +35,6 @@ Page_About::Page_About( QWidget * parent )
         file.close();
         in.flush();
     }
-
-//    ui->labelIconProgram->installEventFilter( this );
 }
 
 Page_About::~Page_About()
@@ -52,18 +50,3 @@ int Page_About::currentTab()
 {
     return ui->tabWidget->currentIndex();
 }
-
-//bool Page_About::eventFilter( QObject * object, QEvent * event )
-//{
-//    if ( object == ui->labelIconProgram )
-//    {
-//        if ( event->type() == QEvent::MouseButtonDblClick )
-//        {
-//            qDebug() << "dfdf";
-//        }
-
-//        return false;
-//    }
-
-//    return QMainWindow::eventFilter( object, event );
-//}

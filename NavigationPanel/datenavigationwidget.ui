@@ -54,7 +54,7 @@
          <string>Expand All</string>
         </property>
         <property name="icon">
-         <iconset resource="../NavigationPanel.qrc">
+         <iconset resource="NavigationPanel.qrc">
           <normaloff>:/expand all</normaloff>:/expand all</iconset>
         </property>
         <property name="autoRaise">
@@ -77,7 +77,7 @@
          <string>Collapse All</string>
         </property>
         <property name="icon">
-         <iconset resource="../NavigationPanel.qrc">
+         <iconset resource="NavigationPanel.qrc">
           <normaloff>:/collapse all</normaloff>:/collapse all</iconset>
         </property>
         <property name="autoRaise">
@@ -145,7 +145,7 @@
   </widget>
  </widget>
  <resources>
-  <include location="../NavigationPanel.qrc"/>
+  <include location="NavigationPanel.qrc"/>
  </resources>
  <connections/>
 </ui>

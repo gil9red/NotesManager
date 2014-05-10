@@ -10,6 +10,7 @@
 #include "foldermodelitem.h"
 #include <QStack>
 #include <QColorDialog>
+#include <QListView>
 
 FolderNavigationWidget::FolderNavigationWidget( QWidget * parent )
     : QMainWindow( parent ),
@@ -192,12 +193,15 @@ void FolderNavigationWidget::deleteItems(QModelIndexList& indexesList, bool perm
         return;
     }
 
-    foreach (QModelIndex index, indexesList)
-        details.append("\n").append(index.model()->data(index, Qt::DisplayRole).toString());
-
     const QString & title = permanently ? tr( "Confirm deletion" ) : tr( "Confirm moving" );
     const QString & message = permanently ? tr( "Delete these items?" ) : tr( "Put these items to Bin?" );
-    bool hasCancel = QMessageBox::question( this, title, message + details, QMessageBox::Yes | QMessageBox::No ) != QMessageBox::Yes;
+    foreach ( const QModelIndex & index, indexesList )
+        details.append( index.model()->data( index, Qt::DisplayRole ).toString() + "\n" );
+
+    QMessageBox * messageBox = new QMessageBox( QMessageBox::Question, title, message, QMessageBox::Yes | QMessageBox::No, this );
+    messageBox->setDetailedText( details );
+    messageBox->resize( messageBox->minimumSizeHint() );
+    bool hasCancel = messageBox->exec() != QMessageBox::Yes;
     if ( hasCancel )
         return;
 
@@ -687,6 +691,12 @@ void FolderNavigationWidget::sl_CustomBackColor_Triggered()
 }
 void FolderNavigationWidget::sl_ClearTrashAction_Triggered()
 {
+    const QString & title = tr( "Confirm deletion" );
+    const QString & message = tr( "Delete all items?" );
+    bool hasCancel = QMessageBox::question( this, title, message, QMessageBox::Yes | QMessageBox::No ) != QMessageBox::Yes;
+    if ( hasCancel )
+        return;
+
     Folder * f = Notebook::instance()->getTrashFolder();
     while (f->child.Count() > 0)
     {

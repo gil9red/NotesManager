@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Notes Manager: Структура SelectionRange</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Notes Manager
+   &#160;<span id="projectnumber">0.0.2</span>
+   </div>
+   <div id="projectbrief">Программа создает заметки</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&#160;имен</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Классы</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Классы</span></a></li>
+      <li><a href="classes.html"><span>Алфавитный&#160;указатель&#160;классов</span></a></li>
+      <li><a href="hierarchy.html"><span>Иерархия&#160;классов</span></a></li>
+      <li><a href="functions.html"><span>Члены&#160;классов</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('struct_selection_range.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Указатель</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Классы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Пространства имен</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Файлы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Функции</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Переменные</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Определения типов</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Перечисления</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Элементы перечислений</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Друзья</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-attribs">Открытые атрибуты</a> &#124;
+<a href="struct_selection_range-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Структура SelectionRange</div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:ab6d66cece689d9933292abaa2ff2f695"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab6d66cece689d9933292abaa2ff2f695"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>SelectionRange</b> (<a class="el" href="class_selection_position.html">SelectionPosition</a> single)</td></tr>
+<tr class="separator:ab6d66cece689d9933292abaa2ff2f695"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab94dc8d6cc370584fed4c3d7c07b7a4f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab94dc8d6cc370584fed4c3d7c07b7a4f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>SelectionRange</b> (int single)</td></tr>
+<tr class="separator:ab94dc8d6cc370584fed4c3d7c07b7a4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4058c9fe8310febf1c73b813c249c10"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab4058c9fe8310febf1c73b813c249c10"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>SelectionRange</b> (<a class="el" href="class_selection_position.html">SelectionPosition</a> caret_, <a class="el" href="class_selection_position.html">SelectionPosition</a> anchor_)</td></tr>
+<tr class="separator:ab4058c9fe8310febf1c73b813c249c10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c08965f31ee2c1de78b36dfecf08872"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6c08965f31ee2c1de78b36dfecf08872"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>SelectionRange</b> (int caret_, int anchor_)</td></tr>
+<tr class="separator:a6c08965f31ee2c1de78b36dfecf08872"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfe5992a0f4cf1de64fbcb97c9091ff0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abfe5992a0f4cf1de64fbcb97c9091ff0"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>Empty</b> () const </td></tr>
+<tr class="separator:abfe5992a0f4cf1de64fbcb97c9091ff0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53832566cd199cec8177488a3142ab47"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a53832566cd199cec8177488a3142ab47"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>Length</b> () const </td></tr>
+<tr class="separator:a53832566cd199cec8177488a3142ab47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6aabba23f080ed83ca4c98ee85c97a8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab6aabba23f080ed83ca4c98ee85c97a8"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="struct_selection_range.html">SelectionRange</a> &amp;other) const </td></tr>
+<tr class="separator:ab6aabba23f080ed83ca4c98ee85c97a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab04e617cead19716eedd00c61f1ecee3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab04e617cead19716eedd00c61f1ecee3"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="struct_selection_range.html">SelectionRange</a> &amp;other) const </td></tr>
+<tr class="separator:ab04e617cead19716eedd00c61f1ecee3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44a24dded3ef81660e8981d9c870e115"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a44a24dded3ef81660e8981d9c870e115"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Reset</b> ()</td></tr>
+<tr class="separator:a44a24dded3ef81660e8981d9c870e115"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a077f04c72df8df26b2700d00f2bdf76d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a077f04c72df8df26b2700d00f2bdf76d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ClearVirtualSpace</b> ()</td></tr>
+<tr class="separator:a077f04c72df8df26b2700d00f2bdf76d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61b861349f6ace8033750df28aab905e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a61b861349f6ace8033750df28aab905e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>Contains</b> (int pos) const </td></tr>
+<tr class="separator:a61b861349f6ace8033750df28aab905e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4570947db65f0705af05e6991e5bff4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae4570947db65f0705af05e6991e5bff4"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>Contains</b> (<a class="el" href="class_selection_position.html">SelectionPosition</a> sp) const </td></tr>
+<tr class="separator:ae4570947db65f0705af05e6991e5bff4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d221a9c4f8a74f4c4fcddf722bb6320"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5d221a9c4f8a74f4c4fcddf722bb6320"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>ContainsCharacter</b> (int posCharacter) const </td></tr>
+<tr class="separator:a5d221a9c4f8a74f4c4fcddf722bb6320"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c8e2248f2079b1f94428f1fb04dad7e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6c8e2248f2079b1f94428f1fb04dad7e"></a>
+<a class="el" href="struct_selection_segment.html">SelectionSegment</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Intersect</b> (<a class="el" href="struct_selection_segment.html">SelectionSegment</a> check) const </td></tr>
+<tr class="separator:a6c8e2248f2079b1f94428f1fb04dad7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae549d8eb475e956c6754d7a435279089"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae549d8eb475e956c6754d7a435279089"></a>
+<a class="el" href="class_selection_position.html">SelectionPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Start</b> () const </td></tr>
+<tr class="separator:ae549d8eb475e956c6754d7a435279089"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3623fca793e6c8a186718b5e6b5957b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af3623fca793e6c8a186718b5e6b5957b"></a>
+<a class="el" href="class_selection_position.html">SelectionPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><b>End</b> () const </td></tr>
+<tr class="separator:af3623fca793e6c8a186718b5e6b5957b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ccdee57f71a6fe149883f3c899604f8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8ccdee57f71a6fe149883f3c899604f8"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>Trim</b> (<a class="el" href="struct_selection_range.html">SelectionRange</a> range)</td></tr>
+<tr class="separator:a8ccdee57f71a6fe149883f3c899604f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a334d22b9dc2742231a491f60e5622a79"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a334d22b9dc2742231a491f60e5622a79"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>MinimizeVirtualSpace</b> ()</td></tr>
+<tr class="separator:a334d22b9dc2742231a491f60e5622a79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Открытые атрибуты</h2></td></tr>
+<tr class="memitem:a8691f145a626921d2932aeb165b74629"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8691f145a626921d2932aeb165b74629"></a>
+<a class="el" href="class_selection_position.html">SelectionPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><b>caret</b></td></tr>
+<tr class="separator:a8691f145a626921d2932aeb165b74629"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2da8971fa643ab1683bd98725b741241"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2da8971fa643ab1683bd98725b741241"></a>
+<a class="el" href="class_selection_position.html">SelectionPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><b>anchor</b></td></tr>
+<tr class="separator:a2da8971fa643ab1683bd98725b741241"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/>Объявления и описания членов структур находятся в файлах:<ul>
+<li>NotesManager/QScintilla-gpl-2.8.1/src/<a class="el" href="_selection_8h_source.html">Selection.h</a></li>
+<li>NotesManager/QScintilla-gpl-2.8.1/src/Selection.cpp</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="struct_selection_range.html">SelectionRange</a></li>
+    <li class="footer">Документация по Notes Manager. Последние изменения: Сб 10 Май 2014 22:51:16. Создано системой
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
+</body>
+</html>

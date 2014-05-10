@@ -1,0 +1,409 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Notes Manager: Исходный файл NotesManager/QScintilla-gpl-2.8.1/Qt4Qt5/Qsci/qscicommand.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Notes Manager
+   &#160;<span id="projectnumber">0.0.2</span>
+   </div>
+   <div id="projectbrief">Программа создает заметки</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&#160;имен</span></a></li>
+      <li><a href="annotated.html"><span>Классы</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&#160;членов&#160;всех&#160;файлов</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('qscicommand_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Указатель</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Классы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Пространства имен</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Файлы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Функции</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Переменные</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Определения типов</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Перечисления</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Элементы перечислений</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Друзья</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">qscicommand.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// This defines the interface to the QsciCommand class.</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright (c) 2014 Riverbank Computing Limited &lt;info@riverbankcomputing.com&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// </span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// This file is part of QScintilla.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">// </span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">// This file may be used under the terms of the GNU General Public</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">// License versions 2.0 or 3.0 as published by the Free Software</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">// Foundation and appearing in the files LICENSE.GPL2 and LICENSE.GPL3</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">// included in the packaging of this file.  Alternatively you may (at</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">// your option) use any later version of the GNU General Public</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">// License if such license has been publicly approved by Riverbank</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">// Computing Limited (or its successors, if any) and the KDE Free Qt</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">// Foundation. In addition, as a special exception, Riverbank gives you</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">// certain additional rights. These rights are described in the Riverbank</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">// GPL Exception version 1.1, which can be found in the file</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">// GPL_EXCEPTION.txt in this package.</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">// </span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">// If you are unsure which license is appropriate for your use, please</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">// contact the sales department at sales@riverbankcomputing.com.</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">// </span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">// This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">// WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#ifndef QSCICOMMAND_H</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define QSCICOMMAND_H</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#ifdef __APPLE__</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor"></span><span class="keyword">extern</span> <span class="stringliteral">&quot;C++&quot;</span> {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &lt;qstring.h&gt;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &lt;Qsci/qsciglobal.h&gt;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &lt;Qsci/qsciscintillabase.h&gt;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">class </span><a class="code" href="class_qsci_scintilla.html">QsciScintilla</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="class_qsci_command.html">   48</a></span>&#160;<span class="keyword">class </span>QSCINTILLA_EXPORT <a class="code" href="class_qsci_command.html">QsciCommand</a></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7">   52</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7">Command</a> {</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7aff3d71de76b3948d3576bf6f6164d435">   54</a></span>&#160;        LineDown = QsciScintillaBase::SCI_LINEDOWN,</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a12027f7b5ad1f98b9d7f5b20a1b19856">   57</a></span>&#160;        LineDownExtend = QsciScintillaBase::SCI_LINEDOWNEXTEND,</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a4e166fc8f33e759313cf124be9dc960e">   60</a></span>&#160;        LineDownRectExtend = QsciScintillaBase::SCI_LINEDOWNRECTEXTEND,</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7ac48505ac24f80eabcb61b93e6eb20f0d">   63</a></span>&#160;        LineScrollDown = QsciScintillaBase::SCI_LINESCROLLDOWN,</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a6108080747db44fba6676a90721edf3b">   66</a></span>&#160;        LineUp = QsciScintillaBase::SCI_LINEUP,</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a620ae67b9bdb35d46d0fadd66d578725">   69</a></span>&#160;        LineUpExtend = QsciScintillaBase::SCI_LINEUPEXTEND,</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a25673ac6266e5d5400328cb32c50064c">   72</a></span>&#160;        LineUpRectExtend = QsciScintillaBase::SCI_LINEUPRECTEXTEND,</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7abd1999204d26dee95623a1a4926d1694">   75</a></span>&#160;        LineScrollUp = QsciScintillaBase::SCI_LINESCROLLUP,</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7ad32c75499899527ccb721d6221e0b1f1">   78</a></span>&#160;        ScrollToStart = QsciScintillaBase::SCI_SCROLLTOSTART,</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a16b9e2cd58ea3f6d094bf870e1e9e083">   81</a></span>&#160;        ScrollToEnd = QsciScintillaBase::SCI_SCROLLTOEND,</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a593083e106606bf5fb3d2322068c455f">   84</a></span>&#160;        VerticalCentreCaret = QsciScintillaBase::SCI_VERTICALCENTRECARET,</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a0b695afb34e16591b039b9a318729838">   87</a></span>&#160;        ParaDown = QsciScintillaBase::SCI_PARADOWN,</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a343a73f6732c17f02d9e8158c935abde">   90</a></span>&#160;        ParaDownExtend = QsciScintillaBase::SCI_PARADOWNEXTEND,</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a2bd7f7cdb9537b4b7b9bdf58aeae3733">   93</a></span>&#160;        ParaUp = QsciScintillaBase::SCI_PARAUP,</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7ac121331a789c14d2d8ee4065877c2127">   96</a></span>&#160;        ParaUpExtend = QsciScintillaBase::SCI_PARAUPEXTEND,</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a88dc0fc0d4642486fb54dce5045a5b8b">   99</a></span>&#160;        CharLeft = QsciScintillaBase::SCI_CHARLEFT,</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7af23e0b934931581f6b383a4b3de10b48">  102</a></span>&#160;        CharLeftExtend = QsciScintillaBase::SCI_CHARLEFTEXTEND,</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7aa62e9ab460a49ff8b9c3c55219f98abb">  105</a></span>&#160;        CharLeftRectExtend = QsciScintillaBase::SCI_CHARLEFTRECTEXTEND,</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a3ce1411c8761d1562fa8e8b5d7609df7">  108</a></span>&#160;        CharRight = QsciScintillaBase::SCI_CHARRIGHT,</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7aae6afb296e30c48ae1c4992817d673bf">  111</a></span>&#160;        CharRightExtend = QsciScintillaBase::SCI_CHARRIGHTEXTEND,</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7aedd92e9ae8401fb13ab6d01667949938">  114</a></span>&#160;        CharRightRectExtend = QsciScintillaBase::SCI_CHARRIGHTRECTEXTEND,</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7aec027d50c71ee8604872c5cc839250cd">  117</a></span>&#160;        WordLeft = QsciScintillaBase::SCI_WORDLEFT,</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a5b4b9629de523b97fcbad43c21dc37bb">  120</a></span>&#160;        WordLeftExtend = QsciScintillaBase::SCI_WORDLEFTEXTEND,</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a8e61252df5bfefd5081d9cb4170844d3">  123</a></span>&#160;        WordRight = QsciScintillaBase::SCI_WORDRIGHT,</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7ac69665982f4477d00509573ceea8a8f3">  126</a></span>&#160;        WordRightExtend = QsciScintillaBase::SCI_WORDRIGHTEXTEND,</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7ac3e19af04d3083f26408dcb6ad3c73b7">  129</a></span>&#160;        WordLeftEnd = QsciScintillaBase::SCI_WORDLEFTEND,</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7ab2f7d005b37a7b61964e456b26d4a3f6">  132</a></span>&#160;        WordLeftEndExtend = QsciScintillaBase::SCI_WORDLEFTENDEXTEND,</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a1099ee8200e0d0799a2721ff9828fe48">  135</a></span>&#160;        WordRightEnd = QsciScintillaBase::SCI_WORDRIGHTEND,</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a455d6eda859feb8aed088f22587d5aa3">  138</a></span>&#160;        WordRightEndExtend = QsciScintillaBase::SCI_WORDRIGHTENDEXTEND,</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
+<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7ac1b4586de16ecd614e34d98c7ca360ec">  141</a></span>&#160;        WordPartLeft = QsciScintillaBase::SCI_WORDPARTLEFT,</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;</div>
+<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a0e5436d5c8bd4e42f0e542cbb852645d">  144</a></span>&#160;        WordPartLeftExtend = QsciScintillaBase::SCI_WORDPARTLEFTEXTEND,</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a78c1a79cb762dc96072ef5bc1d90b20b">  147</a></span>&#160;        WordPartRight = QsciScintillaBase::SCI_WORDPARTRIGHT,</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;</div>
+<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a1ad48872dc33ca01b0502594c6dd6df1">  150</a></span>&#160;        WordPartRightExtend = QsciScintillaBase::SCI_WORDPARTRIGHTEXTEND,</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
+<div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a607f851f9833e13dbf335009ebd2ca37">  153</a></span>&#160;        Home = QsciScintillaBase::SCI_HOME,</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
+<div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7acbb515f305f0dc715372708d91be80aa">  156</a></span>&#160;        HomeExtend = QsciScintillaBase::SCI_HOMEEXTEND,</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
+<div class="line"><a name="l00159"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a3cf62acaae368a7a1e88a6300fbf1de4">  159</a></span>&#160;        HomeRectExtend = QsciScintillaBase::SCI_HOMERECTEXTEND,</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
+<div class="line"><a name="l00162"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a71d0019b185b1d65e9d3574651a1b55f">  162</a></span>&#160;        HomeDisplay = QsciScintillaBase::SCI_HOMEDISPLAY,</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;</div>
+<div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a82851feb57f239b98cfa52fb2307fe66">  165</a></span>&#160;        HomeDisplayExtend = QsciScintillaBase::SCI_HOMEDISPLAYEXTEND,</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
+<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7ab67874e23a95cc208bcbb0de0cf16d90">  168</a></span>&#160;        HomeWrap = QsciScintillaBase::SCI_HOMEWRAP,</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
+<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7aa5afb3470010c1075e61cd4216a1714c">  172</a></span>&#160;        HomeWrapExtend = QsciScintillaBase::SCI_HOMEWRAPEXTEND,</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7ac443339cd46d0646cd97870506e91110">  175</a></span>&#160;        VCHome = QsciScintillaBase::SCI_VCHOME,</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
+<div class="line"><a name="l00179"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a1e0ff1255da4ea0a77750d55a9aaaef4">  179</a></span>&#160;        VCHomeExtend = QsciScintillaBase::SCI_VCHOMEEXTEND,</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;</div>
+<div class="line"><a name="l00183"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7adbf224a91e83518a244bb5a726c69bed">  183</a></span>&#160;        VCHomeRectExtend = QsciScintillaBase::SCI_VCHOMERECTEXTEND,</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;</div>
+<div class="line"><a name="l00187"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7affdd507c7e4221726f980f95910ed5a5">  187</a></span>&#160;        VCHomeWrap = QsciScintillaBase::SCI_VCHOMEWRAP,</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div>
+<div class="line"><a name="l00191"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7af1db27f7f04534cc2071e71c422e4a45">  191</a></span>&#160;        VCHomeWrapExtend = QsciScintillaBase::SCI_VCHOMEWRAPEXTEND,</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
+<div class="line"><a name="l00194"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a175bcd4e973a6ae4553827db95d987f6">  194</a></span>&#160;        LineEnd = QsciScintillaBase::SCI_LINEEND,</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
+<div class="line"><a name="l00197"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a4f42905e1e54f6eb4e91eb832c07e387">  197</a></span>&#160;        LineEndExtend = QsciScintillaBase::SCI_LINEENDEXTEND,</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;</div>
+<div class="line"><a name="l00200"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a6d942d99ab734f6b5c1160cbe18a6197">  200</a></span>&#160;        LineEndRectExtend = QsciScintillaBase::SCI_LINEENDRECTEXTEND,</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;</div>
+<div class="line"><a name="l00203"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a77dc6d96d21c32e61b8e3809759eec37">  203</a></span>&#160;        LineEndDisplay = QsciScintillaBase::SCI_LINEENDDISPLAY,</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
+<div class="line"><a name="l00206"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7acfe625def4c875c4f3ed4011c1d30f30">  206</a></span>&#160;        LineEndDisplayExtend = QsciScintillaBase::SCI_LINEENDDISPLAYEXTEND,</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;</div>
+<div class="line"><a name="l00209"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a2bcecd03bc30e56d92035364f1c4d3aa">  209</a></span>&#160;        LineEndWrap = QsciScintillaBase::SCI_LINEENDWRAP,</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
+<div class="line"><a name="l00212"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a8528ef0f7030d4eaa9cc93c1fb0f00d2">  212</a></span>&#160;        LineEndWrapExtend = QsciScintillaBase::SCI_LINEENDWRAPEXTEND,</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;</div>
+<div class="line"><a name="l00215"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7ae0d2fa78fc42366a578b50cae1c44a8f">  215</a></span>&#160;        DocumentStart = QsciScintillaBase::SCI_DOCUMENTSTART,</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;</div>
+<div class="line"><a name="l00218"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a368bc9e6e89a0f9504a49fc97477618b">  218</a></span>&#160;        DocumentStartExtend = QsciScintillaBase::SCI_DOCUMENTSTARTEXTEND,</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;</div>
+<div class="line"><a name="l00221"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a8e059c91d4d3d5037d0dce9c8fa735a0">  221</a></span>&#160;        DocumentEnd = QsciScintillaBase::SCI_DOCUMENTEND,</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;</div>
+<div class="line"><a name="l00224"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7ac6b77e65e9d026dd2a3af831ddfcc664">  224</a></span>&#160;        DocumentEndExtend = QsciScintillaBase::SCI_DOCUMENTENDEXTEND,</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;</div>
+<div class="line"><a name="l00227"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a69b8ec474437f655c93b019729093b82">  227</a></span>&#160;        PageUp = QsciScintillaBase::SCI_PAGEUP,</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;</div>
+<div class="line"><a name="l00230"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7ac9c27eb69dde18a38bc1cbc84c9ee430">  230</a></span>&#160;        PageUpExtend = QsciScintillaBase::SCI_PAGEUPEXTEND,</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;</div>
+<div class="line"><a name="l00233"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a31667dadedf4289250d3e1b5a1e9bf36">  233</a></span>&#160;        PageUpRectExtend = QsciScintillaBase::SCI_PAGEUPRECTEXTEND,</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;</div>
+<div class="line"><a name="l00236"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7acbd164907353acc3e218943d86d03b23">  236</a></span>&#160;        PageDown = QsciScintillaBase::SCI_PAGEDOWN,</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;</div>
+<div class="line"><a name="l00239"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7ac6febe41f0669f54f4c14f2c32329569">  239</a></span>&#160;        PageDownExtend = QsciScintillaBase::SCI_PAGEDOWNEXTEND,</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;</div>
+<div class="line"><a name="l00242"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a70472783731018e17e0943ee14e4ca6d">  242</a></span>&#160;        PageDownRectExtend = QsciScintillaBase::SCI_PAGEDOWNRECTEXTEND,</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;</div>
+<div class="line"><a name="l00245"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a9be0a9fe5bfc0864f0f40987a4806a62">  245</a></span>&#160;        StutteredPageUp = QsciScintillaBase::SCI_STUTTEREDPAGEUP,</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;</div>
+<div class="line"><a name="l00248"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a26d878df5382e38843e754078aa8f44f">  248</a></span>&#160;        StutteredPageUpExtend = QsciScintillaBase::SCI_STUTTEREDPAGEUPEXTEND,</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;</div>
+<div class="line"><a name="l00251"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7ab05b31fae6958a99166222cc3efd076a">  251</a></span>&#160;        StutteredPageDown = QsciScintillaBase::SCI_STUTTEREDPAGEDOWN,</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;</div>
+<div class="line"><a name="l00254"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7ad07964451843f3c910b7228dfb589857">  254</a></span>&#160;        StutteredPageDownExtend = QsciScintillaBase::SCI_STUTTEREDPAGEDOWNEXTEND,</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;</div>
+<div class="line"><a name="l00257"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7ad763b356ba37cf93b78201baea5aa00d">  257</a></span>&#160;        Delete = QsciScintillaBase::SCI_CLEAR,</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;</div>
+<div class="line"><a name="l00260"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a82626bce8a0acdd6c4c196865629e81b">  260</a></span>&#160;        DeleteBack = QsciScintillaBase::SCI_DELETEBACK,</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;</div>
+<div class="line"><a name="l00263"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7adadf0fa77a7ce5496fce517bc9e0a723">  263</a></span>&#160;        DeleteBackNotLine = QsciScintillaBase::SCI_DELETEBACKNOTLINE,</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;</div>
+<div class="line"><a name="l00266"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a66566eb3ac1ad83cc6ef2913d449d193">  266</a></span>&#160;        DeleteWordLeft = QsciScintillaBase::SCI_DELWORDLEFT,</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;</div>
+<div class="line"><a name="l00269"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a0a5ea33d56c6c45fe80f5b1f66975ffa">  269</a></span>&#160;        DeleteWordRight = QsciScintillaBase::SCI_DELWORDRIGHT,</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;</div>
+<div class="line"><a name="l00272"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7ae1a8da5398be3fb7c5e32f868bf4af14">  272</a></span>&#160;        DeleteWordRightEnd = QsciScintillaBase::SCI_DELWORDRIGHTEND,</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;</div>
+<div class="line"><a name="l00275"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a0b9644d959806dd50a8dce00bf521e13">  275</a></span>&#160;        DeleteLineLeft = QsciScintillaBase::SCI_DELLINELEFT,</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;</div>
+<div class="line"><a name="l00278"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a21407e4871585bcfb0d76dbf7be87650">  278</a></span>&#160;        DeleteLineRight = QsciScintillaBase::SCI_DELLINERIGHT,</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;</div>
+<div class="line"><a name="l00281"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a291afea2c733abf34e20b0c25814dc5c">  281</a></span>&#160;        LineDelete = QsciScintillaBase::SCI_LINEDELETE,</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;</div>
+<div class="line"><a name="l00284"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a91f9ce105ac6ead565f6f8e00ec0e9a6">  284</a></span>&#160;        LineCut = QsciScintillaBase::SCI_LINECUT,</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;</div>
+<div class="line"><a name="l00287"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7aa762bf03d4d23f764de57c146c9a658d">  287</a></span>&#160;        LineCopy = QsciScintillaBase::SCI_LINECOPY,</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;</div>
+<div class="line"><a name="l00290"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7ad6895dbe64da12bd7749e9c7bf4d8e75">  290</a></span>&#160;        LineTranspose = QsciScintillaBase::SCI_LINETRANSPOSE,</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;</div>
+<div class="line"><a name="l00293"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a8cc01e22c3d5cc697f87b00dcedb33f5">  293</a></span>&#160;        LineDuplicate = QsciScintillaBase::SCI_LINEDUPLICATE,</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;</div>
+<div class="line"><a name="l00296"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a8ddbd8f97e85bbef9e728a1293a94983">  296</a></span>&#160;        SelectAll = QsciScintillaBase::SCI_SELECTALL,</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;</div>
+<div class="line"><a name="l00299"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7af5335bf501eb458872740c610db3617b">  299</a></span>&#160;        MoveSelectedLinesUp = QsciScintillaBase::SCI_MOVESELECTEDLINESUP,</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;</div>
+<div class="line"><a name="l00302"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7aae256fc63ff21305b2a1d93d7f05bee5">  302</a></span>&#160;        MoveSelectedLinesDown = QsciScintillaBase::SCI_MOVESELECTEDLINESDOWN,</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;</div>
+<div class="line"><a name="l00305"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7ad10ac67847b362c169d7e3b0b3463290">  305</a></span>&#160;        SelectionDuplicate = QsciScintillaBase::SCI_SELECTIONDUPLICATE,</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;</div>
+<div class="line"><a name="l00308"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7aff49104707e447f73d08afd744b1f68d">  308</a></span>&#160;        SelectionLowerCase = QsciScintillaBase::SCI_LOWERCASE,</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;</div>
+<div class="line"><a name="l00311"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a5df7c07cf8cf1eee546837ece594dcaa">  311</a></span>&#160;        SelectionUpperCase = QsciScintillaBase::SCI_UPPERCASE,</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;</div>
+<div class="line"><a name="l00314"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a11cd9c83a7a1b74dc2a936e324ecf99e">  314</a></span>&#160;        SelectionCut = QsciScintillaBase::SCI_CUT,</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;</div>
+<div class="line"><a name="l00317"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a200b4ecea5a65b8690e8393b8ad3d512">  317</a></span>&#160;        SelectionCopy = QsciScintillaBase::SCI_COPY,</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;</div>
+<div class="line"><a name="l00320"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7ac0877b23ce38bba85fc30eecb347a662">  320</a></span>&#160;        Paste = QsciScintillaBase::SCI_PASTE,</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;</div>
+<div class="line"><a name="l00323"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7ab6c8c98a6027e8a88783f18dbca2bdf4">  323</a></span>&#160;        EditToggleOvertype = QsciScintillaBase::SCI_EDITTOGGLEOVERTYPE,</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;</div>
+<div class="line"><a name="l00326"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7ae71d9db2e7cf1f6ca4b731675e1d63a1">  326</a></span>&#160;        Newline = QsciScintillaBase::SCI_NEWLINE,</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;</div>
+<div class="line"><a name="l00329"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a3b46d96af1feddb3560236b9e75c39c2">  329</a></span>&#160;        Formfeed = QsciScintillaBase::SCI_FORMFEED,</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;</div>
+<div class="line"><a name="l00332"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7ab89051fd7c64cea84abec8d21809d2ee">  332</a></span>&#160;        Tab = QsciScintillaBase::SCI_TAB,</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;</div>
+<div class="line"><a name="l00335"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7aeae07e48b489c0cc937bf83bef4f0c9c">  335</a></span>&#160;        Backtab = QsciScintillaBase::SCI_BACKTAB,</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;</div>
+<div class="line"><a name="l00338"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a3905c749d29761ae2a594c14e1fb26c9">  338</a></span>&#160;        Cancel = QsciScintillaBase::SCI_CANCEL,</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;</div>
+<div class="line"><a name="l00341"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a0089e5295b999464b699fb736a449b4f">  341</a></span>&#160;        Undo = QsciScintillaBase::SCI_UNDO,</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;</div>
+<div class="line"><a name="l00344"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7ad12c4dd6bcaefc08fcff8fe3d80b3b66">  344</a></span>&#160;        Redo = QsciScintillaBase::SCI_REDO,</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;</div>
+<div class="line"><a name="l00347"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7a5e12affbccb0a63c1bd78ca5617b0289">  347</a></span>&#160;        ZoomIn = QsciScintillaBase::SCI_ZOOMIN,</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;</div>
+<div class="line"><a name="l00350"></a><span class="lineno"><a class="line" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7ae5d11d096795f1a1c7b4d56e41c9b1af">  350</a></span>&#160;        ZoomOut = QsciScintillaBase::SCI_ZOOMOUT,</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    };</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;</div>
+<div class="line"><a name="l00354"></a><span class="lineno"><a class="line" href="class_qsci_command.html#a45f8a0dcfcf0724332b01900313ef7da">  354</a></span>&#160;    <a class="code" href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7">Command</a> <a class="code" href="class_qsci_command.html#a45f8a0dcfcf0724332b01900313ef7da">command</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> scicmd;}</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    <span class="keywordtype">void</span> execute();</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    <span class="keywordtype">void</span> setKey(<span class="keywordtype">int</span> key);</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    <span class="keywordtype">void</span> setAlternateKey(<span class="keywordtype">int</span> altkey);</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;</div>
+<div class="line"><a name="l00383"></a><span class="lineno"><a class="line" href="class_qsci_command.html#a6488d872e2ba1b8fbecbf68daf883d81">  383</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_qsci_command.html#a6488d872e2ba1b8fbecbf68daf883d81">key</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> qkey;}</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;</div>
+<div class="line"><a name="l00389"></a><span class="lineno"><a class="line" href="class_qsci_command.html#a64fa59b1030c960221443586da3beb44">  389</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_qsci_command.html#a64fa59b1030c960221443586da3beb44">alternateKey</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> qaltkey;}</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> validKey(<span class="keywordtype">int</span> key);</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    QString description() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_qsci_command_set.html">QsciCommandSet</a>;</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;    <a class="code" href="class_qsci_command.html">QsciCommand</a>(<a class="code" href="class_qsci_scintilla.html">QsciScintilla</a> *qs, Command cmd, <span class="keywordtype">int</span> key, <span class="keywordtype">int</span> altkey,</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">char</span> *desc);</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    <span class="keywordtype">void</span> bindKey(<span class="keywordtype">int</span> key,<span class="keywordtype">int</span> &amp;qk,<span class="keywordtype">int</span> &amp;scik);</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    <a class="code" href="class_qsci_scintilla.html">QsciScintilla</a> *qsCmd;</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    Command scicmd;</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    <span class="keywordtype">int</span> qkey, scikey, qaltkey, scialtkey;</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *descCmd;</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;    <a class="code" href="class_qsci_command.html">QsciCommand</a>(<span class="keyword">const</span> <a class="code" href="class_qsci_command.html">QsciCommand</a> &amp;);</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    <a class="code" href="class_qsci_command.html">QsciCommand</a> &amp;operator=(<span class="keyword">const</span> <a class="code" href="class_qsci_command.html">QsciCommand</a> &amp;);</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;};</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;<span class="preprocessor">#ifdef __APPLE__</span></div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;<span class="preprocessor"></span>}</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="class_qsci_command_set_html"><div class="ttname"><a href="class_qsci_command_set.html">QsciCommandSet</a></div><div class="ttdoc">The QsciCommandSet class represents the set of all internal editor commands that may have keys bound...</div><div class="ttdef"><b>Definition:</b> qscicommandset.h:53</div></div>
+<div class="ttc" id="class_qsci_command_html_aeaecb067c0834ba132e204a09dd942c7"><div class="ttname"><a href="class_qsci_command.html#aeaecb067c0834ba132e204a09dd942c7">QsciCommand::Command</a></div><div class="ttdeci">Command</div><div class="ttdoc">This enum defines the different commands that can be assigned to a key. </div><div class="ttdef"><b>Definition:</b> qscicommand.h:52</div></div>
+<div class="ttc" id="class_qsci_command_html_a64fa59b1030c960221443586da3beb44"><div class="ttname"><a href="class_qsci_command.html#a64fa59b1030c960221443586da3beb44">QsciCommand::alternateKey</a></div><div class="ttdeci">int alternateKey() const </div><div class="ttdef"><b>Definition:</b> qscicommand.h:389</div></div>
+<div class="ttc" id="class_qsci_command_html"><div class="ttname"><a href="class_qsci_command.html">QsciCommand</a></div><div class="ttdoc">The QsciCommand class represents an internal editor command that may have one or two keys bound to it...</div><div class="ttdef"><b>Definition:</b> qscicommand.h:48</div></div>
+<div class="ttc" id="class_qsci_command_html_a6488d872e2ba1b8fbecbf68daf883d81"><div class="ttname"><a href="class_qsci_command.html#a6488d872e2ba1b8fbecbf68daf883d81">QsciCommand::key</a></div><div class="ttdeci">int key() const </div><div class="ttdef"><b>Definition:</b> qscicommand.h:383</div></div>
+<div class="ttc" id="class_qsci_command_html_a45f8a0dcfcf0724332b01900313ef7da"><div class="ttname"><a href="class_qsci_command.html#a45f8a0dcfcf0724332b01900313ef7da">QsciCommand::command</a></div><div class="ttdeci">Command command() const </div><div class="ttdoc">Return the command that will be executed by this instance. </div><div class="ttdef"><b>Definition:</b> qscicommand.h:354</div></div>
+<div class="ttc" id="class_qsci_scintilla_html"><div class="ttname"><a href="class_qsci_scintilla.html">QsciScintilla</a></div><div class="ttdoc">The QsciScintilla class implements a higher level, more Qt-like, API to the Scintilla editor widget...</div><div class="ttdef"><b>Definition:</b> qsciscintilla.h:69</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4521060be2f87b8a21ee082fc5cc2755.html">NotesManager</a></li><li class="navelem"><a class="el" href="dir_554f3b2ab32a883121aee61a4afa5e14.html">QScintilla-gpl-2.8.1</a></li><li class="navelem"><a class="el" href="dir_e08643906d2470f90c0ad99257b61b7c.html">Qt4Qt5</a></li><li class="navelem"><a class="el" href="dir_b02d814adb843e873e4eb68556089e81.html">Qsci</a></li><li class="navelem"><b>qscicommand.h</b></li>
+    <li class="footer">Документация по Notes Manager. Последние изменения: Сб 10 Май 2014 22:51:06. Создано системой
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+var class_qsci_lexer_properties =
+[
+    [ "Default", "class_qsci_lexer_properties.html#a1afc4621a2e983f42eef54ceb6079900a9e761a14600d042a269a5dac6a146e67", null ],
+    [ "Comment", "class_qsci_lexer_properties.html#a1afc4621a2e983f42eef54ceb6079900aec8fd1ed5dfafb06753fcd402406e164", null ],
+    [ "Section", "class_qsci_lexer_properties.html#a1afc4621a2e983f42eef54ceb6079900a9b9be54dcfbb2e38f1243779c71c76f4", null ],
+    [ "Assignment", "class_qsci_lexer_properties.html#a1afc4621a2e983f42eef54ceb6079900a2dce9dbe1d758936b321ee9d77343be6", null ],
+    [ "DefaultValue", "class_qsci_lexer_properties.html#a1afc4621a2e983f42eef54ceb6079900a3ad64721ceda301cf547533fd6736fe7", null ],
+    [ "Key", "class_qsci_lexer_properties.html#a1afc4621a2e983f42eef54ceb6079900af20795f392c5dc1ab5639c7de93181e6", null ],
+    [ "QsciLexerProperties", "class_qsci_lexer_properties.html#a81437ae22cb610108f29d8d367ce6faa", null ],
+    [ "~QsciLexerProperties", "class_qsci_lexer_properties.html#af2c04c7d9b7ae4557e5f1a59931d313a", null ],
+    [ "defaultColor", "class_qsci_lexer_properties.html#ae8917252b3b39106e1d0f2f67e6e1832", null ],
+    [ "defaultEolFill", "class_qsci_lexer_properties.html#aded71567a26bf268f92c9bf0e7610fc2", null ],
+    [ "defaultFont", "class_qsci_lexer_properties.html#a1072a9cca2ec577c39536430dd30e889", null ],
+    [ "defaultPaper", "class_qsci_lexer_properties.html#ad2fad1546c7da01a1fdfab5eb2529533", null ],
+    [ "description", "class_qsci_lexer_properties.html#a7f77f8e2dfe2bccdcfdbcb9086446f4a", null ],
+    [ "foldCompact", "class_qsci_lexer_properties.html#abbe81eb353d24480865e02fb8ebbef99", null ],
+    [ "initialSpaces", "class_qsci_lexer_properties.html#a5c77bc878cd265794762420999e98060", null ],
+    [ "language", "class_qsci_lexer_properties.html#a6405c9cdea9b880f3e44a71c5492a058", null ],
+    [ "lexer", "class_qsci_lexer_properties.html#afc8ec3812dac92c23495adc498be3828", null ],
+    [ "readProperties", "class_qsci_lexer_properties.html#a4119053764ba32a9975ad7eeb8f0f067", null ],
+    [ "refreshProperties", "class_qsci_lexer_properties.html#a638b892c566301f0efe779c58516cbc0", null ],
+    [ "setFoldCompact", "class_qsci_lexer_properties.html#a521e18727b73983a90cf787797a2d1b0", null ],
+    [ "setInitialSpaces", "class_qsci_lexer_properties.html#a2243845007f5165eb5718a131be3ada3", null ],
+    [ "wordCharacters", "class_qsci_lexer_properties.html#a6d014d590175513283a262d611bb2ca9", null ],
+    [ "writeProperties", "class_qsci_lexer_properties.html#a7a9866c776925dbc9bcc166791f50512", null ]
+];

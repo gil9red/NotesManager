@@ -173,13 +173,13 @@ void RichTextNote::setupGUI()
     QAction * actionSetColor                 = Create::Action::triggered( tr( "Set window color" ), QIcon::fromTheme( "", QIcon( ":/Note/color" ) ), QKeySequence(), this, SLOT( selectColor() ) );
     QAction * actionHide                     = Create::Action::triggered( tr( "Hide" ), QIcon::fromTheme( "", QIcon( ":/Note/hide" ) ), QKeySequence(), this, SLOT( hide() ) );
     actionSetTopBottom                       = Create::Action::bTriggered( tr( "On top of all windows" ), QIcon::fromTheme( "", QIcon( ":/Note/tacks" ) ), QKeySequence(), this, SLOT( setTop( bool ) ) );
-    QAction * actionOpen                     = Create::Action::triggered( tr( "Open" ), QIcon::fromTheme( "", QIcon( ":/Note/open" ) ), QKeySequence( QKeySequence::Open ), this, SLOT( open() ) );
-    QAction * actionSaveAs                   = Create::Action::triggered( tr( "Save as" ), QIcon::fromTheme( "", QIcon( ":/Note/save-as" ) ), QKeySequence( QKeySequence::SaveAs ), this, SLOT( saveAs() ) );
+    QAction * actionOpen                     = Create::Action::triggered( tr( "Open" ), QIcon::fromTheme( "", QIcon( ":/Note/open" ) ), QKeySequence(), this, SLOT( open() ) );
+    QAction * actionSaveAs                   = Create::Action::triggered( tr( "Save as" ), QIcon::fromTheme( "", QIcon( ":/Note/save-as" ) ), QKeySequence(), this, SLOT( saveAs() ) );
 #ifndef QT_NO_PRINTER
-    QAction * actionPrint                    = Create::Action::triggered( tr( "Print" ), QIcon::fromTheme( "", QIcon( ":/Note/print" ) ), QKeySequence( QKeySequence::Print ), this, SLOT( print() ) );
+    QAction * actionPrint                    = Create::Action::triggered( tr( "Print" ), QIcon::fromTheme( "", QIcon( ":/Note/print" ) ), QKeySequence(), this, SLOT( print() ) );
     QAction * actionPreviewPrint             = Create::Action::triggered( tr( "Preview print" ), QIcon::fromTheme( "", QIcon( ":/Note/preview-print" ) ), QKeySequence(), this, SLOT( previewPrint() ) );
 #endif
-    QAction * actionSave                     = Create::Action::triggered( tr( "Save" ), QIcon::fromTheme( "", QIcon( ":/Note/save" ) ), QKeySequence( QKeySequence::Save ), this, SLOT( save() ) );
+    QAction * actionSave                     = Create::Action::triggered( tr( "Save" ), QIcon::fromTheme( "", QIcon( ":/Note/save" ) ), QKeySequence(), this, SLOT( save() ) );
     QAction * actionAttach                   = Create::Action::triggered( tr( "Attach" ), QIcon::fromTheme( "", QIcon( ":/Note/attach" ) ), QKeySequence(), this, SLOT( selectAttach() ) );
     QAction * actionSettings                 = Create::Action::triggered( tr( "Settings" ), QIcon::fromTheme( "", QIcon( ":/Manager/settings" ) ), QKeySequence(), this, SLOT(settings()) );
 
@@ -188,12 +188,15 @@ void RichTextNote::setupGUI()
     QObject::connect( this, SIGNAL( changeVisibleToolbar(bool) ), actionVisibleToolBar, SLOT( setChecked(bool) ) );
 
 
-    QActionGroup * group = createGroupActionsOpacity( this );
-    QObject::connect( group, SIGNAL( triggered(QAction*) ), SLOT( changeOpacity(QAction*)) );
-
+    // Прозрачность
     QMenu * menuOpacity = new QMenu( tr( "Opacity" ) );
-    menuOpacity->setIcon( QIcon( ":/Note/opacity" ) );
-    menuOpacity->addActions( group->actions() );
+    {
+        QActionGroup * group = createGroupActionsOpacity( this );
+        QObject::connect( group, SIGNAL( triggered(QAction*) ), SLOT( changeOpacity(QAction*)) );
+
+        menuOpacity->setIcon( QIcon( ":/Note/opacity" ) );
+        menuOpacity->addActions( group->actions() );
+    }
 
 
     addAction( actionVisibleFormattingToolbar );
@@ -229,56 +232,62 @@ void RichTextNote::setupGUI()
 
     Qt::DockWidgetAreas areas = Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea;
 
-    FormattingToolbar * formattingToolbar = new FormattingToolbar();
-    formattingToolbar->installConnect( &editor );
-    formattingToolbar->setNote( this );
+    // Панель форматирования
+    {
+        FormattingToolbar * formattingToolbar = new FormattingToolbar();
+        formattingToolbar->installConnect( &editor );
+        formattingToolbar->setNote( this );
 
-    dockWidgetFormattingToolbar = new QDockWidget();
-    dockWidgetFormattingToolbar->setAllowedAreas( areas );
-    dockWidgetFormattingToolbar->setWidget( formattingToolbar );
-    dockWidgetFormattingToolbar->setWindowTitle( formattingToolbar->windowTitle() );
-    dockWidgetFormattingToolbar->setVisible( false );
+        dockWidgetFormattingToolbar = new QDockWidget();
+        dockWidgetFormattingToolbar->setAllowedAreas( areas );
+        dockWidgetFormattingToolbar->setWidget( formattingToolbar );
+        dockWidgetFormattingToolbar->setWindowTitle( formattingToolbar->windowTitle() );
+        dockWidgetFormattingToolbar->setVisible( false );
 
-    QObject::connect( actionVisibleFormattingToolbar, SIGNAL( triggered(bool) ), dockWidgetFormattingToolbar, SLOT( setVisible(bool) ) );
-    QObject::connect( dockWidgetFormattingToolbar, SIGNAL( visibilityChanged(bool) ), actionVisibleFormattingToolbar, SLOT( setChecked(bool) ) );
+        QObject::connect( actionVisibleFormattingToolbar, SIGNAL( triggered(bool) ), dockWidgetFormattingToolbar, SLOT( setVisible(bool) ) );
+        QObject::connect( dockWidgetFormattingToolbar, SIGNAL( visibilityChanged(bool) ), actionVisibleFormattingToolbar, SLOT( setChecked(bool) ) );
 
-    body->addDockWidget( Qt::RightDockWidgetArea, dockWidgetFormattingToolbar );
+        body->addDockWidget( Qt::RightDockWidgetArea, dockWidgetFormattingToolbar );
 
-    actionVisibleFormattingToolbar->setChecked( dockWidgetFormattingToolbar->isVisible() );
+        actionVisibleFormattingToolbar->setChecked( dockWidgetFormattingToolbar->isVisible() );
+    }
 
+    // Панель прикрепленных файлов
+    {
+        attachPanel = new AttachPanel();
+        attachPanel->setViewTo( this );
 
-    attachPanel = new AttachPanel();
-    attachPanel->setViewTo( this );
+        dockWidgetAttachPanel = new QDockWidget();
+        dockWidgetAttachPanel->setAllowedAreas( areas );
+        dockWidgetAttachPanel->setWidget( attachPanel );
+        dockWidgetAttachPanel->setWindowTitle( attachPanel->windowTitle() );
+        dockWidgetAttachPanel->setVisible( false );
 
-    dockWidgetAttachPanel = new QDockWidget();
-    dockWidgetAttachPanel->setAllowedAreas( areas );
-    dockWidgetAttachPanel->setWidget( attachPanel );
-    dockWidgetAttachPanel->setWindowTitle( attachPanel->windowTitle() );
-    dockWidgetAttachPanel->setVisible( false );
+        QObject::connect( actionVisibleAttachPanel, SIGNAL( triggered(bool) ), dockWidgetAttachPanel, SLOT( setVisible(bool) ) );
+        QObject::connect( dockWidgetAttachPanel, SIGNAL( visibilityChanged(bool) ), actionVisibleAttachPanel, SLOT( setChecked(bool) ) );
 
-    QObject::connect( actionVisibleAttachPanel, SIGNAL( triggered(bool) ), dockWidgetAttachPanel, SLOT( setVisible(bool) ) );
-    QObject::connect( dockWidgetAttachPanel, SIGNAL( visibilityChanged(bool) ), actionVisibleAttachPanel, SLOT( setChecked(bool) ) );
+        body->addDockWidget( Qt::RightDockWidgetArea, dockWidgetAttachPanel );
 
-    body->addDockWidget( Qt::RightDockWidgetArea, dockWidgetAttachPanel );
+        actionVisibleAttachPanel->setChecked( dockWidgetAttachPanel->isVisible() );
+    }
 
-    actionVisibleAttachPanel->setChecked( dockWidgetAttachPanel->isVisible() );
+    // Поиск и замена
+    {
+        findAndReplace = new FindAndReplace( &editor );
 
+        dockWidgetFindAndReplace = new QDockWidget();
+        dockWidgetFindAndReplace->setAllowedAreas( areas );
+        dockWidgetFindAndReplace->setWidget( findAndReplace );
+        dockWidgetFindAndReplace->setWindowTitle( findAndReplace->windowTitle() );
+        dockWidgetFindAndReplace->setVisible( false );
 
-    findAndReplace = new FindAndReplace( &editor );
+        QObject::connect( actionVisibleFindAndReplace, SIGNAL( triggered(bool) ), dockWidgetFindAndReplace, SLOT( setVisible(bool) ) );
+        QObject::connect( dockWidgetFindAndReplace, SIGNAL( visibilityChanged(bool) ), actionVisibleFindAndReplace, SLOT( setChecked(bool) ) );
 
-    dockWidgetFindAndReplace = new QDockWidget();
-    dockWidgetFindAndReplace->setAllowedAreas( areas );
-    dockWidgetFindAndReplace->setWidget( findAndReplace );
-    dockWidgetFindAndReplace->setWindowTitle( findAndReplace->windowTitle() );
-    dockWidgetFindAndReplace->setVisible( false );
+        body->addDockWidget( Qt::RightDockWidgetArea, dockWidgetFindAndReplace );
 
-    QObject::connect( actionVisibleFindAndReplace, SIGNAL( triggered(bool) ), dockWidgetFindAndReplace, SLOT( setVisible(bool) ) );
-    QObject::connect( dockWidgetFindAndReplace, SIGNAL( visibilityChanged(bool) ), actionVisibleFindAndReplace, SLOT( setChecked(bool) ) );
-
-    body->addDockWidget( Qt::RightDockWidgetArea, dockWidgetFindAndReplace );
-
-    actionVisibleFindAndReplace->setChecked( dockWidgetFindAndReplace->isVisible() );
-
+        actionVisibleFindAndReplace->setChecked( dockWidgetFindAndReplace->isVisible() );
+    }
 
     quickFind = new QuickFind( &editor );
     QObject::connect( actionVisibleQuickFind, SIGNAL( triggered(bool) ), quickFind, SLOT( setVisible(bool) ) );

@@ -94,14 +94,12 @@ namespace Create
 
             return action;
         }
-
         QAction * get( const QString & text, const QIcon & icon, QVariant data )
         {
             QAction * action = get( 0, text, text, text, icon, 0 );
             action->setData( data );
             return action;
         }
-
         QAction * get( const QString & text, const QIcon & icon, bool checkable )
         {
             return get( 0, text, text, text, icon, 0, checkable );
@@ -113,22 +111,18 @@ namespace Create
             receiver->connect( action, SIGNAL( triggered() ), member );
             return action;
         }
-
         QAction * triggered( const QString & text, QObject * receiver, const char * member )
         {
             return triggered( text, text, text, QIcon(), 0, receiver, member );
         }
-
         QAction * triggered( const QString & text, const QIcon & icon, QObject * receiver, const char * member )
         {
             return triggered( text, text, text, icon, 0, receiver, member );
         }
-
         QAction * triggered( const QIcon & icon,const QString & text, QObject * receiver, const char * member )
         {
             return triggered( text, text, text, icon, 0, receiver, member );
         }
-
         QAction * triggered( QString text, const QIcon & icon, const QKeySequence & key, QObject * receiver, const char * member )
         {
             return triggered( text, text, text, icon, key, receiver, member );
@@ -140,7 +134,6 @@ namespace Create
             receiver->connect( action, SIGNAL( triggered( bool ) ), member );
             return action;
         }
-
         QAction * bTriggered( QString text, QObject * receiver, const char * member )
         {
             return bTriggered( text, text, text, QIcon(), 0, receiver, member );
@@ -150,7 +143,6 @@ namespace Create
         {
             return bTriggered( text, text, text, icon, 0, receiver, member );
         }
-
         QAction * bTriggered( QString text, const QIcon & icon, const QKeySequence & key, QObject * receiver, const char * member )
         {
             return bTriggered( text, text, text, icon, key, receiver, member );
@@ -220,21 +212,29 @@ bool copyPathE( const QString & oldPath, const QString & newPath, bool interrupt
 }
 
 
+QString getPluginsPath()
+{
+    return qApp->applicationDirPath() + "/plugins";
+}
+QString getDocumentationPath()
+{
+    return QDir::toNativeSeparators( qApp->applicationDirPath() + "/doc" );
+}
 QString getSettingsPath()
 {
     return QDir::toNativeSeparators( qApp->applicationDirPath() + "/settings.ini" );
 }
 QString getTrPath()
 {
-    return QDir::toNativeSeparators( qApp->applicationDirPath() + "/plugins/translations" );
+    return QDir::toNativeSeparators( getPluginsPath() + "/translations" );
 }
 QString getFontsPath()
 {
-    return QDir::toNativeSeparators( qApp->applicationDirPath() + "/plugins/fonts" );
+    return QDir::toNativeSeparators( getPluginsPath() + "/fonts" );
 }
 QString getDictionariesPath()
 {
-    return QDir::toNativeSeparators( qApp->applicationDirPath() + "/plugins/dictionaries" );
+    return QDir::toNativeSeparators( getPluginsPath() + "/dictionaries" );
 }
 
 #include <QTranslator>

@@ -1,0 +1,679 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Notes Manager: Класс QsciLexerProperties</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Notes Manager
+   &#160;<span id="projectnumber">0.0.2</span>
+   </div>
+   <div id="projectbrief">Программа создает заметки</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&#160;имен</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Классы</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Классы</span></a></li>
+      <li><a href="classes.html"><span>Алфавитный&#160;указатель&#160;классов</span></a></li>
+      <li><a href="hierarchy.html"><span>Иерархия&#160;классов</span></a></li>
+      <li><a href="functions.html"><span>Члены&#160;классов</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_qsci_lexer_properties.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Указатель</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Классы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Пространства имен</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Файлы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Функции</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Переменные</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Определения типов</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Перечисления</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Элементы перечислений</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Друзья</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Открытые типы</a> &#124;
+<a href="#pub-slots">Открытые слоты</a> &#124;
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pro-methods">Защищенные члены</a> &#124;
+<a href="class_qsci_lexer_properties-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Класс QsciLexerProperties</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>The <a class="el" href="class_qsci_lexer_properties.html" title="The QsciLexerProperties class encapsulates the Scintilla Properties lexer. ">QsciLexerProperties</a> class encapsulates the Scintilla Properties lexer.  
+ <a href="class_qsci_lexer_properties.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="qscilexerproperties_8h_source.html">qscilexerproperties.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:QsciLexerProperties:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_qsci_lexer_properties.png" usemap="#QsciLexerProperties_map" alt=""/>
+  <map id="QsciLexerProperties_map" name="QsciLexerProperties_map">
+<area href="class_qsci_lexer.html" title="The QsciLexer class is an abstract class used as a base for language lexers. " alt="QsciLexer" shape="rect" coords="0,56,128,80"/>
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Открытые типы</h2></td></tr>
+<tr class="memitem:a1afc4621a2e983f42eef54ceb6079900"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br/>
+&#160;&#160;<a class="el" href="class_qsci_lexer_properties.html#a1afc4621a2e983f42eef54ceb6079900a9e761a14600d042a269a5dac6a146e67">Default</a> = 0, 
+<a class="el" href="class_qsci_lexer_properties.html#a1afc4621a2e983f42eef54ceb6079900aec8fd1ed5dfafb06753fcd402406e164">Comment</a> = 1, 
+<a class="el" href="class_qsci_lexer_properties.html#a1afc4621a2e983f42eef54ceb6079900a9b9be54dcfbb2e38f1243779c71c76f4">Section</a> = 2, 
+<a class="el" href="class_qsci_lexer_properties.html#a1afc4621a2e983f42eef54ceb6079900a2dce9dbe1d758936b321ee9d77343be6">Assignment</a> = 3, 
+<br/>
+&#160;&#160;<a class="el" href="class_qsci_lexer_properties.html#a1afc4621a2e983f42eef54ceb6079900a3ad64721ceda301cf547533fd6736fe7">DefaultValue</a> = 4, 
+<a class="el" href="class_qsci_lexer_properties.html#a1afc4621a2e983f42eef54ceb6079900af20795f392c5dc1ab5639c7de93181e6">Key</a> = 5
+<br/>
+ }</td></tr>
+<tr class="separator:a1afc4621a2e983f42eef54ceb6079900"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
+Открытые слоты</h2></td></tr>
+<tr class="memitem:a521e18727b73983a90cf787797a2d1b0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer_properties.html#a521e18727b73983a90cf787797a2d1b0">setFoldCompact</a> (bool fold)</td></tr>
+<tr class="separator:a521e18727b73983a90cf787797a2d1b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_slots_class_qsci_lexer"><td colspan="2" onclick="javascript:toggleInherit('pub_slots_class_qsci_lexer')"><img src="closed.png" alt="-"/>&#160;Открытые слоты унаследованные от <a class="el" href="class_qsci_lexer.html">QsciLexer</a></td></tr>
+<tr class="memitem:ae2be832e7e32b211c9eb019dfdcfc95b inherit pub_slots_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#ae2be832e7e32b211c9eb019dfdcfc95b">setAutoIndentStyle</a> (int autoindentstyle)</td></tr>
+<tr class="separator:ae2be832e7e32b211c9eb019dfdcfc95b inherit pub_slots_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af00c1a250f8213163f47c1b4ee6004ae inherit pub_slots_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#af00c1a250f8213163f47c1b4ee6004ae">setColor</a> (const QColor &amp;c, int style=-1)</td></tr>
+<tr class="separator:af00c1a250f8213163f47c1b4ee6004ae inherit pub_slots_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace228a3eeed4816c2b3382aa279e1460 inherit pub_slots_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#ace228a3eeed4816c2b3382aa279e1460">setEolFill</a> (bool eoffill, int style=-1)</td></tr>
+<tr class="separator:ace228a3eeed4816c2b3382aa279e1460 inherit pub_slots_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb0931f1e29f41782c367932a20f4bff inherit pub_slots_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#adb0931f1e29f41782c367932a20f4bff">setFont</a> (const QFont &amp;f, int style=-1)</td></tr>
+<tr class="separator:adb0931f1e29f41782c367932a20f4bff inherit pub_slots_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6ed142c63350ef0a12a55ebf9f2c3f3 inherit pub_slots_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#ac6ed142c63350ef0a12a55ebf9f2c3f3">setPaper</a> (const QColor &amp;c, int style=-1)</td></tr>
+<tr class="separator:ac6ed142c63350ef0a12a55ebf9f2c3f3 inherit pub_slots_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a81437ae22cb610108f29d8d367ce6faa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer_properties.html#a81437ae22cb610108f29d8d367ce6faa">QsciLexerProperties</a> (QObject *parent=0)</td></tr>
+<tr class="separator:a81437ae22cb610108f29d8d367ce6faa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2c04c7d9b7ae4557e5f1a59931d313a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af2c04c7d9b7ae4557e5f1a59931d313a"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer_properties.html#af2c04c7d9b7ae4557e5f1a59931d313a">~QsciLexerProperties</a> ()</td></tr>
+<tr class="memdesc:af2c04c7d9b7ae4557e5f1a59931d313a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the <a class="el" href="class_qsci_lexer_properties.html" title="The QsciLexerProperties class encapsulates the Scintilla Properties lexer. ">QsciLexerProperties</a> instance. <br/></td></tr>
+<tr class="separator:af2c04c7d9b7ae4557e5f1a59931d313a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6405c9cdea9b880f3e44a71c5492a058"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6405c9cdea9b880f3e44a71c5492a058"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer_properties.html#a6405c9cdea9b880f3e44a71c5492a058">language</a> () const </td></tr>
+<tr class="memdesc:a6405c9cdea9b880f3e44a71c5492a058"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of the language. <br/></td></tr>
+<tr class="separator:a6405c9cdea9b880f3e44a71c5492a058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc8ec3812dac92c23495adc498be3828"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer_properties.html#afc8ec3812dac92c23495adc498be3828">lexer</a> () const </td></tr>
+<tr class="separator:afc8ec3812dac92c23495adc498be3828"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d014d590175513283a262d611bb2ca9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6d014d590175513283a262d611bb2ca9"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer_properties.html#a6d014d590175513283a262d611bb2ca9">wordCharacters</a> () const </td></tr>
+<tr class="memdesc:a6d014d590175513283a262d611bb2ca9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the string of characters that comprise a word. <br/></td></tr>
+<tr class="separator:a6d014d590175513283a262d611bb2ca9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8917252b3b39106e1d0f2f67e6e1832"><td class="memItemLeft" align="right" valign="top">QColor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer_properties.html#ae8917252b3b39106e1d0f2f67e6e1832">defaultColor</a> (int style) const </td></tr>
+<tr class="separator:ae8917252b3b39106e1d0f2f67e6e1832"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aded71567a26bf268f92c9bf0e7610fc2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aded71567a26bf268f92c9bf0e7610fc2"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer_properties.html#aded71567a26bf268f92c9bf0e7610fc2">defaultEolFill</a> (int style) const </td></tr>
+<tr class="memdesc:aded71567a26bf268f92c9bf0e7610fc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the end-of-line fill for style number <em>style</em>. <br/></td></tr>
+<tr class="separator:aded71567a26bf268f92c9bf0e7610fc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1072a9cca2ec577c39536430dd30e889"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1072a9cca2ec577c39536430dd30e889"></a>
+QFont&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer_properties.html#a1072a9cca2ec577c39536430dd30e889">defaultFont</a> (int style) const </td></tr>
+<tr class="memdesc:a1072a9cca2ec577c39536430dd30e889"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the font for style number <em>style</em>. <br/></td></tr>
+<tr class="separator:a1072a9cca2ec577c39536430dd30e889"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2fad1546c7da01a1fdfab5eb2529533"><td class="memItemLeft" align="right" valign="top">QColor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer_properties.html#ad2fad1546c7da01a1fdfab5eb2529533">defaultPaper</a> (int style) const </td></tr>
+<tr class="separator:ad2fad1546c7da01a1fdfab5eb2529533"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f77f8e2dfe2bccdcfdbcb9086446f4a"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer_properties.html#a7f77f8e2dfe2bccdcfdbcb9086446f4a">description</a> (int style) const </td></tr>
+<tr class="separator:a7f77f8e2dfe2bccdcfdbcb9086446f4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a638b892c566301f0efe779c58516cbc0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer_properties.html#a638b892c566301f0efe779c58516cbc0">refreshProperties</a> ()</td></tr>
+<tr class="separator:a638b892c566301f0efe779c58516cbc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbe81eb353d24480865e02fb8ebbef99"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer_properties.html#abbe81eb353d24480865e02fb8ebbef99">foldCompact</a> () const </td></tr>
+<tr class="separator:abbe81eb353d24480865e02fb8ebbef99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2243845007f5165eb5718a131be3ada3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer_properties.html#a2243845007f5165eb5718a131be3ada3">setInitialSpaces</a> (bool enable)</td></tr>
+<tr class="separator:a2243845007f5165eb5718a131be3ada3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c77bc878cd265794762420999e98060"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer_properties.html#a5c77bc878cd265794762420999e98060">initialSpaces</a> () const </td></tr>
+<tr class="separator:a5c77bc878cd265794762420999e98060"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_qsci_lexer"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_qsci_lexer')"><img src="closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="class_qsci_lexer.html">QsciLexer</a></td></tr>
+<tr class="memitem:a49fc2fb49ed07f1cb5f8b0a96e07d0d4 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a49fc2fb49ed07f1cb5f8b0a96e07d0d4">QsciLexer</a> (QObject *parent=0)</td></tr>
+<tr class="separator:a49fc2fb49ed07f1cb5f8b0a96e07d0d4 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa952f0e8a9e80f737fa99f1a6cf77dc4 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa952f0e8a9e80f737fa99f1a6cf77dc4"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#aa952f0e8a9e80f737fa99f1a6cf77dc4">~QsciLexer</a> ()</td></tr>
+<tr class="memdesc:aa952f0e8a9e80f737fa99f1a6cf77dc4 inherit pub_methods_class_qsci_lexer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the QSciLexer. <br/></td></tr>
+<tr class="separator:aa952f0e8a9e80f737fa99f1a6cf77dc4 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3c8c307f78ba5a0d12b1e3b9446ccb4 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#ab3c8c307f78ba5a0d12b1e3b9446ccb4">lexerId</a> () const </td></tr>
+<tr class="separator:ab3c8c307f78ba5a0d12b1e3b9446ccb4 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67443769a5499043efefacf0b0c46de2 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_qsci_abstract_a_p_is.html">QsciAbstractAPIs</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a67443769a5499043efefacf0b0c46de2">apis</a> () const </td></tr>
+<tr class="separator:a67443769a5499043efefacf0b0c46de2 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5119f76d8e8cd231197c3cd00bed96da inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5119f76d8e8cd231197c3cd00bed96da"></a>
+virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><b>autoCompletionFillups</b> () const </td></tr>
+<tr class="separator:a5119f76d8e8cd231197c3cd00bed96da inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0b17c22eab0cf00d87ab803499a2810 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab0b17c22eab0cf00d87ab803499a2810"></a>
+virtual QStringList&#160;</td><td class="memItemRight" valign="bottom"><b>autoCompletionWordSeparators</b> () const </td></tr>
+<tr class="separator:ab0b17c22eab0cf00d87ab803499a2810 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79c27285b6033c553b3f54cb6c56b338 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a79c27285b6033c553b3f54cb6c56b338">autoIndentStyle</a> ()</td></tr>
+<tr class="separator:a79c27285b6033c553b3f54cb6c56b338 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9da911f9e92c06b8fec4db4840815cc inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa9da911f9e92c06b8fec4db4840815cc"></a>
+virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><b>blockEnd</b> (int *style=0) const </td></tr>
+<tr class="separator:aa9da911f9e92c06b8fec4db4840815cc inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c97201d8edde971ba87e73b5f399154 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3c97201d8edde971ba87e73b5f399154"></a>
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>blockLookback</b> () const </td></tr>
+<tr class="separator:a3c97201d8edde971ba87e73b5f399154 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cec7c8311be98aa47175b307cb23a58 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3cec7c8311be98aa47175b307cb23a58"></a>
+virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><b>blockStart</b> (int *style=0) const </td></tr>
+<tr class="separator:a3cec7c8311be98aa47175b307cb23a58 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22abbc86efec8a749bcb1b9d4b8f740a inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a22abbc86efec8a749bcb1b9d4b8f740a"></a>
+virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><b>blockStartKeyword</b> (int *style=0) const </td></tr>
+<tr class="separator:a22abbc86efec8a749bcb1b9d4b8f740a inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafbc653244c6cbc343ee535199747adc inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aafbc653244c6cbc343ee535199747adc"></a>
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>braceStyle</b> () const </td></tr>
+<tr class="separator:aafbc653244c6cbc343ee535199747adc inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad225e84b857b88d4d32c980a349f261b inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad225e84b857b88d4d32c980a349f261b"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>caseSensitive</b> () const </td></tr>
+<tr class="separator:ad225e84b857b88d4d32c980a349f261b inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a817f0334c711a82eea03997b05147762 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">virtual QColor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a817f0334c711a82eea03997b05147762">color</a> (int style) const </td></tr>
+<tr class="separator:a817f0334c711a82eea03997b05147762 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d87aa06bb02de81c5d07e8c9f4db0ff inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a6d87aa06bb02de81c5d07e8c9f4db0ff">eolFill</a> (int style) const </td></tr>
+<tr class="separator:a6d87aa06bb02de81c5d07e8c9f4db0ff inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fb4225c6554e7ee543ea1efdbf338dd inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">virtual QFont&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a0fb4225c6554e7ee543ea1efdbf338dd">font</a> (int style) const </td></tr>
+<tr class="separator:a0fb4225c6554e7ee543ea1efdbf338dd inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a2666de65ca27e9e985aef873c8a30d inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2a2666de65ca27e9e985aef873c8a30d"></a>
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>indentationGuideView</b> () const </td></tr>
+<tr class="separator:a2a2666de65ca27e9e985aef873c8a30d inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31b08f2617aa3044c4df5d0109fd3e97 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a31b08f2617aa3044c4df5d0109fd3e97">keywords</a> (int set) const </td></tr>
+<tr class="separator:a31b08f2617aa3044c4df5d0109fd3e97 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ec42a58fc81a9f18350327380b729e4 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3ec42a58fc81a9f18350327380b729e4"></a>
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>defaultStyle</b> () const </td></tr>
+<tr class="separator:a3ec42a58fc81a9f18350327380b729e4 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a638da762835f6b5508a85480801da09c inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">virtual QColor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a638da762835f6b5508a85480801da09c">paper</a> (int style) const </td></tr>
+<tr class="separator:a638da762835f6b5508a85480801da09c inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0afe2419326969871275fb7dd7edf69 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">QColor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#ae0afe2419326969871275fb7dd7edf69">defaultColor</a> () const </td></tr>
+<tr class="separator:ae0afe2419326969871275fb7dd7edf69 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefc2cc14d45c167e71de37bb335c02eb inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">QFont&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#aefc2cc14d45c167e71de37bb335c02eb">defaultFont</a> () const </td></tr>
+<tr class="separator:aefc2cc14d45c167e71de37bb335c02eb inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31126a12c4a841bb471af77d868c6d41 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">QColor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a31126a12c4a841bb471af77d868c6d41">defaultPaper</a> () const </td></tr>
+<tr class="separator:a31126a12c4a841bb471af77d868c6d41 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a196d8f3fdd8285788be8915b59ed1889 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_qsci_scintilla.html">QsciScintilla</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a196d8f3fdd8285788be8915b59ed1889">editor</a> () const </td></tr>
+<tr class="separator:a196d8f3fdd8285788be8915b59ed1889 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2e1ada934a5dc7685c1ee6a464de5fd inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#ac2e1ada934a5dc7685c1ee6a464de5fd">setAPIs</a> (<a class="el" href="class_qsci_abstract_a_p_is.html">QsciAbstractAPIs</a> *<a class="el" href="class_qsci_lexer.html#a67443769a5499043efefacf0b0c46de2">apis</a>)</td></tr>
+<tr class="separator:ac2e1ada934a5dc7685c1ee6a464de5fd inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32b16ee95c3dabbc7de61541dd110521 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a32b16ee95c3dabbc7de61541dd110521">setDefaultColor</a> (const QColor &amp;c)</td></tr>
+<tr class="separator:a32b16ee95c3dabbc7de61541dd110521 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19f0b390b5594d0dff5e4d4b484e43d2 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a19f0b390b5594d0dff5e4d4b484e43d2">setDefaultFont</a> (const QFont &amp;f)</td></tr>
+<tr class="separator:a19f0b390b5594d0dff5e4d4b484e43d2 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ebaedee6979d4cb17399361b37e33e0 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a7ebaedee6979d4cb17399361b37e33e0">setDefaultPaper</a> (const QColor &amp;c)</td></tr>
+<tr class="separator:a7ebaedee6979d4cb17399361b37e33e0 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1b690207eebbaf37dcf4b044438b653 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af1b690207eebbaf37dcf4b044438b653"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setEditor</b> (<a class="el" href="class_qsci_scintilla.html">QsciScintilla</a> *<a class="el" href="class_qsci_lexer.html#a196d8f3fdd8285788be8915b59ed1889">editor</a>)</td></tr>
+<tr class="separator:af1b690207eebbaf37dcf4b044438b653 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27728e4e361c5f4bf87690d34d83057d inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a27728e4e361c5f4bf87690d34d83057d">readSettings</a> (QSettings &amp;qs, const char *prefix=&quot;/Scintilla&quot;)</td></tr>
+<tr class="separator:a27728e4e361c5f4bf87690d34d83057d inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a348cc3c9d2a5afaff7b93fb02c4cc520 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a348cc3c9d2a5afaff7b93fb02c4cc520">styleBitsNeeded</a> () const </td></tr>
+<tr class="separator:a348cc3c9d2a5afaff7b93fb02c4cc520 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae53dc53e318939e9d52ae544b9995856 inherit pub_methods_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#ae53dc53e318939e9d52ae544b9995856">writeSettings</a> (QSettings &amp;qs, const char *prefix=&quot;/Scintilla&quot;) const </td></tr>
+<tr class="separator:ae53dc53e318939e9d52ae544b9995856 inherit pub_methods_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Защищенные члены</h2></td></tr>
+<tr class="memitem:a4119053764ba32a9975ad7eeb8f0f067"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer_properties.html#a4119053764ba32a9975ad7eeb8f0f067">readProperties</a> (QSettings &amp;qs, const QString &amp;prefix)</td></tr>
+<tr class="separator:a4119053764ba32a9975ad7eeb8f0f067"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a9866c776925dbc9bcc166791f50512"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer_properties.html#a7a9866c776925dbc9bcc166791f50512">writeProperties</a> (QSettings &amp;qs, const QString &amp;prefix) const </td></tr>
+<tr class="separator:a7a9866c776925dbc9bcc166791f50512"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Дополнительные унаследованные члены</h2></td></tr>
+<tr class="inherit_header signals_class_qsci_lexer"><td colspan="2" onclick="javascript:toggleInherit('signals_class_qsci_lexer')"><img src="closed.png" alt="-"/>&#160;Сигналы унаследованные от <a class="el" href="class_qsci_lexer.html">QsciLexer</a></td></tr>
+<tr class="memitem:a901cf93072b3db3ffe503eab78ae6954 inherit signals_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a901cf93072b3db3ffe503eab78ae6954">colorChanged</a> (const QColor &amp;c, int style)</td></tr>
+<tr class="separator:a901cf93072b3db3ffe503eab78ae6954 inherit signals_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66c01f0c9470164d4575c2b64f0e4220 inherit signals_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#a66c01f0c9470164d4575c2b64f0e4220">eolFillChanged</a> (bool eolfilled, int style)</td></tr>
+<tr class="separator:a66c01f0c9470164d4575c2b64f0e4220 inherit signals_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac04ade8be901b67af681e5e3516c0946 inherit signals_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#ac04ade8be901b67af681e5e3516c0946">fontChanged</a> (const QFont &amp;f, int style)</td></tr>
+<tr class="separator:ac04ade8be901b67af681e5e3516c0946 inherit signals_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf8de1727583e902c7cae673673a78a1 inherit signals_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#adf8de1727583e902c7cae673673a78a1">paperChanged</a> (const QColor &amp;c, int style)</td></tr>
+<tr class="separator:adf8de1727583e902c7cae673673a78a1 inherit signals_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd8475f0da36449dc6b1189a587d7a83 inherit signals_class_qsci_lexer"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_lexer.html#acd8475f0da36449dc6b1189a587d7a83">propertyChanged</a> (const char *prop, const char *val)</td></tr>
+<tr class="separator:acd8475f0da36449dc6b1189a587d7a83 inherit signals_class_qsci_lexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>The <a class="el" href="class_qsci_lexer_properties.html" title="The QsciLexerProperties class encapsulates the Scintilla Properties lexer. ">QsciLexerProperties</a> class encapsulates the Scintilla Properties lexer. </p>
+</div><h2 class="groupheader">Перечисления</h2>
+<a class="anchor" id="a1afc4621a2e983f42eef54ceb6079900"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This enum defines the meanings of the different styles used by the Properties lexer. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a1afc4621a2e983f42eef54ceb6079900a9e761a14600d042a269a5dac6a146e67"></a>Default</em>&#160;</td><td class="fielddoc">
+<p>The default. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1afc4621a2e983f42eef54ceb6079900aec8fd1ed5dfafb06753fcd402406e164"></a>Comment</em>&#160;</td><td class="fielddoc">
+<p>A comment. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1afc4621a2e983f42eef54ceb6079900a9b9be54dcfbb2e38f1243779c71c76f4"></a>Section</em>&#160;</td><td class="fielddoc">
+<p>A section. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1afc4621a2e983f42eef54ceb6079900a2dce9dbe1d758936b321ee9d77343be6"></a>Assignment</em>&#160;</td><td class="fielddoc">
+<p>An assignment operator. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1afc4621a2e983f42eef54ceb6079900a3ad64721ceda301cf547533fd6736fe7"></a>DefaultValue</em>&#160;</td><td class="fielddoc">
+<p>A default value. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1afc4621a2e983f42eef54ceb6079900af20795f392c5dc1ab5639c7de93181e6"></a>Key</em>&#160;</td><td class="fielddoc">
+<p>A key. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Конструктор(ы)</h2>
+<a class="anchor" id="a81437ae22cb610108f29d8d367ce6faa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QsciLexerProperties::QsciLexerProperties </td>
+          <td>(</td>
+          <td class="paramtype">QObject *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>0</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Construct a <a class="el" href="class_qsci_lexer_properties.html" title="The QsciLexerProperties class encapsulates the Scintilla Properties lexer. ">QsciLexerProperties</a> with parent <em>parent</em>. <em>parent</em> is typically the <a class="el" href="class_qsci_scintilla.html" title="The QsciScintilla class implements a higher level, more Qt-like, API to the Scintilla editor widget...">QsciScintilla</a> instance. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a class="anchor" id="ae8917252b3b39106e1d0f2f67e6e1832"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QColor QsciLexerProperties::defaultColor </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>style</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the foreground colour of the text for style number <em>style</em>.</p>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="class_qsci_lexer_properties.html#ad2fad1546c7da01a1fdfab5eb2529533">defaultPaper()</a> </dd></dl>
+
+<p>Переопределяет метод предка <a class="el" href="class_qsci_lexer.html#a605c5312c077160293bb89d727fd7090">QsciLexer</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad2fad1546c7da01a1fdfab5eb2529533"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QColor QsciLexerProperties::defaultPaper </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>style</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the background colour of the text for style number <em>style</em>.</p>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="class_qsci_lexer_properties.html#ae8917252b3b39106e1d0f2f67e6e1832">defaultColor()</a> </dd></dl>
+
+<p>Переопределяет метод предка <a class="el" href="class_qsci_lexer.html#a865ee8ede55a49e425972a20270ca850">QsciLexer</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7f77f8e2dfe2bccdcfdbcb9086446f4a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString QsciLexerProperties::description </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>style</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the descriptive name for style number <em>style</em>. If the style is invalid for this language then an empty QString is returned. This is intended to be used in user preference dialogs. </p>
+
+<p>Замещает <a class="el" href="class_qsci_lexer.html#add9c20adb43bc38d1a0ca3083ac3e6fa">QsciLexer</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abbe81eb353d24480865e02fb8ebbef99"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QsciLexerProperties::foldCompact </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns true if trailing blank lines are included in a fold block.</p>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="class_qsci_lexer_properties.html#a521e18727b73983a90cf787797a2d1b0">setFoldCompact()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a5c77bc878cd265794762420999e98060"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QsciLexerProperties::initialSpaces </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns true if initial spaces in a line are allowed.</p>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="class_qsci_lexer_properties.html#a2243845007f5165eb5718a131be3ada3">setInitialSpaces()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="afc8ec3812dac92c23495adc498be3828"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * QsciLexerProperties::lexer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the name of the lexer. Some lexers support a number of languages. </p>
+
+<p>Переопределяет метод предка <a class="el" href="class_qsci_lexer.html#a09dac27fac5d434f9e0d1b86b920bd7a">QsciLexer</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4119053764ba32a9975ad7eeb8f0f067"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QsciLexerProperties::readProperties </td>
+          <td>(</td>
+          <td class="paramtype">QSettings &amp;&#160;</td>
+          <td class="paramname"><em>qs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>prefix</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The lexer's properties are read from the settings <em>qs</em>. <em>prefix</em> (which has a trailing '/') should be used as a prefix to the key of each setting. true is returned if there is no error.</p>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="class_qsci_lexer_properties.html#a7a9866c776925dbc9bcc166791f50512">writeProperties()</a> </dd></dl>
+
+<p>Переопределяет метод предка <a class="el" href="class_qsci_lexer.html#aa4e8df76d6599ec4c1dbffb81f01b1b4">QsciLexer</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a638b892c566301f0efe779c58516cbc0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QsciLexerProperties::refreshProperties </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Causes all properties to be refreshed by emitting the <a class="el" href="class_qsci_lexer.html#acd8475f0da36449dc6b1189a587d7a83">propertyChanged()</a> signal as required. </p>
+
+<p>Переопределяет метод предка <a class="el" href="class_qsci_lexer.html#a358f76a8685c06ba851721773387eb7f">QsciLexer</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a521e18727b73983a90cf787797a2d1b0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QsciLexerProperties::setFoldCompact </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>fold</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>If <em>fold</em> is true then trailing blank lines are included in a fold block. The default is true.</p>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="class_qsci_lexer_properties.html#abbe81eb353d24480865e02fb8ebbef99">foldCompact()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a2243845007f5165eb5718a131be3ada3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QsciLexerProperties::setInitialSpaces </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enable</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>If <em>enable</em> is true then initial spaces in a line are allowed. The default is true.</p>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="class_qsci_lexer_properties.html#a5c77bc878cd265794762420999e98060">initialSpaces()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7a9866c776925dbc9bcc166791f50512"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QsciLexerProperties::writeProperties </td>
+          <td>(</td>
+          <td class="paramtype">QSettings &amp;&#160;</td>
+          <td class="paramname"><em>qs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>prefix</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The lexer's properties are written to the settings <em>qs</em>. <em>prefix</em> (which has a trailing '/') should be used as a prefix to the key of each setting. true is returned if there is no error.</p>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="class_qsci_lexer_properties.html#a4119053764ba32a9975ad7eeb8f0f067">readProperties()</a> </dd></dl>
+
+<p>Переопределяет метод предка <a class="el" href="class_qsci_lexer.html#a846ec450b4c3e4a8bbb3e4c806f9e10d">QsciLexer</a>.</p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>NotesManager/QScintilla-gpl-2.8.1/Qt4Qt5/Qsci/<a class="el" href="qscilexerproperties_8h_source.html">qscilexerproperties.h</a></li>
+<li>NotesManager/QScintilla-gpl-2.8.1/Qt4Qt5/qscilexerproperties.cpp</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_qsci_lexer_properties.html">QsciLexerProperties</a></li>
+    <li class="footer">Документация по Notes Manager. Последние изменения: Сб 10 Май 2014 22:51:15. Создано системой
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
+</body>
+</html>

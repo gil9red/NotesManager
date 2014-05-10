@@ -1,0 +1,1843 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Notes Manager: Класс Editor</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Notes Manager
+   &#160;<span id="projectnumber">0.0.2</span>
+   </div>
+   <div id="projectbrief">Программа создает заметки</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&#160;имен</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Классы</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Классы</span></a></li>
+      <li><a href="classes.html"><span>Алфавитный&#160;указатель&#160;классов</span></a></li>
+      <li><a href="hierarchy.html"><span>Иерархия&#160;классов</span></a></li>
+      <li><a href="functions.html"><span>Члены&#160;классов</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_editor.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Указатель</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Классы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Пространства имен</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Файлы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Функции</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Переменные</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Определения типов</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Перечисления</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Элементы перечислений</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Друзья</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Классы</a> &#124;
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-attribs">Открытые атрибуты</a> &#124;
+<a href="#pro-types">Защищенные типы</a> &#124;
+<a href="#pro-methods">Защищенные члены</a> &#124;
+<a href="#pro-static-methods">Защищенные статические члены</a> &#124;
+<a href="#pro-attribs">Защищенные данные</a> &#124;
+<a href="#friends">Друзья</a> &#124;
+<a href="class_editor-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Класс Editor<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Граф наследования:Editor:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_editor.png" usemap="#Editor_map" alt=""/>
+  <map id="Editor_map" name="Editor_map">
+<area href="class_doc_watcher.html" alt="DocWatcher" shape="rect" coords="0,0,84,24"/>
+<area href="class_scintilla_base.html" alt="ScintillaBase" shape="rect" coords="0,112,84,136"/>
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Классы</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_editor_1_1_x_y_scroll_position.html">XYScrollPosition</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a0dcc5027774af753b283048a9b5654e5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0dcc5027774af753b283048a9b5654e5"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsUnicodeMode</b> () const </td></tr>
+<tr class="separator:a0dcc5027774af753b283048a9b5654e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ac5f8d507f4354535d9b42bfe4cc15b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4ac5f8d507f4354535d9b42bfe4cc15b"></a>
+virtual sptr_t&#160;</td><td class="memItemRight" valign="bottom"><b>WndProc</b> (unsigned int iMessage, uptr_t wParam, sptr_t lParam)</td></tr>
+<tr class="separator:a4ac5f8d507f4354535d9b42bfe4cc15b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Открытые атрибуты</h2></td></tr>
+<tr class="memitem:a8cce4ebe2a018ae0b9736d2340f81448"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8cce4ebe2a018ae0b9736d2340f81448"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ctrlID</b></td></tr>
+<tr class="separator:a8cce4ebe2a018ae0b9736d2340f81448"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5da3ac28ef53412ff20a949ba4fb13d3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5da3ac28ef53412ff20a949ba4fb13d3"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>errorStatus</b></td></tr>
+<tr class="separator:a5da3ac28ef53412ff20a949ba4fb13d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
+Защищенные типы</h2></td></tr>
+<tr class="memitem:a67591f38b5961e29db2427dd1657309b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>autoScrollDelay</b> = 200
+ }</td></tr>
+<tr class="separator:a67591f38b5961e29db2427dd1657309b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add3041c3cdf5f13c15fd189d2719f68c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>selChar</b>, 
+<b>selWord</b>, 
+<b>selSubLine</b>, 
+<b>selWholeLine</b>
+ }</td></tr>
+<tr class="separator:add3041c3cdf5f13c15fd189d2719f68c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a713c50a49eea77a2806ba1650e69dfcd"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>ddNone</b>, 
+<b>ddInitial</b>, 
+<b>ddDragging</b>
+ }</td></tr>
+<tr class="separator:a713c50a49eea77a2806ba1650e69dfcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace39d41ab6261256995266f567092f04"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>notPainting</b>, 
+<b>painting</b>, 
+<b>paintAbandoned</b>
+ }</td></tr>
+<tr class="separator:ace39d41ab6261256995266f567092f04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0366b1e6afc7cce344119e1138e23b50"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><b>XYScrollOptions</b> { <b>xysUseMargin</b> =0x1, 
+<b>xysVertical</b> =0x2, 
+<b>xysHorizontal</b> =0x4, 
+<b>xysDefault</b> =xysUseMargin|xysVertical|xysHorizontal
+ }</td></tr>
+<tr class="separator:a0366b1e6afc7cce344119e1138e23b50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaaede34c615611251b4205c7ff272b2"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><b>wrapScope</b> { <b>wsAll</b>, 
+<b>wsVisible</b>, 
+<b>wsIdle</b>
+ }</td></tr>
+<tr class="separator:acaaede34c615611251b4205c7ff272b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28ce05cadeb8d5198699f1b580e9a9bd"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>cmSame</b>, 
+<b>cmUpper</b>, 
+<b>cmLower</b>
+ }</td></tr>
+<tr class="separator:a28ce05cadeb8d5198699f1b580e9a9bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Защищенные члены</h2></td></tr>
+<tr class="memitem:aa58f7a1692dd50bc950ee035049ae1db"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa58f7a1692dd50bc950ee035049ae1db"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Initialise</b> ()=0</td></tr>
+<tr class="separator:aa58f7a1692dd50bc950ee035049ae1db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fb38b368be0b31b5dedd2b9618d21a9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6fb38b368be0b31b5dedd2b9618d21a9"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Finalise</b> ()</td></tr>
+<tr class="separator:a6fb38b368be0b31b5dedd2b9618d21a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a156aabc71ca8f1767da92681c02131da"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a156aabc71ca8f1767da92681c02131da"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>InvalidateStyleData</b> ()</td></tr>
+<tr class="separator:a156aabc71ca8f1767da92681c02131da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6db3e71e63262124d3265bfdd9445043"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6db3e71e63262124d3265bfdd9445043"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>InvalidateStyleRedraw</b> ()</td></tr>
+<tr class="separator:a6db3e71e63262124d3265bfdd9445043"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b25009a12844576d7df9b13a221bceb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b25009a12844576d7df9b13a221bceb"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>RefreshStyleData</b> ()</td></tr>
+<tr class="separator:a2b25009a12844576d7df9b13a221bceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3b1b03561c5c394e28bec9c93caeb0c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af3b1b03561c5c394e28bec9c93caeb0c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetRepresentations</b> ()</td></tr>
+<tr class="separator:af3b1b03561c5c394e28bec9c93caeb0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4893eaef5c9ccf8ead326cc0284c8c2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac4893eaef5c9ccf8ead326cc0284c8c2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>DropGraphics</b> (bool freeObjects)</td></tr>
+<tr class="separator:ac4893eaef5c9ccf8ead326cc0284c8c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4450819dd707e239ee38948dc2307774"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4450819dd707e239ee38948dc2307774"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>AllocateGraphics</b> ()</td></tr>
+<tr class="separator:a4450819dd707e239ee38948dc2307774"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6adbf6683d71076fd0b8d9367f8eeda"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad6adbf6683d71076fd0b8d9367f8eeda"></a>
+virtual <a class="el" href="class_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GetVisibleOriginInMain</b> ()</td></tr>
+<tr class="separator:ad6adbf6683d71076fd0b8d9367f8eeda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a072191274d7459afd379997650a4969e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a072191274d7459afd379997650a4969e"></a>
+<a class="el" href="class_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><b>DocumentPointFromView</b> (<a class="el" href="class_point.html">Point</a> ptView)</td></tr>
+<tr class="separator:a072191274d7459afd379997650a4969e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f1b20cc625cc6d41e6b147ae2e66657"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f1b20cc625cc6d41e6b147ae2e66657"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>TopLineOfMain</b> () const </td></tr>
+<tr class="separator:a8f1b20cc625cc6d41e6b147ae2e66657"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab76f1d901d42a64fc2dad618e0901736"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab76f1d901d42a64fc2dad618e0901736"></a>
+virtual <a class="el" href="class_p_rectangle.html">PRectangle</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GetClientRectangle</b> ()</td></tr>
+<tr class="separator:ab76f1d901d42a64fc2dad618e0901736"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6f6e0d4e03fe84e2c8cba963e49ab4c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af6f6e0d4e03fe84e2c8cba963e49ab4c"></a>
+<a class="el" href="class_p_rectangle.html">PRectangle</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GetTextRectangle</b> ()</td></tr>
+<tr class="separator:af6f6e0d4e03fe84e2c8cba963e49ab4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8739477e7334b390731ba155e2789e9a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8739477e7334b390731ba155e2789e9a"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>LinesOnScreen</b> ()</td></tr>
+<tr class="separator:a8739477e7334b390731ba155e2789e9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f862127d1dee3ad32193ae27d0c5093"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7f862127d1dee3ad32193ae27d0c5093"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>LinesToScroll</b> ()</td></tr>
+<tr class="separator:a7f862127d1dee3ad32193ae27d0c5093"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a3a560c601bbf0a5c26ee76e97efaac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4a3a560c601bbf0a5c26ee76e97efaac"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>MaxScrollPos</b> ()</td></tr>
+<tr class="separator:a4a3a560c601bbf0a5c26ee76e97efaac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12ab0126ecafa14638f98656cf2103db"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a12ab0126ecafa14638f98656cf2103db"></a>
+<a class="el" href="class_selection_position.html">SelectionPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ClampPositionIntoDocument</b> (<a class="el" href="class_selection_position.html">SelectionPosition</a> sp) const </td></tr>
+<tr class="separator:a12ab0126ecafa14638f98656cf2103db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e4e43f42e5b1d9686b8e84d3e1af30e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0e4e43f42e5b1d9686b8e84d3e1af30e"></a>
+<a class="el" href="class_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><b>LocationFromPosition</b> (<a class="el" href="class_selection_position.html">SelectionPosition</a> pos)</td></tr>
+<tr class="separator:a0e4e43f42e5b1d9686b8e84d3e1af30e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64961f1d34e4cf9dd9299bf86ac3454a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a64961f1d34e4cf9dd9299bf86ac3454a"></a>
+<a class="el" href="class_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><b>LocationFromPosition</b> (int pos)</td></tr>
+<tr class="separator:a64961f1d34e4cf9dd9299bf86ac3454a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c637fbc3c97908b3a1d80b135233739"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8c637fbc3c97908b3a1d80b135233739"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>XFromPosition</b> (int pos)</td></tr>
+<tr class="separator:a8c637fbc3c97908b3a1d80b135233739"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d4065235f5b0021acf77e187f46b9b4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8d4065235f5b0021acf77e187f46b9b4"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>XFromPosition</b> (<a class="el" href="class_selection_position.html">SelectionPosition</a> sp)</td></tr>
+<tr class="separator:a8d4065235f5b0021acf77e187f46b9b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22a5b934777675c6b1be63535ca7a43b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a22a5b934777675c6b1be63535ca7a43b"></a>
+<a class="el" href="class_selection_position.html">SelectionPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><b>SPositionFromLocation</b> (<a class="el" href="class_point.html">Point</a> pt, bool canReturnInvalid=false, bool charPosition=false, bool virtualSpace=true)</td></tr>
+<tr class="separator:a22a5b934777675c6b1be63535ca7a43b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a115904545a3ca7017527a8ed9eafae89"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a115904545a3ca7017527a8ed9eafae89"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>PositionFromLocation</b> (<a class="el" href="class_point.html">Point</a> pt, bool canReturnInvalid=false, bool charPosition=false)</td></tr>
+<tr class="separator:a115904545a3ca7017527a8ed9eafae89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94db38892ca6249a7133666567a6e2fb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_selection_position.html">SelectionPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_editor.html#a94db38892ca6249a7133666567a6e2fb">SPositionFromLineX</a> (int lineDoc, int x)</td></tr>
+<tr class="separator:a94db38892ca6249a7133666567a6e2fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45702668afeab776bc09b1e0da6d8d0d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a45702668afeab776bc09b1e0da6d8d0d"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>PositionFromLineX</b> (int line, int x)</td></tr>
+<tr class="separator:a45702668afeab776bc09b1e0da6d8d0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbded92634eb4c4b073304a57ba1cc2b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afbded92634eb4c4b073304a57ba1cc2b"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>LineFromLocation</b> (<a class="el" href="class_point.html">Point</a> pt) const </td></tr>
+<tr class="separator:afbded92634eb4c4b073304a57ba1cc2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af41536ce1ef92618c9edcbcaed5f72ab"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af41536ce1ef92618c9edcbcaed5f72ab"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetTopLine</b> (int topLineNew)</td></tr>
+<tr class="separator:af41536ce1ef92618c9edcbcaed5f72ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a429611ffc7831e7dc8be3d1a547e436d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_editor.html#a429611ffc7831e7dc8be3d1a547e436d">AbandonPaint</a> ()</td></tr>
+<tr class="separator:a429611ffc7831e7dc8be3d1a547e436d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a384c532bef06ba7f1bb75fa67c18667c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a384c532bef06ba7f1bb75fa67c18667c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>RedrawRect</b> (<a class="el" href="class_p_rectangle.html">PRectangle</a> rc)</td></tr>
+<tr class="separator:a384c532bef06ba7f1bb75fa67c18667c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a975cbf6c1c4977dfef82c801e1c6381f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a975cbf6c1c4977dfef82c801e1c6381f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Redraw</b> ()</td></tr>
+<tr class="separator:a975cbf6c1c4977dfef82c801e1c6381f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8eb0d43a767206e16580880fcffe9231"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8eb0d43a767206e16580880fcffe9231"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>RedrawSelMargin</b> (int line=-1, bool allAfter=false)</td></tr>
+<tr class="separator:a8eb0d43a767206e16580880fcffe9231"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaff74809c750a315c54d5fb7dce183de"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaff74809c750a315c54d5fb7dce183de"></a>
+<a class="el" href="class_p_rectangle.html">PRectangle</a>&#160;</td><td class="memItemRight" valign="bottom"><b>RectangleFromRange</b> (int start, int end)</td></tr>
+<tr class="separator:aaff74809c750a315c54d5fb7dce183de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05df08c28435a775ba3a9526bac62b14"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a05df08c28435a775ba3a9526bac62b14"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>InvalidateRange</b> (int start, int end)</td></tr>
+<tr class="separator:a05df08c28435a775ba3a9526bac62b14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af02d04ef8bdb6cf888ad153f1643c01c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af02d04ef8bdb6cf888ad153f1643c01c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>UserVirtualSpace</b> () const </td></tr>
+<tr class="separator:af02d04ef8bdb6cf888ad153f1643c01c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7ef5323f2883602eab84f1b02dfb620"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad7ef5323f2883602eab84f1b02dfb620"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>CurrentPosition</b> () const </td></tr>
+<tr class="separator:ad7ef5323f2883602eab84f1b02dfb620"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af31e69b595f08752ceafce50ce8c9856"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af31e69b595f08752ceafce50ce8c9856"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>SelectionEmpty</b> () const </td></tr>
+<tr class="separator:af31e69b595f08752ceafce50ce8c9856"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3a64de0d8c9ae9eab040739a3b53b20"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af3a64de0d8c9ae9eab040739a3b53b20"></a>
+<a class="el" href="class_selection_position.html">SelectionPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><b>SelectionStart</b> ()</td></tr>
+<tr class="separator:af3a64de0d8c9ae9eab040739a3b53b20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6279a28a217b3d2a1173a389668282a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae6279a28a217b3d2a1173a389668282a"></a>
+<a class="el" href="class_selection_position.html">SelectionPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><b>SelectionEnd</b> ()</td></tr>
+<tr class="separator:ae6279a28a217b3d2a1173a389668282a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfc6fad5e56372b49dfa0d60173afc6d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acfc6fad5e56372b49dfa0d60173afc6d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetRectangularRange</b> ()</td></tr>
+<tr class="separator:acfc6fad5e56372b49dfa0d60173afc6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3e1524e2b7cb801f026ce7d6c43eef2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af3e1524e2b7cb801f026ce7d6c43eef2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ThinRectangularRange</b> ()</td></tr>
+<tr class="separator:af3e1524e2b7cb801f026ce7d6c43eef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4edd5b849256b1528e37b69877fb308b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4edd5b849256b1528e37b69877fb308b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>InvalidateSelection</b> (<a class="el" href="struct_selection_range.html">SelectionRange</a> newMain, bool invalidateWholeSelection=false)</td></tr>
+<tr class="separator:a4edd5b849256b1528e37b69877fb308b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87092638a082c6b17d20a457eebfd4f7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a87092638a082c6b17d20a457eebfd4f7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetSelection</b> (<a class="el" href="class_selection_position.html">SelectionPosition</a> currentPos_, <a class="el" href="class_selection_position.html">SelectionPosition</a> anchor_)</td></tr>
+<tr class="separator:a87092638a082c6b17d20a457eebfd4f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16f8a29bf4fea902db88ad9fef77d4ce"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a16f8a29bf4fea902db88ad9fef77d4ce"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetSelection</b> (int currentPos_, int anchor_)</td></tr>
+<tr class="separator:a16f8a29bf4fea902db88ad9fef77d4ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a072072ab2c392d2a09cc4436c0a6dec0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a072072ab2c392d2a09cc4436c0a6dec0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetSelection</b> (<a class="el" href="class_selection_position.html">SelectionPosition</a> currentPos_)</td></tr>
+<tr class="separator:a072072ab2c392d2a09cc4436c0a6dec0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c495f41ecc76c3ba5d71419a64210fd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3c495f41ecc76c3ba5d71419a64210fd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetSelection</b> (int currentPos_)</td></tr>
+<tr class="separator:a3c495f41ecc76c3ba5d71419a64210fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6752d5bfb27b3f0c116957b0bfec20f9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6752d5bfb27b3f0c116957b0bfec20f9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetEmptySelection</b> (<a class="el" href="class_selection_position.html">SelectionPosition</a> currentPos_)</td></tr>
+<tr class="separator:a6752d5bfb27b3f0c116957b0bfec20f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4deea33619035ffe7641f08b6eb1a0db"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4deea33619035ffe7641f08b6eb1a0db"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetEmptySelection</b> (int currentPos_)</td></tr>
+<tr class="separator:a4deea33619035ffe7641f08b6eb1a0db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fb243e694d12c61bfe2739cf9dbfd54"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0fb243e694d12c61bfe2739cf9dbfd54"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>RangeContainsProtected</b> (int start, int end) const </td></tr>
+<tr class="separator:a0fb243e694d12c61bfe2739cf9dbfd54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58fc5913ccef8aaab8080cae33772ef5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a58fc5913ccef8aaab8080cae33772ef5"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>SelectionContainsProtected</b> ()</td></tr>
+<tr class="separator:a58fc5913ccef8aaab8080cae33772ef5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79d4f54d99110332bf67fe9b672f3fa0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_editor.html#a79d4f54d99110332bf67fe9b672f3fa0">MovePositionOutsideChar</a> (int pos, int moveDir, bool checkLineEnd=true) const </td></tr>
+<tr class="separator:a79d4f54d99110332bf67fe9b672f3fa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4060e7fc100b3680c55758bb6ec96bd8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4060e7fc100b3680c55758bb6ec96bd8"></a>
+<a class="el" href="class_selection_position.html">SelectionPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><b>MovePositionOutsideChar</b> (<a class="el" href="class_selection_position.html">SelectionPosition</a> pos, int moveDir, bool checkLineEnd=true) const </td></tr>
+<tr class="separator:a4060e7fc100b3680c55758bb6ec96bd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae700e53011363131ebed0627631db1cd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae700e53011363131ebed0627631db1cd"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>MovePositionTo</b> (<a class="el" href="class_selection_position.html">SelectionPosition</a> newPos, Selection::selTypes sel=Selection::noSel, bool ensureVisible=true)</td></tr>
+<tr class="separator:ae700e53011363131ebed0627631db1cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bd0b1371986726dc521ba23d258c375"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9bd0b1371986726dc521ba23d258c375"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>MovePositionTo</b> (int newPos, Selection::selTypes sel=Selection::noSel, bool ensureVisible=true)</td></tr>
+<tr class="separator:a9bd0b1371986726dc521ba23d258c375"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35df006718329945755abcb0f82f6b3c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a35df006718329945755abcb0f82f6b3c"></a>
+<a class="el" href="class_selection_position.html">SelectionPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><b>MovePositionSoVisible</b> (<a class="el" href="class_selection_position.html">SelectionPosition</a> pos, int moveDir)</td></tr>
+<tr class="separator:a35df006718329945755abcb0f82f6b3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67b711454e21d5e00da63d3db788645d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a67b711454e21d5e00da63d3db788645d"></a>
+<a class="el" href="class_selection_position.html">SelectionPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><b>MovePositionSoVisible</b> (int pos, int moveDir)</td></tr>
+<tr class="separator:a67b711454e21d5e00da63d3db788645d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed10b7ae4ab8458311198fdadb24e517"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aed10b7ae4ab8458311198fdadb24e517"></a>
+<a class="el" href="class_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><b>PointMainCaret</b> ()</td></tr>
+<tr class="separator:aed10b7ae4ab8458311198fdadb24e517"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab61ddc996acb6bc9912e2a0fd2edd3b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_editor.html#ab61ddc996acb6bc9912e2a0fd2edd3b3">SetLastXChosen</a> ()</td></tr>
+<tr class="separator:ab61ddc996acb6bc9912e2a0fd2edd3b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa5d5785cdeaddc00f2569fa9ab87a09"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaa5d5785cdeaddc00f2569fa9ab87a09"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ScrollTo</b> (int line, bool moveThumb=true)</td></tr>
+<tr class="separator:aaa5d5785cdeaddc00f2569fa9ab87a09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbeffeb1ede664135fe0308c2c4a8c5b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adbeffeb1ede664135fe0308c2c4a8c5b"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>ScrollText</b> (int linesToMove)</td></tr>
+<tr class="separator:adbeffeb1ede664135fe0308c2c4a8c5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb0422a00750da6015e7933253e1a28b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abb0422a00750da6015e7933253e1a28b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>HorizontalScrollTo</b> (int xPos)</td></tr>
+<tr class="separator:abb0422a00750da6015e7933253e1a28b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c0de4d71420f257fb966637426c3956"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4c0de4d71420f257fb966637426c3956"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>VerticalCentreCaret</b> ()</td></tr>
+<tr class="separator:a4c0de4d71420f257fb966637426c3956"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac39a07c2abd1847009aa51d249134846"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac39a07c2abd1847009aa51d249134846"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>MoveSelectedLines</b> (int lineDelta)</td></tr>
+<tr class="separator:ac39a07c2abd1847009aa51d249134846"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc38593d5ec71c6018472a48aec8a5af"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acc38593d5ec71c6018472a48aec8a5af"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>MoveSelectedLinesUp</b> ()</td></tr>
+<tr class="separator:acc38593d5ec71c6018472a48aec8a5af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5f06466461ce29a629558e7dedf7d46"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab5f06466461ce29a629558e7dedf7d46"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>MoveSelectedLinesDown</b> ()</td></tr>
+<tr class="separator:ab5f06466461ce29a629558e7dedf7d46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3295db467a9f7d0f3b8a1ffcb5ccfa26"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3295db467a9f7d0f3b8a1ffcb5ccfa26"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>MoveCaretInsideView</b> (bool ensureVisible=true)</td></tr>
+<tr class="separator:a3295db467a9f7d0f3b8a1ffcb5ccfa26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a4f3e18f50957a778b083bd004f82e1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a4f3e18f50957a778b083bd004f82e1"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>DisplayFromPosition</b> (int pos)</td></tr>
+<tr class="separator:a1a4f3e18f50957a778b083bd004f82e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b0f0dadd0b70ce7c5ae446ff53792cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_editor_1_1_x_y_scroll_position.html">XYScrollPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_editor.html#a2b0f0dadd0b70ce7c5ae446ff53792cc">XYScrollToMakeVisible</a> (const <a class="el" href="struct_selection_range.html">SelectionRange</a> range, const XYScrollOptions options)</td></tr>
+<tr class="separator:a2b0f0dadd0b70ce7c5ae446ff53792cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fb4003faf1cfb7567718d228669cac9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2fb4003faf1cfb7567718d228669cac9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetXYScroll</b> (<a class="el" href="struct_editor_1_1_x_y_scroll_position.html">XYScrollPosition</a> newXY)</td></tr>
+<tr class="separator:a2fb4003faf1cfb7567718d228669cac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c231be00c6b97c553814ae1fd6809bb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8c231be00c6b97c553814ae1fd6809bb"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>EnsureCaretVisible</b> (bool useMargin=true, bool vert=true, bool horiz=true)</td></tr>
+<tr class="separator:a8c231be00c6b97c553814ae1fd6809bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a386e7aa5f42bf6108d3b41821ee626b4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a386e7aa5f42bf6108d3b41821ee626b4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ScrollRange</b> (<a class="el" href="struct_selection_range.html">SelectionRange</a> range)</td></tr>
+<tr class="separator:a386e7aa5f42bf6108d3b41821ee626b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4299717f0386f4de96cef0acb3843d86"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4299717f0386f4de96cef0acb3843d86"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ShowCaretAtCurrentPosition</b> ()</td></tr>
+<tr class="separator:a4299717f0386f4de96cef0acb3843d86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf1a1c3096b00a12453d0b4539ba15e0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaf1a1c3096b00a12453d0b4539ba15e0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>DropCaret</b> ()</td></tr>
+<tr class="separator:aaf1a1c3096b00a12453d0b4539ba15e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8bf3ed299ccfcb36a447834ee22f51e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae8bf3ed299ccfcb36a447834ee22f51e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>InvalidateCaret</b> ()</td></tr>
+<tr class="separator:ae8bf3ed299ccfcb36a447834ee22f51e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a580759b1b17273d7f72051f35b8b2b19"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a580759b1b17273d7f72051f35b8b2b19"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateSystemCaret</b> ()</td></tr>
+<tr class="separator:a580759b1b17273d7f72051f35b8b2b19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a543d699cf9b76c72017dc897b70a2677"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a543d699cf9b76c72017dc897b70a2677"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>Wrapping</b> () const </td></tr>
+<tr class="separator:a543d699cf9b76c72017dc897b70a2677"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5ce66e75025215f7d50b7c4a94482ab"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af5ce66e75025215f7d50b7c4a94482ab"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>NeedWrapping</b> (int docLineStart=0, int docLineEnd=WrapPending::lineLarge)</td></tr>
+<tr class="separator:af5ce66e75025215f7d50b7c4a94482ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5bee3cedf59a70e85df14da1aeee426"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af5bee3cedf59a70e85df14da1aeee426"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>WrapOneLine</b> (<a class="el" href="class_surface.html">Surface</a> *surface, int lineToWrap)</td></tr>
+<tr class="separator:af5bee3cedf59a70e85df14da1aeee426"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45abebfdd0885882ef98a7aca8acb3e2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a45abebfdd0885882ef98a7aca8acb3e2"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>WrapLines</b> (enum wrapScope ws)</td></tr>
+<tr class="separator:a45abebfdd0885882ef98a7aca8acb3e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d57c348606dbe0c85c2acd1b4bcfaf2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2d57c348606dbe0c85c2acd1b4bcfaf2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>LinesJoin</b> ()</td></tr>
+<tr class="separator:a2d57c348606dbe0c85c2acd1b4bcfaf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b2ef6a5b7d0491b8a67c77a56df46b7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5b2ef6a5b7d0491b8a67c77a56df46b7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>LinesSplit</b> (int pixelWidth)</td></tr>
+<tr class="separator:a5b2ef6a5b7d0491b8a67c77a56df46b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45c4413379eab787f8fa57236f68c085"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a45c4413379eab787f8fa57236f68c085"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>SubstituteMarkerIfEmpty</b> (int markerCheck, int markerDefault) const </td></tr>
+<tr class="separator:a45c4413379eab787f8fa57236f68c085"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae068158d95d93226d77aee364163b6d9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae068158d95d93226d77aee364163b6d9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>PaintSelMargin</b> (<a class="el" href="class_surface.html">Surface</a> *surface, <a class="el" href="class_p_rectangle.html">PRectangle</a> &amp;rc)</td></tr>
+<tr class="separator:ae068158d95d93226d77aee364163b6d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af30b89a5736b6875b460cb4bda101d08"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af30b89a5736b6875b460cb4bda101d08"></a>
+<a class="el" href="class_line_layout.html">LineLayout</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>RetrieveLineLayout</b> (int lineNumber)</td></tr>
+<tr class="separator:af30b89a5736b6875b460cb4bda101d08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bd874c66b27d2372b76686bd61e7698"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_editor.html#a2bd874c66b27d2372b76686bd61e7698">LayoutLine</a> (int line, <a class="el" href="class_surface.html">Surface</a> *surface, <a class="el" href="class_view_style.html">ViewStyle</a> &amp;vstyle, <a class="el" href="class_line_layout.html">LineLayout</a> *ll, int width=LineLayout::wrapWidthInfinite)</td></tr>
+<tr class="separator:a2bd874c66b27d2372b76686bd61e7698"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abff025279cff0f417ef5328729140741"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abff025279cff0f417ef5328729140741"></a>
+<a class="el" href="class_colour_desired.html">ColourDesired</a>&#160;</td><td class="memItemRight" valign="bottom"><b>SelectionBackground</b> (<a class="el" href="class_view_style.html">ViewStyle</a> &amp;vsDraw, bool main) const </td></tr>
+<tr class="separator:abff025279cff0f417ef5328729140741"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7509cb060dfec9af91901dd41d68da1e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7509cb060dfec9af91901dd41d68da1e"></a>
+<a class="el" href="class_colour_desired.html">ColourDesired</a>&#160;</td><td class="memItemRight" valign="bottom"><b>TextBackground</b> (<a class="el" href="class_view_style.html">ViewStyle</a> &amp;vsDraw, bool overrideBackground, <a class="el" href="class_colour_desired.html">ColourDesired</a> background, int inSelection, bool inHotspot, int styleMain, int i, <a class="el" href="class_line_layout.html">LineLayout</a> *ll) const </td></tr>
+<tr class="separator:a7509cb060dfec9af91901dd41d68da1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a506a25eb4c2154f511014f5e66778c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a506a25eb4c2154f511014f5e66778c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawIndentGuide</b> (<a class="el" href="class_surface.html">Surface</a> *surface, int lineVisible, int lineHeight, int start, <a class="el" href="class_p_rectangle.html">PRectangle</a> rcSegment, bool highlight)</td></tr>
+<tr class="separator:a1a506a25eb4c2154f511014f5e66778c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91383b663fa819492599b0338618ade7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a91383b663fa819492599b0338618ade7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawWrapMarker</b> (<a class="el" href="class_surface.html">Surface</a> *surface, <a class="el" href="class_p_rectangle.html">PRectangle</a> rcPlace, bool isEndMarker, <a class="el" href="class_colour_desired.html">ColourDesired</a> wrapColour)</td></tr>
+<tr class="separator:a91383b663fa819492599b0338618ade7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a513c752f25123ffb32e0b25d43bcba7d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a513c752f25123ffb32e0b25d43bcba7d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawEOL</b> (<a class="el" href="class_surface.html">Surface</a> *surface, <a class="el" href="class_view_style.html">ViewStyle</a> &amp;vsDraw, <a class="el" href="class_p_rectangle.html">PRectangle</a> rcLine, <a class="el" href="class_line_layout.html">LineLayout</a> *ll, int line, int lineEnd, int xStart, int subLine, XYACCUMULATOR subLineStart, bool overrideBackground, <a class="el" href="class_colour_desired.html">ColourDesired</a> background, bool drawWrapMark, <a class="el" href="class_colour_desired.html">ColourDesired</a> wrapColour)</td></tr>
+<tr class="separator:a513c752f25123ffb32e0b25d43bcba7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57b026d68c07633666c59466b0a20596"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a57b026d68c07633666c59466b0a20596"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawIndicator</b> (int indicNum, int startPos, int endPos, <a class="el" href="class_surface.html">Surface</a> *surface, <a class="el" href="class_view_style.html">ViewStyle</a> &amp;vsDraw, int xStart, <a class="el" href="class_p_rectangle.html">PRectangle</a> rcLine, <a class="el" href="class_line_layout.html">LineLayout</a> *ll, int subLine)</td></tr>
+<tr class="separator:a57b026d68c07633666c59466b0a20596"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf2ee386cae15ceefbe1b0d2aa85edc7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaf2ee386cae15ceefbe1b0d2aa85edc7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawIndicators</b> (<a class="el" href="class_surface.html">Surface</a> *surface, <a class="el" href="class_view_style.html">ViewStyle</a> &amp;vsDraw, int line, int xStart, <a class="el" href="class_p_rectangle.html">PRectangle</a> rcLine, <a class="el" href="class_line_layout.html">LineLayout</a> *ll, int subLine, int lineEnd, bool under)</td></tr>
+<tr class="separator:aaf2ee386cae15ceefbe1b0d2aa85edc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70312b76f50edac32f4cf637953f99ea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a70312b76f50edac32f4cf637953f99ea"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawAnnotation</b> (<a class="el" href="class_surface.html">Surface</a> *surface, <a class="el" href="class_view_style.html">ViewStyle</a> &amp;vsDraw, int line, int xStart, <a class="el" href="class_p_rectangle.html">PRectangle</a> rcLine, <a class="el" href="class_line_layout.html">LineLayout</a> *ll, int subLine)</td></tr>
+<tr class="separator:a70312b76f50edac32f4cf637953f99ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cce8fdb4fbce913ce20e179c150d0d2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0cce8fdb4fbce913ce20e179c150d0d2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawLine</b> (<a class="el" href="class_surface.html">Surface</a> *surface, <a class="el" href="class_view_style.html">ViewStyle</a> &amp;vsDraw, int line, int lineVisible, int xStart, <a class="el" href="class_p_rectangle.html">PRectangle</a> rcLine, <a class="el" href="class_line_layout.html">LineLayout</a> *ll, int subLine)</td></tr>
+<tr class="separator:a0cce8fdb4fbce913ce20e179c150d0d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aade687560e78cdf357c25304a4adee91"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aade687560e78cdf357c25304a4adee91"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawBlockCaret</b> (<a class="el" href="class_surface.html">Surface</a> *surface, <a class="el" href="class_view_style.html">ViewStyle</a> &amp;vsDraw, <a class="el" href="class_line_layout.html">LineLayout</a> *ll, int subLine, int xStart, int offset, int posCaret, <a class="el" href="class_p_rectangle.html">PRectangle</a> rcCaret, <a class="el" href="class_colour_desired.html">ColourDesired</a> caretColour)</td></tr>
+<tr class="separator:aade687560e78cdf357c25304a4adee91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a21d8c998dd0b732e420728c07a477a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4a21d8c998dd0b732e420728c07a477a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawCarets</b> (<a class="el" href="class_surface.html">Surface</a> *surface, <a class="el" href="class_view_style.html">ViewStyle</a> &amp;vsDraw, int line, int xStart, <a class="el" href="class_p_rectangle.html">PRectangle</a> rcLine, <a class="el" href="class_line_layout.html">LineLayout</a> *ll, int subLine)</td></tr>
+<tr class="separator:a4a21d8c998dd0b732e420728c07a477a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ac3b6aa7f181200318fcb9d86c70f24"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2ac3b6aa7f181200318fcb9d86c70f24"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>RefreshPixMaps</b> (<a class="el" href="class_surface.html">Surface</a> *surfaceWindow)</td></tr>
+<tr class="separator:a2ac3b6aa7f181200318fcb9d86c70f24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0262aa5297ad4f5b386275bdfce054a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad0262aa5297ad4f5b386275bdfce054a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Paint</b> (<a class="el" href="class_surface.html">Surface</a> *surfaceWindow, <a class="el" href="class_p_rectangle.html">PRectangle</a> rcArea)</td></tr>
+<tr class="separator:ad0262aa5297ad4f5b386275bdfce054a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a159276fe6ffe44633b53a7c5aaa308ca"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a159276fe6ffe44633b53a7c5aaa308ca"></a>
+long&#160;</td><td class="memItemRight" valign="bottom"><b>FormatRange</b> (bool draw, <a class="el" href="struct_sci___range_to_format.html">Sci_RangeToFormat</a> *pfr)</td></tr>
+<tr class="separator:a159276fe6ffe44633b53a7c5aaa308ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4f696e4a19a4d3fdd18794dd00f84e6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac4f696e4a19a4d3fdd18794dd00f84e6"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>TextWidth</b> (int style, const char *text)</td></tr>
+<tr class="separator:ac4f696e4a19a4d3fdd18794dd00f84e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33c02068c302e3ef703756401dafd71f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a33c02068c302e3ef703756401dafd71f"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetVerticalScrollPos</b> ()=0</td></tr>
+<tr class="separator:a33c02068c302e3ef703756401dafd71f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41e003e28aacd766459474272cce7477"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a41e003e28aacd766459474272cce7477"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetHorizontalScrollPos</b> ()=0</td></tr>
+<tr class="separator:a41e003e28aacd766459474272cce7477"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7f86feeaee56954637077dc0e0003b2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af7f86feeaee56954637077dc0e0003b2"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>ModifyScrollBars</b> (int nMax, int nPage)=0</td></tr>
+<tr class="separator:af7f86feeaee56954637077dc0e0003b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d0c52d0bf9fa4d7b49c278de4338467"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4d0c52d0bf9fa4d7b49c278de4338467"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>ReconfigureScrollBars</b> ()</td></tr>
+<tr class="separator:a4d0c52d0bf9fa4d7b49c278de4338467"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad39bef1bf5e262ad2ef80dd92b9ef0d6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad39bef1bf5e262ad2ef80dd92b9ef0d6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetScrollBars</b> ()</td></tr>
+<tr class="separator:ad39bef1bf5e262ad2ef80dd92b9ef0d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b8d64270eb86cce761aa815d6512184"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7b8d64270eb86cce761aa815d6512184"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ChangeSize</b> ()</td></tr>
+<tr class="separator:a7b8d64270eb86cce761aa815d6512184"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cf53b1e1b7d6d8f13f3bfad806a8a67"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3cf53b1e1b7d6d8f13f3bfad806a8a67"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>FilterSelections</b> ()</td></tr>
+<tr class="separator:a3cf53b1e1b7d6d8f13f3bfad806a8a67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a117f7adf9b56e46fe9e3783381db8afd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a117f7adf9b56e46fe9e3783381db8afd"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>InsertSpace</b> (int position, unsigned int spaces)</td></tr>
+<tr class="separator:a117f7adf9b56e46fe9e3783381db8afd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5593b5352e2f58d7607f748ef878d464"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5593b5352e2f58d7607f748ef878d464"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>AddChar</b> (char ch)</td></tr>
+<tr class="separator:a5593b5352e2f58d7607f748ef878d464"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cdbbb45c01b1b632e5f8ec1f6c3920b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8cdbbb45c01b1b632e5f8ec1f6c3920b"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>AddCharUTF</b> (char *s, unsigned int len, bool treatAsDBCS=false)</td></tr>
+<tr class="separator:a8cdbbb45c01b1b632e5f8ec1f6c3920b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3842fbfeb0a50971cb8f0206c4096ecd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3842fbfeb0a50971cb8f0206c4096ecd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>InsertPaste</b> (<a class="el" href="class_selection_position.html">SelectionPosition</a> selStart, const char *text, int len)</td></tr>
+<tr class="separator:a3842fbfeb0a50971cb8f0206c4096ecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84091b180e33897a4a0562652251aa4a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a84091b180e33897a4a0562652251aa4a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ClearSelection</b> (bool retainMultipleSelections=false)</td></tr>
+<tr class="separator:a84091b180e33897a4a0562652251aa4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad87a384266de349803658a6ea27c5652"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad87a384266de349803658a6ea27c5652"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ClearAll</b> ()</td></tr>
+<tr class="separator:ad87a384266de349803658a6ea27c5652"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51db2bd9196025920c891f048d55bd9d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a51db2bd9196025920c891f048d55bd9d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ClearDocumentStyle</b> ()</td></tr>
+<tr class="separator:a51db2bd9196025920c891f048d55bd9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59307de15777fb4f7e75848cdfb65ea1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a59307de15777fb4f7e75848cdfb65ea1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Cut</b> ()</td></tr>
+<tr class="separator:a59307de15777fb4f7e75848cdfb65ea1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95593f0d35e2b5f1f8b2d718333e7dc9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a95593f0d35e2b5f1f8b2d718333e7dc9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>PasteRectangular</b> (<a class="el" href="class_selection_position.html">SelectionPosition</a> pos, const char *ptr, int len)</td></tr>
+<tr class="separator:a95593f0d35e2b5f1f8b2d718333e7dc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8851586b6086922967e20f5ee20ea1b3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8851586b6086922967e20f5ee20ea1b3"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Copy</b> ()=0</td></tr>
+<tr class="separator:a8851586b6086922967e20f5ee20ea1b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a174eb17ef114d4d5312fec7194971139"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a174eb17ef114d4d5312fec7194971139"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>CopyAllowLine</b> ()</td></tr>
+<tr class="separator:a174eb17ef114d4d5312fec7194971139"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32052a7c40df8cfc7a70ddae7a8b4828"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a32052a7c40df8cfc7a70ddae7a8b4828"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>CanPaste</b> ()</td></tr>
+<tr class="separator:a32052a7c40df8cfc7a70ddae7a8b4828"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d2656d2658660f1bbf40e119174e699"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2d2656d2658660f1bbf40e119174e699"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Paste</b> ()=0</td></tr>
+<tr class="separator:a2d2656d2658660f1bbf40e119174e699"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41199a92c3b9e1a0784fe7246ca81101"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a41199a92c3b9e1a0784fe7246ca81101"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Clear</b> ()</td></tr>
+<tr class="separator:a41199a92c3b9e1a0784fe7246ca81101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c55209cfc976c22b6aa6f904b4dc1db"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6c55209cfc976c22b6aa6f904b4dc1db"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SelectAll</b> ()</td></tr>
+<tr class="separator:a6c55209cfc976c22b6aa6f904b4dc1db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a144d7e68211272b5ab50429550ff0da3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a144d7e68211272b5ab50429550ff0da3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Undo</b> ()</td></tr>
+<tr class="separator:a144d7e68211272b5ab50429550ff0da3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8669e0a34198e8291ed0264007ae92b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac8669e0a34198e8291ed0264007ae92b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Redo</b> ()</td></tr>
+<tr class="separator:ac8669e0a34198e8291ed0264007ae92b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e047b98047dbebc0990b2981a544c9d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9e047b98047dbebc0990b2981a544c9d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>DelChar</b> ()</td></tr>
+<tr class="separator:a9e047b98047dbebc0990b2981a544c9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a429f5e4c6ae3658f16017f7fc297cc54"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a429f5e4c6ae3658f16017f7fc297cc54"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>DelCharBack</b> (bool allowLineStartDeletion)</td></tr>
+<tr class="separator:a429f5e4c6ae3658f16017f7fc297cc54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77beac591f8fe13588ba157bc953cb6c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a77beac591f8fe13588ba157bc953cb6c"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>ClaimSelection</b> ()=0</td></tr>
+<tr class="separator:a77beac591f8fe13588ba157bc953cb6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af11554e78c265859387cce141e4927e5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af11554e78c265859387cce141e4927e5"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>NotifyChange</b> ()=0</td></tr>
+<tr class="separator:af11554e78c265859387cce141e4927e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a947169176fea1b26da3ebeb003e1c850"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a947169176fea1b26da3ebeb003e1c850"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>NotifyFocus</b> (bool focus)</td></tr>
+<tr class="separator:a947169176fea1b26da3ebeb003e1c850"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5174ddf9c4dde2537a5b5acb9a87921f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5174ddf9c4dde2537a5b5acb9a87921f"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetCtrlID</b> (int identifier)</td></tr>
+<tr class="separator:a5174ddf9c4dde2537a5b5acb9a87921f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae25ab1edf892ff84af9fda803e5d0dd8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae25ab1edf892ff84af9fda803e5d0dd8"></a>
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>GetCtrlID</b> ()</td></tr>
+<tr class="separator:ae25ab1edf892ff84af9fda803e5d0dd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6721275e27b8c0907cae9a42860999b5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6721275e27b8c0907cae9a42860999b5"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>NotifyParent</b> (<a class="el" href="struct_s_c_notification.html">SCNotification</a> scn)=0</td></tr>
+<tr class="separator:a6721275e27b8c0907cae9a42860999b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a794d400b65d45b925fc3f16b64991125"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a794d400b65d45b925fc3f16b64991125"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>NotifyStyleToNeeded</b> (int endStyleNeeded)</td></tr>
+<tr class="separator:a794d400b65d45b925fc3f16b64991125"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a78c61e147b3f2d77138292e125584d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a78c61e147b3f2d77138292e125584d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>NotifyChar</b> (int ch)</td></tr>
+<tr class="separator:a1a78c61e147b3f2d77138292e125584d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dccec0c90a53922eef90c1d62365db4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7dccec0c90a53922eef90c1d62365db4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>NotifySavePoint</b> (bool isSavePoint)</td></tr>
+<tr class="separator:a7dccec0c90a53922eef90c1d62365db4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a459f6798214f0749c2ce7eac01eb1c6c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a459f6798214f0749c2ce7eac01eb1c6c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>NotifyModifyAttempt</b> ()</td></tr>
+<tr class="separator:a459f6798214f0749c2ce7eac01eb1c6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b694742cc65531ff01bf0ee514305ab"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8b694742cc65531ff01bf0ee514305ab"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>NotifyDoubleClick</b> (<a class="el" href="class_point.html">Point</a> pt, bool shift, bool ctrl, bool alt)</td></tr>
+<tr class="separator:a8b694742cc65531ff01bf0ee514305ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0095df8860a004abf8665014f5a8122f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0095df8860a004abf8665014f5a8122f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>NotifyHotSpotClicked</b> (int position, bool shift, bool ctrl, bool alt)</td></tr>
+<tr class="separator:a0095df8860a004abf8665014f5a8122f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a495b186663496a2ec2b64d9407223fc1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a495b186663496a2ec2b64d9407223fc1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>NotifyHotSpotDoubleClicked</b> (int position, bool shift, bool ctrl, bool alt)</td></tr>
+<tr class="separator:a495b186663496a2ec2b64d9407223fc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9664a2f502a91e454dbdbf0f25c0873b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9664a2f502a91e454dbdbf0f25c0873b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>NotifyHotSpotReleaseClick</b> (int position, bool shift, bool ctrl, bool alt)</td></tr>
+<tr class="separator:a9664a2f502a91e454dbdbf0f25c0873b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85a8ba4a3f47f9dfc0b27b54244cd47a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a85a8ba4a3f47f9dfc0b27b54244cd47a"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>NotifyUpdateUI</b> ()</td></tr>
+<tr class="separator:a85a8ba4a3f47f9dfc0b27b54244cd47a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af63d4af139856a981feee496d27dd24a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af63d4af139856a981feee496d27dd24a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>NotifyPainted</b> ()</td></tr>
+<tr class="separator:af63d4af139856a981feee496d27dd24a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8ff357884e9aaa78463efa46a5cd98b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac8ff357884e9aaa78463efa46a5cd98b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>NotifyIndicatorClick</b> (bool click, int position, bool shift, bool ctrl, bool alt)</td></tr>
+<tr class="separator:ac8ff357884e9aaa78463efa46a5cd98b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7827925211e8ec98ff73ee11fca7682c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7827925211e8ec98ff73ee11fca7682c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>NotifyMarginClick</b> (<a class="el" href="class_point.html">Point</a> pt, bool shift, bool ctrl, bool alt)</td></tr>
+<tr class="separator:a7827925211e8ec98ff73ee11fca7682c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a501cffbf4378153a68960d1533496fc9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a501cffbf4378153a68960d1533496fc9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>NotifyNeedShown</b> (int pos, int len)</td></tr>
+<tr class="separator:a501cffbf4378153a68960d1533496fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacf75774b39a1bd5ae76203badc933fa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aacf75774b39a1bd5ae76203badc933fa"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>NotifyDwelling</b> (<a class="el" href="class_point.html">Point</a> pt, bool state)</td></tr>
+<tr class="separator:aacf75774b39a1bd5ae76203badc933fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54db3ee4587215f8c48fdcfc4b158113"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a54db3ee4587215f8c48fdcfc4b158113"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>NotifyZoom</b> ()</td></tr>
+<tr class="separator:a54db3ee4587215f8c48fdcfc4b158113"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae67357e2080111b524e7913e09047b1e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae67357e2080111b524e7913e09047b1e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>NotifyModifyAttempt</b> (<a class="el" href="class_document.html">Document</a> *document, void *userData)</td></tr>
+<tr class="separator:ae67357e2080111b524e7913e09047b1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36a5aecd5fa1ab9c4367611983a7fac0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a36a5aecd5fa1ab9c4367611983a7fac0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>NotifySavePoint</b> (<a class="el" href="class_document.html">Document</a> *document, void *userData, bool atSavePoint)</td></tr>
+<tr class="separator:a36a5aecd5fa1ab9c4367611983a7fac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30f78b24d3c130ece3bbe7720b62a0f9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a30f78b24d3c130ece3bbe7720b62a0f9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>CheckModificationForWrap</b> (<a class="el" href="class_doc_modification.html">DocModification</a> mh)</td></tr>
+<tr class="separator:a30f78b24d3c130ece3bbe7720b62a0f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2814dd750599281705c5efa21317e304"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2814dd750599281705c5efa21317e304"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>NotifyModified</b> (<a class="el" href="class_document.html">Document</a> *document, <a class="el" href="class_doc_modification.html">DocModification</a> mh, void *userData)</td></tr>
+<tr class="separator:a2814dd750599281705c5efa21317e304"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0aa8ba4e211a93e77bcfefd3d44085e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae0aa8ba4e211a93e77bcfefd3d44085e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>NotifyDeleted</b> (<a class="el" href="class_document.html">Document</a> *document, void *userData)</td></tr>
+<tr class="separator:ae0aa8ba4e211a93e77bcfefd3d44085e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acec9dea460dfe5129dc4e33927bcdb6b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acec9dea460dfe5129dc4e33927bcdb6b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>NotifyStyleNeeded</b> (<a class="el" href="class_document.html">Document</a> *doc, void *userData, int endPos)</td></tr>
+<tr class="separator:acec9dea460dfe5129dc4e33927bcdb6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a906db8c0a997b458a7578026287930d2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a906db8c0a997b458a7578026287930d2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>NotifyLexerChanged</b> (<a class="el" href="class_document.html">Document</a> *doc, void *userData)</td></tr>
+<tr class="separator:a906db8c0a997b458a7578026287930d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa703afd60d9c5ce4684bfcfed2be93bc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa703afd60d9c5ce4684bfcfed2be93bc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>NotifyErrorOccurred</b> (<a class="el" href="class_document.html">Document</a> *doc, void *userData, int status)</td></tr>
+<tr class="separator:aa703afd60d9c5ce4684bfcfed2be93bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f47a2b285c3c2feb4026be1f696cc94"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f47a2b285c3c2feb4026be1f696cc94"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>NotifyMacroRecord</b> (unsigned int iMessage, uptr_t wParam, sptr_t lParam)</td></tr>
+<tr class="separator:a8f47a2b285c3c2feb4026be1f696cc94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4558aa4bce329b737be7008b588aeea1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4558aa4bce329b737be7008b588aeea1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ContainerNeedsUpdate</b> (int flags)</td></tr>
+<tr class="separator:a4558aa4bce329b737be7008b588aeea1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b2b8f42c662559fef842c2bbea54a44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_editor.html#a2b2b8f42c662559fef842c2bbea54a44">PageMove</a> (int direction, Selection::selTypes sel=Selection::noSel, bool stuttered=false)</td></tr>
+<tr class="separator:a2b2b8f42c662559fef842c2bbea54a44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b4d84880da9d2c3c24cb58e2c37d896"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9b4d84880da9d2c3c24cb58e2c37d896"></a>
+virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><b>CaseMapString</b> (const std::string &amp;s, int caseMapping)</td></tr>
+<tr class="separator:a9b4d84880da9d2c3c24cb58e2c37d896"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fc5f43d485fc35036e22721ea561d98"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9fc5f43d485fc35036e22721ea561d98"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ChangeCaseOfSelection</b> (int caseMapping)</td></tr>
+<tr class="separator:a9fc5f43d485fc35036e22721ea561d98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac335d2edcf9336d00dad593e17ca66dc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac335d2edcf9336d00dad593e17ca66dc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>LineTranspose</b> ()</td></tr>
+<tr class="separator:ac335d2edcf9336d00dad593e17ca66dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a075644a53d256ae14e4825fc54e7a4f7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a075644a53d256ae14e4825fc54e7a4f7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Duplicate</b> (bool forLine)</td></tr>
+<tr class="separator:a075644a53d256ae14e4825fc54e7a4f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af310537cb94c3632e6803b98bcecaf07"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af310537cb94c3632e6803b98bcecaf07"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>CancelModes</b> ()</td></tr>
+<tr class="separator:af310537cb94c3632e6803b98bcecaf07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a695dfe9160b100c739a9e1ac21cd24c1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a695dfe9160b100c739a9e1ac21cd24c1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>NewLine</b> ()</td></tr>
+<tr class="separator:a695dfe9160b100c739a9e1ac21cd24c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91066800f1849bff5e8e0fb482e4bea1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a91066800f1849bff5e8e0fb482e4bea1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>CursorUpOrDown</b> (int direction, Selection::selTypes sel=Selection::noSel)</td></tr>
+<tr class="separator:a91066800f1849bff5e8e0fb482e4bea1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04321cfb8f464dd6f40e7fb266f632f2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a04321cfb8f464dd6f40e7fb266f632f2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ParaUpOrDown</b> (int direction, Selection::selTypes sel=Selection::noSel)</td></tr>
+<tr class="separator:a04321cfb8f464dd6f40e7fb266f632f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75beedc4e754d6bb367e0ed56c80a660"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a75beedc4e754d6bb367e0ed56c80a660"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>StartEndDisplayLine</b> (int pos, bool start)</td></tr>
+<tr class="separator:a75beedc4e754d6bb367e0ed56c80a660"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38bfba8090a405eac45d87952e0e8229"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a38bfba8090a405eac45d87952e0e8229"></a>
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>KeyCommand</b> (unsigned int iMessage)</td></tr>
+<tr class="separator:a38bfba8090a405eac45d87952e0e8229"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a768f061c13f102a88e3801ace1f309bb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a768f061c13f102a88e3801ace1f309bb"></a>
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>KeyDefault</b> (int, int)</td></tr>
+<tr class="separator:a768f061c13f102a88e3801ace1f309bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c241d1072e36c74ef96339f2200c0fa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3c241d1072e36c74ef96339f2200c0fa"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>KeyDownWithModifiers</b> (int key, int modifiers, bool *consumed)</td></tr>
+<tr class="separator:a3c241d1072e36c74ef96339f2200c0fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bb710434277ec31b67ac3cf6cd26e3d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7bb710434277ec31b67ac3cf6cd26e3d"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>KeyDown</b> (int key, bool shift, bool ctrl, bool alt, bool *consumed=0)</td></tr>
+<tr class="separator:a7bb710434277ec31b67ac3cf6cd26e3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bd29f669197697b8ea7cd6063b4dc9e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9bd29f669197697b8ea7cd6063b4dc9e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Indent</b> (bool forwards)</td></tr>
+<tr class="separator:a9bd29f669197697b8ea7cd6063b4dc9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa31d77b6cecd653db10210bf55a6206d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa31d77b6cecd653db10210bf55a6206d"></a>
+virtual <a class="el" href="class_case_folder.html">CaseFolder</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>CaseFolderForEncoding</b> ()</td></tr>
+<tr class="separator:aa31d77b6cecd653db10210bf55a6206d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac168e4ac23f384f2ba1aba588794e96c"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_editor.html#ac168e4ac23f384f2ba1aba588794e96c">FindText</a> (uptr_t wParam, sptr_t lParam)</td></tr>
+<tr class="separator:ac168e4ac23f384f2ba1aba588794e96c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01d7f244c17886f8260eb79bc11e3234"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_editor.html#a01d7f244c17886f8260eb79bc11e3234">SearchAnchor</a> ()</td></tr>
+<tr class="separator:a01d7f244c17886f8260eb79bc11e3234"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7a2ba2eadba57f0447d87aefd9c6fb7"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_editor.html#ad7a2ba2eadba57f0447d87aefd9c6fb7">SearchText</a> (unsigned int iMessage, uptr_t wParam, sptr_t lParam)</td></tr>
+<tr class="separator:ad7a2ba2eadba57f0447d87aefd9c6fb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9cb5d7cacf519e34c65fb641a730c85"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_editor.html#aa9cb5d7cacf519e34c65fb641a730c85">SearchInTarget</a> (const char *text, int length)</td></tr>
+<tr class="separator:aa9cb5d7cacf519e34c65fb641a730c85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77a41f2b368f83fc0c9e258eafcc649a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a77a41f2b368f83fc0c9e258eafcc649a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>GoToLine</b> (int lineNo)</td></tr>
+<tr class="separator:a77a41f2b368f83fc0c9e258eafcc649a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4481f241b43cde7aa6b89b7612e6540"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad4481f241b43cde7aa6b89b7612e6540"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>CopyToClipboard</b> (const <a class="el" href="class_selection_text.html">SelectionText</a> &amp;selectedText)=0</td></tr>
+<tr class="separator:ad4481f241b43cde7aa6b89b7612e6540"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11a024603826f1d9eda79152c33ba584"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a11a024603826f1d9eda79152c33ba584"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>RangeText</b> (int start, int end) const </td></tr>
+<tr class="separator:a11a024603826f1d9eda79152c33ba584"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4e0983c281696ad295658bc819e7bdf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab4e0983c281696ad295658bc819e7bdf"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>CopySelectionRange</b> (<a class="el" href="class_selection_text.html">SelectionText</a> *ss, bool allowLineCopy=false)</td></tr>
+<tr class="separator:ab4e0983c281696ad295658bc819e7bdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a364905f3feea8e5069c2b98ee2f80a63"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a364905f3feea8e5069c2b98ee2f80a63"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>CopyRangeToClipboard</b> (int start, int end)</td></tr>
+<tr class="separator:a364905f3feea8e5069c2b98ee2f80a63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7cae0a1498f948c41ccd2d86923d65b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae7cae0a1498f948c41ccd2d86923d65b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>CopyText</b> (int length, const char *text)</td></tr>
+<tr class="separator:ae7cae0a1498f948c41ccd2d86923d65b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78f30b431a3f65cc110374606ff20400"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a78f30b431a3f65cc110374606ff20400"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetDragPosition</b> (<a class="el" href="class_selection_position.html">SelectionPosition</a> newPos)</td></tr>
+<tr class="separator:a78f30b431a3f65cc110374606ff20400"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18b126acc0ef1f1b63f78ebaff15b89e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a18b126acc0ef1f1b63f78ebaff15b89e"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>DisplayCursor</b> (Window::Cursor c)</td></tr>
+<tr class="separator:a18b126acc0ef1f1b63f78ebaff15b89e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3762fd15bd1381c1a5d23ea2bcf30c07"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3762fd15bd1381c1a5d23ea2bcf30c07"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>DragThreshold</b> (<a class="el" href="class_point.html">Point</a> ptStart, <a class="el" href="class_point.html">Point</a> ptNow)</td></tr>
+<tr class="separator:a3762fd15bd1381c1a5d23ea2bcf30c07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdd526f37e80c651552abe7249a8f793"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afdd526f37e80c651552abe7249a8f793"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>StartDrag</b> ()</td></tr>
+<tr class="separator:afdd526f37e80c651552abe7249a8f793"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3e14c1fe109463b793d8fbc415415f3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa3e14c1fe109463b793d8fbc415415f3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>DropAt</b> (<a class="el" href="class_selection_position.html">SelectionPosition</a> position, const char *value, size_t lengthValue, bool moving, bool rectangular)</td></tr>
+<tr class="separator:aa3e14c1fe109463b793d8fbc415415f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa06ce3768e1cbfc8b1669b2035c6e86f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa06ce3768e1cbfc8b1669b2035c6e86f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>DropAt</b> (<a class="el" href="class_selection_position.html">SelectionPosition</a> position, const char *value, bool moving, bool rectangular)</td></tr>
+<tr class="separator:aa06ce3768e1cbfc8b1669b2035c6e86f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a997e080e1267b5b1c1593ecde2ab33a8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_editor.html#a997e080e1267b5b1c1593ecde2ab33a8">PositionInSelection</a> (int pos)</td></tr>
+<tr class="separator:a997e080e1267b5b1c1593ecde2ab33a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6aefb1ee06840fd8bff008d16c12f20"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad6aefb1ee06840fd8bff008d16c12f20"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>PointInSelection</b> (<a class="el" href="class_point.html">Point</a> pt)</td></tr>
+<tr class="separator:ad6aefb1ee06840fd8bff008d16c12f20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd4f19ac0a509c4e905c4e5e2cfaa8b7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abd4f19ac0a509c4e905c4e5e2cfaa8b7"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>PointInSelMargin</b> (<a class="el" href="class_point.html">Point</a> pt)</td></tr>
+<tr class="separator:abd4f19ac0a509c4e905c4e5e2cfaa8b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83eac06fcbba3883629e9e4705f542f5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a83eac06fcbba3883629e9e4705f542f5"></a>
+Window::Cursor&#160;</td><td class="memItemRight" valign="bottom"><b>GetMarginCursor</b> (<a class="el" href="class_point.html">Point</a> pt) const </td></tr>
+<tr class="separator:a83eac06fcbba3883629e9e4705f542f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75b4cef1377b1ea72021821e5adccf7f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a75b4cef1377b1ea72021821e5adccf7f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>TrimAndSetSelection</b> (int currentPos_, int anchor_)</td></tr>
+<tr class="separator:a75b4cef1377b1ea72021821e5adccf7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32050fcd9bfc720dea92f3bed3a11396"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a32050fcd9bfc720dea92f3bed3a11396"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>LineSelection</b> (int lineCurrentPos_, int lineAnchorPos_, bool wholeLine)</td></tr>
+<tr class="separator:a32050fcd9bfc720dea92f3bed3a11396"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4d64cdf82977b1ffc2884593f255324"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab4d64cdf82977b1ffc2884593f255324"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>WordSelection</b> (int pos)</td></tr>
+<tr class="separator:ab4d64cdf82977b1ffc2884593f255324"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a184a4e40d85d4bf8827b681924aa6a62"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a184a4e40d85d4bf8827b681924aa6a62"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>DwellEnd</b> (bool mouseMoved)</td></tr>
+<tr class="separator:a184a4e40d85d4bf8827b681924aa6a62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa07af3bbdf73d14911e30d3609385e23"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa07af3bbdf73d14911e30d3609385e23"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>MouseLeave</b> ()</td></tr>
+<tr class="separator:aa07af3bbdf73d14911e30d3609385e23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22b732a714e2dcea89e6327d1247cfc4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a22b732a714e2dcea89e6327d1247cfc4"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>ButtonDown</b> (<a class="el" href="class_point.html">Point</a> pt, unsigned int curTime, bool shift, bool ctrl, bool alt)</td></tr>
+<tr class="separator:a22b732a714e2dcea89e6327d1247cfc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae28c9673dee41ea9718b68881f7c4353"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae28c9673dee41ea9718b68881f7c4353"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ButtonMoveWithModifiers</b> (<a class="el" href="class_point.html">Point</a> pt, int modifiers)</td></tr>
+<tr class="separator:ae28c9673dee41ea9718b68881f7c4353"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c3a14d78b7c3025da8e8275c2610b4a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3c3a14d78b7c3025da8e8275c2610b4a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ButtonMove</b> (<a class="el" href="class_point.html">Point</a> pt)</td></tr>
+<tr class="separator:a3c3a14d78b7c3025da8e8275c2610b4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3da47beddd21ece127457ae7f95ecc9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac3da47beddd21ece127457ae7f95ecc9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ButtonUp</b> (<a class="el" href="class_point.html">Point</a> pt, unsigned int curTime, bool ctrl)</td></tr>
+<tr class="separator:ac3da47beddd21ece127457ae7f95ecc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3bf161aad85da80b16dd714729afb4f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa3bf161aad85da80b16dd714729afb4f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Tick</b> ()</td></tr>
+<tr class="separator:aa3bf161aad85da80b16dd714729afb4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca58041cc0f5696406e232c553b51c03"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aca58041cc0f5696406e232c553b51c03"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>Idle</b> ()</td></tr>
+<tr class="separator:aca58041cc0f5696406e232c553b51c03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a089c750b85537998b027a9da61fd019b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a089c750b85537998b027a9da61fd019b"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetTicking</b> (bool on)=0</td></tr>
+<tr class="separator:a089c750b85537998b027a9da61fd019b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4520844e7beba827424457638293900d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4520844e7beba827424457638293900d"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>SetIdle</b> (bool)</td></tr>
+<tr class="separator:a4520844e7beba827424457638293900d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc523dcdd412ca6a8ece47a5571306ef"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afc523dcdd412ca6a8ece47a5571306ef"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMouseCapture</b> (bool on)=0</td></tr>
+<tr class="separator:afc523dcdd412ca6a8ece47a5571306ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0025689e8a2efdd3a0bc42dbc11aac17"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0025689e8a2efdd3a0bc42dbc11aac17"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>HaveMouseCapture</b> ()=0</td></tr>
+<tr class="separator:a0025689e8a2efdd3a0bc42dbc11aac17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf261b96b7d36a5a9848fb7cce2e5f96"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaf261b96b7d36a5a9848fb7cce2e5f96"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetFocusState</b> (bool focusState)</td></tr>
+<tr class="separator:aaf261b96b7d36a5a9848fb7cce2e5f96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9118b8df5d75c338d59ca8e797cdace6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9118b8df5d75c338d59ca8e797cdace6"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>PositionAfterArea</b> (<a class="el" href="class_p_rectangle.html">PRectangle</a> rcArea) const </td></tr>
+<tr class="separator:a9118b8df5d75c338d59ca8e797cdace6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91f3b0ee226236ed2168f02aabdbbd89"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a91f3b0ee226236ed2168f02aabdbbd89"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>StyleToPositionInView</b> (<a class="el" href="_document_8h.html#a2aca89c6a6462a533eb78906642a2a93">Position</a> pos)</td></tr>
+<tr class="separator:a91f3b0ee226236ed2168f02aabdbbd89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f0a8bcf1491cf00f12d06f08522e181"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3f0a8bcf1491cf00f12d06f08522e181"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>IdleWork</b> ()</td></tr>
+<tr class="separator:a3f0a8bcf1491cf00f12d06f08522e181"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27c03736121a468c75c8be3bdc0bb82d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a27c03736121a468c75c8be3bdc0bb82d"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>QueueIdleWork</b> (WorkNeeded::workItems items, int upTo=0)</td></tr>
+<tr class="separator:a27c03736121a468c75c8be3bdc0bb82d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95b86827c2d4c4c03ecc62d7df07f16d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a95b86827c2d4c4c03ecc62d7df07f16d"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>PaintContains</b> (<a class="el" href="class_p_rectangle.html">PRectangle</a> rc)</td></tr>
+<tr class="separator:a95b86827c2d4c4c03ecc62d7df07f16d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa31c8863a6d2fe584dcece6ec53e265"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afa31c8863a6d2fe584dcece6ec53e265"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>PaintContainsMargin</b> ()</td></tr>
+<tr class="separator:afa31c8863a6d2fe584dcece6ec53e265"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f0a37bdaf6dc18f710c4c45c18c16e8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4f0a37bdaf6dc18f710c4c45c18c16e8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>CheckForChangeOutsidePaint</b> (<a class="el" href="class_range.html">Range</a> r)</td></tr>
+<tr class="separator:a4f0a37bdaf6dc18f710c4c45c18c16e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0340ec71f5d28b3b91379298dd82559"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae0340ec71f5d28b3b91379298dd82559"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetBraceHighlight</b> (<a class="el" href="_document_8h.html#a2aca89c6a6462a533eb78906642a2a93">Position</a> pos0, <a class="el" href="_document_8h.html#a2aca89c6a6462a533eb78906642a2a93">Position</a> pos1, int matchStyle)</td></tr>
+<tr class="separator:ae0340ec71f5d28b3b91379298dd82559"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cdb7f1d375f29612be5886b37a69b94"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9cdb7f1d375f29612be5886b37a69b94"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetAnnotationHeights</b> (int start, int end)</td></tr>
+<tr class="separator:a9cdb7f1d375f29612be5886b37a69b94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef7b82cb4de73a166736d80fe43daf99"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aef7b82cb4de73a166736d80fe43daf99"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetDocPointer</b> (<a class="el" href="class_document.html">Document</a> *document)</td></tr>
+<tr class="separator:aef7b82cb4de73a166736d80fe43daf99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f22d211d48f633a5f65b4eb1a729c72"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4f22d211d48f633a5f65b4eb1a729c72"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetAnnotationVisible</b> (int visible)</td></tr>
+<tr class="separator:a4f22d211d48f633a5f65b4eb1a729c72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0496e4394085e46964be6526c7de9f3d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_editor.html#a0496e4394085e46964be6526c7de9f3d">ExpandLine</a> (int line)</td></tr>
+<tr class="separator:a0496e4394085e46964be6526c7de9f3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cf23c52f364b3f78470334d1abefce7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0cf23c52f364b3f78470334d1abefce7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetFoldExpanded</b> (int lineDoc, bool expanded)</td></tr>
+<tr class="separator:a0cf23c52f364b3f78470334d1abefce7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7d990c5356cab857f77b4c2df385768"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae7d990c5356cab857f77b4c2df385768"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>FoldLine</b> (int line, int action)</td></tr>
+<tr class="separator:ae7d990c5356cab857f77b4c2df385768"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c76dad99885ca999929225c018cd4bf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6c76dad99885ca999929225c018cd4bf"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>FoldExpand</b> (int line, int action, int level)</td></tr>
+<tr class="separator:a6c76dad99885ca999929225c018cd4bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5927658e98ea071eca1869be0220da3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac5927658e98ea071eca1869be0220da3"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ContractedFoldNext</b> (int lineStart) const </td></tr>
+<tr class="separator:ac5927658e98ea071eca1869be0220da3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87d0a188424dbd46111d22b8862656c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_editor.html#a87d0a188424dbd46111d22b8862656c0">EnsureLineVisible</a> (int lineDoc, bool enforcePolicy)</td></tr>
+<tr class="separator:a87d0a188424dbd46111d22b8862656c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a747e2ddd4c2436b92baacd3d3351e974"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a747e2ddd4c2436b92baacd3d3351e974"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>FoldChanged</b> (int line, int levelNow, int levelPrev)</td></tr>
+<tr class="separator:a747e2ddd4c2436b92baacd3d3351e974"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e3b3625f3cdb019c89abe801a01c9b2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6e3b3625f3cdb019c89abe801a01c9b2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>NeedShown</b> (int pos, int len)</td></tr>
+<tr class="separator:a6e3b3625f3cdb019c89abe801a01c9b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a415157b91d2df2502b50185bc67ee4f8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a415157b91d2df2502b50185bc67ee4f8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>FoldAll</b> (int action)</td></tr>
+<tr class="separator:a415157b91d2df2502b50185bc67ee4f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5d0c8c7fb9b2e3bc3728227b8ea5a85"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab5d0c8c7fb9b2e3bc3728227b8ea5a85"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>GetTag</b> (char *tagValue, int tagNumber)</td></tr>
+<tr class="separator:ab5d0c8c7fb9b2e3bc3728227b8ea5a85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33221b378b510a337fca11da8f214b58"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a33221b378b510a337fca11da8f214b58"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ReplaceTarget</b> (bool replacePatterns, const char *text, int length=-1)</td></tr>
+<tr class="separator:a33221b378b510a337fca11da8f214b58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e99238b93a6ffc111ff3522e44833f9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0e99238b93a6ffc111ff3522e44833f9"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>PositionIsHotspot</b> (int position) const </td></tr>
+<tr class="separator:a0e99238b93a6ffc111ff3522e44833f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7152f8ea8cf014cf97d13a1c176eb291"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7152f8ea8cf014cf97d13a1c176eb291"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>PointIsHotspot</b> (<a class="el" href="class_point.html">Point</a> pt)</td></tr>
+<tr class="separator:a7152f8ea8cf014cf97d13a1c176eb291"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fb3f00c862fcb93c5e37566f98f17ae"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1fb3f00c862fcb93c5e37566f98f17ae"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetHotSpotRange</b> (<a class="el" href="class_point.html">Point</a> *pt)</td></tr>
+<tr class="separator:a1fb3f00c862fcb93c5e37566f98f17ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a216e52b5fc160aaca6dbbed2fa615487"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a216e52b5fc160aaca6dbbed2fa615487"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>GetHotSpotRange</b> (int &amp;hsStart, int &amp;hsEnd) const </td></tr>
+<tr class="separator:a216e52b5fc160aaca6dbbed2fa615487"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeca329bd975ca3fc42fc60ece59663ef"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeca329bd975ca3fc42fc60ece59663ef"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>CodePage</b> () const </td></tr>
+<tr class="separator:aeca329bd975ca3fc42fc60ece59663ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3247133c66afbf5170489a4bf221fb63"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3247133c66afbf5170489a4bf221fb63"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>ValidCodePage</b> (int) const </td></tr>
+<tr class="separator:a3247133c66afbf5170489a4bf221fb63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c25595907f1c4365faee0d926ac403d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c25595907f1c4365faee0d926ac403d"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>WrapCount</b> (int line)</td></tr>
+<tr class="separator:a1c25595907f1c4365faee0d926ac403d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad55f85c8191a3a3857591fe91de6d23a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad55f85c8191a3a3857591fe91de6d23a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>AddStyledText</b> (char *buffer, int appendLength)</td></tr>
+<tr class="separator:ad55f85c8191a3a3857591fe91de6d23a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5a334e30671abfc8d22a69d264469ae"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad5a334e30671abfc8d22a69d264469ae"></a>
+virtual sptr_t&#160;</td><td class="memItemRight" valign="bottom"><b>DefWndProc</b> (unsigned int iMessage, uptr_t wParam, sptr_t lParam)=0</td></tr>
+<tr class="separator:ad5a334e30671abfc8d22a69d264469ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dba0e4e6ab080bd8c4cc13b5d99bca8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6dba0e4e6ab080bd8c4cc13b5d99bca8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>StyleSetMessage</b> (unsigned int iMessage, uptr_t wParam, sptr_t lParam)</td></tr>
+<tr class="separator:a6dba0e4e6ab080bd8c4cc13b5d99bca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5fe2b95fb5270fd746492fff4ef0374"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab5fe2b95fb5270fd746492fff4ef0374"></a>
+sptr_t&#160;</td><td class="memItemRight" valign="bottom"><b>StyleGetMessage</b> (unsigned int iMessage, uptr_t wParam, sptr_t lParam)</td></tr>
+<tr class="separator:ab5fe2b95fb5270fd746492fff4ef0374"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
+Защищенные статические члены</h2></td></tr>
+<tr class="memitem:a16391c44ed21d15c8486868a1fa2ccc5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a16391c44ed21d15c8486868a1fa2ccc5"></a>
+static const char *&#160;</td><td class="memItemRight" valign="bottom"><b>StringFromEOLMode</b> (int eolMode)</td></tr>
+<tr class="separator:a16391c44ed21d15c8486868a1fa2ccc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8759666f9549d333ba9f2b426335d86c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8759666f9549d333ba9f2b426335d86c"></a>
+static sptr_t&#160;</td><td class="memItemRight" valign="bottom"><b>StringResult</b> (sptr_t lParam, const char *val)</td></tr>
+<tr class="separator:a8759666f9549d333ba9f2b426335d86c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Защищенные данные</h2></td></tr>
+<tr class="memitem:a31a9a097150f95969419b32678b3b208"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_window.html">Window</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_editor.html#a31a9a097150f95969419b32678b3b208">wMain</a></td></tr>
+<tr class="memdesc:a31a9a097150f95969419b32678b3b208"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Scintilla parent window.  <a href="#a31a9a097150f95969419b32678b3b208">Подробнее...</a><br/></td></tr>
+<tr class="separator:a31a9a097150f95969419b32678b3b208"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08da840feee18110c0b39a7f4396362b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a08da840feee18110c0b39a7f4396362b"></a>
+<a class="el" href="class_window.html">Window</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_editor.html#a08da840feee18110c0b39a7f4396362b">wMargin</a></td></tr>
+<tr class="memdesc:a08da840feee18110c0b39a7f4396362b"><td class="mdescLeft">&#160;</td><td class="mdescRight">May be separate when using a scroll view for wMain. <br/></td></tr>
+<tr class="separator:a08da840feee18110c0b39a7f4396362b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17a35820ecda4bec7abee8fc9448989e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_editor.html#a17a35820ecda4bec7abee8fc9448989e">stylesValid</a></td></tr>
+<tr class="separator:a17a35820ecda4bec7abee8fc9448989e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4918624b426f85d69daa62b7bb2af8ba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4918624b426f85d69daa62b7bb2af8ba"></a>
+<a class="el" href="class_view_style.html">ViewStyle</a>&#160;</td><td class="memItemRight" valign="bottom"><b>vs</b></td></tr>
+<tr class="separator:a4918624b426f85d69daa62b7bb2af8ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6f099c597ccb09539ba8eb59cfa2888"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab6f099c597ccb09539ba8eb59cfa2888"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>technology</b></td></tr>
+<tr class="separator:ab6f099c597ccb09539ba8eb59cfa2888"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a489e7bca597253af437a998a986b4b68"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a489e7bca597253af437a998a986b4b68"></a>
+<a class="el" href="class_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sizeRGBAImage</b></td></tr>
+<tr class="separator:a489e7bca597253af437a998a986b4b68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d48624fb9b5a469ac31dfba6370257d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7d48624fb9b5a469ac31dfba6370257d"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>scaleRGBAImage</b></td></tr>
+<tr class="separator:a7d48624fb9b5a469ac31dfba6370257d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a220e0ae685a61fb6f16c0e4e7be5863e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a220e0ae685a61fb6f16c0e4e7be5863e"></a>
+<a class="el" href="struct_print_parameters.html">PrintParameters</a>&#160;</td><td class="memItemRight" valign="bottom"><b>printParameters</b></td></tr>
+<tr class="separator:a220e0ae685a61fb6f16c0e4e7be5863e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af28e9780a0b69df531e66a4d9847643d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af28e9780a0b69df531e66a4d9847643d"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>cursorMode</b></td></tr>
+<tr class="separator:af28e9780a0b69df531e66a4d9847643d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96f3ae2a050e2d56676148c7d2563a73"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a96f3ae2a050e2d56676148c7d2563a73"></a>
+<a class="el" href="class_highlight_delimiter.html">HighlightDelimiter</a>&#160;</td><td class="memItemRight" valign="bottom"><b>highlightDelimiter</b></td></tr>
+<tr class="separator:a96f3ae2a050e2d56676148c7d2563a73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3c1a6b9ab84309de69d900297a48ffe"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae3c1a6b9ab84309de69d900297a48ffe"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasFocus</b></td></tr>
+<tr class="separator:ae3c1a6b9ab84309de69d900297a48ffe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadb4bca99998fd231d85552423483d9e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aadb4bca99998fd231d85552423483d9e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>hideSelection</b></td></tr>
+<tr class="separator:aadb4bca99998fd231d85552423483d9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af99a25693adc559015c0d0cee878f8e7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af99a25693adc559015c0d0cee878f8e7"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>inOverstrike</b></td></tr>
+<tr class="separator:af99a25693adc559015c0d0cee878f8e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a003dbc7e2a9c4285c351512e8bd86796"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a003dbc7e2a9c4285c351512e8bd86796"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>drawOverstrikeCaret</b></td></tr>
+<tr class="separator:a003dbc7e2a9c4285c351512e8bd86796"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12bec11853d13c2773383aabd97d0e4e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a12bec11853d13c2773383aabd97d0e4e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>mouseDownCaptures</b></td></tr>
+<tr class="separator:a12bec11853d13c2773383aabd97d0e4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af59ba1ca67febc16b3667b1c5e045e97"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_editor.html#af59ba1ca67febc16b3667b1c5e045e97">bufferedDraw</a></td></tr>
+<tr class="separator:af59ba1ca67febc16b3667b1c5e045e97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c566e7d8ef584d935b286b77bf79d6f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_editor.html#a1c566e7d8ef584d935b286b77bf79d6f">twoPhaseDraw</a></td></tr>
+<tr class="separator:a1c566e7d8ef584d935b286b77bf79d6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace11e6aebf59d6f03dd3994732e69367"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ace11e6aebf59d6f03dd3994732e69367"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_editor.html#ace11e6aebf59d6f03dd3994732e69367">xOffset</a></td></tr>
+<tr class="memdesc:ace11e6aebf59d6f03dd3994732e69367"><td class="mdescLeft">&#160;</td><td class="mdescRight">Horizontal scrolled amount in pixels. <br/></td></tr>
+<tr class="separator:ace11e6aebf59d6f03dd3994732e69367"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fc0072e5373c2aa4824b470b4bf9e83"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3fc0072e5373c2aa4824b470b4bf9e83"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_editor.html#a3fc0072e5373c2aa4824b470b4bf9e83">xCaretMargin</a></td></tr>
+<tr class="memdesc:a3fc0072e5373c2aa4824b470b4bf9e83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ensure this many pixels visible on both sides of caret. <br/></td></tr>
+<tr class="separator:a3fc0072e5373c2aa4824b470b4bf9e83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a412aa9dd015a43636096034ad5278b3e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a412aa9dd015a43636096034ad5278b3e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>horizontalScrollBarVisible</b></td></tr>
+<tr class="separator:a412aa9dd015a43636096034ad5278b3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afae1b54e31f69d86135f06e7f9d5e127"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afae1b54e31f69d86135f06e7f9d5e127"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>scrollWidth</b></td></tr>
+<tr class="separator:afae1b54e31f69d86135f06e7f9d5e127"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08a70838c227a43ec86e69e5189ed1ca"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a08a70838c227a43ec86e69e5189ed1ca"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>trackLineWidth</b></td></tr>
+<tr class="separator:a08a70838c227a43ec86e69e5189ed1ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7f19531f646a92bfa81777822ab5ae5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab7f19531f646a92bfa81777822ab5ae5"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>lineWidthMaxSeen</b></td></tr>
+<tr class="separator:ab7f19531f646a92bfa81777822ab5ae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0aa52033d19d4d3f62685e1c07579489"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0aa52033d19d4d3f62685e1c07579489"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>verticalScrollBarVisible</b></td></tr>
+<tr class="separator:a0aa52033d19d4d3f62685e1c07579489"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab05af79bb0ad6718f6d292808c49634"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aab05af79bb0ad6718f6d292808c49634"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>endAtLastLine</b></td></tr>
+<tr class="separator:aab05af79bb0ad6718f6d292808c49634"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acef330a40769fe8a3d0aa15d2d38f405"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acef330a40769fe8a3d0aa15d2d38f405"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>caretSticky</b></td></tr>
+<tr class="separator:acef330a40769fe8a3d0aa15d2d38f405"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f3ae31de2723bf35c06057fe4fb13c4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3f3ae31de2723bf35c06057fe4fb13c4"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>marginOptions</b></td></tr>
+<tr class="separator:a3f3ae31de2723bf35c06057fe4fb13c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d9da0cfda5a4987e4de8c665ee7fe11"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3d9da0cfda5a4987e4de8c665ee7fe11"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>mouseSelectionRectangularSwitch</b></td></tr>
+<tr class="separator:a3d9da0cfda5a4987e4de8c665ee7fe11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac32c3380c97f820811f195ebccc0dffb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac32c3380c97f820811f195ebccc0dffb"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>multipleSelection</b></td></tr>
+<tr class="separator:ac32c3380c97f820811f195ebccc0dffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6aa94c75009b3bb1cff13ce876b578e9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6aa94c75009b3bb1cff13ce876b578e9"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>additionalSelectionTyping</b></td></tr>
+<tr class="separator:a6aa94c75009b3bb1cff13ce876b578e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb7526690bbd66839bf6781febacf9f3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeb7526690bbd66839bf6781febacf9f3"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>multiPasteMode</b></td></tr>
+<tr class="separator:aeb7526690bbd66839bf6781febacf9f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a758df639c5f2cf5d3e0f76e689b996e4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a758df639c5f2cf5d3e0f76e689b996e4"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>additionalCaretsBlink</b></td></tr>
+<tr class="separator:a758df639c5f2cf5d3e0f76e689b996e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93893c34a75f043eed868b7ff25e2e14"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a93893c34a75f043eed868b7ff25e2e14"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>additionalCaretsVisible</b></td></tr>
+<tr class="separator:a93893c34a75f043eed868b7ff25e2e14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e64c11a782a73384157daf99f9a8d42"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7e64c11a782a73384157daf99f9a8d42"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>virtualSpaceOptions</b></td></tr>
+<tr class="separator:a7e64c11a782a73384157daf99f9a8d42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f58e37b1cf5d5d14b52916865750bed"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5f58e37b1cf5d5d14b52916865750bed"></a>
+<a class="el" href="class_surface.html">Surface</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>pixmapLine</b></td></tr>
+<tr class="separator:a5f58e37b1cf5d5d14b52916865750bed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca7defcf31dcbda5ec87f97b8a5fd0cb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aca7defcf31dcbda5ec87f97b8a5fd0cb"></a>
+<a class="el" href="class_surface.html">Surface</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>pixmapSelMargin</b></td></tr>
+<tr class="separator:aca7defcf31dcbda5ec87f97b8a5fd0cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2d6245454806ea6bd8940a2e1506e7a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa2d6245454806ea6bd8940a2e1506e7a"></a>
+<a class="el" href="class_surface.html">Surface</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>pixmapSelPattern</b></td></tr>
+<tr class="separator:aa2d6245454806ea6bd8940a2e1506e7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a141f1e1ecd530287ef9c36d42e465cf9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a141f1e1ecd530287ef9c36d42e465cf9"></a>
+<a class="el" href="class_surface.html">Surface</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>pixmapSelPatternOffset1</b></td></tr>
+<tr class="separator:a141f1e1ecd530287ef9c36d42e465cf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a860305fe06ae8383776fc029f1edb792"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a860305fe06ae8383776fc029f1edb792"></a>
+<a class="el" href="class_surface.html">Surface</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>pixmapIndentGuide</b></td></tr>
+<tr class="separator:a860305fe06ae8383776fc029f1edb792"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae7159221bdd172c97ff69624f1545c5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aae7159221bdd172c97ff69624f1545c5"></a>
+<a class="el" href="class_surface.html">Surface</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>pixmapIndentGuideHighlight</b></td></tr>
+<tr class="separator:aae7159221bdd172c97ff69624f1545c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2efaa129f1951468caa80495f7de4e07"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2efaa129f1951468caa80495f7de4e07"></a>
+<a class="el" href="class_line_layout_cache.html">LineLayoutCache</a>&#160;</td><td class="memItemRight" valign="bottom"><b>llc</b></td></tr>
+<tr class="separator:a2efaa129f1951468caa80495f7de4e07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcfc6905bceea22c2874794539d2cd58"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afcfc6905bceea22c2874794539d2cd58"></a>
+<a class="el" href="class_position_cache.html">PositionCache</a>&#160;</td><td class="memItemRight" valign="bottom"><b>posCache</b></td></tr>
+<tr class="separator:afcfc6905bceea22c2874794539d2cd58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6517206ee5cd50157ff200a2fa2b5c9c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6517206ee5cd50157ff200a2fa2b5c9c"></a>
+<a class="el" href="class_special_representations.html">SpecialRepresentations</a>&#160;</td><td class="memItemRight" valign="bottom"><b>reprs</b></td></tr>
+<tr class="separator:a6517206ee5cd50157ff200a2fa2b5c9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4878f2bdc1d42c04845016ab76669c30"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4878f2bdc1d42c04845016ab76669c30"></a>
+<a class="el" href="class_key_map.html">KeyMap</a>&#160;</td><td class="memItemRight" valign="bottom"><b>kmap</b></td></tr>
+<tr class="separator:a4878f2bdc1d42c04845016ab76669c30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4446d5f88d9d9d3b850f05b9c97cbf3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab4446d5f88d9d9d3b850f05b9c97cbf3"></a>
+<a class="el" href="class_caret.html">Caret</a>&#160;</td><td class="memItemRight" valign="bottom"><b>caret</b></td></tr>
+<tr class="separator:ab4446d5f88d9d9d3b850f05b9c97cbf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7adeba670f21652c12a9253a515a021"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa7adeba670f21652c12a9253a515a021"></a>
+<a class="el" href="class_timer.html">Timer</a>&#160;</td><td class="memItemRight" valign="bottom"><b>timer</b></td></tr>
+<tr class="separator:aa7adeba670f21652c12a9253a515a021"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c2fc0075698eb4f35f4a3076403cc33"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c2fc0075698eb4f35f4a3076403cc33"></a>
+<a class="el" href="class_timer.html">Timer</a>&#160;</td><td class="memItemRight" valign="bottom"><b>autoScrollTimer</b></td></tr>
+<tr class="separator:a1c2fc0075698eb4f35f4a3076403cc33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae28aef63fa2d5774fee2e9a8aa134bfa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae28aef63fa2d5774fee2e9a8aa134bfa"></a>
+<a class="el" href="class_idler.html">Idler</a>&#160;</td><td class="memItemRight" valign="bottom"><b>idler</b></td></tr>
+<tr class="separator:ae28aef63fa2d5774fee2e9a8aa134bfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64606ec7be6e75cb4bb9dfa029ae0340"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a64606ec7be6e75cb4bb9dfa029ae0340"></a>
+<a class="el" href="class_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><b>lastClick</b></td></tr>
+<tr class="separator:a64606ec7be6e75cb4bb9dfa029ae0340"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c5f3048134c741163bc2ff4bb23123d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7c5f3048134c741163bc2ff4bb23123d"></a>
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>lastClickTime</b></td></tr>
+<tr class="separator:a7c5f3048134c741163bc2ff4bb23123d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39d3f71df6de544499a32095edb779c0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a39d3f71df6de544499a32095edb779c0"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>dwellDelay</b></td></tr>
+<tr class="separator:a39d3f71df6de544499a32095edb779c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c28cad52071ec3b175e410ab01067e1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c28cad52071ec3b175e410ab01067e1"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ticksToDwell</b></td></tr>
+<tr class="separator:a1c28cad52071ec3b175e410ab01067e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9eab79cdf6d5aad4910d60b3227ac585"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9eab79cdf6d5aad4910d60b3227ac585"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>dwelling</b></td></tr>
+<tr class="separator:a9eab79cdf6d5aad4910d60b3227ac585"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9505bd0e474515bcf287c4ec25a153e6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9505bd0e474515bcf287c4ec25a153e6"></a>
+enum Editor:: { ... } &#160;</td><td class="memItemRight" valign="bottom"><b>selectionType</b></td></tr>
+<tr class="separator:a9505bd0e474515bcf287c4ec25a153e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac5f2ca9a6853846fa1a985ffb731faf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aac5f2ca9a6853846fa1a985ffb731faf"></a>
+<a class="el" href="class_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ptMouseLast</b></td></tr>
+<tr class="separator:aac5f2ca9a6853846fa1a985ffb731faf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fdca4af16e2e22a49eaba0a4dca8378"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9fdca4af16e2e22a49eaba0a4dca8378"></a>
+enum Editor:: { ... } &#160;</td><td class="memItemRight" valign="bottom"><b>inDragDrop</b></td></tr>
+<tr class="separator:a9fdca4af16e2e22a49eaba0a4dca8378"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac74ba766d79f963d91dd805e91a437d8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac74ba766d79f963d91dd805e91a437d8"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>dropWentOutside</b></td></tr>
+<tr class="separator:ac74ba766d79f963d91dd805e91a437d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5d9548d7d61da2d973cd7d78c6fb75d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa5d9548d7d61da2d973cd7d78c6fb75d"></a>
+<a class="el" href="class_selection_position.html">SelectionPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><b>posDrag</b></td></tr>
+<tr class="separator:aa5d9548d7d61da2d973cd7d78c6fb75d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a426b24257010738205a636094bf26ad4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a426b24257010738205a636094bf26ad4"></a>
+<a class="el" href="class_selection_position.html">SelectionPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><b>posDrop</b></td></tr>
+<tr class="separator:a426b24257010738205a636094bf26ad4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3b477d8380704e81e78a07462a78328"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab3b477d8380704e81e78a07462a78328"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>hotSpotClickPos</b></td></tr>
+<tr class="separator:ab3b477d8380704e81e78a07462a78328"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8d54246e357585e6cd23907830e519d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa8d54246e357585e6cd23907830e519d"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>lastXChosen</b></td></tr>
+<tr class="separator:aa8d54246e357585e6cd23907830e519d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2fb29206601b07df446262e28bde447"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad2fb29206601b07df446262e28bde447"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>lineAnchorPos</b></td></tr>
+<tr class="separator:ad2fb29206601b07df446262e28bde447"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63b3ecac3354fe1e399f60df7400866b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a63b3ecac3354fe1e399f60df7400866b"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>originalAnchorPos</b></td></tr>
+<tr class="separator:a63b3ecac3354fe1e399f60df7400866b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc58a682f8d8ffc1d044360869a1072a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acc58a682f8d8ffc1d044360869a1072a"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>wordSelectAnchorStartPos</b></td></tr>
+<tr class="separator:acc58a682f8d8ffc1d044360869a1072a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76229fc2106feab9917e1db644fdba4d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a76229fc2106feab9917e1db644fdba4d"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>wordSelectAnchorEndPos</b></td></tr>
+<tr class="separator:a76229fc2106feab9917e1db644fdba4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa59aeca9bfbade2028ec63b13fc3ca52"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa59aeca9bfbade2028ec63b13fc3ca52"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>wordSelectInitialCaretPos</b></td></tr>
+<tr class="separator:aa59aeca9bfbade2028ec63b13fc3ca52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a371a149bf5348baa39bc3c3608984a41"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a371a149bf5348baa39bc3c3608984a41"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>targetStart</b></td></tr>
+<tr class="separator:a371a149bf5348baa39bc3c3608984a41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7377667fc5f5af4c82b345d1ea21faed"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7377667fc5f5af4c82b345d1ea21faed"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>targetEnd</b></td></tr>
+<tr class="separator:a7377667fc5f5af4c82b345d1ea21faed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c18c53120d583838e0d169c3abe6da2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7c18c53120d583838e0d169c3abe6da2"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>searchFlags</b></td></tr>
+<tr class="separator:a7c18c53120d583838e0d169c3abe6da2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc0d5ba7ef75efd76db9ab1d2dfef163"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afc0d5ba7ef75efd76db9ab1d2dfef163"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>topLine</b></td></tr>
+<tr class="separator:afc0d5ba7ef75efd76db9ab1d2dfef163"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae38ac65d406ff9044e878dcf9a0c388"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aae38ac65d406ff9044e878dcf9a0c388"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>posTopLine</b></td></tr>
+<tr class="separator:aae38ac65d406ff9044e878dcf9a0c388"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a319cc6e1785a538a8704d84f14cf8fc9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a319cc6e1785a538a8704d84f14cf8fc9"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>lengthForEncode</b></td></tr>
+<tr class="separator:a319cc6e1785a538a8704d84f14cf8fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ea3f9c2b41aa243c286290a9ab6c464"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1ea3f9c2b41aa243c286290a9ab6c464"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>needUpdateUI</b></td></tr>
+<tr class="separator:a1ea3f9c2b41aa243c286290a9ab6c464"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21a181db9fe9f6ff0eebc3e26c49b1cb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a21a181db9fe9f6ff0eebc3e26c49b1cb"></a>
+<a class="el" href="_document_8h.html#a2aca89c6a6462a533eb78906642a2a93">Position</a>&#160;</td><td class="memItemRight" valign="bottom"><b>braces</b> [2]</td></tr>
+<tr class="separator:a21a181db9fe9f6ff0eebc3e26c49b1cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b233bd9565ada93d296b20f3ca228ac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5b233bd9565ada93d296b20f3ca228ac"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>bracesMatchStyle</b></td></tr>
+<tr class="separator:a5b233bd9565ada93d296b20f3ca228ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7aa143540d070643bab4e4abe8d6cbe"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa7aa143540d070643bab4e4abe8d6cbe"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>highlightGuideColumn</b></td></tr>
+<tr class="separator:aa7aa143540d070643bab4e4abe8d6cbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada986c41e7fef97d47e6868d5b324361"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ada986c41e7fef97d47e6868d5b324361"></a>
+enum Editor:: { ... } &#160;</td><td class="memItemRight" valign="bottom"><b>paintState</b></td></tr>
+<tr class="separator:ada986c41e7fef97d47e6868d5b324361"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16300e5d09a43029acf1abd3d52a0d9c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a16300e5d09a43029acf1abd3d52a0d9c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>paintAbandonedByStyling</b></td></tr>
+<tr class="separator:a16300e5d09a43029acf1abd3d52a0d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade9e2688c838995237a4875c656accee"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ade9e2688c838995237a4875c656accee"></a>
+<a class="el" href="class_p_rectangle.html">PRectangle</a>&#160;</td><td class="memItemRight" valign="bottom"><b>rcPaint</b></td></tr>
+<tr class="separator:ade9e2688c838995237a4875c656accee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8e82fb455d160cdf75c2553f5f59b04"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad8e82fb455d160cdf75c2553f5f59b04"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>paintingAllText</b></td></tr>
+<tr class="separator:ad8e82fb455d160cdf75c2553f5f59b04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a234cd82a9e463e7795a635f270e10b4e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a234cd82a9e463e7795a635f270e10b4e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>willRedrawAll</b></td></tr>
+<tr class="separator:a234cd82a9e463e7795a635f270e10b4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae146cbd4dfd438fb15d837b1c8958af7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae146cbd4dfd438fb15d837b1c8958af7"></a>
+<a class="el" href="class_work_needed.html">WorkNeeded</a>&#160;</td><td class="memItemRight" valign="bottom"><b>workNeeded</b></td></tr>
+<tr class="separator:ae146cbd4dfd438fb15d837b1c8958af7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a065e6fb0db82e63d7ee090c4cd6baa75"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a065e6fb0db82e63d7ee090c4cd6baa75"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>modEventMask</b></td></tr>
+<tr class="separator:a065e6fb0db82e63d7ee090c4cd6baa75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2d91beace1eb76aad53abda46a6b0a7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa2d91beace1eb76aad53abda46a6b0a7"></a>
+<a class="el" href="class_selection_text.html">SelectionText</a>&#160;</td><td class="memItemRight" valign="bottom"><b>drag</b></td></tr>
+<tr class="separator:aa2d91beace1eb76aad53abda46a6b0a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affdd244b601e05031086a5f265af21a7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="affdd244b601e05031086a5f265af21a7"></a>
+<a class="el" href="class_selection.html">Selection</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sel</b></td></tr>
+<tr class="separator:affdd244b601e05031086a5f265af21a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1483cda2fc133dc40d24958f9c888f3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac1483cda2fc133dc40d24958f9c888f3"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>primarySelection</b></td></tr>
+<tr class="separator:ac1483cda2fc133dc40d24958f9c888f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f89838f7f3f53501110c5f5de6dbe87"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f89838f7f3f53501110c5f5de6dbe87"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>caretXPolicy</b></td></tr>
+<tr class="separator:a8f89838f7f3f53501110c5f5de6dbe87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa8c18847377f607437ccb6d41b690c1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaa8c18847377f607437ccb6d41b690c1"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_editor.html#aaa8c18847377f607437ccb6d41b690c1">caretXSlop</a></td></tr>
+<tr class="memdesc:aaa8c18847377f607437ccb6d41b690c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ensure this many pixels visible on both sides of caret. <br/></td></tr>
+<tr class="separator:aaa8c18847377f607437ccb6d41b690c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a638c90899c0b01a0e7975e395b7faf40"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a638c90899c0b01a0e7975e395b7faf40"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>caretYPolicy</b></td></tr>
+<tr class="separator:a638c90899c0b01a0e7975e395b7faf40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55256887f597aa92fb1d22ad783b1bb2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a55256887f597aa92fb1d22ad783b1bb2"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_editor.html#a55256887f597aa92fb1d22ad783b1bb2">caretYSlop</a></td></tr>
+<tr class="memdesc:a55256887f597aa92fb1d22ad783b1bb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ensure this many lines visible on both sides of caret. <br/></td></tr>
+<tr class="separator:a55256887f597aa92fb1d22ad783b1bb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bec72ca063b851f32f98b9164afb445"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1bec72ca063b851f32f98b9164afb445"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>visiblePolicy</b></td></tr>
+<tr class="separator:a1bec72ca063b851f32f98b9164afb445"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a679529c4f30356fce7ee0a2a9a8d18"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a679529c4f30356fce7ee0a2a9a8d18"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>visibleSlop</b></td></tr>
+<tr class="separator:a1a679529c4f30356fce7ee0a2a9a8d18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8477a5f3a03cef3d203060b9aca20077"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8477a5f3a03cef3d203060b9aca20077"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>searchAnchor</b></td></tr>
+<tr class="separator:a8477a5f3a03cef3d203060b9aca20077"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb3c011135ad37ad972aea46a9d2ed87"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeb3c011135ad37ad972aea46a9d2ed87"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>recordingMacro</b></td></tr>
+<tr class="separator:aeb3c011135ad37ad972aea46a9d2ed87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fe96069e6637333b3b1791a22ee7415"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5fe96069e6637333b3b1791a22ee7415"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>foldFlags</b></td></tr>
+<tr class="separator:a5fe96069e6637333b3b1791a22ee7415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a8ce3c6748ce83f3eb0db1cb213481d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3a8ce3c6748ce83f3eb0db1cb213481d"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>foldAutomatic</b></td></tr>
+<tr class="separator:a3a8ce3c6748ce83f3eb0db1cb213481d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84cd2d77beffe123ab9330678e62065a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a84cd2d77beffe123ab9330678e62065a"></a>
+<a class="el" href="class_contraction_state.html">ContractionState</a>&#160;</td><td class="memItemRight" valign="bottom"><b>cs</b></td></tr>
+<tr class="separator:a84cd2d77beffe123ab9330678e62065a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab951513694b8d050194f7d2459277a04"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab951513694b8d050194f7d2459277a04"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>hsStart</b></td></tr>
+<tr class="separator:ab951513694b8d050194f7d2459277a04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef45a1e31bba91cbc3d6bab5b669e6e1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aef45a1e31bba91cbc3d6bab5b669e6e1"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>hsEnd</b></td></tr>
+<tr class="separator:aef45a1e31bba91cbc3d6bab5b669e6e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab65d4361b821aff98b0c7a0f5aa2ba89"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab65d4361b821aff98b0c7a0f5aa2ba89"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>wrapWidth</b></td></tr>
+<tr class="separator:ab65d4361b821aff98b0c7a0f5aa2ba89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a011219b503dce81395f95b219d70b4c4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a011219b503dce81395f95b219d70b4c4"></a>
+<a class="el" href="struct_wrap_pending.html">WrapPending</a>&#160;</td><td class="memItemRight" valign="bottom"><b>wrapPending</b></td></tr>
+<tr class="separator:a011219b503dce81395f95b219d70b4c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38a1e528880a5418b64fbc16b7f05cdc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a38a1e528880a5418b64fbc16b7f05cdc"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>convertPastes</b></td></tr>
+<tr class="separator:a38a1e528880a5418b64fbc16b7f05cdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa8b10da40b04eefdcfe9ca6aa8cc96b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaa8b10da40b04eefdcfe9ca6aa8cc96b"></a>
+<a class="el" href="class_document.html">Document</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>pdoc</b></td></tr>
+<tr class="separator:aaa8b10da40b04eefdcfe9ca6aa8cc96b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Друзья</h2></td></tr>
+<tr class="memitem:a59d3226528e8d5c8a0115bbc49e2f59b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a59d3226528e8d5c8a0115bbc49e2f59b"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>AutoSurface</b></td></tr>
+<tr class="separator:a59d3226528e8d5c8a0115bbc49e2f59b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d51c9dcfc1c4720abb2da395adc919e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0d51c9dcfc1c4720abb2da395adc919e"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>SelectionLineIterator</b></td></tr>
+<tr class="separator:a0d51c9dcfc1c4720abb2da395adc919e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Методы</h2>
+<a class="anchor" id="a429611ffc7831e7dc8be3d1a547e436d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Editor::AbandonPaint </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>If painting then abandon the painting because a wider redraw is needed. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>true if calling code should stop drawing. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a87d0a188424dbd46111d22b8862656c0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Editor::EnsureLineVisible </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lineDoc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enforcePolicy</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Recurse up from this line to find any folds that prevent this line from being visible and unfold them all. </p>
+
+</div>
+</div>
+<a class="anchor" id="a0496e4394085e46964be6526c7de9f3d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Editor::ExpandLine </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>line</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Recursively expand a fold, making lines visible except where they have an unexpanded parent. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac168e4ac23f384f2ba1aba588794e96c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">long Editor::FindText </td>
+          <td>(</td>
+          <td class="paramtype">uptr_t&#160;</td>
+          <td class="paramname"><em>wParam</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sptr_t&#160;</td>
+          <td class="paramname"><em>lParam</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Search of a text in the document, in the given range. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>The position of the found text, -1 if not found. </dd></dl>
+<p>&lt; <code>TextToFind</code> structure: The text to search for in the given range. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">wParam</td><td>Search modes : <code>SCFIND_MATCHCASE</code>, <code>SCFIND_WHOLEWORD</code>, <code>SCFIND_WORDSTART</code>, <code>SCFIND_REGEXP</code> or <code>SCFIND_POSIX</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a2bd874c66b27d2372b76686bd61e7698"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Editor::LayoutLine </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_surface.html">Surface</a> *&#160;</td>
+          <td class="paramname"><em>surface</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_view_style.html">ViewStyle</a> &amp;&#160;</td>
+          <td class="paramname"><em>vstyle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_line_layout.html">LineLayout</a> *&#160;</td>
+          <td class="paramname"><em>ll</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em> = <code>LineLayout::wrapWidthInfinite</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Fill in the <a class="el" href="class_line_layout.html">LineLayout</a> data for the given line. Copy the given <em>line</em> and its styles from the document into local arrays. Also determine the x position at which each character starts. </p>
+
+</div>
+</div>
+<a class="anchor" id="a79d4f54d99110332bf67fe9b672f3fa0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Editor::MovePositionOutsideChar </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>moveDir</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>checkLineEnd</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Asks document to find a good position and then moves out of any invisible positions. </p>
+
+</div>
+</div>
+<a class="anchor" id="a2b2b8f42c662559fef842c2bbea54a44"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Editor::PageMove </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>direction</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Selection::selTypes&#160;</td>
+          <td class="paramname"><em>selt</em> = <code>Selection::noSel</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>stuttered</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Force scroll and keep position relative to top of window.</p>
+<p>If stuttered = true and not already at first/last row, move to first/last row of window. If stuttered = true and already at first/last row, scroll as normal. </p>
+
+</div>
+</div>
+<a class="anchor" id="a997e080e1267b5b1c1593ecde2ab33a8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Editor::PositionInSelection </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>PositionInSelection returns true if position in selection.</p>
+<dl class="section return"><dt>Возвращает</dt><dd>true if given position is inside the selection, </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a01d7f244c17886f8260eb79bc11e3234"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Editor::SearchAnchor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Relocatable search support : Searches relative to current selection point and sets the selection to the found text range with each search. Anchor following searches at current selection start: This allows multiple incremental interactive searches to be macro recorded while still setting the selection to found text so the find/select operation is self-contained. </p>
+
+</div>
+</div>
+<a class="anchor" id="aa9cb5d7cacf519e34c65fb641a730c85"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">long Editor::SearchInTarget </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Search for text in the target range of the document. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>The position of the found text, -1 if not found. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad7a2ba2eadba57f0447d87aefd9c6fb7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">long Editor::SearchText </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>iMessage</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uptr_t&#160;</td>
+          <td class="paramname"><em>wParam</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sptr_t&#160;</td>
+          <td class="paramname"><em>lParam</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p><a class="el" href="namespace_find.html" title="Содержит функции, связанные с виджетами-поисковиками. ">Find</a> text from current search anchor: Must call <code>SearchAnchor</code> first. Used for next text and previous text requests. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>The position of the found text, -1 if not found. </dd></dl>
+<p>&lt; The text to search for. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">iMessage</td><td>Accepts both <code>SCI_SEARCHNEXT</code> and <code>SCI_SEARCHPREV</code>. </td></tr>
+    <tr><td class="paramname">wParam</td><td>Search modes : <code>SCFIND_MATCHCASE</code>, <code>SCFIND_WHOLEWORD</code>, <code>SCFIND_WORDSTART</code>, <code>SCFIND_REGEXP</code> or <code>SCFIND_POSIX</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ab61ddc996acb6bc9912e2a0fd2edd3b3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Editor::SetLastXChosen </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Choose the x position that the caret will try to stick to as it moves up and down. </p>
+
+</div>
+</div>
+<a class="anchor" id="a94db38892ca6249a7133666567a6e2fb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_selection_position.html">SelectionPosition</a> Editor::SPositionFromLineX </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lineDoc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p><a class="el" href="namespace_find.html" title="Содержит функции, связанные с виджетами-поисковиками. ">Find</a> the document position corresponding to an x coordinate on a particular document line. Ensure is between whole characters when document is in multi-byte or UTF-8 mode. </p>
+
+</div>
+</div>
+<a class="anchor" id="a2b0f0dadd0b70ce7c5ae446ff53792cc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_editor_1_1_x_y_scroll_position.html">Editor::XYScrollPosition</a> Editor::XYScrollToMakeVisible </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_selection_range.html">SelectionRange</a>&#160;</td>
+          <td class="paramname"><em>range</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const XYScrollOptions&#160;</td>
+          <td class="paramname"><em>options</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Ensure the caret is reasonably visible in context.</p>
+<p><a class="el" href="class_caret.html">Caret</a> policy in SciTE</p>
+<p>If slop is set, we can define a slop value. This value defines an unwanted zone (UZ) where the caret is... unwanted. This zone is defined as a number of pixels near the vertical margins, and as a number of lines near the horizontal margins. By keeping the caret away from the edges, it is seen within its context, so it is likely that the identifier that the caret is on can be completely seen, and that the current line is seen with some of the lines following it which are often dependent on that line.</p>
+<p>If strict is set, the policy is enforced... strictly. The caret is centred on the display if slop is not set, and cannot go in the UZ if slop is set.</p>
+<p>If jumps is set, the display is moved more energetically so the caret can move in the same direction longer before the policy is applied again. '3UZ' notation is used to indicate three time the size of the UZ as a distance to the margin.</p>
+<p>If even is not set, instead of having symmetrical UZs, the left and bottom UZs are extended up to right and top UZs respectively. This way, we favour the displaying of useful information: the begining of lines, where most code reside, and the lines after the caret, eg. the body of a function. </p>
+<pre class="fragment"> |        |       |      |                                            |
+</pre><p> slop | strict | jumps | even | <a class="el" href="class_caret.html">Caret</a> can go to the margin | When reaching limit (caret going out of | | | | | visibility or going into the UZ) display is... --&mdash;+-----&mdash;+----&mdash;+---&mdash;+-----------------------------------------&mdash;+-----------------------------------------------------------&mdash; 0 | 0 | 0 | 0 | Yes | moved to put caret on top/on right 0 | 0 | 0 | 1 | Yes | moved by one position 0 | 0 | 1 | 0 | Yes | moved to put caret on top/on right 0 | 0 | 1 | 1 | Yes | centred on the caret 0 | 1 | - | 0 | <a class="el" href="class_caret.html">Caret</a> is always on top/on right of display | - 0 | 1 | - | 1 | No, caret is always centred | - 1 | 0 | 0 | 0 | Yes | moved to put caret out of the asymmetrical UZ 1 | 0 | 0 | 1 | Yes | moved to put caret out of the UZ 1 | 0 | 1 | 0 | Yes | moved to put caret at 3UZ of the top or right margin 1 | 0 | 1 | 1 | Yes | moved to put caret at 3UZ of the margin 1 | 1 | - | 0 | <a class="el" href="class_caret.html">Caret</a> is always at UZ of top/right margin | - 1 | 1 | 0 | 1 | No, kept out of UZ | moved by one position 1 | 1 | 1 | 1 | No, kept out of UZ | moved to put caret at 3UZ of the margin </p>
+
+</div>
+</div>
+<h2 class="groupheader">Данные класса</h2>
+<a class="anchor" id="af59ba1ca67febc16b3667b1c5e045e97"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Editor::bufferedDraw</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>In bufferedDraw mode, graphics operations are drawn to a pixmap and then copied to the screen. This avoids flashing but is about 30% slower. </p>
+
+</div>
+</div>
+<a class="anchor" id="a17a35820ecda4bec7abee8fc9448989e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Editor::stylesValid</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p><a class="el" href="class_style.html">Style</a> resources may be expensive to allocate so are cached between uses. When a style attribute is changed, this cache is flushed. </p>
+
+</div>
+</div>
+<a class="anchor" id="a1c566e7d8ef584d935b286b77bf79d6f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Editor::twoPhaseDraw</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>In twoPhaseDraw mode, drawing is performed in two phases, first the background and then the foreground. This avoids chopping off characters that overlap the next run. </p>
+
+</div>
+</div>
+<a class="anchor" id="a31a9a097150f95969419b32678b3b208"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_window.html">Window</a> Editor::wMain</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The Scintilla parent window. </p>
+<p>On GTK+, Scintilla is a container widget holding two scroll bars whereas on Windows there is just one window with both scroll bars turned on. </p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>NotesManager/QScintilla-gpl-2.8.1/src/<a class="el" href="_editor_8h_source.html">Editor.h</a></li>
+<li>NotesManager/QScintilla-gpl-2.8.1/src/Editor.cpp</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_editor.html">Editor</a></li>
+    <li class="footer">Документация по Notes Manager. Последние изменения: Сб 10 Май 2014 22:51:09. Создано системой
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
+</body>
+</html>

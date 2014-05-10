@@ -6,7 +6,7 @@
 
 #define V_MAJOR 0
 #define V_MINOR 0
-#define V_BUILD 1
+#define V_BUILD 2
 #define V_REVISION 0
 #define V_ALPHA 0
 #define V_RC 0
@@ -37,7 +37,7 @@
 
 /*! \mainpage
  *  \author    Илья Петраш <gil9red@gmail.com>
- *  \version   0.0.1
+ *  \version   0.0.2
  *  \date      2013-2014
  */
 

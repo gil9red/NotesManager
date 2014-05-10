@@ -48,6 +48,28 @@ Manager::Manager( QWidget * parent ) :
     ui->stackedWidget_Pages->addWidget( pageAbout );
     ui->stackedWidget_Pages->setCurrentIndex( ui->sidebar->currentIndex() );
 
+    // Загрузка списка документаций в меню документации
+    {           
+        QList < QAction * > list;
+        foreach ( const QFileInfo & info, QDir( getDocumentationPath() ).entryInfoList( QDir::Dirs | QDir::NoDotAndDotDot ) )
+        {
+            const QString & dirName = info.fileName();
+            const QString & fullPath = getDocumentationPath() + "/" + dirName + "/html/index.html";
+            if ( !QFile( fullPath ).exists() )
+                continue;
+
+            QAction * action = new QAction( dirName, this );
+            action->setData( QDir::fromNativeSeparators( fullPath ) );
+            QObject::connect( action, SIGNAL(triggered()), this, SLOT(showPageDocumentation()) );
+
+            list << action;
+        }
+        QMenu * documentations = new QMenu();
+        documentations->addActions( list );
+
+        ui->actionDocumentation->setEnabled( !list.isEmpty() );
+        ui->actionDocumentation->setMenu( documentations );
+    }
 
     // Меню и действия
     {
@@ -83,8 +105,6 @@ Manager::Manager( QWidget * parent ) :
         QObject::connect( ui->actionFullScreen, SIGNAL( triggered(bool) ), SLOT( setFullScreen(bool) ) );
         QObject::connect( ui->actionShowSidebar, SIGNAL( triggered(bool) ), SLOT( setShowSidebar(bool) ) );
         QObject::connect( ui->actionShowStatusBar, SIGNAL( triggered(bool) ), SLOT( setShowStatusBar(bool) ) );
-
-        QObject::connect( ui->actionDocumentation, SIGNAL( triggered() ), SLOT( showPageDocumentation() ) );
 
         // Меню трея
         {
@@ -280,7 +300,14 @@ void Manager::showPageAbout()
 }
 void Manager::showPageDocumentation()
 {
-    if ( !QDesktopServices::openUrl( QUrl::fromLocalFile( qApp->applicationDirPath() + "/doc/ru/html/index.html" ) ) )
+    QAction * action = dynamic_cast < QAction * > ( sender() );
+    if ( !action )
+    {
+        WARNING( "Null pointer!" );
+    }
+
+    const QUrl & path = QUrl::fromLocalFile( action->data().toString() );
+    if ( !QDesktopServices::openUrl( path ) )
     {
         QMessageBox::information( this, tr( "Information" ), tr( "Unable to open documents" ) );
         WARNING( "Unable to open documents" );
@@ -326,7 +353,7 @@ void Manager::quit()
     bool askBeforeExiting = pageSettings->mapSettings[ "AskBeforeExiting" ].toBool();
     if ( askBeforeExiting )
     {
-        QMessageBox::StandardButton result = showNewMessageBox( 0, QMessageBox::Question, tr( "Question" ), tr( "Really quit?" ), QMessageBox::Ok | QMessageBox::Cancel, QMessageBox::Ok );
+        QMessageBox::StandardButton result = showNewMessageBox( this, QMessageBox::Question, tr( "Question" ), tr( "Really quit?" ), QMessageBox::Ok | QMessageBox::Cancel, QMessageBox::Ok );
         if ( result == QMessageBox::Cancel )
             return;
     }

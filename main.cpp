@@ -43,10 +43,10 @@ QScriptValue getWidgetByName( QScriptContext * content, QScriptEngine * engine )
 
     return engine->newQObject( object );
 }
-QScriptValue getAllNotes( QScriptContext *, QScriptEngine * engine )
-{
-    return qScriptValueFromSequence( engine, QStringList() << "1" << "2" << "666" );
-}
+//QScriptValue getAllNotes( QScriptContext *, QScriptEngine * engine )
+//{
+//    return qScriptValueFromSequence( engine, QStringList() << "1" << "2" << "666" );
+//}
 static QScriptValue importExtension( QScriptContext *context, QScriptEngine * engine )
 {
     return engine->importExtension( context->argument(0).toString() );
@@ -82,9 +82,7 @@ static QScriptValue importExtension( QScriptContext *context, QScriptEngine * en
 /// TODO: добавить возможность выбора иконок для иерархического дерева
 /// TODO: расширить функционал панели форматирования на странице заметок
 /// TODO: при добавлении заметки от буфера обмена, пропадают символы перехода на следующую строку.
-/// TODO: диалог подтвержения удаления/перемещения - выводить список итемов в qlistwidget
 ///
-/// TODO: динамическое заполнение меню Документация (например, считывать из папки doc по папкам, или описывать в файлах документации и пути к ним)
 /// TODO: дополнить splash screen: картинку побольше, так чтобы вместила название программы, желательно также уместить версию и автора
 
 QString nm_Note::style = "";
@@ -94,11 +92,12 @@ int main( int argc, char * argv[] )
     qsrand( QTime( 0, 0, 0 ).secsTo( QTime::currentTime() ) );
     QTextCodec::setCodecForCStrings( QTextCodec::codecForName( codec ) );    
 
-    QtSingleApplication app( argc, argv );
-    app.addLibraryPath( "plugins" );
+    QtSingleApplication app( argc, argv );    
     app.setApplicationName( App::name );
     app.setApplicationVersion( App::version );
     app.setQuitOnLastWindowClosed( false ); // Приложение не завершится, даже если все окна закрыты/скрыты    
+    // Подгружаемые библиотеки, файлы и прочее, будет располагаться в следующих путях
+    app.setLibraryPaths( QStringList() << "plugins" );
 
     // Если копия приложения уже запущена, тогда отсылаем сообщение той копии и заканчиваем процесс
     if ( app.isRunning() )
@@ -158,22 +157,20 @@ int main( int argc, char * argv[] )
     {
         Script::ScriptEngine * engine = Script::ScriptEngine::instance();
         QScriptValue globalObject = engine->globalObject();
-
         globalObject.setProperty( "importExtension", engine->newFunction( importExtension ) );
-
         globalObject.setProperty( "getWidgetByName", engine->newFunction( getWidgetByName ) );
-        globalObject.setProperty( "getAllNotes", engine->newFunction( getAllNotes ) );
+// TODO: доделать
+//        globalObject.setProperty( "getAllNotes", engine->newFunction( getAllNotes ) );
 
         QScriptValue scriptManager = engine->newQObject( &manager );
-        scriptManager.setProperty( "PageNotes", engine->newQObject( manager.pageNotes ) );
+        scriptManager.setProperty( "PageNotes",    engine->newQObject( manager.pageNotes ) );
         scriptManager.setProperty( "PageSettings", engine->newQObject( manager.pageSettings ) );
-        scriptManager.setProperty( "PageAbout", engine->newQObject( manager.pageAbout ) );
-
+        scriptManager.setProperty( "PageAbout",    engine->newQObject( manager.pageAbout ) );
         globalObject.setProperty( "Manager", scriptManager );
 
         // Загрузка плагинов
-        {            
-            foreach ( const QFileInfo & fileInfo, QDir( "plugins/script" ).entryInfoList() )
+        {                        
+            foreach ( const QFileInfo & fileInfo, QDir( getPluginsPath() + "/script" ).entryInfoList() )
             {
                 QString fileName = fileInfo.baseName();
                 if ( fileName.isEmpty() || fileName.isNull() )

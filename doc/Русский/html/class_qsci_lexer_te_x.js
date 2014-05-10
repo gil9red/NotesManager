@@ -1,0 +1,28 @@
+var class_qsci_lexer_te_x =
+[
+    [ "Default", "class_qsci_lexer_te_x.html#ab285bd16a22841e293e33ddf452f8f0cae621e3527eaa3f0962713d676d0d5951", null ],
+    [ "Special", "class_qsci_lexer_te_x.html#ab285bd16a22841e293e33ddf452f8f0ca7121480be645d8d29be82f3b71069f4c", null ],
+    [ "Group", "class_qsci_lexer_te_x.html#ab285bd16a22841e293e33ddf452f8f0caf1ec0a0707b4105f54e242482ece1c0e", null ],
+    [ "Symbol", "class_qsci_lexer_te_x.html#ab285bd16a22841e293e33ddf452f8f0ca870bf45d37836b716ba1b8798f3d0805", null ],
+    [ "Command", "class_qsci_lexer_te_x.html#ab285bd16a22841e293e33ddf452f8f0ca59714bcaf49876225377b819f996a9f4", null ],
+    [ "Text", "class_qsci_lexer_te_x.html#ab285bd16a22841e293e33ddf452f8f0cadb01f6480e4306630d190016cf38bb58", null ],
+    [ "QsciLexerTeX", "class_qsci_lexer_te_x.html#a4bf7cce95e65755a221fd75bd731a3cd", null ],
+    [ "~QsciLexerTeX", "class_qsci_lexer_te_x.html#a67afe3746387321275337b6767009233", null ],
+    [ "defaultColor", "class_qsci_lexer_te_x.html#a19a97462515c78456645a6589ad608fd", null ],
+    [ "description", "class_qsci_lexer_te_x.html#aeaacf27394cf671200c157e66a034d78", null ],
+    [ "foldComments", "class_qsci_lexer_te_x.html#aa61121db2ce9b6a7dd4db57969d58b83", null ],
+    [ "foldCompact", "class_qsci_lexer_te_x.html#a6eb0ff1c8df98bb7a0381824753d10e8", null ],
+    [ "keywords", "class_qsci_lexer_te_x.html#a9684cd60a913e6377b5c7b64048015ca", null ],
+    [ "language", "class_qsci_lexer_te_x.html#aef4051a72106d96a9087d541ec351d7f", null ],
+    [ "lexer", "class_qsci_lexer_te_x.html#a19304a62927fed6d3b74440456737528", null ],
+    [ "processComments", "class_qsci_lexer_te_x.html#add3dde63461a1ea4a6378e3985b0452f", null ],
+    [ "processIf", "class_qsci_lexer_te_x.html#ad5d5a224be8105ae85a4bd5b07013a88", null ],
+    [ "readProperties", "class_qsci_lexer_te_x.html#a68e2eaca494e93937f896bd60b86429c", null ],
+    [ "refreshProperties", "class_qsci_lexer_te_x.html#acd80380b4727bd94148f5a0ff479742e", null ],
+    [ "setFoldComments", "class_qsci_lexer_te_x.html#a2097c0d473f379dbcd0faa9653bcc943", null ],
+    [ "setFoldCompact", "class_qsci_lexer_te_x.html#a21f63849918a4fbeda81dc5f79fa81c2", null ],
+    [ "setProcessComments", "class_qsci_lexer_te_x.html#a1895725812d581b40913c1a85d2ab533", null ],
+    [ "setProcessIf", "class_qsci_lexer_te_x.html#a479ca70b474910355294d1fcec011572", null ],
+    [ "wordCharacters", "class_qsci_lexer_te_x.html#a52544d5acf694e8b55cc4a6f2ad5611d", null ],
+    [ "writeProperties", "class_qsci_lexer_te_x.html#ae7a24e9d5cfd9fafa623bf3243eac7a3", null ]
+];

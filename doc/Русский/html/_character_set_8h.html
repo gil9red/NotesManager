@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Notes Manager: Файл NotesManager/QScintilla-gpl-2.8.1/lexlib/CharacterSet.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Notes Manager
+   &#160;<span id="projectnumber">0.0.2</span>
+   </div>
+   <div id="projectbrief">Программа создает заметки</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&#160;имен</span></a></li>
+      <li><a href="annotated.html"><span>Классы</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&#160;членов&#160;всех&#160;файлов</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_character_set_8h.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Указатель</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Классы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Пространства имен</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Файлы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Функции</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Переменные</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Определения типов</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Перечисления</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Элементы перечислений</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Друзья</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Классы</a> &#124;
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle">
+<div class="title">Файл CharacterSet.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><a href="_character_set_8h_source.html">См. исходные тексты.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Классы</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character_set.html">CharacterSet</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:a3df43940bab4159fbd957d06e0547b21"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3df43940bab4159fbd957d06e0547b21"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsASpace</b> (int ch)</td></tr>
+<tr class="separator:a3df43940bab4159fbd957d06e0547b21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a138da0370999f5647cfda37e83a85a75"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a138da0370999f5647cfda37e83a85a75"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsASpaceOrTab</b> (int ch)</td></tr>
+<tr class="separator:a138da0370999f5647cfda37e83a85a75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b66996c26a0425e4fe4af78d8fd89a2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4b66996c26a0425e4fe4af78d8fd89a2"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsADigit</b> (int ch)</td></tr>
+<tr class="separator:a4b66996c26a0425e4fe4af78d8fd89a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd8dbc191abe68950284c5f9e38e67d4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abd8dbc191abe68950284c5f9e38e67d4"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsADigit</b> (int ch, int base)</td></tr>
+<tr class="separator:abd8dbc191abe68950284c5f9e38e67d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f4cc11715d171d497e81bbe6e02611b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3f4cc11715d171d497e81bbe6e02611b"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsASCII</b> (int ch)</td></tr>
+<tr class="separator:a3f4cc11715d171d497e81bbe6e02611b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa217783a0c02f888399497179051df6a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa217783a0c02f888399497179051df6a"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsLowerCase</b> (int ch)</td></tr>
+<tr class="separator:aa217783a0c02f888399497179051df6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0dd85f4c6df8b91c4339a6e15c6c3c7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac0dd85f4c6df8b91c4339a6e15c6c3c7"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsUpperCase</b> (int ch)</td></tr>
+<tr class="separator:ac0dd85f4c6df8b91c4339a6e15c6c3c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e0f09d36571ee7256387d685b64e4bb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8e0f09d36571ee7256387d685b64e4bb"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsAlphaNumeric</b> (int ch)</td></tr>
+<tr class="separator:a8e0f09d36571ee7256387d685b64e4bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a67496560a005dc3b62b6e918cb7193"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_character_set_8h.html#a8a67496560a005dc3b62b6e918cb7193">isspacechar</a> (int ch)</td></tr>
+<tr class="separator:a8a67496560a005dc3b62b6e918cb7193"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29def3715f6799d2018f213eb836d1f6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a29def3715f6799d2018f213eb836d1f6"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>iswordchar</b> (int ch)</td></tr>
+<tr class="separator:a29def3715f6799d2018f213eb836d1f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0468bb8f1fb096e02e45483fa689612"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab0468bb8f1fb096e02e45483fa689612"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>iswordstart</b> (int ch)</td></tr>
+<tr class="separator:ab0468bb8f1fb096e02e45483fa689612"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd049e000e790c4a055cd05856c95769"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afd049e000e790c4a055cd05856c95769"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isoperator</b> (int ch)</td></tr>
+<tr class="separator:afd049e000e790c4a055cd05856c95769"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fc29e5e2c37afbb7819db116f4618be"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2fc29e5e2c37afbb7819db116f4618be"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>MakeUpperCase</b> (char ch)</td></tr>
+<tr class="separator:a2fc29e5e2c37afbb7819db116f4618be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fa06d993c0c5534720ab12ca72995d2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5fa06d993c0c5534720ab12ca72995d2"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>CompareCaseInsensitive</b> (const char *a, const char *b)</td></tr>
+<tr class="separator:a5fa06d993c0c5534720ab12ca72995d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b9c0a3af87692c365a12ebe66d2b12b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6b9c0a3af87692c365a12ebe66d2b12b"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>CompareNCaseInsensitive</b> (const char *a, const char *b, size_t len)</td></tr>
+<tr class="separator:a6b9c0a3af87692c365a12ebe66d2b12b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Encapsulates a set of characters. Used to test if a character is within a set. </p>
+</div><h2 class="groupheader">Функции</h2>
+<a class="anchor" id="a8a67496560a005dc3b62b6e918cb7193"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool isspacechar </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ch</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Check if a character is a space. This is ASCII specific but is safe with chars &gt;= 0x80. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4521060be2f87b8a21ee082fc5cc2755.html">NotesManager</a></li><li class="navelem"><a class="el" href="dir_554f3b2ab32a883121aee61a4afa5e14.html">QScintilla-gpl-2.8.1</a></li><li class="navelem"><a class="el" href="dir_7ad7e42bded5c75f93e75e01bd178183.html">lexlib</a></li><li class="navelem"><a class="el" href="_character_set_8h.html">CharacterSet.h</a></li>
+    <li class="footer">Документация по Notes Manager. Последние изменения: Сб 10 Май 2014 22:51:07. Создано системой
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
+</body>
+</html>

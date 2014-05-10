@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Notes Manager: Класс Page_Notes</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Notes Manager
+   &#160;<span id="projectnumber">0.0.2</span>
+   </div>
+   <div id="projectbrief">Программа создает заметки</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&#160;имен</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Классы</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Классы</span></a></li>
+      <li><a href="classes.html"><span>Алфавитный&#160;указатель&#160;классов</span></a></li>
+      <li><a href="hierarchy.html"><span>Иерархия&#160;классов</span></a></li>
+      <li><a href="functions.html"><span>Члены&#160;классов</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_page___notes.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Указатель</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Классы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Пространства имен</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Файлы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Функции</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Переменные</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Определения типов</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Перечисления</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Элементы перечислений</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Друзья</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-slots">Открытые слоты</a> &#124;
+<a href="#signals">Сигналы</a> &#124;
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-attribs">Открытые атрибуты</a> &#124;
+<a href="class_page___notes-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Класс Page_Notes</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс, реализующий виджет "Заметки".  
+ <a href="class_page___notes.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="page__notes_8h_source.html">page_notes.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:Page_Notes:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_page___notes.png" usemap="#Page_Notes_map" alt=""/>
+  <map id="Page_Notes_map" name="Page_Notes_map">
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
+Открытые слоты</h2></td></tr>
+<tr class="memitem:a5840c99f972dce82eb8637ef054e07df"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5840c99f972dce82eb8637ef054e07df"></a>
+Q_SCRIPTABLE void&#160;</td><td class="memItemRight" valign="bottom"><b>addFolder</b> ()</td></tr>
+<tr class="separator:a5840c99f972dce82eb8637ef054e07df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb39fa1c390d2671f0c9fb8fd22c10ce"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afb39fa1c390d2671f0c9fb8fd22c10ce"></a>
+Q_SCRIPTABLE void&#160;</td><td class="memItemRight" valign="bottom"><b>addNote</b> ()</td></tr>
+<tr class="separator:afb39fa1c390d2671f0c9fb8fd22c10ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fd7283ccaef7c49784191be497fad63"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1fd7283ccaef7c49784191be497fad63"></a>
+Q_SCRIPTABLE void&#160;</td><td class="memItemRight" valign="bottom"><b>addNoteFromClipboard</b> ()</td></tr>
+<tr class="separator:a1fd7283ccaef7c49784191be497fad63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab7fccf984914fc7705852ad55e89494"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aab7fccf984914fc7705852ad55e89494"></a>
+Q_SCRIPTABLE void&#160;</td><td class="memItemRight" valign="bottom"><b>addNoteFromScreen</b> ()</td></tr>
+<tr class="separator:aab7fccf984914fc7705852ad55e89494"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a096de5844821d9e617d1c2f78f367d4b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a096de5844821d9e617d1c2f78f367d4b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sl_Delete</b> ()</td></tr>
+<tr class="separator:a096de5844821d9e617d1c2f78f367d4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a9e797e61e5e130e02a886dcb0409cb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a9e797e61e5e130e02a886dcb0409cb"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sl_ClearTrash</b> ()</td></tr>
+<tr class="separator:a1a9e797e61e5e130e02a886dcb0409cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1aefb86c60cca8cde5791c6a4e3e0744"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1aefb86c60cca8cde5791c6a4e3e0744"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sl_RemoveToTrash</b> ()</td></tr>
+<tr class="separator:a1aefb86c60cca8cde5791c6a4e3e0744"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a426eefb3fa403f149eb39c5e696f7194"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a426eefb3fa403f149eb39c5e696f7194"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sl_SaveNote</b> ()</td></tr>
+<tr class="separator:a426eefb3fa403f149eb39c5e696f7194"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a0984b05cd0eddfebd95a0a5c0f9d55"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a0984b05cd0eddfebd95a0a5c0f9d55"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sl_SaveAsNote</b> ()</td></tr>
+<tr class="separator:a1a0984b05cd0eddfebd95a0a5c0f9d55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8629e6169be37cb28f18bc52dc5c8b5c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8629e6169be37cb28f18bc52dc5c8b5c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sl_ShowNote</b> ()</td></tr>
+<tr class="separator:a8629e6169be37cb28f18bc52dc5c8b5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e35901feb625a8f2c5aef01099b5c43"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6e35901feb625a8f2c5aef01099b5c43"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sl_HideNote</b> ()</td></tr>
+<tr class="separator:a6e35901feb625a8f2c5aef01099b5c43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ddbf90d59b5ff6c4dc67d37bf76c242"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8ddbf90d59b5ff6c4dc67d37bf76c242"></a>
+Q_SCRIPTABLE void&#160;</td><td class="memItemRight" valign="bottom"><b>setVisibleAllNotes</b> (bool visible)</td></tr>
+<tr class="separator:a8ddbf90d59b5ff6c4dc67d37bf76c242"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44880580257b1ab0d78612715c25e595"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a44880580257b1ab0d78612715c25e595"></a>
+Q_SCRIPTABLE void&#160;</td><td class="memItemRight" valign="bottom"><b>showAllNotes</b> ()</td></tr>
+<tr class="separator:a44880580257b1ab0d78612715c25e595"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3303b36014354851273634831847091"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae3303b36014354851273634831847091"></a>
+Q_SCRIPTABLE void&#160;</td><td class="memItemRight" valign="bottom"><b>hideAllNotes</b> ()</td></tr>
+<tr class="separator:ae3303b36014354851273634831847091"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e8890248e699f421301da4e4a4ff6e0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4e8890248e699f421301da4e4a4ff6e0"></a>
+Q_SCRIPTABLE void&#160;</td><td class="memItemRight" valign="bottom"><b>saveAllNotes</b> ()</td></tr>
+<tr class="separator:a4e8890248e699f421301da4e4a4ff6e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d90fc27d0001a86d1ad1a3fb1b4b7fe"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1d90fc27d0001a86d1ad1a3fb1b4b7fe"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sl_SetTopNote</b> (bool top)</td></tr>
+<tr class="separator:a1d90fc27d0001a86d1ad1a3fb1b4b7fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a397be83b29ecd808afb8b1aa0997d7ba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a397be83b29ecd808afb8b1aa0997d7ba"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sl_PrintNote</b> ()</td></tr>
+<tr class="separator:a397be83b29ecd808afb8b1aa0997d7ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef298b851bf2362749ead7348a4f264b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aef298b851bf2362749ead7348a4f264b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sl_PreviewPrintNote</b> ()</td></tr>
+<tr class="separator:aef298b851bf2362749ead7348a4f264b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
+Сигналы</h2></td></tr>
+<tr class="memitem:a05033eb5a2bdac7649ff6a517e5a3762"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a05033eb5a2bdac7649ff6a517e5a3762"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sg_About_UpdateStates</b> ()</td></tr>
+<tr class="separator:a05033eb5a2bdac7649ff6a517e5a3762"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a77caee76a3fb884f4e1bbf409e367b2b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a77caee76a3fb884f4e1bbf409e367b2b"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Page_Notes</b> (QWidget *parent=0)</td></tr>
+<tr class="separator:a77caee76a3fb884f4e1bbf409e367b2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a702838a6ac3d54b2775980d84c271ab0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a702838a6ac3d54b2775980d84c271ab0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_page___notes.html#a702838a6ac3d54b2775980d84c271ab0">setSettings</a> (QSettings *s)</td></tr>
+<tr class="memdesc:a702838a6ac3d54b2775980d84c271ab0"><td class="mdescLeft">&#160;</td><td class="mdescRight">В функции указываем с каким классом настроек будем работать. <br/></td></tr>
+<tr class="separator:a702838a6ac3d54b2775980d84c271ab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1feb1cdc4100408a652e790a4af8c750"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1feb1cdc4100408a652e790a4af8c750"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>read</b> (QIODevice *device)</td></tr>
+<tr class="separator:a1feb1cdc4100408a652e790a4af8c750"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b5ee2a51906562c7462ba99a6c5d61c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6b5ee2a51906562c7462ba99a6c5d61c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>write</b> (QIODevice *device)</td></tr>
+<tr class="separator:a6b5ee2a51906562c7462ba99a6c5d61c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab62cf4fcea5c7a42bb56c8228ca47452"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab62cf4fcea5c7a42bb56c8228ca47452"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>writeToXmlStateNotes</b> ()</td></tr>
+<tr class="separator:ab62cf4fcea5c7a42bb56c8228ca47452"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a666863efc1565651be1db9244346da0b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a666863efc1565651be1db9244346da0b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>readSettings</b> ()</td></tr>
+<tr class="separator:a666863efc1565651be1db9244346da0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac695c71d1b2ce099dc8dbd1d163bc4ef"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac695c71d1b2ce099dc8dbd1d163bc4ef"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>writeSettings</b> ()</td></tr>
+<tr class="separator:ac695c71d1b2ce099dc8dbd1d163bc4ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab453359c7abd9b91e6469fae96e0f7f0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab453359c7abd9b91e6469fae96e0f7f0"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasCurrent</b> ()</td></tr>
+<tr class="separator:ab453359c7abd9b91e6469fae96e0f7f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b425ab3f8809a132702d8e88933f084"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7b425ab3f8809a132702d8e88933f084"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>currentIsNote</b> ()</td></tr>
+<tr class="separator:a7b425ab3f8809a132702d8e88933f084"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72faedbf8a9102472c310292789f5879"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a72faedbf8a9102472c310292789f5879"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>currentIsTrash</b> ()</td></tr>
+<tr class="separator:a72faedbf8a9102472c310292789f5879"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21aa5d1fe339d281c9b8cfa7cf254d93"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a21aa5d1fe339d281c9b8cfa7cf254d93"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>currentNoteIsVisible</b> ()</td></tr>
+<tr class="separator:a21aa5d1fe339d281c9b8cfa7cf254d93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71808dcedb679e9ea34f9310d86f4e0b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a71808dcedb679e9ea34f9310d86f4e0b"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>currentNoteIsTop</b> ()</td></tr>
+<tr class="separator:a71808dcedb679e9ea34f9310d86f4e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a471619e1871f339f6bfd01eed9ec6958"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a471619e1871f339f6bfd01eed9ec6958"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>currentIsChildTrash</b> ()</td></tr>
+<tr class="separator:a471619e1871f339f6bfd01eed9ec6958"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca03128031cb2ae8576100fd2b01c3e4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aca03128031cb2ae8576100fd2b01c3e4"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>trashIsEmpty</b> ()</td></tr>
+<tr class="separator:aca03128031cb2ae8576100fd2b01c3e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Открытые атрибуты</h2></td></tr>
+<tr class="memitem:a080876f8a650714014cb5dbb8899b63d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a080876f8a650714014cb5dbb8899b63d"></a>
+Ui::Page_notes *&#160;</td><td class="memItemRight" valign="bottom"><b>ui</b></td></tr>
+<tr class="separator:a080876f8a650714014cb5dbb8899b63d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Класс, реализующий виджет "Заметки". </p>
+</div><hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>NotesManager/Manager/pages/<a class="el" href="page__notes_8h_source.html">page_notes.h</a></li>
+<li>NotesManager/Manager/pages/page_notes.cpp</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_page___notes.html">Page_Notes</a></li>
+    <li class="footer">Документация по Notes Manager. Последние изменения: Сб 10 Май 2014 22:51:13. Создано системой
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
+</body>
+</html>

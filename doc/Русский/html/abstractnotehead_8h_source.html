@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Notes Manager: Исходный файл NotesManager/Note/abstractnotehead.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Notes Manager
+   &#160;<span id="projectnumber">0.0.2</span>
+   </div>
+   <div id="projectbrief">Программа создает заметки</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&#160;имен</span></a></li>
+      <li><a href="annotated.html"><span>Классы</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&#160;членов&#160;всех&#160;файлов</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('abstractnotehead_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Указатель</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Классы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Пространства имен</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Файлы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Функции</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Переменные</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Определения типов</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Перечисления</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Элементы перечислений</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Друзья</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">abstractnotehead.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ABSTRACTNOTEHEAD_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define ABSTRACTNOTEHEAD_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QWidget&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QLabel&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;QString&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;QColor&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;QFont&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;QPoint&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;QMouseEvent&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;QPaintEvent&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;QLineEdit&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">class </span><a class="code" href="classd___abstract_head.html">d_AbstractHead</a>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;NoteShared.h&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_abstract_note_head.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_abstract_note_head.html">AbstractNoteHead</a>: <span class="keyword">public</span> QWidget</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="class_abstract_note_head.html">AbstractNoteHead</a>( QWidget * parent = 0 );</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    ~<a class="code" href="class_abstract_note_head.html">AbstractNoteHead</a>();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_abstract_note_head.html#a364890e83eb3e1413b3f4f7c494d73db">setTitle</a>( <span class="keyword">const</span> QString &amp; str );</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    QString <a class="code" href="class_abstract_note_head.html#adcfc1ff900b5531a8ab58b8cec09a972">title</a>();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_abstract_note_head.html#a8513dfff9c857de750c4429b9b2b0990">setFont</a>( <span class="keyword">const</span> QFont &amp; f );</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    QFont <a class="code" href="class_abstract_note_head.html#a9adce6f90eb2d67b1dd4137538c9aaa7">font</a>();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_abstract_note_head.html#abcf2cbc8331995c8cbbc4f16ae85a8a9">setColor</a>( <span class="keyword">const</span> QColor &amp; <a class="code" href="class_abstract_note_head.html#aecd64a7b94a7f440c591602f8cb83dbd">color</a> );</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    QColor <a class="code" href="class_abstract_note_head.html#aecd64a7b94a7f440c591602f8cb83dbd">color</a>();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="class_abstract_note_head.html#ae34f7f7ba5090e41bc8d184ef2796df0">   59</a></span>&#160;    <a class="code" href="classd___abstract_head.html">d_AbstractHead</a> * <a class="code" href="class_abstract_note_head.html#ae34f7f7ba5090e41bc8d184ef2796df0">d</a>; </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="class_abstract_note_head.html#a2bab18619a5e7e173b321977733fc074">   60</a></span>&#160;    QLabel * <a class="code" href="class_abstract_note_head.html#a2bab18619a5e7e173b321977733fc074">label</a>;     </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> paintEvent( QPaintEvent * );</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> mouseDoubleClickEvent(QMouseEvent *);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> mousePressEvent( QMouseEvent * event );</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> mouseReleaseEvent( QMouseEvent *  );</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> mouseMoveEvent( QMouseEvent * event );</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;signals:</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> doubleClick();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;};</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="classd___abstract_head.html">   76</a></span>&#160;<span class="keyword">class </span><a class="code" href="classd___abstract_head.html">d_AbstractHead</a></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;{</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="classd___abstract_head.html#a9a4c95c01e05bf84a541604a014310c5">   79</a></span>&#160;    QColor <a class="code" href="classd___abstract_head.html#a9a4c95c01e05bf84a541604a014310c5">color</a>;       </div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="classd___abstract_head.html#a0bde1945cfdbd0706e8a8c64ef290580">   80</a></span>&#160;    QPoint <a class="code" href="classd___abstract_head.html#a0bde1945cfdbd0706e8a8c64ef290580">oldPosition</a>; </div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="classd___abstract_head.html#ab916be6422d759fc6377d9d8fa36624c">   81</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classd___abstract_head.html#ab916be6422d759fc6377d9d8fa36624c">isMousePress</a>;  </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;};</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#endif // ABSTRACTNOTEHEAD_H</span></div>
+<div class="ttc" id="class_abstract_note_head_html_aecd64a7b94a7f440c591602f8cb83dbd"><div class="ttname"><a href="class_abstract_note_head.html#aecd64a7b94a7f440c591602f8cb83dbd">AbstractNoteHead::color</a></div><div class="ttdeci">QColor color()</div><div class="ttdoc">Возвращение цвета. </div><div class="ttdef"><b>Definition:</b> abstractnotehead.cpp:49</div></div>
+<div class="ttc" id="class_abstract_note_head_html_a364890e83eb3e1413b3f4f7c494d73db"><div class="ttname"><a href="class_abstract_note_head.html#a364890e83eb3e1413b3f4f7c494d73db">AbstractNoteHead::setTitle</a></div><div class="ttdeci">void setTitle(const QString &amp;str)</div><div class="ttdoc">Установка заголовка. </div><div class="ttdef"><b>Definition:</b> abstractnotehead.cpp:27</div></div>
+<div class="ttc" id="class_abstract_note_head_html_adcfc1ff900b5531a8ab58b8cec09a972"><div class="ttname"><a href="class_abstract_note_head.html#adcfc1ff900b5531a8ab58b8cec09a972">AbstractNoteHead::title</a></div><div class="ttdeci">QString title()</div><div class="ttdoc">Возвращение заголовка. </div><div class="ttdef"><b>Definition:</b> abstractnotehead.cpp:31</div></div>
+<div class="ttc" id="class_abstract_note_head_html_a2bab18619a5e7e173b321977733fc074"><div class="ttname"><a href="class_abstract_note_head.html#a2bab18619a5e7e173b321977733fc074">AbstractNoteHead::label</a></div><div class="ttdeci">QLabel * label</div><div class="ttdoc">Класс, который отображает текст заголовка </div><div class="ttdef"><b>Definition:</b> abstractnotehead.h:60</div></div>
+<div class="ttc" id="classd___abstract_head_html_a0bde1945cfdbd0706e8a8c64ef290580"><div class="ttname"><a href="classd___abstract_head.html#a0bde1945cfdbd0706e8a8c64ef290580">d_AbstractHead::oldPosition</a></div><div class="ttdeci">QPoint oldPosition</div><div class="ttdoc">Старая позиция </div><div class="ttdef"><b>Definition:</b> abstractnotehead.h:80</div></div>
+<div class="ttc" id="class_abstract_note_head_html"><div class="ttname"><a href="class_abstract_note_head.html">AbstractNoteHead</a></div><div class="ttdoc">Класс реализует голову (шапку) абстрактной заметки. </div><div class="ttdef"><b>Definition:</b> abstractnotehead.h:22</div></div>
+<div class="ttc" id="class_abstract_note_head_html_ae34f7f7ba5090e41bc8d184ef2796df0"><div class="ttname"><a href="class_abstract_note_head.html#ae34f7f7ba5090e41bc8d184ef2796df0">AbstractNoteHead::d</a></div><div class="ttdeci">d_AbstractHead * d</div><div class="ttdoc">Дата </div><div class="ttdef"><b>Definition:</b> abstractnotehead.h:59</div></div>
+<div class="ttc" id="classd___abstract_head_html"><div class="ttname"><a href="classd___abstract_head.html">d_AbstractHead</a></div><div class="ttdoc">Класс данных шапки абстрактной заметки </div><div class="ttdef"><b>Definition:</b> abstractnotehead.h:76</div></div>
+<div class="ttc" id="classd___abstract_head_html_ab916be6422d759fc6377d9d8fa36624c"><div class="ttname"><a href="classd___abstract_head.html#ab916be6422d759fc6377d9d8fa36624c">d_AbstractHead::isMousePress</a></div><div class="ttdeci">bool isMousePress</div><div class="ttdoc">Текущее состояние левой кнопки мыши </div><div class="ttdef"><b>Definition:</b> abstractnotehead.h:81</div></div>
+<div class="ttc" id="class_abstract_note_head_html_abcf2cbc8331995c8cbbc4f16ae85a8a9"><div class="ttname"><a href="class_abstract_note_head.html#abcf2cbc8331995c8cbbc4f16ae85a8a9">AbstractNoteHead::setColor</a></div><div class="ttdeci">void setColor(const QColor &amp;color)</div><div class="ttdoc">Устанавливает цвет. </div><div class="ttdef"><b>Definition:</b> abstractnotehead.cpp:45</div></div>
+<div class="ttc" id="class_abstract_note_head_html_a9adce6f90eb2d67b1dd4137538c9aaa7"><div class="ttname"><a href="class_abstract_note_head.html#a9adce6f90eb2d67b1dd4137538c9aaa7">AbstractNoteHead::font</a></div><div class="ttdeci">QFont font()</div><div class="ttdoc">Возвращение шрифта заголовка. </div><div class="ttdef"><b>Definition:</b> abstractnotehead.cpp:40</div></div>
+<div class="ttc" id="class_abstract_note_head_html_a8513dfff9c857de750c4429b9b2b0990"><div class="ttname"><a href="class_abstract_note_head.html#a8513dfff9c857de750c4429b9b2b0990">AbstractNoteHead::setFont</a></div><div class="ttdeci">void setFont(const QFont &amp;f)</div><div class="ttdoc">Установка шрифта заголовка. </div><div class="ttdef"><b>Definition:</b> abstractnotehead.cpp:36</div></div>
+<div class="ttc" id="classd___abstract_head_html_a9a4c95c01e05bf84a541604a014310c5"><div class="ttname"><a href="classd___abstract_head.html#a9a4c95c01e05bf84a541604a014310c5">d_AbstractHead::color</a></div><div class="ttdeci">QColor color</div><div class="ttdoc">Цвет </div><div class="ttdef"><b>Definition:</b> abstractnotehead.h:79</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4521060be2f87b8a21ee082fc5cc2755.html">NotesManager</a></li><li class="navelem"><a class="el" href="dir_8ddbc3f07fee76b9b166d7f51edb323e.html">Note</a></li><li class="navelem"><b>abstractnotehead.h</b></li>
+    <li class="footer">Документация по Notes Manager. Последние изменения: Сб 10 Май 2014 22:51:06. Создано системой
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
+</body>
+</html>

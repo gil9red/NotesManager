@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Notes Manager: Класс QsciAbstractAPIs</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Notes Manager
+   &#160;<span id="projectnumber">0.0.2</span>
+   </div>
+   <div id="projectbrief">Программа создает заметки</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&#160;имен</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Классы</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Классы</span></a></li>
+      <li><a href="classes.html"><span>Алфавитный&#160;указатель&#160;классов</span></a></li>
+      <li><a href="hierarchy.html"><span>Иерархия&#160;классов</span></a></li>
+      <li><a href="functions.html"><span>Члены&#160;классов</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_qsci_abstract_a_p_is.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Указатель</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Классы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Пространства имен</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Файлы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Функции</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Переменные</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Определения типов</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Перечисления</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Элементы перечислений</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Друзья</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="class_qsci_abstract_a_p_is-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Класс QsciAbstractAPIs<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>The <a class="el" href="class_qsci_abstract_a_p_is.html" title="The QsciAbstractAPIs class represents the interface to the textual API information used in call tips ...">QsciAbstractAPIs</a> class represents the interface to the textual API information used in call tips and for auto-completion. A sub-class will provide the actual implementation of the interface.  
+ <a href="class_qsci_abstract_a_p_is.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="qsciabstractapis_8h_source.html">qsciabstractapis.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:QsciAbstractAPIs:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_qsci_abstract_a_p_is.png" usemap="#QsciAbstractAPIs_map" alt=""/>
+  <map id="QsciAbstractAPIs_map" name="QsciAbstractAPIs_map">
+<area href="class_qsci_a_p_is.html" title="The QsciAPIs class provies an implementation of the textual API information used in call tips and for..." alt="QsciAPIs" shape="rect" coords="0,112,111,136"/>
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a9db5ebe8adda3f58892af676f5295e3a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_abstract_a_p_is.html#a9db5ebe8adda3f58892af676f5295e3a">QsciAbstractAPIs</a> (<a class="el" href="class_qsci_lexer.html">QsciLexer</a> *<a class="el" href="class_qsci_abstract_a_p_is.html#a0d248b8133cdacd286fe1cc6826dd68e">lexer</a>)</td></tr>
+<tr class="separator:a9db5ebe8adda3f58892af676f5295e3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5a8b7c6cecefc517ed158a04dff0e13"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab5a8b7c6cecefc517ed158a04dff0e13"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_abstract_a_p_is.html#ab5a8b7c6cecefc517ed158a04dff0e13">~QsciAbstractAPIs</a> ()</td></tr>
+<tr class="memdesc:ab5a8b7c6cecefc517ed158a04dff0e13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the <a class="el" href="class_qsci_abstract_a_p_is.html" title="The QsciAbstractAPIs class represents the interface to the textual API information used in call tips ...">QsciAbstractAPIs</a> instance. <br/></td></tr>
+<tr class="separator:ab5a8b7c6cecefc517ed158a04dff0e13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d248b8133cdacd286fe1cc6826dd68e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0d248b8133cdacd286fe1cc6826dd68e"></a>
+<a class="el" href="class_qsci_lexer.html">QsciLexer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_abstract_a_p_is.html#a0d248b8133cdacd286fe1cc6826dd68e">lexer</a> () const </td></tr>
+<tr class="memdesc:a0d248b8133cdacd286fe1cc6826dd68e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the lexer that the instance is attached to. <br/></td></tr>
+<tr class="separator:a0d248b8133cdacd286fe1cc6826dd68e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62a50642b0b058016ed2fdf0922bdee8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_abstract_a_p_is.html#a62a50642b0b058016ed2fdf0922bdee8">updateAutoCompletionList</a> (const QStringList &amp;context, QStringList &amp;list)=0</td></tr>
+<tr class="separator:a62a50642b0b058016ed2fdf0922bdee8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3007ae482c466ec2e3729f73f5125c8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_abstract_a_p_is.html#ad3007ae482c466ec2e3729f73f5125c8">autoCompletionSelected</a> (const QString &amp;selection)</td></tr>
+<tr class="separator:ad3007ae482c466ec2e3729f73f5125c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9c6c3f8dc068371398a50c6b23dcbf4"><td class="memItemLeft" align="right" valign="top">virtual QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_qsci_abstract_a_p_is.html#af9c6c3f8dc068371398a50c6b23dcbf4">callTips</a> (const QStringList &amp;context, int commas, <a class="el" href="class_qsci_scintilla.html#a62d0174cb0a07e3f2d48fc0603192668">QsciScintilla::CallTipsStyle</a> style, QList&lt; int &gt; &amp;shifts)=0</td></tr>
+<tr class="separator:af9c6c3f8dc068371398a50c6b23dcbf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>The <a class="el" href="class_qsci_abstract_a_p_is.html" title="The QsciAbstractAPIs class represents the interface to the textual API information used in call tips ...">QsciAbstractAPIs</a> class represents the interface to the textual API information used in call tips and for auto-completion. A sub-class will provide the actual implementation of the interface. </p>
+<p>API information is specific to a particular language lexer but can be shared by multiple instances of the lexer. </p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a class="anchor" id="a9db5ebe8adda3f58892af676f5295e3a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QsciAbstractAPIs::QsciAbstractAPIs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_qsci_lexer.html">QsciLexer</a> *&#160;</td>
+          <td class="paramname"><em>lexer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Constructs a <a class="el" href="class_qsci_abstract_a_p_is.html" title="The QsciAbstractAPIs class represents the interface to the textual API information used in call tips ...">QsciAbstractAPIs</a> instance attached to lexer <em>lexer</em>. <em>lexer</em> becomes the instance's parent object although the instance can also be subsequently attached to other lexers. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a class="anchor" id="ad3007ae482c466ec2e3729f73f5125c8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QsciAbstractAPIs::autoCompletionSelected </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>selection</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This is called when the user selects the entry <em>selection</em> from the auto-completion list. A sub-class can use this as a hint to provide more specific API entries in future calls to <a class="el" href="class_qsci_abstract_a_p_is.html#a62a50642b0b058016ed2fdf0922bdee8">updateAutoCompletionList()</a>. The default implementation does nothing. </p>
+
+<p>Переопределяется в <a class="el" href="class_qsci_a_p_is.html#aeabefa43c31aef8b27d16c0930fd8e16">QsciAPIs</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af9c6c3f8dc068371398a50c6b23dcbf4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual QStringList QsciAbstractAPIs::callTips </td>
+          <td>(</td>
+          <td class="paramtype">const QStringList &amp;&#160;</td>
+          <td class="paramname"><em>context</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>commas</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_qsci_scintilla.html#a62d0174cb0a07e3f2d48fc0603192668">QsciScintilla::CallTipsStyle</a>&#160;</td>
+          <td class="paramname"><em>style</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QList&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>shifts</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return the call tips valid for the context <em>context</em>. (<a class="el" href="class_note.html">Note</a> that the last word of the context will always be empty.) <em>commas</em> is the number of commas the user has typed after the context and before the cursor position. The exact position of the list of call tips can be adjusted by specifying a corresponding left character shift in <em>shifts</em>. This is normally done to correct for any displayed context according to <em>style</em>.</p>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="class_qsci_abstract_a_p_is.html#a62a50642b0b058016ed2fdf0922bdee8">updateAutoCompletionList()</a> </dd></dl>
+
+<p>Замещается в <a class="el" href="class_qsci_a_p_is.html#a3e8d4c353896e49bd392454a51510c5a">QsciAPIs</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a62a50642b0b058016ed2fdf0922bdee8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void QsciAbstractAPIs::updateAutoCompletionList </td>
+          <td>(</td>
+          <td class="paramtype">const QStringList &amp;&#160;</td>
+          <td class="paramname"><em>context</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QStringList &amp;&#160;</td>
+          <td class="paramname"><em>list</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Update the list <em>list</em> with API entries derived from <em>context</em>. <em>context</em> is the list of words in the text preceding the cursor position. The characters that make up a word and the characters that separate words are defined by the lexer. The last word is a partial word and may be empty if the user has just entered a word separator. </p>
+
+<p>Замещается в <a class="el" href="class_qsci_a_p_is.html#adbe7ef1e11d9190bb68be71f83be8cd5">QsciAPIs</a>.</p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>NotesManager/QScintilla-gpl-2.8.1/Qt4Qt5/Qsci/<a class="el" href="qsciabstractapis_8h_source.html">qsciabstractapis.h</a></li>
+<li>NotesManager/QScintilla-gpl-2.8.1/Qt4Qt5/qsciabstractapis.cpp</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_qsci_abstract_a_p_is.html">QsciAbstractAPIs</a></li>
+    <li class="footer">Документация по Notes Manager. Последние изменения: Сб 10 Май 2014 22:51:13. Создано системой
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
+</body>
+</html>
