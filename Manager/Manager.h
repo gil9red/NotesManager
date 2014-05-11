@@ -87,6 +87,8 @@ public slots:
     Q_SCRIPTABLE void readSettings();  //!< Считывание настроек менеджера.
     Q_SCRIPTABLE void writeSettings(); //!< Запись настроек менеджера.
 
+    Q_SCRIPTABLE void setActivateDictionary( bool );
+    Q_SCRIPTABLE bool isActivateDictionary();
     Q_SCRIPTABLE void openDictionary();
     Q_SCRIPTABLE void closeDictionary();
 

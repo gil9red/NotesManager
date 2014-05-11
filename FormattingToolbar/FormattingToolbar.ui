@@ -23,7 +23,16 @@
    <property name="spacing">
     <number>0</number>
    </property>
-   <property name="margin">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
     <number>0</number>
    </property>
    <item>
@@ -181,6 +190,29 @@
        <property name="icon">
         <iconset resource="FormattingToolbar.qrc">
          <normaloff>:/FormattingToolbar/color-text</normaloff>:/FormattingToolbar/color-text</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="ColorBackgroundButton" name="tButtonColorBackground">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string>Color background</string>
+       </property>
+       <property name="statusTip">
+        <string>Color background</string>
+       </property>
+       <property name="whatsThis">
+        <string>Color background</string>
+       </property>
+       <property name="text">
+        <string>Color background</string>
+       </property>
+       <property name="icon">
+        <iconset resource="FormattingToolbar.qrc">
+         <normaloff>:/FormattingToolbar/color-background</normaloff>:/FormattingToolbar/color-background</iconset>
        </property>
       </widget>
      </item>
@@ -700,29 +732,6 @@
        <property name="icon">
         <iconset resource="FormattingToolbar.qrc">
          <normaloff>:/FormattingToolbar/table</normaloff>:/FormattingToolbar/table</iconset>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="ColorBackgroundButton" name="tButtonColorBackground">
-       <property name="focusPolicy">
-        <enum>Qt::NoFocus</enum>
-       </property>
-       <property name="toolTip">
-        <string>Color background</string>
-       </property>
-       <property name="statusTip">
-        <string>Color background</string>
-       </property>
-       <property name="whatsThis">
-        <string>Color background</string>
-       </property>
-       <property name="text">
-        <string>Color background</string>
-       </property>
-       <property name="icon">
-        <iconset resource="FormattingToolbar.qrc">
-         <normaloff>:/FormattingToolbar/color-background</normaloff>:/FormattingToolbar/color-background</iconset>
        </property>
       </widget>
      </item>

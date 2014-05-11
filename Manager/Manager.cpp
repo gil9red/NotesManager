@@ -398,6 +398,7 @@ void Manager::readSettings()
     settings->beginGroup( "Manager" );
     restoreGeometry( settings->value( "Geometry" ).toByteArray() );
     restoreState( settings->value( "State" ).toByteArray() );
+    setActivateDictionary( settings->value( "Autocomplete" ).toBool() );
     setShowSidebar( settings->value( "Sidebar_Visible", true ).toBool() );
     setShowStatusBar( settings->value( "StatusBar_Visible", true ).toBool() );
     settings->endGroup();
@@ -418,6 +419,7 @@ void Manager::writeSettings()
     settings->beginGroup( "Manager" );
     settings->setValue( "Geometry", saveGeometry() );
     settings->setValue( "State", saveState() );
+    settings->setValue( "Autocomplete", isActivateDictionary() );
     settings->setValue( "Sidebar_Visible", isShowSidebar() );
     settings->setValue( "StatusBar_Visible", isShowStatusBar() );
     settings->endGroup();
@@ -433,15 +435,22 @@ void Manager::writeSettings()
     ui->statusBar->showMessage( tr( "Save completed" ), 5000 );    
 }
 
+void Manager::setActivateDictionary( bool activate )
+{
+    Completer::instance()->setAutocomplete( activate );
+    updateStates();
+}
+bool Manager::isActivateDictionary()
+{
+    return Completer::instance()->isAutocomplete();
+}
 void Manager::openDictionary()
 {
-    Completer::instance()->setAutocomplete( true );
-    updateStates();
+    setActivateDictionary( true );
 }
 void Manager::closeDictionary()
 {
-    Completer::instance()->setAutocomplete( false );
-    updateStates();
+    setActivateDictionary( false );
 }
 
 void Manager::setShowSidebar( bool visible )

@@ -88,6 +88,7 @@ QToolBar * FormattingToolbar::mainToolBar()
     toolBar->addWidget( ui->tButtonBold );
     toolBar->addWidget( ui->tButtonItalic );
     toolBar->addWidget( ui->tButtonTextColor );
+    toolBar->addWidget( ui->tButtonColorBackground );
     toolBar->addWidget( ui->tButtonSubScript );
     toolBar->addWidget( ui->tButtonSuperScript );
 
@@ -111,8 +112,6 @@ QToolBar * FormattingToolbar::mainToolBar()
     toolBar->addWidget( ui->tButtonInsertHyperlink );
     toolBar->addWidget( ui->tButtonInsertPicture );
     toolBar->addWidget( ui->tButtonInsertTable );
-    toolBar->addWidget( ui->tButtonColorBackground );
-
     return toolBar;
 }
 void FormattingToolbar::setAlterActivityComponents( bool act )
