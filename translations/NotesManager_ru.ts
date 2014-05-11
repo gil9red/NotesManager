@@ -558,7 +558,6 @@
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="294"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="297"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="300"/>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="112"/>
         <source>Strikeout</source>
         <translation>Линия зачеркивания</translation>
     </message>
@@ -691,38 +690,33 @@
         <translation type="obsolete">Показать/спрятать панель форматирования</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="81"/>
         <source>Fonts</source>
-        <translation>Шрифты</translation>
+        <translation type="obsolete">Шрифты</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="89"/>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="130"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="81"/>
         <source>Formatting</source>
         <translation>Форматирование</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="98"/>
         <source>Text alignment</source>
-        <translation>Выравнивание текста</translation>
+        <translation type="obsolete">Выравнивание текста</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="106"/>
         <source>List</source>
-        <translation>Список</translation>
+        <translation type="obsolete">Список</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="119"/>
         <source>Others</source>
-        <translation>Разное</translation>
+        <translation type="obsolete">Разное</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="584"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="541"/>
         <source>Images</source>
         <translation>Изображения</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="591"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="548"/>
         <source>Select picture</source>
         <translation>Выбор изображения</translation>
     </message>
@@ -1186,7 +1180,7 @@
         <translation type="obsolete">Программа создания заметок</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="342"/>
+        <location filename="../Manager/Manager.cpp" line="344"/>
         <source>The program creates notes</source>
         <translation>Программа создает заметки</translation>
     </message>
@@ -1212,17 +1206,17 @@
         <translation>Не удалось открыть документацию</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="336"/>
+        <location filename="../Manager/Manager.cpp" line="338"/>
         <source>In total notes: %1</source>
         <translation>Всего заметок: %1</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="337"/>
+        <location filename="../Manager/Manager.cpp" line="339"/>
         <source>Visible notes: %1</source>
         <translation>Видимых заметок: %1</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="338"/>
+        <location filename="../Manager/Manager.cpp" line="340"/>
         <source>Invisible notes: %1</source>
         <translation>Невидимых заметок: %1</translation>
     </message>
@@ -1249,7 +1243,7 @@
         <translation type="obsolete">Произошла ошибка при распаковки файлов и папок заметки</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="374"/>
+        <location filename="../Manager/Manager.cpp" line="381"/>
         <source>Question</source>
         <translation>Вопрос</translation>
     </message>
@@ -1258,7 +1252,7 @@
         <translation type="obsolete">Удалить все заметки?</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="374"/>
+        <location filename="../Manager/Manager.cpp" line="381"/>
         <source>Really quit?</source>
         <translation>Действительно выйти?</translation>
     </message>
@@ -1287,7 +1281,7 @@
         <translation type="obsolete">нет</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="426"/>
+        <location filename="../Manager/Manager.cpp" line="433"/>
         <source>Save completed</source>
         <translation>Сохранение завершено</translation>
     </message>
@@ -2380,7 +2374,7 @@
         <translation type="obsolete">Менеджер заметок</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="127"/>
+        <location filename="../main.cpp" line="121"/>
         <source>Loading fonts</source>
         <oldsource>Load fonts</oldsource>
         <translation>Загрузка шрифтов</translation>
@@ -2390,25 +2384,25 @@
         <translation type="obsolete">Создать</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="130"/>
+        <location filename="../main.cpp" line="124"/>
         <source>Loading dictionaries</source>
         <oldsource>Load dictionaries</oldsource>
         <translation>Загрузка словарей</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="133"/>
+        <location filename="../main.cpp" line="127"/>
         <source>Creation</source>
         <oldsource>Created</oldsource>
         <translation>Создание</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="144"/>
+        <location filename="../main.cpp" line="138"/>
         <source>Loading settings</source>
         <oldsource>Load settings</oldsource>
         <translation>Загрузка настроек</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="147"/>
+        <location filename="../main.cpp" line="141"/>
         <source>Loading scripts</source>
         <translation>Загрузка сценариев</translation>
     </message>
@@ -2418,7 +2412,7 @@
         <translation type="obsolete">Загрузка заметок</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="150"/>
+        <location filename="../main.cpp" line="144"/>
         <source>Now ready</source>
         <translation>Готов</translation>
     </message>
@@ -2776,7 +2770,7 @@
         <translation>Файл заметки</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="677"/>
+        <location filename="../Note/RichTextNote.cpp" line="676"/>
         <source>image</source>
         <translation>Изображение</translation>
     </message>

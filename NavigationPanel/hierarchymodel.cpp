@@ -75,13 +75,13 @@ void HierarchyModel::registerItem(Folder* folder) // Register folder and all ite
     QObject::connect(fi, SIGNAL(sg_DataChanged(BaseModelItem*)), this, SLOT(sl_Item_DataChanged(BaseModelItem*)));
     BaseModelItem* parent = bridge.value(folder->getParent());
     if ( parent )
-        parent->AddChildTo(fi, folder->getParent()->child.IndexOf(folder));
+        parent->AddChildTo(fi, folder->getParent()->child.indexOf(folder));
 
     bridge.insert(folder, fi);
 
-    for (int i = 0; i < folder->child.Count(); i++)
+    for (int i = 0; i < folder->child.count(); i++)
     {
-        AbstractFolderItem* item = folder->child.ItemAt(i);
+        AbstractFolderItem* item = folder->child.itemAt(i);
         if ( item->getItemType() == AbstractFolderItem::Type_Folder )
             registerItem( dynamic_cast < Folder * > ( item ) );
         else
@@ -103,7 +103,7 @@ void HierarchyModel::registerItem(Note* note) {
     BaseModelItem* parentItem = bridge.value(folder);
     NoteModelItem* noteItem = new NoteModelItem(note);
     QObject::connect(noteItem, SIGNAL(sg_DataChanged(BaseModelItem*)), SLOT(sl_Item_DataChanged(BaseModelItem*)));
-    parentItem->AddChildTo(noteItem, note->getParent()->child.IndexOf(note));
+    parentItem->AddChildTo(noteItem, note->getParent()->child.indexOf(note));
     bridge.insert(note, noteItem);
 }
 
@@ -120,8 +120,8 @@ void HierarchyModel::unregisterItem(Folder* folder)
 
     QObject::disconnect(folder, 0, this, 0);
 
-    for (int i = 0; i < folder->child.Count(); i++) {
-        AbstractFolderItem* item = folder->child.ItemAt(i);
+    for (int i = 0; i < folder->child.count(); i++) {
+        AbstractFolderItem* item = folder->child.itemAt(i);
         if ( item->getItemType() == AbstractFolderItem::Type_Folder )
             unregisterItem( dynamic_cast < Folder * > ( item ) );
         else
@@ -240,7 +240,7 @@ void HierarchyModel::sl_Folder_ItemAdded(AbstractFolderItem* const item, int) {
         parentIndex = createIndex(parentItem->parent()->IndexOfChild(parentItem), 0, parentItem);
 
     if (insertInVisibleBranch)
-        beginInsertRows(parentIndex, parent->child.IndexOf(item), parent->child.IndexOf(item));
+        beginInsertRows(parentIndex, parent->child.indexOf(item), parent->child.indexOf(item));
 
     if (item->getItemType() == AbstractFolderItem::Type_Folder)
         registerItem( dynamic_cast < Folder * > ( item ) );
@@ -253,7 +253,7 @@ void HierarchyModel::sl_Folder_ItemAdded(AbstractFolderItem* const item, int) {
         endInsertRows();
 
         QModelIndexList list;
-        BaseModelItem* newItem = parentItem->ChildAt(parent->child.IndexOf(item));
+        BaseModelItem* newItem = parentItem->ChildAt(parent->child.indexOf(item));
         QModelIndex newItemIndex = createIndex(parentItem->IndexOfChild(newItem), 0, newItem);
         list << newItemIndex;
         emit sg_ApplySelection(list);
@@ -280,7 +280,7 @@ void HierarchyModel::sl_Folder_ItemAboutToBeRemoved(AbstractFolderItem* const it
         parentIndex = createIndex(parentItem->parent()->IndexOfChild(parentItem), 0, parentItem);
 
     if (removeFromVisibleBranch)
-        beginRemoveRows(parentIndex, parent->child.IndexOf(item), parent->child.IndexOf(item));
+        beginRemoveRows(parentIndex, parent->child.indexOf(item), parent->child.indexOf(item));
 
     if (item->getItemType() == AbstractFolderItem::Type_Folder)
         unregisterItem( dynamic_cast < Folder * > ( item ) );
@@ -322,7 +322,7 @@ void HierarchyModel::sl_Folder_ItemAboutToBeMoved(AbstractFolderItem* const item
         oldParentIndex = createIndex(oldParentItem->parent()->IndexOfChild(oldParentItem), 0, oldParentItem);
     }
 
-    int oldPosition = parent->child.IndexOf(item);
+    int oldPosition = parent->child.indexOf(item);
     if (removeFromVisibleBranch) {
         beginRemoveRows (oldParentIndex, oldPosition, oldPosition);
     }
@@ -483,21 +483,21 @@ bool HierarchyModel::dropMimeData (const QMimeData* data, Qt::DropAction action,
             // Moved inside of the parent
             if (-1 == row) {
                 // when dropped directly on parent folder, do nothing
-            } else if (newParentFolder->child.IndexOf(droppedFolderItem) == row
+            } else if (newParentFolder->child.indexOf(droppedFolderItem) == row
                        ||
-                       newParentFolder->child.IndexOf(droppedFolderItem) + 1 == row) {
+                       newParentFolder->child.indexOf(droppedFolderItem) + 1 == row) {
                 // not moved, do nothing
             } else {
                 // item moved inside parent folder to another row
                 // If new row index is greater than current item index, decrement it. It should be
                 // done because Move operation is insertItem(takeItem(i)), so when an item is taken
                 // from a list, it's size gets decremented and 'row' variable becomes invalid.
-                int actualRow = row > newParentFolder->child.IndexOf(droppedFolderItem) ? row - 1 : row;
-                newParentFolder->child.Move(droppedFolderItem, actualRow);
+                int actualRow = row > newParentFolder->child.indexOf(droppedFolderItem) ? row - 1 : row;
+                newParentFolder->child.move(droppedFolderItem, actualRow);
             }
         } else { // Moved outside of the parent
-            int newPosition = row == -1 ? newParentFolder->child.Count() : row;
-            droppedFolderItem->getParent()->child.Move(droppedFolderItem, newPosition, newParentFolder);
+            int newPosition = row == -1 ? newParentFolder->child.count() : row;
+            droppedFolderItem->getParent()->child.move(droppedFolderItem, newPosition, newParentFolder);
         }
     }
 

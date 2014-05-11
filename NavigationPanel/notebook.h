@@ -34,6 +34,9 @@ public:
     Folder * getTrashFolder();
     Folder * getPinnedFolder();
 
+    QList < Note * > getAllNotesInTrashFolder();
+    QList < Folder * > getAllFoldersInTrashFolder();
+
     QList < Note * > getNotesList();
     QList < Folder * > getFoldersList();
     QList < Tag * > getTagsList();

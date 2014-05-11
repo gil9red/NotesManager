@@ -28,11 +28,11 @@ FolderItemCollection::FolderItemCollection(Folder* parent) :
 	}
 }
 
-void FolderItemCollection::Add(AbstractFolderItem* item) {
-    AddTo(item, items.size());
+void FolderItemCollection::add(AbstractFolderItem* item) {
+    addTo(item, items.size());
 }
 
-void FolderItemCollection::AddTo(AbstractFolderItem* item, int index) {
+void FolderItemCollection::addTo(AbstractFolderItem* item, int index) {
 	if (!item) {
 		WARNING("Null pointer recieved");
 		return;
@@ -62,7 +62,7 @@ void FolderItemCollection::AddTo(AbstractFolderItem* item, int index) {
 	emit sg_ItemAdded(item, index);
 }
 
-void FolderItemCollection::Remove(AbstractFolderItem* item) {
+void FolderItemCollection::remove(AbstractFolderItem* item) {
 	if (!item) {
 		WARNING("Null pointer recieved");
 		return;
@@ -84,7 +84,7 @@ void FolderItemCollection::Remove(AbstractFolderItem* item) {
 	emit sg_ItemRemoved(item);
 }
 
-bool FolderItemCollection::Contains(AbstractFolderItem* item) const {
+bool FolderItemCollection::contains(AbstractFolderItem* item) const {
 	if (!item) {
 		WARNING("Null pointer recieved");
 		return false;
@@ -93,7 +93,7 @@ bool FolderItemCollection::Contains(AbstractFolderItem* item) const {
     return items.contains(item);
 }
 
-void FolderItemCollection::Clear() {
+void FolderItemCollection::clear() {
     for (int i = 0; i < items.count(); i++) {
         items.at(i)->setParent(0);
 	}
@@ -103,7 +103,7 @@ void FolderItemCollection::Clear() {
 	emit sg_Cleared();
 }
 
-void FolderItemCollection::Move(int from, int to) {
+void FolderItemCollection::move(int from, int to) {
     if (from < 0 || from >= items.size()) {
 		WARNING("'from' index is out of bounds");
 		return;
@@ -113,32 +113,32 @@ void FolderItemCollection::Move(int from, int to) {
 		return;
 	}
 
-    Move(items.at(from), to, owner);
+    move(items.at(from), to, owner);
 }
 
-void FolderItemCollection::Move(AbstractFolderItem* item, int to) {
+void FolderItemCollection::move(AbstractFolderItem* item, int to) {
     if (to < 0 || to >= items.size()) {
 		WARNING("'to' index is out of bounds");
 		return;
 	}
 
-    Move(item, to, owner);
+    move(item, to, owner);
 }
 
-void FolderItemCollection::Move(AbstractFolderItem* item, Folder* newParent) {
+void FolderItemCollection::move(AbstractFolderItem* item, Folder* newParent) {
 	if (!newParent) {
 		WARNING("Null pointer recieved");
 		return;
 	}
 
-    int to = newParent->child.Count();
+    int to = newParent->child.count();
     if (owner == newParent) {
         to = items.count() - 1;
 	}
-	Move(item, to, newParent);
+    move(item, to, newParent);
 }
 
-void FolderItemCollection::Move(AbstractFolderItem* item, int to, Folder* newParent) {
+void FolderItemCollection::move(AbstractFolderItem* item, int to, Folder* newParent) {
 	if (!item) {
 		WARNING("Null pointer recieved");
 		return;
@@ -167,7 +167,7 @@ void FolderItemCollection::Move(AbstractFolderItem* item, int to, Folder* newPar
 		}
         items.move(items.indexOf(item), to);
 	} else {
-        if (to > newParent->child.Count()) {
+        if (to > newParent->child.count()) {
 			WARNING("'to' index is out of bounds");
 			return;
 		}
@@ -179,11 +179,11 @@ void FolderItemCollection::Move(AbstractFolderItem* item, int to, Folder* newPar
 	emit sg_ItemMoved(item, to, newParent);
 }
 
-int FolderItemCollection::Count() const {
+int FolderItemCollection::count() const {
     return items.count();
 }
 
-AbstractFolderItem* FolderItemCollection::ItemAt(int index) const {
+AbstractFolderItem* FolderItemCollection::itemAt(int index) const {
     if (index < 0 || index >= items.count()) {
 		WARNING("Index is out of bounds");
 		return 0;
@@ -192,7 +192,7 @@ AbstractFolderItem* FolderItemCollection::ItemAt(int index) const {
     return items.at(index);
 }
 
-int FolderItemCollection::IndexOf(AbstractFolderItem* const item) const {
+int FolderItemCollection::indexOf(AbstractFolderItem* const item) const {
 	if (!item) {
 		WARNING("Null pointer recieved");
 		return -1;

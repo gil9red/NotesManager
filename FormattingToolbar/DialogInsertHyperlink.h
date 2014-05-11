@@ -17,8 +17,11 @@ public:
     explicit DialogInsertHyperlink( QWidget * parent = 0 );
     ~DialogInsertHyperlink();
 
-    QString hyperlink(); //!< Функция возвращает строку с гиперссылкой.
-    QString text();      //!< Функция возвращает строку текста гиперссылки.
+    void setHyperlink( const QString & hyperlink );
+    void setTextHyperlink( const QString & text );
+
+    QString getHyperlink(); //!< Функция возвращает строку с гиперссылкой.
+    QString getTextHyperlink();      //!< Функция возвращает строку текста гиперссылки.
     
 private:
     Ui::DialogInsertHyperlink * ui; //!< Форма UI класса.

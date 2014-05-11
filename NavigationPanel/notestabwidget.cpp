@@ -38,7 +38,6 @@ NotesTabWidget::NotesTabWidget( QWidget * parent )
         contextMenu = new QMenu();
         QObject::connect( contextMenu, SIGNAL(aboutToShow()), SLOT( sl_UpdateEnabledContextMenu() ) );
 
-        // TODO: this NULL ICON
 //        actionHighlightCurrent = contextMenu->addAction( QIcon( "" ), tr( "Highlight the current tab on the tree" ), this, SLOT( sl_HighlightCurrentTabOnTree() ), QKeySequence() );
         contextMenu->addSeparator();        
 

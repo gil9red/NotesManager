@@ -255,11 +255,11 @@ void FolderNavigationWidget::deleteItems(QModelIndexList& indexesList, bool perm
 
         if (permanently)
         {
-            parentFolder->child.Remove(itemToDelete);
+            parentFolder->child.remove(itemToDelete);
             delete itemToDelete;
 
         } else
-            parentFolder->child.Move(itemToDelete, Notebook::instance()->getTrashFolder());
+            parentFolder->child.move(itemToDelete, Notebook::instance()->getTrashFolder());
     }
 
     qApp->restoreOverrideCursor();
@@ -341,7 +341,7 @@ bool FolderNavigationWidget::sl_AddNote( RichTextNote * richTextNote )
     {
         Note * note = new Note();
         note->setRichTextNote( richTextNote );
-        root->child.Add( note );
+        root->child.add( note );
 
         return true;
     }
@@ -366,11 +366,11 @@ bool FolderNavigationWidget::sl_AddNote( RichTextNote * richTextNote )
         {
             NoteModelItem * currentNoteItem = dynamic_cast < NoteModelItem * > ( modelitem );
             Note * currentNote = currentNoteItem->getStoredData();
-            int index = currentNote->getParent()->child.IndexOf( currentNote );
+            int index = currentNote->getParent()->child.indexOf( currentNote );
 
             Note * note = new Note();
             note->setRichTextNote( richTextNote );
-            currentNote->getParent()->child.AddTo( note, index + 1 );
+            currentNote->getParent()->child.addTo( note, index + 1 );
 
             return true;
         }
@@ -384,7 +384,7 @@ bool FolderNavigationWidget::sl_AddNote( RichTextNote * richTextNote )
 
     Note * note = new Note();
     note->setRichTextNote( richTextNote );
-    parentFolder->child.Add( note );
+    parentFolder->child.add( note );
 
     return true;
 }
@@ -407,7 +407,7 @@ void FolderNavigationWidget::sl_AddFolderAction_Triggered()
     // Если нет выделенного элемента, добавляем в корень
     if ( !hasCurrentItem() && !model->getPinnedFolder() )
     {
-        root->child.Add( new Folder() );
+        root->child.add( new Folder() );
         return;
     }
 
@@ -432,8 +432,8 @@ void FolderNavigationWidget::sl_AddFolderAction_Triggered()
         {
             NoteModelItem * currentNoteItem = dynamic_cast < NoteModelItem * > ( modelitem );
             Note * currentNote = currentNoteItem->getStoredData();
-            int index = currentNote->getParent()->child.IndexOf( currentNote );
-            currentNote->getParent()->child.AddTo( new Folder(), index + 1 );
+            int index = currentNote->getParent()->child.indexOf( currentNote );
+            currentNote->getParent()->child.addTo( new Folder(), index + 1 );
 
             return;
         }
@@ -449,7 +449,7 @@ void FolderNavigationWidget::sl_AddFolderAction_Triggered()
         return;
     }
 
-    parentFolder->child.Add( new Folder() );
+    parentFolder->child.add( new Folder() );
 }
 void FolderNavigationWidget::sl_MoveToBinAction_Triggered()
 {
@@ -698,10 +698,10 @@ void FolderNavigationWidget::sl_ClearTrashAction_Triggered()
         return;
 
     Folder * f = Notebook::instance()->getTrashFolder();
-    while (f->child.Count() > 0)
+    while (f->child.count() > 0)
     {
-        AbstractFolderItem * item = f->child.ItemAt(0);
-        f->child.Remove(item);
+        AbstractFolderItem * item = f->child.itemAt(0);
+        f->child.remove(item);
         delete item;
     }
 }
@@ -743,7 +743,7 @@ void FolderNavigationWidget::sl_UpdateStates()
         ui->tButtonPinFolder->setEnabled( hasCurrentItem() && getCurrentFolder() );
 
 
-    bool hasEmpty = ( Notebook::instance()->getTrashFolder()->child.Count() == 0 ) && ( Notebook::instance()->getRootFolder()->child.Count() == 0 );
+    bool hasEmpty = ( Notebook::instance()->getTrashFolder()->child.count() == 0 ) && ( Notebook::instance()->getRootFolder()->child.count() == 0 );
     ui->tButtonExpandAll->setEnabled( !hasEmpty );
     ui->tButtonCollapseAll->setEnabled( !hasEmpty );
 }

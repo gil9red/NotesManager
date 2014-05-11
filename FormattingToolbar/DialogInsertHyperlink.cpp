@@ -10,8 +10,8 @@ DialogInsertHyperlink::DialogInsertHyperlink( QWidget * parent )
 {
     ui->setupUi( this );
 
-    QObject::connect( ui->lEditInputHyperlink, SIGNAL( textChanged(QString) ), SLOT( updateStates() ) );
-    QObject::connect( ui->lEditInputTextHyperlink, SIGNAL( textChanged(QString) ), SLOT( updateStates() ) );
+    QObject::connect( ui->hyperlink, SIGNAL( textChanged(QString) ), SLOT( updateStates() ) );
+    QObject::connect( ui->textHyperlink, SIGNAL( textChanged(QString) ), SLOT( updateStates() ) );
 
     updateStates();
 }
@@ -20,20 +20,29 @@ DialogInsertHyperlink::~DialogInsertHyperlink()
     delete ui;
 }
 
-QString DialogInsertHyperlink::hyperlink()
+void DialogInsertHyperlink::setHyperlink( const QString & hyperlink )
 {
-    return ui->lEditInputHyperlink->text();
+    ui->hyperlink->setText( hyperlink );
 }
-QString DialogInsertHyperlink::text()
+void DialogInsertHyperlink::setTextHyperlink( const QString & text )
 {
-    return ui->lEditInputTextHyperlink->text();
+    ui->textHyperlink->setText( text );
+}
+
+QString DialogInsertHyperlink::getHyperlink()
+{
+    return ui->hyperlink->text();
+}
+QString DialogInsertHyperlink::getTextHyperlink()
+{
+    return ui->textHyperlink->text();
 }
 
 
 void DialogInsertHyperlink::updateStates()
 {
-    bool hyperlinkIsEmpty = ui->lEditInputHyperlink->text().isEmpty();
-    bool textIsEmpty = ui->lEditInputTextHyperlink->text().isEmpty();
+    bool hyperlinkIsEmpty = ui->hyperlink->text().isEmpty();
+    bool textIsEmpty = ui->textHyperlink->text().isEmpty();
 
     QPushButton * ok = ui->buttonBox->button( QDialogButtonBox::Ok );
     ok->setEnabled( !hyperlinkIsEmpty && !textIsEmpty );

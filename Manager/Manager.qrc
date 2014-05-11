@@ -16,6 +16,7 @@
         <file alias="run">icons/play.png</file>
         <file alias="screenshot">icons/screenshot.png</file>
         <file alias="notebook">icons/notebook-64.png</file>
+        <file alias="manager">icons/Apps-file-manager-archive-icon.png</file>
     </qresource>
     <qresource prefix="/fugue-icons">
         <file alias="application-sidebar">icons/fugue-icons/32x32/application-sidebar.png</file>

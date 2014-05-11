@@ -501,7 +501,6 @@
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="294"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="297"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="300"/>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="112"/>
         <source>Strikeout</source>
         <translatorcomment>Strikeout - это зачеркивание</translatorcomment>
         <translation>Закреслення</translation>
@@ -634,38 +633,33 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="81"/>
         <source>Fonts</source>
-        <translation>Шрифти</translation>
+        <translation type="obsolete">Шрифти</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="89"/>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="130"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="81"/>
         <source>Formatting</source>
         <translation>Форматування</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="98"/>
         <source>Text alignment</source>
-        <translation>Вирівнювання тексту</translation>
+        <translation type="obsolete">Вирівнювання тексту</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="106"/>
         <source>List</source>
-        <translation>Список</translation>
+        <translation type="obsolete">Список</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="119"/>
         <source>Others</source>
-        <translation>Iнші</translation>
+        <translation type="obsolete">Iнші</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="584"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="541"/>
         <source>Images</source>
         <translation>Зображення</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="591"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="548"/>
         <source>Select picture</source>
         <translation>Виберіть знімок</translation>
     </message>
@@ -1008,7 +1002,7 @@
         <translation type="obsolete">Програма створює замітки</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="342"/>
+        <location filename="../Manager/Manager.cpp" line="344"/>
         <source>The program creates notes</source>
         <translation type="unfinished">Програма створює замітки</translation>
     </message>
@@ -1034,17 +1028,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="336"/>
+        <location filename="../Manager/Manager.cpp" line="338"/>
         <source>In total notes: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="337"/>
+        <location filename="../Manager/Manager.cpp" line="339"/>
         <source>Visible notes: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="338"/>
+        <location filename="../Manager/Manager.cpp" line="340"/>
         <source>Invisible notes: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1053,7 +1047,7 @@
         <translation type="obsolete">Нова нотатка</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="374"/>
+        <location filename="../Manager/Manager.cpp" line="381"/>
         <source>Question</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1066,12 +1060,12 @@
         <translation type="obsolete">від</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="374"/>
+        <location filename="../Manager/Manager.cpp" line="381"/>
         <source>Really quit?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="426"/>
+        <location filename="../Manager/Manager.cpp" line="433"/>
         <source>Save completed</source>
         <translation>Зберегти завершена</translation>
     </message>
@@ -1772,27 +1766,27 @@
         <translation type="obsolete">немає</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="127"/>
+        <location filename="../main.cpp" line="121"/>
         <source>Loading fonts</source>
         <translation>Завантаження шрифтів</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="130"/>
+        <location filename="../main.cpp" line="124"/>
         <source>Loading dictionaries</source>
         <translation>Завантаження словників</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="133"/>
+        <location filename="../main.cpp" line="127"/>
         <source>Creation</source>
         <translation>Creation</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="144"/>
+        <location filename="../main.cpp" line="138"/>
         <source>Loading settings</source>
         <translation>Завантаження налаштувань</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="147"/>
+        <location filename="../main.cpp" line="141"/>
         <source>Loading scripts</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1801,7 +1795,7 @@
         <translation type="obsolete">Завантаження замітки</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="150"/>
+        <location filename="../main.cpp" line="144"/>
         <source>Now ready</source>
         <translation>Тепер готовий</translation>
     </message>
@@ -2190,7 +2184,7 @@
         <translation>Виберіть файли</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="677"/>
+        <location filename="../Note/RichTextNote.cpp" line="676"/>
         <source>image</source>
         <translation type="unfinished"></translation>
     </message>

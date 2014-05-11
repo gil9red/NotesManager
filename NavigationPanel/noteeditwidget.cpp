@@ -1,6 +1,5 @@
 #include "noteeditwidget.h"
 #include "ui_noteeditwidget.h"
-#include "FormattingToolbar/FormattingToolbar.h"
 
 NoteEditWidget::NoteEditWidget( QWidget * parent ) :
     QMainWindow( parent ),
@@ -10,7 +9,7 @@ NoteEditWidget::NoteEditWidget( QWidget * parent ) :
     ui->setupUi( this );
     setContextMenuPolicy( Qt::NoContextMenu );
 
-    FormattingToolbar * formattingToolbar = new FormattingToolbar( this );
+    formattingToolbar = new FormattingToolbar( this );
     formattingToolbar->setAlterActivityComponents( false );
     formattingToolbar->hide();
     formattingToolbar->installConnect( ui->editor );
@@ -35,6 +34,7 @@ void NoteEditWidget::setNote( Note * note )
 
     d_note = note;
     RichTextNote * richTextNote = d_note->getRichTextNote();
+    formattingToolbar->setNote( richTextNote );
 
     ui->title->setText( richTextNote->title() );
     ui->editor->setDocument( richTextNote->document() );

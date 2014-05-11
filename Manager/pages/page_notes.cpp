@@ -317,7 +317,7 @@ bool Page_Notes::currentIsChildTrash()
 }
 bool Page_Notes::trashIsEmpty()
 {
-    return ( Notebook::instance()->getTrashFolder()->child.Count() == 0 );
+    return ( Notebook::instance()->getTrashFolder()->child.count() == 0 );
 }
 
 void Page_Notes::addFolder()
@@ -600,7 +600,7 @@ void Page_Notes::sl_UpdateStates()
 
     ui->actionDelete->setEnabled( false );
     ui->actionRemoveToTrash->setEnabled( false );
-    ui->actionClearTrash->setEnabled( Notebook::instance()->getTrashFolder()->child.Count() > 0 );
+    ui->actionClearTrash->setEnabled( Notebook::instance()->getTrashFolder()->child.count() > 0 );
 
     bool hasCurrent = this->hasCurrent();
     if ( hasCurrent )

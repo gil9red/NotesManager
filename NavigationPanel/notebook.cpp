@@ -68,11 +68,11 @@ void parseDomElement( Folder * folder, QDomElement & element )
         // Создаем элемент
         AbstractFolderItem * item = createItemOfDomElement( child );
         if ( item->getItemType() == AbstractFolderItem::Type_Note )
-            folder->child.Add( item );
+            folder->child.add( item );
 
         else if ( item->getItemType() == AbstractFolderItem::Type_Folder )
         {
-            folder->child.Add( item );
+            folder->child.add( item );
             parseDomElement( static_cast < Folder * > ( item ), child );
         }
 
@@ -82,6 +82,9 @@ void parseDomElement( Folder * folder, QDomElement & element )
 
 QDomElement createDomElementOfItem( AbstractFolderItem * item, QDomDocument & xmlDomDocument )
 {
+    if ( !item )
+        WARNING( "Null pointer!" );
+
     bool isFolder = item->getItemType() == AbstractFolderItem::Type_Folder;
     bool isNote = item->getItemType() == AbstractFolderItem::Type_Note;
 
@@ -112,8 +115,12 @@ QDomElement createDomElementOfItem( AbstractFolderItem * item, QDomDocument & xm
 
     } else if ( isNote )
     {
-        Note * note = static_cast < Note * > ( item );
+        Note * note = dynamic_cast < Note * > ( item );
+        if ( !note )
+            WARNING( "Null pointer!" );
         RichTextNote * richTextNote = note->getRichTextNote();
+        if ( !richTextNote )
+            WARNING( "Null pointer!" );
         richTextNote->save();
 
         const QString & id = getIdFromRichTextNote( richTextNote );
@@ -124,13 +131,16 @@ QDomElement createDomElementOfItem( AbstractFolderItem * item, QDomDocument & xm
 }
 void parseItem( Folder * folder, QDomElement & element, QDomDocument & xmlDomDocument )
 {
-    for ( int i = 0; i < folder->child.Count(); i++ )
+    if ( !folder )
+        WARNING( "Null pointer!" );
+
+    for ( int i = 0; i < folder->child.count(); i++ )
     {
-        AbstractFolderItem * child = folder->child.ItemAt(i);
+        AbstractFolderItem * child = folder->child.itemAt(i);
         QDomElement domChild = createDomElementOfItem( child, xmlDomDocument );
         element.appendChild( domChild );
         if ( child->getItemType() == AbstractFolderItem::Type_Folder )
-            parseItem( static_cast < Folder * > ( child ), domChild, xmlDomDocument );
+            parseItem( dynamic_cast < Folder * > ( child ), domChild, xmlDomDocument );
     }
 }
 
@@ -205,6 +215,31 @@ void Notebook::setPinnedFolder( Folder * f ) { getHierarchyModel()->setPinnedFol
 Folder * Notebook::getRootFolder() { return rootFolder; }
 Folder * Notebook::getTrashFolder() { return trashFolder; }
 Folder * Notebook::getPinnedFolder() { return getHierarchyModel()->getPinnedFolder(); }
+
+QList < Note * > Notebook::getAllNotesInTrashFolder()
+{
+    QList < AbstractFolderItem * > list;
+    getAllItemsInFolder( list, *trashFolder );
+
+    QList < Note * > notes;
+    foreach ( AbstractFolderItem * item, list )
+        if ( item->getItemType() == AbstractFolderItem::Type_Note )
+            notes << dynamic_cast < Note * > ( item );
+
+    return notes;
+}
+QList < Folder * > Notebook::getAllFoldersInTrashFolder()
+{
+    QList < AbstractFolderItem * > list;
+    getAllItemsInFolder( list, *trashFolder );
+
+    QList < Folder * > folders;
+    foreach ( AbstractFolderItem * item, list )
+        if ( item->getItemType() == AbstractFolderItem::Type_Folder )
+            folders << dynamic_cast < Folder * > ( item );
+
+    return folders;
+}
 
 QList < Note * > Notebook::getNotesList()
 {
@@ -320,8 +355,8 @@ void Notebook::registerItem(AbstractFolderItem* item)
         allFolders.append(f);
         emit sg_ItemRegistered(f);
 
-        for (int i = 0; i < f->child.Count(); i++)
-            registerItem(f->child.ItemAt(i));
+        for (int i = 0; i < f->child.count(); i++)
+            registerItem(f->child.itemAt(i));
 
     } else if (item->getItemType() == AbstractFolderItem::Type_Note)
     {       
@@ -350,8 +385,8 @@ void Notebook::unregisterItem(AbstractFolderItem* item)
         allFolders.removeAll(f);
         emit sg_ItemUnregistered(f);
 
-        for (int i = 0; i < f->child.Count(); i++)
-            unregisterItem(f->child.ItemAt(i));
+        for (int i = 0; i < f->child.count(); i++)
+            unregisterItem(f->child.itemAt(i));
 
     } else if (item->getItemType() == AbstractFolderItem::Type_Note)
     {

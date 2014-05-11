@@ -76,55 +76,6 @@ void FormattingToolbar::setNote( RichTextNote * n )
     note = n;
 }
 
-QList < QToolBar * > FormattingToolbar::toolBars()
-{
-    QToolBar * toolBar1 = new QToolBar( tr( "Fonts" ) );
-    toolBar1->setObjectName( "FormattingToolbar_Fonts" );
-    toolBar1->addWidget( ui->fontComboBox );
-    toolBar1->addWidget( ui->comboBoxFontSize );
-    toolBar1->addWidget( ui->tButtonIncreaseSizeFont );
-    toolBar1->addWidget( ui->tButtonDecreaseSizeFont );
-
-
-    QToolBar * toolBar2 = new QToolBar( tr( "Formatting" ) );
-    toolBar2->setObjectName( "FormattingToolbar_Formatting" );
-    toolBar2->addWidget( ui->tButtonBold );
-    toolBar2->addWidget( ui->tButtonItalic );
-    toolBar2->addWidget( ui->tButtonTextColor );
-    toolBar2->addWidget( ui->tButtonSubScript );
-    toolBar2->addWidget( ui->tButtonSuperScript );
-
-
-    QToolBar * toolBar3 = new QToolBar( tr( "Text alignment" ) );
-    toolBar3->setObjectName( "FormattingToolbar_TextAlignment" );
-    toolBar3->addWidget( ui->tButtonAlignLeft );
-    toolBar3->addWidget( ui->tButtonAlignCenter );
-    toolBar3->addWidget( ui->tButtonAlignRight );
-    toolBar3->addWidget( ui->tButtonAlignJustify );
-
-
-    QToolBar * toolBar4 = new QToolBar( tr( "List" ) );
-    toolBar4->setObjectName( "FormattingToolbar_List" );
-    toolBar4->addWidget( ui->tButtonBulletedList );
-    toolBar4->addWidget( ui->tButtonOrderedList );
-
-
-    QToolBar * toolBar5 = new QToolBar( tr( "Strikeout" ) );
-    toolBar5->setObjectName( "FormattingToolbar_Strikeout" );
-    toolBar5->addWidget( ui->tButtonUnderline );
-    toolBar5->addWidget( ui->tButtonStrikeout );
-    toolBar5->addWidget( ui->tButtonOverline );
-
-
-    QToolBar * toolBar6 = new QToolBar( tr( "Others" ) );
-    toolBar6->setObjectName( "FormattingToolbar_Others" );
-    toolBar6->addWidget( ui->tButtonInsertHLine );
-    toolBar6->addWidget( ui->tButtonEraser );
-    toolBar6->addWidget( ui->tButtonLower );
-    toolBar6->addWidget( ui->tButtonUpper );
-
-    return QList < QToolBar * > () << toolBar1 << toolBar2 << toolBar3 << toolBar4 << toolBar5 << toolBar6;
-}
 QToolBar * FormattingToolbar::mainToolBar()
 {
     QToolBar * toolBar = new QToolBar( tr( "Formatting" ) );
@@ -156,6 +107,11 @@ QToolBar * FormattingToolbar::mainToolBar()
     toolBar->addWidget( ui->tButtonEraser );
     toolBar->addWidget( ui->tButtonLower );
     toolBar->addWidget( ui->tButtonUpper );
+
+    toolBar->addWidget( ui->tButtonInsertHyperlink );
+    toolBar->addWidget( ui->tButtonInsertPicture );
+    toolBar->addWidget( ui->tButtonInsertTable );
+    toolBar->addWidget( ui->tButtonColorBackground );
 
     return toolBar;
 }
@@ -571,11 +527,12 @@ void FormattingToolbar::list( int style )
 void FormattingToolbar::on_tButtonInsertHyperlink_clicked()
 {
     DialogInsertHyperlink dialog( this );
+    dialog.setTextHyperlink( editor->textCursor().selectedText() );
     if ( !dialog.exec() )
         return;
 
-    const QString & hyperlink = dialog.hyperlink();
-    const QString & text = dialog.text();
+    const QString & hyperlink = dialog.getHyperlink();
+    const QString & text = dialog.getTextHyperlink();
 
     editor->insertHtml( QString( "<a href=\"%1\">%2</a> " ).arg( hyperlink ).arg( text ) );
 }

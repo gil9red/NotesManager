@@ -77,7 +77,6 @@ public slots:
 
     void updateStates();
 
-
     void updateSystemTray();
 
 public slots:

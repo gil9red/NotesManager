@@ -30,8 +30,8 @@ along with qNotesManager. If not, see <http://www.gnu.org/licenses/>.
 
 class Folder : public AbstractFolderItem
 {
-
     Q_OBJECT
+
 public:
     enum FolderType
     {
@@ -39,6 +39,10 @@ public:
         SystemFolder = 1,
         TrashFolder = 5
     };
+
+private:
+    FolderType type;
+    bool expanded;
 
 public:
     explicit Folder(QString _name = QString(), FolderType _type = UserFolder);
@@ -54,10 +58,6 @@ public:
 
     FolderItemCollection child;
 
-private:
-    bool expanded;
-    FolderType type;
-
 signals:
     void sg_ItemAboutToBeAdded(AbstractFolderItem* const, int);
     void sg_ItemAdded(AbstractFolderItem* const, int);
@@ -68,5 +68,7 @@ signals:
     void sg_ItemsCollectionAboutToClear();
     void sg_ItemsCollectionCleared();
 };
+
+void getAllItemsInFolder(QList < AbstractFolderItem * > & list, const Folder & rootFolder );
 
 #endif // QNM_FOLDER_H

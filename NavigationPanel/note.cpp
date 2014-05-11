@@ -130,13 +130,13 @@ void Note::noteChange( int event )
             // Если заметка будет удалена, то будет также удалена из модели ее элемент-обертка
             // Если еще состоим в "родстве", удаляем
             if ( parent )
-                parent->child.Remove( this );
+                parent->child.remove( this );
 
             // Вызов удаления себя -> увидимся в деструкторе
             deleteLater();
 
         } else
-            parent->child.Move( this, Notebook::instance()->getTrashFolder() );
+            parent->child.move( this, Notebook::instance()->getTrashFolder() );
 
         break;
     }

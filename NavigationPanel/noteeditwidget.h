@@ -10,6 +10,7 @@ namespace Ui
 
 #include "NavigationPanel/note.h"
 #include <QByteArray>
+#include "FormattingToolbar/FormattingToolbar.h"
 
 class NoteEditWidget : public QMainWindow
 {
@@ -32,6 +33,7 @@ private slots:
 private:
     Ui::NoteEditWidget * ui;
     Note * d_note;
+    FormattingToolbar * formattingToolbar;
 };
 
 #endif // NOTEEDITWIDGET_H

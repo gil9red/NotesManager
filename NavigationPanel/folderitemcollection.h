@@ -40,18 +40,18 @@ private:
     Folder* const owner;
 
 public:
-    void Add(AbstractFolderItem* item);
-    void AddTo(AbstractFolderItem* item, int index);
-    void Remove(AbstractFolderItem* item);
-    bool Contains(AbstractFolderItem* item) const;
-    void Clear(); // clears collection, DOES NOT delete items
-    void Move(int from, int to);
-    void Move(AbstractFolderItem* item, int to);
-    void Move(AbstractFolderItem* item, int to, Folder* newParent);
-    void Move(AbstractFolderItem* item, Folder* newParent);
-    int Count() const;
-    AbstractFolderItem* ItemAt(int index) const;
-    int IndexOf(AbstractFolderItem* const) const;
+    void add(AbstractFolderItem* item);
+    void addTo(AbstractFolderItem* item, int index);
+    void remove(AbstractFolderItem* item);
+    bool contains(AbstractFolderItem* item) const;
+    void clear(); // clears collection, DOES NOT delete items
+    void move(int from, int to);
+    void move(AbstractFolderItem* item, int to);
+    void move(AbstractFolderItem* item, int to, Folder* newParent);
+    void move(AbstractFolderItem* item, Folder* newParent);
+    int count() const;
+    AbstractFolderItem* itemAt(int index) const;
+    int indexOf(AbstractFolderItem* const) const;
 
 signals:
     void sg_ItemAboutToBeAdded(AbstractFolderItem* const, int to);

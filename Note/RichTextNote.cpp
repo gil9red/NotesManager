@@ -667,7 +667,6 @@ void RichTextNote::insertImage( const QString & fileName )
     QString newFileName = attach( fileName );
     QString relativePath = QFileInfo( attachDirPath() ).fileName() + "/" + QFileInfo( newFileName ).fileName();
     relativePath = QDir::toNativeSeparators( relativePath );
-
     document()->addResource( QTextDocument::ImageResource, QUrl( relativePath ), QImage( newFileName ) );
     editor.textCursor().insertImage( relativePath );
 }
@@ -677,13 +676,11 @@ void RichTextNote::insertImage( const QPixmap & pixmap )
     const QString & name = tr( "image" ) + QString( "_%1.png" ).arg( QDateTime::currentDateTime().toString( "hh-mm-ss_yyyy-MM-dd" ) );
     QString path = attachDirPath() + "/" + name;
     path = QDir::toNativeSeparators( path );
-
     if ( !pixmap.save( path ) )
     {
         WARNING( "Error when saving!" )
         return;
     }
-
     insertImage( path );
     updateAttachList();
 }

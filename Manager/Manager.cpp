@@ -112,7 +112,7 @@ Manager::Manager( QWidget * parent ) :
             QObject::connect( tray, SIGNAL(messageClicked()), SLOT(showManager()) );
 
             QMenu * trayMenu = new QMenu();
-            trayMenu->addAction( QIcon( "" ), tr( "Open manager" ), this, SLOT( showManager() ), QKeySequence() ); // TODO: add icon
+            trayMenu->addAction( QIcon( ":/Manager/manager" ), tr( "Open manager" ), this, SLOT( showManager() ), QKeySequence() );
             trayMenu->addSeparator();
             trayMenu->addAction( pageNotes->ui->actionAddNote );
             trayMenu->addAction( pageNotes->ui->actionAddNoteFromClipboard );
@@ -332,7 +332,9 @@ void Manager::updateSystemTray()
     foreach ( Note * note, notes)
         if ( note->getRichTextNote()->isVisible() )
             visible_count++;
+
     QString details;
+    details += "\n";
     details += tr( "In total notes: %1" ).arg( count ) + "\n";
     details += tr( "Visible notes: %1" ).arg( visible_count ) + "\n";
     details += tr( "Invisible notes: %1" ).arg( count - visible_count );
@@ -340,7 +342,12 @@ void Manager::updateSystemTray()
     const QString & name = qApp->applicationName();
     const QString & version = qApp->applicationVersion();
     const QString & description = tr( "The program creates notes" );
-    tray->setToolTip( QString( "%1 %2\n%3\n%4" ).arg( name ).arg( version ).arg( description ).arg( details ) );
+
+    QString trayToolTip;
+    trayToolTip += QString( "%1 %2\n" ).arg( name ).arg( version );
+    trayToolTip += description + "\n";
+    trayToolTip += details;
+    tray->setToolTip( trayToolTip );
 }
 
 void Manager::showManager()

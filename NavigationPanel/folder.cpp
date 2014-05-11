@@ -57,10 +57,10 @@ Folder::Folder(QString _name, FolderType _type) :
 
 Folder::~Folder()
 {
-    for (int i = child.Count() - 1; i >= 0 ; i--)
+    for (int i = child.count() - 1; i >= 0 ; i--)
     {
-        AbstractFolderItem* item = child.ItemAt(i);
-        child.Remove(item);
+        AbstractFolderItem* item = child.itemAt(i);
+        child.remove(item);
 		delete item;
 	}
 }
@@ -97,4 +97,16 @@ QString Folder::getPath() const
 	}
 
 	return path;
+}
+
+
+void getAllItemsInFolder( QList < AbstractFolderItem * > & list, const Folder & rootFolder )
+{
+    for ( int i = 0; i < rootFolder.child.count(); i++ )
+    {
+        AbstractFolderItem * child = rootFolder.child.itemAt(i);
+        list << child;
+        if ( child->getItemType() == AbstractFolderItem::Type_Folder )
+            getAllItemsInFolder( list, rootFolder );
+    }
 }
