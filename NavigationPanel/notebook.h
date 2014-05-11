@@ -60,17 +60,13 @@ private:
     QList < Folder * > allFolders;
     QList < Tag * > allTags;
 
-
     QHash < QString, Note * > hash_Id_Note;
     QHash < Note *, RichTextNote * > hash_Note_RichTextNote;
-
 
     HierarchyModel * hierarchyModel;
     TagsModel * tagsModel;
     DatesModel * creationDateModel;
     DatesModel * modificationDateModel;
-
-
     QMap < QString, Tag * > tagsByName; // для быстрого нахождение тэга по имени
 
     static Notebook * self;
@@ -101,6 +97,8 @@ signals:
     void sg_ItemUnregistered(Folder*);
     void sg_ItemUnregistered(Note*);
     void sg_ItemUnregistered(Tag*);
+
+    void notesChange(); //!< Изменилось количество заметок или их состояние.
 };
 
 

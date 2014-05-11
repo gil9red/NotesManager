@@ -77,6 +77,9 @@ public slots:
 
     void updateStates();
 
+
+    void updateSystemTray();
+
 public slots:
     Q_SCRIPTABLE void showManager();  //!< Показать менеджер.
     Q_SCRIPTABLE void setFullScreen( bool );

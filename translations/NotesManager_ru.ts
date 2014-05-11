@@ -1170,12 +1170,12 @@
         <translation type="obsolete">Форматирование текста</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="199"/>
+        <location filename="../Manager/Manager.cpp" line="198"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="199"/>
+        <location filename="../Manager/Manager.cpp" line="198"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>Невозможно прочитать файл %1:
@@ -1186,30 +1186,45 @@
         <translation type="obsolete">Программа создания заметок</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="116"/>
+        <location filename="../Manager/Manager.cpp" line="342"/>
         <source>The program creates notes</source>
         <translation>Программа создает заметки</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="121"/>
+        <location filename="../Manager/Manager.cpp" line="115"/>
         <source>Open manager</source>
         <translation>Открыть менеджер</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="263"/>
-        <location filename="../Manager/Manager.cpp" line="312"/>
+        <location filename="../Manager/Manager.cpp" line="262"/>
+        <location filename="../Manager/Manager.cpp" line="311"/>
         <source>Information</source>
         <translation>Информация</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="263"/>
+        <location filename="../Manager/Manager.cpp" line="262"/>
         <source>Application is already running</source>
         <translation>Приложение уже запущено</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="312"/>
+        <location filename="../Manager/Manager.cpp" line="311"/>
         <source>Unable to open documents</source>
         <translation>Не удалось открыть документацию</translation>
+    </message>
+    <message>
+        <location filename="../Manager/Manager.cpp" line="336"/>
+        <source>In total notes: %1</source>
+        <translation>Всего заметок: %1</translation>
+    </message>
+    <message>
+        <location filename="../Manager/Manager.cpp" line="337"/>
+        <source>Visible notes: %1</source>
+        <translation>Видимых заметок: %1</translation>
+    </message>
+    <message>
+        <location filename="../Manager/Manager.cpp" line="338"/>
+        <source>Invisible notes: %1</source>
+        <translation>Невидимых заметок: %1</translation>
     </message>
     <message>
         <source>Cannot write file %1:
@@ -1234,7 +1249,7 @@
         <translation type="obsolete">Произошла ошибка при распаковки файлов и папок заметки</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="356"/>
+        <location filename="../Manager/Manager.cpp" line="374"/>
         <source>Question</source>
         <translation>Вопрос</translation>
     </message>
@@ -1243,7 +1258,7 @@
         <translation type="obsolete">Удалить все заметки?</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="356"/>
+        <location filename="../Manager/Manager.cpp" line="374"/>
         <source>Really quit?</source>
         <translation>Действительно выйти?</translation>
     </message>
@@ -1272,7 +1287,7 @@
         <translation type="obsolete">нет</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="408"/>
+        <location filename="../Manager/Manager.cpp" line="426"/>
         <source>Save completed</source>
         <translation>Сохранение завершено</translation>
     </message>
@@ -2365,7 +2380,7 @@
         <translation type="obsolete">Менеджер заметок</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="124"/>
+        <location filename="../main.cpp" line="127"/>
         <source>Loading fonts</source>
         <oldsource>Load fonts</oldsource>
         <translation>Загрузка шрифтов</translation>
@@ -2375,25 +2390,25 @@
         <translation type="obsolete">Создать</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="127"/>
+        <location filename="../main.cpp" line="130"/>
         <source>Loading dictionaries</source>
         <oldsource>Load dictionaries</oldsource>
         <translation>Загрузка словарей</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="130"/>
+        <location filename="../main.cpp" line="133"/>
         <source>Creation</source>
         <oldsource>Created</oldsource>
         <translation>Создание</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="141"/>
+        <location filename="../main.cpp" line="144"/>
         <source>Loading settings</source>
         <oldsource>Load settings</oldsource>
         <translation>Загрузка настроек</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="144"/>
+        <location filename="../main.cpp" line="147"/>
         <source>Loading scripts</source>
         <translation>Загрузка сценариев</translation>
     </message>
@@ -2403,7 +2418,7 @@
         <translation type="obsolete">Загрузка заметок</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="147"/>
+        <location filename="../main.cpp" line="150"/>
         <source>Now ready</source>
         <translation>Готов</translation>
     </message>

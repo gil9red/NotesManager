@@ -156,6 +156,13 @@ Notebook::Notebook( QObject * parent )
     tagsModel = new TagsModel( this );
     creationDateModel = new DatesModel( DatesModel::CreationDate, this );
     modificationDateModel = new DatesModel( DatesModel::ModifyDate, this );
+
+
+    QObject::connect( this, SIGNAL(sg_ItemRegistered(Note*)), SIGNAL(notesChange()) );
+    QObject::connect( this, SIGNAL(sg_ItemRegistered(Folder*)), SIGNAL(notesChange()) );
+    QObject::connect( this, SIGNAL(sg_ItemUnregistered(Note*)), SIGNAL(notesChange()) );
+    QObject::connect( this, SIGNAL(sg_ItemUnregistered(Folder*)), SIGNAL(notesChange()) );
+    QObject::connect( this, SIGNAL(sg_RichTextNote_About_EventChange(RichTextNote*,int)), SIGNAL(notesChange()) );
 }
 Notebook::~Notebook()
 {

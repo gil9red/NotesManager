@@ -111,12 +111,6 @@ Manager::Manager( QWidget * parent ) :
             QObject::connect( tray, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), SLOT(messageReceived(QSystemTrayIcon::ActivationReason)) );
             QObject::connect( tray, SIGNAL(messageClicked()), SLOT(showManager()) );
 
-            const QString & name = qApp->applicationName();
-            const QString & version = qApp->applicationVersion();
-            const QString & description = tr( "The program creates notes" );
-            tray->setToolTip( QString( "%1 %2\n%3" ).arg( name ).arg( version ).arg( description ) );
-            tray->show();
-
             QMenu * trayMenu = new QMenu();
             trayMenu->addAction( QIcon( "" ), tr( "Open manager" ), this, SLOT( showManager() ), QKeySequence() ); // TODO: add icon
             trayMenu->addSeparator();
@@ -136,7 +130,12 @@ Manager::Manager( QWidget * parent ) :
             trayMenu->addSeparator();
             trayMenu->addAction( ui->actionQuit );
 
-            tray->setContextMenu( trayMenu );
+            tray->setContextMenu( trayMenu );                    
+
+            updateSystemTray();
+            QObject::connect( Notebook::instance(), SIGNAL(notesChange()), SLOT(updateSystemTray()) );
+
+            tray->show();
         }
 
         // Управление видимостью тулбаров, размещенных на странице Заметки
@@ -323,6 +322,25 @@ void Manager::updateStates()
     ui->actionOpenDict->setEnabled( !isAutocomplete );
 
     ui->actionVisibleToolbarMain->setChecked( ui->toolBarMain->isVisible() );
+}
+
+void Manager::updateSystemTray()
+{
+    const QList < Note * > & notes = Notebook::instance()->getNotesList();
+    int count = notes.size();
+    int visible_count = 0;
+    foreach ( Note * note, notes)
+        if ( note->getRichTextNote()->isVisible() )
+            visible_count++;
+    QString details;
+    details += tr( "In total notes: %1" ).arg( count ) + "\n";
+    details += tr( "Visible notes: %1" ).arg( visible_count ) + "\n";
+    details += tr( "Invisible notes: %1" ).arg( count - visible_count );
+
+    const QString & name = qApp->applicationName();
+    const QString & version = qApp->applicationVersion();
+    const QString & description = tr( "The program creates notes" );
+    tray->setToolTip( QString( "%1 %2\n%3\n%4" ).arg( name ).arg( version ).arg( description ).arg( details ) );
 }
 
 void Manager::showManager()
