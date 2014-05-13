@@ -7,11 +7,12 @@ MySplashScreen::MySplashScreen( const QPixmap & pixmap, Qt::WindowFlags f )
     setWindowFlags( windowFlags() | Qt::WindowStaysOnTopHint );
     setCursor( Qt::ArrowCursor );
 
-    labelMessage = new QLabel();
+    labelVersion.setParent( this );
+    labelVersion.move( 100, 282 );
 
     QVBoxLayout * layout = new QVBoxLayout();
-    layout->addSpacing( 60 );
-    layout->addWidget( labelMessage, 0, Qt::AlignCenter );
+    layout->addSpacing( 210 );
+    layout->addWidget( &labelMessage, 0, Qt::AlignCenter );
     setLayout(layout);
 }
 
@@ -19,9 +20,19 @@ void MySplashScreen::setMessage( const QString & message, const QFont & font, co
 {
     qApp->processEvents();
 
-    labelMessage->setText( QString( "<font color=\"%2\">%1</font>" ).arg( message ).arg( color.name() ) );
-    labelMessage->setFont( font );
+    labelMessage.setText( QString( "<font color=\"%2\">%1</font>" ).arg( message ).arg( color.name() ) );
+    labelMessage.setFont( font );
 }
+
+void MySplashScreen::setVersion( const QString & message, const QFont & font, const QColor & color )
+{
+    qApp->processEvents();
+
+    labelVersion.setText( QString( "<font color=\"%2\">v%1</font>" ).arg( message ).arg( color.name() ) );
+    labelVersion.setFont( font );
+    labelVersion.resize( labelVersion.sizeHint() );
+}
+
 
 void MySplashScreen::mousePressEvent( QMouseEvent * event )
 {

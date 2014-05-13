@@ -17,7 +17,8 @@ public:
     MySplashScreen( const QPixmap & pixmap = QPixmap(), Qt::WindowFlags f = 0 );
 
 private:
-    QLabel * labelMessage; //!< Текущая информацию на экранной заставке.
+    QLabel labelMessage; //!< Текущая информацию на экранной заставке.
+    QLabel labelVersion;
     QPoint oldPosition;    //!< Старая позиция окна.
     bool buttonMousePress; //!< Текущее состояние левой кнопки мыши.
 
@@ -28,6 +29,8 @@ public slots:
      *  \param color цвет текста
      */
     void setMessage( const QString & message, const QFont & font, const QColor & color = Qt::black );
+
+    void setVersion( const QString & message, const QFont & font, const QColor & color = Qt::black );
 
 protected:
     void mousePressEvent(QMouseEvent * event);

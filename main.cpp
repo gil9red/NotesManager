@@ -78,9 +78,6 @@ static QScriptValue importExtension( QScriptContext *context, QScriptEngine * en
 /// TODO: при создании заметки от буфера обмена, можно заголовок ее брать от части текста (например, первые 10 символов)
 /// TODO: добавить возможность выбора иконок для иерархического дерева
 /// TODO: при добавлении заметки от буфера обмена, пропадают символы перехода на следующую строку.
-///
-/// TODO: дополнить splash screen: картинку побольше, так чтобы вместила название программы, желательно также уместить версию и автора
-
 
 QString nm_Note::style = "";
 
@@ -110,14 +107,15 @@ int main( int argc, char * argv[] )
     QSettings * settings = createSettings();
 
     MySplashScreen * splashScreen = new MySplashScreen();
-    QPixmap pixmap = QPixmap( ":/App/splash" );
+    splashScreen->setVersion( qApp->applicationVersion(), QFont( "Times New Roman", 16, QFont::Bold ) );
+    const QPixmap & pixmap = QPixmap( ":/App/splash" );
     splashScreen->setPixmap( pixmap );
     splashScreen->show();
 
     initThreadCount();
     loadTranslations( settings );
 
-    QFont font( "Times New Roman", 9, QFont::Bold );
+    QFont font( "Times New Roman", 14, QFont::Bold );
     splashScreen->setMessage( QTranslator::tr( "Loading fonts" ), font );
     loadFonts();
 
@@ -145,7 +143,7 @@ int main( int argc, char * argv[] )
     manager.nowReadyPhase();
 
     app.setActiveWindow( &manager );
-    splashScreen->deleteLater();
+    delete splashScreen;
 
     manager.loadNotes();
 
