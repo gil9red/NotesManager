@@ -561,13 +561,15 @@ void RichTextNote::saveAs()
     foreach ( const QByteArray & format, QImageWriter::supportedImageFormats() )
         imageFormats << QString( format );
 
-    QStringList textFormats;
+    QStringList textFormats;    
     foreach ( const QByteArray & format, QTextDocumentWriter::supportedDocumentFormats() )
-        textFormats << QString( format );
+        if ( format.contains( "plaintext" ) ) // plaintext тот же txt
+            textFormats << "txt";
+        else
+            textFormats << QString( format.toLower() );
 
     QString filters;
     filters.append( tr( "File notes" ) + QString( " ( *.%1 )\n" ).arg( getNoteFormat() ) );
-    filters.append( "TXT ( *.txt )\n" );
     filters.append( "PDF ( *.pdf )\n" );
     filters.append( "PSF ( *.psf )\n" );
 
@@ -588,18 +590,20 @@ void RichTextNote::saveAs()
 
     QString suffix = QFileInfo( saveFileName ).suffix();
 
-    // для создания pdf файлов используется другой класс
+    // для создания pdf или psf файлов используется другой класс
     if ( suffix.contains( "pdf", Qt::CaseInsensitive ) || suffix.contains( "psf", Qt::CaseInsensitive ) )
     {
         QPrinter printer;
         printer.setOutputFileName( saveFileName );
         textEditor()->print( &printer );
 
-    } else if ( imageFormats.contains( suffix, Qt::CaseInsensitive ) )
-    {
+    } else if ( imageFormats.contains( suffix, Qt::CaseInsensitive ) ) // Если хотим сохранить как картинку, сохраним скрин окна заметки
+    {        
         QPixmap::grabWidget( this ).save( saveFileName );
 
-    } else if ( suffix.contains( "txt", Qt::CaseInsensitive ) )
+    } else if ( suffix.contains( "txt", Qt::CaseInsensitive ) // Если у нас txt, html или odf
+                || suffix.contains( "html", Qt::CaseInsensitive )
+                || suffix.contains( "odf", Qt::CaseInsensitive ))
     {
         QTextDocumentWriter textDocumentWriter;
         textDocumentWriter.setFormat( suffix.toAscii() );
@@ -607,7 +611,7 @@ void RichTextNote::saveAs()
         textDocumentWriter.setFileName( saveFileName );
         textDocumentWriter.write( document() );
 
-    } else if ( suffix.contains( "filenotes", Qt::CaseInsensitive ) )
+    } else if ( suffix.contains( "filenotes", Qt::CaseInsensitive ) ) // Если свой формат, то сохраняем в архиве
     {
         if ( !JlCompress::compressDir( saveFileName, fileName() ) )
         {
@@ -615,7 +619,8 @@ void RichTextNote::saveAs()
             WARNING( "An error occurred saving notes" );
             return;
         }
-    }
+    } else
+        WARNING( "Unknown format!" );
 }
 void RichTextNote::open()
 {   
