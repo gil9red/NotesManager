@@ -27,17 +27,22 @@ Page_Notes::Page_Notes( QWidget * parent ) :
     QObject::connect(ui->tab_Tags, SIGNAL(sg_NoteDoubleClicked(Note*)), ui->tabWidget_EditNotes, SLOT(openNote(Note*)));
     QObject::connect(ui->tab_Dates, SIGNAL(sg_NoteDoubleClicked(Note*)), ui->tabWidget_EditNotes, SLOT(openNote(Note*)));
 
+
     QObject::connect( ui->tabWidget_Navigation, SIGNAL(currentChanged(int)), SIGNAL(sg_About_UpdateStates()) );
     QObject::connect( ui->tab_Notes, SIGNAL(sg_SelectedItemsActionsListChanged()), SIGNAL(sg_About_UpdateStates()) );
-    QObject::connect( Notebook::instance(), SIGNAL(sg_ItemRegistered(Tag*)), SIGNAL(sg_About_UpdateStates()) );
-    QObject::connect( Notebook::instance(), SIGNAL(sg_ItemRegistered(Note*)), SIGNAL(sg_About_UpdateStates()) );
-    QObject::connect( Notebook::instance(), SIGNAL(sg_ItemRegistered(Folder*)), SIGNAL(sg_About_UpdateStates()) );
-    QObject::connect( Notebook::instance(), SIGNAL(sg_ItemUnregistered(Tag*)), SIGNAL(sg_About_UpdateStates()) );
-    QObject::connect( Notebook::instance(), SIGNAL(sg_ItemUnregistered(Tag*)), SIGNAL(sg_About_UpdateStates()) );
-    QObject::connect( Notebook::instance(), SIGNAL(sg_ItemUnregistered(Tag*)), SIGNAL(sg_About_UpdateStates()) );
-    QObject::connect( Notebook::instance()->getTrashFolder(), SIGNAL(sg_ItemMoved(AbstractFolderItem*const,int,Folder*)), SIGNAL(sg_About_UpdateStates()) );
-    QObject::connect( Notebook::instance()->getTrashFolder(), SIGNAL(sg_ItemAdded(AbstractFolderItem*const,int)), SIGNAL(sg_About_UpdateStates()) );
-    QObject::connect( Notebook::instance()->getTrashFolder(), SIGNAL(sg_ItemRemoved(AbstractFolderItem*const)), SIGNAL(sg_About_UpdateStates()) );
+
+    Notebook * notebook = Notebook::instance();
+    QObject::connect( notebook, SIGNAL(sg_ItemRegistered(Tag*)), SIGNAL(sg_About_UpdateStates()) );
+    QObject::connect( notebook, SIGNAL(sg_ItemRegistered(Note*)), SIGNAL(sg_About_UpdateStates()) );
+    QObject::connect( notebook, SIGNAL(sg_ItemRegistered(Folder*)), SIGNAL(sg_About_UpdateStates()) );
+    QObject::connect( notebook, SIGNAL(sg_ItemUnregistered(Tag*)), SIGNAL(sg_About_UpdateStates()) );
+    QObject::connect( notebook, SIGNAL(sg_ItemUnregistered(Tag*)), SIGNAL(sg_About_UpdateStates()) );
+    QObject::connect( notebook, SIGNAL(sg_ItemUnregistered(Tag*)), SIGNAL(sg_About_UpdateStates()) );
+
+    Folder * trash = Notebook::instance()->getTrashFolder();
+    QObject::connect( trash, SIGNAL(sg_ItemMoved(AbstractFolderItem*const,int,Folder*)), SIGNAL(sg_About_UpdateStates()) );
+    QObject::connect( trash, SIGNAL(sg_ItemAdded(AbstractFolderItem*const,int)), SIGNAL(sg_About_UpdateStates()) );
+    QObject::connect( trash, SIGNAL(sg_ItemRemoved(AbstractFolderItem*const)), SIGNAL(sg_About_UpdateStates()) );
 
     QObject::connect( this, SIGNAL(sg_About_UpdateStates()), SLOT(sl_UpdateStates()) );
 
@@ -63,11 +68,18 @@ Page_Notes::Page_Notes( QWidget * parent ) :
         QObject::connect( ui->actionTopNote, SIGNAL( triggered(bool) ), SLOT( sl_SetTopNote(bool) ) );
 
 
-        ui->tab_Notes->actionAddNote = ui->actionAddNote;
-        ui->tab_Notes->actionAddFolder = ui->actionAddFolder;
-        ui->tab_Notes->actionMoveToBin = ui->actionRemoveToTrash;
-        ui->tab_Notes->actionDeleteItem = ui->actionDelete;
-        ui->tab_Notes->actionClearTrash = ui->actionClearTrash;
+        ui->tab_Notes->actionAddNote              = ui->actionAddNote;
+        ui->tab_Notes->actionAddNoteFromClipboard = ui->actionAddNoteFromClipboard;
+        ui->tab_Notes->actionAddNoteFromScreen    = ui->actionAddNoteFromScreen;
+        ui->tab_Notes->actionAddFolder            = ui->actionAddFolder;
+        ui->tab_Notes->actionMoveToBin            = ui->actionRemoveToTrash;
+        ui->tab_Notes->actionPrintNote            = ui->actionPrintNote;
+        ui->tab_Notes->actionPreviewPrintNote     = ui->actionPreviewPrintNote;
+        ui->tab_Notes->actionShowNote             = ui->actionShowNote;
+        ui->tab_Notes->actionHideNote             = ui->actionHideNote;
+        ui->tab_Notes->actionSaveNoteAs           = ui->actionSaveNoteAs;
+        ui->tab_Notes->actionDeleteItem           = ui->actionDelete;
+        ui->tab_Notes->actionClearTrash           = ui->actionClearTrash;
     }
 
     // Сценарии

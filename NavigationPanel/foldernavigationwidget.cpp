@@ -63,10 +63,10 @@ FolderNavigationWidget::~FolderNavigationWidget()
     delete ui;
 }
 
-void FolderNavigationWidget::setModel(HierarchyModel* m)
+void FolderNavigationWidget::setModel( HierarchyModel * m )
 {
-    if (model)
-        QObject::disconnect(model, 0, this, 0);
+    if ( model )
+        QObject::disconnect( model, 0, this, 0 );
 
     model = m;
 
@@ -826,6 +826,9 @@ void FolderNavigationWidget::on_treeView_customContextMenuRequested(const QPoint
     const QModelIndexList & indexesList = selectionModel->selectedIndexes();
 
     menu.addAction( actionAddNote );
+    menu.addAction( actionAddNoteFromClipboard );
+    menu.addAction( actionAddNoteFromScreen );
+    menu.addSeparator();
     menu.addAction( actionAddFolder );
 
     // 0 items
@@ -868,9 +871,17 @@ void FolderNavigationWidget::on_treeView_customContextMenuRequested(const QPoint
                 }
 
             } else if ( modelitem->DataType() == BaseModelItem::note )
-            {
+            {                
                 menu.addSeparator();
                 menu.addAction( actionOpenNote );
+                menu.addSeparator();
+                menu.addAction( actionPrintNote );
+                menu.addAction( actionPreviewPrintNote );
+                menu.addSeparator();
+                menu.addAction( actionShowNote );
+                menu.addAction( actionHideNote );
+                menu.addSeparator();
+                menu.addAction( actionSaveNoteAs );
                 menu.addSeparator();
                 menu.addAction( actionRenameItem );
                 menu.addAction( menuItemForeColor->menuAction() );

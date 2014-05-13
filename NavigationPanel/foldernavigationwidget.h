@@ -43,7 +43,14 @@ private:
 
 public:
     QAction * actionAddNote;
+    QAction * actionAddNoteFromClipboard;
+    QAction * actionAddNoteFromScreen;
     QAction * actionAddFolder;
+    QAction * actionPrintNote;
+    QAction * actionPreviewPrintNote;
+    QAction * actionSaveNoteAs;
+    QAction * actionShowNote;
+    QAction * actionHideNote;
     QAction * actionMoveToBin;
     QAction * actionDeleteItem;
     QAction * actionClearTrash;
