@@ -95,6 +95,9 @@ public slots:
     void previewPrint();     //!< Вызов диалога предпросмотра перед печатью.
     void selectAttach();     //!< Вызов выбора прикрепленного файла.
 
+
+    void insertImage(const QString & fileName, QTextCursor textCursor );
+
     //! Функция вставки изображения в заметку.
     /*! Файл вставляемого изображения будет скопирован в папку прикрепленных файлов.
      *  \param fileName путь до файла изображения.

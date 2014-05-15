@@ -27,27 +27,27 @@ FormattingToolbar::FormattingToolbar( QWidget * parent ) :
 
     // Инициализируем комбо бокс
     foreach ( int size, QFontDatabase::standardSizes() )
-        ui->comboBoxFontSize->addItem( QString::number( size ) );
+        ui->fontSize->addItem( QString::number( size ) );
 
     int pointSize = QApplication::font().pointSize();
-    int currentIndex = ui->comboBoxFontSize->findText( QString::number( pointSize ) );
-    ui->comboBoxFontSize->setCurrentIndex( currentIndex );
+    int currentIndex = ui->fontSize->findText( QString::number( pointSize ) );
+    ui->fontSize->setCurrentIndex( currentIndex );
 
     QButtonGroup * group = new QButtonGroup( this );
     group->setExclusive( true );
-    group->addButton( ui->tButtonAlignCenter );
-    group->addButton( ui->tButtonAlignJustify );
-    group->addButton( ui->tButtonAlignLeft );
-    group->addButton( ui->tButtonAlignRight );
+    group->addButton( ui->alignCenter );
+    group->addButton( ui->alignJustify );
+    group->addButton( ui->alignLeft );
+    group->addButton( ui->alignRight );
 
-    QObject::connect( ui->tButtonTextColor, SIGNAL( selectedColor(QColor) ), SLOT( textColor(QColor) ) );
-    QObject::connect( ui->tButtonColorBackground, SIGNAL( selectedColor(QColor) ), SLOT( backgroundColor(QColor) ) );
-    QObject::connect( ui->tButtonColorBackground, SIGNAL( clearBackground() ), SLOT( clearBackgroundColor() ) );
-    QObject::connect( ui->tButtonBulletedList, SIGNAL( selected(int) ), SLOT( list(int) ) );
-    QObject::connect( ui->tButtonOrderedList, SIGNAL( selected(int) ), SLOT( list(int) ) );
-    QObject::connect( ui->tButtonUnderline, SIGNAL( selected(int) ), SLOT( underline(int) ) );
-    QObject::connect( ui->tButtonUnderline, SIGNAL( selected(QColor) ), SLOT( colorUnderline(QColor) ) );
-    QObject::connect( ui->tButtonInsertTable, SIGNAL( selected(int,int) ), SLOT( insertTable(int,int) ) );
+    QObject::connect( ui->textColor, SIGNAL( selectedColor(QColor) ), SLOT( textColor(QColor) ) );
+    QObject::connect( ui->colorBackground, SIGNAL( selectedColor(QColor) ), SLOT( backgroundColor(QColor) ) );
+    QObject::connect( ui->colorBackground, SIGNAL( clearBackground() ), SLOT( clearBackgroundColor() ) );
+    QObject::connect( ui->bulletedList, SIGNAL( selected(int) ), SLOT( list(int) ) );
+    QObject::connect( ui->orderedList, SIGNAL( selected(int) ), SLOT( list(int) ) );
+    QObject::connect( ui->underline, SIGNAL( selected(int) ), SLOT( underline(int) ) );
+    QObject::connect( ui->underline, SIGNAL( selected(QColor) ), SLOT( colorUnderline(QColor) ) );
+    QObject::connect( ui->insertTable, SIGNAL( selected(int,int) ), SLOT( insertTable(int,int) ) );
 
     updateStates();
 }
@@ -80,38 +80,38 @@ QToolBar * FormattingToolbar::mainToolBar()
 {
     QToolBar * toolBar = new QToolBar( tr( "Formatting" ) );
     toolBar->setObjectName( "Formatting" );
-    toolBar->addWidget( ui->fontComboBox );
-    toolBar->addWidget( ui->comboBoxFontSize );
-    toolBar->addWidget( ui->tButtonIncreaseSizeFont );
-    toolBar->addWidget( ui->tButtonDecreaseSizeFont );
+    toolBar->addWidget( ui->font );
+    toolBar->addWidget( ui->fontSize );
+    toolBar->addWidget( ui->increaseSizeFont );
+    toolBar->addWidget( ui->decreaseSizeFont );
 
-    toolBar->addWidget( ui->tButtonBold );
-    toolBar->addWidget( ui->tButtonItalic );
-    toolBar->addWidget( ui->tButtonTextColor );
-    toolBar->addWidget( ui->tButtonColorBackground );
-    toolBar->addWidget( ui->tButtonSubScript );
-    toolBar->addWidget( ui->tButtonSuperScript );
+    toolBar->addWidget( ui->bold );
+    toolBar->addWidget( ui->italic );
+    toolBar->addWidget( ui->textColor );
+    toolBar->addWidget( ui->colorBackground );
+    toolBar->addWidget( ui->subScript );
+    toolBar->addWidget( ui->superScript );
 
-    toolBar->addWidget( ui->tButtonAlignLeft );
-    toolBar->addWidget( ui->tButtonAlignCenter );
-    toolBar->addWidget( ui->tButtonAlignRight );
-    toolBar->addWidget( ui->tButtonAlignJustify );
+    toolBar->addWidget( ui->alignLeft );
+    toolBar->addWidget( ui->alignCenter );
+    toolBar->addWidget( ui->alignRight );
+    toolBar->addWidget( ui->alignJustify );
 
-    toolBar->addWidget( ui->tButtonBulletedList );
-    toolBar->addWidget( ui->tButtonOrderedList );
+    toolBar->addWidget( ui->bulletedList );
+    toolBar->addWidget( ui->orderedList );
 
-    toolBar->addWidget( ui->tButtonUnderline );
-    toolBar->addWidget( ui->tButtonStrikeout );
-    toolBar->addWidget( ui->tButtonOverline );
+    toolBar->addWidget( ui->underline );
+    toolBar->addWidget( ui->strikeout );
+    toolBar->addWidget( ui->overline );
 
-    toolBar->addWidget( ui->tButtonInsertHLine );
-    toolBar->addWidget( ui->tButtonEraser );
-    toolBar->addWidget( ui->tButtonLower );
-    toolBar->addWidget( ui->tButtonUpper );
+    toolBar->addWidget( ui->insertHLine );
+    toolBar->addWidget( ui->eraser );
+    toolBar->addWidget( ui->lower );
+    toolBar->addWidget( ui->upper );
 
-    toolBar->addWidget( ui->tButtonInsertHyperlink );
-    toolBar->addWidget( ui->tButtonInsertPicture );
-    toolBar->addWidget( ui->tButtonInsertTable );
+    toolBar->addWidget( ui->insertHyperlink );
+    toolBar->addWidget( ui->insertPicture );
+    toolBar->addWidget( ui->insertTable );
     return toolBar;
 }
 void FormattingToolbar::setAlterActivityComponents( bool act )
@@ -126,6 +126,9 @@ bool FormattingToolbar::isAlterActivityComponents()
 
 void FormattingToolbar::mergeFormatOnWordOrSelection( const QTextCharFormat & format )
 {
+    if ( !editor )
+        return;
+
     QTextCursor cursor = editor->textCursor();
     if ( !cursor.hasSelection() )
         cursor.select( QTextCursor::WordUnderCursor );
@@ -141,6 +144,9 @@ void FormattingToolbar::changeVerticalAlignment(const QTextCharFormat::VerticalA
 }
 void FormattingToolbar::changeCaseSensitive(CaseSensitive caseSensitive )
 {
+    if ( !editor )
+        return;
+
     QTextCursor cursor = editor->textCursor();
 
     int startPosition = cursor.selectionStart();
@@ -250,8 +256,8 @@ void FormattingToolbar::updateStates()
         foreach ( QToolButton * button, findChildren < QToolButton * > () )
             button->setEnabled( false );
 
-        ui->comboBoxFontSize->setEnabled( false );
-        ui->fontComboBox->setEnabled( false );
+        ui->fontSize->setEnabled( false );
+        ui->font->setEnabled( false );
 
         return;
     }
@@ -259,34 +265,34 @@ void FormattingToolbar::updateStates()
     bool hasSelection = editor->textCursor().hasSelection();
     bool isEmpty = editor->toPlainText().isEmpty();
 
-    ui->tButtonBulletedList->setEnabled( true );
-    ui->tButtonInsertHLine->setEnabled( true );
-    ui->tButtonInsertHyperlink->setEnabled( true );
-    ui->tButtonInsertPicture->setEnabled( true );
-    ui->tButtonInsertTable->setEnabled( true );
-    ui->tButtonOrderedList->setEnabled( true );
+    ui->bulletedList->setEnabled( true );
+    ui->insertHLine->setEnabled( true );
+    ui->insertHyperlink->setEnabled( true );
+    ui->insertPicture->setEnabled( true );
+    ui->insertTable->setEnabled( true );
+    ui->orderedList->setEnabled( true );
 
-    ui->tButtonAlignCenter->setEnabled( !isEmpty );
-    ui->tButtonAlignLeft->setEnabled( !isEmpty );
-    ui->tButtonAlignRight->setEnabled( !isEmpty );
-    ui->tButtonAlignJustify->setEnabled( !isEmpty );
+    ui->alignCenter->setEnabled( !isEmpty );
+    ui->alignLeft->setEnabled( !isEmpty );
+    ui->alignRight->setEnabled( !isEmpty );
+    ui->alignJustify->setEnabled( !isEmpty );
 
-    ui->comboBoxFontSize->setEnabled( hasSelection );
-    ui->fontComboBox->setEnabled( hasSelection );
-    ui->tButtonBold->setEnabled( hasSelection );
-    ui->tButtonColorBackground->setEnabled( hasSelection );
-    ui->tButtonDecreaseSizeFont->setEnabled( hasSelection );
-    ui->tButtonEraser->setEnabled( hasSelection );
-    ui->tButtonIncreaseSizeFont->setEnabled( hasSelection );
-    ui->tButtonItalic->setEnabled( hasSelection );
-    ui->tButtonLower->setEnabled( hasSelection );
-    ui->tButtonOverline->setEnabled( hasSelection );
-    ui->tButtonStrikeout->setEnabled( hasSelection );
-    ui->tButtonSubScript->setEnabled( hasSelection );
-    ui->tButtonSuperScript->setEnabled( hasSelection );
-    ui->tButtonTextColor->setEnabled( hasSelection );
-    ui->tButtonUnderline->setEnabled( hasSelection );
-    ui->tButtonUpper->setEnabled( hasSelection );
+    ui->fontSize->setEnabled( hasSelection );
+    ui->font->setEnabled( hasSelection );
+    ui->bold->setEnabled( hasSelection );
+    ui->colorBackground->setEnabled( hasSelection );
+    ui->decreaseSizeFont->setEnabled( hasSelection );
+    ui->eraser->setEnabled( hasSelection );
+    ui->increaseSizeFont->setEnabled( hasSelection );
+    ui->italic->setEnabled( hasSelection );
+    ui->lower->setEnabled( hasSelection );
+    ui->overline->setEnabled( hasSelection );
+    ui->strikeout->setEnabled( hasSelection );
+    ui->subScript->setEnabled( hasSelection );
+    ui->superScript->setEnabled( hasSelection );
+    ui->textColor->setEnabled( hasSelection );
+    ui->underline->setEnabled( hasSelection );
+    ui->upper->setEnabled( hasSelection );
 }
 void FormattingToolbar::currentCharFormatChanged( QTextCharFormat format )
 {
@@ -297,6 +303,9 @@ void FormattingToolbar::currentCharFormatChanged( QTextCharFormat format )
 }
 void FormattingToolbar::cursorPositionChanged()
 {
+    if ( !editor )
+        return;
+
     const QTextCursor & textCursor = editor->textCursor();
 
     alignmentChanged( editor->alignment() );
@@ -305,55 +314,55 @@ void FormattingToolbar::cursorPositionChanged()
     if ( textCursor.currentList() )
     {
         QTextListFormat::Style style = textCursor.currentList()->format().style();
-        bool isBulleted = ui->tButtonBulletedList->checkedButton( style );
-        bool isOrdered = ui->tButtonOrderedList->checkedButton( style );
+        bool isBulleted = ui->bulletedList->checkedButton( style );
+        bool isOrdered = ui->orderedList->checkedButton( style );
 
-        ui->tButtonBulletedList->setChecked( isBulleted );
-        ui->tButtonOrderedList->setChecked( isOrdered );
+        ui->bulletedList->setChecked( isBulleted );
+        ui->orderedList->setChecked( isOrdered );
     }
 }
 void FormattingToolbar::fontChanged( const QFont &font )
 {
-    ui->fontComboBox->setCurrentIndex( ui->fontComboBox->findText( QFontInfo( font ).family() ) );
-    ui->comboBoxFontSize->setCurrentIndex( ui->comboBoxFontSize->findText( QString::number( font.pointSize() ) ) );
-    ui->tButtonBold->setChecked( font.bold() );
-    ui->tButtonItalic->setChecked( font.italic() );
-    ui->tButtonUnderline->setChecked( font.underline() );
-    ui->tButtonStrikeout->setChecked( font.strikeOut() );
-    ui->tButtonOverline->setChecked( font.overline() );
+    ui->font->setCurrentIndex( ui->font->findText( QFontInfo( font ).family() ) );
+    ui->fontSize->setCurrentIndex( ui->fontSize->findText( QString::number( font.pointSize() ) ) );
+    ui->bold->setChecked( font.bold() );
+    ui->italic->setChecked( font.italic() );
+    ui->underline->setChecked( font.underline() );
+    ui->strikeout->setChecked( font.strikeOut() );
+    ui->overline->setChecked( font.overline() );
 }
 void FormattingToolbar::colorChanged( const QColor & color)
 {
-    ui->tButtonTextColor->setColor( color );
-    ui->tButtonUnderline->setColor( color );
+    ui->textColor->setColor( color );
+    ui->underline->setColor( color );
 }
 void FormattingToolbar::colorBackgroundChanged( const QColor & color )
 {
-    ui->tButtonColorBackground->setColor( color );
+    ui->colorBackground->setColor( color );
 }
 void FormattingToolbar::alignmentChanged( Qt::Alignment align )
 {
-    ui->tButtonAlignLeft->setChecked( false );
-    ui->tButtonAlignCenter->setChecked( false );
-    ui->tButtonAlignRight->setChecked( false );
-    ui->tButtonAlignJustify->setChecked( false );
+    ui->alignLeft->setChecked( false );
+    ui->alignCenter->setChecked( false );
+    ui->alignRight->setChecked( false );
+    ui->alignJustify->setChecked( false );
 
     if ( align == Qt::AlignLeft )
-        ui->tButtonAlignLeft->setChecked( true );
+        ui->alignLeft->setChecked( true );
 
     else if (align == Qt::AlignHCenter )
-        ui->tButtonAlignCenter->setChecked( true );
+        ui->alignCenter->setChecked( true );
 
     else if (align == Qt::AlignRight )
-        ui->tButtonAlignRight->setChecked( true );
+        ui->alignRight->setChecked( true );
 
     else if (align == Qt::AlignJustify )
-        ui->tButtonAlignJustify->setChecked( true );
+        ui->alignJustify->setChecked( true );
 }
 void FormattingToolbar::verticalAlignmentChanged( QTextCharFormat::VerticalAlignment vAlign )
 {
-    ui->tButtonSubScript->setChecked( vAlign == QTextCharFormat::AlignSubScript );
-    ui->tButtonSuperScript->setChecked( vAlign == QTextCharFormat::AlignSuperScript );
+    ui->subScript->setChecked( vAlign == QTextCharFormat::AlignSubScript );
+    ui->superScript->setChecked( vAlign == QTextCharFormat::AlignSuperScript );
 }
 void FormattingToolbar::textColor( const QColor & color )
 {
@@ -374,13 +383,13 @@ void FormattingToolbar::backgroundColor( const QColor & color )
     mergeFormatOnWordOrSelection( textCharFormat );
 }
 
-void FormattingToolbar::on_fontComboBox_activated(const QString &arg1)
+void FormattingToolbar::on_font_activated(const QString &arg1)
 {
     QTextCharFormat textCharFormat;
     textCharFormat.setFontFamily( arg1 );
     mergeFormatOnWordOrSelection( textCharFormat );
 }
-void FormattingToolbar::on_comboBoxFontSize_activated(const QString &arg1)
+void FormattingToolbar::on_fontSize_activated(const QString &arg1)
 {
     bool b;
     qreal pointSize = arg1.toFloat( &b );
@@ -392,89 +401,107 @@ void FormattingToolbar::on_comboBoxFontSize_activated(const QString &arg1)
         mergeFormatOnWordOrSelection( textCharFormat );
     }
 }
-void FormattingToolbar::on_tButtonIncreaseSizeFont_clicked()
+void FormattingToolbar::on_increaseSizeFont_clicked()
 {
-    int indexLast = ui->comboBoxFontSize->count() - 1;
-    int indexCurrent = ui->comboBoxFontSize->currentIndex();
+    int indexLast = ui->fontSize->count() - 1;
+    int indexCurrent = ui->fontSize->currentIndex();
 
     if ( indexCurrent == indexLast )
         return;
 
     indexCurrent++;
-    on_comboBoxFontSize_activated( ui->comboBoxFontSize->itemText( indexCurrent ) );
+    on_fontSize_activated( ui->fontSize->itemText( indexCurrent ) );
 }
-void FormattingToolbar::on_tButtonDecreaseSizeFont_clicked()
+void FormattingToolbar::on_decreaseSizeFont_clicked()
 {
-    int indexCurrent = ui->comboBoxFontSize->currentIndex();
+    int indexCurrent = ui->fontSize->currentIndex();
 
     if ( indexCurrent == 0 )
         return;
 
     indexCurrent--;
-    on_comboBoxFontSize_activated( ui->comboBoxFontSize->itemText( indexCurrent ) );
+    on_fontSize_activated( ui->fontSize->itemText( indexCurrent ) );
 }
-void FormattingToolbar::on_tButtonBold_clicked(bool checked)
+void FormattingToolbar::on_bold_clicked(bool checked)
 {
     QTextCharFormat textCharFormat;
     textCharFormat.setFontWeight( checked ? QFont::Bold : QFont::Normal );
     mergeFormatOnWordOrSelection( textCharFormat );
 }
-void FormattingToolbar::on_tButtonItalic_clicked(bool checked)
+void FormattingToolbar::on_italic_clicked(bool checked)
 {
     QTextCharFormat textCharFormat;
     textCharFormat.setFontItalic( checked );
     mergeFormatOnWordOrSelection( textCharFormat );
 }
-void FormattingToolbar::on_tButtonSubScript_clicked(bool checked)
+void FormattingToolbar::on_subScript_clicked(bool checked)
 {
     changeVerticalAlignment( checked ? QTextCharFormat::AlignSubScript : QTextCharFormat::AlignNormal );
 }
-void FormattingToolbar::on_tButtonSuperScript_clicked(bool checked)
+void FormattingToolbar::on_superScript_clicked(bool checked)
 {
     changeVerticalAlignment( checked ? QTextCharFormat::AlignSuperScript : QTextCharFormat::AlignNormal );
 }
-void FormattingToolbar::on_tButtonStrikeout_clicked(bool checked)
+void FormattingToolbar::on_strikeout_clicked(bool checked)
 {
     QTextCharFormat textCharFormat;
     textCharFormat.setFontStrikeOut( checked );
     mergeFormatOnWordOrSelection( textCharFormat );
 }
-void FormattingToolbar::on_tButtonOverline_clicked(bool checked)
+void FormattingToolbar::on_overline_clicked(bool checked)
 {
     QTextCharFormat textCharFormat;
     textCharFormat.setFontOverline( checked );
     mergeFormatOnWordOrSelection( textCharFormat );
 }
-void FormattingToolbar::on_tButtonLower_clicked()
+void FormattingToolbar::on_lower_clicked()
 {
     changeCaseSensitive( Lower );
 }
-void FormattingToolbar::on_tButtonUpper_clicked()
+void FormattingToolbar::on_upper_clicked()
 {
     changeCaseSensitive( Upper );
 }
-void FormattingToolbar::on_tButtonInsertHLine_clicked()
+void FormattingToolbar::on_insertHLine_clicked()
 {
+    if ( !editor )
+        return;
+
     editor->textCursor().insertHtml( "<hr><br>" );
 }
-void FormattingToolbar::on_tButtonAlignLeft_clicked()
+void FormattingToolbar::on_alignLeft_clicked()
 {
+    if ( !editor )
+        return;
+
     editor->setAlignment( Qt::AlignLeft | Qt::AlignAbsolute );
 }
-void FormattingToolbar::on_tButtonAlignCenter_clicked()
+void FormattingToolbar::on_alignCenter_clicked()
 {
+    if ( !editor )
+        return;
+
     editor->setAlignment( Qt::AlignHCenter );
 }
-void FormattingToolbar::on_tButtonAlignRight_clicked()
+void FormattingToolbar::on_alignRight_clicked()
 {
+    if ( !editor )
+        return;
+
     editor->setAlignment( Qt::AlignRight | Qt::AlignAbsolute );
 }
-void FormattingToolbar::on_tButtonAlignJustify_clicked()
+void FormattingToolbar::on_alignJustify_clicked()
 {
+    if ( !editor )
+        return;
+
     editor->setAlignment( Qt::AlignJustify );
 }
-void FormattingToolbar::on_tButtonEraser_clicked()
+void FormattingToolbar::on_eraser_clicked()
 {
+    if ( !editor )
+        return;
+
     editor->setCurrentCharFormat( QTextCharFormat() );
 }
 
@@ -492,8 +519,11 @@ void FormattingToolbar::colorUnderline( const QColor & color)
 }
 void FormattingToolbar::list( int style )
 {
-    QTextListFormat::Style listStyle = (QTextListFormat::Style)style;
+    if ( !editor )
+        return;
+
     QTextCursor cursor = editor->textCursor();
+    QTextListFormat::Style listStyle = (QTextListFormat::Style)style;    
 
     cursor.beginEditBlock();
 
@@ -523,8 +553,11 @@ void FormattingToolbar::list( int style )
     cursor.endEditBlock();
 }
 
-void FormattingToolbar::on_tButtonInsertHyperlink_clicked()
+void FormattingToolbar::on_insertHyperlink_clicked()
 {
+    if ( !editor )
+        return;
+
     DialogInsertHyperlink dialog( this );
     dialog.setTextHyperlink( editor->textCursor().selectedText() );
     if ( !dialog.exec() )
@@ -535,7 +568,7 @@ void FormattingToolbar::on_tButtonInsertHyperlink_clicked()
 
     editor->insertHtml( QString( "<a href=\"%1\">%2</a> " ).arg( hyperlink ).arg( text ) );
 }
-void FormattingToolbar::on_tButtonInsertPicture_clicked()
+void FormattingToolbar::on_insertPicture_clicked()
 {
     QString filters = tr( "Images" );
     filters += " (";
@@ -552,10 +585,13 @@ void FormattingToolbar::on_tButtonInsertPicture_clicked()
     if ( !note )
         return;
 
-    note->insertImage( fileName );
+    note->insertImage( fileName, editor->textCursor() );
 }
 void FormattingToolbar::insertTable( int rows, int cols )
 {
+    if ( !editor )
+        return;
+
     QTextTableFormat textTableFormat;
     // Сделаем столбцы одинаковой ширины и их размер будет зависеть от размера
     // текстового поля

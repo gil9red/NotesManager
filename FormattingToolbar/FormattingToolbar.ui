@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>187</width>
+    <width>209</width>
     <height>116</height>
    </rect>
   </property>
@@ -36,7 +36,7 @@
     <number>0</number>
    </property>
    <item>
-    <widget class="QFontComboBox" name="fontComboBox">
+    <widget class="QFontComboBox" name="font">
      <property name="focusPolicy">
       <enum>Qt::NoFocus</enum>
      </property>
@@ -57,10 +57,7 @@
       <number>0</number>
      </property>
      <item>
-      <widget class="QComboBox" name="comboBoxFontSize">
-       <property name="focusPolicy">
-        <enum>Qt::NoFocus</enum>
-       </property>
+      <widget class="QComboBox" name="fontSize">
        <property name="editable">
         <bool>false</bool>
        </property>
@@ -70,7 +67,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="tButtonIncreaseSizeFont">
+      <widget class="QToolButton" name="increaseSizeFont">
        <property name="focusPolicy">
         <enum>Qt::NoFocus</enum>
        </property>
@@ -93,7 +90,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="tButtonDecreaseSizeFont">
+      <widget class="QToolButton" name="decreaseSizeFont">
        <property name="focusPolicy">
         <enum>Qt::NoFocus</enum>
        </property>
@@ -116,7 +113,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="tButtonBold">
+      <widget class="QToolButton" name="bold">
        <property name="focusPolicy">
         <enum>Qt::NoFocus</enum>
        </property>
@@ -142,7 +139,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="tButtonItalic">
+      <widget class="QToolButton" name="italic">
        <property name="focusPolicy">
         <enum>Qt::NoFocus</enum>
        </property>
@@ -168,7 +165,7 @@
       </widget>
      </item>
      <item>
-      <widget class="ColorTextButton" name="tButtonTextColor">
+      <widget class="ColorTextButton" name="textColor">
        <property name="enabled">
         <bool>true</bool>
        </property>
@@ -194,7 +191,7 @@
       </widget>
      </item>
      <item>
-      <widget class="ColorBackgroundButton" name="tButtonColorBackground">
+      <widget class="ColorBackgroundButton" name="colorBackground">
        <property name="focusPolicy">
         <enum>Qt::NoFocus</enum>
        </property>
@@ -237,7 +234,7 @@
       <number>0</number>
      </property>
      <item>
-      <widget class="QToolButton" name="tButtonSubScript">
+      <widget class="QToolButton" name="subScript">
        <property name="focusPolicy">
         <enum>Qt::NoFocus</enum>
        </property>
@@ -263,7 +260,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="tButtonSuperScript">
+      <widget class="QToolButton" name="superScript">
        <property name="focusPolicy">
         <enum>Qt::NoFocus</enum>
        </property>
@@ -289,7 +286,7 @@
       </widget>
      </item>
      <item>
-      <widget class="ButtonUnderlineStyleList" name="tButtonUnderline">
+      <widget class="ButtonUnderlineStyleList" name="underline">
        <property name="focusPolicy">
         <enum>Qt::NoFocus</enum>
        </property>
@@ -315,7 +312,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="tButtonStrikeout">
+      <widget class="QToolButton" name="strikeout">
        <property name="focusPolicy">
         <enum>Qt::NoFocus</enum>
        </property>
@@ -341,7 +338,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="tButtonOverline">
+      <widget class="QToolButton" name="overline">
        <property name="focusPolicy">
         <enum>Qt::NoFocus</enum>
        </property>
@@ -367,7 +364,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="tButtonLower">
+      <widget class="QToolButton" name="lower">
        <property name="focusPolicy">
         <enum>Qt::NoFocus</enum>
        </property>
@@ -390,7 +387,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="tButtonUpper">
+      <widget class="QToolButton" name="upper">
        <property name="focusPolicy">
         <enum>Qt::NoFocus</enum>
        </property>
@@ -413,7 +410,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="tButtonInsertHLine">
+      <widget class="QToolButton" name="insertHLine">
        <property name="focusPolicy">
         <enum>Qt::NoFocus</enum>
        </property>
@@ -456,7 +453,7 @@
       <number>0</number>
      </property>
      <item>
-      <widget class="QToolButton" name="tButtonAlignLeft">
+      <widget class="QToolButton" name="alignLeft">
        <property name="focusPolicy">
         <enum>Qt::NoFocus</enum>
        </property>
@@ -482,7 +479,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="tButtonAlignCenter">
+      <widget class="QToolButton" name="alignCenter">
        <property name="focusPolicy">
         <enum>Qt::NoFocus</enum>
        </property>
@@ -508,7 +505,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="tButtonAlignRight">
+      <widget class="QToolButton" name="alignRight">
        <property name="focusPolicy">
         <enum>Qt::NoFocus</enum>
        </property>
@@ -537,7 +534,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="tButtonAlignJustify">
+      <widget class="QToolButton" name="alignJustify">
        <property name="focusPolicy">
         <enum>Qt::NoFocus</enum>
        </property>
@@ -563,7 +560,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="tButtonEraser">
+      <widget class="QToolButton" name="eraser">
        <property name="focusPolicy">
         <enum>Qt::NoFocus</enum>
        </property>
@@ -586,7 +583,7 @@
       </widget>
      </item>
      <item>
-      <widget class="ButtonBulletedList" name="tButtonBulletedList">
+      <widget class="ButtonBulletedList" name="bulletedList">
        <property name="enabled">
         <bool>true</bool>
        </property>
@@ -612,7 +609,7 @@
       </widget>
      </item>
      <item>
-      <widget class="ButtonOrderedList" name="tButtonOrderedList">
+      <widget class="ButtonOrderedList" name="orderedList">
        <property name="enabled">
         <bool>true</bool>
        </property>
@@ -658,7 +655,7 @@
       <number>0</number>
      </property>
      <item>
-      <widget class="QToolButton" name="tButtonInsertHyperlink">
+      <widget class="QToolButton" name="insertHyperlink">
        <property name="enabled">
         <bool>true</bool>
        </property>
@@ -684,7 +681,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="tButtonInsertPicture">
+      <widget class="QToolButton" name="insertPicture">
        <property name="enabled">
         <bool>true</bool>
        </property>
@@ -710,7 +707,7 @@
       </widget>
      </item>
      <item>
-      <widget class="ButtonSelectionTableSizes" name="tButtonInsertTable">
+      <widget class="ButtonSelectionTableSizes" name="insertTable">
        <property name="enabled">
         <bool>true</bool>
        </property>
@@ -798,7 +795,7 @@
   </customwidget>
  </customwidgets>
  <tabstops>
-  <tabstop>tButtonDecreaseSizeFont</tabstop>
+  <tabstop>decreaseSizeFont</tabstop>
  </tabstops>
  <resources>
   <include location="FormattingToolbar.qrc"/>

@@ -668,13 +668,17 @@ void RichTextNote::selectAttach()
         attach( fileName );
 }
 
-void RichTextNote::insertImage( const QString & fileName )
+void RichTextNote::insertImage( const QString & fileName, QTextCursor textCursor )
 {
     QString newFileName = attach( fileName );
     QString relativePath = QFileInfo( attachDirPath() ).fileName() + "/" + QFileInfo( newFileName ).fileName();
     relativePath = QDir::toNativeSeparators( relativePath );
     document()->addResource( QTextDocument::ImageResource, QUrl( relativePath ), QImage( newFileName ) );
-    editor.textCursor().insertImage( relativePath );
+    textCursor.insertImage( relativePath );
+}
+void RichTextNote::insertImage( const QString & fileName )
+{
+    insertImage( fileName, editor.textCursor() );
 }
 void RichTextNote::insertImage( const QPixmap & pixmap )
 {

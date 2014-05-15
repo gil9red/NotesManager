@@ -100,58 +100,58 @@ private slots:
     void backgroundColor( const QColor & color );
 
     //! Изменение шрифта текста
-    void on_fontComboBox_activated(const QString &arg1);
+    void on_font_activated(const QString &arg1);
 
     //! Изменение размера шрифта текста
-    void on_comboBoxFontSize_activated(const QString &arg1);
+    void on_fontSize_activated(const QString &arg1);
 
     //! Увеличение размера шрифта текста
-    void on_tButtonIncreaseSizeFont_clicked();
+    void on_increaseSizeFont_clicked();
 
     //! Уменьшение размера шрифта текста
-    void on_tButtonDecreaseSizeFont_clicked();
+    void on_decreaseSizeFont_clicked();
 
     //! Выделить текст жирным
-    void on_tButtonBold_clicked(bool checked);
+    void on_bold_clicked(bool checked);
 
     //! Выделить текст курсивом
-    void on_tButtonItalic_clicked(bool checked);
+    void on_italic_clicked(bool checked);
 
     //! Текст в нижний индекс
-    void on_tButtonSubScript_clicked(bool checked);
+    void on_subScript_clicked(bool checked);
 
     //! Текст в верхний индекс
-    void on_tButtonSuperScript_clicked(bool checked);
+    void on_superScript_clicked(bool checked);
 
     //! Зачеркивание текста
-    void on_tButtonStrikeout_clicked(bool checked);
+    void on_strikeout_clicked(bool checked);
 
     //! Надчеркивание текста
-    void on_tButtonOverline_clicked(bool checked);
+    void on_overline_clicked(bool checked);
 
     //! Текст в нижний регистр
-    void on_tButtonLower_clicked();
+    void on_lower_clicked();
 
     //! Текст в верхний регистр
-    void on_tButtonUpper_clicked();
+    void on_upper_clicked();
 
     //! Вставка горизонтальной линии
-    void on_tButtonInsertHLine_clicked();
+    void on_insertHLine_clicked();
 
     //! Выравнивание по левому краю
-    void on_tButtonAlignLeft_clicked();
+    void on_alignLeft_clicked();
 
     //! Выравнивание по центру
-    void on_tButtonAlignCenter_clicked();
+    void on_alignCenter_clicked();
 
     //! Выравнивание по правому краю
-    void on_tButtonAlignRight_clicked();
+    void on_alignRight_clicked();
 
     //! Выравнивание по ширине
-    void on_tButtonAlignJustify_clicked();
+    void on_alignJustify_clicked();
 
     //! Очищение текста от форматирования
-    void on_tButtonEraser_clicked();
+    void on_eraser_clicked();
 
     //! Подчеркивание текста
     void underline( int style );
@@ -163,10 +163,10 @@ private slots:
     void list( int style );
 
     //! Вставка гиперссылки
-    void on_tButtonInsertHyperlink_clicked();
+    void on_insertHyperlink_clicked();
 
     //! Вставка изображения
-    void on_tButtonInsertPicture_clicked();
+    void on_insertPicture_clicked();
 
     //! Вставка таблицы
     void insertTable( int rows, int cols );
