@@ -74,6 +74,11 @@ void NoteEditWidget::restoreStateNoteEdit( const QString & state )
     ui->editor->ensureCursorVisible();
 }
 
+TextEditor * NoteEditWidget::getEditor()
+{
+    return ui->editor;
+}
+
 void NoteEditWidget::noteChange( int event )
 {
     if ( !d_note )

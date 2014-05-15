@@ -26,6 +26,8 @@ public:
     QString saveStateNoteEdit();
     void restoreStateNoteEdit( const QString & state );
 
+    TextEditor * getEditor();
+
 private slots:
     void noteChange( int event );
     void titleChange();

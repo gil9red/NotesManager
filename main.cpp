@@ -80,7 +80,7 @@ static QScriptValue importExtension( QScriptContext *context, QScriptEngine * en
 /// TODO: при добавлении заметки от буфера обмена, пропадают символы перехода на следующую строку.
 
 QString nm_Note::style = "";
-
+#include <windows.h>
 int main( int argc, char * argv[] )
 {
     qsrand( QTime( 0, 0, 0 ).secsTo( QTime::currentTime() ) );
@@ -179,7 +179,5 @@ int main( int argc, char * argv[] )
         }
     }
 
-    int code = app.exec();
-    printf( "Exit code: %i\n", code );
-    return code;
+    return app.exec();
 }

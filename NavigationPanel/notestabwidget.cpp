@@ -241,6 +241,7 @@ void NotesTabWidget::sl_TabWidget_CurrentChanged( int index )
 
     QWidget * tab = widget( index );
     NoteEditWidget * noteEdit = dynamic_cast < NoteEditWidget * > ( tab );
+    noteEdit->getEditor()->setFocus();
     emit sg_CurrentNoteChanged( noteEdit->note() );
 }
 void NotesTabWidget::sl_TabWidget_TabCloseRequested( int index )
