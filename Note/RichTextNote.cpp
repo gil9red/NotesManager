@@ -31,9 +31,9 @@
 
 #include "utils/func.h"
 #include "JlCompress.h"
-#include "FormattingToolbar.h"
 #include "utils/texttemplateparser.h"
 #include "settingsnotedialog.h"
+#include "FormattingToolbar.h"
 
 QActionGroup * createGroupActionsOpacity( QObject * parent = 0 )
 {
@@ -235,10 +235,11 @@ void RichTextNote::setupGUI()
     // Панель форматирования
     {
         FormattingToolbar * formattingToolbar = new FormattingToolbar();
+        QObject::connect( this, SIGNAL(sg_IHidden()), formattingToolbar, SLOT(hide()) );
         formattingToolbar->installConnect( &editor );
         formattingToolbar->setNote( this );
 
-        dockWidgetFormattingToolbar = new QDockWidget();
+        QDockWidget * dockWidgetFormattingToolbar = new QDockWidget();
         dockWidgetFormattingToolbar->setAllowedAreas( areas );
         dockWidgetFormattingToolbar->setWidget( formattingToolbar );
         dockWidgetFormattingToolbar->setWindowTitle( formattingToolbar->windowTitle() );

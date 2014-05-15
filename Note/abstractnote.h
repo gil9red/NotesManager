@@ -247,14 +247,17 @@ signals:
     /*! \sa AbstractNoteBody::changeVisibleToolbar(bool) */
     void changeVisibleToolbar( bool );
 
+    void sg_IShow();
+    void sg_IHidden();
+
     void doubleClickHead();
 
 protected:
     void closeEvent( QCloseEvent * );
     void contextMenuEvent( QContextMenuEvent * event );
-    void showEvent(QShowEvent * event);
+    void showEvent( QShowEvent * event );
     void hideEvent( QHideEvent * event );
-    void paintEvent(QPaintEvent * );
+    void paintEvent( QPaintEvent * );
 };
 
 #endif // ABSTRACTNOTE_H

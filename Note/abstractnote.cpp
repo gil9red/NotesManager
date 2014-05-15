@@ -248,6 +248,7 @@ void AbstractNote::showEvent( QShowEvent * event )
 
     emit changed( EventsNote::IShow );
     emit changed( EventsNote::ChangeVisibility );
+    emit sg_IShow();
 }
 void AbstractNote::hideEvent( QHideEvent * event )
 {
@@ -255,6 +256,7 @@ void AbstractNote::hideEvent( QHideEvent * event )
 
     emit changed( EventsNote::IHidden );
     emit changed( EventsNote::ChangeVisibility );
+    emit sg_IHidden();
 }
 void AbstractNote::paintEvent( QPaintEvent * )
 {

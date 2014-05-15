@@ -158,8 +158,6 @@ public:
     QAction * actionSetTopBottom;
     QAction * actionVisibleToolBar;
 
-    QDockWidget * dockWidgetFormattingToolbar;
-
     QDockWidget * dockWidgetFindAndReplace;
     FindAndReplace * findAndReplace;
 

@@ -44,6 +44,7 @@ Page_Notes::Page_Notes( QWidget * parent ) :
     QObject::connect( trash, SIGNAL(sg_ItemAdded(AbstractFolderItem*const,int)), SIGNAL(sg_About_UpdateStates()) );
     QObject::connect( trash, SIGNAL(sg_ItemRemoved(AbstractFolderItem*const)), SIGNAL(sg_About_UpdateStates()) );
 
+    QObject::connect( notebook, SIGNAL(notesChange()), SLOT(sl_UpdateStates()) );
     QObject::connect( this, SIGNAL(sg_About_UpdateStates()), SLOT(sl_UpdateStates()) );
 
     // Действия тулбаров
