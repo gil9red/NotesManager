@@ -403,7 +403,7 @@ void Manager::readSettings()
     setShowStatusBar( settings->value( "StatusBar_Visible", true ).toBool() );
     settings->endGroup();
 
-    pageNotes->readSettings();
+    pageNotes->readSettings();    
     pageSettings->readSettings();
     scriptsManager->readSettings();
 

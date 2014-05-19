@@ -43,6 +43,7 @@ AbstractFolderItem * createItemOfDomElement( const QDomElement & element )
     {
         Folder * folder = static_cast < Folder * > ( item );
         folder->setName( element.attribute( "name" ) );
+        folder->setExpanded( element.attribute( "expand" ).contains( "true" ) ); // Восстановление состояния раскрытия узла.
     }
 
     item->setNameForeColor( QColor( element.attribute( "fore_color", "#000000" ) ) );
@@ -54,7 +55,7 @@ AbstractFolderItem * createItemOfDomElement( const QDomElement & element )
         RichTextNote * richTextNote = new RichTextNote( fileName );
         richTextNote->load();
 
-        Note * note = static_cast < Note * > ( item );
+        Note * note = dynamic_cast < Note * > ( item );
         note->setRichTextNote( richTextNote );
     }
 
@@ -73,7 +74,7 @@ void parseDomElement( Folder * folder, QDomElement & element )
         else if ( item->getItemType() == AbstractFolderItem::Type_Folder )
         {
             folder->child.add( item );
-            parseDomElement( static_cast < Folder * > ( item ), child );
+            parseDomElement( dynamic_cast < Folder * > ( item ), child );
         }
 
         child = child.nextSiblingElement();
@@ -112,15 +113,18 @@ QDomElement createDomElementOfItem( AbstractFolderItem * item, QDomDocument & xm
     if ( isFolder )
     {
         element.setAttribute( "name", folder->getName() );
+        element.setAttribute( "expand", folder->isExpanded() ? "true" : "false" ); // Запоминаем состояние раскрытия ветви.
 
     } else if ( isNote )
     {
         Note * note = dynamic_cast < Note * > ( item );
         if ( !note )
             WARNING( "Null pointer!" );
+
         RichTextNote * richTextNote = note->getRichTextNote();
         if ( !richTextNote )
             WARNING( "Null pointer!" );
+
         richTextNote->save();
 
         const QString & id = getIdFromRichTextNote( richTextNote );
@@ -191,6 +195,7 @@ void Notebook::read( QDomElement & root )
 {
     QDomElement rootNotes = root.firstChildElement( "Notes" );
     QDomElement rootTrash = root.firstChildElement( "Trash" );
+    getTrashFolder()->setExpanded( rootTrash.attribute( "expand" ).contains( "true" ) );
 
     parseDomElement( getRootFolder(), rootNotes );
     parseDomElement( getTrashFolder(), rootTrash );
@@ -200,6 +205,7 @@ void Notebook::write( QDomElement & root, QDomDocument & xmlDomDocument )
     // У Notebook есть дети Notes и Tabs
     QDomElement rootNotes = xmlDomDocument.createElement( "Notes" );
     QDomElement rootTrash = xmlDomDocument.createElement( "Trash" );
+    rootTrash.setAttribute( "expand", getTrashFolder()->isExpanded() ? "true" : "false" );
 
     root.appendChild( rootNotes );
     root.appendChild( rootTrash );
