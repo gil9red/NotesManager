@@ -4,12 +4,11 @@
 #include "abstractnote.h"
 #include "texteditor.h"
 #include "AttachPanel.h"
-
 #include <QApplication>
 #include <QDateTime>
 #include <QDir>
 #include <QEvent>
-
+#include <QFileSystemWatcher>
 #include "quickfind.h"
 #include "findandreplace.h"
 #include "utils/func.h"
@@ -59,6 +58,8 @@ private:
 public slots:
     void save();        //!< Сохранение заметки.
     void load();        //!< Загрузка заметки.
+    void loadSettings();
+    void saveSettings();
     void saveContent(); //!< Сохранение только содержимого заметки.
     void loadContent(); //!< Загрузка только содержимого заметки.
 
@@ -155,6 +156,9 @@ private slots:
     //! Срабатывает, когда происходит двойной клик на заголовок
     void doubleClickingOnTitle();
 
+    void directoryChanged( const QString & name );
+    void fileChanged( const QString & name );
+
 public:
     QAction * actionSetTopBottom;
     QAction * actionVisibleToolBar;
@@ -172,6 +176,7 @@ public:
     static QVariantMap defaultMapSettings; //!< Массив с дэфолтными настройками для заметок.
 
 private:
+    QFileSystemWatcher fileSystemWatcher; //!< Будет следить за папкой заметки.
     QTimer timerAutosave; //!< Таймер автосохранений
     QString noteFileName; //! Путь до папки заметки
     TextEditor editor;  //! Редактор заметки

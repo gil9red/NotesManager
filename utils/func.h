@@ -11,6 +11,8 @@
 #define CRITICAL( msg ) qCritical( OUT_MESSAGE, msg, __FUNCTION__, __FILE__, __LINE__ );
 #define FATAL( msg ) qFatal( OUT_MESSAGE, msg, __FUNCTION__, __FILE__, __LINE__ );
 
+static const char codec[] = "utf8";
+
 //! Содержит классы, облегчающие создание объектов, имеющих множество свойств (параметров).
 namespace Create
 {

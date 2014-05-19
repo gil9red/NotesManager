@@ -115,16 +115,50 @@ QString RichTextNote::settingsFilePath()
 void RichTextNote::setFileName( const QString & dirName )
 {    
     noteFileName = dirName;
-
     // Если уже существует, то выходим
     if ( QDir( noteFileName ).exists() )
+    {
+        // Настройка слежения за папкой заметки
+        {
+            // Прекращаем слежение за предыдущими файлами
+            const QStringList & directories = fileSystemWatcher.directories();
+            if ( !directories.isEmpty() )
+                fileSystemWatcher.removePaths( directories );
+
+            const QStringList & files = fileSystemWatcher.files();
+            if ( !files.isEmpty() )
+                fileSystemWatcher.removePaths( files );
+
+            // Устанавливаем слежение за новыми
+            fileSystemWatcher.addPath( attachDirPath() ); // Папка с прикрепленными файлами
+            fileSystemWatcher.addPath( contentFilePath() ); // Файл, описывающий содержимое заметки (html)
+            fileSystemWatcher.addPath( settingsFilePath() ); // Файл, описывающий заметку - название, положение, размер, цвет и т.п.
+
+            // Так как папка у нас одна - папка с прикрепленными файлами, то обновляем только ее, а по хорошему нужно создать отдельный слот-обработчик.
+            QObject::connect( &fileSystemWatcher, SIGNAL(directoryChanged(QString)), SLOT(directoryChanged(QString)) );
+            QObject::connect( &fileSystemWatcher, SIGNAL(fileChanged(QString)), SLOT(fileChanged(QString)) );
+        }
+
         return;
+    }
 
     // Создадим папку заметки с нужными папками и файлами
     QDir().mkdir( noteFileName );
     QDir().mkdir( attachDirPath() );
     QFile( contentFilePath() ).open( QIODevice::WriteOnly );
     QFile( settingsFilePath() ).open( QIODevice::WriteOnly );
+
+    // Настройка слежения за папкой заметки
+    {
+        // Устанавливаем слежение за новыми
+        fileSystemWatcher.addPath( attachDirPath() ); // Папка с прикрепленными файлами
+        fileSystemWatcher.addPath( contentFilePath() ); // Файл, описывающий содержимое заметки (html)
+        fileSystemWatcher.addPath( settingsFilePath() ); // Файл, описывающий заметку - название, положение, размер, цвет и т.п.
+
+        // Так как папка у нас одна - папка с прикрепленными файлами, то обновляем только ее, а по хорошему нужно создать отдельный слот-обработчик.
+        QObject::connect( &fileSystemWatcher, SIGNAL(directoryChanged(QString)), SLOT(directoryChanged(QString)) );
+        QObject::connect( &fileSystemWatcher, SIGNAL(fileChanged(QString)), SLOT(fileChanged(QString)) );
+    }
 }
 
 void RichTextNote::setDefaultSettingsFromMap(const QVariantMap & data )
@@ -341,6 +375,103 @@ void RichTextNote::setupGUI()
 
 void RichTextNote::save()
 {
+    saveSettings();
+    saveContent();
+    statusBar()->showMessage( tr( "Save completed" ), 5000 );
+    emit changed( EventsNote::SaveEnded );
+}
+void RichTextNote::load()
+{
+    QSettings ini( settingsFilePath(), QSettings::IniFormat );
+    ini.setIniCodec( "utf8" );
+
+    // Если пуст, значит эта заметка новая -> берем параметры из дэфолтных настроек
+    if ( ini.value( "Settings" ).toMap().isEmpty() )
+    {
+        const QDateTime & currentDateTime = QDateTime::currentDateTime();
+        const QRect & desktop = QDesktopWidget().geometry();
+        bool randomPosition = defaultMapSettings[ "RandomPositionOnScreen" ].toBool();
+        bool randomColor = defaultMapSettings[ "RandomColor" ].toBool();
+
+        mapSettings[ "Created" ] = currentDateTime;
+        mapSettings[ "Modified" ] = currentDateTime;
+
+        QString _title = TextTemplateParser::get( defaultMapSettings[ "Title" ].toString() );
+        QFont _fontTitle;
+        QSize _size = defaultMapSettings[ "Size" ].toSize();
+        QPoint _position;
+
+        _fontTitle.fromString( defaultMapSettings[ "FontTitle" ].toString() );
+
+        // TODO: доработать с учетом размера заметок, т.к. новые заметки может разместить за экран
+        if ( randomPosition )
+            _position = QPoint( qrand() % desktop.width(), qrand() % desktop.height() );
+        else
+            _position = defaultMapSettings[ "Position" ].toPoint();
+
+        QColor _titleColor;
+        QColor _bodyColor;
+        if ( randomColor )
+        {
+            _titleColor.setRgb( qrand() % 0xff, qrand() % 0xff, qrand() % 0xff );
+            _bodyColor.setRgb( qrand() % 0xff, qrand() % 0xff, qrand() % 0xff );
+        } else
+        {
+            _titleColor = QColor( defaultMapSettings[ "ColorTitle" ].toString() );
+            _bodyColor  = QColor( defaultMapSettings[ "ColorBody" ].toString() );
+        }
+
+        bool _top = defaultMapSettings[ "Top" ].toBool();
+        qreal _opacity = defaultMapSettings.value( "Opacity" ).toDouble();
+        bool _visible = defaultMapSettings.value( "Visible" ).toBool();
+
+        setText( TextTemplateParser::get( defaultMapSettings[ "Text" ].toString() ) );
+
+        setTitle( _title );
+        setTitleFont( _fontTitle );
+        resize( _size );
+        move( _position );
+        setTitleColor( _titleColor );
+        setBodyColor( _bodyColor );
+        setTop( _top );
+        setOpacity( _opacity );
+        setVisible( _visible );
+    } else
+    {
+        loadSettings();
+        loadContent();
+    }
+
+    setActivateTimerAutosave( defaultMapSettings[ "Autosave" ].toBool() );
+    setIntervalAutosave( defaultMapSettings[ "AutosaveInterval" ].toInt() );
+
+    updateStates();
+    emit changed( EventsNote::LoadEnded );
+}
+void RichTextNote::loadSettings()
+{
+    QSettings ini( settingsFilePath(), QSettings::IniFormat );
+    ini.setIniCodec( "utf8" );
+    mapSettings = ini.value( "Settings" ).toMap();
+
+    setTitle( mapSettings[ "Title" ].toString() );
+    setTitleFont( mapSettings[ "FontTitle" ].toString() );
+    resize( mapSettings[ "Size" ].toSize() );
+    move( mapSettings[ "Position" ].toPoint() );
+    setTitleColor( QColor( mapSettings[ "ColorTitle" ].toString() ) );
+    setBodyColor( QColor( mapSettings[ "ColorBody" ].toString() ) );
+    setTop( mapSettings[ "Top" ].toBool() );
+    setOpacity( mapSettings[ "Opacity" ].toDouble() );
+    setVisible( mapSettings.value( "Visible" ).toBool() );
+
+    updateStates();
+    emit changed( EventsNote::LoadEnded );
+}
+void RichTextNote::saveSettings()
+{
+    // Не нужно реагировать на изменение при сохранении
+    fileSystemWatcher.blockSignals( true );
+
     mapSettings[ "Top" ]        = isTop();
     mapSettings[ "ColorTitle" ] = titleColor().name();
     mapSettings[ "ColorBody" ]  = bodyColor().name();
@@ -354,97 +485,15 @@ void RichTextNote::save()
     QSettings ini( settingsFilePath(), QSettings::IniFormat );
     ini.setIniCodec( "utf8" );
     ini.setValue( "Settings", mapSettings );
+    ini.sync();
 
-    saveContent();
-    statusBar()->showMessage( tr( "Save completed" ), 5000 );
-    emit changed( EventsNote::SaveEnded );
-}
-void RichTextNote::load()
-{
-    QSettings ini( settingsFilePath(), QSettings::IniFormat );
-    ini.setIniCodec( "utf8" );
-    mapSettings = ini.value( "Settings" ).toMap();
-
-    QString _title;
-    QFont _fontTitle;
-    QSize _size;
-    QPoint _position;
-    QColor _titleColor;
-    QColor _bodyColor;
-    bool _top;
-    qreal _opacity;
-    bool _visible;
-
-    // Если пуст, значит эта заметка новая -> берем параметры из дэфолтных настроек
-    if ( mapSettings.isEmpty() )
-    {
-        const QDateTime & currentDateTime = QDateTime::currentDateTime();
-        const QRect & desktop = QDesktopWidget().geometry();
-        bool randomPosition = defaultMapSettings[ "RandomPositionOnScreen" ].toBool();
-        bool randomColor = defaultMapSettings[ "RandomColor" ].toBool();
-
-        mapSettings[ "Created" ] = currentDateTime;
-        mapSettings[ "Modified" ] = currentDateTime;
-
-        _title = TextTemplateParser::get( defaultMapSettings[ "Title" ].toString() );
-        _fontTitle.fromString( defaultMapSettings[ "FontTitle" ].toString() );
-        _size = defaultMapSettings[ "Size" ].toSize();
-
-        // TODO: доработать с учетом размера заметок, т.к. новые заметки может разместить за экран
-        if ( randomPosition )
-            _position = QPoint( qrand() % desktop.width(), qrand() % desktop.height() );
-        else
-            _position = defaultMapSettings[ "Position" ].toPoint();
-
-        if ( randomColor )
-        {
-            _titleColor.setRgb( qrand() % 0xff, qrand() % 0xff, qrand() % 0xff );
-            _bodyColor.setRgb( qrand() % 0xff, qrand() % 0xff, qrand() % 0xff );
-        } else
-        {
-            _titleColor = QColor( defaultMapSettings[ "ColorTitle" ].toString() );
-            _bodyColor  = QColor( defaultMapSettings[ "ColorBody" ].toString() );
-        }
-
-        _top = defaultMapSettings[ "Top" ].toBool();
-        _opacity = defaultMapSettings.value( "Opacity" ).toDouble();
-        _visible = defaultMapSettings.value( "Visible" ).toBool();
-
-        setText( TextTemplateParser::get( defaultMapSettings[ "Text" ].toString() ) );
-
-    } else
-    {
-        _fontTitle.fromString( mapSettings[ "FontTitle" ].toString() );
-        _title      = mapSettings[ "Title" ].toString();
-        _size       = mapSettings[ "Size" ].toSize();
-        _position   = mapSettings[ "Position" ].toPoint();
-        _titleColor = QColor( mapSettings[ "ColorTitle" ].toString() );
-        _bodyColor  = QColor( mapSettings[ "ColorBody" ].toString() );
-        _top        = mapSettings[ "Top" ].toBool();
-        _opacity    = mapSettings[ "Opacity" ].toDouble();
-        _visible    = mapSettings.value( "Visible" ).toBool();
-
-        loadContent();
-    }
-
-    setTitle( _title );
-    setTitleFont( _fontTitle );
-    resize( _size );
-    move( _position );
-    setTitleColor( _titleColor );
-    setBodyColor( _bodyColor );
-    setTop( _top );
-    setOpacity( _opacity );
-    setVisible( _visible );
-
-    setActivateTimerAutosave( defaultMapSettings[ "Autosave" ].toBool() );
-    setIntervalAutosave( defaultMapSettings[ "AutosaveInterval" ].toInt() );
-
-    updateStates();
-    emit changed( EventsNote::LoadEnded );
+    fileSystemWatcher.blockSignals( false );
 }
 void RichTextNote::saveContent()
 {
+    // Не нужно реагировать на изменение при сохранении
+    fileSystemWatcher.blockSignals( true );
+
     QFile content( contentFilePath() );
     if ( !content.open( QIODevice::Truncate | QIODevice::WriteOnly ) )
     {
@@ -457,11 +506,22 @@ void RichTextNote::saveContent()
     in << text();
     content.close();
 
+    fileSystemWatcher.blockSignals( false );
+
     updateStates();
 }
 void RichTextNote::loadContent()
 {
-   editor.setSource( QUrl::fromLocalFile( contentFilePath() ) );
+//   editor.setSource( QUrl::fromLocalFile( contentFilePath() ) );
+
+    QFile file( contentFilePath() );
+    if ( !file.open( QIODevice::ReadOnly ) )
+            return;
+
+    QTextStream in( &file );
+    in.setCodec( QTextCodec::codecForName( codec ) );
+
+    editor.setHtml( in.readAll() );
 }
 void RichTextNote::setText( const QString & str )
 {
@@ -476,8 +536,17 @@ QString RichTextNote::text()
 }
 void RichTextNote::removeDir()
 {
+    // Прекращаем слежение за файлами и папками
+    const QStringList & directories = fileSystemWatcher.directories();
+    if ( !directories.isEmpty() )
+        fileSystemWatcher.removePaths( directories );
+
+    const QStringList & files = fileSystemWatcher.files();
+    if ( !files.isEmpty() )
+        fileSystemWatcher.removePaths( files );
+
     if ( !removePath( fileName() ) )
-        QMessageBox::warning( this, tr( "Warning" ), tr( "I can not delete" ) );
+        QMessageBox::warning( this, tr( "Warning" ), tr( "I can not delete" ) );    
 }
 void RichTextNote::remove()
 {
@@ -705,10 +774,15 @@ void RichTextNote::insertImage( const QPixmap & pixmap )
 
 QString RichTextNote::attach( const QString & fileName )
 {
+    fileSystemWatcher.blockSignals( true );
+
     QString newFileName = attachDirPath() + QDir::separator() + QFileInfo( fileName ).fileName();
     QFile::copy( fileName, newFileName );
 
     attachModel.appendRow( new QStandardItem( QFileInfo( fileName ).fileName() ) );
+
+    fileSystemWatcher.blockSignals( false );
+
     emit changed( EventsNote::ChangeAttach );
     return newFileName;
 }
@@ -805,6 +879,21 @@ void RichTextNote::doubleClickingOnTitle()
         print();
         break;
     }
+}
+
+void RichTextNote::directoryChanged( const QString & name )
+{
+    // Если это была папка с прикрепленными файлами
+    if ( name == attachDirPath() )
+        updateAttachList();
+}
+void RichTextNote::fileChanged( const QString & name )
+{
+    if ( name == contentFilePath() )
+        loadContent();
+
+    else if ( name == settingsFilePath() )
+        loadSettings();
 }
 
 void RichTextNote::enterEvent( QEvent * )

@@ -14,8 +14,6 @@
 #include <QDebug>
 #include <QDateTime>
 
-static const char codec[] = "utf8";
-
 #include "Manager/Manager.h"
 #include "utils/func.h"
 #include "utils/mysplashscreen.h"
@@ -78,9 +76,15 @@ static QScriptValue importExtension( QScriptContext *context, QScriptEngine * en
 /// TODO: при создании заметки от буфера обмена, можно заголовок ее брать от части текста (например, первые 10 символов)
 /// TODO: добавить возможность выбора иконок для иерархического дерева
 /// TODO: при добавлении заметки от буфера обмена, пропадают символы перехода на следующую строку.
+///
+/// EventsNote::LoadEnded разделить на окончание загрузки контента и параметров, тоже самое и для сохранения
+/// Пропали иконки кнопок прикрепленных файлов
+/// Пора редактор "понизить" до QTextEdit - функции QTextBrowser явно не нужны, а обработку гиперссылок реализовать вручную (см qNotesManager)
+/// Пусть QSystemFileWatcher также будет создан для слежения папок с заметками - если происходит удаление папки заметки, удаляем и ее из менеджера, и наоборот
+/// В пункт меню Окно добавить поверх всех окон - пусть менеджер умеет это делать
 
 QString nm_Note::style = "";
-#include <windows.h>
+
 int main( int argc, char * argv[] )
 {
     qsrand( QTime( 0, 0, 0 ).secsTo( QTime::currentTime() ) );
