@@ -34,7 +34,8 @@ else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/QScintilla-gpl-2.8.1/li
 
 OTHER_FILES += \
     history_ru \
-    license
+    license \
+    README.md
 
 SOURCES += \
     main.cpp \
