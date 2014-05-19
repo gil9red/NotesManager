@@ -77,6 +77,7 @@ protected:
 
 signals:
     void sg_CurrentNoteChanged(Note*);
+    void sg_CurrentTabChanged(int);
 };
 
 #endif // NOTESTABWIDGET_H

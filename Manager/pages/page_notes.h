@@ -26,10 +26,6 @@ public:
 
     void read( QIODevice * device );
     void write( QIODevice * device );
-    void writeToXmlStateNotes();
-
-    void readSettings();
-    void writeSettings();
 
     bool hasCurrent();
     bool currentIsNote();
@@ -46,6 +42,11 @@ private:
     QSettings * settings;
 
 public slots:
+    void writeToXmlStateNotes();
+
+    void readSettings();
+    void writeSettings();
+
     Q_SCRIPTABLE void addFolder();
     Q_SCRIPTABLE void addNote();
     Q_SCRIPTABLE void addNoteFromClipboard();

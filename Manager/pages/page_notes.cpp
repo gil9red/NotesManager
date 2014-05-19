@@ -27,6 +27,7 @@ Page_Notes::Page_Notes( QWidget * parent ) :
     QObject::connect(ui->tab_Tags, SIGNAL(sg_NoteDoubleClicked(Note*)), ui->tabWidget_EditNotes, SLOT(openNote(Note*)));
     QObject::connect(ui->tab_Dates, SIGNAL(sg_NoteDoubleClicked(Note*)), ui->tabWidget_EditNotes, SLOT(openNote(Note*)));
 
+    QObject::connect(ui->tabWidget_EditNotes, SIGNAL(sg_CurrentTabChanged(int)), SLOT(writeToXmlStateNotes()));
 
     QObject::connect( ui->tabWidget_Navigation, SIGNAL(currentChanged(int)), SIGNAL(sg_About_UpdateStates()) );
     QObject::connect( ui->tab_Notes, SIGNAL(sg_SelectedItemsActionsListChanged()), SIGNAL(sg_About_UpdateStates()) );
@@ -217,48 +218,6 @@ void Page_Notes::write( QIODevice * device )
     out << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
     xmlDomDocument.save( out, indentSize );
 }
-void Page_Notes::writeToXmlStateNotes()
-{
-    // Передача xml файла, в котором будет описано иерархическое дерево с заметками
-    const QString & fileName = qApp->applicationDirPath() + "/notes/notebook.xml";
-    QFile file( fileName );
-    if ( !file.open( QFile::WriteOnly | QFile::Text ) )
-    {
-        QMessageBox::warning( this, tr( "Error" ), tr( "Cannot write file %1:\n%2." ).arg( fileName ).arg( file.errorString() ) );
-        return;
-    }
-    write( &file );
-}
-
-void Page_Notes::readSettings()
-{
-    if ( !settings )
-    {
-        WARNING( "null pointer!" );
-        return;
-    }
-
-    settings->beginGroup( "Page_Notes" );
-    restoreState( settings->value( "State" ).toByteArray() );
-    ui->splitter->restoreState( settings->value( "Splitter_Main" ).toByteArray() );
-    settings->endGroup();
-
-    ui->tabWidget_Navigation->setCurrentWidget( ui->tab_Notes );
-}
-void Page_Notes::writeSettings()
-{
-    if ( !settings )
-    {
-        WARNING( "null pointer!" );
-        return;
-    }
-
-    settings->beginGroup( "Page_Notes" );
-    settings->setValue( "State", saveState() );
-    settings->setValue( "Splitter_Main", ui->splitter->saveState() );
-    settings->endGroup();
-    settings->sync();
-}
 
 bool Page_Notes::hasCurrent()
 {
@@ -330,6 +289,49 @@ bool Page_Notes::currentIsChildTrash()
 bool Page_Notes::trashIsEmpty()
 {
     return ( Notebook::instance()->getTrashFolder()->child.count() == 0 );
+}
+
+void Page_Notes::writeToXmlStateNotes()
+{
+    // Передача xml файла, в котором будет описано иерархическое дерево с заметками
+    const QString & fileName = qApp->applicationDirPath() + "/notes/notebook.xml";
+    QFile file( fileName );
+    if ( !file.open( QFile::WriteOnly | QFile::Text ) )
+    {
+        QMessageBox::warning( this, tr( "Error" ), tr( "Cannot write file %1:\n%2." ).arg( fileName ).arg( file.errorString() ) );
+        return;
+    }
+    write( &file );
+}
+
+void Page_Notes::readSettings()
+{
+    if ( !settings )
+    {
+        WARNING( "null pointer!" );
+        return;
+    }
+
+    settings->beginGroup( "Page_Notes" );
+    restoreState( settings->value( "State" ).toByteArray() );
+    ui->splitter->restoreState( settings->value( "Splitter_Main" ).toByteArray() );
+    settings->endGroup();
+
+    ui->tabWidget_Navigation->setCurrentWidget( ui->tab_Notes );
+}
+void Page_Notes::writeSettings()
+{
+    if ( !settings )
+    {
+        WARNING( "null pointer!" );
+        return;
+    }
+
+    settings->beginGroup( "Page_Notes" );
+    settings->setValue( "State", saveState() );
+    settings->setValue( "Splitter_Main", ui->splitter->saveState() );
+    settings->endGroup();
+    settings->sync();
 }
 
 void Page_Notes::addFolder()

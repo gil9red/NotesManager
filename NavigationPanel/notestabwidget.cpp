@@ -28,6 +28,7 @@ NotesTabWidget::NotesTabWidget( QWidget * parent )
     : QTabWidget( parent )
 {
     QObject::connect( this, SIGNAL(currentChanged(int)), SLOT(sl_TabWidget_CurrentChanged(int)) );
+    QObject::connect( this, SIGNAL(currentChanged(int)), SIGNAL(sg_CurrentTabChanged(int)) );
     QObject::connect( this, SIGNAL(tabCloseRequested(int)), SLOT(sl_TabWidget_TabCloseRequested(int)) );
     setTabsClosable( true );
 
