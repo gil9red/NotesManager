@@ -583,7 +583,15 @@ void RichTextNote::saveAs()
 
     QString title = this->title();
     // Замена неугодных винде символов в именах файлов, знаком нижнего подчеркивания
-    title = title.replace( QRegExp( "[:/|*?\"<>]" ), "_" );
+    title = title.replace( ':',  '_' );
+    title = title.replace( '/',  '_' );
+    title = title.replace( '\\', '_' );
+    title = title.replace( '|',  '_' );
+    title = title.replace( '*',  '_' );
+    title = title.replace( '?',  '_' );
+    title = title.replace( '"',  '_' );
+    title = title.replace( '<',  '_' );
+    title = title.replace( '>',  '_' );
 
     const QString & saveFileName = QFileDialog::getSaveFileName( this, QString(), title, filters );
     if ( saveFileName.isEmpty() )

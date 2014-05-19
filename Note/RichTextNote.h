@@ -95,7 +95,6 @@ public slots:
     void previewPrint();     //!< Вызов диалога предпросмотра перед печатью.
     void selectAttach();     //!< Вызов выбора прикрепленного файла.
 
-
     void insertImage(const QString & fileName, QTextCursor textCursor );
 
     //! Функция вставки изображения в заметку.
@@ -121,7 +120,6 @@ public slots:
 
     //! Функция возвращает количество прикрепленных файлов.
     int numberOfAttachments();
-
 
     //! Устанавливает активность таймера автосохранения .
     /*! \sa isActivateTimerAutosave() */
