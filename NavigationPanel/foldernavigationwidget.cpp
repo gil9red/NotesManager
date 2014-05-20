@@ -343,6 +343,9 @@ bool FolderNavigationWidget::sl_AddNote( RichTextNote * richTextNote )
         note->setRichTextNote( richTextNote );
         root->child.add( note );
 
+        // Открываем редактор для только что добавленной ячейки
+        ui->treeView->edit( ui->treeView->currentIndex() );
+
         return true;
     }
 
@@ -372,6 +375,9 @@ bool FolderNavigationWidget::sl_AddNote( RichTextNote * richTextNote )
             note->setRichTextNote( richTextNote );
             currentNote->getParent()->child.addTo( note, index + 1 );
 
+            // Открываем редактор для только что добавленной ячейки
+            ui->treeView->edit( ui->treeView->currentIndex() );
+
             return true;
         }
 
@@ -385,6 +391,10 @@ bool FolderNavigationWidget::sl_AddNote( RichTextNote * richTextNote )
     Note * note = new Note();
     note->setRichTextNote( richTextNote );
     parentFolder->child.add( note );
+
+
+    // Открываем редактор для только что добавленной ячейки
+    ui->treeView->edit( ui->treeView->currentIndex() );
 
     return true;
 }
@@ -408,6 +418,10 @@ void FolderNavigationWidget::sl_AddFolderAction_Triggered()
     if ( !hasCurrentItem() && !model->getPinnedFolder() )
     {
         root->child.add( new Folder() );
+
+        // Открываем редактор для только что добавленной ячейки
+        ui->treeView->edit( ui->treeView->currentIndex() );
+
         return;
     }
 
@@ -421,8 +435,7 @@ void FolderNavigationWidget::sl_AddFolderAction_Triggered()
     Folder * parentFolder = 0;
 
     if ( indexesList.size() == 0 )
-        parentFolder = ( !model->getPinnedFolder() ? root : model->getPinnedFolder() );
-
+        parentFolder = !model->getPinnedFolder() ? root : model->getPinnedFolder();
     else
     {
         BaseModelItem * modelitem = static_cast < BaseModelItem * > ( indexesList.value(0).internalPointer() );
@@ -434,6 +447,9 @@ void FolderNavigationWidget::sl_AddFolderAction_Triggered()
             Note * currentNote = currentNoteItem->getStoredData();
             int index = currentNote->getParent()->child.indexOf( currentNote );
             currentNote->getParent()->child.addTo( new Folder(), index + 1 );
+
+            // Открываем редактор для только что добавленной ячейки
+            ui->treeView->edit( ui->treeView->currentIndex() );
 
             return;
         }
@@ -450,6 +466,9 @@ void FolderNavigationWidget::sl_AddFolderAction_Triggered()
     }
 
     parentFolder->child.add( new Folder() );
+
+    // Открываем редактор для только что добавленной ячейки
+    ui->treeView->edit( ui->treeView->currentIndex() );
 }
 void FolderNavigationWidget::sl_MoveToBinAction_Triggered()
 {

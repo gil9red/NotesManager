@@ -5,7 +5,6 @@
 #include <QDesktopServices>
 #include <QMenu>
 
-
 TextEditor::TextEditor( QWidget * parent ):
     QTextBrowser( parent )
 {

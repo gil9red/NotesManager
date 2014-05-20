@@ -512,16 +512,7 @@ void RichTextNote::saveContent()
 }
 void RichTextNote::loadContent()
 {
-//   editor.setSource( QUrl::fromLocalFile( contentFilePath() ) );
-
-    QFile file( contentFilePath() );
-    if ( !file.open( QIODevice::ReadOnly ) )
-            return;
-
-    QTextStream in( &file );
-    in.setCodec( QTextCodec::codecForName( codec ) );
-
-    editor.setHtml( in.readAll() );
+   editor.setSource( QUrl::fromLocalFile( contentFilePath() ) );
 }
 void RichTextNote::setText( const QString & str )
 {
