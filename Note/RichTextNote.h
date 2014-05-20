@@ -156,6 +156,7 @@ private slots:
     //! Срабатывает, когда происходит двойной клик на заголовок
     void doubleClickingOnTitle();
 
+    void setActivateFileWatcher( bool activate );
     void directoryChanged( const QString & name );
     void fileChanged( const QString & name );
 

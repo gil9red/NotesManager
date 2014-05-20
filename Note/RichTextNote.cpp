@@ -56,7 +56,7 @@ QVariantMap RichTextNote::defaultMapSettings;
 
 RichTextNote::RichTextNote( const QString & fileName, QWidget * parent )
     : AbstractNote( parent )
-{    
+{
     setFileName( fileName );
     init(); 
 }
@@ -121,22 +121,10 @@ void RichTextNote::setFileName( const QString & dirName )
         // Настройка слежения за папкой заметки
         {
             // Прекращаем слежение за предыдущими файлами
-            const QStringList & directories = fileSystemWatcher.directories();
-            if ( !directories.isEmpty() )
-                fileSystemWatcher.removePaths( directories );
-
-            const QStringList & files = fileSystemWatcher.files();
-            if ( !files.isEmpty() )
-                fileSystemWatcher.removePaths( files );
+            setActivateFileWatcher( false );
 
             // Устанавливаем слежение за новыми
-            fileSystemWatcher.addPath( attachDirPath() ); // Папка с прикрепленными файлами
-            fileSystemWatcher.addPath( contentFilePath() ); // Файл, описывающий содержимое заметки (html)
-            fileSystemWatcher.addPath( settingsFilePath() ); // Файл, описывающий заметку - название, положение, размер, цвет и т.п.
-
-            // Так как папка у нас одна - папка с прикрепленными файлами, то обновляем только ее, а по хорошему нужно создать отдельный слот-обработчик.
-            QObject::connect( &fileSystemWatcher, SIGNAL(directoryChanged(QString)), SLOT(directoryChanged(QString)) );
-            QObject::connect( &fileSystemWatcher, SIGNAL(fileChanged(QString)), SLOT(fileChanged(QString)) );
+            setActivateFileWatcher( true );
         }
 
         return;
@@ -151,13 +139,7 @@ void RichTextNote::setFileName( const QString & dirName )
     // Настройка слежения за папкой заметки
     {
         // Устанавливаем слежение за новыми
-        fileSystemWatcher.addPath( attachDirPath() ); // Папка с прикрепленными файлами
-        fileSystemWatcher.addPath( contentFilePath() ); // Файл, описывающий содержимое заметки (html)
-        fileSystemWatcher.addPath( settingsFilePath() ); // Файл, описывающий заметку - название, положение, размер, цвет и т.п.
-
-        // Так как папка у нас одна - папка с прикрепленными файлами, то обновляем только ее, а по хорошему нужно создать отдельный слот-обработчик.
-        QObject::connect( &fileSystemWatcher, SIGNAL(directoryChanged(QString)), SLOT(directoryChanged(QString)) );
-        QObject::connect( &fileSystemWatcher, SIGNAL(fileChanged(QString)), SLOT(fileChanged(QString)) );
+        setActivateFileWatcher( true );
     }
 }
 
@@ -190,8 +172,12 @@ void RichTextNote::init()
     quickFind->setVisible( false );
 
     QObject::connect( &timerAutosave, SIGNAL( timeout() ), SLOT( save() ) );
-    QObject::connect( this, SIGNAL( doubleClickHead() ), SLOT( doubleClickingOnTitle() ) );
-    QObject::connect( editor.document(), SIGNAL( contentsChanged() ), SLOT( contentsChanged() ) );
+    QObject::connect( document(), SIGNAL( contentsChanged() ), SLOT( contentsChanged() ) );
+    QObject::connect( this, SIGNAL( doubleClickHead() ), SLOT( doubleClickingOnTitle() ) );    
+
+    // Так как папка у нас одна - папка с прикрепленными файлами, то обновляем только ее, а по хорошему нужно создать отдельный слот-обработчик.
+    QObject::connect( &fileSystemWatcher, SIGNAL(directoryChanged(QString)), SLOT(directoryChanged(QString)) );
+    QObject::connect( &fileSystemWatcher, SIGNAL(fileChanged(QString)), SLOT(fileChanged(QString)) );
 }
 void RichTextNote::setupGUI()
 {
@@ -375,6 +361,7 @@ void RichTextNote::setupGUI()
 
 void RichTextNote::save()
 {
+    WARNING("");
     saveSettings();
     saveContent();
     statusBar()->showMessage( tr( "Save completed" ), 5000 );
@@ -449,7 +436,7 @@ void RichTextNote::load()
     emit changed( EventsNote::LoadEnded );
 }
 void RichTextNote::loadSettings()
-{
+{    
     QSettings ini( settingsFilePath(), QSettings::IniFormat );
     ini.setIniCodec( "utf8" );
     mapSettings = ini.value( "Settings" ).toMap();
@@ -470,7 +457,7 @@ void RichTextNote::loadSettings()
 void RichTextNote::saveSettings()
 {
     // Не нужно реагировать на изменение при сохранении
-    fileSystemWatcher.blockSignals( true );
+    setActivateFileWatcher( false );
 
     mapSettings[ "Top" ]        = isTop();
     mapSettings[ "ColorTitle" ] = titleColor().name();
@@ -487,16 +474,17 @@ void RichTextNote::saveSettings()
     ini.setValue( "Settings", mapSettings );
     ini.sync();
 
-    fileSystemWatcher.blockSignals( false );
+    setActivateFileWatcher( true );
 }
 void RichTextNote::saveContent()
 {
     // Не нужно реагировать на изменение при сохранении
-    fileSystemWatcher.blockSignals( true );
+    setActivateFileWatcher( false );
 
     QFile content( contentFilePath() );
     if ( !content.open( QIODevice::Truncate | QIODevice::WriteOnly ) )
     {
+        setActivateFileWatcher( true );
         QMessageBox::critical( this, tr( "Error" ), tr( "An error occurred saving notes" ) );
         return;
     }
@@ -504,37 +492,34 @@ void RichTextNote::saveContent()
     QTextStream in( &content );
     in.setCodec( "utf8" );
     in << text();
-    content.close();
-
-    fileSystemWatcher.blockSignals( false );
+    content.close();    
 
     updateStates();
+
+    setActivateFileWatcher( true );
 }
 void RichTextNote::loadContent()
 {
-   editor.setSource( QUrl::fromLocalFile( contentFilePath() ) );
+   if ( editor.source().isEmpty() )
+       editor.setSource( QUrl::fromLocalFile( contentFilePath() ) );
+   else
+       editor.reload();
 }
 void RichTextNote::setText( const QString & str )
 {
     if ( text() == str )
         return;
 
-    editor.setHtml( str );
+    document()->setHtml( str );
 }
 QString RichTextNote::text()
 {
-    return editor.document()->toHtml( "utf-8" );
+    return document()->toHtml( "utf-8" );
 }
 void RichTextNote::removeDir()
 {
     // Прекращаем слежение за файлами и папками
-    const QStringList & directories = fileSystemWatcher.directories();
-    if ( !directories.isEmpty() )
-        fileSystemWatcher.removePaths( directories );
-
-    const QStringList & files = fileSystemWatcher.files();
-    if ( !files.isEmpty() )
-        fileSystemWatcher.removePaths( files );
+    setActivateFileWatcher( false );
 
     if ( !removePath( fileName() ) )
         QMessageBox::warning( this, tr( "Warning" ), tr( "I can not delete" ) );    
@@ -765,16 +750,16 @@ void RichTextNote::insertImage( const QPixmap & pixmap )
 
 QString RichTextNote::attach( const QString & fileName )
 {
-    fileSystemWatcher.blockSignals( true );
+    setActivateFileWatcher( false );
 
     QString newFileName = attachDirPath() + QDir::separator() + QFileInfo( fileName ).fileName();
     QFile::copy( fileName, newFileName );
 
-    attachModel.appendRow( new QStandardItem( QFileInfo( fileName ).fileName() ) );
-
-    fileSystemWatcher.blockSignals( false );
-
+    attachModel.appendRow( new QStandardItem( QFileInfo( fileName ).fileName() ) );    
     emit changed( EventsNote::ChangeAttach );
+
+    setActivateFileWatcher( true );
+
     return newFileName;
 }
 void RichTextNote::updateAttachList()
@@ -872,11 +857,35 @@ void RichTextNote::doubleClickingOnTitle()
     }
 }
 
+void RichTextNote::setActivateFileWatcher( bool activate )
+{
+    if ( activate )
+    {
+        fileSystemWatcher.blockSignals( false );
+
+        // Устанавливаем слежение за новыми
+        fileSystemWatcher.addPath( attachDirPath() ); // Папка с прикрепленными файлами
+        fileSystemWatcher.addPath( contentFilePath() ); // Файл, описывающий содержимое заметки (html)
+        fileSystemWatcher.addPath( settingsFilePath() ); // Файл, описывающий заметку - название, положение, размер, цвет и т.п.
+    } else
+    {
+        fileSystemWatcher.blockSignals( true );
+
+        const QStringList & files = fileSystemWatcher.files();
+        if ( !files.isEmpty() )
+            fileSystemWatcher.removePaths( files );
+
+        // Прекращаем слежение за предыдущими файлами
+        const QStringList & directories = fileSystemWatcher.directories();
+        if ( !directories.isEmpty() )
+            fileSystemWatcher.removePaths( directories );
+    }
+}
 void RichTextNote::directoryChanged( const QString & name )
 {
     // Если это была папка с прикрепленными файлами
     if ( name == attachDirPath() )
-        updateAttachList();
+        updateAttachList();    
 }
 void RichTextNote::fileChanged( const QString & name )
 {
@@ -884,7 +893,7 @@ void RichTextNote::fileChanged( const QString & name )
         loadContent();
 
     else if ( name == settingsFilePath() )
-        loadSettings();
+        loadSettings();    
 }
 
 void RichTextNote::enterEvent( QEvent * )
