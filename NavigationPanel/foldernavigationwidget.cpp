@@ -259,7 +259,29 @@ void FolderNavigationWidget::deleteItems(QModelIndexList& indexesList, bool perm
             delete itemToDelete;
 
         } else
+        {
             parentFolder->child.move(itemToDelete, Notebook::instance()->getTrashFolder());
+
+            if ( isNote )
+            {
+                Note * note = dynamic_cast < Note * > ( itemToDelete );
+                if ( !note )
+                {
+                    WARNING( "Type not 'Note'!" );
+                    continue;
+                }
+                RichTextNote * richTextNote = note->getRichTextNote();
+                if ( !richTextNote )
+                {
+                    WARNING("Null pointer!");
+                    continue;
+                }
+
+                // Если заметка видима
+                if ( richTextNote->isVisible() )
+                    richTextNote->hide(); // Спрячем заметку.
+            }
+        }
     }
 
     qApp->restoreOverrideCursor();

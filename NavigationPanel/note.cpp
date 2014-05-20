@@ -136,7 +136,13 @@ void Note::noteChange( int event )
             deleteLater();
 
         } else
-            parent->child.move( this, Notebook::instance()->getTrashFolder() );
+        {
+            parent->child.move( this, Notebook::instance()->getTrashFolder() ); // Перемещаем себя в корзину
+
+            // Если заметка видима
+            if ( p_RichTextNote->isVisible() )
+                p_RichTextNote->hide(); // Спрячем заметку.
+        }
 
         break;
     }

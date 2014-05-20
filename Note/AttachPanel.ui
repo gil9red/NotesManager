@@ -17,7 +17,16 @@
    <property name="spacing">
     <number>0</number>
    </property>
-   <property name="margin">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
     <number>0</number>
    </property>
    <item>
@@ -124,8 +133,8 @@
         <string>Refresh list</string>
        </property>
        <property name="icon">
-        <iconset resource="../Manager/Manager.qrc">
-         <normaloff>:/Manager/refresh</normaloff>:/Manager/refresh</iconset>
+        <iconset resource="Note.qrc">
+         <normaloff>:/Note/refresh</normaloff>:/Note/refresh</iconset>
        </property>
       </widget>
      </item>
@@ -151,7 +160,7 @@
        </property>
        <property name="icon">
         <iconset resource="../Manager/Manager.qrc">
-         <normaloff>:/Manager/remove</normaloff>:/Manager/remove</iconset>
+         <normaloff>:/fugue-icons/cross</normaloff>:/fugue-icons/cross</iconset>
        </property>
       </widget>
      </item>
@@ -215,8 +224,8 @@
   <tabstop>tButtonRemoveAll</tabstop>
  </tabstops>
  <resources>
-  <include location="../Manager/Manager.qrc"/>
   <include location="Note.qrc"/>
+  <include location="../Manager/Manager.qrc"/>
  </resources>
  <connections/>
 </ui>

@@ -27,5 +27,6 @@
         <file alias="attach-panel">icons/attach panel.png</file>
         <file alias="find-replace">icons/editfindreplace.png</file>
         <file>Note.qss</file>
+        <file alias="refresh">icons/refresh_blue.png</file>
     </qresource>
 </RCC>
