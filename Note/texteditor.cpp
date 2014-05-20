@@ -4,6 +4,7 @@
 #include <QDebug>
 #include <QDesktopServices>
 #include <QMenu>
+#include <QToolTip>
 
 TextEditor::TextEditor( QWidget * parent ):
     QTextBrowser( parent )
@@ -11,22 +12,16 @@ TextEditor::TextEditor( QWidget * parent ):
     // Возвращаем функциональность текстового редактора и настраиваем работу с гиперссылками
     setUndoRedoEnabled( true );
     setReadOnly( false );
-    setOpenExternalLinks( false );
-    setOpenLinks( false );
-    setActivateLink( false );
-    viewport()->setCursor( QCursor( Qt::IBeamCursor ) );
-    QObject::connect( this, SIGNAL( anchorClicked(QUrl) ), SLOT( openLink(QUrl) ) );
-}
-void TextEditor::setActivateLink( bool activate )
-{
-    Qt::TextInteractionFlags flags = activate ? Qt::LinksAccessibleByMouse : Qt::TextEditorInteraction;
-    setTextInteractionFlags( flags );
+
+    anchorTooltipTimer.setInterval( 1000 );
+    QObject::connect( &anchorTooltipTimer, SIGNAL(timeout()), SLOT(sl_AnchorTooltipTimer_Timeout()) );
 }
 
-void TextEditor::openLink( QUrl url )
+void TextEditor::sl_AnchorTooltipTimer_Timeout()
 {
-    bool successful = QDesktopServices::openUrl( url );
-    emit isOpenLink( successful );
+    QString href = anchorAt( mapFromGlobal( QCursor::pos() ) );
+    if ( !href.isEmpty() )
+        QToolTip::showText( QCursor::pos(), href + "\n" + tr( "Ctrl+Click to go" ), this );
 }
 
 void TextEditor::focusInEvent( QFocusEvent * event )
@@ -43,18 +38,6 @@ void TextEditor::focusInEvent( QFocusEvent * event )
 
     QTextBrowser::focusInEvent( event );
 }
-void TextEditor::keyPressEvent( QKeyEvent * event )
-{
-    if( event->modifiers() == Qt::AltModifier )
-        setActivateLink( true );
-
-    QTextEdit::keyPressEvent( event );
-}
-void TextEditor::keyReleaseEvent( QKeyEvent * event )
-{
-    setActivateLink( false );
-    QTextEdit::keyReleaseEvent( event );
-}
 void TextEditor::changeEvent( QEvent * event )
 {
     if ( event->type() == QEvent::KeyboardLayoutChange )
@@ -66,7 +49,6 @@ void TextEditor::changeEvent( QEvent * event )
             QString lang = getTheCurrentLanguageKeyboardLayouts();
             Completer::instance()->setDictionary( lang );
         }
-
     }
 
     QTextBrowser::changeEvent(event);
@@ -99,4 +81,43 @@ void TextEditor::contextMenuEvent( QContextMenuEvent * event )
 
     menu->exec( event->globalPos() );
     delete menu;
+}
+
+void TextEditor::mouseMoveEvent( QMouseEvent * event )
+{
+    QTextBrowser::mouseMoveEvent( event );
+
+    const QString & href = anchorAt( event->pos() );
+    if ( !href.isEmpty() )
+    {
+        anchorTooltipTimer.start();
+
+        if ( event->modifiers() == Qt::ControlModifier && viewport()->cursor().shape() != Qt::PointingHandCursor )
+            viewport()->setCursor( Qt::PointingHandCursor );
+    } else
+    {
+        if ( viewport()->cursor().shape() != Qt::IBeamCursor )
+            viewport()->setCursor( Qt::IBeamCursor );
+
+        if ( anchorTooltipTimer.isActive() )
+            anchorTooltipTimer.stop();
+        if ( QToolTip::isVisible() )
+            QToolTip::hideText();
+    }
+}
+void TextEditor::mousePressEvent( QMouseEvent * event )
+{
+    QTextBrowser::mousePressEvent( event );
+
+    if ( event->modifiers() == Qt::ControlModifier && event->button() == Qt::LeftButton )
+    {
+        const QString & href = anchorAt( event->pos() );
+        if ( !href.isEmpty() )
+        {
+            QUrl url( href );
+
+            QDesktopServices::openUrl( QFileInfo( href ).isFile() ? QUrl::fromLocalFile( href ) : url );
+            emit sg_LinkClicked( url );
+        }
+    }
 }

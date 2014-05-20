@@ -10,6 +10,7 @@
 
 #include "completer.h"
 #include "utils/func.h"
+#include <QTimer>
 
 //! Редактор заметки
 class TextEditor: public QTextBrowser
@@ -19,22 +20,21 @@ class TextEditor: public QTextBrowser
 public:
     TextEditor( QWidget * parent = 0 );
 
-    //! Активация ссылок в редакторе
-    void setActivateLink( bool activate );
+private:
+    QTimer anchorTooltipTimer;
 
 private slots:
-    void openLink( QUrl url ); //!< Открытие ссылки
+    void sl_AnchorTooltipTimer_Timeout();
 
 signals:
-    //!< Сигнал отсылается при открытии ссылки
-    void isOpenLink( bool );
+    void sg_LinkClicked( QUrl );
 
 protected:
     void focusInEvent( QFocusEvent * event );
-    void keyPressEvent( QKeyEvent * event );
-    void keyReleaseEvent( QKeyEvent * event );
     void changeEvent( QEvent * event );
     void contextMenuEvent( QContextMenuEvent * event );
+    void mouseMoveEvent(QMouseEvent* event);
+    void mousePressEvent(QMouseEvent* event);
 };
 
 #endif
