@@ -425,8 +425,12 @@
     </message>
     <message>
         <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="736"/>
+        <source>To clear a recycle bin?</source>
+        <translation>Очистить  корзину?</translation>
+    </message>
+    <message>
         <source>Delete all items?</source>
-        <translation>Удалить все элементы?</translation>
+        <translation type="obsolete">Удалить все элементы?</translation>
     </message>
     <message>
         <source>Clear Trash</source>

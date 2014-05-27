@@ -373,7 +373,7 @@
     </message>
     <message>
         <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="736"/>
-        <source>Delete all items?</source>
+        <source>To clear a recycle bin?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -733,7 +733,7 @@ void FolderNavigationWidget::sl_CustomBackColor_Triggered()
 void FolderNavigationWidget::sl_ClearTrashAction_Triggered()
 {
     const QString & title = tr( "Confirm deletion" );
-    const QString & message = tr( "Delete all items?" );
+    const QString & message = tr( "To clear a recycle bin?" );
     bool hasCancel = QMessageBox::question( this, title, message, QMessageBox::Yes | QMessageBox::No ) != QMessageBox::Yes;
     if ( hasCancel )
         return;
