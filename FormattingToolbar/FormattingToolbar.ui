@@ -430,6 +430,9 @@
         <iconset resource="FormattingToolbar.qrc">
          <normaloff>:/FormattingToolbar/hLine</normaloff>:/FormattingToolbar/hLine</iconset>
        </property>
+       <property name="popupMode">
+        <enum>QToolButton::MenuButtonPopup</enum>
+       </property>
       </widget>
      </item>
      <item>

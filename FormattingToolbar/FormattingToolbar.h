@@ -136,6 +136,7 @@ private slots:
     void on_upper_clicked();
 
     //! Вставка горизонтальной линии
+    void insertHLine( const QString &width = "100%" );
     void on_insertHLine_clicked();
 
     //! Выравнивание по левому краю

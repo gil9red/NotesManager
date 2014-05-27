@@ -193,6 +193,24 @@
     </message>
 </context>
 <context>
+    <name>DialogInsertHorizontalLine</name>
+    <message>
+        <location filename="../FormattingToolbar/dialoginserthorizontalline.ui" line="14"/>
+        <source>Dialog of an insertion of the horizontal line</source>
+        <translation>Диалог вставки горизонтальной линии</translation>
+    </message>
+    <message>
+        <location filename="../FormattingToolbar/dialoginserthorizontalline.ui" line="22"/>
+        <source>Width:</source>
+        <translation>Ширина:</translation>
+    </message>
+    <message>
+        <location filename="../FormattingToolbar/dialoginserthorizontalline.ui" line="65"/>
+        <source>pixel</source>
+        <translation>пиксель</translation>
+    </message>
+</context>
+<context>
     <name>DialogInsertHyperlink</name>
     <message>
         <location filename="../FormattingToolbar/DialogInsertHyperlink.ui" line="14"/>
@@ -514,6 +532,8 @@
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="124"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="127"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="130"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="776"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="779"/>
         <source>Bold</source>
         <translation>Жирный</translation>
     </message>
@@ -522,6 +542,8 @@
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="150"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="153"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="156"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="791"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="794"/>
         <source>Italic</source>
         <translation>Курсив</translation>
     </message>
@@ -602,82 +624,82 @@
         <translation type="obsolete">Горизонтальная линия</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="461"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="464"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="467"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="470"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="473"/>
         <source>Align left</source>
         <translation>Выравнивание по левому краю</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="487"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="490"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="493"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="496"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="499"/>
         <source>Align center</source>
         <translation>Выравнивание по центру</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="513"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="516"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="519"/>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="525"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="522"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="528"/>
         <source>Align right</source>
         <translation>Выравнивание по правому краю</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="542"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="545"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="548"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="551"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="554"/>
         <source>Align justify</source>
         <translation>Выравнивание по ширине</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="568"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="571"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="574"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="577"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="580"/>
         <source>Eraser</source>
         <translation>Очистить форматирование</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="594"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="597"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="600"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="603"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="606"/>
         <source>Bulleted list</source>
         <translation>Маркированный список</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="620"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="623"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="626"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="629"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="632"/>
         <source>Ordered list</source>
         <translation>Упорядоченный список</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="666"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="669"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="672"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="675"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="678"/>
         <source>Insert hyperlink</source>
         <translation>Вставка киберссылки</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="692"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="695"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="698"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="701"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="704"/>
         <source>Insert picture</source>
         <translation>Вставка картинки</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="718"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="721"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="724"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="727"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="730"/>
         <source>Insert table</source>
         <translation>Вставка таблицы</translation>
     </message>
@@ -698,7 +720,7 @@
         <translation type="obsolete">Шрифты</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="81"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="111"/>
         <source>Formatting</source>
         <translation>Форматирование</translation>
     </message>
@@ -715,12 +737,12 @@
         <translation type="obsolete">Разное</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="573"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="611"/>
         <source>Images</source>
         <translation>Изображения</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="580"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="618"/>
         <source>Select picture</source>
         <translation>Выбор изображения</translation>
     </message>
@@ -2712,7 +2734,7 @@
     </message>
     <message>
         <location filename="../Note/RichTextNote.cpp" line="204"/>
-        <location filename="../Note/RichTextNote.cpp" line="552"/>
+        <location filename="../Note/RichTextNote.cpp" line="556"/>
         <source>Settings</source>
         <translation>Настройки</translation>
     </message>
@@ -2769,12 +2791,12 @@
         <translation>Сохранение завершено</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="618"/>
+        <location filename="../Note/RichTextNote.cpp" line="622"/>
         <source>File notes</source>
         <translation>Файл заметки</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="739"/>
+        <location filename="../Note/RichTextNote.cpp" line="743"/>
         <source>image</source>
         <translation>Изображение</translation>
     </message>
@@ -2797,13 +2819,13 @@
         <translation type="obsolete">Показать/спрятать панель форматирования</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="488"/>
+        <location filename="../Note/RichTextNote.cpp" line="492"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="488"/>
-        <location filename="../Note/RichTextNote.cpp" line="672"/>
+        <location filename="../Note/RichTextNote.cpp" line="492"/>
+        <location filename="../Note/RichTextNote.cpp" line="676"/>
         <source>An error occurred saving notes</source>
         <translation>Невозможно сохранить заметки</translation>
     </message>
@@ -2812,7 +2834,7 @@
         <translation type="obsolete">Не возможно считать настройки заметок</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="672"/>
+        <location filename="../Note/RichTextNote.cpp" line="676"/>
         <source>Information</source>
         <translation>Информация</translation>
     </message>
@@ -2825,54 +2847,54 @@
         <translation type="obsolete">Невозможно переименовать заметку</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="525"/>
+        <location filename="../Note/RichTextNote.cpp" line="529"/>
         <source>Warning</source>
         <translation>Предупреждение</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="525"/>
+        <location filename="../Note/RichTextNote.cpp" line="529"/>
         <source>I can not delete</source>
         <translation>Не получается удалить</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="558"/>
+        <location filename="../Note/RichTextNote.cpp" line="562"/>
         <source>Select title</source>
         <translation>Выбор заголовка</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="558"/>
+        <location filename="../Note/RichTextNote.cpp" line="562"/>
         <source>Title: </source>
         <translation>Заголовок:</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="567"/>
+        <location filename="../Note/RichTextNote.cpp" line="571"/>
         <source>Select font</source>
         <translation>Выбор шрифта</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="576"/>
-        <location filename="../Note/RichTextNote.cpp" line="584"/>
+        <location filename="../Note/RichTextNote.cpp" line="580"/>
+        <location filename="../Note/RichTextNote.cpp" line="588"/>
         <source>Select color</source>
         <translation>Выбор цвета</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="597"/>
+        <location filename="../Note/RichTextNote.cpp" line="601"/>
         <source>Select opacity</source>
         <translation>Выбор непрозрачности</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="597"/>
+        <location filename="../Note/RichTextNote.cpp" line="601"/>
         <source>Opacity:</source>
         <translation>Непрозрачность:</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="697"/>
-        <location filename="../Note/RichTextNote.cpp" line="706"/>
+        <location filename="../Note/RichTextNote.cpp" line="701"/>
+        <location filename="../Note/RichTextNote.cpp" line="710"/>
         <source>document</source>
         <translation>документ</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="716"/>
+        <location filename="../Note/RichTextNote.cpp" line="720"/>
         <source>Select the files</source>
         <translation>Выберите файлы</translation>
     </message>

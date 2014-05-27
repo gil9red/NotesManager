@@ -38,7 +38,6 @@ QString DialogInsertHyperlink::getTextHyperlink()
     return ui->textHyperlink->text();
 }
 
-
 void DialogInsertHyperlink::updateStates()
 {
     bool hyperlinkIsEmpty = ui->hyperlink->text().isEmpty();

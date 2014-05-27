@@ -14,7 +14,8 @@ HEADERS += \
     $$PWD/colorbackgroundbutton.h \
     $$PWD/colorpalette.h \
     $$PWD/colortextbutton.h \
-    $$PWD/colorselectbutton.h
+    $$PWD/colorselectbutton.h \
+    FormattingToolbar/dialoginserthorizontalline.h
 
 SOURCES += \
     $$PWD/FormattingToolbar.cpp \
@@ -26,11 +27,13 @@ SOURCES += \
     $$PWD/colorbackgroundbutton.cpp \
     $$PWD/colorpalette.cpp \
     $$PWD/colortextbutton.cpp \
-    $$PWD/colorselectbutton.cpp
+    $$PWD/colorselectbutton.cpp \
+    FormattingToolbar/dialoginserthorizontalline.cpp
 
 FORMS += \
     $$PWD/DialogInsertHyperlink.ui \
-    $$PWD/FormattingToolbar.ui
+    $$PWD/FormattingToolbar.ui \
+    FormattingToolbar/dialoginserthorizontalline.ui
 
 RESOURCES += \
     $$PWD/FormattingToolbar.qrc

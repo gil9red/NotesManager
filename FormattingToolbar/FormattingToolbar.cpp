@@ -14,7 +14,7 @@
 #include <QWidgetAction>
 #include "DialogInsertHyperlink.h"
 #include "utils/func.h"
-
+#include "dialoginserthorizontalline.h"
 
 FormattingToolbar::FormattingToolbar( QWidget * parent ) :
     QWidget( parent ),
@@ -48,6 +48,22 @@ FormattingToolbar::FormattingToolbar( QWidget * parent ) :
     QObject::connect( ui->underline, SIGNAL( selected(int) ), SLOT( underline(int) ) );
     QObject::connect( ui->underline, SIGNAL( selected(QColor) ), SLOT( colorUnderline(QColor) ) );
     QObject::connect( ui->insertTable, SIGNAL( selected(int,int) ), SLOT( insertTable(int,int) ) );
+
+    // Контекстное меню для кнопки вставки горизонтальной линии
+    {
+        QMenu * menuHLine = new QMenu();
+        DialogInsertHorizontalLine * dialogInsertHorizontalLine = new DialogInsertHorizontalLine();
+        QObject::connect( dialogInsertHorizontalLine, SIGNAL(sg_insertLine(QString)), SLOT(insertHLine(QString)) );
+        QObject::connect( dialogInsertHorizontalLine, SIGNAL(sg_insertLine(QString)), menuHLine, SLOT(hide()) );
+
+        QVBoxLayout * layout = new QVBoxLayout();
+        layout->setMargin(0);
+        layout->addWidget( dialogInsertHorizontalLine, 0, Qt::AlignCenter );
+
+        menuHLine->setLayout( layout );
+
+        ui->insertHLine->setMenu( menuHLine );
+    }
 
     updateStates();
 }
@@ -479,12 +495,17 @@ void FormattingToolbar::on_upper_clicked()
 {
     changeCaseSensitive( Upper );
 }
-void FormattingToolbar::on_insertHLine_clicked()
+
+void FormattingToolbar::insertHLine( const QString & width )
 {
     if ( !editor )
         return;
 
-    editor->textCursor().insertHtml( "<hr><br>" );
+    editor->textCursor().insertHtml( QString("<hr width=\"%1\">").arg( width ) + "<br>" );
+}
+void FormattingToolbar::on_insertHLine_clicked()
+{
+    insertHLine( "100%" );
 }
 void FormattingToolbar::on_alignLeft_clicked()
 {
