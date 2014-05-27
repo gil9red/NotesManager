@@ -423,6 +423,8 @@ bool FolderNavigationWidget::sl_AddNote( RichTextNote * richTextNote )
 void FolderNavigationWidget::sl_AddNoteAction_Triggered()
 {
     RichTextNote * richTextNote = new RichTextNote();
+    richTextNote->createNew();
+
     bool successful = sl_AddNote( richTextNote );
     if ( !successful )
     {
@@ -430,7 +432,6 @@ void FolderNavigationWidget::sl_AddNoteAction_Triggered()
         delete richTextNote;
         return;
     }
-    richTextNote->createNew();
 }
 void FolderNavigationWidget::sl_AddFolderAction_Triggered()
 {

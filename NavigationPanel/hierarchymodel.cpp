@@ -36,7 +36,7 @@ HierarchyModel::HierarchyModel( QObject * parent )
         WARNING("Null reference");
         return;
     }
-    registerItem(rootFolder);
+    registerItem( rootFolder );
 
     Folder * trashFolder = Notebook::instance()->getTrashFolder();
     if ( !trashFolder )

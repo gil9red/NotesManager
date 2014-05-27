@@ -351,9 +351,11 @@ void Page_Notes::addNote()
 void Page_Notes::addNoteFromClipboard()
 {
     qApp->setOverrideCursor( Qt::WaitCursor );
-
     RichTextNote * richTextNote = new RichTextNote();
     richTextNote->createNew( false );
+    richTextNote->setText( qApp->clipboard()->text() );
+    richTextNote->save();    
+    qApp->restoreOverrideCursor();
 
     bool successful = ui->tab_Notes->sl_AddNote( richTextNote );
     if ( !successful )
@@ -362,11 +364,7 @@ void Page_Notes::addNoteFromClipboard()
         richTextNote->remove();
         return;
     }
-
-    richTextNote->setText( qApp->clipboard()->text() );
-    richTextNote->save();
     writeToXmlStateNotes();
-    qApp->restoreOverrideCursor();
 }
 void Page_Notes::addNoteFromScreen()
 {
@@ -379,9 +377,11 @@ void Page_Notes::addNoteFromScreen()
 
 
     qApp->setOverrideCursor( Qt::WaitCursor );
-
     RichTextNote * richTextNote = new RichTextNote();
     richTextNote->createNew( false );
+    richTextNote->insertImage( screenshot );
+    richTextNote->save();    
+    qApp->restoreOverrideCursor();
 
     bool successful = ui->tab_Notes->sl_AddNote( richTextNote );
     if ( !successful )
@@ -391,11 +391,7 @@ void Page_Notes::addNoteFromScreen()
         qApp->restoreOverrideCursor();
         return;
     }
-
-    richTextNote->insertImage( screenshot );
-    richTextNote->save();
     writeToXmlStateNotes();
-    qApp->restoreOverrideCursor();
 }
 void Page_Notes::sl_Delete()
 {
