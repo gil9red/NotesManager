@@ -58,7 +58,7 @@ RichTextNote::RichTextNote( const QString & fileName, QWidget * parent )
     : AbstractNote( parent )
 {
     setFileName( fileName );
-    init(); 
+    init();
 }
 RichTextNote::RichTextNote( QWidget * parent )
     : AbstractNote( parent )
@@ -173,7 +173,7 @@ void RichTextNote::init()
 
     QObject::connect( &timerAutosave, SIGNAL( timeout() ), SLOT( save() ) );
     QObject::connect( document(), SIGNAL( contentsChanged() ), SLOT( contentsChanged() ) );
-    QObject::connect( this, SIGNAL( doubleClickHead() ), SLOT( doubleClickingOnTitle() ) );    
+    QObject::connect( this, SIGNAL( doubleClickHead() ), SLOT( doubleClickingOnTitle() ) );
 
     // Так как папка у нас одна - папка с прикрепленными файлами, то обновляем только ее, а по хорошему нужно создать отдельный слот-обработчик.
     QObject::connect( &fileSystemWatcher, SIGNAL(directoryChanged(QString)), SLOT(directoryChanged(QString)) );
@@ -434,6 +434,10 @@ void RichTextNote::load()
 
     updateStates();
     emit changed( EventsNote::LoadEnded );
+
+    // После загрузки эмулируем отсутствия курсора мышки на заметки
+    QEvent event(QEvent::Leave);
+    QApplication::sendEvent(this, &event);
 }
 void RichTextNote::loadSettings()
 {    
@@ -492,7 +496,7 @@ void RichTextNote::saveContent()
     QTextStream in( &content );
     in.setCodec( "utf8" );
     in << text();
-    content.close();    
+    content.close();
 
     updateStates();
 
@@ -500,10 +504,10 @@ void RichTextNote::saveContent()
 }
 void RichTextNote::loadContent()
 {
-   if ( editor.source().isEmpty() )
-       editor.setSource( QUrl::fromLocalFile( contentFilePath() ) );
-   else
-       editor.reload();
+    if ( editor.source().isEmpty() )
+        editor.setSource( QUrl::fromLocalFile( contentFilePath() ) );
+    else
+        editor.reload();
 }
 void RichTextNote::setText( const QString & str )
 {
@@ -522,7 +526,7 @@ void RichTextNote::removeDir()
     setActivateFileWatcher( false );
 
     if ( !removePath( fileName() ) )
-        QMessageBox::warning( this, tr( "Warning" ), tr( "I can not delete" ) );    
+        QMessageBox::warning( this, tr( "Warning" ), tr( "I can not delete" ) );
 }
 void RichTextNote::remove()
 {
@@ -607,7 +611,7 @@ void RichTextNote::saveAs()
     foreach ( const QByteArray & format, QImageWriter::supportedImageFormats() )
         imageFormats << QString( format );
 
-    QStringList textFormats;    
+    QStringList textFormats;
     foreach ( const QByteArray & format, QTextDocumentWriter::supportedDocumentFormats() )
         if ( format.contains( "plaintext" ) ) // plaintext тот же txt
             textFormats << "txt";
@@ -652,7 +656,7 @@ void RichTextNote::saveAs()
         textEditor()->print( &printer );
 
     } else if ( imageFormats.contains( suffix, Qt::CaseInsensitive ) ) // Если хотим сохранить как картинку, сохраним скрин окна заметки
-    {        
+    {
         QPixmap::grabWidget( this ).save( saveFileName );
 
     } else if ( suffix.contains( "txt", Qt::CaseInsensitive ) // Если у нас txt, html или odf
@@ -742,7 +746,7 @@ void RichTextNote::insertImage( const QPixmap & pixmap )
     if ( !pixmap.save( path ) )
     {
         WARNING( "Error when saving!" )
-        return;
+                return;
     }
     insertImage( path );
     updateAttachList();
@@ -755,7 +759,7 @@ QString RichTextNote::attach( const QString & fileName )
     QString newFileName = attachDirPath() + QDir::separator() + QFileInfo( fileName ).fileName();
     QFile::copy( fileName, newFileName );
 
-    attachModel.appendRow( new QStandardItem( QFileInfo( fileName ).fileName() ) );    
+    attachModel.appendRow( new QStandardItem( QFileInfo( fileName ).fileName() ) );
     emit changed( EventsNote::ChangeAttach );
 
     setActivateFileWatcher( true );
@@ -885,7 +889,7 @@ void RichTextNote::directoryChanged( const QString & name )
 {
     // Если это была папка с прикрепленными файлами
     if ( name == attachDirPath() )
-        updateAttachList();    
+        updateAttachList();
 }
 void RichTextNote::fileChanged( const QString & name )
 {
@@ -893,22 +897,32 @@ void RichTextNote::fileChanged( const QString & name )
         loadContent();
 
     else if ( name == settingsFilePath() )
-        loadSettings();    
+        loadSettings();
 }
 
 void RichTextNote::enterEvent( QEvent * )
 {
-    QPropertyAnimation * animation = new QPropertyAnimation( this, "windowOpacity" );
-    animation->setDuration( 200 );
-    animation->setStartValue( opacity() );
-    animation->setEndValue( nm_Note::maximalOpacity );
-    animation->start( QAbstractAnimation::DeleteWhenStopped );
+    // Анимация, при которой заметка постепенно становится видимой (увеличение ее непрозрачности до 100)
+    {
+        QPropertyAnimation * animation = new QPropertyAnimation( this, "windowOpacity" );
+        animation->setDuration( 200 );
+        animation->setStartValue( opacity() );
+        animation->setEndValue( nm_Note::maximalOpacity );
+        animation->start( QAbstractAnimation::DeleteWhenStopped );
+    }
+
+    statusBar()->setSizeGripEnabled( true );
 }
 void RichTextNote::leaveEvent( QEvent * )
 {
-    QPropertyAnimation * animation = new QPropertyAnimation( this, "windowOpacity" );
-    animation->setDuration( 700 );
-    animation->setStartValue( nm_Note::maximalOpacity );
-    animation->setEndValue( opacity() );
-    animation->start( QAbstractAnimation::DeleteWhenStopped );
+    // Анимация, при которой заметка постепенно становится менее видимой (уменьшение ее непрозрачности до указанного значения непрозрачности)
+    {
+        QPropertyAnimation * animation = new QPropertyAnimation( this, "windowOpacity" );
+        animation->setDuration( 700 );
+        animation->setStartValue( nm_Note::maximalOpacity );
+        animation->setEndValue( opacity() );
+        animation->start( QAbstractAnimation::DeleteWhenStopped );
+    }
+
+    statusBar()->setSizeGripEnabled( false );
 }
