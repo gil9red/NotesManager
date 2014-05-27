@@ -14,6 +14,7 @@ TextEditor::TextEditor( QWidget * parent ):
     setReadOnly( false );
 
     anchorTooltipTimer.setInterval( 1000 );
+    anchorTooltipTimer.setSingleShot( true );
     QObject::connect( &anchorTooltipTimer, SIGNAL(timeout()), SLOT(sl_AnchorTooltipTimer_Timeout()) );
 }
 
