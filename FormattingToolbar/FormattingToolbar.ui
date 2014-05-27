@@ -761,6 +761,36 @@
     </spacer>
    </item>
   </layout>
+  <action name="actionBold">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="FormattingToolbar.qrc">
+     <normaloff>:/FormattingToolbar/bold</normaloff>:/FormattingToolbar/bold</iconset>
+   </property>
+   <property name="text">
+    <string>Bold</string>
+   </property>
+   <property name="toolTip">
+    <string>Bold</string>
+   </property>
+  </action>
+  <action name="actionItalic">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="FormattingToolbar.qrc">
+     <normaloff>:/FormattingToolbar/italic</normaloff>:/FormattingToolbar/italic</iconset>
+   </property>
+   <property name="text">
+    <string>Italic</string>
+   </property>
+   <property name="toolTip">
+    <string>Italic</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>

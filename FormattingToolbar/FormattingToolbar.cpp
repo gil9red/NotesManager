@@ -11,7 +11,7 @@
 #include <QImageReader>
 #include <QUrl>
 #include <QTextTable>
-
+#include <QWidgetAction>
 #include "DialogInsertHyperlink.h"
 #include "utils/func.h"
 
@@ -67,6 +67,20 @@ void FormattingToolbar::installConnect( QTextEdit * editor )
     QObject::connect( editor->document(), SIGNAL(contentsChanged() ), SLOT( updateStates() ) );
 
     currentCharFormatChanged( editor->currentCharFormat() );
+
+    // Добавление в редактор функциональности панели форматирования
+    {
+        QObject::connect( ui->actionBold, SIGNAL(triggered(bool)), SLOT(on_bold_clicked(bool)) );
+        QObject::connect( ui->actionItalic, SIGNAL(triggered(bool)), SLOT(on_italic_clicked(bool)) );
+
+        QMenu * menu = this->editor->createStandardContextMenu();
+        menu->addSeparator();
+        menu->addAction( ui->actionBold );
+        menu->addAction( ui->actionItalic );
+
+        this->editor->setContextMenuPolicy( Qt::ActionsContextMenu );
+        this->editor->addActions( menu->actions() );
+    }
 
     updateStates();
 }
@@ -258,7 +272,6 @@ void FormattingToolbar::updateStates()
 
         ui->fontSize->setEnabled( false );
         ui->font->setEnabled( false );
-
         return;
     }
 
@@ -278,13 +291,15 @@ void FormattingToolbar::updateStates()
     ui->alignJustify->setEnabled( !isEmpty );
 
     ui->fontSize->setEnabled( hasSelection );
-    ui->font->setEnabled( hasSelection );
+    ui->font->setEnabled( hasSelection );    
     ui->bold->setEnabled( hasSelection );
+    ui->actionBold->setEnabled( hasSelection );
+    ui->italic->setEnabled( hasSelection );
+    ui->actionItalic->setEnabled( hasSelection );
     ui->colorBackground->setEnabled( hasSelection );
     ui->decreaseSizeFont->setEnabled( hasSelection );
     ui->eraser->setEnabled( hasSelection );
-    ui->increaseSizeFont->setEnabled( hasSelection );
-    ui->italic->setEnabled( hasSelection );
+    ui->increaseSizeFont->setEnabled( hasSelection );    
     ui->lower->setEnabled( hasSelection );
     ui->overline->setEnabled( hasSelection );
     ui->strikeout->setEnabled( hasSelection );
@@ -326,7 +341,9 @@ void FormattingToolbar::fontChanged( const QFont &font )
     ui->font->setCurrentIndex( ui->font->findText( QFontInfo( font ).family() ) );
     ui->fontSize->setCurrentIndex( ui->fontSize->findText( QString::number( font.pointSize() ) ) );
     ui->bold->setChecked( font.bold() );
+    ui->actionBold->setChecked( font.bold() );
     ui->italic->setChecked( font.italic() );
+    ui->actionItalic->setChecked( font.italic() );
     ui->underline->setChecked( font.underline() );
     ui->strikeout->setChecked( font.strikeOut() );
     ui->overline->setChecked( font.overline() );
