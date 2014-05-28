@@ -11,6 +11,7 @@
 #include "completer.h"
 #include "utils/func.h"
 #include <QTimer>
+#include <QTextFragment>
 
 //! Редактор заметки
 class TextEditor: public QTextBrowser
@@ -19,6 +20,16 @@ class TextEditor: public QTextBrowser
 
 public:
     TextEditor( QWidget * parent = 0 );
+
+private:
+    QTextFragment findFragmentAtPos(QPoint pos);
+
+public slots:
+    void openUrl(const QUrl & url);
+
+    void sl_FollowLinkAction();
+    void sl_RemoveLinkAction();
+    void sl_EditLinkAction();
 
 private:
     QTimer anchorTooltipTimer;

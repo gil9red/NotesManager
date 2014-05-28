@@ -21,7 +21,7 @@ public:
     void setTextHyperlink( const QString & text );
 
     QString getHyperlink(); //!< Функция возвращает строку с гиперссылкой.
-    QString getTextHyperlink();      //!< Функция возвращает строку текста гиперссылки.
+    QString getTextHyperlink(); //!< Функция возвращает строку текста гиперссылки.
     
 private:
     Ui::DialogInsertHyperlink * ui; //!< Форма UI класса.

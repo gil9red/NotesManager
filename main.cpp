@@ -78,7 +78,6 @@ static QScriptValue importExtension( QScriptContext *context, QScriptEngine * en
 ///
 /// EventsNote::LoadEnded разделить на окончание загрузки контента и параметров, тоже самое и для сохранения
 /// Пусть QSystemFileWatcher также будет создан для слежения папок с заметками - если происходит удаление папки заметки, удаляем и ее из менеджера, и наоборот
-////// TODO: редактирование гиперссылки у заметок
 
 QString nm_Note::style = "";
 

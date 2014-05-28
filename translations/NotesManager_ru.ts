@@ -133,12 +133,12 @@
 <context>
     <name>ColorButton</name>
     <message>
-        <location filename="../FormattingToolbar/ColorButton.cpp" line="33"/>
+        <location filename="../FormattingToolbar/ColorButton.cpp" line="34"/>
         <source>Default color</source>
         <translation>Цвет по умолчанию</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/ColorButton.cpp" line="41"/>
+        <location filename="../FormattingToolbar/ColorButton.cpp" line="42"/>
         <source>Another color</source>
         <translation>Другой цвет</translation>
     </message>
@@ -720,7 +720,7 @@
         <translation type="obsolete">Шрифты</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="111"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="110"/>
         <source>Formatting</source>
         <translation>Форматирование</translation>
     </message>
@@ -737,12 +737,12 @@
         <translation type="obsolete">Разное</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="611"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="610"/>
         <source>Images</source>
         <translation>Изображения</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="618"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="617"/>
         <source>Select picture</source>
         <translation>Выбор изображения</translation>
     </message>
@@ -2403,7 +2403,7 @@
         <translation type="obsolete">Менеджер заметок</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="121"/>
+        <location filename="../main.cpp" line="120"/>
         <source>Loading fonts</source>
         <oldsource>Load fonts</oldsource>
         <translation>Загрузка шрифтов</translation>
@@ -2413,25 +2413,25 @@
         <translation type="obsolete">Создать</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="124"/>
+        <location filename="../main.cpp" line="123"/>
         <source>Loading dictionaries</source>
         <oldsource>Load dictionaries</oldsource>
         <translation>Загрузка словарей</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="127"/>
+        <location filename="../main.cpp" line="126"/>
         <source>Creation</source>
         <oldsource>Created</oldsource>
         <translation>Создание</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="138"/>
+        <location filename="../main.cpp" line="137"/>
         <source>Loading settings</source>
         <oldsource>Load settings</oldsource>
         <translation>Загрузка настроек</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="141"/>
+        <location filename="../main.cpp" line="140"/>
         <source>Loading scripts</source>
         <translation>Загрузка сценариев</translation>
     </message>
@@ -2441,7 +2441,7 @@
         <translation type="obsolete">Загрузка заметок</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="144"/>
+        <location filename="../main.cpp" line="143"/>
         <source>Now ready</source>
         <translation>Готов</translation>
     </message>
@@ -3228,9 +3228,29 @@
 <context>
     <name>TextEditor</name>
     <message>
-        <location filename="../Note/texteditor.cpp" line="25"/>
+        <location filename="../Note/texteditor.cpp" line="143"/>
+        <source>Edit hyperlink</source>
+        <translation>Редактирование гиперссылки</translation>
+    </message>
+    <message>
+        <location filename="../Note/texteditor.cpp" line="164"/>
         <source>Ctrl+Click to go</source>
         <translation>Ctrl + Клик левой кнопкой мыши для перехода по гиперссылке</translation>
+    </message>
+    <message>
+        <location filename="../Note/texteditor.cpp" line="227"/>
+        <source>Follow link</source>
+        <translation>Пройти по ссылке</translation>
+    </message>
+    <message>
+        <location filename="../Note/texteditor.cpp" line="231"/>
+        <source>Remove link</source>
+        <translation>Удалить ссылку</translation>
+    </message>
+    <message>
+        <location filename="../Note/texteditor.cpp" line="235"/>
+        <source>Edit link</source>
+        <translation>Редактировать ссылку</translation>
     </message>
 </context>
 <context>

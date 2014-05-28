@@ -125,12 +125,12 @@
 <context>
     <name>ColorButton</name>
     <message>
-        <location filename="../FormattingToolbar/ColorButton.cpp" line="33"/>
+        <location filename="../FormattingToolbar/ColorButton.cpp" line="34"/>
         <source>Default color</source>
         <translation>Колір за замовчуванням</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/ColorButton.cpp" line="41"/>
+        <location filename="../FormattingToolbar/ColorButton.cpp" line="42"/>
         <source>Another color</source>
         <translation>Iнший колір</translation>
     </message>
@@ -659,7 +659,7 @@
         <translation type="obsolete">Шрифти</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="111"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="110"/>
         <source>Formatting</source>
         <translation>Форматування</translation>
     </message>
@@ -676,12 +676,12 @@
         <translation type="obsolete">Iнші</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="611"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="610"/>
         <source>Images</source>
         <translation>Зображення</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="618"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="617"/>
         <source>Select picture</source>
         <translation>Виберіть знімок</translation>
     </message>
@@ -1791,27 +1791,27 @@
         <translation type="obsolete">немає</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="121"/>
+        <location filename="../main.cpp" line="120"/>
         <source>Loading fonts</source>
         <translation>Завантаження шрифтів</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="124"/>
+        <location filename="../main.cpp" line="123"/>
         <source>Loading dictionaries</source>
         <translation>Завантаження словників</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="127"/>
+        <location filename="../main.cpp" line="126"/>
         <source>Creation</source>
         <translation>Creation</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="138"/>
+        <location filename="../main.cpp" line="137"/>
         <source>Loading settings</source>
         <translation>Завантаження налаштувань</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="141"/>
+        <location filename="../main.cpp" line="140"/>
         <source>Loading scripts</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1820,7 +1820,7 @@
         <translation type="obsolete">Завантаження замітки</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="144"/>
+        <location filename="../main.cpp" line="143"/>
         <source>Now ready</source>
         <translation>Тепер готовий</translation>
     </message>
@@ -2442,8 +2442,28 @@
 <context>
     <name>TextEditor</name>
     <message>
-        <location filename="../Note/texteditor.cpp" line="25"/>
+        <location filename="../Note/texteditor.cpp" line="143"/>
+        <source>Edit hyperlink</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Note/texteditor.cpp" line="164"/>
         <source>Ctrl+Click to go</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Note/texteditor.cpp" line="227"/>
+        <source>Follow link</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Note/texteditor.cpp" line="231"/>
+        <source>Remove link</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Note/texteditor.cpp" line="235"/>
+        <source>Edit link</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

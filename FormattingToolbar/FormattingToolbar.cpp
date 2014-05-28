@@ -94,7 +94,6 @@ void FormattingToolbar::installConnect( QTextEdit * editor )
         menu->addAction( ui->actionBold );
         menu->addAction( ui->actionItalic );
 
-        this->editor->setContextMenuPolicy( Qt::ActionsContextMenu );
         this->editor->addActions( menu->actions() );
     }
 
