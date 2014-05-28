@@ -103,6 +103,7 @@ Manager::Manager( QWidget * parent ) :
         QObject::connect( ui->actionCloseDict, SIGNAL( triggered() ), SLOT( closeDictionary() ) );
 
         QObject::connect( ui->actionFullScreen, SIGNAL( triggered(bool) ), SLOT( setFullScreen(bool) ) );
+        QObject::connect( ui->actionTopOfAllWindows, SIGNAL(triggered(bool)), SLOT(setTopOfAllWindows(bool)) );
         QObject::connect( ui->actionShowSidebar, SIGNAL( triggered(bool) ), SLOT( setShowSidebar(bool) ) );
         QObject::connect( ui->actionShowStatusBar, SIGNAL( triggered(bool) ), SLOT( setShowStatusBar(bool) ) );
 
@@ -316,6 +317,7 @@ void Manager::showPageDocumentation()
 void Manager::updateStates()
 {    
     ui->actionFullScreen->setChecked( isFullScreen() );
+    ui->actionTopOfAllWindows->setChecked( isTopOfAllWindows() );
 
     bool isAutocomplete = Completer::instance()->isAutocomplete();
     ui->actionCloseDict->setEnabled( isAutocomplete );
@@ -371,8 +373,20 @@ void Manager::setFullScreen( bool fs )
     else
         showNormal();
 
-    ui->actionFullScreen->setChecked( fs );
+    updateStates();
 }
+
+void Manager::setTopOfAllWindows( bool top )
+{
+    setWindowFlags( top ? windowFlags() | Qt::WindowStaysOnTopHint : windowFlags() & ~Qt::WindowStaysOnTopHint );
+    show();
+    updateStates();
+}
+bool Manager::isTopOfAllWindows()
+{
+    return windowFlags().testFlag( Qt::WindowStaysOnTopHint );
+}
+
 void Manager::quit()
 {
     bool askBeforeExiting = pageSettings->mapSettings[ "AskBeforeExiting" ].toBool();
@@ -401,6 +415,7 @@ void Manager::readSettings()
     setActivateDictionary( settings->value( "Autocomplete" ).toBool() );
     setShowSidebar( settings->value( "Sidebar_Visible", true ).toBool() );
     setShowStatusBar( settings->value( "StatusBar_Visible", true ).toBool() );
+    setTopOfAllWindows( settings->value( "TopOfAllWindows", false ).toBool() );
     settings->endGroup();
 
     pageNotes->readSettings();    
@@ -422,6 +437,7 @@ void Manager::writeSettings()
     settings->setValue( "Autocomplete", isActivateDictionary() );
     settings->setValue( "Sidebar_Visible", isShowSidebar() );
     settings->setValue( "StatusBar_Visible", isShowStatusBar() );
+    settings->setValue( "TopOfAllWindows", isTopOfAllWindows() );
     settings->endGroup();
 
     pageNotes->writeSettings();
@@ -453,23 +469,23 @@ void Manager::closeDictionary()
     setActivateDictionary( false );
 }
 
-void Manager::setShowSidebar( bool visible )
+void Manager::setShowSidebar( bool show )
 {
-    ui->sidebar->setVisible( visible );
-    ui->actionShowSidebar->setChecked( visible );
+    ui->sidebar->setVisible( show );
+    ui->actionShowSidebar->setChecked(show);
 }
 bool Manager::isShowSidebar()
 {
-    return ui->sidebar->isVisible();
+    return ui->actionShowSidebar->isChecked();
 }
 void Manager::setShowStatusBar( bool show )
 {
     ui->statusBar->setVisible( show );
-    ui->actionShowStatusBar->setChecked( show );
+    ui->actionShowStatusBar->setChecked(show);
 }
 bool Manager::isShowStatusBar()
 {
-    return ui->statusBar->isVisible();
+    return ui->actionShowStatusBar->isChecked();
 }
 void Manager::setActivateTimerAutosave( bool activate )
 {

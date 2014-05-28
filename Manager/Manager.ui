@@ -152,6 +152,7 @@
      <string>Window</string>
     </property>
     <addaction name="actionFullScreen"/>
+    <addaction name="actionTopOfAllWindows"/>
     <addaction name="actionShowSidebar"/>
     <addaction name="actionShowStatusBar"/>
    </widget>
@@ -286,10 +287,6 @@
    <property name="checked">
     <bool>true</bool>
    </property>
-   <property name="icon">
-    <iconset resource="Manager.qrc">
-     <normaloff>:/fugue-icons/application-sidebar</normaloff>:/fugue-icons/application-sidebar</iconset>
-   </property>
    <property name="text">
     <string>Show Sidebar</string>
    </property>
@@ -375,6 +372,20 @@
     <string>Show Scripts Manager</string>
    </property>
   </action>
+  <action name="actionTopOfAllWindows">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>On top of all windows</string>
+   </property>
+   <property name="statusTip">
+    <string>On top of all windows</string>
+   </property>
+   <property name="whatsThis">
+    <string>On top of all windows</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
@@ -386,8 +397,8 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="Manager.qrc"/>
   <include location="../ScriptModule/ScriptModule.qrc"/>
+  <include location="Manager.qrc"/>
  </resources>
  <connections>
   <connection>

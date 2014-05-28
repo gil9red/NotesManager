@@ -79,9 +79,12 @@ public slots:
 
     void updateSystemTray();
 
-public slots:
     Q_SCRIPTABLE void showManager();  //!< Показать менеджер.
     Q_SCRIPTABLE void setFullScreen( bool );
+
+    Q_SCRIPTABLE void setTopOfAllWindows( bool );
+    Q_SCRIPTABLE bool isTopOfAllWindows();
+
     Q_SCRIPTABLE void quit(); //!< Закрыть программу.
 
     Q_SCRIPTABLE void readSettings();  //!< Считывание настроек менеджера.

@@ -442,7 +442,7 @@
         <translation>Персональный цвет</translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="736"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="737"/>
         <source>To clear a recycle bin?</source>
         <translation>Очистить  корзину?</translation>
     </message>
@@ -476,7 +476,7 @@
     </message>
     <message>
         <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="196"/>
-        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="735"/>
+        <location filename="../NavigationPanel/foldernavigationwidget.cpp" line="736"/>
         <source>Confirm deletion</source>
         <translation>Подтверждение удаление</translation>
     </message>
@@ -803,8 +803,8 @@
         <translation type="obsolete">Плагины</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="211"/>
-        <location filename="../Manager/Manager.ui" line="214"/>
+        <location filename="../Manager/Manager.ui" line="212"/>
+        <location filename="../Manager/Manager.ui" line="215"/>
         <location filename="../Manager/Manager.cpp" line="32"/>
         <source>Quit</source>
         <translation>Выход</translation>
@@ -838,18 +838,18 @@
         <translation type="obsolete">Сохранить все заметки</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="241"/>
-        <location filename="../Manager/Manager.ui" line="244"/>
-        <location filename="../Manager/Manager.ui" line="247"/>
+        <location filename="../Manager/Manager.ui" line="242"/>
+        <location filename="../Manager/Manager.ui" line="245"/>
+        <location filename="../Manager/Manager.ui" line="248"/>
         <source>Open Dictionary</source>
         <translation>Открыть словарь</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="256"/>
-        <location filename="../Manager/Manager.ui" line="259"/>
-        <location filename="../Manager/Manager.ui" line="262"/>
-        <location filename="../Manager/Manager.ui" line="265"/>
-        <location filename="../Manager/Manager.ui" line="268"/>
+        <location filename="../Manager/Manager.ui" line="257"/>
+        <location filename="../Manager/Manager.ui" line="260"/>
+        <location filename="../Manager/Manager.ui" line="263"/>
+        <location filename="../Manager/Manager.ui" line="266"/>
+        <location filename="../Manager/Manager.ui" line="269"/>
         <source>Close Dictionary</source>
         <translation>Закрыть словарь</translation>
     </message>
@@ -866,24 +866,24 @@
         <translation type="obsolete">Переместить из корзины</translation>
     </message>
     <message>
+        <location filename="../Manager/Manager.ui" line="316"/>
         <location filename="../Manager/Manager.ui" line="319"/>
         <location filename="../Manager/Manager.ui" line="322"/>
-        <location filename="../Manager/Manager.ui" line="325"/>
         <source>Full Screen</source>
         <translation>Во весь экран</translation>
     </message>
     <message>
+        <location filename="../Manager/Manager.ui" line="331"/>
         <location filename="../Manager/Manager.ui" line="334"/>
         <location filename="../Manager/Manager.ui" line="337"/>
-        <location filename="../Manager/Manager.ui" line="340"/>
         <location filename="../Manager/Manager.cpp" line="30"/>
         <source>Settings</source>
         <translation>Настройки</translation>
     </message>
     <message>
+        <location filename="../Manager/Manager.ui" line="348"/>
         <location filename="../Manager/Manager.ui" line="351"/>
         <location filename="../Manager/Manager.ui" line="354"/>
-        <location filename="../Manager/Manager.ui" line="357"/>
         <source>Show Status Bar</source>
         <translation>Показать строку состояния</translation>
     </message>
@@ -896,15 +896,15 @@
         <translation type="obsolete">Сохранить заметку как</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="226"/>
-        <location filename="../Manager/Manager.ui" line="229"/>
-        <location filename="../Manager/Manager.ui" line="232"/>
+        <location filename="../Manager/Manager.ui" line="227"/>
+        <location filename="../Manager/Manager.ui" line="230"/>
+        <location filename="../Manager/Manager.ui" line="233"/>
         <location filename="../Manager/Manager.cpp" line="31"/>
         <source>About</source>
         <translation>О программе</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="208"/>
+        <location filename="../Manager/Manager.ui" line="209"/>
         <source>&amp;Quit</source>
         <translation>&amp;Выход</translation>
     </message>
@@ -917,22 +917,22 @@
         <translation>Файл</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="160"/>
-        <location filename="../Manager/Manager.ui" line="163"/>
-        <location filename="../Manager/Manager.ui" line="166"/>
-        <location filename="../Manager/Manager.ui" line="169"/>
+        <location filename="../Manager/Manager.ui" line="161"/>
+        <location filename="../Manager/Manager.ui" line="164"/>
+        <location filename="../Manager/Manager.ui" line="167"/>
+        <location filename="../Manager/Manager.ui" line="170"/>
         <source>Scripts</source>
         <translation>Сценарии</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="217"/>
+        <location filename="../Manager/Manager.ui" line="218"/>
         <source>Ctrl+Q</source>
         <translation></translation>
     </message>
     <message>
+        <location filename="../Manager/Manager.ui" line="366"/>
         <location filename="../Manager/Manager.ui" line="369"/>
         <location filename="../Manager/Manager.ui" line="372"/>
-        <location filename="../Manager/Manager.ui" line="375"/>
         <source>Show Scripts Manager</source>
         <translation>Показать менеджер сценариев</translation>
     </message>
@@ -969,8 +969,8 @@
         <translation type="obsolete">Управление</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="184"/>
-        <location filename="../Manager/Manager.ui" line="311"/>
+        <location filename="../Manager/Manager.ui" line="185"/>
+        <location filename="../Manager/Manager.ui" line="308"/>
         <source>Main</source>
         <translation>Основные</translation>
     </message>
@@ -1003,9 +1003,9 @@
         <translation type="obsolete">Дупликат</translation>
     </message>
     <message>
+        <location filename="../Manager/Manager.ui" line="291"/>
         <location filename="../Manager/Manager.ui" line="294"/>
         <location filename="../Manager/Manager.ui" line="297"/>
-        <location filename="../Manager/Manager.ui" line="300"/>
         <source>Show Sidebar</source>
         <translation>Показать боковую панель</translation>
     </message>
@@ -1066,9 +1066,9 @@
         <translation type="obsolete">Предпросмотр перед печатью</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.ui" line="273"/>
-        <location filename="../Manager/Manager.ui" line="276"/>
-        <location filename="../Manager/Manager.ui" line="279"/>
+        <location filename="../Manager/Manager.ui" line="274"/>
+        <location filename="../Manager/Manager.ui" line="277"/>
+        <location filename="../Manager/Manager.ui" line="280"/>
         <source>Documentation</source>
         <translation>Документация</translation>
     </message>
@@ -1113,8 +1113,11 @@
         <translation type="obsolete">Печать заметки</translation>
     </message>
     <message>
+        <location filename="../Manager/Manager.ui" line="380"/>
+        <location filename="../Manager/Manager.ui" line="383"/>
+        <location filename="../Manager/Manager.ui" line="386"/>
         <source>On top of all windows</source>
-        <translation type="obsolete">Поверх всех окон</translation>
+        <translation>Поверх всех окон</translation>
     </message>
     <message>
         <source>Top</source>
@@ -1190,12 +1193,12 @@
         <translation type="obsolete">Форматирование текста</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="198"/>
+        <location filename="../Manager/Manager.cpp" line="199"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="198"/>
+        <location filename="../Manager/Manager.cpp" line="199"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>Невозможно прочитать файл %1:
@@ -1206,43 +1209,43 @@
         <translation type="obsolete">Программа создания заметок</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="344"/>
+        <location filename="../Manager/Manager.cpp" line="346"/>
         <source>The program creates notes</source>
         <translation>Программа создает заметки</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="115"/>
+        <location filename="../Manager/Manager.cpp" line="116"/>
         <source>Open manager</source>
         <translation>Открыть менеджер</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="262"/>
-        <location filename="../Manager/Manager.cpp" line="311"/>
+        <location filename="../Manager/Manager.cpp" line="263"/>
+        <location filename="../Manager/Manager.cpp" line="312"/>
         <source>Information</source>
         <translation>Информация</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="262"/>
+        <location filename="../Manager/Manager.cpp" line="263"/>
         <source>Application is already running</source>
         <translation>Приложение уже запущено</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="311"/>
+        <location filename="../Manager/Manager.cpp" line="312"/>
         <source>Unable to open documents</source>
         <translation>Не удалось открыть документацию</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="338"/>
+        <location filename="../Manager/Manager.cpp" line="340"/>
         <source>In total notes: %1</source>
         <translation>Всего заметок: %1</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="339"/>
+        <location filename="../Manager/Manager.cpp" line="341"/>
         <source>Visible notes: %1</source>
         <translation>Видимых заметок: %1</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="340"/>
+        <location filename="../Manager/Manager.cpp" line="342"/>
         <source>Invisible notes: %1</source>
         <translation>Невидимых заметок: %1</translation>
     </message>
@@ -1269,7 +1272,7 @@
         <translation type="obsolete">Произошла ошибка при распаковки файлов и папок заметки</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="381"/>
+        <location filename="../Manager/Manager.cpp" line="395"/>
         <source>Question</source>
         <translation>Вопрос</translation>
     </message>
@@ -1278,7 +1281,7 @@
         <translation type="obsolete">Удалить все заметки?</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="381"/>
+        <location filename="../Manager/Manager.cpp" line="395"/>
         <source>Really quit?</source>
         <translation>Действительно выйти?</translation>
     </message>
@@ -1307,7 +1310,7 @@
         <translation type="obsolete">нет</translation>
     </message>
     <message>
-        <location filename="../Manager/Manager.cpp" line="435"/>
+        <location filename="../Manager/Manager.cpp" line="451"/>
         <source>Save completed</source>
         <translation>Сохранение завершено</translation>
     </message>

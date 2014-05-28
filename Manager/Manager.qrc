@@ -19,7 +19,6 @@
         <file alias="manager">icons/Apps-file-manager-archive-icon.png</file>
     </qresource>
     <qresource prefix="/fugue-icons">
-        <file alias="application-sidebar">icons/fugue-icons/32x32/application-sidebar.png</file>
         <file alias="cross">icons/fugue-icons/32x32/cross.png</file>
         <file alias="plus">icons/fugue-icons/32x32/plus.png</file>
         <file alias="tag-label">icons/fugue-icons/32x32/tag-label.png</file>
