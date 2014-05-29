@@ -73,7 +73,7 @@ public slots:
     Q_SCRIPTABLE void showPageNotes();  //!< Показать страницу с заметками.
     Q_SCRIPTABLE void showPageSettings(); //!< Показать страницу настроек.
     Q_SCRIPTABLE void showPageAbout(); //!< Показать страницу "О программе".
-    Q_SCRIPTABLE void showPageDocumentation(); //!< Показать страницу "Документация".
+    Q_SCRIPTABLE void showDocumentation(); //!< Показать документацию.
 
     void updateStates();
 

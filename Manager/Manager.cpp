@@ -14,6 +14,7 @@
 #include "ImageCropper/fullscreenshotcropper.h"
 #include "NavigationPanel/notebook.h"
 #include <QDockWidget>
+#include <QtWebKit/QWebView>
 
 Manager * Manager::self = 0;
 
@@ -60,7 +61,7 @@ Manager::Manager( QWidget * parent ) :
 
             QAction * action = new QAction( dirName, this );
             action->setData( QDir::fromNativeSeparators( fullPath ) );
-            QObject::connect( action, SIGNAL(triggered()), this, SLOT(showPageDocumentation()) );
+            QObject::connect( action, SIGNAL(triggered()), this, SLOT(showDocumentation()) );
 
             list << action;
         }
@@ -298,20 +299,22 @@ void Manager::showPageAbout()
     showManager();
     ui->sidebar->setCurrentIndex( 2 );
 }
-void Manager::showPageDocumentation()
+void Manager::showDocumentation()
 {
-    QAction * action = dynamic_cast < QAction * > ( sender() );
+    QAction * action = qobject_cast < QAction * > ( sender() );
     if ( !action )
     {
         WARNING( "Null pointer!" );
     }
 
     const QUrl & path = QUrl::fromLocalFile( action->data().toString() );
-    if ( !QDesktopServices::openUrl( path ) )
-    {
-        QMessageBox::information( this, tr( "Information" ), tr( "Unable to open documents" ) );
-        WARNING( "Unable to open documents" );
-    }
+    // Создадим окно с документацией.
+    QWebView * documentation = new QWebView();
+    documentation->setContextMenuPolicy( Qt::NoContextMenu );
+    documentation->setAttribute( Qt::WA_DeleteOnClose );
+    documentation->show();
+    documentation->load( path );
+    QObject::connect( this, SIGNAL(destroyed()), documentation, SLOT(deleteLater()) );
 }
 
 void Manager::updateStates()

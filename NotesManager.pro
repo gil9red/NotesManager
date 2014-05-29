@@ -1,4 +1,4 @@
-QT += core gui
+QT += core gui webkit
 TEMPLATE = app
 TARGET = NotesManager
 DESTDIR += ../bin

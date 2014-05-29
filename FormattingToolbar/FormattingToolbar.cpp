@@ -87,14 +87,10 @@ void FormattingToolbar::installConnect( QTextEdit * editor )
     // Добавление в редактор функциональности панели форматирования
     {
         QObject::connect( ui->actionBold, SIGNAL(triggered(bool)), SLOT(on_bold_clicked(bool)) );
-        QObject::connect( ui->actionItalic, SIGNAL(triggered(bool)), SLOT(on_italic_clicked(bool)) );
+        QObject::connect( ui->actionItalic, SIGNAL(triggered(bool)), SLOT(on_italic_clicked(bool)) );        
 
-        QMenu * menu = this->editor->createStandardContextMenu();
-        menu->addSeparator();
-        menu->addAction( ui->actionBold );
-        menu->addAction( ui->actionItalic );
-
-        this->editor->addActions( menu->actions() );
+        this->editor->addAction( ui->actionBold );
+        this->editor->addAction( ui->actionItalic );
     }
 
     updateStates();

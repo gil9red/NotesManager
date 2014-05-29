@@ -27,7 +27,6 @@ QColor ColorButton::color()
 void ColorButton::createGUI()
 {    
     setPopupMode( QToolButton::MenuButtonPopup );
-    QMenu * menu = new QMenu();
 
     d->tButtonDefaultColor = new QToolButton();
     d->tButtonDefaultColor->setToolButtonStyle( Qt::ToolButtonTextBesideIcon );
@@ -43,6 +42,9 @@ void ColorButton::createGUI()
     d->tButtonSelectColor->setIcon( QIcon( ":/FormattingToolbar/icon palette" ) );
     QObject::connect( d->tButtonSelectColor, SIGNAL( clicked() ), SLOT( anotherColor() ) );
 
+
+    QMenu * menu = new QMenu();
+
     // После того как выбрали цвет, прячем меню
     QObject::connect( this, SIGNAL(selectedColor(QColor)), menu, SLOT(hide()) );
 
@@ -53,7 +55,6 @@ void ColorButton::createGUI()
     layout->addStretch();
 
     menu->setLayout( layout );
-
     setMenu( menu );
 }
 

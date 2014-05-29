@@ -495,12 +495,12 @@ void FolderNavigationWidget::sl_AddFolderAction_Triggered()
 }
 void FolderNavigationWidget::sl_MoveToBinAction_Triggered()
 {
-    QModelIndexList list = ui->treeView->selectionModel()->selectedIndexes(); // TODO использовать ссылку
+    QModelIndexList list = ui->treeView->selectionModel()->selectedIndexes();
     deleteItems(list, false); // Пусть пока перемещает в корзину
 }
 void FolderNavigationWidget::sl_DeleteItemAction_Triggered()
 {
-    QModelIndexList list = ui->treeView->selectionModel()->selectedIndexes(); // TODO использовать ссылку
+    QModelIndexList list = ui->treeView->selectionModel()->selectedIndexes();
     deleteItems(list, true); // Удаление
 }
 

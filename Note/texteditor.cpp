@@ -42,7 +42,8 @@ QTextFragment TextEditor::findFragmentAtPos(QPoint pos)
 void TextEditor::openUrl(const QUrl & url)
 {
     bool isFile = QFileInfo( url.toString() ).isFile();
-    // TODO: добавить возможность открывать файлы и папки
+    // TODO: добавить возможность открывать файлы и папки (https://github.com/gil9red/ContainerExes/blob/master/USupport.h: runFile()
+    // и https://github.com/gil9red/BatchImageConverter/blob/master/UBatchImageConverter/UProgressFileDialog.cpp: openFolder)
     bool successful = QDesktopServices::openUrl( isFile ? QUrl::fromLocalFile( url.toString() ) : url );
     if ( !successful )
         WARNING("Error when to link " + url.toString());
@@ -196,9 +197,12 @@ void TextEditor::changeEvent( QEvent * event )
 }
 void TextEditor::contextMenuEvent( QContextMenuEvent * event )
 {
-    QMenu * menu = new QMenu( this );
-    menu->addActions( actions() );
-    menu->addSeparator();
+    QMenu * menu = QTextEdit::createStandardContextMenu();
+    if ( !actions().isEmpty() )
+    {
+        menu->addSeparator();
+        menu->addActions( actions() );
+    }
 
 //    QTextCursor cursor = cursorForPosition( event->pos() );
 //    qDebug();
@@ -221,8 +225,8 @@ void TextEditor::contextMenuEvent( QContextMenuEvent * event )
 //        menu->addAction( "Frame" );
 //    }
 
-    QString anchor = anchorAt(event->pos());
-    if (!anchor.isEmpty())
+    const QString & anchor = anchorAt( event->pos() );
+    if ( !anchor.isEmpty() )
     {
         menu->addSeparator();
         // TODO: добавить иконки действиям
