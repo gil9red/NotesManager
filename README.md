@@ -1,4 +1,4 @@
-NotesManager 0.0.2
+NotesManager 0.0.3
 ============
 
 Менеджер заметок.

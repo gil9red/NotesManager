@@ -7,6 +7,5 @@ var searchData=
   ['highlightsubidentifiers',['highlightSubidentifiers',['../class_qsci_lexer_python.html#a0fc9c88935941af877a4447c6f8f959f',1,'QsciLexerPython']]],
   ['highlighttriplequotedstrings',['highlightTripleQuotedStrings',['../class_qsci_lexer_c_p_p.html#acd6d52866c05d351c33c961acdfb9260',1,'QsciLexerCPP']]],
   ['hotspot',['hotspot',['../class_qsci_style.html#a420c47b99f9fa72c73496089be5b6c64',1,'QsciStyle']]],
-  ['hsslanguage',['HSSLanguage',['../class_qsci_lexer_c_s_s.html#a93e6a5d1768f4952172c2bdd8361c40e',1,'QsciLexerCSS']]],
-  ['hyperlink',['hyperlink',['../class_dialog_insert_hyperlink.html#acb4b27e55ffc31370125d1772dbd306a',1,'DialogInsertHyperlink']]]
+  ['hsslanguage',['HSSLanguage',['../class_qsci_lexer_c_s_s.html#a93e6a5d1768f4952172c2bdd8361c40e',1,'QsciLexerCSS']]]
 ];

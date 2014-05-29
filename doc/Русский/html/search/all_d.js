@@ -13,6 +13,7 @@ var searchData=
   ['notebook',['Notebook',['../class_notebook.html',1,'']]],
   ['noteeditwidget',['NoteEditWidget',['../class_note_edit_widget.html',1,'']]],
   ['notemodelitem',['NoteModelItem',['../class_note_model_item.html',1,'']]],
+  ['noteschange',['notesChange',['../class_notebook.html#a108727fce0478ff99e0722fa9b032a40',1,'Notebook']]],
   ['notestabwidget',['NotesTabWidget',['../class_notes_tab_widget.html',1,'']]],
   ['notetagscollection',['NoteTagsCollection',['../class_note_tags_collection.html',1,'']]],
   ['nowarning',['NoWarning',['../class_qsci_lexer_python.html#a84118aff26655dcc4313d26d57d5f4fcaaf2844c26e0b5337e85653ca39584182',1,'QsciLexerPython']]],

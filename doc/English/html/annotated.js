@@ -64,6 +64,7 @@ var annotated =
     [ "DatesModel", "class_dates_model.html", "class_dates_model" ],
     [ "Decoration", "class_decoration.html", "class_decoration" ],
     [ "DecorationList", "class_decoration_list.html", "class_decoration_list" ],
+    [ "DialogInsertHorizontalLine", "class_dialog_insert_horizontal_line.html", "class_dialog_insert_horizontal_line" ],
     [ "DialogInsertHyperlink", "class_dialog_insert_hyperlink.html", "class_dialog_insert_hyperlink" ],
     [ "Dictionary", "class_dictionary.html", "class_dictionary" ],
     [ "DocModification", "class_doc_modification.html", "class_doc_modification" ],

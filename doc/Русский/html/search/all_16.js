@@ -2,7 +2,7 @@ var searchData=
 [
   ['watcherwithuserdata',['WatcherWithUserData',['../struct_document_1_1_watcher_with_user_data.html',1,'Document']]],
   ['whitespacesize',['whitespaceSize',['../class_qsci_scintilla.html#adfe850a6051f9b63fd3647bff30fec25',1,'QsciScintilla']]],
-  ['whitespacevisibility',['WhitespaceVisibility',['../class_qsci_scintilla.html#ab83469cc9550eadcd5d4e8ca3d20d07b',1,'QsciScintilla::WhitespaceVisibility()'],['../class_qsci_scintilla.html#ae521cafc1b70cfbad4bf423efb66a982',1,'QsciScintilla::whitespaceVisibility() const ']]],
+  ['whitespacevisibility',['whitespaceVisibility',['../class_qsci_scintilla.html#ae521cafc1b70cfbad4bf423efb66a982',1,'QsciScintilla::whitespaceVisibility() const '],['../class_qsci_scintilla.html#ab83469cc9550eadcd5d4e8ca3d20d07b',1,'QsciScintilla::WhitespaceVisibility()']]],
   ['wholewords',['WholeWords',['../namespace_shared.html#a9a1458084df072721b89c62167c38f41a652d6d1f9fdd42e327d5ad999c993963',1,'Shared']]],
   ['widget',['widget',['../class_abstract_note.html#ad96682605c965d6adb6361ba1d30c951',1,'AbstractNote::widget()'],['../class_abstract_note_body.html#a545232b633a661d0c5ee927cd3f15fd4',1,'AbstractNoteBody::widget()']]],
   ['widgetselectiontablesizes',['WidgetSelectionTableSizes',['../class_widget_selection_table_sizes.html',1,'']]],
@@ -37,7 +37,7 @@ var searchData=
   ['wrapflagnone',['WrapFlagNone',['../class_qsci_scintilla.html#ac4d1c67938c75806b2c139d0779d0478a2a3d02013e9e15f31413c12668824472',1,'QsciScintilla']]],
   ['wrapindentfixed',['WrapIndentFixed',['../class_qsci_scintilla.html#a59b529ccfcb1f7896efb523025371a03a041dc048521b889bf1db274546d0f562',1,'QsciScintilla']]],
   ['wrapindentindented',['WrapIndentIndented',['../class_qsci_scintilla.html#a59b529ccfcb1f7896efb523025371a03a0cb2a2ef379ad02b388a08880a624f2b',1,'QsciScintilla']]],
-  ['wrapindentmode',['WrapIndentMode',['../class_qsci_scintilla.html#a59b529ccfcb1f7896efb523025371a03',1,'QsciScintilla::WrapIndentMode()'],['../class_qsci_scintilla.html#a22cf43b75fefde077cf7e05914b4fc5b',1,'QsciScintilla::wrapIndentMode() const ']]],
+  ['wrapindentmode',['wrapIndentMode',['../class_qsci_scintilla.html#a22cf43b75fefde077cf7e05914b4fc5b',1,'QsciScintilla::wrapIndentMode() const '],['../class_qsci_scintilla.html#a59b529ccfcb1f7896efb523025371a03',1,'QsciScintilla::WrapIndentMode()']]],
   ['wrapindentsame',['WrapIndentSame',['../class_qsci_scintilla.html#a59b529ccfcb1f7896efb523025371a03ab9cc585fd0eb9a14e0f8c7d9389656e8',1,'QsciScintilla']]],
   ['wrapmode',['WrapMode',['../class_qsci_scintilla.html#a7081c7ff25b5f6bd5b3a6cbd478a9f42',1,'QsciScintilla::WrapMode()'],['../class_qsci_printer.html#a20cc49cd4c55125fc5fcb2235d372a84',1,'QsciPrinter::wrapMode()'],['../class_qsci_scintilla.html#a0b5bd8dd6dfb80937cf61361065b07d0',1,'QsciScintilla::wrapMode()']]],
   ['wrapnone',['WrapNone',['../class_qsci_scintilla.html#a7081c7ff25b5f6bd5b3a6cbd478a9f42a8005165822ca83fced05329d4d5b1964',1,'QsciScintilla']]],

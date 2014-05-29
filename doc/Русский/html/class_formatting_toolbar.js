@@ -8,6 +8,5 @@ var class_formatting_toolbar =
     [ "setAlterActivityComponents", "class_formatting_toolbar.html#adf6c7ff070a9b5494035b07277f7fbbb", null ],
     [ "setNote", "class_formatting_toolbar.html#ab155d70e7dbb6c440a63fdc74b0ce58f", null ],
     [ "setVisible", "class_formatting_toolbar.html#a10cae332464d02fcd56c581279a3ef0c", null ],
-    [ "toolBars", "class_formatting_toolbar.html#a97ca23007d8e7ac517a3bcbcd639a5e4", null ],
     [ "visibilityChanged", "class_formatting_toolbar.html#a403f24e2d95cd7bdfebeaa5ffcb93196", null ]
 ];

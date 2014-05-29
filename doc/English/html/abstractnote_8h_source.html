@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Notes Manager
-   &#160;<span id="projectnumber">0.0.2</span>
+   &#160;<span id="projectnumber">0.0.3</span>
    </div>
    <div id="projectbrief">The program creates notes</div>
   </td>
@@ -278,17 +278,20 @@ $(document).ready(function(){initNavTree('abstractnote_8h_source.html','');});
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_abstract_note.html#aa480cbfa0eaa2c61bf20368d72bd9d60">changeVisibleToolbar</a>( <span class="keywordtype">bool</span> );</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordtype">void</span> doubleClickHead();</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="keywordtype">void</span> closeEvent( QCloseEvent * );</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keywordtype">void</span> contextMenuEvent( QContextMenuEvent * event );</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="keywordtype">void</span> showEvent(QShowEvent * event);</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="keywordtype">void</span> hideEvent( QHideEvent * event );</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keywordtype">void</span> paintEvent(QPaintEvent * );</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;};</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="preprocessor">#endif // ABSTRACTNOTE_H</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordtype">void</span> sg_IShow();</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="keywordtype">void</span> sg_IHidden();</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="keywordtype">void</span> doubleClickHead();</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="keywordtype">void</span> closeEvent( QCloseEvent * );</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keywordtype">void</span> contextMenuEvent( QContextMenuEvent * event );</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="keywordtype">void</span> showEvent( QShowEvent * event );</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="keywordtype">void</span> hideEvent( QHideEvent * event );</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="keywordtype">void</span> paintEvent( QPaintEvent * );</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;};</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="preprocessor">#endif // ABSTRACTNOTE_H</span></div>
 <div class="ttc" id="namespace_events_note_html_abdde343f4b2248d4d6a2f483f88667f4a6c24ac0f69933444602ebe69f44d70ba"><div class="ttname"><a href="namespace_events_note.html#abdde343f4b2248d4d6a2f483f88667f4a6c24ac0f69933444602ebe69f44d70ba">EventsNote::ChangeTitle</a></div><div class="ttdef"><b>Definition:</b> abstractnote.h:37</div></div>
 <div class="ttc" id="class_abstract_note_html_a996a80552c4b543ed1640f81794867a7"><div class="ttname"><a href="class_abstract_note.html#a996a80552c4b543ed1640f81794867a7">AbstractNote::contextMenu</a></div><div class="ttdeci">QMenu contextMenu</div><div class="ttdoc">Меню заметки </div><div class="ttdef"><b>Definition:</b> abstractnote.h:143</div></div>
 <div class="ttc" id="class_abstract_note_html_af02e3b71f3345aee963e241ca87095ad"><div class="ttname"><a href="class_abstract_note.html#af02e3b71f3345aee963e241ca87095ad">AbstractNote::body</a></div><div class="ttdeci">AbstractNoteBody * body</div><div class="ttdoc">Тело заметки </div><div class="ttdef"><b>Definition:</b> abstractnote.h:128</div></div>
@@ -360,7 +363,7 @@ $(document).ready(function(){initNavTree('abstractnote_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_4521060be2f87b8a21ee082fc5cc2755.html">NotesManager</a></li><li class="navelem"><a class="el" href="dir_8ddbc3f07fee76b9b166d7f51edb323e.html">Note</a></li><li class="navelem"><b>abstractnote.h</b></li>
-    <li class="footer">Generated on Sat May 10 2014 22:52:41 for Notes Manager by
+    <li class="footer">Generated on Thu May 29 2014 23:37:02 for Notes Manager by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

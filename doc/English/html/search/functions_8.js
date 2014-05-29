@@ -42,7 +42,6 @@ var searchData=
   ['isload',['isLoad',['../class_dictionary.html#ad32a7bcd5f6d0993437e13c53580c92a',1,'Dictionary']]],
   ['islocked',['isLocked',['../class_qt_l_p___private_1_1_qt_locked_file.html#ac93115b12ddd6c3275a5a81a94b6c919',1,'QtLP_Private::QtLockedFile']]],
   ['ismodified',['isModified',['../class_qsci_scintilla.html#ac3c1ea6658f697bcd29bdd690150f9e0',1,'QsciScintilla']]],
-  ['isopenlink',['isOpenLink',['../class_text_editor.html#aabe7f965344bda8ce3467c7ac8cac2c5',1,'TextEditor']]],
   ['isprepared',['isPrepared',['../class_qsci_a_p_is.html#a093f3d79ccba93b9de573a3281aa1763',1,'QsciAPIs']]],
   ['isreadonly',['isReadOnly',['../class_qsci_scintilla.html#a7257678a02e897edaf0275ee1e168334',1,'QsciScintilla']]],
   ['isredoavailable',['isRedoAvailable',['../class_qsci_scintilla.html#a6394bc906d884104d92a4aab21423691',1,'QsciScintilla']]],

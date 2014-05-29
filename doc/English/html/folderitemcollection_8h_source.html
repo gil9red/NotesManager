@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Notes Manager
-   &#160;<span id="projectnumber">0.0.2</span>
+   &#160;<span id="projectnumber">0.0.3</span>
    </div>
    <div id="projectbrief">The program creates notes</div>
   </td>
@@ -149,18 +149,18 @@ $(document).ready(function(){initNavTree('folderitemcollection_8h_source.html','
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="class_folder.html">Folder</a>* <span class="keyword">const</span> owner;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> Add(<a class="code" href="class_abstract_folder_item.html">AbstractFolderItem</a>* item);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> AddTo(<a class="code" href="class_abstract_folder_item.html">AbstractFolderItem</a>* item, <span class="keywordtype">int</span> index);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> Remove(<a class="code" href="class_abstract_folder_item.html">AbstractFolderItem</a>* item);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">bool</span> Contains(<a class="code" href="class_abstract_folder_item.html">AbstractFolderItem</a>* item) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> Clear(); <span class="comment">// clears collection, DOES NOT delete items</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> Move(<span class="keywordtype">int</span> from, <span class="keywordtype">int</span> to);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> Move(<a class="code" href="class_abstract_folder_item.html">AbstractFolderItem</a>* item, <span class="keywordtype">int</span> to);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> Move(<a class="code" href="class_abstract_folder_item.html">AbstractFolderItem</a>* item, <span class="keywordtype">int</span> to, <a class="code" href="class_folder.html">Folder</a>* newParent);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> Move(<a class="code" href="class_abstract_folder_item.html">AbstractFolderItem</a>* item, <a class="code" href="class_folder.html">Folder</a>* newParent);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">int</span> Count() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="class_abstract_folder_item.html">AbstractFolderItem</a>* ItemAt(<span class="keywordtype">int</span> index) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">int</span> IndexOf(<a class="code" href="class_abstract_folder_item.html">AbstractFolderItem</a>* <span class="keyword">const</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> add(<a class="code" href="class_abstract_folder_item.html">AbstractFolderItem</a>* item);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> addTo(<a class="code" href="class_abstract_folder_item.html">AbstractFolderItem</a>* item, <span class="keywordtype">int</span> index);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> <span class="keyword">remove</span>(<a class="code" href="class_abstract_folder_item.html">AbstractFolderItem</a>* item);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">bool</span> contains(<a class="code" href="class_abstract_folder_item.html">AbstractFolderItem</a>* item) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> clear(); <span class="comment">// clears collection, DOES NOT delete items</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> move(<span class="keywordtype">int</span> from, <span class="keywordtype">int</span> to);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> move(<a class="code" href="class_abstract_folder_item.html">AbstractFolderItem</a>* item, <span class="keywordtype">int</span> to);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> move(<a class="code" href="class_abstract_folder_item.html">AbstractFolderItem</a>* item, <span class="keywordtype">int</span> to, <a class="code" href="class_folder.html">Folder</a>* newParent);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> move(<a class="code" href="class_abstract_folder_item.html">AbstractFolderItem</a>* item, <a class="code" href="class_folder.html">Folder</a>* newParent);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">int</span> count() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="class_abstract_folder_item.html">AbstractFolderItem</a>* itemAt(<span class="keywordtype">int</span> index) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">int</span> indexOf(<a class="code" href="class_abstract_folder_item.html">AbstractFolderItem</a>* <span class="keyword">const</span>) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;signals:</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> sg_ItemAboutToBeAdded(<a class="code" href="class_abstract_folder_item.html">AbstractFolderItem</a>* <span class="keyword">const</span>, <span class="keywordtype">int</span> to);</div>
@@ -184,7 +184,7 @@ $(document).ready(function(){initNavTree('folderitemcollection_8h_source.html','
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_4521060be2f87b8a21ee082fc5cc2755.html">NotesManager</a></li><li class="navelem"><a class="el" href="dir_07640a682680a239487058f078244da9.html">NavigationPanel</a></li><li class="navelem"><b>folderitemcollection.h</b></li>
-    <li class="footer">Generated on Sat May 10 2014 22:52:41 for Notes Manager by
+    <li class="footer">Generated on Thu May 29 2014 23:37:02 for Notes Manager by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

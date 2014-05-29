@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Notes Manager
-   &#160;<span id="projectnumber">0.0.2</span>
+   &#160;<span id="projectnumber">0.0.3</span>
    </div>
    <div id="projectbrief">The program creates notes</div>
   </td>
@@ -112,6 +112,8 @@ $(document).ready(function(){initNavTree('class_notebook.html','');});
 
 <p>This is the complete list of members for <a class="el" href="class_notebook.html">Notebook</a>, including all inherited members.</p>
 <table class="directory">
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getAllFoldersInTrashFolder</b>() (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>getAllNotesInTrashFolder</b>() (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getCreationDateModel</b>() (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>getFoldersList</b>() (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getHierarchyModel</b>() (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"></td></tr>
@@ -129,29 +131,30 @@ $(document).ready(function(){initNavTree('class_notebook.html','');});
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getTrashFolder</b>() (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>instance</b>() (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Notebook</b>(QObject *parent=0) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>read</b>(QDomElement &amp;root) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>registerItem</b>(AbstractFolderItem *item) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>registerTag</b>(Tag *tag) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>setPinnedFolder</b>(Folder *f) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>setRootFolder</b>(Folder *f) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>setTrashFolder</b>(Folder *f) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>sg_ItemRegistered</b>(Folder *) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"><span class="mlabel">signal</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>sg_ItemRegistered</b>(Note *) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"><span class="mlabel">signal</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>sg_ItemRegistered</b>(Tag *) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"><span class="mlabel">signal</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>sg_ItemUnregistered</b>(Folder *) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"><span class="mlabel">signal</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>sg_ItemUnregistered</b>(Note *) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"><span class="mlabel">signal</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>sg_ItemUnregistered</b>(Tag *) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"><span class="mlabel">signal</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>sg_RichTextNote_About_EventChange</b>(RichTextNote *richTextNote, int event) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"><span class="mlabel">signal</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>unregisterItem</b>(AbstractFolderItem *item) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>unregisterTag</b>(Tag *tag) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>write</b>(QDomElement &amp;root, QDomDocument &amp;xmlDomDocument) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>~Notebook</b>() (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_notebook.html#a108727fce0478ff99e0722fa9b032a40">notesChange</a>()</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"><span class="mlabel">signal</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>read</b>(QDomElement &amp;root) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>registerItem</b>(AbstractFolderItem *item) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>registerTag</b>(Tag *tag) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>setPinnedFolder</b>(Folder *f) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>setRootFolder</b>(Folder *f) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>setTrashFolder</b>(Folder *f) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>sg_ItemRegistered</b>(Folder *) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"><span class="mlabel">signal</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>sg_ItemRegistered</b>(Note *) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"><span class="mlabel">signal</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>sg_ItemRegistered</b>(Tag *) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"><span class="mlabel">signal</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>sg_ItemUnregistered</b>(Folder *) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"><span class="mlabel">signal</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>sg_ItemUnregistered</b>(Note *) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"><span class="mlabel">signal</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>sg_ItemUnregistered</b>(Tag *) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"><span class="mlabel">signal</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>sg_RichTextNote_About_EventChange</b>(RichTextNote *richTextNote, int event) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"><span class="mlabel">signal</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>unregisterItem</b>(AbstractFolderItem *item) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>unregisterTag</b>(Tag *tag) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>write</b>(QDomElement &amp;root, QDomDocument &amp;xmlDomDocument) (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>~Notebook</b>() (defined in <a class="el" href="class_notebook.html">Notebook</a>)</td><td class="entry"><a class="el" href="class_notebook.html">Notebook</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat May 10 2014 22:52:45 for Notes Manager by
+    <li class="footer">Generated on Thu May 29 2014 23:37:07 for Notes Manager by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

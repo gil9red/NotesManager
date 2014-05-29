@@ -34,6 +34,5 @@ var searchData=
   ['htmldoublequotedstring',['HTMLDoubleQuotedString',['../class_qsci_lexer_h_t_m_l.html#ad7c379aa46cd6fd9a4af7ffe0cfd7b6ba9b3ff0738c01f777d1591d0a06ac95fa',1,'QsciLexerHTML']]],
   ['htmlnumber',['HTMLNumber',['../class_qsci_lexer_h_t_m_l.html#ad7c379aa46cd6fd9a4af7ffe0cfd7b6ba89b27b58d6c068b649e247f5236f2c2d',1,'QsciLexerHTML']]],
   ['htmlsinglequotedstring',['HTMLSingleQuotedString',['../class_qsci_lexer_h_t_m_l.html#ad7c379aa46cd6fd9a4af7ffe0cfd7b6baf2b7e8d205c6193e3da1e9237f6e34be',1,'QsciLexerHTML']]],
-  ['htmlvalue',['HTMLValue',['../class_qsci_lexer_h_t_m_l.html#ad7c379aa46cd6fd9a4af7ffe0cfd7b6ba5cfd2a96dca88ed5b108a31707190ccf',1,'QsciLexerHTML']]],
-  ['hyperlink',['hyperlink',['../class_dialog_insert_hyperlink.html#acb4b27e55ffc31370125d1772dbd306a',1,'DialogInsertHyperlink']]]
+  ['htmlvalue',['HTMLValue',['../class_qsci_lexer_h_t_m_l.html#ad7c379aa46cd6fd9a4af7ffe0cfd7b6ba5cfd2a96dca88ed5b108a31707190ccf',1,'QsciLexerHTML']]]
 ];

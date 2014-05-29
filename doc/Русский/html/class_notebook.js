@@ -2,6 +2,8 @@ var class_notebook =
 [
     [ "Notebook", "class_notebook.html#a62c95a059d815f47dd1f29123e8d8746", null ],
     [ "~Notebook", "class_notebook.html#a2522f4ecfc7a024bc9dc759803cdd2dd", null ],
+    [ "getAllFoldersInTrashFolder", "class_notebook.html#adcaf0fd937859aefd400793204dd9822", null ],
+    [ "getAllNotesInTrashFolder", "class_notebook.html#a396eb60e6be305affeb2b7ab36a0f8de", null ],
     [ "getCreationDateModel", "class_notebook.html#adf3b382040fdf1e8f1c61e77410c4211", null ],
     [ "getFoldersList", "class_notebook.html#a175d1b5c270eb1f64a4d0ae773b85c41", null ],
     [ "getHierarchyModel", "class_notebook.html#ad044a12fe7e7f338e529037146547b58", null ],
@@ -17,6 +19,7 @@ var class_notebook =
     [ "getTagsList", "class_notebook.html#af5c19bb4ce47084780012187b38653a5", null ],
     [ "getTagsModel", "class_notebook.html#a139555e305fef7da87bc13327c224339", null ],
     [ "getTrashFolder", "class_notebook.html#a775a6f5a86af46687646c2600ca667d1", null ],
+    [ "notesChange", "class_notebook.html#a108727fce0478ff99e0722fa9b032a40", null ],
     [ "read", "class_notebook.html#a04957e4283b3adae99dea659c586a7f1", null ],
     [ "registerItem", "class_notebook.html#a0cc8aa684d067fb16be09b3835b13605", null ],
     [ "registerTag", "class_notebook.html#a2bec761e0256f6e93328448acf17d388", null ],

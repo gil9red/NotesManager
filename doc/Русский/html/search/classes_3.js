@@ -8,6 +8,7 @@ var searchData=
   ['datesmodel',['DatesModel',['../class_dates_model.html',1,'']]],
   ['decoration',['Decoration',['../class_decoration.html',1,'']]],
   ['decorationlist',['DecorationList',['../class_decoration_list.html',1,'']]],
+  ['dialoginserthorizontalline',['DialogInsertHorizontalLine',['../class_dialog_insert_horizontal_line.html',1,'']]],
   ['dialoginserthyperlink',['DialogInsertHyperlink',['../class_dialog_insert_hyperlink.html',1,'']]],
   ['dictionary',['Dictionary',['../class_dictionary.html',1,'']]],
   ['docmodification',['DocModification',['../class_doc_modification.html',1,'']]],

@@ -11,5 +11,6 @@ var class_notes_tab_widget =
     [ "note", "class_notes_tab_widget.html#a04d5fd537f0ab0eb27610160c7aad9e5", null ],
     [ "openNote", "class_notes_tab_widget.html#aed4d4672c5d45b0db362ddd730dda16c", null ],
     [ "setCurrentNote", "class_notes_tab_widget.html#a67388017956bfd610c5008f924be7dae", null ],
-    [ "sg_CurrentNoteChanged", "class_notes_tab_widget.html#aaab29e67fd4d6057e77cc9e681d9d741", null ]
+    [ "sg_CurrentNoteChanged", "class_notes_tab_widget.html#aaab29e67fd4d6057e77cc9e681d9d741", null ],
+    [ "sg_CurrentTabChanged", "class_notes_tab_widget.html#a6a76cd3e2231b2806e0821361baf6462", null ]
 ];

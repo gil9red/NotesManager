@@ -10,6 +10,7 @@ var class_rich_text_note =
     [ "document", "class_rich_text_note.html#af5590f0375d0763e87393ba2acdd0e20", null ],
     [ "enterEvent", "class_rich_text_note.html#ae38c8582ea912284a3cd5cef05defad0", null ],
     [ "fileName", "class_rich_text_note.html#a4eed3a4de84d49451e07fbe5a608a2e3", null ],
+    [ "insertImage", "class_rich_text_note.html#a363b126ecdb31bf3bcb6bee37d785856", null ],
     [ "insertImage", "class_rich_text_note.html#a1f5040c22699cce59fa33961d85fe63a", null ],
     [ "insertImage", "class_rich_text_note.html#abfddfa9998a18dacb021bf44ecf4968d", null ],
     [ "intervalAutosave", "class_rich_text_note.html#a94883f9d294fd801a4204bc2baf1a18c", null ],
@@ -18,6 +19,7 @@ var class_rich_text_note =
     [ "leaveEvent", "class_rich_text_note.html#a3ec4dafde30a0825f6477764c6d7f807", null ],
     [ "load", "class_rich_text_note.html#ade4731495fca0ac06117f7c37aab2d29", null ],
     [ "loadContent", "class_rich_text_note.html#afd17e4ab85c2d6387397cadc91194f09", null ],
+    [ "loadSettings", "class_rich_text_note.html#abcefed8956699089891e639a8bc49c4f", null ],
     [ "modified", "class_rich_text_note.html#a3452442366b67b8d7240d3afd89d12af", null ],
     [ "numberOfAttachments", "class_rich_text_note.html#a84230406637065d03d43e191dcb50a2b", null ],
     [ "open", "class_rich_text_note.html#a98ad946d205af7edfcdb341cb5ab223d", null ],
@@ -28,6 +30,7 @@ var class_rich_text_note =
     [ "save", "class_rich_text_note.html#a99ce213a701a45fb88c23153843221a1", null ],
     [ "saveAs", "class_rich_text_note.html#ac06e18375866b34f1b55edc965eb6c93", null ],
     [ "saveContent", "class_rich_text_note.html#ac8da697537a39121bf6f146be55f7315", null ],
+    [ "saveSettings", "class_rich_text_note.html#a7b5b3a21ae8e26dd49efb2e97af36590", null ],
     [ "selectAttach", "class_rich_text_note.html#a54e6edbd3d9a4d44e14af54668767f7c", null ],
     [ "selectColor", "class_rich_text_note.html#a598f521f90e544c3acc48d26d459824e", null ],
     [ "selectOpacity", "class_rich_text_note.html#adce9a0efe26891a54b3f4cf18ca96a76", null ],
@@ -52,7 +55,6 @@ var class_rich_text_note =
     [ "attachPanel", "class_rich_text_note.html#a2ee8d3b65828502c2f68d735a3355bb9", null ],
     [ "dockWidgetAttachPanel", "class_rich_text_note.html#aeb9d37eb332ae7f7a2115ee350968981", null ],
     [ "dockWidgetFindAndReplace", "class_rich_text_note.html#a9d522cb90368d07ad2e8b7479e960dc1", null ],
-    [ "dockWidgetFormattingToolbar", "class_rich_text_note.html#afa5ab2dabe69d63955a6a433d27061ca", null ],
     [ "findAndReplace", "class_rich_text_note.html#a4bea2545949f56c5d6e1516476bc422f", null ],
     [ "quickFind", "class_rich_text_note.html#a66a110eb9b7259c24b1a078838c9e873", null ]
 ];

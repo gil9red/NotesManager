@@ -184,6 +184,7 @@ var hierarchy =
       [ "QtSingleCoreApplication", "class_qt_single_core_application.html", null ]
     ] ],
     [ "QDialog", null, [
+      [ "DialogInsertHorizontalLine", "class_dialog_insert_horizontal_line.html", null ],
       [ "DialogInsertHyperlink", "class_dialog_insert_hyperlink.html", null ],
       [ "SettingsNoteDialog", "class_settings_note_dialog.html", null ]
     ] ],

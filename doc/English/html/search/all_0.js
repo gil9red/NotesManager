@@ -23,7 +23,7 @@ var searchData=
   ['acusalways',['AcusAlways',['../class_qsci_scintilla.html#ae628d46489efa3db3b0c42336a1bf8d3ad3646f7c7cfe985480477c7c303af9e6',1,'QsciScintilla']]],
   ['acusexplicit',['AcusExplicit',['../class_qsci_scintilla.html#ae628d46489efa3db3b0c42336a1bf8d3a58a27ab02bc6a09334b2e91a16443ed4',1,'QsciScintilla']]],
   ['acusnever',['AcusNever',['../class_qsci_scintilla.html#ae628d46489efa3db3b0c42336a1bf8d3afd235254a43ffd260648079f71a31f7e',1,'QsciScintilla']]],
-  ['add',['Add',['../class_r_g_b_a_image_set.html#ab823a6bbc71d2e98a7dfaa1ee504cd9a',1,'RGBAImageSet::Add()'],['../class_qsci_a_p_is.html#af46ca05571eb676d3aa65b080fb406c5',1,'QsciAPIs::add()']]],
+  ['add',['add',['../class_qsci_a_p_is.html#af46ca05571eb676d3aa65b080fb406c5',1,'QsciAPIs::add()'],['../class_r_g_b_a_image_set.html#ab823a6bbc71d2e98a7dfaa1ee504cd9a',1,'RGBAImageSet::Add()']]],
   ['addaction',['addAction',['../class_abstract_note.html#a917ce1f4fccc3a31280dcca8e17ba51f',1,'AbstractNote']]],
   ['addactions',['addActions',['../class_abstract_note.html#a4d857e558602b9fb9dcfa4cb4eda55bf',1,'AbstractNote']]],
   ['addbutton',['addButton',['../class_fad_line_edit.html#abcc30fd4bbdea6ca239c5e8e9c741048',1,'FadLineEdit::addButton()'],['../class_button_list.html#ab056bf58a657fbd92de086029cc2ae7a',1,'ButtonList::addButton()']]],

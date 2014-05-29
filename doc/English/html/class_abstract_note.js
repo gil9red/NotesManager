@@ -35,6 +35,8 @@ var class_abstract_note =
     [ "setTop", "class_abstract_note.html#ab98938de6dec1ac573fc75985bdab801", null ],
     [ "setVisibleToolBar", "class_abstract_note.html#ac9e888ba482ae1e3eea665b519f960eb", null ],
     [ "setWidget", "class_abstract_note.html#ad907db830ca634527ad14c64845be6f9", null ],
+    [ "sg_IHidden", "class_abstract_note.html#a14836b7fb42431d8518d7404d421fc4d", null ],
+    [ "sg_IShow", "class_abstract_note.html#aedcfdd2e430b62e04d76a77031a696d9", null ],
     [ "showEvent", "class_abstract_note.html#a60925fa0bc7cc9a213a6f3721f7433f3", null ],
     [ "title", "class_abstract_note.html#a986d9f320a25b83e897831980545b805", null ],
     [ "titleColor", "class_abstract_note.html#aea6a9e3da963ae01a2ae30e1da104a2c", null ],

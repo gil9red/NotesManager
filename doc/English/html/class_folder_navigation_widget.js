@@ -31,13 +31,20 @@ var class_folder_navigation_widget =
     [ "updatePinnedFolderData", "class_folder_navigation_widget.html#ab6d3900bfcf1cf381919e155232e61ac", null ],
     [ "actionAddFolder", "class_folder_navigation_widget.html#a64155ee6569c00f25f53bbe0b097eeba", null ],
     [ "actionAddNote", "class_folder_navigation_widget.html#a5543da842db6d86d8591ccad14aa97b9", null ],
+    [ "actionAddNoteFromClipboard", "class_folder_navigation_widget.html#a6749e975a133d3dd8e27bd2efc600112", null ],
+    [ "actionAddNoteFromScreen", "class_folder_navigation_widget.html#a387a759777a0f2caa816e1e15bf97328", null ],
     [ "actionClearTrash", "class_folder_navigation_widget.html#a9ff4d22878199a4800944ae1eb7ba324", null ],
     [ "actionDeleteItem", "class_folder_navigation_widget.html#a2319889f4c8e17ea8072ed2ca48272bd", null ],
+    [ "actionHideNote", "class_folder_navigation_widget.html#a88e612c023a746d8458276b5fd39a596", null ],
     [ "actionItemCustomBackColor", "class_folder_navigation_widget.html#aed8a03c6e08ac60ec00f40715cbf0254", null ],
     [ "actionItemCustomForeColor", "class_folder_navigation_widget.html#a1518c5d7d9c817953849b73c0ec208f4", null ],
     [ "actionItemDefaultBackColor", "class_folder_navigation_widget.html#ac0b9be13ac5fd2aee28d944b72a2e261", null ],
     [ "actionItemDefaultForeColor", "class_folder_navigation_widget.html#aaed2ec2b5eda66453d90b422ebe3def1", null ],
     [ "actionMoveToBin", "class_folder_navigation_widget.html#a35e4dacd8c639f81ca9c7206ce196a4c", null ],
     [ "actionOpenNote", "class_folder_navigation_widget.html#a67c09958b73345b5c18b5c467d825b16", null ],
-    [ "actionRenameItem", "class_folder_navigation_widget.html#adffc7666d54df32554342c7b2bd15dfb", null ]
+    [ "actionPreviewPrintNote", "class_folder_navigation_widget.html#aa025ae13336b99666b75b50c8b1cf862", null ],
+    [ "actionPrintNote", "class_folder_navigation_widget.html#a46231c7099390892577d748633918473", null ],
+    [ "actionRenameItem", "class_folder_navigation_widget.html#adffc7666d54df32554342c7b2bd15dfb", null ],
+    [ "actionSaveNoteAs", "class_folder_navigation_widget.html#a514e39d648035009e41a475022d3c72c", null ],
+    [ "actionShowNote", "class_folder_navigation_widget.html#a87b94b275ee6c9c606571c75931a4b42", null ]
 ];

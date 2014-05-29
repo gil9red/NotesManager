@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Notes Manager
-   &#160;<span id="projectnumber">0.0.2</span>
+   &#160;<span id="projectnumber">0.0.3</span>
    </div>
    <div id="projectbrief">Программа создает заметки</div>
   </td>
@@ -106,6 +106,7 @@ $(document).ready(function(){initNavTree('class_text_editor.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#pub-slots">Открытые слоты</a> &#124;
 <a href="#signals">Сигналы</a> &#124;
 <a href="#pub-methods">Открытые члены</a> &#124;
 <a href="#pro-methods">Защищенные члены</a> &#124;
@@ -128,40 +129,50 @@ $(document).ready(function(){initNavTree('class_text_editor.html','');});
 </map>
  </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
+Открытые слоты</h2></td></tr>
+<tr class="memitem:af8db5895490d6c7e26541d551952a632"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af8db5895490d6c7e26541d551952a632"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>openUrl</b> (const QUrl &amp;url)</td></tr>
+<tr class="separator:af8db5895490d6c7e26541d551952a632"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a885c1589464e5ba7c70b494c10a0b6e9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a885c1589464e5ba7c70b494c10a0b6e9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sl_FollowLinkAction</b> ()</td></tr>
+<tr class="separator:a885c1589464e5ba7c70b494c10a0b6e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cd1659bd12f25cb756f77b5a3f53b68"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1cd1659bd12f25cb756f77b5a3f53b68"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sl_RemoveLinkAction</b> ()</td></tr>
+<tr class="separator:a1cd1659bd12f25cb756f77b5a3f53b68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6472cf3128e3a56dead844911dd34b61"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6472cf3128e3a56dead844911dd34b61"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sl_EditLinkAction</b> ()</td></tr>
+<tr class="separator:a6472cf3128e3a56dead844911dd34b61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
 Сигналы</h2></td></tr>
-<tr class="memitem:aabe7f965344bda8ce3467c7ac8cac2c5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aabe7f965344bda8ce3467c7ac8cac2c5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_editor.html#aabe7f965344bda8ce3467c7ac8cac2c5">isOpenLink</a> (bool)</td></tr>
-<tr class="memdesc:aabe7f965344bda8ce3467c7ac8cac2c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; Сигнал отсылается при открытии ссылки <br/></td></tr>
-<tr class="separator:aabe7f965344bda8ce3467c7ac8cac2c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54bf7ebdd373bcc068d7ae208d00e182"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a54bf7ebdd373bcc068d7ae208d00e182"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sg_LinkClicked</b> (QUrl)</td></tr>
+<tr class="separator:a54bf7ebdd373bcc068d7ae208d00e182"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Открытые члены</h2></td></tr>
 <tr class="memitem:a815182ab29dc663665c374c1f5750f10"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a815182ab29dc663665c374c1f5750f10"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>TextEditor</b> (QWidget *parent=0)</td></tr>
 <tr class="separator:a815182ab29dc663665c374c1f5750f10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa91ddede5ea1ac92347e531de5626e07"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa91ddede5ea1ac92347e531de5626e07"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_editor.html#aa91ddede5ea1ac92347e531de5626e07">setActivateLink</a> (bool activate)</td></tr>
-<tr class="memdesc:aa91ddede5ea1ac92347e531de5626e07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Активация ссылок в редакторе <br/></td></tr>
-<tr class="separator:aa91ddede5ea1ac92347e531de5626e07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Защищенные члены</h2></td></tr>
 <tr class="memitem:aa112915cf828b3114ff58730e20af8d7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa112915cf828b3114ff58730e20af8d7"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>focusInEvent</b> (QFocusEvent *event)</td></tr>
 <tr class="separator:aa112915cf828b3114ff58730e20af8d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afcdb7be011333a7b192873fff4ef27d2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afcdb7be011333a7b192873fff4ef27d2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>keyPressEvent</b> (QKeyEvent *event)</td></tr>
-<tr class="separator:afcdb7be011333a7b192873fff4ef27d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2de554a972e12648425f8e4677213cc5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2de554a972e12648425f8e4677213cc5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>keyReleaseEvent</b> (QKeyEvent *event)</td></tr>
-<tr class="separator:a2de554a972e12648425f8e4677213cc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0010bc76f7d07d8243bdbe35992949cb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0010bc76f7d07d8243bdbe35992949cb"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>changeEvent</b> (QEvent *event)</td></tr>
 <tr class="separator:a0010bc76f7d07d8243bdbe35992949cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54b1e41cdc19f8c98aa44bb6407ad99f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a54b1e41cdc19f8c98aa44bb6407ad99f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>contextMenuEvent</b> (QContextMenuEvent *event)</td></tr>
 <tr class="separator:a54b1e41cdc19f8c98aa44bb6407ad99f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accfbb72b1b9415fcaba4f12dac4cbd4b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="accfbb72b1b9415fcaba4f12dac4cbd4b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>mouseMoveEvent</b> (QMouseEvent *event)</td></tr>
+<tr class="separator:accfbb72b1b9415fcaba4f12dac4cbd4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b491a89c3fee96f88767c5ae289935b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4b491a89c3fee96f88767c5ae289935b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>mousePressEvent</b> (QMouseEvent *event)</td></tr>
+<tr class="separator:a4b491a89c3fee96f88767c5ae289935b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
 <div class="textblock"><p>Редактор заметки </p>
@@ -175,7 +186,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>contextMenuEvent</b> 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_text_editor.html">TextEditor</a></li>
-    <li class="footer">Документация по Notes Manager. Последние изменения: Сб 10 Май 2014 22:51:16. Создано системой
+    <li class="footer">Документация по Notes Manager. Последние изменения: Чт 29 Май 2014 23:36:28. Создано системой
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

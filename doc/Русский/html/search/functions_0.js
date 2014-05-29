@@ -5,7 +5,7 @@ var searchData=
   ['activatewindow',['activateWindow',['../class_qt_single_application.html#a0881b32c76132b499f3180064006abc1',1,'QtSingleApplication']]],
   ['activationwindow',['activationWindow',['../class_qt_single_application.html#a1e6be5adba2282fcfe547596b2aee18a',1,'QtSingleApplication']]],
   ['active',['Active',['../class_auto_complete.html#a49348c425ba90f7ae7febc1d4f013819',1,'AutoComplete']]],
-  ['add',['Add',['../class_r_g_b_a_image_set.html#ab823a6bbc71d2e98a7dfaa1ee504cd9a',1,'RGBAImageSet::Add()'],['../class_qsci_a_p_is.html#af46ca05571eb676d3aa65b080fb406c5',1,'QsciAPIs::add()']]],
+  ['add',['add',['../class_qsci_a_p_is.html#af46ca05571eb676d3aa65b080fb406c5',1,'QsciAPIs::add()'],['../class_r_g_b_a_image_set.html#ab823a6bbc71d2e98a7dfaa1ee504cd9a',1,'RGBAImageSet::Add()']]],
   ['addaction',['addAction',['../class_abstract_note.html#a917ce1f4fccc3a31280dcca8e17ba51f',1,'AbstractNote']]],
   ['addactions',['addActions',['../class_abstract_note.html#a4d857e558602b9fb9dcfa4cb4eda55bf',1,'AbstractNote']]],
   ['addbutton',['addButton',['../class_fad_line_edit.html#abcc30fd4bbdea6ca239c5e8e9c741048',1,'FadLineEdit::addButton()'],['../class_button_list.html#ab056bf58a657fbd92de086029cc2ae7a',1,'ButtonList::addButton()']]],
