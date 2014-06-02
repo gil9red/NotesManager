@@ -811,11 +811,11 @@ quint64 RichTextNote::intervalAutosave()
 
 void RichTextNote::changeOpacity( QAction * action )
 {
-    qreal o = action->data().toReal();
-    if ( o < nm_Note::minimalOpacity )
+    qreal op = action->data().toReal();
+    if ( op < nm_Note::minimalOpacity )
         selectOpacity();
     else
-        setOpacity( o );
+        setOpacity( op );
 }
 void RichTextNote::print( QPrinter * printer )
 {

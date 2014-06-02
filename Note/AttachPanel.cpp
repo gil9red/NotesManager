@@ -110,7 +110,7 @@ void AttachPanel::on_tButtonRemove_clicked()
 
     refresh();
 
-    note->changed( EventsNote::ChangeAttach );
+    emit note->changed( EventsNote::ChangeAttach );
 }
 void AttachPanel::on_tButtonRemoveAll_clicked()
 {
@@ -129,7 +129,7 @@ void AttachPanel::on_tButtonRemoveAll_clicked()
     }
 
     refresh();
-    note->changed( EventsNote::ChangeAttach );
+    emit note->changed( EventsNote::ChangeAttach );
 }
 void AttachPanel::on_tButtonRefreshList_clicked()
 {
