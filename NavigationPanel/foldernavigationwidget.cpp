@@ -493,7 +493,7 @@ void FolderNavigationWidget::sl_AddFolderAction_Triggered()
 void FolderNavigationWidget::sl_DeleteItemAction_Triggered()
 {
     QModelIndexList list = ui->treeView->selectionModel()->selectedIndexes();
-    if (list.isEmpty())
+    if ( list.isEmpty() )
     {
         WARNING("List is empty");
         return;
@@ -1074,20 +1074,10 @@ bool FolderNavigationWidget::eventFilter (QObject* watched, QEvent* event)
             return false;
 
         QKeyEvent* keyEvent = static_cast<QKeyEvent*>(event);
-        if (keyEvent->key() == Qt::Key_Delete)
-        {
-            // Delete selected items by pressing 'Delete' button
-            if (ui->treeView->selectionModel()->selectedIndexes().size() == 0)
-                return false;
-            bool permanently = false;
-            if ((keyEvent->modifiers() & Qt::ShiftModifier) || false)
-                //if ((keyEvent->modifiers() & Qt::ShiftModifier) || !Application::I()->settings.getMoveItemsToBin())
-                permanently = true;
+        if (keyEvent->key() == Qt::Key_Delete)        
+            sl_DeleteItemAction_Triggered();
 
-            QModelIndexList list = ui->treeView->selectionModel()->selectedIndexes();
-            deleteItems(list, permanently);
-
-        } else if (keyEvent->key() == Qt::Key_Enter || keyEvent->key() == Qt::Key_Return)
+        else if (keyEvent->key() == Qt::Key_Enter || keyEvent->key() == Qt::Key_Return)
         {
             // Open selected notes by pressing 'Enter' button
             if (ui->treeView->selectionModel()->selectedIndexes().size() == 0)
