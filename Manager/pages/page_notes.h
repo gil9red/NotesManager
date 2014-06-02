@@ -53,7 +53,6 @@ public slots:
     Q_SCRIPTABLE void addNoteFromScreen();
     void sl_Delete();
     void sl_ClearTrash();
-    void sl_RemoveToTrash();
 
     void sl_SaveNote();
     void sl_SaveAsNote();

@@ -54,7 +54,6 @@ Page_Notes::Page_Notes( QWidget * parent ) :
         QObject::connect( ui->actionAddNoteFromClipboard, SIGNAL( triggered() ), SLOT( addNoteFromClipboard() ) );
         QObject::connect( ui->actionAddNoteFromScreen, SIGNAL( triggered() ), SLOT( addNoteFromScreen() ) );
         QObject::connect( ui->actionAddFolder, SIGNAL( triggered() ), SLOT( addFolder() ) );
-        QObject::connect( ui->actionRemoveToTrash, SIGNAL( triggered() ), SLOT( sl_RemoveToTrash() ) );
         QObject::connect( ui->actionDelete, SIGNAL( triggered() ), SLOT( sl_Delete() ) );
         QObject::connect( ui->actionClearTrash, SIGNAL( triggered() ), SLOT( sl_ClearTrash() ) );
 
@@ -74,7 +73,6 @@ Page_Notes::Page_Notes( QWidget * parent ) :
         ui->tab_Notes->actionAddNoteFromClipboard = ui->actionAddNoteFromClipboard;
         ui->tab_Notes->actionAddNoteFromScreen    = ui->actionAddNoteFromScreen;
         ui->tab_Notes->actionAddFolder            = ui->actionAddFolder;
-        ui->tab_Notes->actionMoveToBin            = ui->actionRemoveToTrash;
         ui->tab_Notes->actionPrintNote            = ui->actionPrintNote;
         ui->tab_Notes->actionPreviewPrintNote     = ui->actionPreviewPrintNote;
         ui->tab_Notes->actionShowNote             = ui->actionShowNote;
@@ -403,11 +401,6 @@ void Page_Notes::sl_ClearTrash()
     ui->tab_Notes->sl_ClearTrashAction_Triggered();
     writeToXmlStateNotes();
 }
-void Page_Notes::sl_RemoveToTrash()
-{
-    ui->tab_Notes->sl_MoveToBinAction_Triggered();
-    writeToXmlStateNotes();
-}
 
 void Page_Notes::sl_SaveNote()
 {
@@ -609,7 +602,6 @@ void Page_Notes::sl_UpdateStates()
     ui->actionTopNote->setChecked( false );
 
     ui->actionDelete->setEnabled( false );
-    ui->actionRemoveToTrash->setEnabled( false );
     ui->actionClearTrash->setEnabled( Notebook::instance()->getTrashFolder()->child.count() > 0 );
 
     bool hasCurrent = this->hasCurrent();
@@ -631,9 +623,6 @@ void Page_Notes::sl_UpdateStates()
             ui->actionTopNote->setChecked( currentNoteIsTop );
         }
 
-        bool isChildTrash = this->currentIsChildTrash(); // если элемент есть в корзине
-        bool isTrash = this->currentIsTrash();
-        ui->actionRemoveToTrash->setEnabled( !isTrash && !isChildTrash ); // переместить в корзину
-        ui->actionDelete->setEnabled( isChildTrash );
+        ui->actionDelete->setEnabled( hasCurrent && !currentIsTrash() );
     }
 }

@@ -92,7 +92,6 @@
    <addaction name="actionAddFolder"/>
    <addaction name="separator"/>
    <addaction name="actionDelete"/>
-   <addaction name="actionRemoveToTrash"/>
    <addaction name="actionClearTrash"/>
   </widget>
   <widget class="QToolBar" name="toolBarNote">
@@ -334,21 +333,6 @@
    </property>
    <property name="whatsThis">
     <string>Delete</string>
-   </property>
-  </action>
-  <action name="actionRemoveToTrash">
-   <property name="icon">
-    <iconset resource="../Manager.qrc">
-     <normaloff>:/fugue-icons/minus</normaloff>:/fugue-icons/minus</iconset>
-   </property>
-   <property name="text">
-    <string>Remove to trash</string>
-   </property>
-   <property name="statusTip">
-    <string>Remove to trash</string>
-   </property>
-   <property name="whatsThis">
-    <string>Remove to trash</string>
    </property>
   </action>
   <action name="actionClearTrash">

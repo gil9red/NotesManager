@@ -51,7 +51,6 @@ public:
     QAction * actionSaveNoteAs;
     QAction * actionShowNote;
     QAction * actionHideNote;
-    QAction * actionMoveToBin;
     QAction * actionDeleteItem;
     QAction * actionClearTrash;
     QAction * actionItemDefaultForeColor;
@@ -75,7 +74,6 @@ public slots:
     // Actions event handlers
     void sl_AddNoteAction_Triggered();
     void sl_AddFolderAction_Triggered();
-    void sl_MoveToBinAction_Triggered();
     void sl_DeleteItemAction_Triggered();
     void sl_DefaultForeColor_Triggered();
     void sl_DefaultBackColor_Triggered();

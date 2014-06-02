@@ -230,11 +230,8 @@ void FolderNavigationWidget::deleteItems(QModelIndexList& indexesList, bool perm
             FolderModelItem* fmi = dynamic_cast<FolderModelItem*>(modelItemToDelete);
             itemToDelete = fmi->getStoredData();
 
-            if ( itemToDelete == Notebook::instance()->getTrashFolder() )
-            {
-                QMessageBox::information(0, tr( "Information" ), tr( "You cannot delete system folders" ) );
-                continue;
-            }
+            if ( itemToDelete == Notebook::instance()->getTrashFolder() )            
+                continue;            
         } else if ( isNote )
         {
             NoteModelItem * fmi = dynamic_cast<NoteModelItem*>(modelItemToDelete);
@@ -493,15 +490,62 @@ void FolderNavigationWidget::sl_AddFolderAction_Triggered()
     // Открываем редактор для только что добавленной ячейки
     ui->treeView->edit( ui->treeView->currentIndex() );
 }
-void FolderNavigationWidget::sl_MoveToBinAction_Triggered()
-{
-    QModelIndexList list = ui->treeView->selectionModel()->selectedIndexes();
-    deleteItems(list, false); // Пусть пока перемещает в корзину
-}
 void FolderNavigationWidget::sl_DeleteItemAction_Triggered()
 {
     QModelIndexList list = ui->treeView->selectionModel()->selectedIndexes();
-    deleteItems(list, true); // Удаление
+    if (list.isEmpty())
+    {
+        WARNING("List is empty");
+        return;
+    }
+
+    QModelIndexList listDelete;
+    QModelIndexList listMoveToTrash;
+
+    foreach (QModelIndex index, list)
+    {
+        if (!index.isValid())
+        {
+            WARNING("Invalid index in list");
+            continue;
+        }
+
+        BaseModelItem * modelItemToDelete = static_cast < BaseModelItem * > ( index.internalPointer() );
+        bool isFolder = modelItemToDelete->DataType() == BaseModelItem::folder;
+        bool isNote = modelItemToDelete->DataType() == BaseModelItem::note;
+
+        AbstractFolderItem* itemToDelete = 0;
+        if ( isFolder )
+        {
+            FolderModelItem * fmi = dynamic_cast<FolderModelItem*>(modelItemToDelete);
+            itemToDelete = fmi->getStoredData();
+
+            if ( itemToDelete == Notebook::instance()->getTrashFolder() )
+                continue;
+
+        } else if ( isNote )
+        {
+            NoteModelItem * fmi = dynamic_cast<NoteModelItem*>(modelItemToDelete);
+            itemToDelete = fmi->getStoredData();
+        }
+        if ( !itemToDelete )
+        {
+            WARNING("Could not find an item for deletion");
+            continue;
+        }
+
+        // Проверка на нахождение элемента в корзине
+        if ( itemToDelete->isOffspringOf( Notebook::instance()->getTrashFolder() ) )
+            listDelete << index;
+        else
+            listMoveToTrash << index;
+    }
+
+    if ( !listDelete.isEmpty() )
+        deleteItems( listDelete, true ); // Список на удаление
+
+    if ( !listMoveToTrash.isEmpty() )
+        deleteItems( listMoveToTrash, false ); // Список на перемещение в корзину
 }
 
 void FolderNavigationWidget::sl_DefaultForeColor_Triggered()
@@ -908,7 +952,6 @@ void FolderNavigationWidget::on_treeView_customContextMenuRequested(const QPoint
                     menu.addAction( menuItemForeColor->menuAction() );
                     menu.addAction( menuItemBackColor->menuAction() );
                     menu.addSeparator();
-                    menu.addAction( actionMoveToBin );
                     menu.addAction( actionDeleteItem );
                 }
 
@@ -929,7 +972,6 @@ void FolderNavigationWidget::on_treeView_customContextMenuRequested(const QPoint
                 menu.addAction( menuItemForeColor->menuAction() );
                 menu.addAction( menuItemBackColor->menuAction() );
                 menu.addSeparator();
-                menu.addAction( actionMoveToBin );
                 menu.addAction( actionDeleteItem );
             }
         }
@@ -939,7 +981,6 @@ void FolderNavigationWidget::on_treeView_customContextMenuRequested(const QPoint
         menu.addSeparator();
         menu.addAction( actionOpenNote );
         menu.addSeparator();
-        menu.addAction( actionMoveToBin );
         menu.addAction( actionDeleteItem );
         menu.addSeparator();
         menu.addAction( menuItemForeColor->menuAction() );
@@ -957,7 +998,7 @@ void FolderNavigationWidget::on_treeView_clicked(const QModelIndex &index)
     if (!index.isValid())
         return;
 
-    BaseModelItem* item = static_cast<BaseModelItem*>(index.internalPointer());
+    BaseModelItem * item = static_cast<BaseModelItem*>(index.internalPointer());
     if (item->DataType() == BaseModelItem::note)
     {
         Note* n = dynamic_cast<NoteModelItem*>(item)->getStoredData();
