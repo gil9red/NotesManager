@@ -135,7 +135,7 @@ QToolBar * FormattingToolbar::mainToolBar()
     toolBar->addWidget( ui->upper );
 
     toolBar->addWidget( ui->insertHyperlink );
-    toolBar->addWidget( ui->insertPicture );
+    toolBar->addWidget( ui->insertImage );
     toolBar->addWidget( ui->insertTable );
     return toolBar;
 }
@@ -292,7 +292,7 @@ void FormattingToolbar::updateStates()
     ui->bulletedList->setEnabled( true );
     ui->insertHLine->setEnabled( true );
     ui->insertHyperlink->setEnabled( true );
-    ui->insertPicture->setEnabled( true );
+    ui->insertImage->setEnabled( true );
     ui->insertTable->setEnabled( true );
     ui->orderedList->setEnabled( true );
 
@@ -601,7 +601,7 @@ void FormattingToolbar::on_insertHyperlink_clicked()
 
     editor->insertHtml( QString( "<a href=\"%1\">%2</a> " ).arg( hyperlink ).arg( text ) );
 }
-void FormattingToolbar::on_insertPicture_clicked()
+void FormattingToolbar::on_insertImage_clicked()
 {
     QString filters = tr( "Images" );
     filters += " (";

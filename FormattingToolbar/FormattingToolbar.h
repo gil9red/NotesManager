@@ -167,7 +167,7 @@ private slots:
     void on_insertHyperlink_clicked();
 
     //! Вставка изображения
-    void on_insertPicture_clicked();
+    void on_insertImage_clicked();
 
     //! Вставка таблицы
     void insertTable( int rows, int cols );

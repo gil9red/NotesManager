@@ -684,7 +684,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="insertPicture">
+      <widget class="QToolButton" name="insertImage">
        <property name="enabled">
         <bool>true</bool>
        </property>

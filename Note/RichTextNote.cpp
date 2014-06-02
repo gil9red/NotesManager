@@ -95,28 +95,33 @@ void RichTextNote::createNew( bool bsave )
         save();
 }
 
-QString RichTextNote::fileName()
+QString RichTextNote::dirNotePath()
 {
-    return noteFileName;
+    return dirNote;
+}
+QString RichTextNote::imagesDirPath()
+{
+    return QDir::fromNativeSeparators( dirNotePath() + "/images" );
 }
 QString RichTextNote::attachDirPath()
 {
-    return QDir::fromNativeSeparators( noteFileName + "/attach" );
+    return QDir::fromNativeSeparators( dirNotePath() + "/attach" );
 }
 QString RichTextNote::contentFilePath()
 {
-    return QDir::fromNativeSeparators( noteFileName + "/content.html" );
+    return QDir::fromNativeSeparators( dirNotePath() + "/content.html" );
 }
 QString RichTextNote::settingsFilePath()
 {
-    return QDir::fromNativeSeparators( noteFileName + "/settings.ini" );
+    return QDir::fromNativeSeparators( dirNotePath() + "/settings.ini" );
 }
 
 void RichTextNote::setFileName( const QString & dirName )
 {    
-    noteFileName = dirName;
+    dirNote = dirName;
+
     // Если уже существует, то выходим
-    if ( QDir( noteFileName ).exists() )
+    if ( QDir( dirNote ).exists() )
     {
         // Настройка слежения за папкой заметки
         {
@@ -131,8 +136,9 @@ void RichTextNote::setFileName( const QString & dirName )
     }
 
     // Создадим папку заметки с нужными папками и файлами
-    QDir().mkdir( noteFileName );
+    QDir().mkdir( dirNotePath() );
     QDir().mkdir( attachDirPath() );
+    QDir().mkdir( imagesDirPath() );
     QFile( contentFilePath() ).open( QIODevice::WriteOnly );
     QFile( settingsFilePath() ).open( QIODevice::WriteOnly );
 
@@ -396,6 +402,8 @@ void RichTextNote::load()
         else
             _position = defaultMapSettings[ "Position" ].toPoint();
 
+//        QApplication::desktop()->screenGeometry();
+
         QColor _titleColor;
         QColor _bodyColor;
         if ( randomColor )
@@ -525,7 +533,7 @@ void RichTextNote::removeDir()
     // Прекращаем слежение за файлами и папками
     setActivateFileWatcher( false );
 
-    if ( !removePath( fileName() ) )
+    if ( !removePath( dirNotePath() ) )
         QMessageBox::warning( this, tr( "Warning" ), tr( "I can not delete" ) );
 }
 void RichTextNote::remove()
@@ -671,7 +679,7 @@ void RichTextNote::saveAs()
 
     } else if ( suffix.contains( "filenotes", Qt::CaseInsensitive ) ) // Если свой формат, то сохраняем в архиве
     {
-        if ( !JlCompress::compressDir( saveFileName, fileName() ) )
+        if ( !JlCompress::compressDir( saveFileName, dirNotePath() ) )
         {
             QMessageBox::information( this, tr( "Information" ), tr( "An error occurred saving notes" ) );
             WARNING( "An error occurred saving notes" );
@@ -722,13 +730,13 @@ void RichTextNote::selectAttach()
         return;
 
     foreach ( const QString & fileName, files )
-        attach( fileName );
+        attach( fileName, attachDirPath() );
 }
 
 void RichTextNote::insertImage( const QString & fileName, QTextCursor textCursor )
 {
-    QString newFileName = attach( fileName );
-    QString relativePath = QFileInfo( attachDirPath() ).fileName() + "/" + QFileInfo( newFileName ).fileName();
+    QString newFileName = attach( fileName, imagesDirPath() );
+    QString relativePath = QFileInfo( imagesDirPath() ).fileName() + "/" + QFileInfo( newFileName ).fileName();
     relativePath = QDir::toNativeSeparators( relativePath );
     document()->addResource( QTextDocument::ImageResource, QUrl( relativePath ), QImage( newFileName ) );
     textCursor.insertImage( relativePath );
@@ -737,11 +745,12 @@ void RichTextNote::insertImage( const QString & fileName )
 {
     insertImage( fileName, editor.textCursor() );
 }
+
 void RichTextNote::insertImage( const QPixmap & pixmap )
 {
-    // Сохраняем в папке прикрепленных файлов
+    // Сохраняем
     const QString & name = tr( "image" ) + QString( "_%1.png" ).arg( QDateTime::currentDateTime().toString( "hh-mm-ss_yyyy-MM-dd" ) );
-    QString path = attachDirPath() + "/" + name;
+    QString path = imagesDirPath() + "/" + name;
     path = QDir::toNativeSeparators( path );
     if ( !pixmap.save( path ) )
     {
@@ -749,18 +758,20 @@ void RichTextNote::insertImage( const QPixmap & pixmap )
                 return;
     }
     insertImage( path );
-    updateAttachList();
 }
 
-QString RichTextNote::attach( const QString & fileName )
+QString RichTextNote::attach( const QString & fileName, const QString & dir )
 {
     setActivateFileWatcher( false );
 
-    QString newFileName = attachDirPath() + QDir::separator() + QFileInfo( fileName ).fileName();
+    QString newFileName = dir + QDir::separator() + QFileInfo( fileName ).fileName();
     QFile::copy( fileName, newFileName );
 
-    attachModel.appendRow( new QStandardItem( QFileInfo( fileName ).fileName() ) );
-    emit changed( EventsNote::ChangeAttach );
+    if ( dir == attachDirPath() )
+    {
+        attachModel.appendRow( new QStandardItem( QFileInfo( fileName ).fileName() ) );
+        emit changed( EventsNote::ChangeAttach );
+    }
 
     setActivateFileWatcher( true );
 
@@ -869,6 +880,7 @@ void RichTextNote::setActivateFileWatcher( bool activate )
 
         // Устанавливаем слежение за новыми
         fileSystemWatcher.addPath( attachDirPath() ); // Папка с прикрепленными файлами
+        fileSystemWatcher.addPath( imagesDirPath() ); // Папка с картинками заметок
         fileSystemWatcher.addPath( contentFilePath() ); // Файл, описывающий содержимое заметки (html)
         fileSystemWatcher.addPath( settingsFilePath() ); // Файл, описывающий заметку - название, положение, размер, цвет и т.п.
     } else
@@ -890,6 +902,9 @@ void RichTextNote::directoryChanged( const QString & name )
     // Если это была папка с прикрепленными файлами
     if ( name == attachDirPath() )
         updateAttachList();
+
+    else if ( name == imagesDirPath() )
+        loadContent();
 }
 void RichTextNote::fileChanged( const QString & name )
 {

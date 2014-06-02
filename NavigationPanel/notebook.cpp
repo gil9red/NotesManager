@@ -8,7 +8,7 @@
 
 QString getIdFromRichTextNote( RichTextNote * note )
 {
-    return QDir( note->fileName() ).dirName();
+    return QDir( note->dirNotePath() ).dirName();
 }
 
 AbstractFolderItem * createFromType( const QString & type )

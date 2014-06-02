@@ -41,7 +41,8 @@ public:
      */
     void createNew( bool bsave = true );
 
-    QString fileName();         //!< Функция возвращает путь до папки заметки.
+    QString dirNotePath();      //!< Функция возвращает путь до папки заметки.
+    QString imagesDirPath();    //!< Функция возвращает путь до папки с картинками, которые отображаются в заметках.
     QString attachDirPath();    //!< Функция возвращает путь до папки прикрепленных файлов.
     QString contentFilePath();  //!< Функция возвращает путь до файла содержимого заметки.
     QString settingsFilePath(); //!< Функция возвращает путь до настроек заметки.
@@ -112,9 +113,10 @@ public slots:
 
     //! Функция копирует указанный файл в папку прикрепленных файлов.
     /*! \param fileName путь до файла.
+     *  \param dir путь к папке, в которую и будет скопирован файл.
      *  \return путь до файла из папки прикрепленных файлов, если удачно, иначе - пустую строку.
      */
-    QString attach( const QString & fileName );
+    QString attach( const QString & fileName, const QString & dir );
 
     //! Функция обновляет список прикрепленных файлов.
     void updateAttachList();
@@ -179,8 +181,8 @@ public:
 private:
     QFileSystemWatcher fileSystemWatcher; //!< Будет следить за папкой заметки.
     QTimer timerAutosave; //!< Таймер автосохранений
-    QString noteFileName; //! Путь до папки заметки
-    TextEditor editor;  //! Редактор заметки
+    QString dirNote;     //! Путь до папки заметки
+    TextEditor editor;   //! Редактор заметки
 
 public:
     friend class AttachPanel;
