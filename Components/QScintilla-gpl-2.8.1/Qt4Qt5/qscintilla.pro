@@ -31,6 +31,7 @@ TEMPLATE = lib
 TARGET = $$qtLibraryTarget(qscintilla2)
 CONFIG += qt warn_off dll thread exceptions
 #CONFIG += release
+CONFIG += build_all
 INCLUDEPATH += . ../include ../lexlib ../src
 DEFINES += QSCINTILLA_MAKE_DLL SCINTILLA_QT SCI_LEXER
 
