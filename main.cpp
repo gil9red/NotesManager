@@ -99,7 +99,6 @@ int main( int argc, char * argv[] )
         app.sendMessage( "-show -message" );
         return 0;
     }    
-
     QFile file( ":/Note/Note.qss" );
     if ( file.open( QIODevice::ReadOnly ) )
         nm_Note::style = file.readAll();

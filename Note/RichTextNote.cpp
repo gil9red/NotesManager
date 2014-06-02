@@ -382,7 +382,7 @@ void RichTextNote::load()
     if ( ini.value( "Settings" ).toMap().isEmpty() )
     {
         const QDateTime & currentDateTime = QDateTime::currentDateTime();
-        const QRect & desktop = QDesktopWidget().geometry();
+        const QRect & screenGeometry = qApp->desktop()->availableGeometry();
         bool randomPosition = defaultMapSettings[ "RandomPositionOnScreen" ].toBool();
         bool randomColor = defaultMapSettings[ "RandomColor" ].toBool();
 
@@ -396,13 +396,10 @@ void RichTextNote::load()
 
         _fontTitle.fromString( defaultMapSettings[ "FontTitle" ].toString() );
 
-        // TODO: доработать с учетом размера заметок, т.к. новые заметки может разместить за экран
         if ( randomPosition )
-            _position = QPoint( qrand() % desktop.width(), qrand() % desktop.height() );
+            _position = QPoint( qrand() % (screenGeometry.width() - _size.width()), qrand() % (screenGeometry.height() - _size.height()) );
         else
             _position = defaultMapSettings[ "Position" ].toPoint();
-
-//        QApplication::desktop()->screenGeometry();
 
         QColor _titleColor;
         QColor _bodyColor;
