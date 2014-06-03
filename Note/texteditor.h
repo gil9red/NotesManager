@@ -13,6 +13,8 @@
 #include <QTimer>
 #include <QTextFragment>
 
+class RichTextNote;
+
 //! Редактор заметки
 class TextEditor: public QTextBrowser
 {
@@ -20,6 +22,9 @@ class TextEditor: public QTextBrowser
 
 public:
     TextEditor( QWidget * parent = 0 );
+
+    void setNote( RichTextNote * note );
+    RichTextNote * getNote();
 
 private:
     QTextFragment findFragmentAtPos(QPoint pos);
@@ -32,6 +37,7 @@ public slots:
     void sl_EditLinkAction();
 
 private:
+    RichTextNote * note;
     QTimer anchorTooltipTimer;
 
 private slots:
@@ -41,6 +47,9 @@ signals:
     void sg_LinkClicked( QUrl );
 
 protected:
+    void insertFromMimeData(const QMimeData *source);
+    bool canInsertFromMimeData(const QMimeData *source) const;
+
     void focusInEvent( QFocusEvent * event );
     void changeEvent( QEvent * event );
     void contextMenuEvent( QContextMenuEvent * event );

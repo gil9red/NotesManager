@@ -111,6 +111,8 @@ public slots:
      */
     void insertImage( const QPixmap & pixmap );
 
+    void insertImage( const QPixmap & pixmap, QTextCursor textCursor );
+
     //! Функция копирует указанный файл в папку.
     /*! \param fileName путь до файла.
      *  \param dir путь к папке, в которую и будет скопирован файл.

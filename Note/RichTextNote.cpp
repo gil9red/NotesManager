@@ -131,21 +131,29 @@ void RichTextNote::setFileName( const QString & dirName )
             // Устанавливаем слежение за новыми
             setActivateFileWatcher( true );
         }
-
-        return;
     }
 
     // Создадим папку заметки с нужными папками и файлами
-    QDir().mkdir( dirNotePath() );
-    QDir().mkdir( attachDirPath() );
-    QDir().mkdir( imagesDirPath() );
-    QFile( contentFilePath() ).open( QIODevice::WriteOnly );
-    QFile( settingsFilePath() ).open( QIODevice::WriteOnly );
-
-    // Настройка слежения за папкой заметки
     {
-        // Устанавливаем слежение за новыми
-        setActivateFileWatcher( true );
+        // Создание нового, если не существует
+        if ( !QFileInfo( dirNotePath() ).exists() )
+            QDir().mkdir( dirNotePath() );
+
+        // Создание нового, если не существует
+        if ( !QFileInfo( attachDirPath() ).exists() )
+            QDir().mkdir( attachDirPath() );
+
+        // Создание нового, если не существует
+        if ( !QFileInfo( imagesDirPath() ).exists() )
+            QDir().mkdir( imagesDirPath() );
+
+        // Создание нового, если не существует
+        if ( !QFileInfo( contentFilePath() ).exists() )
+            QFile( contentFilePath() ).open( QIODevice::WriteOnly );
+
+        // Создание нового, если не существует
+        if ( !QFileInfo( settingsFilePath() ).exists() )
+            QFile( settingsFilePath() ).open( QIODevice::WriteOnly );
     }
 }
 
@@ -170,6 +178,8 @@ void RichTextNote::setDefaultSettingsFromMap(const QVariantMap & data )
 
 void RichTextNote::init()
 {
+    editor.setNote( this );
+
     setupGUI();
 
     updateStates();
@@ -732,11 +742,13 @@ void RichTextNote::selectAttach()
 
 void RichTextNote::insertImage( const QString & fileName, QTextCursor textCursor )
 {
+    setActivateFileWatcher( false );
     QString newFileName = attach( fileName, imagesDirPath() );
     QString relativePath = QFileInfo( imagesDirPath() ).fileName() + "/" + QFileInfo( newFileName ).fileName();
     relativePath = QDir::toNativeSeparators( relativePath );
     document()->addResource( QTextDocument::ImageResource, QUrl( relativePath ), QImage( newFileName ) );
     textCursor.insertImage( relativePath );
+    setActivateFileWatcher( true );
 }
 void RichTextNote::insertImage( const QString & fileName )
 {
@@ -745,29 +757,46 @@ void RichTextNote::insertImage( const QString & fileName )
 
 void RichTextNote::insertImage( const QPixmap & pixmap )
 {
+    insertImage( pixmap, editor.textCursor() );
+}
+
+void RichTextNote::insertImage( const QPixmap & pixmap, QTextCursor textCursor )
+{
+    setActivateFileWatcher( false );
     // Сохраняем
     const QString & name = tr( "image" ) + QString( "_%1.png" ).arg( QDateTime::currentDateTime().toString( "hh-mm-ss_yyyy-MM-dd" ) );
-    QString path = imagesDirPath() + "/" + name;
-    path = QDir::toNativeSeparators( path );
+    QString path = QDir::toNativeSeparators( imagesDirPath() + "/" + name );
     if ( !pixmap.save( path ) )
     {
-        WARNING( "Error when saving!" )
-                return;
+        WARNING( "Error when saving!" );
+        return;
     }
-    insertImage( path );
+    insertImage( path, textCursor );
+    setActivateFileWatcher( true );
 }
 
 QString RichTextNote::attach( const QString & fileName, const QString & dir )
 {
     setActivateFileWatcher( false );
 
-    QString newFileName = dir + QDir::separator() + QFileInfo( fileName ).fileName();
-    QFile::copy( fileName, newFileName );
+    QString newFileName;
 
     if ( dir == attachDirPath() )
     {
+        newFileName = QDir::fromNativeSeparators( dir + "/" + QFileInfo( fileName ).fileName() );
+        if ( !QFile::copy( fileName, newFileName ) )
+            WARNING( "QFile::copy( fileName, newFileName ) == false" );
+
         attachModel.appendRow( new QStandardItem( QFileInfo( fileName ).fileName() ) );
         emit changed( EventsNote::ChangeAttach );
+
+    } else if ( dir == imagesDirPath() )
+    {
+        // Для картинок придумываем новое имя
+        const QString & newName = QDateTime::currentDateTime().toString( "hh-mm-ss_yyyy-MM-dd" ) + "." + QFileInfo( fileName ).suffix();
+        newFileName = QDir::fromNativeSeparators( dir + "/" + newName );
+        if ( !QFile::copy( fileName, newFileName ) )
+            WARNING( "QFile::copy( fileName, newFileName ) == false" );
     }
 
     setActivateFileWatcher( true );

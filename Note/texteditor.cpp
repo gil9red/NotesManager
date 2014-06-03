@@ -1,15 +1,17 @@
 #include "texteditor.h"
-
 #include <QApplication>
 #include <QDebug>
 #include <QDesktopServices>
 #include <QMenu>
 #include <QToolTip>
 #include "FormattingToolbar/DialogInsertHyperlink.h"
+#include <QImageReader>
+#include "RichTextNote.h"
 
-TextEditor::TextEditor( QWidget * parent ):
-    QTextBrowser( parent )
-{
+TextEditor::TextEditor( QWidget * parent )
+    : QTextBrowser( parent ),
+      note(0)
+{    
     // Возвращаем функциональность текстового редактора и настраиваем работу с гиперссылками
     setUndoRedoEnabled( true );
     setReadOnly( false );
@@ -17,6 +19,15 @@ TextEditor::TextEditor( QWidget * parent ):
     anchorTooltipTimer.setInterval( 1000 );
     anchorTooltipTimer.setSingleShot( true );
     QObject::connect( &anchorTooltipTimer, SIGNAL(timeout()), SLOT(sl_AnchorTooltipTimer_Timeout()) );
+}
+
+void TextEditor::setNote( RichTextNote * note )
+{
+    this->note = note;
+}
+RichTextNote * TextEditor::getNote()
+{
+    return note;
 }
 
 QTextFragment TextEditor::findFragmentAtPos(QPoint pos)
@@ -165,6 +176,45 @@ void TextEditor::sl_AnchorTooltipTimer_Timeout()
     const QString & href = anchorAt( mapFromGlobal( QCursor::pos() ) );
     if ( !href.isEmpty() )
         QToolTip::showText( QCursor::pos(), href + "\n" + tr( "Ctrl+Click to go" ), this );
+}
+
+void TextEditor::insertFromMimeData(const QMimeData *source)
+{
+    if ( source->hasUrls() )
+    {
+        foreach ( QUrl url, source->urls() )
+        {
+            if ( url.isLocalFile() )
+            {
+                const QString & filePath = url.toLocalFile();
+                QFileInfo fileInfo( filePath );
+                const QString & suffix = fileInfo.suffix().toLower();
+                if ( QImageReader::supportedImageFormats().contains( suffix.toUtf8() ) )
+                {
+                    if ( note )
+                        note->insertImage( filePath, textCursor() );
+                } else
+                    textCursor().insertText( filePath + "\n" );
+
+            } else
+                textCursor().insertText( url.toString() + "\n" );
+        }
+
+    } else if ( source->hasImage() )
+    {
+        QImage image = source->imageData().value < QImage > ();
+        if ( note && !image.isNull() )
+            note->insertImage( QPixmap::fromImage( image ), textCursor() );
+
+    } else
+        QTextBrowser::insertFromMimeData( source );
+}
+bool TextEditor::canInsertFromMimeData(const QMimeData *source) const
+{
+    if ( source->hasUrls() )
+        return true;
+
+    return QTextBrowser::canInsertFromMimeData( source );
 }
 
 void TextEditor::focusInEvent( QFocusEvent * event )
