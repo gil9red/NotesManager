@@ -39,12 +39,13 @@ QTextFragment TextEditor::findFragmentAtPos(QPoint pos)
     return QTextFragment();
 }
 
-void TextEditor::openUrl(const QUrl & url)
+void TextEditor::openUrl(QUrl url)
 {
-    bool isFile = QFileInfo( url.toString() ).isFile();
-    // TODO: добавить возможность открывать файлы и папки (https://github.com/gil9red/ContainerExes/blob/master/USupport.h: runFile()
-    // и https://github.com/gil9red/BatchImageConverter/blob/master/UBatchImageConverter/UProgressFileDialog.cpp: openFolder)
-    bool successful = QDesktopServices::openUrl( isFile ? QUrl::fromLocalFile( url.toString() ) : url );
+    const QFileInfo & fileInfo = QFileInfo( url.toString() );
+    if ( fileInfo.isFile() || fileInfo.isDir() )
+        url = QUrl::fromLocalFile( url.toString() );
+
+    bool successful = QDesktopServices::openUrl( url );
     if ( !successful )
         WARNING("Error when to link " + url.toString());
     emit sg_LinkClicked( url );

@@ -25,7 +25,7 @@ private:
     QTextFragment findFragmentAtPos(QPoint pos);
 
 public slots:
-    void openUrl(const QUrl & url);
+    void openUrl(QUrl url);
 
     void sl_FollowLinkAction();
     void sl_RemoveLinkAction();
