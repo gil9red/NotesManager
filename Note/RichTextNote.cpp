@@ -310,7 +310,7 @@ void RichTextNote::setupGUI()
 
     // Поиск и замена
     {
-        findAndReplace = new FindAndReplace( &editor );
+        FindAndReplace * findAndReplace = new FindAndReplace( &editor );
 
         dockWidgetFindAndReplace = new QDockWidget();
         dockWidgetFindAndReplace->setAllowedAreas( areas );
@@ -321,15 +321,21 @@ void RichTextNote::setupGUI()
         QObject::connect( actionVisibleFindAndReplace, SIGNAL( triggered(bool) ), dockWidgetFindAndReplace, SLOT( setVisible(bool) ) );
         QObject::connect( dockWidgetFindAndReplace, SIGNAL( visibilityChanged(bool) ), actionVisibleFindAndReplace, SLOT( setChecked(bool) ) );
 
+        QObject::connect( findAndReplace, SIGNAL( visibilityChanged(bool) ), dockWidgetFindAndReplace, SLOT( setVisible(bool) ) );
+        QObject::connect( dockWidgetFindAndReplace, SIGNAL( visibilityChanged(bool) ), findAndReplace, SLOT( setVisible(bool) ) );
+
         body->addDockWidget( Qt::RightDockWidgetArea, dockWidgetFindAndReplace );
 
         actionVisibleFindAndReplace->setChecked( dockWidgetFindAndReplace->isVisible() );
     }
 
-    quickFind = new QuickFind( &editor );
-    QObject::connect( actionVisibleQuickFind, SIGNAL( triggered(bool) ), quickFind, SLOT( setVisible(bool) ) );
-    QObject::connect( quickFind, SIGNAL( visibilityChanged(bool) ), actionVisibleQuickFind, SLOT( setChecked(bool) ) );
-    actionVisibleQuickFind->setChecked( quickFind->isVisible() );
+    // Быстрый поиск
+    {
+        quickFind = new QuickFind( &editor );
+        QObject::connect( actionVisibleQuickFind, SIGNAL( triggered(bool) ), quickFind, SLOT( setVisible(bool) ) );
+        QObject::connect( quickFind, SIGNAL( visibilityChanged(bool) ), actionVisibleQuickFind, SLOT( setChecked(bool) ) );
+        actionVisibleQuickFind->setChecked( quickFind->isVisible() );
+    }
 
     editor.setFrameStyle( QFrame::NoFrame );
     editor.viewport()->setAutoFillBackground( false );

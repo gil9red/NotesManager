@@ -11,7 +11,7 @@ FindAndReplace::FindAndReplace( QTextEdit * textedit, QWidget * parent )
     ui->setupUi( this );
     highlighter = new Find_Highlighter( d_editor->document() );
 
-    rehighlight();
+    setHighlight( true );
     updateStates();
 
     timer.setSingleShot( true );
@@ -26,6 +26,16 @@ FindAndReplace::~FindAndReplace()
     delete ui;
 }
 
+void FindAndReplace::removeBottomVerticalSpacer()
+{
+    layout()->removeItem( ui->bottomVerticalSpacer );
+}
+void FindAndReplace::setAutoRaiseNextAndPrevious( bool autoRaise )
+{
+    ui->next->setAutoRaise( autoRaise );
+    ui->previous->setAutoRaise( autoRaise );
+}
+
 void FindAndReplace::setDelayInterval( int msec )
 {
     timer.setInterval( msec );
@@ -35,6 +45,14 @@ int FindAndReplace::delayInterval()
     return timer.interval();
 }
 
+void FindAndReplace::setHighlight( bool highlight )
+{
+    d_highlight = highlight;
+}
+bool FindAndReplace::highlight()
+{
+    return d_highlight;
+}
 
 void FindAndReplace::on_findEdit_textEdited( const QString & text )
 {
@@ -43,16 +61,16 @@ void FindAndReplace::on_findEdit_textEdited( const QString & text )
     timer.start();
     updateStates();
 }
-void FindAndReplace::on_tButtonPrevious_clicked()
+void FindAndReplace::on_previous_clicked()
 {
     find( false );
 }
-void FindAndReplace::on_tButtonNext_clicked()
+void FindAndReplace::on_next_clicked()
 {
     find();
 }
 
-void FindAndReplace::on_tButtonReplace_clicked()
+void FindAndReplace::on_replace_clicked()
 {
     QTextCursor textCursor = d_editor->textCursor();
     if ( textCursor.hasSelection() )
@@ -60,7 +78,7 @@ void FindAndReplace::on_tButtonReplace_clicked()
 
     find();
 }
-void FindAndReplace::on_tButtonReplaceAll_clicked()
+void FindAndReplace::on_replaceAll_clicked()
 {
     d_editor->moveCursor( QTextCursor::Start, QTextCursor::MoveAnchor );
 
@@ -131,32 +149,42 @@ void FindAndReplace::find( bool next )
 }
 void FindAndReplace::rehighlight()
 {
+    if ( !d_highlight )
+        return;
+
     QLineEdit * find = ui->findEdit;
     const QString & text = find->text();
     Shared::FindFlags findFlags = ui->findEdit->findOptions();
 
-    highlighter->setHighlightText( text, findFlags );
-    highlighter->rehighlight();
+    if ( highlighter )
+    {
+        highlighter->setHighlightText( text, findFlags );
+        highlighter->rehighlight();
+    }
 }
 void FindAndReplace::updateStates()
 {
     const QString & textFind = ui->findEdit->text();
-    bool isEmptyFind = textFind.isEmpty();
+    bool isEmpty = textFind.isEmpty();
 
-    ui->tButtonNext->setEnabled( !isEmptyFind );
-    ui->tButtonPrevious->setEnabled( !isEmptyFind );
+    ui->next->setEnabled( !isEmpty );
+    ui->previous->setEnabled( !isEmpty );
 }
-
 
 void FindAndReplace::hideEvent( QHideEvent * event )
 {
     emit visibilityChanged( false );
-    highlighter->clearHighlight();
+    if ( highlighter && d_highlight )
+        highlighter->clearHighlight();
     QWidget::hideEvent( event );
 }
 void FindAndReplace::showEvent( QShowEvent * event )
 {
     emit visibilityChanged( true );
-    highlighter->rehighlight();
+    ui->findEdit->setFocus();
+
+    if ( highlighter && d_highlight )
+        highlighter->rehighlight();
+
     QWidget::showEvent( event );
 }

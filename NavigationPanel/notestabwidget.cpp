@@ -109,6 +109,21 @@ QWidget * NotesTabWidget::getWidgetTab( Note * note )
     return hashNoteTabs.value( note, 0 );
 }
 
+QList < QAction * > NotesTabWidget::editActions()
+{
+    NoteEditWidget * noteEdit = dynamic_cast < NoteEditWidget * > ( currentWidget() );
+    if ( !noteEdit )
+    {
+        WARNING("Null pointer recieved");
+        return QList < QAction * > ();
+    }
+
+    QList < QAction * > list;
+    list << noteEdit->editActions();
+
+    return list;
+}
+
 void NotesTabWidget::openNote( Note * note )
 {
     if ( !note )

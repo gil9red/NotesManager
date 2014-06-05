@@ -14,7 +14,7 @@ public:
     Find_Highlighter( QTextDocument * document );
 
     //! Указание текста, который будем искать и флагов.
-    void setHighlightText( const QString & text, Shared::FindFlags flags );
+    void setHighlightText(QString text, Shared::FindFlags flags );
 
     //! Цвет подсветки.
     void setHighlightColor( const QColor & color );

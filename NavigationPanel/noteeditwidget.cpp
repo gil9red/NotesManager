@@ -1,5 +1,13 @@
 #include "noteeditwidget.h"
 #include "ui_noteeditwidget.h"
+#include <QDockWidget>
+
+QAction * addSeparator( QObject * parent = 0 )
+{
+    QAction * separator = new QAction( parent );
+    separator->setSeparator( true );
+    return separator;
+}
 
 NoteEditWidget::NoteEditWidget( QWidget * parent ) :
     QMainWindow( parent ),
@@ -9,15 +17,36 @@ NoteEditWidget::NoteEditWidget( QWidget * parent ) :
     ui->setupUi( this );
     setContextMenuPolicy( Qt::NoContextMenu );
 
-    formattingToolbar = new FormattingToolbar( this );
-    formattingToolbar->setAlterActivityComponents( false );
-    formattingToolbar->hide();
-    formattingToolbar->installConnect( ui->editor );
+    // Форматирование текста
+    {
+        formattingToolbar = new FormattingToolbar( this );
+        formattingToolbar->setAlterActivityComponents( false );
+        formattingToolbar->hide();
+        formattingToolbar->installConnect( ui->editor );
 
-    QToolBar * toolBar = formattingToolbar->mainToolBar();
-    toolBar->setIconSize( QSize( 17, 17 ) );
-    toolBar->setMovable( false );
-    addToolBar( toolBar );
+        QToolBar * toolBar = formattingToolbar->mainToolBar();        
+        toolBar->setMovable( false );
+        addToolBar( toolBar );
+    }
+
+    // Поиск и замена
+    {
+        FindAndReplace * findAndReplace = new FindAndReplace( ui->editor );
+        findAndReplace->setHighlight( false );
+        findAndReplace->removeBottomVerticalSpacer();
+        findAndReplace->setAutoRaiseNextAndPrevious( true );
+        findAndReplace->setVisible( false );
+
+        ui->editorLayout->addWidget( findAndReplace );
+
+        ui->actionFindAndReplace->setChecked( findAndReplace->isVisible() );
+
+        QObject::connect( findAndReplace, SIGNAL(visibilityChanged(bool)), ui->actionFindAndReplace, SLOT(setChecked(bool)) );
+        QObject::connect( ui->actionFindAndReplace, SIGNAL(triggered(bool)), findAndReplace, SLOT(setVisible(bool)) );
+
+        ui->editor->addAction( addSeparator() );
+        ui->editor->addAction( ui->actionFindAndReplace );
+    }
 }
 NoteEditWidget::~NoteEditWidget()
 {
@@ -78,6 +107,17 @@ void NoteEditWidget::restoreStateNoteEdit( const QString & state )
 TextEditor * NoteEditWidget::getEditor()
 {
     return ui->editor;
+}
+
+QList < QAction * > NoteEditWidget::editActions()
+{
+    QList < QAction * > list = getEditor()->createStandardContextMenu()->actions();
+    if ( !ui->editor->actions().isEmpty() )
+    {
+        list << addSeparator();
+        list << ui->editor->actions();
+    }
+    return list;
 }
 
 void NoteEditWidget::noteChange( int event )

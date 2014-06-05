@@ -168,8 +168,7 @@ public:
     QAction * actionSetTopBottom;
     QAction * actionVisibleToolBar;
 
-    QDockWidget * dockWidgetFindAndReplace;
-    FindAndReplace * findAndReplace;
+    QDockWidget * dockWidgetFindAndReplace;    
 
     QuickFind * quickFind;
     QAction * actionVisibleQuickFind;

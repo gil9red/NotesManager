@@ -171,7 +171,16 @@
     </property>
     <addaction name="actionShowScriptsManager"/>
    </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="title">
+     <string>Edit</string>
+    </property>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
    <addaction name="menuToolbars"/>
    <addaction name="menuNote"/>
    <addaction name="menuService"/>
@@ -397,8 +406,8 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../ScriptModule/ScriptModule.qrc"/>
   <include location="Manager.qrc"/>
+  <include location="../ScriptModule/ScriptModule.qrc"/>
  </resources>
  <connections>
   <connection>

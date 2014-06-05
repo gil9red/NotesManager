@@ -794,6 +794,84 @@
     <string>Italic</string>
    </property>
   </action>
+  <action name="actionAlignLeft">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="FormattingToolbar.qrc">
+     <normaloff>:/FormattingToolbar/align-left</normaloff>:/FormattingToolbar/align-left</iconset>
+   </property>
+   <property name="text">
+    <string>Align left</string>
+   </property>
+   <property name="iconText">
+    <string>Align left</string>
+   </property>
+   <property name="toolTip">
+    <string>Align left</string>
+   </property>
+   <property name="statusTip">
+    <string>Align left</string>
+   </property>
+   <property name="whatsThis">
+    <string>Align left</string>
+   </property>
+  </action>
+  <action name="actionAlignCenter">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="FormattingToolbar.qrc">
+     <normaloff>:/FormattingToolbar/align-center</normaloff>:/FormattingToolbar/align-center</iconset>
+   </property>
+   <property name="text">
+    <string>Align center</string>
+   </property>
+   <property name="statusTip">
+    <string>Align center</string>
+   </property>
+   <property name="whatsThis">
+    <string>Align center</string>
+   </property>
+  </action>
+  <action name="actionAlignRight">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="FormattingToolbar.qrc">
+     <normaloff>:/FormattingToolbar/align-right</normaloff>:/FormattingToolbar/align-right</iconset>
+   </property>
+   <property name="text">
+    <string>Align right</string>
+   </property>
+   <property name="statusTip">
+    <string>Align right</string>
+   </property>
+   <property name="whatsThis">
+    <string>Align right</string>
+   </property>
+  </action>
+  <action name="actionAlignJustify">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="FormattingToolbar.qrc">
+     <normaloff>:/FormattingToolbar/align-justify</normaloff>:/FormattingToolbar/align-justify</iconset>
+   </property>
+   <property name="text">
+    <string>Align justify</string>
+   </property>
+   <property name="statusTip">
+    <string>Align justify</string>
+   </property>
+   <property name="whatsThis">
+    <string>Align justify</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>

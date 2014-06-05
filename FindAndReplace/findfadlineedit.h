@@ -27,13 +27,6 @@ public:
 
     //! Возврат текущих поисковых флагов.
     Shared::FindFlags findOptions();
-//    void setCaseSensitive( bool casesensitive );
-//    void setWholeWords(bool wholewords );
-//    void setRegExp( bool regexp );
-
-//    bool isCaseSensitive();
-//    bool isWholeWords();
-//    bool isRegExp();
 
 private:
     void init(); //!< Инициализация класса.

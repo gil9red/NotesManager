@@ -6,24 +6,43 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>393</width>
-    <height>367</height>
+    <width>403</width>
+    <height>373</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>Note editor</string>
   </property>
+  <property name="iconSize">
+   <size>
+    <width>17</width>
+    <height>17</height>
+   </size>
+  </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
      <widget class="QLineEdit" name="title"/>
     </item>
     <item>
-     <widget class="TextEditor" name="editor">
-      <property name="readOnly">
-       <bool>false</bool>
+     <layout class="QVBoxLayout" name="editorLayout">
+      <property name="spacing">
+       <number>0</number>
       </property>
-     </widget>
+      <item>
+       <widget class="TextEditor" name="editor">
+        <property name="readOnly">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>
@@ -32,11 +51,38 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>393</width>
+     <width>403</width>
      <height>20</height>
     </rect>
    </property>
   </widget>
+  <action name="actionFindAndReplace">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../Note/Note.qrc">
+     <normaloff>:/Note/find-replace</normaloff>:/Note/find-replace</iconset>
+   </property>
+   <property name="text">
+    <string>Find and replace</string>
+   </property>
+   <property name="iconText">
+    <string>Find and replace</string>
+   </property>
+   <property name="toolTip">
+    <string>Find and replace</string>
+   </property>
+   <property name="statusTip">
+    <string>Find and replace</string>
+   </property>
+   <property name="whatsThis">
+    <string>Find and replace</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
@@ -45,6 +91,8 @@
    <header>texteditor.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="../Note/Note.qrc"/>
+ </resources>
  <connections/>
 </ui>

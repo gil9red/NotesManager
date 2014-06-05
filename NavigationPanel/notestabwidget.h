@@ -40,6 +40,8 @@ public:
     void setCurrentNote( Note * );
     QWidget * getWidgetTab( Note * );
 
+    QList < QAction * > editActions();
+
 private:
     QHash < Note *, QWidget * > hashNoteTabs;
     QMenu * contextMenu;

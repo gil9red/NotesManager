@@ -180,41 +180,81 @@ void TextEditor::sl_AnchorTooltipTimer_Timeout()
 
 void TextEditor::insertFromMimeData(const QMimeData *source)
 {
-    if ( source->hasUrls() )
+    if (source->hasImage()) // paste image
     {
-        foreach ( QUrl url, source->urls() )
-        {
-            if ( url.isLocalFile() )
-            {
-                const QString & filePath = url.toLocalFile();
-                QFileInfo fileInfo( filePath );
-                const QString & suffix = fileInfo.suffix().toLower();
-                if ( QImageReader::supportedImageFormats().contains( suffix.toUtf8() ) )
-                {
-                    if ( note )
-                        note->insertImage( filePath, textCursor() );
-                } else
-                    textCursor().insertText( filePath + "\n" );
-
-            } else
-                textCursor().insertText( url.toString() + "\n" );
-        }
-
-    } else if ( source->hasImage() )
-    {
-        QImage image = source->imageData().value < QImage > ();
+        QImage image = source->imageData().value<QImage>();
         if ( note && !image.isNull() )
             note->insertImage( QPixmap::fromImage( image ), textCursor() );
 
+    } else if (source->hasUrls())
+    {
+        // paste urls, for example from file manager
+        foreach (QUrl url, source->urls())
+        {
+            if (!url.isValid())
+                continue;
+
+            QString filePath = url.toString();
+            QFileInfo info(filePath);
+            QString fileType = info.suffix().toLower();
+
+            if (fileType.isEmpty())
+                continue;
+
+            if (QImageReader::supportedImageFormats().contains(fileType.toUtf8()))
+            {
+                if ( url.isLocalFile() )
+                {
+                    if ( note )
+                        note->insertImage( url.toLocalFile(), textCursor() );
+                } else
+                    textCursor().insertHtml( filePath );
+            }else
+            {
+                // Check if dropped file is a text file
+                if (url.scheme() == "file")
+                    filePath = url.toLocalFile();
+
+                if (fileType == "txt")
+                {
+                    QFile f(filePath);
+                    if (f.open(QIODevice::Text | QIODevice::ReadOnly))
+                    {
+                        QByteArray fileData = f.readAll();
+                        f.close();
+                        QString fileText = QString(fileData);
+                        textCursor().insertText(fileText);
+                    }
+                }
+            }
+        }
+
     } else
-        QTextBrowser::insertFromMimeData( source );
+        QTextBrowser::insertFromMimeData(source);
 }
 bool TextEditor::canInsertFromMimeData(const QMimeData *source) const
 {
-    if ( source->hasUrls() )
+    if (source->hasImage())
         return true;
+    else if (source->hasUrls())
+    {
+        foreach (const QUrl& url, source->urls())
+        {
+            if (!url.isValid())
+                return false;
 
-    return QTextBrowser::canInsertFromMimeData( source );
+            QString filePath = url.toString();
+            QFileInfo info(filePath);
+            QString fileType = info.suffix().toLower();
+            if (fileType.isEmpty())
+                return false;
+
+            if (!QImageReader::supportedImageFormats().contains(fileType.toUtf8()) && !((url.scheme() == "file") && (fileType == "txt")))
+                return false;
+        }
+        return true;
+    } else
+        return QTextEdit::canInsertFromMimeData(source);
 }
 
 void TextEditor::focusInEvent( QFocusEvent * event )
@@ -255,26 +295,26 @@ void TextEditor::contextMenuEvent( QContextMenuEvent * event )
         menu->addActions( actions() );
     }
 
-//    QTextCursor cursor = cursorForPosition( event->pos() );
-//    qDebug();
-//    qDebug() << textCursor().currentTable()
-//             << textCursor().currentList()
-//             << textCursor().currentFrame();
+    //    QTextCursor cursor = cursorForPosition( event->pos() );
+    //    qDebug();
+    //    qDebug() << textCursor().currentTable()
+    //             << textCursor().currentList()
+    //             << textCursor().currentFrame();
 
-//    qDebug() << cursor.currentTable()
-//             << cursor.currentList()
-//             << cursor.currentFrame();
+    //    qDebug() << cursor.currentTable()
+    //             << cursor.currentList()
+    //             << cursor.currentFrame();
 
-//    if ( cursor.currentTable() )
-//        menu->addAction( "Table" );
+    //    if ( cursor.currentTable() )
+    //        menu->addAction( "Table" );
 
-//    if ( cursor.currentList() )
-//        menu->addAction( "List" );
+    //    if ( cursor.currentList() )
+    //        menu->addAction( "List" );
 
-//    if ( cursor.currentFrame() )
-//    {
-//        menu->addAction( "Frame" );
-//    }
+    //    if ( cursor.currentFrame() )
+    //    {
+    //        menu->addAction( "Frame" );
+    //    }
 
     const QString & anchor = anchorAt( event->pos() );
     if ( !anchor.isEmpty() )

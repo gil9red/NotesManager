@@ -16,6 +16,7 @@
 
 #include "ScriptModule/scriptengine.h"
 #include <QMetaProperty>
+
 Page_Notes::Page_Notes( QWidget * parent ) :
     QMainWindow( parent ),
     ui( new Ui::Page_notes ),

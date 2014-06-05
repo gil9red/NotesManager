@@ -104,6 +104,9 @@ public slots:
     Q_SCRIPTABLE void setIntervalAutosave( quint64 minutes ); //!< Установка интервала таймера автосохранения.
     Q_SCRIPTABLE int intervalAutosave(); //!< Функция вернет интервал таймера автосохранения.
 
+private slots:
+    void prepareMenuEdit();
+
 protected:
     void closeEvent( QCloseEvent * );
     void changeEvent( QEvent * );

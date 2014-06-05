@@ -16,12 +16,12 @@
 #include "utils/func.h"
 #include "dialoginserthorizontalline.h"
 
-FormattingToolbar::FormattingToolbar( QWidget * parent ) :
-    QWidget( parent ),
-    ui( new Ui::FormattingToolbar ),
-    editor(0),
-    note(0),
-    alterActivityComponents( false )
+FormattingToolbar::FormattingToolbar( QWidget * parent )
+    : QWidget( parent ),
+      ui( new Ui::FormattingToolbar ),
+      editor(0),
+      note(0),
+      alterActivityComponents( false )
 {
     ui->setupUi( this );
 
@@ -33,12 +33,22 @@ FormattingToolbar::FormattingToolbar( QWidget * parent ) :
     int currentIndex = ui->fontSize->findText( QString::number( pointSize ) );
     ui->fontSize->setCurrentIndex( currentIndex );
 
-    QButtonGroup * group = new QButtonGroup( this );
-    group->setExclusive( true );
-    group->addButton( ui->alignCenter );
-    group->addButton( ui->alignJustify );
-    group->addButton( ui->alignLeft );
-    group->addButton( ui->alignRight );
+    // Выделение текущего контролера выравнивания
+    {
+        QButtonGroup * alignButtonGroup = new QButtonGroup( this );
+        alignButtonGroup->setExclusive( true );
+        alignButtonGroup->addButton( ui->alignLeft );
+        alignButtonGroup->addButton( ui->alignCenter );
+        alignButtonGroup->addButton( ui->alignRight );
+        alignButtonGroup->addButton( ui->alignJustify );
+
+        QActionGroup * alignActionGroup = new QActionGroup( this );
+        alignActionGroup->setExclusive( true );
+        alignActionGroup->addAction( ui->actionAlignLeft );
+        alignActionGroup->addAction( ui->actionAlignCenter );
+        alignActionGroup->addAction( ui->actionAlignRight );
+        alignActionGroup->addAction( ui->actionAlignJustify );
+    }
 
     QObject::connect( ui->textColor, SIGNAL( selectedColor(QColor) ), SLOT( textColor(QColor) ) );
     QObject::connect( ui->colorBackground, SIGNAL( selectedColor(QColor) ), SLOT( backgroundColor(QColor) ) );
@@ -87,10 +97,23 @@ void FormattingToolbar::installConnect( QTextEdit * editor )
     // Добавление в редактор функциональности панели форматирования
     {
         QObject::connect( ui->actionBold, SIGNAL(triggered(bool)), SLOT(on_bold_clicked(bool)) );
-        QObject::connect( ui->actionItalic, SIGNAL(triggered(bool)), SLOT(on_italic_clicked(bool)) );        
+        QObject::connect( ui->actionItalic, SIGNAL(triggered(bool)), SLOT(on_italic_clicked(bool)) );
 
-        this->editor->addAction( ui->actionBold );
-        this->editor->addAction( ui->actionItalic );
+        QObject::connect( ui->actionAlignLeft, SIGNAL(triggered()), SLOT(on_alignLeft_clicked()) );
+        QObject::connect( ui->actionAlignCenter, SIGNAL(triggered()), SLOT(on_alignCenter_clicked()) );
+        QObject::connect( ui->actionAlignRight, SIGNAL(triggered()), SLOT(on_alignRight_clicked()) );
+        QObject::connect( ui->actionAlignJustify, SIGNAL(triggered()), SLOT(on_alignJustify_clicked()) );
+
+        QMenu * menuFormatting = new QMenu( tr( "Formatting" ) );
+        menuFormatting->addAction( ui->actionBold );
+        menuFormatting->addAction( ui->actionItalic );
+        menuFormatting->addSeparator();
+        menuFormatting->addAction( ui->actionAlignLeft );
+        menuFormatting->addAction( ui->actionAlignCenter );
+        menuFormatting->addAction( ui->actionAlignRight );
+        menuFormatting->addAction( ui->actionAlignJustify );
+
+        this->editor->addAction( menuFormatting->menuAction() );
     }
 
     updateStates();
@@ -301,8 +324,13 @@ void FormattingToolbar::updateStates()
     ui->alignRight->setEnabled( !isEmpty );
     ui->alignJustify->setEnabled( !isEmpty );
 
+    ui->actionAlignLeft->setEnabled( !isEmpty );
+    ui->actionAlignCenter->setEnabled( !isEmpty );
+    ui->actionAlignRight->setEnabled( !isEmpty );
+    ui->actionAlignJustify->setEnabled( !isEmpty );
+
     ui->fontSize->setEnabled( hasSelection );
-    ui->font->setEnabled( hasSelection );    
+    ui->font->setEnabled( hasSelection );
     ui->bold->setEnabled( hasSelection );
     ui->actionBold->setEnabled( hasSelection );
     ui->italic->setEnabled( hasSelection );
@@ -310,7 +338,7 @@ void FormattingToolbar::updateStates()
     ui->colorBackground->setEnabled( hasSelection );
     ui->decreaseSizeFont->setEnabled( hasSelection );
     ui->eraser->setEnabled( hasSelection );
-    ui->increaseSizeFont->setEnabled( hasSelection );    
+    ui->increaseSizeFont->setEnabled( hasSelection );
     ui->lower->setEnabled( hasSelection );
     ui->overline->setEnabled( hasSelection );
     ui->strikeout->setEnabled( hasSelection );
@@ -375,17 +403,31 @@ void FormattingToolbar::alignmentChanged( Qt::Alignment align )
     ui->alignRight->setChecked( false );
     ui->alignJustify->setChecked( false );
 
+    ui->actionAlignLeft->setChecked( false );
+    ui->actionAlignCenter->setChecked( false );
+    ui->actionAlignRight->setChecked( false );
+    ui->actionAlignJustify->setChecked( false );
+
     if ( align == Qt::AlignLeft )
+    {
         ui->alignLeft->setChecked( true );
+        ui->actionAlignLeft->setChecked( true );
 
-    else if (align == Qt::AlignHCenter )
+    } else if (align == Qt::AlignHCenter )
+    {
         ui->alignCenter->setChecked( true );
+        ui->actionAlignCenter->setChecked( true );
 
-    else if (align == Qt::AlignRight )
+    } else if (align == Qt::AlignRight )
+    {
         ui->alignRight->setChecked( true );
+        ui->actionAlignRight->setChecked( true );
 
-    else if (align == Qt::AlignJustify )
+    } else if (align == Qt::AlignJustify )
+    {
         ui->alignJustify->setChecked( true );
+        ui->actionAlignJustify->setChecked( true );
+    }
 }
 void FormattingToolbar::verticalAlignmentChanged( QTextCharFormat::VerticalAlignment vAlign )
 {
@@ -508,6 +550,9 @@ void FormattingToolbar::on_alignLeft_clicked()
         return;
 
     editor->setAlignment( Qt::AlignLeft | Qt::AlignAbsolute );
+
+    ui->alignLeft->setChecked( true );
+    ui->actionAlignLeft->setChecked( true );
 }
 void FormattingToolbar::on_alignCenter_clicked()
 {
@@ -515,6 +560,9 @@ void FormattingToolbar::on_alignCenter_clicked()
         return;
 
     editor->setAlignment( Qt::AlignHCenter );
+
+    ui->alignCenter->setChecked( true );
+    ui->actionAlignCenter->setChecked( true );
 }
 void FormattingToolbar::on_alignRight_clicked()
 {
@@ -522,6 +570,9 @@ void FormattingToolbar::on_alignRight_clicked()
         return;
 
     editor->setAlignment( Qt::AlignRight | Qt::AlignAbsolute );
+
+    ui->alignRight->setChecked( true );
+    ui->actionAlignRight->setChecked( true );
 }
 void FormattingToolbar::on_alignJustify_clicked()
 {
@@ -529,6 +580,9 @@ void FormattingToolbar::on_alignJustify_clicked()
         return;
 
     editor->setAlignment( Qt::AlignJustify );
+
+    ui->alignJustify->setChecked( true );
+    ui->actionAlignJustify->setChecked( true );
 }
 void FormattingToolbar::on_eraser_clicked()
 {
@@ -556,7 +610,7 @@ void FormattingToolbar::list( int style )
         return;
 
     QTextCursor cursor = editor->textCursor();
-    QTextListFormat::Style listStyle = (QTextListFormat::Style)style;    
+    QTextListFormat::Style listStyle = (QTextListFormat::Style)style;
 
     cursor.beginEditBlock();
 

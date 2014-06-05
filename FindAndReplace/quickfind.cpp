@@ -9,10 +9,10 @@ QuickFind::QuickFind( QTextEdit * textedit, QWidget * parent )
     ui->labelTextFind->deleteLater();
     ui->labelTextReplaceWith->deleteLater();
     ui->replaceEdit->deleteLater();
-    ui->tButtonReplace->deleteLater();
-    ui->tButtonReplaceAll->deleteLater();
+    ui->replace->deleteLater();
+    ui->replaceAll->deleteLater();
 
-    layout()->removeItem( ui->verticalSpacer );
+    removeBottomVerticalSpacer();
     layout()->removeItem( ui->horizontalLayoutReplace );
     layout()->removeItem( ui->horizontalSpacerReplace );
 

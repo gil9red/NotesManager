@@ -26,12 +26,18 @@ public:
     explicit FindAndReplace( QTextEdit * textedit, QWidget * parent = 0 );
     ~FindAndReplace();
 
+    void removeBottomVerticalSpacer();
+    void setAutoRaiseNextAndPrevious( bool );
+
     //! Установка задержки подсветки.
     /*! \param mces значение задержки в миллисекундах */
     void setDelayInterval( int msec );
 
     //! Значение задержки подсветки.
     int delayInterval();
+
+    void setHighlight( bool );
+    bool highlight();
 
 protected:
     //! Форма UI виджета.
@@ -46,15 +52,17 @@ protected:
     //! Таймер задержки подсветки.
     QTimer timer;
 
+    bool d_highlight;
+
 private slots:
     //! Вызывается слот при вводе символов в редактор.
     void on_findEdit_textEdited( const QString & text );
 
-    void on_tButtonPrevious_clicked(); //!< Поиск назад (к началу документа).
-    void on_tButtonNext_clicked();     //!< Поиск вперед (к концу документа).
+    void on_previous_clicked(); //!< Поиск назад (к началу документа).
+    void on_next_clicked();     //!< Поиск вперед (к концу документа).
 
-    void on_tButtonReplace_clicked();    //!< Замена.
-    void on_tButtonReplaceAll_clicked(); //!< Заменить все.
+    void on_replace_clicked();    //!< Замена.
+    void on_replaceAll_clicked(); //!< Заменить все.
 
     //! Функция поиска.
     /*! \param next если true, поиск делается вперед, иначе назад */

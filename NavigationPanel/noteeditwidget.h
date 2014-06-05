@@ -11,6 +11,7 @@ namespace Ui
 #include "NavigationPanel/note.h"
 #include <QByteArray>
 #include "FormattingToolbar/FormattingToolbar.h"
+#include "FindAndReplace/findandreplace.h"
 
 class NoteEditWidget : public QMainWindow
 {
@@ -27,6 +28,8 @@ public:
     void restoreStateNoteEdit( const QString & state );
 
     TextEditor * getEditor();
+
+    QList < QAction * > editActions();
 
 private slots:
     void noteChange( int event );

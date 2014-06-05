@@ -88,6 +88,8 @@ Manager::Manager( QWidget * parent ) :
         ui->menuFile->addSeparator();
         ui->menuFile->addAction( ui->actionQuit );
 
+        QObject::connect( ui->menuEdit, SIGNAL(aboutToShow()), SLOT(prepareMenuEdit()) );
+
         ui->menuNote->addActions( pageNotes->ui->toolBarNote->actions() );
 
         ui->menuService->addAction( ui->actionSettings );
@@ -508,6 +510,12 @@ void Manager::setIntervalAutosave( quint64 minutes )
 int Manager::intervalAutosave()
 {
     return autoSaveTimer.interval() / ( 1000 * 60 );
+}
+
+void Manager::prepareMenuEdit()
+{
+    ui->menuEdit->clear();
+    ui->menuEdit->addActions( pageNotes->ui->tabWidget_EditNotes->editActions() );
 }
 
 void Manager::closeEvent( QCloseEvent * event )

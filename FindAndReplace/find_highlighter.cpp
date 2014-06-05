@@ -4,13 +4,12 @@
 #include <QTextDocument>
 #include <QTextCursor>
 
-
 Find_Highlighter::Find_Highlighter( QTextDocument * document )
     : QSyntaxHighlighter( document )
 {
     setHighlightColor( Qt::yellow );
 }
-void Find_Highlighter::setHighlightText( const QString & text, Shared::FindFlags flags )
+void Find_Highlighter::setHighlightText( QString text, Shared::FindFlags flags )
 {
     expression = text;
     findFlags = flags;
@@ -20,15 +19,14 @@ void Find_Highlighter::setHighlightColor( const QColor & color )
     format.setBackground( color );
 }
 
-
 void Find_Highlighter::clearHighlight()
 {
     QString temp = expression;
     expression = "";
+
     rehighlight();
     expression = temp;
 }
-
 
 void Find_Highlighter::highlightBlock( const QString & text )
 {

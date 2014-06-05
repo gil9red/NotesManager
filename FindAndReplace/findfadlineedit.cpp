@@ -23,7 +23,6 @@ Shared::FindFlags FindFadLineEdit::findOptions()
     return findFlags;
 }
 
-
 void FindFadLineEdit::init()
 {
     menuOptions = new QMenu( this );
