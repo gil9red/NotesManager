@@ -28,5 +28,8 @@
         <file alias="find-replace">icons/editfindreplace.png</file>
         <file>Note.qss</file>
         <file alias="refresh">icons/refresh_blue.png</file>
+        <file alias="hyperlink-edit">icons/hyperlink-edit.png</file>
+        <file alias="hyperlink-follow">icons/hyperlink-follow.png</file>
+        <file alias="hyperlink-remove">icons/hyperlink-remove.png</file>
     </qresource>
 </RCC>

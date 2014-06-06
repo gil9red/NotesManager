@@ -152,7 +152,6 @@ void TextEditor::sl_EditLinkAction()
     }
 
     // Хоть этот диалог не предназначен для этого, воспользуемся им
-    // TODO: сделать отдельный диалог для редактирования гиперссылок
     DialogInsertHyperlink dialogInsertHyperlink( this );
     dialogInsertHyperlink.setWindowTitle( tr( "Edit hyperlink" ) );
     dialogInsertHyperlink.setHyperlink( format.property( QTextFormat::AnchorHref ).toString() );
@@ -180,13 +179,16 @@ void TextEditor::sl_AnchorTooltipTimer_Timeout()
 
 void TextEditor::insertFromMimeData(const QMimeData *source)
 {
-    if (source->hasImage()) // paste image
+    if ( (source->hasHtml() && source->hasImage()) || source->hasImage() ) // paste image
     {
         QImage image = source->imageData().value<QImage>();
         if ( note && !image.isNull() )
             note->insertImage( QPixmap::fromImage( image ), textCursor() );
 
-    } else if (source->hasUrls())
+    } else if ( source->hasHtml() || source->hasText() )
+        QTextEdit::insertFromMimeData(source);
+
+    else if (source->hasUrls())
     {
         // paste urls, for example from file manager
         foreach (QUrl url, source->urls())
@@ -228,14 +230,14 @@ void TextEditor::insertFromMimeData(const QMimeData *source)
                 }
             }
         }
-
     } else
-        QTextBrowser::insertFromMimeData(source);
+        QTextEdit::insertFromMimeData(source);
 }
 bool TextEditor::canInsertFromMimeData(const QMimeData *source) const
 {
     if (source->hasImage())
         return true;
+
     else if (source->hasUrls())
     {
         foreach (const QUrl& url, source->urls())
@@ -253,8 +255,10 @@ bool TextEditor::canInsertFromMimeData(const QMimeData *source) const
                 return false;
         }
         return true;
-    } else
-        return QTextEdit::canInsertFromMimeData(source);
+
+    }
+
+    return QTextEdit::canInsertFromMimeData(source);
 }
 
 void TextEditor::focusInEvent( QFocusEvent * event )
@@ -320,16 +324,17 @@ void TextEditor::contextMenuEvent( QContextMenuEvent * event )
     if ( !anchor.isEmpty() )
     {
         menu->addSeparator();
+
         // TODO: добавить иконки действиям
-        QAction * followLinkAction = menu->addAction( tr( "Follow link" ) );
+        QAction * followLinkAction = menu->addAction( QIcon( ":/Note/hyperlink-follow" ), tr( "Follow link" ) );
         followLinkAction->setData(event->pos());
         QObject::connect( followLinkAction, SIGNAL(triggered()), SLOT(sl_FollowLinkAction()) );
 
-        QAction * removeLinkAction = menu->addAction( tr( "Remove link" ) );
+        QAction * removeLinkAction = menu->addAction( QIcon( ":/Note/hyperlink-remove" ), tr( "Remove link" ) );
         removeLinkAction->setData(event->pos());
         QObject::connect( removeLinkAction, SIGNAL(triggered()), SLOT(sl_RemoveLinkAction()) );
 
-        QAction * editLinkAction = menu->addAction( tr( "Edit link" ) );
+        QAction * editLinkAction = menu->addAction( QIcon( ":/Note/hyperlink-edit" ), tr( "Edit link" ) );
         editLinkAction->setData(event->pos());
         QObject::connect( editLinkAction, SIGNAL(triggered()), SLOT(sl_EditLinkAction()) );
     }
