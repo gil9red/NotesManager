@@ -47,6 +47,15 @@ NoteEditWidget::NoteEditWidget( QWidget * parent ) :
         ui->editor->addAction( addSeparator() );
         ui->editor->addAction( ui->actionFindAndReplace );
     }
+
+
+    ui->properties->setVisible( ui->showProperties->arrowType() == Qt::UpArrow );
+
+    QVBoxLayout * propertiesLayout = new QVBoxLayout();
+    ui->properties->setLayout( propertiesLayout );
+
+    attachPanel = new AttachPanel( this );
+    propertiesLayout->addWidget( attachPanel );
 }
 NoteEditWidget::~NoteEditWidget()
 {
@@ -64,6 +73,7 @@ void NoteEditWidget::setNote( Note * note )
     d_note = note;
     RichTextNote * richTextNote = d_note->getRichTextNote();
     formattingToolbar->setNote( richTextNote );
+    attachPanel->setNote( richTextNote );
 
     ui->title->setText( richTextNote->title() );
     ui->editor->setDocument( richTextNote->document() );
@@ -147,4 +157,20 @@ void NoteEditWidget::titleChange()
 
     RichTextNote * richTextNote = d_note->getRichTextNote();
     richTextNote->setTitle( ui->title->text() );
+}
+void NoteEditWidget::on_showProperties_clicked()
+{
+    Qt::ArrowType arrowType = ui->showProperties->arrowType();
+    if ( arrowType == Qt::UpArrow )
+    {
+        ui->showProperties->setArrowType( Qt::DownArrow );
+        ui->properties->setVisible( false );
+
+    } else if ( arrowType == Qt::DownArrow )
+    {
+        ui->showProperties->setArrowType( Qt::UpArrow );
+        ui->properties->setVisible( true );
+
+    } else
+        ui->showProperties->setArrowType( Qt::NoArrow );
 }

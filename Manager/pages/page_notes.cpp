@@ -361,7 +361,7 @@ void Page_Notes::addNoteFromClipboard()
         richTextNote->setText( mimeData->html() );
 
     else if ( mimeData->hasText() )
-        richTextNote->setText( mimeData->text() );
+        richTextNote->textEditor()->setPlainText( mimeData->text() );
 
     richTextNote->save();
     qApp->restoreOverrideCursor();

@@ -27,22 +27,22 @@ AttachPanel::~AttachPanel()
     delete ui;
 }
 
-void AttachPanel::setViewTo( RichTextNote * n )
+void AttachPanel::setNote( RichTextNote * note )
 {
-    if ( note )
+    if ( this->note )
         disconnect( ui->listView->selectionModel(), SIGNAL( selectionChanged(QItemSelection,QItemSelection) ), this, SLOT( updateStates() ) );
 
-    if ( !n )
+    if ( !note )
     {
-        note = 0;
+        this->note = 0;
         model = 0;
         ui->listView->setModel( 0 );
         updateStates();
         return;
     }
 
-    note = n;
-    model = &note->attachModel;
+    this->note = note;
+    model = &this->note->attachModel;
 
     ui->listView->setModel( model );
     QObject::connect( ui->listView->selectionModel(), SIGNAL( selectionChanged(QItemSelection,QItemSelection) ), this, SLOT( updateStates() ) );
@@ -68,32 +68,32 @@ void AttachPanel::updateStates()
 {       
     if ( !note || !model )
     {
-        ui->tButtonRefreshList->setEnabled( false );
-        ui->tButtonAttach->setEnabled( false );
-        ui->tButtonRemoveAll->setEnabled( false );
-        ui->tButtonRemove->setEnabled( false );
-        ui->tButtonCopyToClipboard->setEnabled( false );
-        ui->tButtonRun->setEnabled( false );
+        ui->refreshList->setEnabled( false );
+        ui->attach->setEnabled( false );
+        ui->removeAll->setEnabled( false );
+        ui->remove->setEnabled( false );
+        ui->copyToClipboard->setEnabled( false );
+        ui->run->setEnabled( false );
         return;
     }
 
-    ui->tButtonRefreshList->setEnabled( true );
-    ui->tButtonAttach->setEnabled( true );
+    ui->refreshList->setEnabled( true );
+    ui->attach->setEnabled( true );
 
     bool isEmpty = model->rowCount() == 0;
     bool hasSelection = ui->listView->selectionModel()->hasSelection();
 
-    ui->tButtonRemoveAll->setEnabled( !isEmpty );
-    ui->tButtonRemove->setEnabled( hasSelection );
-    ui->tButtonCopyToClipboard->setEnabled( hasSelection );
-    ui->tButtonRun->setEnabled( hasSelection );
+    ui->removeAll->setEnabled( !isEmpty );
+    ui->remove->setEnabled( hasSelection );
+    ui->copyToClipboard->setEnabled( hasSelection );
+    ui->run->setEnabled( hasSelection );
 }
 
-void AttachPanel::on_tButtonAttach_clicked()
+void AttachPanel::on_attach_clicked()
 {
     note->selectAttach();
 }
-void AttachPanel::on_tButtonRemove_clicked()
+void AttachPanel::on_remove_clicked()
 {
     QDir dir( note->attachDirPath() );
 
@@ -112,7 +112,7 @@ void AttachPanel::on_tButtonRemove_clicked()
 
     emit note->changed( EventsNote::ChangeAttach );
 }
-void AttachPanel::on_tButtonRemoveAll_clicked()
+void AttachPanel::on_removeAll_clicked()
 {
     QDir dir( note->attachDirPath() );
 
@@ -131,11 +131,11 @@ void AttachPanel::on_tButtonRemoveAll_clicked()
     refresh();
     emit note->changed( EventsNote::ChangeAttach );
 }
-void AttachPanel::on_tButtonRefreshList_clicked()
+void AttachPanel::on_refreshList_clicked()
 {
     refresh();
 }
-void AttachPanel::on_tButtonCopyToClipboard_clicked()
+void AttachPanel::on_copyToClipboard_clicked()
 {
     int row = ui->listView->currentIndex().row();
     int col = ui->listView->currentIndex().column();
@@ -148,7 +148,7 @@ void AttachPanel::on_tButtonCopyToClipboard_clicked()
     mime->setUrls( urls );
     QApplication::clipboard()->setMimeData( mime );
 }
-void AttachPanel::on_tButtonRun_clicked()
+void AttachPanel::on_run_clicked()
 {
     int row = ui->listView->currentIndex().row();
     int col = ui->listView->currentIndex().column();

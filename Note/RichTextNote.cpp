@@ -292,7 +292,7 @@ void RichTextNote::setupGUI()
     // Панель прикрепленных файлов
     {
         attachPanel = new AttachPanel();
-        attachPanel->setViewTo( this );
+        attachPanel->setNote( this );
 
         dockWidgetAttachPanel = new QDockWidget();
         dockWidgetAttachPanel->setAllowedAreas( areas );

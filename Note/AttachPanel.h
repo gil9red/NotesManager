@@ -23,7 +23,7 @@ public:
     
     //! Отображение и управление прикрепленными файлами заметки n.
     /*! После добавления указателя к заметке, панель будет связана с заметкой. */
-    void setViewTo( RichTextNote * n );
+    void setNote(RichTextNote * note );
 
 public slots:
     //! Обновление списка панели.
@@ -33,12 +33,12 @@ private slots:
     //! Обновление состояния панели.
     void updateStates();
 
-    void on_tButtonAttach_clicked();            //!< Прикрепить файл.
-    void on_tButtonRemove_clicked();            //!< Удалить файл.
-    void on_tButtonRemoveAll_clicked();         //!< Очистить список.
-    void on_tButtonRefreshList_clicked();       //!< Обновить список.
-    void on_tButtonCopyToClipboard_clicked();   //!< Копировать файл в буфер обмена.
-    void on_tButtonRun_clicked();               //!< Запустить файл.
+    void on_attach_clicked();            //!< Прикрепить файл.
+    void on_remove_clicked();            //!< Удалить файл.
+    void on_removeAll_clicked();         //!< Очистить список.
+    void on_refreshList_clicked();       //!< Обновить список.
+    void on_copyToClipboard_clicked();   //!< Копировать файл в буфер обмена.
+    void on_run_clicked();               //!< Запустить файл.
 
 private:
     Ui::AttachPanel * ui;       //!< Форма UI.

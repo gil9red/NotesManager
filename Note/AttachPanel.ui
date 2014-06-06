@@ -35,7 +35,7 @@
       <number>0</number>
      </property>
      <item>
-      <widget class="QToolButton" name="tButtonAttach">
+      <widget class="QToolButton" name="attach">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -58,10 +58,13 @@
         <iconset resource="Note.qrc">
          <normaloff>:/Note/attach</normaloff>:/Note/attach</iconset>
        </property>
+       <property name="autoRaise">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="tButtonRun">
+      <widget class="QToolButton" name="run">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -84,10 +87,13 @@
         <iconset resource="../Manager/Manager.qrc">
          <normaloff>:/Manager/run</normaloff>:/Manager/run</iconset>
        </property>
+       <property name="autoRaise">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="tButtonCopyToClipboard">
+      <widget class="QToolButton" name="copyToClipboard">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -110,10 +116,13 @@
         <iconset resource="../Manager/Manager.qrc">
          <normaloff>:/Manager/clipboard</normaloff>:/Manager/clipboard</iconset>
        </property>
+       <property name="autoRaise">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="tButtonRefreshList">
+      <widget class="QToolButton" name="refreshList">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -136,10 +145,13 @@
         <iconset resource="Note.qrc">
          <normaloff>:/Note/refresh</normaloff>:/Note/refresh</iconset>
        </property>
+       <property name="autoRaise">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="tButtonRemove">
+      <widget class="QToolButton" name="remove">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -162,10 +174,13 @@
         <iconset resource="../Manager/Manager.qrc">
          <normaloff>:/fugue-icons/cross</normaloff>:/fugue-icons/cross</iconset>
        </property>
+       <property name="autoRaise">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="tButtonRemoveAll">
+      <widget class="QToolButton" name="removeAll">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -187,6 +202,9 @@
        <property name="icon">
         <iconset resource="../Manager/Manager.qrc">
          <normaloff>:/Manager/remove_all</normaloff>:/Manager/remove_all</iconset>
+       </property>
+       <property name="autoRaise">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -216,16 +234,16 @@
  </widget>
  <tabstops>
   <tabstop>listView</tabstop>
-  <tabstop>tButtonAttach</tabstop>
-  <tabstop>tButtonRun</tabstop>
-  <tabstop>tButtonCopyToClipboard</tabstop>
-  <tabstop>tButtonRefreshList</tabstop>
-  <tabstop>tButtonRemove</tabstop>
-  <tabstop>tButtonRemoveAll</tabstop>
+  <tabstop>attach</tabstop>
+  <tabstop>run</tabstop>
+  <tabstop>copyToClipboard</tabstop>
+  <tabstop>refreshList</tabstop>
+  <tabstop>remove</tabstop>
+  <tabstop>removeAll</tabstop>
  </tabstops>
  <resources>
-  <include location="Note.qrc"/>
   <include location="../Manager/Manager.qrc"/>
+  <include location="Note.qrc"/>
  </resources>
  <connections/>
 </ui>

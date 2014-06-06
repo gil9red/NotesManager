@@ -36,30 +36,30 @@
         <translation>Приєднувати</translation>
     </message>
     <message>
-        <location filename="../Note/AttachPanel.ui" line="72"/>
         <location filename="../Note/AttachPanel.ui" line="75"/>
         <location filename="../Note/AttachPanel.ui" line="78"/>
+        <location filename="../Note/AttachPanel.ui" line="81"/>
         <source>Run file</source>
         <translation>Запустіть файл</translation>
     </message>
     <message>
-        <location filename="../Note/AttachPanel.ui" line="81"/>
+        <location filename="../Note/AttachPanel.ui" line="84"/>
         <source>Run</source>
         <translation>Запустіть</translation>
     </message>
     <message>
-        <location filename="../Note/AttachPanel.ui" line="98"/>
-        <location filename="../Note/AttachPanel.ui" line="101"/>
         <location filename="../Note/AttachPanel.ui" line="104"/>
         <location filename="../Note/AttachPanel.ui" line="107"/>
+        <location filename="../Note/AttachPanel.ui" line="110"/>
+        <location filename="../Note/AttachPanel.ui" line="113"/>
         <source>Copy to clipboard</source>
         <translation>Копіювати в буфер обміну</translation>
     </message>
     <message>
-        <location filename="../Note/AttachPanel.ui" line="124"/>
-        <location filename="../Note/AttachPanel.ui" line="127"/>
-        <location filename="../Note/AttachPanel.ui" line="130"/>
         <location filename="../Note/AttachPanel.ui" line="133"/>
+        <location filename="../Note/AttachPanel.ui" line="136"/>
+        <location filename="../Note/AttachPanel.ui" line="139"/>
+        <location filename="../Note/AttachPanel.ui" line="142"/>
         <source>Refresh list</source>
         <translation type="unfinished"></translation>
     </message>
@@ -68,18 +68,18 @@
         <translation type="obsolete">Оновити</translation>
     </message>
     <message>
-        <location filename="../Note/AttachPanel.ui" line="150"/>
-        <location filename="../Note/AttachPanel.ui" line="153"/>
-        <location filename="../Note/AttachPanel.ui" line="156"/>
-        <location filename="../Note/AttachPanel.ui" line="159"/>
+        <location filename="../Note/AttachPanel.ui" line="162"/>
+        <location filename="../Note/AttachPanel.ui" line="165"/>
+        <location filename="../Note/AttachPanel.ui" line="168"/>
+        <location filename="../Note/AttachPanel.ui" line="171"/>
         <source>Remove</source>
         <translation>Видаляти</translation>
     </message>
     <message>
-        <location filename="../Note/AttachPanel.ui" line="176"/>
-        <location filename="../Note/AttachPanel.ui" line="179"/>
-        <location filename="../Note/AttachPanel.ui" line="182"/>
-        <location filename="../Note/AttachPanel.ui" line="185"/>
+        <location filename="../Note/AttachPanel.ui" line="191"/>
+        <location filename="../Note/AttachPanel.ui" line="194"/>
+        <location filename="../Note/AttachPanel.ui" line="197"/>
+        <location filename="../Note/AttachPanel.ui" line="200"/>
         <source>Remove all</source>
         <translation>Видалити все</translation>
     </message>
@@ -573,6 +573,11 @@
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="467"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="470"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="473"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="806"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="809"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="812"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="815"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="818"/>
         <source>Align left</source>
         <translation>По лівому краю</translation>
     </message>
@@ -581,6 +586,9 @@
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="493"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="496"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="499"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="830"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="833"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="836"/>
         <source>Align center</source>
         <translation>Вирівняти по центру</translation>
     </message>
@@ -589,6 +597,9 @@
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="519"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="522"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="528"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="848"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="851"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="854"/>
         <source>Align right</source>
         <translation>Вирівняйте право</translation>
     </message>
@@ -597,6 +608,9 @@
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="548"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="551"/>
         <location filename="../FormattingToolbar/FormattingToolbar.ui" line="554"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="866"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="869"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.ui" line="872"/>
         <source>Align justify</source>
         <translation>Вирівняйте виправдати</translation>
     </message>
@@ -661,7 +675,8 @@
         <translation type="obsolete">Шрифти</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="106"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="107"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="129"/>
         <source>Formatting</source>
         <translation>Форматування</translation>
     </message>
@@ -678,12 +693,12 @@
         <translation type="obsolete">Iнші</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="606"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="660"/>
         <source>Images</source>
         <translation>Зображення</translation>
     </message>
     <message>
-        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="613"/>
+        <location filename="../FormattingToolbar/FormattingToolbar.cpp" line="667"/>
         <source>Select picture</source>
         <translation>Виберіть знімок</translation>
     </message>
@@ -1127,16 +1142,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../NavigationPanel/noteeditwidget.ui" line="65"/>
         <location filename="../NavigationPanel/noteeditwidget.ui" line="68"/>
         <location filename="../NavigationPanel/noteeditwidget.ui" line="71"/>
-        <location filename="../NavigationPanel/noteeditwidget.ui" line="74"/>
-        <location filename="../NavigationPanel/noteeditwidget.ui" line="77"/>
-        <location filename="../NavigationPanel/noteeditwidget.ui" line="80"/>
+        <source>Show properties</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../NavigationPanel/noteeditwidget.ui" line="130"/>
+        <location filename="../NavigationPanel/noteeditwidget.ui" line="133"/>
+        <location filename="../NavigationPanel/noteeditwidget.ui" line="136"/>
+        <location filename="../NavigationPanel/noteeditwidget.ui" line="139"/>
+        <location filename="../NavigationPanel/noteeditwidget.ui" line="142"/>
         <source>Find and replace</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../NavigationPanel/noteeditwidget.ui" line="83"/>
+        <location filename="../NavigationPanel/noteeditwidget.ui" line="145"/>
         <source>Ctrl+F</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1799,27 +1821,27 @@
         <translation type="obsolete">немає</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="116"/>
+        <location filename="../main.cpp" line="115"/>
         <source>Loading fonts</source>
         <translation>Завантаження шрифтів</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="119"/>
+        <location filename="../main.cpp" line="118"/>
         <source>Loading dictionaries</source>
         <translation>Завантаження словників</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="122"/>
+        <location filename="../main.cpp" line="121"/>
         <source>Creation</source>
         <translation>Creation</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="133"/>
+        <location filename="../main.cpp" line="132"/>
         <source>Loading settings</source>
         <translation>Завантаження налаштувань</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="136"/>
+        <location filename="../main.cpp" line="135"/>
         <source>Loading scripts</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1828,7 +1850,7 @@
         <translation type="obsolete">Завантаження замітки</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="139"/>
+        <location filename="../main.cpp" line="138"/>
         <source>Now ready</source>
         <translation>Тепер готовий</translation>
     </message>
@@ -2073,6 +2095,12 @@
         <translation type="unfinished">Налаштування</translation>
     </message>
     <message>
+        <location filename="../Note/RichTextNote.cpp" line="796"/>
+        <location filename="../Note/RichTextNote.cpp" line="807"/>
+        <source>Failed copying %1 to %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Duplicate</source>
         <translation type="obsolete">Дублювати</translation>
     </message>
@@ -2217,7 +2245,7 @@
         <translation>Виберіть файли</translation>
     </message>
     <message>
-        <location filename="../Note/RichTextNote.cpp" line="773"/>
+        <location filename="../Note/RichTextNote.cpp" line="775"/>
         <source>image</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2450,27 +2478,27 @@
 <context>
     <name>TextEditor</name>
     <message>
-        <location filename="../Note/texteditor.cpp" line="157"/>
+        <location filename="../Note/texteditor.cpp" line="156"/>
         <source>Edit hyperlink</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Note/texteditor.cpp" line="178"/>
+        <location filename="../Note/texteditor.cpp" line="177"/>
         <source>Ctrl+Click to go</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Note/texteditor.cpp" line="324"/>
+        <location filename="../Note/texteditor.cpp" line="326"/>
         <source>Follow link</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Note/texteditor.cpp" line="328"/>
+        <location filename="../Note/texteditor.cpp" line="330"/>
         <source>Remove link</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Note/texteditor.cpp" line="332"/>
+        <location filename="../Note/texteditor.cpp" line="334"/>
         <source>Edit link</source>
         <translation type="unfinished"></translation>
     </message>

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>403</width>
-    <height>373</height>
+    <width>494</width>
+    <height>434</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -28,7 +28,69 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
-     <widget class="QLineEdit" name="title"/>
+     <widget class="QFrame" name="frame">
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QLineEdit" name="title"/>
+         </item>
+         <item>
+          <widget class="QToolButton" name="showProperties">
+           <property name="toolTip">
+            <string>Show properties</string>
+           </property>
+           <property name="statusTip">
+            <string>Show properties</string>
+           </property>
+           <property name="whatsThis">
+            <string>Show properties</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string notr="true">...</string>
+           </property>
+           <property name="autoRaise">
+            <bool>true</bool>
+           </property>
+           <property name="arrowType">
+            <enum>Qt::DownArrow</enum>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QWidget" name="properties" native="true"/>
+       </item>
+      </layout>
+     </widget>
     </item>
     <item>
      <layout class="QVBoxLayout" name="editorLayout">
@@ -51,7 +113,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>403</width>
+     <width>494</width>
      <height>20</height>
     </rect>
    </property>

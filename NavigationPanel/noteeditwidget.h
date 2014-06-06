@@ -12,6 +12,7 @@ namespace Ui
 #include <QByteArray>
 #include "FormattingToolbar/FormattingToolbar.h"
 #include "FindAndReplace/findandreplace.h"
+#include "Note/AttachPanel.h"
 
 class NoteEditWidget : public QMainWindow
 {
@@ -34,11 +35,13 @@ public:
 private slots:
     void noteChange( int event );
     void titleChange();
+    void on_showProperties_clicked();
 
 private:
     Ui::NoteEditWidget * ui;
     Note * d_note;
     FormattingToolbar * formattingToolbar;
+    AttachPanel * attachPanel;
 };
 
 #endif // NOTEEDITWIDGET_H
