@@ -181,9 +181,8 @@ void TextEditor::insertFromMimeData(const QMimeData *source)
 {
     if ( (source->hasHtml() && source->hasImage()) || source->hasImage() ) // paste image
     {
-        QImage image = source->imageData().value<QImage>();
-        if ( note && !image.isNull() )
-            note->insertImage( QPixmap::fromImage( image ), textCursor() );
+        if ( note )
+            note->insertImage( qvariant_cast < QPixmap > ( source->imageData() ), textCursor() );
 
     } else if ( source->hasHtml() || source->hasText() )
         QTextEdit::insertFromMimeData(source);
@@ -191,41 +190,40 @@ void TextEditor::insertFromMimeData(const QMimeData *source)
     else if (source->hasUrls())
     {
         // paste urls, for example from file manager
-        foreach (QUrl url, source->urls())
+        foreach ( QUrl url, source->urls() )
         {
-            if (!url.isValid())
+            if ( !url.isValid() )
                 continue;
 
             QString filePath = url.toString();
             QFileInfo info(filePath);
             QString fileType = info.suffix().toLower();
 
-            if (fileType.isEmpty())
+            if ( fileType.isEmpty() )
                 continue;
 
-            if (QImageReader::supportedImageFormats().contains(fileType.toUtf8()))
+            if ( QImageReader::supportedImageFormats().contains( fileType.toUtf8() ) )
             {
                 if ( url.isLocalFile() )
                 {
+                    qDebug() << "\n" << url.toLocalFile();
                     if ( note )
                         note->insertImage( url.toLocalFile(), textCursor() );
                 } else
                     textCursor().insertHtml( filePath );
-            }else
+            } else
             {
                 // Check if dropped file is a text file
-                if (url.scheme() == "file")
+                if ( url.scheme() == "file" )
                     filePath = url.toLocalFile();
 
-                if (fileType == "txt")
+                if ( fileType == "txt" )
                 {
-                    QFile f(filePath);
-                    if (f.open(QIODevice::Text | QIODevice::ReadOnly))
+                    QFile file( filePath );
+                    if ( file.open( QIODevice::Text | QIODevice::ReadOnly ) )
                     {
-                        QByteArray fileData = f.readAll();
-                        f.close();
-                        QString fileText = QString(fileData);
-                        textCursor().insertText(fileText);
+                        textCursor().insertText( QString( file.readAll() ) );
+                        file.close();
                     }
                 }
             }
@@ -325,7 +323,6 @@ void TextEditor::contextMenuEvent( QContextMenuEvent * event )
     {
         menu->addSeparator();
 
-        // TODO: добавить иконки действиям
         QAction * followLinkAction = menu->addAction( QIcon( ":/Note/hyperlink-follow" ), tr( "Follow link" ) );
         followLinkAction->setData(event->pos());
         QObject::connect( followLinkAction, SIGNAL(triggered()), SLOT(sl_FollowLinkAction()) );

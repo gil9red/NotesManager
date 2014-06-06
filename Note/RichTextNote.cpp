@@ -748,6 +748,7 @@ void RichTextNote::selectAttach()
 
 void RichTextNote::insertImage( const QString & fileName, QTextCursor textCursor )
 {
+    qDebug() << "insertImage( const QString & , QTextCursor ) begin";
     setActivateFileWatcher( false );
     QString newFileName = attach( fileName, imagesDirPath() );
     QString relativePath = QFileInfo( imagesDirPath() ).fileName() + "/" + QFileInfo( newFileName ).fileName();
@@ -755,6 +756,7 @@ void RichTextNote::insertImage( const QString & fileName, QTextCursor textCursor
     document()->addResource( QTextDocument::ImageResource, QUrl( relativePath ), QImage( newFileName ) );
     textCursor.insertImage( relativePath );
     setActivateFileWatcher( true );
+    qDebug() << "insertImage( const QString & , QTextCursor ) end";
 }
 void RichTextNote::insertImage( const QString & fileName )
 {
@@ -791,7 +793,7 @@ QString RichTextNote::attach( const QString & fileName, const QString & dir )
     {
         newFileName = QDir::fromNativeSeparators( dir + "/" + QFileInfo( fileName ).fileName() );
         if ( !QFile::copy( fileName, newFileName ) )
-            WARNING( "QFile::copy( fileName, newFileName ) == false" );
+            WARNING( tr( "Failed copying %1 to %2" ).arg( fileName ).arg( newFileName ) );
 
         attachModel.appendRow( new QStandardItem( QFileInfo( fileName ).fileName() ) );
         emit changed( EventsNote::ChangeAttach );
@@ -802,7 +804,7 @@ QString RichTextNote::attach( const QString & fileName, const QString & dir )
         const QString & newName = QDateTime::currentDateTime().toString( "hh-mm-ss_yyyy-MM-dd" ) + "." + QFileInfo( fileName ).suffix();
         newFileName = QDir::fromNativeSeparators( dir + "/" + newName );
         if ( !QFile::copy( fileName, newFileName ) )
-            WARNING( "QFile::copy( fileName, newFileName ) == false" );
+            WARNING( tr( "Failed copying %1 to %2" ).arg( fileName ).arg( newFileName ) );
     }
 
     setActivateFileWatcher( true );
@@ -911,10 +913,22 @@ void RichTextNote::setActivateFileWatcher( bool activate )
         fileSystemWatcher.blockSignals( false );
 
         // Устанавливаем слежение за новыми
-        fileSystemWatcher.addPath( attachDirPath() ); // Папка с прикрепленными файлами
-        fileSystemWatcher.addPath( imagesDirPath() ); // Папка с картинками заметок
-        fileSystemWatcher.addPath( contentFilePath() ); // Файл, описывающий содержимое заметки (html)
-        fileSystemWatcher.addPath( settingsFilePath() ); // Файл, описывающий заметку - название, положение, размер, цвет и т.п.
+
+        // Если за папкой нет слежения - следим
+        const QStringList & directories = fileSystemWatcher.directories();
+        if ( !directories.contains( attachDirPath() ) )
+            fileSystemWatcher.addPath( attachDirPath() ); // Папка с прикрепленными файлами
+
+        if ( !directories.contains( imagesDirPath() ) )
+            fileSystemWatcher.addPath( imagesDirPath() ); // Папка с картинками заметок
+
+        // Если за файлом нет слежения - следим
+        const QStringList & files = fileSystemWatcher.files();
+        if ( !files.contains( contentFilePath() ) )
+            fileSystemWatcher.addPath( contentFilePath() ); // Файл, описывающий содержимое заметки (html)
+
+        if ( !files.contains( settingsFilePath() ) )
+            fileSystemWatcher.addPath( settingsFilePath() ); // Файл, описывающий заметку - название, положение, размер, цвет и т.п.
     } else
     {
         fileSystemWatcher.blockSignals( true );

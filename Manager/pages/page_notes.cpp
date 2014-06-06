@@ -352,8 +352,18 @@ void Page_Notes::addNoteFromClipboard()
     qApp->setOverrideCursor( Qt::WaitCursor );
     RichTextNote * richTextNote = new RichTextNote();
     richTextNote->createNew( false );
-    richTextNote->setText( qApp->clipboard()->text() );
-    richTextNote->save();    
+
+    const QMimeData * mimeData = qApp->clipboard()->mimeData();
+    if ( mimeData->hasImage() )
+        richTextNote->insertImage( qvariant_cast < QPixmap > ( mimeData->imageData() ) );
+
+    else if ( mimeData->hasHtml() )
+        richTextNote->setText( mimeData->html() );
+
+    else if ( mimeData->hasText() )
+        richTextNote->setText( mimeData->text() );
+
+    richTextNote->save();
     qApp->restoreOverrideCursor();
 
     bool successful = ui->tab_Notes->sl_AddNote( richTextNote );
