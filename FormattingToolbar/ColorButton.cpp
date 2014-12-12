@@ -61,7 +61,7 @@ void ColorButton::createGUI()
 
 void ColorButton::defaultColor()
 {
-    selectedColor( Qt::black );
+    emit selectedColor( Qt::black );
 }
 
 void ColorButton::anotherColor()
@@ -71,7 +71,7 @@ void ColorButton::anotherColor()
     if( !color.isValid() )
         return;
 
-    selectedColor( color );
+    emit selectedColor( color );
 }
 
 void ColorButton::setColor( const QColor & color )
