@@ -57,7 +57,7 @@
      <x>0</x>
      <y>0</y>
      <width>633</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -107,7 +107,6 @@
     <property name="title">
      <string>Help</string>
     </property>
-    <addaction name="actionDocumentation"/>
    </widget>
    <widget class="QMenu" name="menuToolbars">
     <property name="toolTip">
@@ -156,26 +155,10 @@
     <addaction name="actionShowSidebar"/>
     <addaction name="actionShowStatusBar"/>
    </widget>
-   <widget class="QMenu" name="menuScripts">
-    <property name="toolTip">
-     <string>Scripts</string>
-    </property>
-    <property name="statusTip">
-     <string>Scripts</string>
-    </property>
-    <property name="whatsThis">
-     <string>Scripts</string>
-    </property>
-    <property name="title">
-     <string>Scripts</string>
-    </property>
-    <addaction name="actionShowScriptsManager"/>
-   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuToolbars"/>
    <addaction name="menuNote"/>
    <addaction name="menuService"/>
-   <addaction name="menuScripts"/>
    <addaction name="menuWindow"/>
    <addaction name="menuHelp"/>
   </widget>
@@ -269,17 +252,6 @@
     <string>Close Dictionary</string>
    </property>
   </action>
-  <action name="actionDocumentation">
-   <property name="text">
-    <string>Documentation</string>
-   </property>
-   <property name="statusTip">
-    <string>Documentation</string>
-   </property>
-   <property name="whatsThis">
-    <string>Documentation</string>
-   </property>
-  </action>
   <action name="actionShowSidebar">
    <property name="checkable">
     <bool>true</bool>
@@ -359,7 +331,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../ScriptModule/ScriptModule.qrc">
+    <iconset>
      <normaloff>:/fugue-icons/script-smiley</normaloff>:/fugue-icons/script-smiley</iconset>
    </property>
    <property name="text">
@@ -397,7 +369,6 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../ScriptModule/ScriptModule.qrc"/>
   <include location="Manager.qrc"/>
  </resources>
  <connections>

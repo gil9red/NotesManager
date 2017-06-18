@@ -18,7 +18,6 @@ namespace Ui
 #include <QDir>
 #include <QDateTime>
 #include <QTranslator>
-#include "ScriptModule/scriptsmanager.h"
 
 //! Главный класс. Создает и управляет заметками.
 class Manager: public QMainWindow
@@ -31,9 +30,6 @@ public:
 
     //! Загрузка заметок в менеджер.
     Q_SCRIPTABLE void loadNotes();
-
-    //! Загрузка сценариев в менеджер сценариев.
-    Q_SCRIPTABLE void loadScripts();
 
     //! В функции указываем с каким классом настроек будем работать.
     void setSettings( QSettings * s );
@@ -55,7 +51,6 @@ public:
     QSettings * settings;                 //!< Указатель на класс настроек.
     QTimer autoSaveTimer;                 //!< Таймер автосохранения.
 
-    ScriptsManager * scriptsManager;
     QDockWidget * dockScriptsManager;
 
 public slots:
@@ -73,7 +68,6 @@ public slots:
     Q_SCRIPTABLE void showPageNotes();  //!< Показать страницу с заметками.
     Q_SCRIPTABLE void showPageSettings(); //!< Показать страницу настроек.
     Q_SCRIPTABLE void showPageAbout(); //!< Показать страницу "О программе".
-    Q_SCRIPTABLE void showDocumentation(); //!< Показать документацию.
 
     void updateStates();
 

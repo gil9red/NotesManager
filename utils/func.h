@@ -189,7 +189,6 @@ bool copyPath2( const QString & oldPath, const QString & newPath );
 bool copyPathE( const QString & oldPath, const QString & newPath, bool interruptCopyingWhenError = false, bool logError = true );
 
 QString getPluginsPath();
-QString getDocumentationPath();
 QString getSettingsPath();
 QString getTrPath();
 QString getFontsPath();
@@ -210,9 +209,6 @@ QString getNotesPath();
 
 //! Функция возвращает путь до папки с удаленными заметками
 QString getTrashPath();
-
-//! Функция возвращает формат файла заметки
-QString getNoteFormat();
 
 bool removePath( const QString & path );
 

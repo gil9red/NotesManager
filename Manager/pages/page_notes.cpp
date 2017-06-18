@@ -14,8 +14,8 @@
 #include "NavigationPanel/noteeditwidget.h"
 #include "NavigationPanel/basemodelitem.h"
 
-#include "ScriptModule/scriptengine.h"
 #include <QMetaProperty>
+
 Page_Notes::Page_Notes( QWidget * parent ) :
     QMainWindow( parent ),
     ui( new Ui::Page_notes ),
@@ -82,14 +82,6 @@ Page_Notes::Page_Notes( QWidget * parent ) :
         ui->tab_Notes->actionSaveNoteAs           = ui->actionSaveNoteAs;
         ui->tab_Notes->actionDeleteItem           = ui->actionDelete;
         ui->tab_Notes->actionClearTrash           = ui->actionClearTrash;
-    }
-
-    // Сценарии
-    {
-        Script::ScriptEngine * engine = Script::ScriptEngine::instance();
-        QScriptValue scriptPageNotes = engine->newQObject( this );
-
-        engine->globalObject().setProperty( "PageNotes", scriptPageNotes );
     }
 
     sl_UpdateStates();

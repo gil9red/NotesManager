@@ -30,7 +30,7 @@
 #include <QDesktopWidget>
 
 #include "utils/func.h"
-#include "JlCompress.h"
+//#include "JlCompress.h"
 #include "utils/texttemplateparser.h"
 #include "settingsnotedialog.h"
 #include "FormattingToolbar.h"
@@ -619,7 +619,6 @@ void RichTextNote::saveAs()
             textFormats << QString( format.toLower() );
 
     QString filters;
-    filters.append( tr( "File notes" ) + QString( " ( *.%1 )\n" ).arg( getNoteFormat() ) );
     filters.append( "PDF ( *.pdf )\n" );
     filters.append( "PSF ( *.psf )\n" );
 
@@ -669,16 +668,9 @@ void RichTextNote::saveAs()
         textDocumentWriter.setFileName( saveFileName );
         textDocumentWriter.write( document() );
 
-    } else if ( suffix.contains( "filenotes", Qt::CaseInsensitive ) ) // Если свой формат, то сохраняем в архиве
-    {
-        if ( !JlCompress::compressDir( saveFileName, fileName() ) )
-        {
-            QMessageBox::information( this, tr( "Information" ), tr( "An error occurred saving notes" ) );
-            WARNING( "An error occurred saving notes" );
-            return;
-        }
-    } else
+    } else {
         WARNING( "Unknown format!" );
+    }
 }
 void RichTextNote::open()
 {   

@@ -216,10 +216,6 @@ QString getPluginsPath()
 {
     return qApp->applicationDirPath() + "/plugins";
 }
-QString getDocumentationPath()
-{
-    return QDir::toNativeSeparators( qApp->applicationDirPath() + "/doc" );
-}
 QString getSettingsPath()
 {
     return QDir::toNativeSeparators( qApp->applicationDirPath() + "/settings.ini" );
@@ -331,11 +327,6 @@ QString getNotesPath()
 QString getTrashPath()
 {
     return QDir::toNativeSeparators( qApp->applicationDirPath() + "/trash" );
-}
-
-QString getNoteFormat()
-{
-    return "filenotes";
 }
 
 bool removePath( const QString & path )

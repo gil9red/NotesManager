@@ -49,29 +49,6 @@ Manager::Manager( QWidget * parent ) :
     ui->stackedWidget_Pages->addWidget( pageAbout );
     ui->stackedWidget_Pages->setCurrentIndex( ui->sidebar->currentIndex() );
 
-    // Загрузка списка документаций в меню документации
-    {           
-        QList < QAction * > list;
-        foreach ( const QFileInfo & info, QDir( getDocumentationPath() ).entryInfoList( QDir::Dirs | QDir::NoDotAndDotDot ) )
-        {
-            const QString & dirName = info.fileName();
-            const QString & fullPath = getDocumentationPath() + "/" + dirName + "/html/index.html";
-            if ( !QFile( fullPath ).exists() )
-                continue;
-
-            QAction * action = new QAction( dirName, this );
-            action->setData( QDir::fromNativeSeparators( fullPath ) );
-            QObject::connect( action, SIGNAL(triggered()), this, SLOT(showDocumentation()) );
-
-            list << action;
-        }
-        QMenu * documentations = new QMenu();
-        documentations->addActions( list );
-
-        ui->actionDocumentation->setEnabled( !list.isEmpty() );
-        ui->actionDocumentation->setMenu( documentations );
-    }
-
     // Меню и действия
     {
         ui->menuFile->addAction( pageNotes->ui->actionAddNote );
@@ -126,8 +103,6 @@ Manager::Manager( QWidget * parent ) :
             trayMenu->addSeparator();
             trayMenu->addAction( ui->actionSettings );
             trayMenu->addSeparator();
-            trayMenu->addAction( ui->actionDocumentation );
-            trayMenu->addSeparator();
             trayMenu->addAction( ui->actionAbout );
             trayMenu->addSeparator();
             trayMenu->addAction( ui->actionQuit );
@@ -161,27 +136,6 @@ Manager::Manager( QWidget * parent ) :
 
     QObject::connect( &autoSaveTimer, SIGNAL( timeout() ), SLOT( writeSettings() ) );
 
-    // Меню "Сценарии"
-    {
-        // Добавление Менежера сценариев в прикрепляемый виджет
-        {
-            scriptsManager = new ScriptsManager();
-            dockScriptsManager = new QDockWidget( scriptsManager->windowTitle() );
-            dockScriptsManager->setObjectName( "Dock_ScriptsManager" );
-            dockScriptsManager->setWidget( scriptsManager );
-            addDockWidget( Qt::RightDockWidgetArea, dockScriptsManager );
-
-            ui->actionShowScriptsManager->setChecked( dockScriptsManager->isVisible() );
-
-            QObject::connect( ui->actionShowScriptsManager, SIGNAL(toggled(bool)), dockScriptsManager, SLOT(setVisible(bool)) );
-            QObject::connect( dockScriptsManager, SIGNAL(visibilityChanged(bool)), ui->actionShowScriptsManager, SLOT(setChecked(bool)) );
-        }
-
-        // Меню "Закладки"
-        ui->menuScripts->addSeparator();
-        ui->menuScripts->addMenu( scriptsManager->menuBookmarkScript );
-    }
-
     updateStates();
 }
 
@@ -204,17 +158,11 @@ void Manager::loadNotes()
     updateStates();
 }
 
-void Manager::loadScripts()
-{
-    scriptsManager->read();
-}
-
 void Manager::setSettings( QSettings * s )
 {
     settings = s;
     pageNotes->setSettings( settings );
     pageSettings->setSettings( settings );
-    scriptsManager->setSettings( settings );
 }
 
 Manager * Manager::instance()
@@ -298,23 +246,6 @@ void Manager::showPageAbout()
 {
     showManager();
     ui->sidebar->setCurrentIndex( 2 );
-}
-void Manager::showDocumentation()
-{
-    QAction * action = qobject_cast < QAction * > ( sender() );
-    if ( !action )
-    {
-        WARNING( "Null pointer!" );
-    }
-
-    const QUrl & path = QUrl::fromLocalFile( action->data().toString() );
-    // Создадим окно с документацией.
-    QWebView * documentation = new QWebView();
-    documentation->setContextMenuPolicy( Qt::NoContextMenu );
-    documentation->setAttribute( Qt::WA_DeleteOnClose );
-    documentation->show();
-    documentation->load( path );
-    QObject::connect( this, SIGNAL(destroyed()), documentation, SLOT(deleteLater()) );
 }
 
 void Manager::updateStates()
@@ -423,7 +354,6 @@ void Manager::readSettings()
 
     pageNotes->readSettings();    
     pageSettings->readSettings();
-    scriptsManager->readSettings();
 
     acceptChangeSettings();
 
@@ -446,8 +376,6 @@ void Manager::writeSettings()
     pageNotes->writeSettings();
     pageNotes->writeToXmlStateNotes();
     pageSettings->writeSettings();
-    scriptsManager->writeSettings();
-    scriptsManager->write();
 
     settings->sync();
 
